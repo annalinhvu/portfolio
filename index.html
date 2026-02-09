@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anna (Linh) Vu | Data Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root[data-theme="dark"] {
     --bg: #0a0a12;
@@ -54,7 +54,8 @@
 
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
-    font-family:'Inter',system-ui,sans-serif;
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    font-weight:500;
     background:var(--bg);
     color:var(--text-2);
     -webkit-font-smoothing:antialiased;
@@ -132,7 +133,7 @@
   /* Hero */
   .hero { padding:36px; }
   .hero .eyebrow { font-family:'JetBrains Mono',monospace; font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:16px; }
-  .hero h1 { font-size:2.2rem; font-weight:300; color:var(--text-1); letter-spacing:-0.5px; margin-bottom:6px; transition:color 0.3s; }
+  .hero h1 { font-size:2.2rem; font-weight:700; color:var(--text-1); letter-spacing:-0.5px; margin-bottom:6px; transition:color 0.3s; }
   .hero .sub { font-size:0.88rem; color:var(--text-3); margin-bottom:22px; }
   .hero .bio { font-size:0.9rem; line-height:1.8; color:var(--text-2); max-width:540px; }
   .hero .bio p { margin-bottom:10px; }
@@ -148,7 +149,7 @@
   .card p.body { font-size:0.88rem; line-height:1.75; color:var(--text-2); }
 
   /* Projects */
-  .proj-title { font-size:1rem; font-weight:600; color:var(--text-1); margin-bottom:4px; transition:color 0.3s; }
+  .proj-title { font-size:1rem; font-weight:700; color:var(--text-1); margin-bottom:4px; transition:color 0.3s; }
   .proj-ctx { font-size:0.72rem; color:var(--text-4); margin-bottom:10px; }
   .proj-tags { display:flex; gap:5px; flex-wrap:wrap; margin-bottom:12px; }
   .proj-tags span { font-family:'JetBrains Mono',monospace; font-size:0.6rem; padding:3px 9px; border:1px solid var(--tag-border); border-radius:8px; color:var(--tag-color); transition:all 0.3s; }
@@ -161,7 +162,7 @@
   /* Experience */
   .exp-card { margin-bottom:12px; }
   .exp-card:last-child { margin-bottom:0; }
-  .exp-role { font-size:0.95rem; font-weight:600; color:var(--text-1); transition:color 0.3s; }
+  .exp-role { font-size:0.95rem; font-weight:700; color:var(--text-1); transition:color 0.3s; }
   .exp-meta { font-size:0.8rem; color:var(--text-3); margin-bottom:10px; }
   .exp-bullets { list-style:none; }
   .exp-bullets li { position:relative; padding-left:14px; font-size:0.82rem; color:var(--text-2); margin-bottom:5px; line-height:1.65; }
@@ -191,29 +192,18 @@
     position:relative; overflow:hidden;
   }
   .profile-pic .initials {
-    font-family:'Inter',sans-serif; font-size:2.5rem; font-weight:300;
+    font-family:'Quicksand',sans-serif; font-size:2.5rem; font-weight:300;
     color:white; letter-spacing:2px;
   }
   .profile-pic img {
     position:absolute; width:100%; height:100%; object-fit:cover;
   }
-  .hero-sparkline {
-    position:absolute; bottom:0; left:0; right:0; height:80px; pointer-events:none;
-  }
-
-  /* Stats ring charts */
+  /* Stats cards */
   .stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:12px; }
-  .ring-card { text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px 12px; }
-  .ring-svg { width:100%; max-width:130px; }
-  .ring-bg { fill:none; stroke:var(--glass-border); stroke-width:8; }
-  .ring-fill {
-    fill:none; stroke-width:8; stroke-linecap:round;
-    stroke-dasharray:314;
-    animation:ringDraw 1.5s ease-out both;
-  }
-  .ring-val { font-family:'JetBrains Mono',monospace; font-size:1.4rem; font-weight:600; text-anchor:middle; }
-  .ring-label { font-size:0.6rem; text-anchor:middle; fill:var(--text-4); }
-  @keyframes ringDraw { from { stroke-dashoffset:314; } }
+  .stat-card { text-align:center; padding:24px 16px; position:relative; overflow:hidden; }
+  .stat-accent { width:40px; height:3px; border-radius:2px; margin:0 auto 14px; }
+  .stat-num { font-family:'JetBrains Mono',monospace; font-size:1.8rem; font-weight:600; margin-bottom:4px; }
+  .stat-label { font-size:0.7rem; color:var(--text-4); letter-spacing:0.5px; }
 
   /* Skill bars */
   .skill-bars { margin-bottom:8px; }
@@ -225,6 +215,10 @@
 
   /* About bottom row */
   .about-bottom { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+
+  /* Section divider */
+  .section-header { font-family:'JetBrains Mono',monospace; font-size:0.72rem; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin:24px 0 12px; padding-left:4px; }
+  .section-header:first-child { margin-top:0; }
 
   footer { position:relative; z-index:1; text-align:center; padding:32px 0 48px; }
   footer p { font-size:0.75rem; color:var(--text-4); }
@@ -284,69 +278,35 @@
         <div class="hero-content">
           <div class="eyebrow">Data Engineer</div>
           <h1>Anna (Linh) Vu</h1>
-          <div class="sub">Senior Data Engineer with 5+ years of experience</div>
+          <div class="sub">I build robust data pipelines, design scalable warehouses, and turn raw data into actionable insights.</div>
           <div class="bio">
             <p>I'm from Hanoi, Vietnam. I came to the U.S. almost 10 years ago to study Economics and Film at Vanderbilt University, and now I live in New York City where I work as a Senior Data Engineer.</p>
-            <p>I'm happiest when I'm out in the city—new restaurants, small events, and random discoveries. I also volunteer with homeless organizations and keep my filmmaking practice going as a way to stay creative and give back.</p>
-          </div>
-          <div class="links">
-            <a href="mailto:vuanna@seas.upenn.edu">vuanna@seas.upenn.edu</a>
-            <a href="https://www.linkedin.com/in/linh-vu-251099/">LinkedIn</a>
-            <a href="tel:+16155090620">(615) 509-0620</a>
-            <a>New York, NY</a>
+            <p>I'm happiest when I'm out in the city, whether it's new restaurants, small events, or random discoveries. I also volunteer outside of work and keep my filmmaking practice going as a way to stay creative and give back.</p>
           </div>
         </div>
       </div>
-      <svg class="hero-sparkline" viewBox="0 0 300 80" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#818cf8" stop-opacity="0.2"/>
-            <stop offset="100%" stop-color="#818cf8" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <polyline fill="none" stroke="#818cf8" stroke-width="1.5" opacity="0.4"
-          points="0,65 25,58 50,62 75,45 100,50 125,35 150,40 175,25 200,30 225,18 250,22 275,12 300,8"/>
-        <polygon fill="url(#sparkGrad)"
-          points="0,65 25,58 50,62 75,45 100,50 125,35 150,40 175,25 200,30 225,18 250,22 275,12 300,8 300,80 0,80"/>
-      </svg>
     </div>
 
     <div class="stats-row">
-      <div class="card ring-card">
-        <svg viewBox="0 0 120 120" class="ring-svg">
-          <circle cx="60" cy="60" r="50" class="ring-bg"/>
-          <circle cx="60" cy="60" r="50" class="ring-fill" transform="rotate(-90 60 60)"
-            style="stroke:#14b8a6; stroke-dashoffset:94; animation-delay:0.1s"/>
-          <text x="60" y="56" class="ring-val" style="fill:#14b8a6">5+</text>
-          <text x="60" y="74" class="ring-label">years exp</text>
-        </svg>
+      <div class="card stat-card">
+        <div class="stat-accent" style="background:#14b8a6"></div>
+        <div class="stat-num" style="color:#14b8a6">5+</div>
+        <div class="stat-label">years in data engineering</div>
       </div>
-      <div class="card ring-card">
-        <svg viewBox="0 0 120 120" class="ring-svg">
-          <circle cx="60" cy="60" r="50" class="ring-bg"/>
-          <circle cx="60" cy="60" r="50" class="ring-fill" transform="rotate(-90 60 60)"
-            style="stroke:#818cf8; stroke-dashoffset:47; animation-delay:0.3s"/>
-          <text x="60" y="56" class="ring-val" style="fill:#818cf8">30+</text>
-          <text x="60" y="74" class="ring-label">data sources</text>
-        </svg>
+      <div class="card stat-card">
+        <div class="stat-accent" style="background:#818cf8"></div>
+        <div class="stat-num" style="color:#818cf8">26</div>
+        <div class="stat-label">years on this earth</div>
       </div>
-      <div class="card ring-card">
-        <svg viewBox="0 0 120 120" class="ring-svg">
-          <circle cx="60" cy="60" r="50" class="ring-bg"/>
-          <circle cx="60" cy="60" r="50" class="ring-fill" transform="rotate(-90 60 60)"
-            style="stroke:#f59e0b; stroke-dashoffset:31; animation-delay:0.5s"/>
-          <text x="60" y="56" class="ring-val" style="fill:#f59e0b">$2B+</text>
-          <text x="60" y="74" class="ring-label">ad spend</text>
-        </svg>
+      <div class="card stat-card">
+        <div class="stat-accent" style="background:#f59e0b"></div>
+        <div class="stat-num" style="color:#f59e0b">++</div>
+        <div class="stat-label">years of self-discovery &amp; continuous learning</div>
       </div>
-      <div class="card ring-card">
-        <svg viewBox="0 0 120 120" class="ring-svg">
-          <circle cx="60" cy="60" r="50" class="ring-bg"/>
-          <circle cx="60" cy="60" r="50" class="ring-fill" transform="rotate(-90 60 60)"
-            style="stroke:#f43f5e; stroke-dashoffset:63; animation-delay:0.7s"/>
-          <text x="60" y="56" class="ring-val" style="fill:#f43f5e">80%</text>
-          <text x="60" y="74" class="ring-label">manual work cut</text>
-        </svg>
+      <div class="card stat-card">
+        <div class="stat-accent" style="background:#f43f5e"></div>
+        <div class="stat-num" style="color:#f43f5e">&infin;</div>
+        <div class="stat-label">countries to explore</div>
       </div>
     </div>
 
@@ -368,6 +328,8 @@
 
   <!-- ══════════ PROJECTS ══════════ -->
   <div class="panel" id="panel-projects">
+
+    <div class="section-header">Professional</div>
     <div class="bento">
 
       <div class="card col-2">
@@ -383,7 +345,7 @@
         <div class="proj-ctx">DEPT Agency</div>
         <div class="proj-tags"><span>Apps Script</span><span>Matillion</span><span>Snowflake</span><span>Google Sheets</span></div>
         <div class="proj-desc">End-to-end automation replacing manual data request workflows. Google Sheets intake triggers Apps Script validation and Matillion ETL jobs into Snowflake. Eliminated manual entry and hand-off errors for the Client Services team.</div>
-        <div class="proj-metrics"><div class="pm"><span class="v">80%</span><span class="u">less manual work</span></div><div class="pm"><span class="v">80%</span><span class="u">faster turnaround</span></div></div>
+        <div class="proj-metrics"><div class="pm"><span class="v">40%</span><span class="u">less manual work</span></div><div class="pm"><span class="v">40%</span><span class="u">faster turnaround</span></div></div>
       </div>
 
       <div class="card col-2">
@@ -406,7 +368,7 @@
         <div class="proj-title">API Data Ingestion Framework</div>
         <div class="proj-ctx">DEPT Agency</div>
         <div class="proj-tags"><span>Python</span><span>Pandas</span><span>REST APIs</span><span>Snowflake</span></div>
-        <div class="proj-desc">Standardized Python framework for ingesting data from marketing APIs (GA4, Campaign Manager, Kochava, Brandwatch). Each connector handles auth, pagination, rate limiting, and Pandas-based transformation before loading into Snowflake.</div>
+        <div class="proj-desc">Standardized Python framework for ingesting data from marketing APIs (Google Analytics, Campaign Manager, Kochava, Brandwatch). Each connector handles auth, pagination, rate limiting, and Pandas-based transformation before loading into Snowflake.</div>
         <div class="proj-metrics"><div class="pm"><span class="v">6+</span><span class="u">APIs integrated</span></div></div>
       </div>
 
@@ -425,6 +387,35 @@
         <div class="proj-desc">Designed 50+ interactive Domo dashboards covering campaign performance, audience insights, competitive analysis, and media spend. Automated the monthly insights generation process with Python scripts to reduce manual workload and support business pitches.</div>
         <div class="proj-metrics"><div class="pm"><span class="v">50+</span><span class="u">dashboards</span></div></div>
       </div>
+
+      <div class="card col-2">
+        <div class="proj-title">ESOV Media Spend Analysis</div>
+        <div class="proj-ctx">FIG Agency</div>
+        <div class="proj-tags"><span>R</span><span>Kantar</span><span>Pathmatics</span><span>Google Trends</span></div>
+        <div class="proj-desc">Built Excess Share of Voice (ESOV) charts correlating media spend data from Kantar and Pathmatics with Google Trends search indexes. Created CDI/BDI scatter plots to identify potential markets for budget planning and radar charts to analyse brand salience scores.</div>
+        <div class="proj-metrics"><div class="pm"><span class="v">3</span><span class="u">chart types</span></div></div>
+      </div>
+
+      <div class="card col-2">
+        <div class="proj-title">Social Listening &amp; Audience Insights</div>
+        <div class="proj-ctx">FIG Agency</div>
+        <div class="proj-tags"><span>Brandwatch</span><span>Python</span><span>Jupyter</span></div>
+        <div class="proj-desc">Built Brandwatch queries and dashboards for social listening across client brands. Created 10+ audience insights decks for new business pitches. Automated the insights writing process and custom chart generation with Python on Jupyter Notebooks.</div>
+        <div class="proj-metrics"><div class="pm"><span class="v">10+</span><span class="u">insights decks</span></div></div>
+      </div>
+
+      <div class="card col-2">
+        <div class="proj-title">Media Campaign Trafficking</div>
+        <div class="proj-ctx">FIG Agency</div>
+        <div class="proj-tags"><span>Prisma/MediaOcean</span><span>Campaign Manager 360</span><span>Google Ads</span></div>
+        <div class="proj-desc">Created campaigns and placements on Prisma/MediaOcean, built trafficking sheets for Campaign Manager 360 using taxonomy matrices. Managed Google Ads accounts, built search media plans, and developed optimization strategies across 20+ media vendors.</div>
+        <div class="proj-metrics"><div class="pm"><span class="v">20+</span><span class="u">vendors</span></div></div>
+      </div>
+
+    </div>
+
+    <div class="section-header">Academic</div>
+    <div class="bento">
 
       <div class="card col-2">
         <div class="proj-title">COVID &amp; Property Analytics Platform</div>
@@ -458,7 +449,16 @@
         <div class="proj-metrics"><div class="pm"><span class="v">8</span><span class="u">query types</span></div></div>
       </div>
 
+      <div class="card col-2">
+        <div class="proj-title">Personal Portfolio Website</div>
+        <div class="proj-ctx">Personal Project</div>
+        <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>SVG</span></div>
+        <div class="proj-desc">This site! Single-page portfolio with tabbed navigation, glassmorphism design, dark/light theme toggle, animated stat cards, and responsive layout. Built from scratch with vanilla HTML, CSS, and JavaScript.</div>
+        <div class="proj-metrics"><div class="pm"><span class="v">0</span><span class="u">frameworks</span></div><div class="pm"><span class="v">2</span><span class="u">themes</span></div></div>
+      </div>
+
     </div>
+
   </div>
 
   <!-- ══════════ EXPERIENCE ══════════ -->
