@@ -8,706 +8,605 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root[data-theme="dark"] {
-    --bg: #0a0a0b;
-    --bg-surface: #111113;
-    --bg-elevated: #18181b;
-    --border: #27272a;
-    --border-hover: #3f3f46;
-    --text-primary: #fafafa;
-    --text-body: #a1a1aa;
-    --text-muted: #71717a;
-    --text-faint: #52525b;
-    --accent: #a0aec0;
-    --accent-bright: #cbd5e1;
-    --accent-bg: rgba(160,174,192,0.08);
-    --dot-color: #3f3f46;
-    --card-bg: #111113;
-    --card-border: #27272a;
-    --tab-active-bg: #0a0a0b;
-    --metric-color: #e4e4e7;
+    --bg: #0a0a12;
+    --glass: rgba(18,20,38,0.55);
+    --glass-hover: rgba(24,27,50,0.65);
+    --glass-border: rgba(255,255,255,0.06);
+    --glass-border-hover: rgba(255,255,255,0.1);
+    --text-1: #eef0f6;
+    --text-2: #9da3be;
+    --text-3: #6b7194;
+    --text-4: #4a5070;
+    --accent: #818cf8;
+    --accent-2: #a5b4fc;
+    --accent-bg: rgba(129,140,248,0.08);
+    --amber: #fbbf24;
+    --dot-red: #f87171;
+    --dot-yellow: #fbbf24;
+    --dot-green: #34d399;
+    --tag-border: rgba(129,140,248,0.15);
+    --tag-color: #a5b4fc;
+    --stat-border: rgba(129,140,248,0.1);
+    --stat-bg: rgba(129,140,248,0.05);
   }
   :root[data-theme="light"] {
-    --bg: #fafafa;
-    --bg-surface: #ffffff;
-    --bg-elevated: #f4f4f5;
-    --border: #e4e4e7;
-    --border-hover: #d4d4d8;
-    --text-primary: #09090b;
-    --text-body: #52525b;
-    --text-muted: #71717a;
-    --text-faint: #a1a1aa;
-    --accent: #52525b;
-    --accent-bright: #27272a;
-    --accent-bg: rgba(82,82,91,0.06);
-    --dot-color: #d4d4d8;
-    --card-bg: #ffffff;
-    --card-border: #e4e4e7;
-    --tab-active-bg: #fafafa;
-    --metric-color: #18181b;
+    --bg: #f0f1f7;
+    --glass: rgba(255,255,255,0.6);
+    --glass-hover: rgba(255,255,255,0.75);
+    --glass-border: rgba(0,0,0,0.06);
+    --glass-border-hover: rgba(0,0,0,0.1);
+    --text-1: #1a1f35;
+    --text-2: #4a5070;
+    --text-3: #6b7194;
+    --text-4: #9da3be;
+    --accent: #6366f1;
+    --accent-2: #4f46e5;
+    --accent-bg: rgba(99,102,241,0.06);
+    --amber: #d97706;
+    --dot-red: #ef4444;
+    --dot-yellow: #f59e0b;
+    --dot-green: #10b981;
+    --tag-border: rgba(99,102,241,0.2);
+    --tag-color: #6366f1;
+    --stat-border: rgba(99,102,241,0.12);
+    --stat-bg: rgba(99,102,241,0.04);
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin:0; padding:0; box-sizing:border-box; }
   body {
-    font-family: 'Inter', system-ui, sans-serif;
-    color: var(--text-body);
-    background: var(--bg);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    transition: background 0.3s, color 0.3s;
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--text-2);
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    transition: background 0.3s;
   }
 
-  /* ── Top bar ── */
+  .gradient-bg {
+    position:fixed; top:0; left:0; right:0; bottom:0; z-index:0; pointer-events:none;
+  }
+  [data-theme="dark"] .gradient-bg {
+    background:
+      radial-gradient(ellipse 600px 400px at 15% 15%, rgba(99,102,241,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 500px 350px at 85% 55%, rgba(251,191,36,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 300px at 50% 95%, rgba(244,114,182,0.05) 0%, transparent 70%);
+  }
+  [data-theme="light"] .gradient-bg {
+    background:
+      radial-gradient(ellipse 600px 400px at 15% 15%, rgba(99,102,241,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 500px 350px at 85% 55%, rgba(251,191,36,0.05) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 300px at 50% 95%, rgba(244,114,182,0.04) 0%, transparent 70%);
+  }
+
   .top-bar {
-    background: var(--bg-surface);
-    border-bottom: 1px solid var(--border);
-    padding: 12px 24px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    position:sticky; top:0; z-index:50;
+    padding:14px 28px;
+    display:flex; align-items:center;
+    background:var(--glass);
+    backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--glass-border);
     transition: background 0.3s, border-color 0.3s;
   }
-  .top-bar .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--dot-color); transition: background 0.3s; }
-  .top-bar .title {
-    margin-left: 10px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--text-faint);
-  }
-  .theme-toggle {
-    margin-left: auto;
-    background: none;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 4px 12px;
-    cursor: pointer;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--text-faint);
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .theme-toggle:hover { border-color: var(--text-muted); color: var(--text-muted); }
-
-  /* ── Tabs ── */
-  .tab-bar {
-    background: var(--bg-surface);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    overflow-x: auto;
-    position: sticky;
-    top: 43px;
-    z-index: 99;
-    transition: background 0.3s, border-color 0.3s;
-  }
-  .tab-bar::-webkit-scrollbar { display: none; }
+  .dots { display:flex; gap:6px; margin-right:16px; }
+  .dots span { width:10px; height:10px; border-radius:50%; }
+  .dots span:nth-child(1) { background:var(--dot-red); }
+  .dots span:nth-child(2) { background:var(--dot-yellow); }
+  .dots span:nth-child(3) { background:var(--dot-green); }
+  .top-bar nav { margin-left:auto; display:flex; gap:4px; }
   .tab {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.73rem;
-    color: var(--text-faint);
-    background: none;
-    border: none;
-    padding: 11px 20px;
-    cursor: pointer;
-    white-space: nowrap;
-    position: relative;
-    transition: color 0.2s;
+    font-family:'JetBrains Mono',monospace; font-size:0.72rem;
+    background:none; border:1px solid transparent; border-radius:10px;
+    padding:8px 18px; color:var(--text-4); cursor:pointer; transition:all 0.2s;
   }
-  .tab:hover { color: var(--text-body); }
-  .tab.active { color: var(--text-primary); background: var(--tab-active-bg); }
-  .tab.active::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--text-primary);
+  .tab:hover { color:var(--text-2); }
+  .tab.active { color:var(--accent-2); border-color:var(--tag-border); background:var(--accent-bg); }
+  .theme-toggle {
+    margin-left:12px; background:none; border:none; cursor:pointer;
+    font-size:0.85rem; color:var(--text-4); padding:4px 8px; transition:color 0.2s;
+  }
+  .theme-toggle:hover { color:var(--text-2); }
+
+  .page { position:relative; z-index:1; max-width:1020px; margin:0 auto; padding:28px 24px 80px; }
+
+  .panel { display:none; animation:fadeUp 0.25s ease; }
+  .panel.active { display:block; }
+  @keyframes fadeUp { from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:translateY(0)} }
+
+  .card {
+    background:var(--glass);
+    backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+    border:1px solid var(--glass-border);
+    border-radius:18px;
+    padding:28px;
+    transition:all 0.25s;
+    overflow:hidden;
+  }
+  .card:hover { background:var(--glass-hover); border-color:var(--glass-border-hover); transform:translateY(-2px); }
+
+  .bento { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+  .col-2 { grid-column:span 2; }
+  .col-3 { grid-column:span 3; }
+  .col-4 { grid-column:span 4; }
+  .row-2 { grid-row:span 2; }
+
+  /* Hero */
+  .hero { padding:36px; }
+  .hero .eyebrow { font-family:'JetBrains Mono',monospace; font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:16px; }
+  .hero h1 { font-size:2.2rem; font-weight:300; color:var(--text-1); letter-spacing:-0.5px; margin-bottom:6px; transition:color 0.3s; }
+  .hero .sub { font-size:0.88rem; color:var(--text-3); margin-bottom:22px; }
+  .hero .bio { font-size:0.9rem; line-height:1.8; color:var(--text-2); max-width:540px; }
+  .hero .bio p { margin-bottom:10px; }
+  .hero .bio p:last-child { margin-bottom:0; }
+  .hero .links { display:flex; gap:10px; margin-top:22px; flex-wrap:wrap; }
+  .hero .links a {
+    font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-3);
+    text-decoration:none; padding:7px 16px; border:1px solid var(--glass-border); border-radius:10px; transition:all 0.2s;
+  }
+  .hero .links a:hover { color:var(--accent-2); border-color:var(--tag-border); }
+
+  .sec-title { font-family:'JetBrains Mono',monospace; font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:16px; }
+  .card p.body { font-size:0.88rem; line-height:1.75; color:var(--text-2); }
+
+  /* Projects */
+  .proj-title { font-size:1rem; font-weight:600; color:var(--text-1); margin-bottom:4px; transition:color 0.3s; }
+  .proj-ctx { font-size:0.72rem; color:var(--text-4); margin-bottom:10px; }
+  .proj-tags { display:flex; gap:5px; flex-wrap:wrap; margin-bottom:12px; }
+  .proj-tags span { font-family:'JetBrains Mono',monospace; font-size:0.6rem; padding:3px 9px; border:1px solid var(--tag-border); border-radius:8px; color:var(--tag-color); transition:all 0.3s; }
+  .proj-desc { font-size:0.84rem; color:var(--text-2); line-height:1.7; margin-bottom:14px; }
+  .proj-metrics { display:flex; gap:20px; flex-wrap:wrap; }
+  .pm { display:flex; align-items:baseline; gap:6px; }
+  .pm .v { font-family:'JetBrains Mono',monospace; font-size:1rem; font-weight:500; color:var(--amber); transition:color 0.3s; }
+  .pm .u { font-size:0.68rem; color:var(--text-4); }
+
+  /* Experience */
+  .exp-card { margin-bottom:12px; }
+  .exp-card:last-child { margin-bottom:0; }
+  .exp-role { font-size:0.95rem; font-weight:600; color:var(--text-1); transition:color 0.3s; }
+  .exp-meta { font-size:0.8rem; color:var(--text-3); margin-bottom:10px; }
+  .exp-bullets { list-style:none; }
+  .exp-bullets li { position:relative; padding-left:14px; font-size:0.82rem; color:var(--text-2); margin-bottom:5px; line-height:1.65; }
+  .exp-bullets li::before { content:''; position:absolute; left:2px; top:8px; width:5px; height:5px; border-radius:50%; background:var(--accent); }
+
+  /* Skills */
+  .skill-list { display:flex; flex-direction:column; gap:14px; }
+  .skill-list h4 { font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--accent); margin-bottom:4px; transition:color 0.3s; }
+  .skill-list p { font-size:0.84rem; color:var(--text-2); }
+
+  /* Education */
+  .edu-entry { margin-bottom:14px; }
+  .edu-entry:last-child { margin-bottom:0; }
+  .edu-school { font-size:0.9rem; color:var(--text-1); font-weight:500; transition:color 0.3s; }
+  .edu-degree { font-size:0.82rem; color:var(--text-3); }
+  .edu-period { font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-4); margin-top:2px; }
+
+  /* Hero layout with profile pic */
+  .hero { position:relative; overflow:hidden; }
+  .hero-layout { display:flex; gap:32px; align-items:flex-start; }
+  .hero-content { flex:1; }
+  .profile-pic {
+    width:150px; height:150px; min-width:150px;
+    border-radius:50%;
+    background:linear-gradient(135deg, #818cf8 0%, #f43f5e 50%, #f59e0b 100%);
+    display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
+  }
+  .profile-pic .initials {
+    font-family:'Inter',sans-serif; font-size:2.5rem; font-weight:300;
+    color:white; letter-spacing:2px;
+  }
+  .profile-pic img {
+    position:absolute; width:100%; height:100%; object-fit:cover; border-radius:50%;
+  }
+  .hero-sparkline {
+    position:absolute; bottom:0; left:0; right:0; height:80px; pointer-events:none;
   }
 
-  /* ── Layout ── */
-  .container { max-width: 880px; margin: 0 auto; padding: 0 40px; }
+  /* Stats ring charts */
+  .stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:12px; }
+  .ring-card { text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px 12px; }
+  .ring-svg { width:100%; max-width:130px; }
+  .ring-bg { fill:none; stroke:var(--glass-border); stroke-width:8; }
+  .ring-fill {
+    fill:none; stroke-width:8; stroke-linecap:round;
+    stroke-dasharray:314;
+    animation:ringDraw 1.5s ease-out both;
+  }
+  .ring-val { font-family:'JetBrains Mono',monospace; font-size:1.4rem; font-weight:600; text-anchor:middle; }
+  .ring-label { font-size:0.6rem; text-anchor:middle; fill:var(--text-4); }
+  @keyframes ringDraw { from { stroke-dashoffset:314; } }
 
-  /* ── Header ── */
-  header { padding: 64px 0 40px; }
-  header .label {
-    font-size: 0.75rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--text-faint);
-    margin-bottom: 16px;
-  }
-  header h1 {
-    font-size: 2.6rem;
-    font-weight: 300;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-    letter-spacing: -0.5px;
-    transition: color 0.3s;
-  }
-  header h1 strong { font-weight: 700; }
-  header .role {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    margin-bottom: 20px;
-  }
-  header .bio {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    max-width: 600px;
-    line-height: 1.8;
-  }
-  header .links {
-    margin-top: 24px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  header .links a {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.73rem;
-    color: var(--text-muted);
-    text-decoration: none;
-    padding: 5px 14px;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    transition: all 0.2s;
-  }
-  header .links a:hover { color: var(--text-primary); border-color: var(--text-faint); }
+  /* Skill bars */
+  .skill-bars { margin-bottom:8px; }
+  .skill-bar { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+  .bar-name { font-family:'JetBrains Mono',monospace; font-size:0.72rem; color:var(--text-3); width:90px; text-align:right; }
+  .bar-track { flex:1; height:8px; background:var(--glass-border); border-radius:4px; overflow:hidden; }
+  .bar-fill { height:100%; border-radius:4px; animation:barGrow 1s ease-out both; }
+  @keyframes barGrow { from { width:0 !important; } }
 
-  /* ── Stats ── */
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 8px;
-    transition: background 0.3s, border-color 0.3s;
-  }
-  .stat-cell {
-    background: var(--bg-surface);
-    padding: 20px 24px;
-    text-align: center;
-    transition: background 0.3s;
-  }
-  .stat-cell .num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: var(--metric-color);
-    transition: color 0.3s;
-  }
-  .stat-cell .lbl {
-    font-size: 0.7rem;
-    color: var(--text-faint);
-    margin-top: 4px;
-    letter-spacing: 0.5px;
-  }
+  /* About bottom row */
+  .about-bottom { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 
-  /* ── Tab Panels ── */
-  .tab-panel { display: none; padding: 36px 0 24px; animation: fadeIn 0.2s ease; }
-  .tab-panel.active { display: block; }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  footer { position:relative; z-index:1; text-align:center; padding:32px 0 48px; }
+  footer p { font-size:0.75rem; color:var(--text-4); }
+  footer a { color:var(--text-3); text-decoration:none; transition:color 0.2s; }
+  footer a:hover { color:var(--accent-2); }
 
-  .section-label {
-    font-size: 0.7rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--text-faint);
-    margin-bottom: 32px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--border);
-    transition: color 0.3s, border-color 0.3s;
+  @media(max-width:768px) {
+    .bento { grid-template-columns:1fr 1fr; }
+    .col-2 { grid-column:span 2; }
+    .col-3 { grid-column:span 2; }
+    .col-4 { grid-column:span 2; }
+    .row-2 { grid-row:span 1; }
+    .hero h1 { font-size:1.8rem; }
+    .hero { padding:28px; }
+    .hero-layout { gap:24px; }
+    .profile-pic { width:120px; height:120px; min-width:120px; }
+    .profile-pic .initials { font-size:2rem; }
+    .page { padding:20px 14px 60px; }
+    .top-bar { padding:12px 16px; }
+    .tab { padding:7px 12px; font-size:0.66rem; }
+    .stats-row { grid-template-columns:repeat(2,1fr); }
+    .about-bottom { grid-template-columns:1fr 1fr; }
   }
-
-  /* ── Projects ── */
-  .project {
-    border-bottom: 1px solid var(--border);
-    padding: 32px 0;
-    transition: border-color 0.3s;
-  }
-  .project:first-of-type { padding-top: 0; }
-  .project:last-of-type { border-bottom: none; }
-  .project .meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 6px;
-  }
-  .project h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    transition: color 0.3s;
-  }
-  .project .source {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--text-faint);
-    letter-spacing: 0.5px;
-  }
-  .project .tags {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin: 10px 0 14px;
-  }
-  .project .tags span {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    padding: 2px 8px;
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    color: var(--text-muted);
-    transition: all 0.3s;
-  }
-  .project .desc {
-    font-size: 0.88rem;
-    color: var(--text-muted);
-    line-height: 1.75;
-    margin-bottom: 16px;
-  }
-  .project .metrics {
-    display: flex;
-    gap: 28px;
-    flex-wrap: wrap;
-  }
-  .project .metric {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-  }
-  .project .metric .val {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--metric-color);
-    transition: color 0.3s;
-  }
-  .project .metric .unit {
-    font-size: 0.75rem;
-    color: var(--text-faint);
-  }
-
-  /* ── Experience ── */
-  .exp-item {
-    padding: 32px 0;
-    border-bottom: 1px solid var(--border);
-    transition: border-color 0.3s;
-  }
-  .exp-item:first-of-type { padding-top: 0; }
-  .exp-item:last-of-type { border-bottom: none; }
-  .exp-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 4px;
-  }
-  .exp-meta h3 { font-size: 1.05rem; font-weight: 600; color: var(--text-primary); transition: color 0.3s; }
-  .exp-meta .period { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--text-faint); }
-  .exp-company { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; }
-  .exp-bullets { list-style: none; }
-  .exp-bullets li {
-    position: relative;
-    padding-left: 16px;
-    font-size: 0.88rem;
-    color: var(--text-muted);
-    margin-bottom: 5px;
-  }
-  .exp-bullets li::before {
-    content: '\2014';
-    position: absolute;
-    left: 0;
-    color: var(--text-faint);
-    font-size: 0.7rem;
-  }
-
-  /* ── Skills ── */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: background 0.3s, border-color 0.3s;
-  }
-  .skill-cell {
-    background: var(--bg-surface);
-    padding: 20px 24px;
-    transition: background 0.3s;
-  }
-  .skill-cell h4 {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--text-faint);
-    margin-bottom: 8px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-  .skill-cell p { font-size: 0.88rem; color: var(--text-body); line-height: 1.6; }
-
-  /* ── Education ── */
-  .edu-item { margin-bottom: 28px; }
-  .edu-item h3 { font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; transition: color 0.3s; }
-  .edu-item .degree { font-size: 0.88rem; color: var(--text-muted); }
-  .edu-item .period {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--text-faint);
-    margin-top: 4px;
-  }
-
-  /* ── Footer ── */
-  footer {
-    padding: 40px 0 56px;
-    text-align: center;
-    border-top: 1px solid var(--border);
-    margin-top: 32px;
-    transition: border-color 0.3s;
-  }
-  footer p {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--text-faint);
-    margin-bottom: 16px;
-  }
-  footer .links { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-  footer .links a {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    text-decoration: none;
-    padding: 6px 16px;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    transition: all 0.2s;
-  }
-  footer .links a:hover { color: var(--text-primary); border-color: var(--text-faint); }
-
-  @media (max-width: 640px) {
-    .container { padding: 0 20px; }
-    header h1 { font-size: 1.8rem; }
-    .stats-row { grid-template-columns: repeat(2, 1fr); }
-    .exp-meta { flex-direction: column; }
-    .project .meta { flex-direction: column; }
-    .project .metrics { gap: 16px; }
-    .skills-grid { grid-template-columns: 1fr; }
-    .tab { padding: 10px 14px; font-size: 0.68rem; }
-    .tab-bar { top: 39px; }
+  @media(max-width:480px) {
+    .bento { grid-template-columns:1fr; }
+    .col-2,.col-3,.col-4 { grid-column:span 1; }
+    .hero-layout { flex-direction:column; align-items:center; text-align:center; }
+    .hero .links { justify-content:center; }
+    .about-bottom { grid-template-columns:1fr; }
   }
 </style>
 </head>
 <body>
 
-  <div class="top-bar">
-    <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-    <span class="title">portfolio</span>
-    <button class="theme-toggle" onclick="toggleTheme()">
-      <span class="icon"></span><span class="label">light</span>
-    </button>
-  </div>
+<div class="gradient-bg"></div>
 
-  <nav class="tab-bar">
-    <button class="tab active" data-tab="projects">Projects</button>
+<div class="top-bar">
+  <div class="dots"><span></span><span></span><span></span></div>
+  <nav>
+    <button class="tab active" data-tab="about">About</button>
+    <button class="tab" data-tab="projects">Projects</button>
     <button class="tab" data-tab="experience">Experience</button>
     <button class="tab" data-tab="skills">Skills</button>
-    <button class="tab" data-tab="education">Education</button>
   </nav>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+</div>
 
-  <div class="container">
+<div class="page">
 
-    <header>
-      <div class="label">Data Engineer &amp; BI Specialist</div>
-      <h1>Anna <strong>(Linh) Vu</strong></h1>
-      <div class="role">Lead Data Technology Engineer @ DEPT Agency</div>
-      <p class="bio">I build and maintain scalable data infrastructure that transforms marketing data into actionable insights, enabling enterprise clients with multi-billion-dollar advertising spend to make fast, informed investment decisions.</p>
-      <div class="links">
-        <a href="mailto:vuanna@seas.upenn.edu">vuanna@seas.upenn.edu</a>
-        <a href="https://www.linkedin.com/in/linh-vu-251099/">LinkedIn</a>
-        <a href="tel:+16155090620">(615) 509-0620</a>
-        <a>New York, NY</a>
+  <!-- ══════════ ABOUT ══════════ -->
+  <div class="panel active" id="panel-about">
+
+    <div class="card hero" style="margin-bottom:12px">
+      <div class="hero-layout">
+        <div class="profile-pic">
+          <img src="profile.png" alt="Anna Vu">
+          <span class="initials">AV</span>
+        </div>
+        <div class="hero-content">
+          <div class="eyebrow">Data Engineer</div>
+          <h1>Anna (Linh) Vu</h1>
+          <div class="sub">Senior Data Engineer with 5+ years of experience</div>
+          <div class="bio">
+            <p>I'm from Hanoi, Vietnam. I graduated from Vanderbilt with a double major in Economics and Media Arts, then taught myself SQL and Python while working full time. I'm passionate about building data systems that solve real problems, and I bring curiosity and resilience to everything I do. Currently pursuing my Master's in CS at UPenn.</p>
+          </div>
+          <div class="links">
+            <a href="mailto:vuanna@seas.upenn.edu">vuanna@seas.upenn.edu</a>
+            <a href="https://www.linkedin.com/in/linh-vu-251099/">LinkedIn</a>
+            <a href="tel:+16155090620">(615) 509-0620</a>
+            <a>New York, NY</a>
+          </div>
+        </div>
       </div>
-    </header>
+      <svg class="hero-sparkline" viewBox="0 0 300 80" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#818cf8" stop-opacity="0.2"/>
+            <stop offset="100%" stop-color="#818cf8" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <polyline fill="none" stroke="#818cf8" stroke-width="1.5" opacity="0.4"
+          points="0,65 25,58 50,62 75,45 100,50 125,35 150,40 175,25 200,30 225,18 250,22 275,12 300,8"/>
+        <polygon fill="url(#sparkGrad)"
+          points="0,65 25,58 50,62 75,45 100,50 125,35 150,40 175,25 200,30 225,18 250,22 275,12 300,8 300,80 0,80"/>
+      </svg>
+    </div>
 
     <div class="stats-row">
-      <div class="stat-cell"><div class="num">30+</div><div class="lbl">data sources</div></div>
-      <div class="stat-cell"><div class="num">$2B+</div><div class="lbl">ad spend supported</div></div>
-      <div class="stat-cell"><div class="num">80%</div><div class="lbl">manual work cut</div></div>
-      <div class="stat-cell"><div class="num">1TB</div><div class="lbl">monthly ingestion</div></div>
-    </div>
-
-    <!-- ── Projects ── -->
-    <div class="tab-panel active" id="panel-projects">
-      <div class="section-label">Featured Projects</div>
-
-      <div class="project">
-        <div class="meta">
-          <h3>Enterprise ETL Pipeline Architecture</h3>
-          <span class="source">DEPT Agency</span>
-        </div>
-        <div class="tags"><span>Matillion</span><span>Snowflake</span><span>Python</span><span>S3</span><span>SFTP</span><span>Looker</span></div>
-        <p class="desc">Architected the core data infrastructure for a major enterprise client with $2B+ annual marketing spend. Designed scalable data models and ETL pipelines to ingest and transform data from 30+ heterogeneous sources including emails, SFTP servers, S3 buckets, and third-party APIs into a centralized Snowflake warehouse. The pipeline feeds multiple Looker dashboards used daily by enterprise stakeholders for campaign performance, budget allocation, and ROI analysis.</p>
-        <div class="metrics">
-          <div class="metric"><span class="val">30+</span><span class="unit">data sources</span></div>
-          <div class="metric"><span class="val">1TB</span><span class="unit">monthly volume</span></div>
-          <div class="metric"><span class="val">$2B+</span><span class="unit">ad spend supported</span></div>
-        </div>
+      <div class="card ring-card">
+        <svg viewBox="0 0 120 120" class="ring-svg">
+          <circle cx="60" cy="60" r="50" class="ring-bg"/>
+          <circle cx="60" cy="60" r="50" class="ring-fill" transform="rotate(-90 60 60)"
+            style="stroke:#14b8a6; stroke-dashoffset:94; animation-delay:0.1s"/>
+          <text x="60" y="56" class="ring-val" style="fill:#14b8a6">5+</text>
+          <text x="60" y="74" class="ring-label">years exp</text>
+        </svg>
       </div>
-
-      <div class="project">
-        <div class="meta">
-          <h3>Automated Data Store Workflow</h3>
-          <span class="source">DEPT Agency</span>
-        </div>
-        <div class="tags"><span>Apps Script</span><span>Matillion</span><span>Snowflake</span><span>Google Sheets</span></div>
-        <p class="desc">Designed and launched an end-to-end automated workflow that replaced a manual, error-prone process for the Client Services team. Google Sheets serve as the intake layer where teams input data requests, which trigger Apps Script handlers that validate inputs, then kick off Matillion ETL pipelines to process and load data into Snowflake. The system eliminated manual data entry, reduced hand-off errors, and freed the team to focus on analysis rather than data wrangling.</p>
-        <div class="metrics">
-          <div class="metric"><span class="val">80%</span><span class="unit">less manual work</span></div>
-          <div class="metric"><span class="val">80%</span><span class="unit">faster turnaround</span></div>
-        </div>
+      <div class="card ring-card">
+        <svg viewBox="0 0 120 120" class="ring-svg">
+          <circle cx="60" cy="60" r="50" class="ring-bg"/>
+          <circle cx="60" cy="60" r="50" class="ring-fill" transform="rotate(-90 60 60)"
+            style="stroke:#818cf8; stroke-dashoffset:47; animation-delay:0.3s"/>
+          <text x="60" y="56" class="ring-val" style="fill:#818cf8">30+</text>
+          <text x="60" y="74" class="ring-label">data sources</text>
+        </svg>
       </div>
-
-      <div class="project">
-        <div class="meta">
-          <h3>Real-Time Slack Alerting Pipeline</h3>
-          <span class="source">DEPT Agency</span>
-        </div>
-        <div class="tags"><span>SQL</span><span>Python</span><span>Matillion</span><span>Slack API</span></div>
-        <p class="desc">Built an automated monitoring and alerting system that continuously transforms complex marketing datasets, aggregates results against predefined thresholds, and delivers clear, formatted insight summaries directly to client Slack channels. When anomalies or issues are detected in campaign data, stakeholders receive real-time notifications with context, enabling faster triage without needing to open dashboards or wait for scheduled reports.</p>
-        <div class="metrics">
-          <div class="metric"><span class="val">40%</span><span class="unit">faster resolution</span></div>
-          <div class="metric"><span class="val">Real-time</span><span class="unit">alerting</span></div>
-        </div>
+      <div class="card ring-card">
+        <svg viewBox="0 0 120 120" class="ring-svg">
+          <circle cx="60" cy="60" r="50" class="ring-bg"/>
+          <circle cx="60" cy="60" r="50" class="ring-fill" transform="rotate(-90 60 60)"
+            style="stroke:#f59e0b; stroke-dashoffset:31; animation-delay:0.5s"/>
+          <text x="60" y="56" class="ring-val" style="fill:#f59e0b">$2B+</text>
+          <text x="60" y="74" class="ring-label">ad spend</text>
+        </svg>
       </div>
-
-      <div class="project">
-        <div class="meta">
-          <h3>Snowflake Warehouse Optimization</h3>
-          <span class="source">DEPT Agency</span>
-        </div>
-        <div class="tags"><span>Snowflake</span><span>SQL</span></div>
-        <p class="desc">Led a large-scale optimization initiative across the entire Snowflake data warehouse. Refactored 50%+ of all data views to improve query performance, eliminate redundancies, and standardize naming conventions. Audited and cleaned up a database containing over 1,000 tables and views, removing orphaned objects, consolidating duplicate logic, and documenting ownership. The project significantly improved query speeds for downstream dashboards and reduced compute costs.</p>
-        <div class="metrics">
-          <div class="metric"><span class="val">30%</span><span class="unit">cost reduction</span></div>
-          <div class="metric"><span class="val">1,000+</span><span class="unit">tables audited</span></div>
-          <div class="metric"><span class="val">50%+</span><span class="unit">views refactored</span></div>
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="meta">
-          <h3>API Data Ingestion Framework</h3>
-          <span class="source">DEPT Agency</span>
-        </div>
-        <div class="tags"><span>Python</span><span>Pandas</span><span>REST APIs</span><span>Snowflake</span></div>
-        <p class="desc">Developed a suite of Python scripts to ingest JSON responses from various marketing and analytics APIs (Google Analytics 4, Campaign Manager, Kochava, Brandwatch). Each script handles authentication, pagination, rate limiting, and error handling, then uses Pandas for data cleanup, type casting, and transformation before loading into Snowflake staging tables. The framework standardized how the team onboards new API data sources.</p>
-        <div class="metrics">
-          <div class="metric"><span class="val">6+</span><span class="unit">APIs integrated</span></div>
-          <div class="metric"><span class="val">Standardized</span><span class="unit">ingestion pattern</span></div>
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="meta">
-          <h3>Automated Reporting Suite for 100+ Clients</h3>
-          <span class="source">DEPT Agency</span>
-        </div>
-        <div class="tags"><span>SQL</span><span>Tableau</span><span>Snowflake</span></div>
-        <p class="desc">Developed the backend SQL views powering automated marketing reports and interactive Tableau dashboards serving 100+ agency clients. Each report combines data from multiple marketing channels into unified views with consistent KPI calculations, date handling, and client-specific business logic. Managed the full lifecycle from stakeholder requirements through SQL development, Tableau visualization, and ongoing maintenance.</p>
-        <div class="metrics">
-          <div class="metric"><span class="val">100+</span><span class="unit">clients served</span></div>
-          <div class="metric"><span class="val">200+</span><span class="unit">tickets resolved</span></div>
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="meta">
-          <h3>Interactive BI Dashboard Suite</h3>
-          <span class="source">FIG Agency</span>
-        </div>
-        <div class="tags"><span>Domo</span><span>Python</span><span>SQL</span></div>
-        <p class="desc">Designed and developed 50+ interactive visualizations in Domo for marketing analytics, covering campaign performance, audience insights, competitive analysis, and media spend tracking. Automated the insights generation process using Python scripts that pull data, compute metrics, and produce formatted summaries, reducing the manual workload for monthly reporting cycles and supporting successful new business pitches with data-driven narratives.</p>
-        <div class="metrics">
-          <div class="metric"><span class="val">50+</span><span class="unit">dashboards built</span></div>
-          <div class="metric"><span class="val">Automated</span><span class="unit">monthly insights</span></div>
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="meta">
-          <h3>COVID & Property Analytics Platform</h3>
-          <span class="source">UPenn CIT 5940</span>
-        </div>
-        <div class="tags"><span>Java</span><span>CSV/JSON parsing</span><span>MVC</span><span>Memoization</span><span>JUnit</span></div>
-        <p class="desc">Group project building a full data processing platform for Philadelphia civic data. Combines COVID vaccination records, population data by ZIP code, and property assessment values to compute per-capita vaccination rates, average market values, and a custom vaccination-to-property-value ratio. Built with a clean MVC architecture: custom CSV/JSON readers with error handling, a Singleton logger for audit trails, and memoized processor classes that cache expensive computations for fast repeated queries.</p>
-        <div class="metrics">
-          <div class="metric"><span class="val">3</span><span class="unit">data sources merged</span></div>
-          <div class="metric"><span class="val">7+</span><span class="unit">test suites</span></div>
-          <div class="metric"><span class="val">MVC</span><span class="unit">architecture</span></div>
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="meta">
-          <h3>Flu Tweet Geolocation Analyzer</h3>
-          <span class="source">UPenn CIT 5940</span>
-        </div>
-        <div class="tags"><span>Java</span><span>JSON/TXT</span><span>Regex</span><span>Geolocation</span><span>Singleton</span></div>
-        <p class="desc">Solo project analyzing a large dataset of geotagged tweets for flu-related content. Uses regex pattern matching to detect flu mentions (handling edge cases like "fluent" vs "#flu"), then maps each matching tweet to the nearest U.S. state using Cartesian distance calculation against a state centroid dataset. Supports both JSON and TXT tweet formats via a polymorphic Reader interface, with a Singleton logger tracking every processing step for auditability.</p>
-        <div class="metrics">
-          <div class="metric"><span class="val">2</span><span class="unit">input formats</span></div>
-          <div class="metric"><span class="val">50</span><span class="unit">states mapped</span></div>
-          <div class="metric"><span class="val">Full</span><span class="unit">audit logging</span></div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ── Experience ── -->
-    <div class="tab-panel" id="panel-experience">
-      <div class="section-label">Professional Experience</div>
-
-      <div class="exp-item">
-        <div class="exp-meta">
-          <h3>Lead Data Technology Engineer</h3>
-          <span class="period">Aug 2025 - Present</span>
-        </div>
-        <div class="exp-company">DEPT Agency, New York, NY</div>
-        <ul class="exp-bullets">
-          <li>Partner with a major enterprise with $2B+ annual marketing spend to translate reporting needs into scalable data solutions.</li>
-          <li>Architect data models and ETL pipelines ingesting from 30+ sources, powering Looker dashboards for enterprise stakeholders.</li>
-          <li>Mentor 3 junior engineers; lead technical delivery across multiple reporting and automation initiatives.</li>
-          <li>Champion continuous improvement by identifying gaps in data tooling and driving cross-functional alignment.</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-meta">
-          <h3>Senior Business Intelligence Engineer</h3>
-          <span class="period">Jun 2024 - Aug 2025</span>
-        </div>
-        <div class="exp-company">DEPT Agency, New York, NY</div>
-        <ul class="exp-bullets">
-          <li>Owned Tableau dashboards and automated Google Sheets reports across the full data lifecycle.</li>
-          <li>Designed the automated Data Store workflow (Apps Script + Matillion), cutting manual work by 80%.</li>
-          <li>Led refactoring of 50%+ Snowflake data views, improving query performance and maintainability.</li>
-          <li>Served as Scrum Master, facilitating agile delivery across engineering sprints.</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-meta">
-          <h3>Business Intelligence Engineer</h3>
-          <span class="period">Oct 2022 - Jun 2024</span>
-        </div>
-        <div class="exp-company">DEPT Agency, New York, NY</div>
-        <ul class="exp-bullets">
-          <li>Built SQL views for automated marketing reports and Tableau dashboards for 100+ clients.</li>
-          <li>Designed ETL pipelines via Matillion ingesting 1TB/month from emails, SFTP, S3 into Snowflake.</li>
-          <li>Developed Python scripts for API data ingestion using Pandas for data cleanup and transformation.</li>
-          <li>Built Slack alerting pipelines (SQL + Python + Matillion), reducing issue resolution by 40%.</li>
-          <li>Cleaned up 1,000+ Snowflake tables/views, achieving 30% warehouse cost reduction.</li>
-          <li>Resolved 200+ JIRA tickets on data discrepancies and integration issues.</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-meta">
-          <h3>Data Analyst</h3>
-          <span class="period">Jun 2021 - Oct 2022</span>
-        </div>
-        <div class="exp-company">FIG Agency, New York, NY</div>
-        <ul class="exp-bullets">
-          <li>Managed data ingestion into Domo warehouse from emailed reports & API connections.</li>
-          <li>Built 50+ interactive visualizations; automated insights generation with Python.</li>
-          <li>Troubleshot ad hoc data collection & taxonomy issues, ensuring data accuracy.</li>
-        </ul>
+      <div class="card ring-card">
+        <svg viewBox="0 0 120 120" class="ring-svg">
+          <circle cx="60" cy="60" r="50" class="ring-bg"/>
+          <circle cx="60" cy="60" r="50" class="ring-fill" transform="rotate(-90 60 60)"
+            style="stroke:#f43f5e; stroke-dashoffset:63; animation-delay:0.7s"/>
+          <text x="60" y="56" class="ring-val" style="fill:#f43f5e">80%</text>
+          <text x="60" y="74" class="ring-label">manual work cut</text>
+        </svg>
       </div>
     </div>
 
-    <!-- ── Skills ── -->
-    <div class="tab-panel" id="panel-skills">
-      <div class="section-label">Skills &amp; Tools</div>
-      <div class="skills-grid">
-        <div class="skill-cell"><h4>Languages</h4><p>SQL, Python, Java, HTML, CSS, JavaScript</p></div>
-        <div class="skill-cell"><h4>Databases</h4><p>Snowflake, BigQuery</p></div>
-        <div class="skill-cell"><h4>Visualization</h4><p>Looker, Tableau, Domo</p></div>
-        <div class="skill-cell"><h4>Dev Tools</h4><p>Git, Matillion, Postman, Apps Script</p></div>
-        <div class="skill-cell"><h4>IDEs</h4><p>VSCode, Jupyter, PyCharm, IntelliJ, DBeaver</p></div>
-        <div class="skill-cell"><h4>Platforms</h4><p>GA4, Campaign Manager, Kantar, MRI Simmons, Brandwatch, Kochava</p></div>
+    <div class="about-bottom">
+      <div class="card vol">
+        <div class="sec-title">Outside of work</div>
+        <p class="body">I teach analog filmmaking at MONO NO AWARE in Brooklyn, from hand-processing 16mm film to optical printing and projection as performance. I've been a volunteer videographer with Film at Lincoln Center since 2019, shooting Q&amp;As and festival events. I also distribute meals with the Coalition for the Homeless and work with older adults at Lenox Hill Neighborhood House.</p>
       </div>
-    </div>
 
-    <!-- ── Education ── -->
-    <div class="tab-panel" id="panel-education">
-      <div class="section-label">Education</div>
-      <div class="edu-item">
-        <h3>University of Pennsylvania, School of Engineering</h3>
-        <div class="degree">Master in Computer and Information Technology (part time)</div>
-        <div class="period">Expected Dec 2027</div>
-      </div>
-      <div class="edu-item">
-        <h3>Vanderbilt University</h3>
-        <div class="degree">Bachelor of Arts: Double Majors in Economics and Media Arts</div>
-        <div class="period">May 2021 / Nashville, TN</div>
+      <div class="card">
+        <div class="sec-title">Education</div>
+        <div class="edu-entry">
+          <div class="edu-school">University of Pennsylvania, School of Engineering</div>
+          <div class="edu-degree">Master in Computer &amp; Information Technology (part-time)</div>
+          <div class="edu-period">Aug 2024 to Expected Dec 2027</div>
+        </div>
+        <div class="edu-entry">
+          <div class="edu-school">Vanderbilt University</div>
+          <div class="edu-degree">BA, Economics &amp; Media Arts (Double Major)</div>
+          <div class="edu-period">May 2021, Nashville, TN</div>
+        </div>
       </div>
     </div>
 
   </div>
 
-  <footer>
-    <div class="container">
-      <p>Let's connect</p>
-      <div class="links">
-        <a href="mailto:vuanna@seas.upenn.edu">Email</a>
-        <a href="https://www.linkedin.com/in/linh-vu-251099/">LinkedIn</a>
-        <a href="tel:+16155090620">Phone</a>
+  <!-- ══════════ PROJECTS ══════════ -->
+  <div class="panel" id="panel-projects">
+    <div class="bento">
+
+      <div class="card col-2">
+        <div class="proj-title">Enterprise ETL Pipeline Architecture</div>
+        <div class="proj-ctx">DEPT Agency</div>
+        <div class="proj-tags"><span>Matillion</span><span>Snowflake</span><span>Python</span><span>S3</span><span>SFTP</span><span>Looker</span></div>
+        <div class="proj-desc">Core data infrastructure for an enterprise client with $2B+ annual ad spend. Consolidated 30+ disconnected sources (emails, SFTP drops, S3 buckets, APIs) into a centralized Snowflake warehouse powering Looker dashboards for campaign performance and budget allocation.</div>
+        <div class="proj-metrics"><div class="pm"><span class="v">30+</span><span class="u">sources</span></div><div class="pm"><span class="v">1TB</span><span class="u">monthly</span></div><div class="pm"><span class="v">$2B+</span><span class="u">ad spend</span></div></div>
+      </div>
+
+      <div class="card col-2">
+        <div class="proj-title">Automated Data Store Workflow</div>
+        <div class="proj-ctx">DEPT Agency</div>
+        <div class="proj-tags"><span>Apps Script</span><span>Matillion</span><span>Snowflake</span><span>Google Sheets</span></div>
+        <div class="proj-desc">End-to-end automation replacing manual data request workflows. Google Sheets intake triggers Apps Script validation and Matillion ETL jobs into Snowflake. Eliminated manual entry and hand-off errors for the Client Services team.</div>
+        <div class="proj-metrics"><div class="pm"><span class="v">80%</span><span class="u">less manual work</span></div><div class="pm"><span class="v">80%</span><span class="u">faster turnaround</span></div></div>
+      </div>
+
+      <div class="card col-2">
+        <div class="proj-title">Real-Time Slack Alerting Pipeline</div>
+        <div class="proj-ctx">DEPT Agency</div>
+        <div class="proj-tags"><span>SQL</span><span>Python</span><span>Matillion</span><span>Slack API</span></div>
+        <div class="proj-desc">Automated monitoring system that evaluates marketing datasets against predefined thresholds and pushes formatted, contextualized alerts directly to client Slack channels when anomalies are detected.</div>
+        <div class="proj-metrics"><div class="pm"><span class="v">40%</span><span class="u">faster resolution</span></div><div class="pm"><span class="v">Real-time</span><span class="u">alerting</span></div></div>
+      </div>
+
+      <div class="card col-2">
+        <div class="proj-title">Snowflake Warehouse Optimization</div>
+        <div class="proj-ctx">DEPT Agency</div>
+        <div class="proj-tags"><span>Snowflake</span><span>SQL</span></div>
+        <div class="proj-desc">Led a large-scale audit and cleanup of the entire Snowflake warehouse. Refactored 50%+ of data views, standardized naming conventions, consolidated duplicate logic, and documented ownership for every table.</div>
+        <div class="proj-metrics"><div class="pm"><span class="v">30%</span><span class="u">cost reduction</span></div><div class="pm"><span class="v">1,000+</span><span class="u">tables audited</span></div></div>
+      </div>
+
+      <div class="card col-2">
+        <div class="proj-title">API Data Ingestion Framework</div>
+        <div class="proj-ctx">DEPT Agency</div>
+        <div class="proj-tags"><span>Python</span><span>Pandas</span><span>REST APIs</span><span>Snowflake</span></div>
+        <div class="proj-desc">Standardized Python framework for ingesting data from marketing APIs (GA4, Campaign Manager, Kochava, Brandwatch). Each connector handles auth, pagination, rate limiting, and Pandas-based transformation before loading into Snowflake.</div>
+        <div class="proj-metrics"><div class="pm"><span class="v">6+</span><span class="u">APIs integrated</span></div></div>
+      </div>
+
+      <div class="card col-2">
+        <div class="proj-title">Automated Reporting Suite</div>
+        <div class="proj-ctx">DEPT Agency</div>
+        <div class="proj-tags"><span>SQL</span><span>Tableau</span><span>Snowflake</span></div>
+        <div class="proj-desc">Backend SQL views powering automated marketing reports and interactive Tableau dashboards for 100+ agency clients. Full lifecycle from stakeholder requirements through SQL development, visualization, and ongoing maintenance.</div>
+        <div class="proj-metrics"><div class="pm"><span class="v">100+</span><span class="u">clients</span></div><div class="pm"><span class="v">200+</span><span class="u">tickets resolved</span></div></div>
+      </div>
+
+      <div class="card col-2">
+        <div class="proj-title">Interactive BI Dashboard Suite</div>
+        <div class="proj-ctx">FIG Agency</div>
+        <div class="proj-tags"><span>Domo</span><span>Python</span><span>SQL</span></div>
+        <div class="proj-desc">Designed 50+ interactive Domo dashboards covering campaign performance, audience insights, competitive analysis, and media spend. Automated the monthly insights generation process with Python scripts to reduce manual workload and support business pitches.</div>
+        <div class="proj-metrics"><div class="pm"><span class="v">50+</span><span class="u">dashboards</span></div></div>
+      </div>
+
+      <div class="card col-2">
+        <div class="proj-title">COVID &amp; Property Analytics Platform</div>
+        <div class="proj-ctx">UPenn, CIT 5940 (Group)</div>
+        <div class="proj-tags"><span>Java</span><span>CSV/JSON</span><span>MVC</span><span>Memoization</span><span>JUnit</span></div>
+        <div class="proj-desc">Data processing platform combining Philadelphia COVID vaccination records, population by ZIP, and property assessments. MVC architecture with custom readers, Singleton logger for audit trails, and memoized processors caching expensive computations.</div>
+        <div class="proj-metrics"><div class="pm"><span class="v">3</span><span class="u">data sources</span></div><div class="pm"><span class="v">7+</span><span class="u">test suites</span></div></div>
+      </div>
+
+      <div class="card col-2">
+        <div class="proj-title">Flu Tweet Geolocation Analyzer</div>
+        <div class="proj-ctx">UPenn, CIT 5940 (Solo)</div>
+        <div class="proj-tags"><span>Java</span><span>Regex</span><span>Geolocation</span><span>Singleton</span><span>Factory</span></div>
+        <div class="proj-desc">Analyzes geotagged tweets for flu-related content using regex pattern matching (handling edge cases like "fluent" vs "#flu"). Maps matches to the nearest U.S. state via Cartesian distance. Polymorphic Reader interface supports JSON and TXT formats.</div>
+        <div class="proj-metrics"><div class="pm"><span class="v">50</span><span class="u">states mapped</span></div><div class="pm"><span class="v">2</span><span class="u">input formats</span></div></div>
+      </div>
+
+      <div class="card col-2">
+        <div class="proj-title">Student Management System</div>
+        <div class="proj-ctx">UPenn, CIT 5910 (Group)</div>
+        <div class="proj-tags"><span>Java</span><span>OOP</span><span>HashMap</span><span>Auth</span><span>JUnit 5</span></div>
+        <div class="proj-desc">Full-featured academic management system with role-based access control. Admins create/delete courses, professors, and students. Professors manage enrolled students and grades. Students view schedules, enroll/drop courses, and check grades. File-based persistence with comprehensive test coverage.</div>
+        <div class="proj-metrics"><div class="pm"><span class="v">3</span><span class="u">user roles</span></div><div class="pm"><span class="v">7</span><span class="u">test suites</span></div></div>
+      </div>
+
+      <div class="card col-2">
+        <div class="proj-title">Movie Trivia Database Engine</div>
+        <div class="proj-ctx">UPenn, CIT 5910</div>
+        <div class="proj-tags"><span>Java</span><span>ArrayList</span><span>File I/O</span><span>JUnit</span></div>
+        <div class="proj-desc">Movie database system implementing complex query operations without a traditional RDBMS. Supports actor-movie lookups, co-actor discovery, common movie searches, rating filters (critics vs. audience), and mean rating calculations across the full dataset.</div>
+        <div class="proj-metrics"><div class="pm"><span class="v">8</span><span class="u">query types</span></div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════ EXPERIENCE ══════════ -->
+  <div class="panel" id="panel-experience">
+    <div class="bento">
+
+      <div class="card col-4 exp-card">
+        <div class="exp-role">Lead Data Technology Engineer</div>
+        <div class="exp-meta">DEPT Agency, New York, NY &middot; Aug 2025 to Present</div>
+        <ul class="exp-bullets">
+          <li>Partner with a major enterprise with $2B+ annual marketing spend to translate reporting needs into scalable data solutions, scoping requirements and delivery plans that align with technical capabilities and business goals.</li>
+          <li>Architect scalable data models and ETL pipelines to ingest and transform data from 30+ data sources, powering multiple Looker dashboards that deliver actionable insights for enterprise stakeholders.</li>
+          <li>Mentor 3 junior engineers, establish standards &amp; documentation to ensure operational efficiency across projects.</li>
+          <li>Lead technical delivery across multiple reporting and automation initiatives, coordinating timelines, priorities, and releases to ensure accurate and timely stakeholder outcomes.</li>
+          <li>Champion continuous improvement by identifying gaps in data tooling, proposing roadmap initiatives, and driving cross-functional alignment with Client Services and Data Technology.</li>
+        </ul>
+      </div>
+
+      <div class="card col-4 exp-card">
+        <div class="exp-role">Senior Business Intelligence Engineer</div>
+        <div class="exp-meta">DEPT Agency, New York, NY &middot; Jun 2024 to Aug 2025</div>
+        <ul class="exp-bullets">
+          <li>Owned Tableau dashboards and Google Sheets automated reports, managing the full data cycle from ingestion to transformation to visualization and stakeholder delivery.</li>
+          <li>Designed and launched an automated Google Sheets Data Store workflow for the Client Services team, triggering Apps Script and Matillion pipelines, reducing manual work and turnaround time by 80%.</li>
+          <li>Led large-scale refactoring of 50%+ Snowflake data views, improving query performance and maintainability.</li>
+          <li>Oversaw daily monitoring, investigation, and resolution of data issues to ensure accuracy &amp; reliability of deliverables.</li>
+          <li>Facilitated agile delivery as Scrum Master, driving grooming, brainstorming, &amp; project execution.</li>
+        </ul>
+      </div>
+
+      <div class="card col-4 exp-card">
+        <div class="exp-role">Business Intelligence Engineer</div>
+        <div class="exp-meta">DEPT Agency, New York, NY &middot; Oct 2022 to Jun 2024</div>
+        <ul class="exp-bullets">
+          <li>Developed backend SQL views for automated marketing reports and Tableau dashboards for 100+ clients.</li>
+          <li>Designed ETL pipelines via Matillion to ingest data from emails, SFTP, S3 into Snowflake (1TB of data monthly).</li>
+          <li>Developed Python scripts to ingest JSON responses from various APIs, employing Pandas for data cleanup.</li>
+          <li>Built automated Slack alerting pipelines using SQL, Python and Matillion to transform complex datasets, aggregate results, and deliver clear, formatted insights directly to clients, reducing issue resolution times by 40%.</li>
+          <li>Troubleshot 200+ JIRA tickets for Client Services teams on data discrepancies and integration issues.</li>
+          <li>Cleaned up Snowflake database with over 1,000 tables/views, achieving a 30% reduction in warehouse costs.</li>
+          <li>Wrote detailed documentation on Confluence to improve operational clarity and cross-team collaboration.</li>
+        </ul>
+      </div>
+
+      <div class="card col-4 exp-card">
+        <div class="exp-role">Data Analyst</div>
+        <div class="exp-meta">FIG Agency, New York, NY &middot; Jun 2021 to Oct 2022</div>
+        <ul class="exp-bullets">
+          <li>Managed the data ingestion process into Domo warehouse, sourcing from emailed reports &amp; API connections.</li>
+          <li>Designed and developed 50+ interactive visualizations; automated the insights generation process using Python to reduce manual workload, supporting monthly analytics and successful business pitches.</li>
+          <li>Handled troubleshooting ad hoc data collection &amp; taxonomy issues, ensuring data accuracy and consistency.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════ SKILLS ══════════ -->
+  <div class="panel" id="panel-skills">
+
+    <div class="card" style="margin-bottom:12px">
+      <div class="sec-title">Core Proficiency</div>
+      <div class="skill-bars">
+        <div class="skill-bar"><span class="bar-name">SQL</span><div class="bar-track"><div class="bar-fill" style="width:95%;background:linear-gradient(90deg,#818cf8,#a5b4fc);animation-delay:0.1s"></div></div></div>
+        <div class="skill-bar"><span class="bar-name">Snowflake</span><div class="bar-track"><div class="bar-fill" style="width:92%;background:linear-gradient(90deg,#38bdf8,#7dd3fc);animation-delay:0.15s"></div></div></div>
+        <div class="skill-bar"><span class="bar-name">Python</span><div class="bar-track"><div class="bar-fill" style="width:85%;background:linear-gradient(90deg,#14b8a6,#5eead4);animation-delay:0.2s"></div></div></div>
+        <div class="skill-bar"><span class="bar-name">Matillion</span><div class="bar-track"><div class="bar-fill" style="width:88%;background:linear-gradient(90deg,#a855f7,#c084fc);animation-delay:0.25s"></div></div></div>
+        <div class="skill-bar"><span class="bar-name">Looker</span><div class="bar-track"><div class="bar-fill" style="width:82%;background:linear-gradient(90deg,#f59e0b,#fbbf24);animation-delay:0.3s"></div></div></div>
+        <div class="skill-bar"><span class="bar-name">Tableau</span><div class="bar-track"><div class="bar-fill" style="width:78%;background:linear-gradient(90deg,#f43f5e,#fb7185);animation-delay:0.35s"></div></div></div>
+        <div class="skill-bar"><span class="bar-name">Java</span><div class="bar-track"><div class="bar-fill" style="width:65%;background:linear-gradient(90deg,#22c55e,#4ade80);animation-delay:0.4s"></div></div></div>
+        <div class="skill-bar"><span class="bar-name">Apps Script</span><div class="bar-track"><div class="bar-fill" style="width:80%;background:linear-gradient(90deg,#ec4899,#f472b6);animation-delay:0.45s"></div></div></div>
       </div>
     </div>
-  </footer>
 
-  <script>
-    document.querySelectorAll('.tab').forEach(function(tab) {
-      tab.addEventListener('click', function() {
-        document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
-        document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
-        tab.classList.add('active');
-        document.getElementById('panel-' + tab.getAttribute('data-tab')).classList.add('active');
-      });
+    <div class="bento">
+      <div class="card col-2">
+        <div class="skill-list">
+          <div><h4>Databases &amp; Warehouses</h4><p>Snowflake, BigQuery</p></div>
+        </div>
+      </div>
+      <div class="card col-2">
+        <div class="skill-list">
+          <div><h4>Visualization &amp; BI</h4><p>Looker, Tableau, Domo</p></div>
+        </div>
+      </div>
+      <div class="card col-2">
+        <div class="skill-list">
+          <div><h4>ETL &amp; Orchestration</h4><p>Matillion, Apps Script, Pandas, Snowflake Tasks</p></div>
+        </div>
+      </div>
+      <div class="card col-2">
+        <div class="skill-list">
+          <div><h4>Marketing Platforms</h4><p>GA4, Campaign Manager, Brandwatch, Kochava</p></div>
+        </div>
+      </div>
+      <div class="card col-2">
+        <div class="skill-list">
+          <div><h4>Developer Tools</h4><p>Git, Postman, Confluence, JIRA</p></div>
+        </div>
+      </div>
+      <div class="card col-2">
+        <div class="skill-list">
+          <div><h4>Other</h4><p>Agile/Scrum, REST APIs, Slack API, Data Modeling, Regex</p></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <p><a href="mailto:vuanna@seas.upenn.edu">vuanna@seas.upenn.edu</a> &nbsp;&middot;&nbsp; <a href="https://www.linkedin.com/in/linh-vu-251099/">LinkedIn</a></p>
+</footer>
+
+<script>
+  document.querySelectorAll('.tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+      document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('active')});
+      tab.classList.add('active');
+      document.getElementById('panel-'+tab.dataset.tab).classList.add('active');
     });
-
-    function toggleTheme() {
-      var html = document.documentElement;
-      var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      updateToggle(next);
-    }
-    function updateToggle(t) {
-      var btn = document.querySelector('.theme-toggle');
-      btn.querySelector('.icon').textContent = t === 'dark' ? '\u2600' : '\u263E';
-      btn.querySelector('.label').textContent = t === 'dark' ? 'light' : 'dark';
-    }
-    (function() {
-      var s = localStorage.getItem('theme');
-      if (s) document.documentElement.setAttribute('data-theme', s);
-      updateToggle(document.documentElement.getAttribute('data-theme'));
-    })();
-  </script>
+  });
+  function toggleTheme(){
+    var html=document.documentElement;
+    var next=html.getAttribute('data-theme')==='dark'?'light':'dark';
+    html.setAttribute('data-theme',next);
+    localStorage.setItem('theme',next);
+    updateToggle(next);
+  }
+  function updateToggle(t){
+    document.querySelector('.theme-toggle').textContent=t==='dark'?'\u2600':'\u263E';
+  }
+  (function(){
+    var s=localStorage.getItem('theme');
+    if(s) document.documentElement.setAttribute('data-theme',s);
+    updateToggle(document.documentElement.getAttribute('data-theme'));
+  })();
+</script>
 
 </body>
 </html>
