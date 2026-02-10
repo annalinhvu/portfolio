@@ -139,12 +139,22 @@
   .hero .bio { font-size:0.9rem; line-height:1.8; color:var(--text-2); max-width:540px; }
   .hero .bio p { margin-bottom:10px; }
   .hero .bio p:last-child { margin-bottom:0; }
-  .hero .links { display:flex; gap:10px; margin-top:22px; flex-wrap:wrap; }
+  .hero .proof {
+    font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-3);
+    margin-top:18px; letter-spacing:0.3px;
+  }
+  .hero .links { display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; }
   .hero .links a {
     font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-3);
     text-decoration:none; padding:7px 16px; border:1px solid var(--glass-border); border-radius:10px; transition:all 0.2s;
   }
   .hero .links a:hover { color:var(--accent-2); border-color:var(--tag-border); }
+  .hero .links a.btn-primary {
+    background:var(--accent); color:#fff; border-color:var(--accent);
+  }
+  .hero .links a.btn-primary:hover {
+    background:var(--accent-2); border-color:var(--accent-2); color:#fff;
+  }
 
   .sec-title { font-family:'JetBrains Mono',monospace; font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:16px; }
   .card p.body { font-size:0.88rem; line-height:1.75; color:var(--text-2); }
@@ -207,13 +217,25 @@
   .profile-pic img {
     position:absolute; width:100%; height:100%; object-fit:cover;
   }
-  /* Stats cards */
-  .stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:12px; }
-  .stat-card { text-align:center; padding:24px 16px; position:relative; overflow:hidden; }
-  .stat-accent { width:40px; height:3px; border-radius:2px; margin:0 auto 14px; animation:accentGrow 0.8s ease both; }
-  @keyframes accentGrow { from { width:0; } to { width:40px; } }
-  .stat-num { font-family:'JetBrains Mono',monospace; font-size:1.8rem; font-weight:600; margin-bottom:4px; }
-  .stat-label { font-size:0.7rem; color:var(--text-4); letter-spacing:0.5px; }
+  /* Now/Next/Always cards */
+  .snapshot-row { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:12px; }
+  .snapshot-card { padding:22px 20px; }
+  .snapshot-card .snap-label {
+    font-family:'JetBrains Mono',monospace; font-size:0.62rem; letter-spacing:1.5px;
+    text-transform:uppercase; margin-bottom:10px; display:flex; align-items:center; gap:6px;
+  }
+  .snapshot-card .snap-label::before {
+    content:''; display:inline-block; width:8px; height:2px; border-radius:1px;
+  }
+  .snap-now .snap-label { color:#14b8a6; }
+  .snap-now .snap-label::before { background:#14b8a6; }
+  .snap-next .snap-label { color:#818cf8; }
+  .snap-next .snap-label::before { background:#818cf8; }
+  .snap-always .snap-label { color:#f59e0b; }
+  .snap-always .snap-label::before { background:#f59e0b; }
+  .snap-home .snap-label { color:#f43f5e; }
+  .snap-home .snap-label::before { background:#f43f5e; }
+  .snapshot-card .snap-text { font-size:0.84rem; color:var(--text-2); line-height:1.65; }
 
   /* About bottom row */
   .about-bottom { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
@@ -223,14 +245,18 @@
   .section-header:first-child { margin-top:0; }
 
   /* Pipeline visualization */
-  .pipeline-wrap { margin-bottom:12px; padding:4px 0; }
+  .pipeline-wrap { margin-bottom:12px; padding:4px 0; position:relative; }
   .pipeline { width:100%; display:block; }
-  .pipe-stage { fill:var(--glass); stroke-width:1.5; }
+  .pipe-stage { fill:var(--glass); stroke-width:1.5; transition:fill 0.2s; }
+  .pipe-group { cursor:pointer; }
   .pipe-stage-1 { stroke:rgba(20,184,166,0.35); }
   .pipe-stage-2 { stroke:rgba(129,140,248,0.35); }
   .pipe-stage-3 { stroke:rgba(245,158,11,0.35); }
   .pipe-stage-4 { stroke:rgba(244,63,94,0.35); }
-  .pipe-label { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:1.5px; text-anchor:middle; }
+  .pipe-label { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:1.5px; text-anchor:middle; pointer-events:none; }
+  .pipe-sub { font-family:'Segoe UI',system-ui,sans-serif; font-size:7.5px; text-anchor:middle; opacity:0; transition:opacity 0.25s; pointer-events:none; }
+  .pipe-group:hover .pipe-sub { opacity:1; }
+  .pipe-group:hover .pipe-stage { fill:var(--glass-hover); }
   .pipe-line { stroke:var(--text-4); stroke-width:1.5; stroke-dasharray:4,3; opacity:0.35; }
 
   /* Staggered card reveal */
@@ -239,13 +265,6 @@
     to { opacity:1; transform:translateY(0); }
   }
   .stagger-item { opacity:0; animation:staggerIn 0.4s ease forwards; }
-
-  /* Scale pop for non-numeric stats */
-  @keyframes scalePop {
-    from { opacity:0; transform:scale(0.3); }
-    to { opacity:1; transform:scale(1); }
-  }
-  .count-pop { animation:scalePop 0.6s cubic-bezier(0.34,1.56,0.64,1) forwards; }
 
   /* Focus states for accessibility */
   .tab:focus-visible, .theme-toggle:focus-visible {
@@ -260,14 +279,6 @@
   }
 
   footer { position:relative; z-index:1; text-align:center; padding:40px 0 56px; }
-  footer::before {
-    content:'';
-    display:block;
-    width:40px; height:1px;
-    background:var(--glass-border);
-    margin:0 auto 24px;
-  }
-  footer .footer-tagline { font-size:0.68rem; color:var(--text-4); margin-bottom:10px; letter-spacing:0.5px; }
   footer p { font-size:0.75rem; color:var(--text-4); }
   footer a { color:var(--text-3); text-decoration:none; transition:color 0.2s; }
   footer a:hover { color:var(--accent-2); }
@@ -285,7 +296,7 @@
     .page { padding:20px 14px 60px; }
     .top-bar { padding:12px 16px; }
     .tab { padding:7px 12px; font-size:0.66rem; }
-    .stats-row { grid-template-columns:repeat(2,1fr); }
+    .snapshot-row { grid-template-columns:repeat(2,1fr); }
     .about-bottom { grid-template-columns:1fr 1fr; }
   }
   @media(max-width:480px) {
@@ -326,30 +337,42 @@
         <div class="hero-content">
           <div class="eyebrow">Data Engineer</div>
           <h1>Anna (Linh) Vu</h1>
-          <div class="sub">I build robust data pipelines, design scalable warehouses, and turn raw data into actionable insights.</div>
-          <div class="bio">
-            <p>I'm from Hanoi, Vietnam. I came to the U.S. almost 10 years ago to study Economics and Film at Vanderbilt University, and now I live in New York City where I work as a Senior Data Engineer.</p>
-            <p>I'm happiest when I'm out in the city, whether it's new restaurants, small events, or random discoveries. I also volunteer outside of work and keep my filmmaking practice going as a way to stay creative and give back.</p>
+          <div class="sub">I build reliable data pipelines and scalable warehouse models that turn messy inputs into decisions.</div>
+          <div class="proof">5+ years building production data systems.</div>
+          <div class="links">
+            <a href="#" class="btn-primary" onclick="document.querySelector('[data-tab=projects]').click();return false;">View Projects</a>
+            <a href="mailto:vuanna@seas.upenn.edu">Get in touch</a>
           </div>
         </div>
       </div>
     </div>
 
     <div class="pipeline-wrap">
-      <svg class="pipeline" viewBox="0 0 720 80">
+      <svg class="pipeline" viewBox="0 0 720 90">
         <line class="pipe-line" x1="130" y1="40" x2="195" y2="40"/>
         <line class="pipe-line" x1="325" y1="40" x2="390" y2="40"/>
         <line class="pipe-line" x1="520" y1="40" x2="585" y2="40"/>
 
-        <rect class="pipe-stage pipe-stage-1" x="0" y="15" width="130" height="50" rx="12"/>
-        <rect class="pipe-stage pipe-stage-2" x="195" y="15" width="130" height="50" rx="12"/>
-        <rect class="pipe-stage pipe-stage-3" x="390" y="15" width="130" height="50" rx="12"/>
-        <rect class="pipe-stage pipe-stage-4" x="585" y="15" width="130" height="50" rx="12"/>
-
-        <text class="pipe-label" x="65" y="44" fill="#14b8a6">INGEST</text>
-        <text class="pipe-label" x="260" y="44" fill="#818cf8">TRANSFORM</text>
-        <text class="pipe-label" x="455" y="44" fill="#f59e0b">LOAD</text>
-        <text class="pipe-label" x="650" y="44" fill="#f43f5e">SERVE</text>
+        <g class="pipe-group" data-nav="skills">
+          <rect class="pipe-stage pipe-stage-1" x="0" y="15" width="130" height="50" rx="12"/>
+          <text class="pipe-label" x="65" y="44" fill="#14b8a6">INGEST</text>
+          <text class="pipe-sub" x="65" y="80" fill="#14b8a6">APIs + SFTP + S3</text>
+        </g>
+        <g class="pipe-group" data-nav="skills">
+          <rect class="pipe-stage pipe-stage-2" x="195" y="15" width="130" height="50" rx="12"/>
+          <text class="pipe-label" x="260" y="44" fill="#818cf8">TRANSFORM</text>
+          <text class="pipe-sub" x="260" y="80" fill="#818cf8">SQL + Python + Matillion</text>
+        </g>
+        <g class="pipe-group" data-nav="projects">
+          <rect class="pipe-stage pipe-stage-3" x="390" y="15" width="130" height="50" rx="12"/>
+          <text class="pipe-label" x="455" y="44" fill="#f59e0b">VISUALIZE</text>
+          <text class="pipe-sub" x="455" y="80" fill="#f59e0b">Looker + Tableau</text>
+        </g>
+        <g class="pipe-group" data-nav="experience">
+          <rect class="pipe-stage pipe-stage-4" x="585" y="15" width="130" height="50" rx="12"/>
+          <text class="pipe-label" x="650" y="44" fill="#f43f5e">ANALYZE</text>
+          <text class="pipe-sub" x="650" y="80" fill="#f43f5e">Insights + decisions</text>
+        </g>
 
         <circle r="3" fill="#14b8a6" opacity="0"><animateMotion dur="1.2s" begin="0s" repeatCount="indefinite" path="M130,40 L195,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0s" repeatCount="indefinite"/></circle>
         <circle r="3" fill="#14b8a6" opacity="0"><animateMotion dur="1.2s" begin="0.4s" repeatCount="indefinite" path="M130,40 L195,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0.4s" repeatCount="indefinite"/></circle>
@@ -365,26 +388,22 @@
       </svg>
     </div>
 
-    <div class="stats-row">
-      <div class="card stat-card">
-        <div class="stat-accent" style="background:#14b8a6"></div>
-        <div class="stat-num" style="color:#14b8a6" data-target="5" data-suffix="+">0</div>
-        <div class="stat-label">years in data engineering</div>
+    <div class="snapshot-row">
+      <div class="card snapshot-card snap-now">
+        <div class="snap-label">Now</div>
+        <div class="snap-text">Senior Data Engineer in NYC. I build pipelines and data models teams can trust.</div>
       </div>
-      <div class="card stat-card">
-        <div class="stat-accent" style="background:#818cf8"></div>
-        <div class="stat-num" style="color:#818cf8" data-target="26">0</div>
-        <div class="stat-label">years on this earth</div>
+      <div class="card snapshot-card snap-next">
+        <div class="snap-label">Next</div>
+        <div class="snap-text">M.S. in Computer &amp; Information Technology at University of Pennsylvania (part-time). Sharpening CS fundamentals.</div>
       </div>
-      <div class="card stat-card">
-        <div class="stat-accent" style="background:#f59e0b"></div>
-        <div class="stat-num count-pop" style="color:#f59e0b">++</div>
-        <div class="stat-label">years of self-discovery &amp; continuous learning</div>
+      <div class="card snapshot-card snap-always">
+        <div class="snap-label">Always</div>
+        <div class="snap-text">Systems mindset, human lens: clarity, craft, and usability.</div>
       </div>
-      <div class="card stat-card">
-        <div class="stat-accent" style="background:#f43f5e"></div>
-        <div class="stat-num count-pop" style="color:#f43f5e">&infin;</div>
-        <div class="stat-label">countries to explore</div>
+      <div class="card snapshot-card snap-home">
+        <div class="snap-label">Home base</div>
+        <div class="snap-text">Hanoi &rarr; New York City. Building a life across tech + art.</div>
       </div>
     </div>
 
@@ -669,7 +688,6 @@
 </div>
 
 <footer>
-  <div class="footer-tagline">Built with curiosity and a lot of SQL.</div>
   <p><a href="mailto:vuanna@seas.upenn.edu">vuanna@seas.upenn.edu</a> &nbsp;&middot;&nbsp; <a href="https://www.linkedin.com/in/linh-vu-251099/">LinkedIn</a></p>
 </footer>
 
@@ -708,6 +726,14 @@
     document.querySelector('.theme-toggle').textContent = t === 'dark' ? '\u2600' : '\u263E';
   }
 
+  /* ── Pipeline click-to-navigate ── */
+  document.querySelectorAll('.pipe-group[data-nav]').forEach(function(g) {
+    g.addEventListener('click', function() {
+      var tab = document.querySelector('[data-tab="' + g.dataset.nav + '"]');
+      if (tab) tab.click();
+    });
+  });
+
   /* ── 3D card tilt on hover ── */
   document.querySelectorAll('.card').forEach(function(card) {
     card.addEventListener('mousemove', function(e) {
@@ -723,32 +749,11 @@
     });
   });
 
-  /* ── Count-up animation for stats ── */
-  function countUp(el, target, suffix, duration) {
-    var startTime = null;
-    function step(ts) {
-      if (!startTime) startTime = ts;
-      var p = Math.min((ts - startTime) / duration, 1);
-      var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.floor(eased * target) + suffix;
-      if (p < 1) requestAnimationFrame(step);
-      else el.textContent = target + suffix;
-    }
-    requestAnimationFrame(step);
-  }
-
   /* ── Init on load ── */
   (function() {
     var s = localStorage.getItem('theme');
     if (s) document.documentElement.setAttribute('data-theme', s);
     updateToggle(document.documentElement.getAttribute('data-theme'));
-
-    /* Count up stat numbers */
-    setTimeout(function() {
-      document.querySelectorAll('.stat-num[data-target]').forEach(function(el) {
-        countUp(el, parseInt(el.dataset.target), el.dataset.suffix || '', 1200);
-      });
-    }, 400);
 
     /* Initial stagger for About panel */
     revealPanel(document.getElementById('panel-about'));
