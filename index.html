@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anna (Linh) Vu | Data Engineer</title>
+<meta name="description" content="Senior Data Engineer in NYC. I build reliable data pipelines and scalable warehouse models that turn messy inputs into decisions.">
+<meta property="og:title" content="Anna (Linh) Vu | Data Engineer">
+<meta property="og:description" content="Senior Data Engineer in NYC building reliable pipelines and scalable data models.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="profile.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Anna (Linh) Vu | Data Engineer">
+<meta name="twitter:description" content="Senior Data Engineer in NYC building reliable pipelines and scalable data models.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -25,21 +34,21 @@
     --tag-color: #a5b4fc;
   }
   :root[data-theme="light"] {
-    --bg: #f0f1f7;
-    --glass: rgba(255,255,255,0.6);
-    --glass-hover: rgba(255,255,255,0.75);
-    --glass-border: rgba(0,0,0,0.06);
-    --glass-border-hover: rgba(0,0,0,0.1);
-    --text-1: #1a1f35;
-    --text-2: #4a5070;
-    --text-3: #6b7194;
-    --text-4: #9da3be;
-    --accent: #6366f1;
-    --accent-2: #4f46e5;
-    --accent-bg: rgba(99,102,241,0.06);
-    --amber: #d97706;
-    --tag-border: rgba(99,102,241,0.2);
-    --tag-color: #6366f1;
+    --bg: #f4f5fa;
+    --glass: rgba(255,255,255,0.72);
+    --glass-hover: rgba(255,255,255,0.88);
+    --glass-border: rgba(0,0,0,0.08);
+    --glass-border-hover: rgba(0,0,0,0.13);
+    --text-1: #1a1d2e;
+    --text-2: #3d4260;
+    --text-3: #5c6184;
+    --text-4: #8b90aa;
+    --accent: #5b5ef0;
+    --accent-2: #4845d9;
+    --accent-bg: rgba(91,94,240,0.07);
+    --amber: #b45309;
+    --tag-border: rgba(91,94,240,0.22);
+    --tag-color: #5b5ef0;
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -80,9 +89,9 @@
   }
   [data-theme="light"] .gradient-bg {
     background:
-      radial-gradient(ellipse 600px 400px at 15% 15%, rgba(99,102,241,0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 500px 350px at 85% 55%, rgba(251,191,36,0.05) 0%, transparent 70%),
-      radial-gradient(ellipse 400px 300px at 50% 95%, rgba(244,114,182,0.04) 0%, transparent 70%);
+      radial-gradient(ellipse 600px 400px at 15% 15%, rgba(91,94,240,0.1) 0%, transparent 70%),
+      radial-gradient(ellipse 500px 350px at 85% 55%, rgba(251,191,36,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 300px at 50% 95%, rgba(244,114,182,0.06) 0%, transparent 70%);
   }
 
   .top-bar {
@@ -261,10 +270,10 @@
 
   /* Staggered card reveal */
   @keyframes staggerIn {
-    from { opacity:0; transform:translateY(14px); }
+    from { opacity:0; transform:translateY(6px); }
     to { opacity:1; transform:translateY(0); }
   }
-  .stagger-item { opacity:0; animation:staggerIn 0.4s ease forwards; }
+  .stagger-item { opacity:0; animation:staggerIn 0.25s ease forwards; }
 
   /* Focus states for accessibility */
   .tab:focus-visible, .theme-toggle:focus-visible {
@@ -341,7 +350,8 @@
           <div class="proof">5+ years building production data systems.</div>
           <div class="links">
             <a href="#" class="btn-primary" onclick="document.querySelector('[data-tab=projects]').click();return false;">View Projects</a>
-            <a href="mailto:vuanna@seas.upenn.edu">Get in touch</a>
+            <a href="https://www.linkedin.com/in/linh-vu-251099/">LinkedIn</a>
+            <a href="mailto:vuanna@seas.upenn.edu">Email</a>
           </div>
         </div>
       </div>
@@ -699,7 +709,7 @@
       item.classList.remove('stagger-item');
       void item.offsetWidth;
       item.classList.add('stagger-item');
-      item.style.animationDelay = (i * 0.06) + 's';
+      item.style.animationDelay = (i * 0.03) + 's';
     });
   }
 
@@ -711,6 +721,7 @@
       var panel = document.getElementById('panel-' + tab.dataset.tab);
       panel.classList.add('active');
       revealPanel(panel);
+      history.replaceState(null, '', '#' + tab.dataset.tab);
     });
   });
 
@@ -740,8 +751,8 @@
       var rect = card.getBoundingClientRect();
       var x = e.clientX - rect.left;
       var y = e.clientY - rect.top;
-      var rotateX = ((y - rect.height / 2) / rect.height) * -4;
-      var rotateY = ((x - rect.width / 2) / rect.width) * 4;
+      var rotateX = ((y - rect.height / 2) / rect.height) * -2;
+      var rotateY = ((x - rect.width / 2) / rect.width) * 2;
       card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-2px)';
     });
     card.addEventListener('mouseleave', function() {
@@ -755,8 +766,14 @@
     if (s) document.documentElement.setAttribute('data-theme', s);
     updateToggle(document.documentElement.getAttribute('data-theme'));
 
-    /* Initial stagger for About panel */
-    revealPanel(document.getElementById('panel-about'));
+    /* Open tab from URL hash (e.g. #projects) */
+    var hash = location.hash.replace('#', '');
+    var hashTab = hash && document.querySelector('[data-tab="' + hash + '"]');
+    if (hashTab) {
+      hashTab.click();
+    } else {
+      revealPanel(document.getElementById('panel-about'));
+    }
   })();
 </script>
 
