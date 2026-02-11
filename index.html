@@ -23,9 +23,9 @@
     --glass-border: rgba(255,255,255,0.06);
     --glass-border-hover: rgba(255,255,255,0.1);
     --text-1: #eef0f6;
-    --text-2: #9da3be;
-    --text-3: #6b7194;
-    --text-4: #4a5070;
+    --text-2: #b0b5ce;
+    --text-3: #7f86a8;
+    --text-4: #5c6385;
     --accent: #818cf8;
     --accent-2: #a5b4fc;
     --accent-bg: rgba(129,140,248,0.08);
@@ -144,6 +144,7 @@
   .hero { padding:36px; }
   .hero .eyebrow { font-family:'JetBrains Mono',monospace; font-size:0.68rem; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin-bottom:16px; }
   .hero h1 { font-family:'DM Sans',sans-serif; font-size:2.2rem; font-weight:700; color:var(--text-1); letter-spacing:-0.5px; margin-bottom:6px; transition:color 0.3s; }
+  .name-sub { font-weight:400; font-size:0.5em; color:var(--text-4); margin-left:4px; letter-spacing:1px; }
   .hero .sub { font-size:0.88rem; color:var(--text-3); margin-bottom:22px; }
   .hero .bio { font-size:0.9rem; line-height:1.8; color:var(--text-2); max-width:540px; }
   .hero .bio p { margin-bottom:10px; }
@@ -170,16 +171,16 @@
 
   /* Projects */
   .proj-title { font-size:1rem; font-weight:700; color:var(--text-1); margin-bottom:4px; transition:color 0.3s; }
-  .proj-ctx { font-size:0.72rem; color:var(--text-4); margin-bottom:10px; }
+  .proj-ctx { font-size:0.74rem; color:var(--text-4); margin-bottom:10px; }
   .proj-tags { display:flex; gap:5px; flex-wrap:wrap; margin-bottom:12px; }
-  .proj-tags span { font-family:'JetBrains Mono',monospace; font-size:0.6rem; padding:3px 9px; border:1px solid var(--tag-border); border-radius:8px; color:var(--tag-color); transition:all 0.2s; cursor:default; }
+  .proj-tags span { font-family:'JetBrains Mono',monospace; font-size:0.65rem; padding:3px 9px; border:1px solid var(--tag-border); border-radius:8px; color:var(--tag-color); transition:all 0.2s; cursor:default; }
   .proj-tags span:hover { background:var(--accent-bg); border-color:var(--accent); transform:translateY(-1px); }
-  .proj-desc { font-size:0.84rem; color:var(--text-2); line-height:1.7; margin-bottom:14px; }
+  .proj-desc { font-size:0.86rem; color:var(--text-2); line-height:1.75; margin-bottom:14px; }
   .proj-metrics { display:flex; gap:20px; flex-wrap:wrap; }
   .pm { display:flex; align-items:baseline; gap:6px; }
   .pm .v { font-family:'JetBrains Mono',monospace; font-size:1rem; font-weight:500; color:var(--amber); transition:all 0.3s; }
   .card:hover .pm .v { filter:brightness(1.2); }
-  .pm .u { font-size:0.68rem; color:var(--text-4); }
+  .pm .u { font-size:0.72rem; color:var(--text-4); }
 
   /* Experience */
   .exp-card { margin-bottom:12px; }
@@ -187,8 +188,9 @@
   .exp-role { font-size:0.95rem; font-weight:700; color:var(--text-1); transition:color 0.3s; }
   .exp-meta { font-size:0.8rem; color:var(--text-3); margin-bottom:10px; }
   .exp-bullets { list-style:none; }
-  .exp-bullets li { position:relative; padding-left:14px; font-size:0.82rem; color:var(--text-2); margin-bottom:5px; line-height:1.65; }
+  .exp-bullets li { position:relative; padding-left:14px; font-size:0.84rem; color:var(--text-2); margin-bottom:6px; line-height:1.7; }
   .exp-bullets li::before { content:''; position:absolute; left:2px; top:8px; width:5px; height:5px; border-radius:50%; background:var(--accent); }
+  .exp-wins { display:flex; gap:20px; flex-wrap:wrap; margin-top:12px; padding-top:12px; border-top:1px solid var(--glass-border); }
 
   /* Skills */
   .skill-list { display:flex; flex-direction:column; gap:14px; }
@@ -250,11 +252,12 @@
   .about-bottom { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 
   /* Section divider */
-  .section-header { font-family:'JetBrains Mono',monospace; font-size:0.72rem; letter-spacing:2px; text-transform:uppercase; color:var(--accent); margin:24px 0 12px; padding-left:4px; }
+  .section-header { font-family:'JetBrains Mono',monospace; font-size:0.76rem; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--accent-2); margin:24px 0 12px; padding-left:4px; }
   .section-header:first-child { margin-top:0; }
 
   /* Pipeline visualization */
   .pipeline-wrap { margin-bottom:12px; padding:4px 0; position:relative; }
+  .pipe-hint { font-size:0.7rem; color:var(--text-4); margin-bottom:8px; text-align:center; letter-spacing:0.3px; }
   .pipeline { width:100%; display:block; }
   .pipe-stage { fill:var(--glass); stroke-width:1.5; transition:fill 0.2s; }
   .pipe-group { cursor:pointer; }
@@ -345,9 +348,9 @@
         </div>
         <div class="hero-content">
           <div class="eyebrow">Data Engineer</div>
-          <h1>Anna (Linh) Vu</h1>
+          <h1>Anna Vu <span class="name-sub">Linh</span></h1>
           <div class="sub">I build reliable data pipelines and scalable warehouse models that turn messy inputs into decisions.</div>
-          <div class="proof">5+ years building production data systems.</div>
+          <div class="proof">5+ years in marketing analytics at scale.</div>
           <div class="links">
             <a href="#" class="btn-primary" onclick="document.querySelector('[data-tab=projects]').click();return false;">View Projects</a>
             <a href="https://www.linkedin.com/in/linh-vu-251099/">LinkedIn</a>
@@ -358,6 +361,7 @@
     </div>
 
     <div class="pipeline-wrap">
+      <div class="pipe-hint">How I think about data systems <span style="opacity:0.5">(click to explore)</span></div>
       <svg class="pipeline" viewBox="0 0 720 90">
         <line class="pipe-line" x1="130" y1="40" x2="195" y2="40"/>
         <line class="pipe-line" x1="325" y1="40" x2="390" y2="40"/>
@@ -443,7 +447,7 @@
         <div class="proj-title">Enterprise ETL Pipeline Architecture</div>
         <div class="proj-ctx">DEPT Agency</div>
         <div class="proj-tags"><span>Matillion</span><span>Snowflake</span><span>Python</span><span>S3</span><span>SFTP</span><span>Looker</span></div>
-        <div class="proj-desc">Core data infrastructure for an enterprise client with $2B+ annual ad spend. Consolidated 30+ disconnected sources (emails, SFTP drops, S3 buckets, APIs) into a centralized Snowflake warehouse powering Looker dashboards for campaign performance and budget allocation.</div>
+        <div class="proj-desc">Consolidated 30+ disconnected sources into a centralized Snowflake warehouse powering Looker dashboards for campaign performance and budget allocation.</div>
         <div class="proj-metrics"><div class="pm"><span class="v">30+</span><span class="u">sources</span></div><div class="pm"><span class="v">1TB</span><span class="u">monthly</span></div><div class="pm"><span class="v">$2B+</span><span class="u">ad spend</span></div></div>
       </div>
 
@@ -451,7 +455,7 @@
         <div class="proj-title">Automated Data Store Workflow</div>
         <div class="proj-ctx">DEPT Agency</div>
         <div class="proj-tags"><span>Apps Script</span><span>Matillion</span><span>Snowflake</span><span>Google Sheets</span></div>
-        <div class="proj-desc">End-to-end automation replacing manual data request workflows. Google Sheets intake triggers Apps Script validation and Matillion ETL jobs into Snowflake. Eliminated manual entry and hand-off errors for the Client Services team.</div>
+        <div class="proj-desc">Google Sheets intake triggers Apps Script and Matillion ETL jobs into Snowflake. Eliminated manual entry and hand-off errors.</div>
         <div class="proj-metrics"><div class="pm"><span class="v">40%</span><span class="u">less manual work</span></div><div class="pm"><span class="v">40%</span><span class="u">faster turnaround</span></div></div>
       </div>
 
@@ -459,7 +463,7 @@
         <div class="proj-title">Real-Time Slack Alerting Pipeline</div>
         <div class="proj-ctx">DEPT Agency</div>
         <div class="proj-tags"><span>SQL</span><span>Python</span><span>Matillion</span><span>Slack API</span></div>
-        <div class="proj-desc">Automated monitoring system that evaluates marketing datasets against predefined thresholds and pushes formatted, contextualized alerts directly to client Slack channels when anomalies are detected.</div>
+        <div class="proj-desc">Evaluates marketing data against thresholds and pushes formatted alerts to client Slack channels when anomalies are detected.</div>
         <div class="proj-metrics"><div class="pm"><span class="v">40%</span><span class="u">faster resolution</span></div><div class="pm"><span class="v">Real-time</span><span class="u">alerting</span></div></div>
       </div>
 
@@ -467,7 +471,7 @@
         <div class="proj-title">Snowflake Warehouse Optimization</div>
         <div class="proj-ctx">DEPT Agency</div>
         <div class="proj-tags"><span>Snowflake</span><span>SQL</span></div>
-        <div class="proj-desc">Led a large-scale audit and cleanup of the entire Snowflake warehouse. Refactored 50%+ of data views, standardized naming conventions, consolidated duplicate logic, and documented ownership for every table.</div>
+        <div class="proj-desc">Refactored 50%+ of data views, standardized naming conventions, consolidated duplicate logic, and documented ownership across the warehouse.</div>
         <div class="proj-metrics"><div class="pm"><span class="v">30%</span><span class="u">cost reduction</span></div><div class="pm"><span class="v">1,000+</span><span class="u">tables audited</span></div></div>
       </div>
 
@@ -475,7 +479,7 @@
         <div class="proj-title">API Data Ingestion Framework</div>
         <div class="proj-ctx">DEPT Agency</div>
         <div class="proj-tags"><span>Python</span><span>Pandas</span><span>REST APIs</span><span>Snowflake</span></div>
-        <div class="proj-desc">Standardized Python framework for ingesting data from marketing APIs (Google Analytics, Campaign Manager, Kochava, Brandwatch). Each connector handles auth, pagination, rate limiting, and Pandas-based transformation before loading into Snowflake.</div>
+        <div class="proj-desc">Reusable Python connectors for marketing APIs handling auth, pagination, rate limiting, and Pandas transformation before loading into Snowflake.</div>
         <div class="proj-metrics"><div class="pm"><span class="v">6+</span><span class="u">APIs integrated</span></div></div>
       </div>
 
@@ -483,7 +487,7 @@
         <div class="proj-title">Automated Reporting Suite</div>
         <div class="proj-ctx">DEPT Agency</div>
         <div class="proj-tags"><span>SQL</span><span>Tableau</span><span>Snowflake</span></div>
-        <div class="proj-desc">Backend SQL views powering automated marketing reports and interactive Tableau dashboards for 100+ agency clients. Full lifecycle from stakeholder requirements through SQL development, visualization, and ongoing maintenance.</div>
+        <div class="proj-desc">SQL views powering automated reports and Tableau dashboards for 100+ clients. Full lifecycle from requirements through development and maintenance.</div>
         <div class="proj-metrics"><div class="pm"><span class="v">100+</span><span class="u">clients</span></div><div class="pm"><span class="v">200+</span><span class="u">tickets resolved</span></div></div>
       </div>
 
@@ -491,7 +495,7 @@
         <div class="proj-title">Interactive BI Dashboard Suite</div>
         <div class="proj-ctx">FIG Agency</div>
         <div class="proj-tags"><span>Domo</span><span>Python</span><span>SQL</span></div>
-        <div class="proj-desc">Designed 50+ interactive Domo dashboards covering campaign performance, audience insights, competitive analysis, and media spend. Automated the monthly insights generation process with Python scripts to reduce manual workload and support business pitches.</div>
+        <div class="proj-desc">50+ Domo dashboards for campaign performance, audience insights, and media spend. Automated monthly insights generation with Python.</div>
         <div class="proj-metrics"><div class="pm"><span class="v">50+</span><span class="u">dashboards</span></div></div>
       </div>
 
@@ -499,7 +503,7 @@
         <div class="proj-title">ESOV Media Spend Analysis</div>
         <div class="proj-ctx">FIG Agency</div>
         <div class="proj-tags"><span>R</span><span>Kantar</span><span>Pathmatics</span><span>Google Trends</span></div>
-        <div class="proj-desc">Built Excess Share of Voice (ESOV) charts correlating media spend data from Kantar and Pathmatics with Google Trends search indexes. Created CDI/BDI scatter plots to identify potential markets for budget planning and radar charts to analyse brand salience scores.</div>
+        <div class="proj-desc">ESOV charts correlating media spend with Google Trends data. CDI/BDI scatter plots for market identification and radar charts for brand salience.</div>
         <div class="proj-metrics"><div class="pm"><span class="v">3</span><span class="u">chart types</span></div></div>
       </div>
 
@@ -507,7 +511,7 @@
         <div class="proj-title">Social Listening &amp; Audience Insights</div>
         <div class="proj-ctx">FIG Agency</div>
         <div class="proj-tags"><span>Brandwatch</span><span>Python</span><span>Jupyter</span></div>
-        <div class="proj-desc">Built Brandwatch queries and dashboards for social listening across client brands. Created 10+ audience insights decks for new business pitches. Automated the insights writing process and custom chart generation with Python on Jupyter Notebooks.</div>
+        <div class="proj-desc">Brandwatch social listening dashboards across client brands. Automated insights writing and chart generation with Python for 10+ pitch decks.</div>
         <div class="proj-metrics"><div class="pm"><span class="v">10+</span><span class="u">insights decks</span></div></div>
       </div>
 
@@ -515,7 +519,7 @@
         <div class="proj-title">Media Campaign Trafficking</div>
         <div class="proj-ctx">FIG Agency</div>
         <div class="proj-tags"><span>Prisma/MediaOcean</span><span>Campaign Manager 360</span><span>Google Ads</span></div>
-        <div class="proj-desc">Created campaigns and placements on Prisma/MediaOcean, built trafficking sheets for Campaign Manager 360 using taxonomy matrices. Managed Google Ads accounts, built search media plans, and developed optimization strategies across 20+ media vendors.</div>
+        <div class="proj-desc">Campaign setup on Prisma/MediaOcean, trafficking sheets for CM360, Google Ads management, and optimization strategies across 20+ vendors.</div>
         <div class="proj-metrics"><div class="pm"><span class="v">20+</span><span class="u">vendors</span></div></div>
       </div>
 
@@ -576,72 +580,55 @@
         <div class="exp-role">Lead Data Technology Engineer</div>
         <div class="exp-meta">DEPT Agency, New York, NY &middot; Aug 2025 to Present</div>
         <ul class="exp-bullets">
-          <li>Partner with a major enterprise with $2B+ annual marketing spend to translate reporting needs into scalable data solutions, scoping requirements and delivery plans that align with technical capabilities and business goals.</li>
-          <li>Architect scalable data models and ETL pipelines to ingest and transform data from 30+ data sources, powering multiple Looker dashboards that deliver actionable insights for enterprise stakeholders.</li>
-          <li>Mentor 3 junior engineers, establish standards &amp; documentation to ensure operational efficiency across projects.</li>
-          <li>Lead technical delivery across multiple reporting and automation initiatives, coordinating timelines, priorities, and releases to ensure accurate and timely stakeholder outcomes.</li>
-          <li>Champion continuous improvement by identifying gaps in data tooling, proposing roadmap initiatives, and driving cross-functional alignment with Client Services and Data Technology.</li>
+          <li>Architected data models and ETL pipelines ingesting 30+ sources into Snowflake, powering Looker dashboards for an enterprise client with $2B+ annual ad spend.</li>
+          <li>Mentored 3 junior engineers, established standards and documentation across projects.</li>
+          <li>Led technical delivery across reporting and automation initiatives, driving cross-functional alignment.</li>
         </ul>
+        <div class="exp-wins"><div class="pm"><span class="v">30+</span><span class="u">sources</span></div><div class="pm"><span class="v">$2B+</span><span class="u">ad spend</span></div><div class="pm"><span class="v">3</span><span class="u">engineers mentored</span></div></div>
       </div>
 
       <div class="card col-4 exp-card">
         <div class="exp-role">Senior Business Intelligence Engineer</div>
         <div class="exp-meta">DEPT Agency, New York, NY &middot; Jun 2024 to Aug 2025</div>
         <ul class="exp-bullets">
-          <li>Maintain high-performance Tableau dashboards and Google Sheets automated reports, managing the full data cycle from ingestion to transformation, visualization, and stakeholder delivery.</li>
-          <li>Drive client-facing projects in partnership with Client Services team, including clarifying requirements, scoping data sources, cleaning &amp; transforming data, and delivering custom dashboards/reports that directly support strategic decision-making.</li>
-          <li>Architect and implement automated Google Sheets workflows for the Client Services team, enabling one-click submission of inputs to trigger App Script and Matillion jobs that generate SQL views and write outputs back to designated tabs, reducing manual work and turnaround time by 40%.</li>
-          <li>Lead large-scale refactoring of 50%+ Snowflake data views, improving query performance and maintainability.</li>
-          <li>Oversee daily monitoring, investigation, resolution of data issues to ensure accuracy &amp; reliability of BI deliverables.</li>
-          <li>Facilitate agile delivery as Scrum Master, driving backlog grooming, brainstorming, and project execution.</li>
+          <li>Shipped automated Google Sheets workflows triggering Apps Script and Matillion pipelines, cutting turnaround time by 40%.</li>
+          <li>Refactored 50%+ of Snowflake data views, improving query performance and maintainability.</li>
+          <li>Owned full data cycle from ingestion to Tableau dashboards and stakeholder delivery.</li>
         </ul>
+        <div class="exp-wins"><div class="pm"><span class="v">40%</span><span class="u">faster turnaround</span></div><div class="pm"><span class="v">50%+</span><span class="u">views refactored</span></div></div>
       </div>
 
       <div class="card col-4 exp-card">
         <div class="exp-role">Business Intelligence Engineer</div>
         <div class="exp-meta">DEPT Agency, New York, NY &middot; Oct 2022 to May 2024</div>
         <ul class="exp-bullets">
-          <li>Developed backend SQL views for automated marketing reports for 100+ cross-agency clients.</li>
-          <li>Designed ETL pipelines via Matillion to ingest data from emails, SFTP, S3 into Snowflake (1TB of data monthly).</li>
-          <li>Developed Python scripts to ingest JSON responses from various APIs, employing Pandas for data cleanup.</li>
-          <li>Established automated email and Slack alert systems, reducing issue resolution times by 40%.</li>
-          <li>Troubleshot 200+ JIRA tickets for Client Services teams on data discrepancies and integration issues.</li>
-          <li>Cleaned up Snowflake database with over 1,000 tables/views, achieving a 30% reduction in warehouse costs.</li>
-          <li>Created and optimized Tableau dashboards to provide clients with data-driven decision-making capabilities.</li>
-          <li>Wrote detailed documentation on Confluence to improve operational clarity and cross-team collaboration.</li>
+          <li>Shipped ETL pipelines via Matillion ingesting 1TB/month from emails, SFTP, S3 into Snowflake.</li>
+          <li>Standardized Python API connectors and SQL views powering reports for 100+ clients.</li>
+          <li>Reduced warehouse costs by 30% after auditing and cleaning 1,000+ tables/views.</li>
         </ul>
+        <div class="exp-wins"><div class="pm"><span class="v">1TB</span><span class="u">monthly</span></div><div class="pm"><span class="v">100+</span><span class="u">clients</span></div><div class="pm"><span class="v">30%</span><span class="u">cost cut</span></div></div>
       </div>
 
       <div class="card col-4 exp-card">
         <div class="exp-role">Data Analyst</div>
         <div class="exp-meta">FIG Agency, New York, NY &middot; Jul 2022 to Oct 2022</div>
         <ul class="exp-bullets">
-          <li>Ingested data from multiple platforms and APIs into Domo, maintained dashboards/datasets/ETL dataflow pipelines, created interactive visualizations that transform data into actionable performance insights.</li>
-          <li>Handled ad hoc requests from clients and internal teams and troubleshot data collection, taxonomy naming convention &amp; match table issues.</li>
-          <li>Built Brandwatch queries/dashboards and created 10+ social listening, audience insights decks for new business pitches.</li>
-          <li>Automated the insights writing process and custom charts generation with Python on Jupyter Notebooks (NumPy, Pandas and Matplotlib).</li>
-          <li>Wrote SQL queries to set up API connectors (BigQuery) and special calculated fields on Domo.</li>
-          <li>Used R to create Excess Share of Voice (ESOV) chart that shows media spend (Kantar, Pathmatics) correlation with Google Trends search indexes.</li>
-          <li>Created CDI/BDI scatter plot charts to identify potential markets for budget planning and radar charts to analyse salience scores by brand.</li>
-          <li>Performed QA on floodlight tags, tracking URLs and UTM parameters using Google Analytics.</li>
-          <li>Provided insights for brand health studies and assisted in the development and measurement of A/B testing.</li>
-          <li>Assisted in the development of reach/frequency predictive models across all media channels.</li>
+          <li>Shipped 50+ Domo dashboards and automated insights generation with Python.</li>
+          <li>Created 10+ audience insights decks with Brandwatch social listening data.</li>
+          <li>Built ESOV and CDI/BDI charts in R, correlating media spend with search trends.</li>
         </ul>
+        <div class="exp-wins"><div class="pm"><span class="v">50+</span><span class="u">dashboards</span></div><div class="pm"><span class="v">10+</span><span class="u">pitch decks</span></div></div>
       </div>
 
       <div class="card col-4 exp-card">
         <div class="exp-role">Media Coordinator</div>
         <div class="exp-meta">FIG Agency, New York, NY &middot; Jun 2021 to Jun 2022</div>
         <ul class="exp-bullets">
-          <li>Managed relationships with 20+ media vendors (Video, Audio, Display, OOH, Print) per billing actualization, reporting and pacing processes.</li>
-          <li>Managed partners' weekly spend and monthly insights reports, kept track of daily spends, KPIs measurement and benchmarks.</li>
-          <li>Wrote monthly performance metrics insights and cross-checked with pre-established benchmarks (CTR, VCR, CPM, CPC, Reach/Frequency).</li>
-          <li>Managed Google Ads account, built search media plan, adjusted pacings and developed strategies for optimizations (SEO).</li>
-          <li>Created new campaigns &amp; placements on Prisma/MediaOcean and trafficking sheets for new placements on Campaign Manager 360 using taxonomy matrix.</li>
-          <li>Created screenshot decks, creative rotation trackers and competitive spend analysis using Kantar, MRI Simmons &amp; Commspoint.</li>
-          <li>Assisted with Media Mix Model strategy &amp; tactical planning, budget prediction and channel allocations.</li>
-          <li>Assisted with researching new audience groups, interests, keywords and creating new ads and adjusting pacing on Facebook &amp; Pinterest Ads.</li>
+          <li>Managed 20+ media vendors across Video, Audio, Display, OOH, and Print channels.</li>
+          <li>Tracked KPIs and delivered monthly performance insights against benchmarks.</li>
+          <li>Built campaigns on Prisma/MediaOcean and trafficking sheets for Campaign Manager 360.</li>
         </ul>
+        <div class="exp-wins"><div class="pm"><span class="v">20+</span><span class="u">vendors</span></div></div>
       </div>
 
     </div>
@@ -650,10 +637,35 @@
   <!-- ══════════ SKILLS ══════════ -->
   <div class="panel" id="panel-skills">
 
+    <div class="section-header">Core</div>
     <div class="bento">
       <div class="card col-2">
         <div class="skill-list">
-          <div><h4>Languages</h4><p>SQL, Python, Java, R, HTML, CSS, JavaScript</p></div>
+          <div><h4>Languages</h4><p>SQL, Python, Java, R</p></div>
+        </div>
+      </div>
+      <div class="card col-2">
+        <div class="skill-list">
+          <div><h4>Databases &amp; Warehousing</h4><p>Snowflake, BigQuery, AWS S3</p></div>
+        </div>
+      </div>
+      <div class="card col-2">
+        <div class="skill-list">
+          <div><h4>ETL &amp; Orchestration</h4><p>Matillion, Apps Script, Snowflake Tasks</p></div>
+        </div>
+      </div>
+      <div class="card col-2">
+        <div class="skill-list">
+          <div><h4>Data Modeling</h4><p>Dimensional Modeling, Data Contracts, Documentation</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header">Strong</div>
+    <div class="bento">
+      <div class="card col-2">
+        <div class="skill-list">
+          <div><h4>Visualization &amp; BI</h4><p>Looker, Tableau, Domo, Google Sheets</p></div>
         </div>
       </div>
       <div class="card col-2">
@@ -663,32 +675,26 @@
       </div>
       <div class="card col-2">
         <div class="skill-list">
-          <div><h4>Databases &amp; Cloud</h4><p>Snowflake, BigQuery, AWS S3, SFTP</p></div>
+          <div><h4>Developer Tools</h4><p>Git, Postman, Confluence, JIRA, VSCode, Jupyter, DBeaver</p></div>
         </div>
       </div>
       <div class="card col-2">
         <div class="skill-list">
-          <div><h4>ETL &amp; Automation</h4><p>Matillion, Apps Script, Snowflake Tasks</p></div>
+          <div><h4>Practices</h4><p>Agile/Scrum, REST APIs, Slack API, Data Contracts</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header">Familiar</div>
+    <div class="bento">
+      <div class="card col-2">
+        <div class="skill-list">
+          <div><h4>Marketing Platforms</h4><p>Google Analytics, Campaign Manager, DV360, SA360, Google Ads, Brandwatch, Kochava, Kantar</p></div>
         </div>
       </div>
       <div class="card col-2">
         <div class="skill-list">
-          <div><h4>Visualization &amp; BI</h4><p>Looker, Tableau, Domo, Google Sheets</p></div>
-        </div>
-      </div>
-      <div class="card col-2">
-        <div class="skill-list">
-          <div><h4>Marketing &amp; Analytics</h4><p>Google Analytics, Campaign Manager, DV360, SA360, Google Ads, Meta Ads, Amazon Ads, The Trade Desk, Brandwatch, Kochava, Kantar, MRI Simmons, Pathmatics, Prisma/MediaOcean, Commspoint</p></div>
-        </div>
-      </div>
-      <div class="card col-2">
-        <div class="skill-list">
-          <div><h4>Developer Tools</h4><p>Git, Postman, Confluence, JIRA, VSCode, Jupyter Notebooks, PyCharm, DBeaver</p></div>
-        </div>
-      </div>
-      <div class="card col-2">
-        <div class="skill-list">
-          <div><h4>Other</h4><p>Agile/Scrum, REST APIs, Slack API, Data Modeling, Regex, JSON/CSV Processing, A/B Testing, SEO</p></div>
+          <div><h4>Web &amp; Other</h4><p>HTML, CSS, JavaScript, A/B Testing, SEO</p></div>
         </div>
       </div>
     </div>
