@@ -103,7 +103,12 @@
     border-bottom:1px solid var(--glass-border);
     transition: background 0.3s, border-color 0.3s;
   }
-  .top-bar nav { margin-left:auto; display:flex; gap:4px; }
+  .top-bar nav { margin-left:auto; display:flex; gap:4px; position:relative; }
+  .tab-indicator {
+    position:absolute; bottom:2px; height:2px; border-radius:1px;
+    background:var(--accent); transition:left 0.3s ease, width 0.3s ease;
+    pointer-events:none;
+  }
   .tab {
     font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:500;
     background:none; border:1px solid transparent; border-radius:10px;
@@ -117,11 +122,10 @@
   }
   .theme-toggle:hover { color:var(--text-2); }
 
-  .page { position:relative; z-index:1; max-width:1020px; margin:0 auto; padding:28px 24px 80px; }
+  .page { position:relative; z-index:1; max-width:1020px; margin:0 auto; padding:28px 24px 80px; overflow:hidden; }
 
-  .panel { display:none; animation:fadeUp 0.25s ease; }
-  .panel.active { display:block; }
-  @keyframes fadeUp { from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:translateY(0)} }
+  .panel { position:absolute; top:0; left:0; right:0; opacity:0; visibility:hidden; transform:translateY(6px); transition:opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s; }
+  .panel.active { position:relative; opacity:1; visibility:visible; transform:translateY(0); transition:opacity 0.3s ease, transform 0.3s ease, visibility 0s 0s; }
 
   .card {
     background:var(--glass);
@@ -149,10 +153,6 @@
   .hero .bio { font-size:0.9rem; line-height:1.8; color:var(--text-2); max-width:540px; }
   .hero .bio p { margin-bottom:10px; }
   .hero .bio p:last-child { margin-bottom:0; }
-  .hero .proof {
-    font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-3);
-    margin-top:18px; letter-spacing:0.3px;
-  }
   .hero .links { display:flex; gap:10px; margin-top:14px; flex-wrap:wrap; }
   .hero .links a {
     font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-3);
@@ -248,16 +248,12 @@
   .snap-home .snap-label::before { background:#f43f5e; }
   .snapshot-card .snap-text { font-size:0.84rem; color:var(--text-2); line-height:1.65; }
 
-  /* About bottom row */
-  .about-bottom { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-
   /* Section divider */
   .section-header { font-family:'JetBrains Mono',monospace; font-size:0.76rem; font-weight:500; letter-spacing:2px; text-transform:uppercase; color:var(--accent-2); margin:24px 0 12px; padding-left:4px; }
   .section-header:first-child { margin-top:0; }
 
   /* Pipeline visualization */
   .pipeline-wrap { margin-bottom:12px; padding:4px 0; position:relative; }
-  .pipe-hint { font-size:0.7rem; color:var(--text-4); margin-bottom:8px; text-align:center; letter-spacing:0.3px; }
   .pipeline { width:100%; display:block; }
   .pipe-stage { fill:var(--glass); stroke-width:1.5; transition:fill 0.2s; }
   .pipe-group { cursor:pointer; }
@@ -309,14 +305,13 @@
     .top-bar { padding:12px 16px; }
     .tab { padding:7px 12px; font-size:0.66rem; }
     .snapshot-row { grid-template-columns:repeat(2,1fr); }
-    .about-bottom { grid-template-columns:1fr 1fr; }
   }
   @media(max-width:480px) {
     .bento { grid-template-columns:1fr; }
     .col-2,.col-3,.col-4 { grid-column:span 1; }
     .hero-layout { flex-direction:column; align-items:center; text-align:center; }
     .hero .links { justify-content:center; }
-    .about-bottom { grid-template-columns:1fr; }
+    .snapshot-row { grid-template-columns:1fr; }
     .pipeline-wrap { display:none; }
   }
 </style>
@@ -326,11 +321,12 @@
 <div class="gradient-bg"></div>
 
 <div class="top-bar">
-  <nav>
-    <button class="tab active" data-tab="about">About</button>
-    <button class="tab" data-tab="projects">Projects</button>
-    <button class="tab" data-tab="experience">Experience</button>
-    <button class="tab" data-tab="skills">Skills</button>
+  <nav role="tablist" aria-label="Portfolio sections">
+    <button class="tab active" data-tab="about" role="tab" aria-selected="true" aria-controls="panel-about" id="tab-about" tabindex="0">About</button>
+    <button class="tab" data-tab="projects" role="tab" aria-selected="false" aria-controls="panel-projects" id="tab-projects" tabindex="-1">Projects</button>
+    <button class="tab" data-tab="experience" role="tab" aria-selected="false" aria-controls="panel-experience" id="tab-experience" tabindex="-1">Experience</button>
+    <button class="tab" data-tab="skills" role="tab" aria-selected="false" aria-controls="panel-skills" id="tab-skills" tabindex="-1">Skills</button>
+    <div class="tab-indicator"></div>
   </nav>
   <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
 </div>
@@ -338,7 +334,7 @@
 <div class="page">
 
   <!-- ══════════ ABOUT ══════════ -->
-  <div class="panel active" id="panel-about">
+  <div class="panel active" id="panel-about" role="tabpanel" aria-labelledby="tab-about">
 
     <div class="card hero" style="margin-bottom:12px">
       <div class="hero-layout">
@@ -419,6 +415,11 @@
       </div>
     </div>
 
+    <div class="card" style="margin-bottom:12px">
+      <div class="sec-title">Community</div>
+      <p class="body">Teaching analog filmmaking workshops at MONO NO AWARE in Brooklyn. Volunteering as a videographer with Film at Lincoln Center. Distributing meals with the Coalition for the Homeless and working with older adults at Lenox Hill Neighborhood House.</p>
+    </div>
+
     <div class="card">
       <div class="sec-title">Education</div>
       <div class="edu-entry">
@@ -436,7 +437,7 @@
   </div>
 
   <!-- ══════════ PROJECTS ══════════ -->
-  <div class="panel" id="panel-projects">
+  <div class="panel" id="panel-projects" role="tabpanel" aria-labelledby="tab-projects">
 
     <div class="section-header">Professional</div>
     <div class="bento">
@@ -562,7 +563,7 @@
         <div class="proj-title">Personal Portfolio Website</div>
         <div class="proj-ctx">Personal Project</div>
         <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>SVG</span></div>
-        <div class="proj-desc">This site! Single-page portfolio with tabbed navigation, glassmorphism design, dark/light theme toggle, animated stat cards, and responsive layout. Built from scratch with vanilla HTML, CSS, and JavaScript.</div>
+        <div class="proj-desc">This site! Single-page portfolio with tabbed navigation, glassmorphism design, dark/light theme toggle, animated pipeline visualization, and responsive layout. Built from scratch with vanilla HTML, CSS, and JavaScript.</div>
         <div class="proj-metrics"><div class="pm"><span class="v">0</span><span class="u">frameworks</span></div><div class="pm"><span class="v">2</span><span class="u">themes</span></div></div>
       </div>
 
@@ -571,7 +572,7 @@
   </div>
 
   <!-- ══════════ EXPERIENCE ══════════ -->
-  <div class="panel" id="panel-experience">
+  <div class="panel" id="panel-experience" role="tabpanel" aria-labelledby="tab-experience">
     <div class="bento">
 
       <div class="card col-4 exp-card">
@@ -609,7 +610,7 @@
 
       <div class="card col-4 exp-card">
         <div class="exp-role">Data Analyst</div>
-        <div class="exp-meta">FIG Agency, New York, NY &middot; Jul 2022 to Oct 2022</div>
+        <div class="exp-meta">FIG Agency, New York, NY &middot; Jun 2021 to Oct 2022</div>
         <ul class="exp-bullets">
           <li>Shipped 50+ Domo dashboards and automated insights generation with Python.</li>
           <li>Created 10+ audience insights decks with Brandwatch social listening data.</li>
@@ -618,22 +619,11 @@
         <div class="exp-wins"><div class="pm"><span class="v">50+</span><span class="u">dashboards</span></div><div class="pm"><span class="v">10+</span><span class="u">pitch decks</span></div></div>
       </div>
 
-      <div class="card col-4 exp-card">
-        <div class="exp-role">Media Coordinator</div>
-        <div class="exp-meta">FIG Agency, New York, NY &middot; Jun 2021 to Jun 2022</div>
-        <ul class="exp-bullets">
-          <li>Managed 20+ media vendors across Video, Audio, Display, OOH, and Print channels.</li>
-          <li>Tracked KPIs and delivered monthly performance insights against benchmarks.</li>
-          <li>Built campaigns on Prisma/MediaOcean and trafficking sheets for Campaign Manager 360.</li>
-        </ul>
-        <div class="exp-wins"><div class="pm"><span class="v">20+</span><span class="u">vendors</span></div></div>
-      </div>
-
     </div>
   </div>
 
   <!-- ══════════ SKILLS ══════════ -->
-  <div class="panel" id="panel-skills">
+  <div class="panel" id="panel-skills" role="tabpanel" aria-labelledby="tab-skills">
 
     <div class="section-header">Core</div>
     <div class="bento">
@@ -703,6 +693,16 @@
 
 
 <script>
+  /* ── Tab indicator ── */
+  function moveIndicator(tab) {
+    var indicator = document.querySelector('.tab-indicator');
+    var nav = tab.parentElement;
+    var navRect = nav.getBoundingClientRect();
+    var tabRect = tab.getBoundingClientRect();
+    indicator.style.left = (tabRect.left - navRect.left) + 'px';
+    indicator.style.width = tabRect.width + 'px';
+  }
+
   /* ── Tab switching with staggered reveal ── */
   function revealPanel(panel) {
     var items = panel.querySelectorAll('.card, .section-header, .pipeline-wrap');
@@ -716,14 +716,47 @@
 
   document.querySelectorAll('.tab').forEach(function(tab) {
     tab.addEventListener('click', function() {
-      document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+      document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); t.setAttribute('aria-selected','false'); t.setAttribute('tabindex','-1'); });
       document.querySelectorAll('.panel').forEach(function(p) { p.classList.remove('active'); });
       tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      tab.setAttribute('tabindex','0');
+      tab.focus();
+      moveIndicator(tab);
       var panel = document.getElementById('panel-' + tab.dataset.tab);
       panel.classList.add('active');
       revealPanel(panel);
       history.replaceState(null, '', '#' + tab.dataset.tab);
     });
+  });
+
+  /* ── Reposition indicator on resize ── */
+  window.addEventListener('resize', function() {
+    var active = document.querySelector('.tab.active');
+    if (active) moveIndicator(active);
+  });
+
+  /* ── Keyboard navigation for tabs ── */
+  document.querySelector('[role="tablist"]').addEventListener('keydown', function(e) {
+    var tabs = Array.from(document.querySelectorAll('.tab'));
+    var current = tabs.indexOf(document.activeElement);
+    if (current === -1) return;
+    var next;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      next = (current + 1) % tabs.length;
+      tabs[next].click();
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      next = (current - 1 + tabs.length) % tabs.length;
+      tabs[next].click();
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      tabs[0].click();
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      tabs[tabs.length - 1].click();
+    }
   });
 
   /* ── Theme toggle ── */
@@ -774,6 +807,7 @@
       hashTab.click();
     } else {
       revealPanel(document.getElementById('panel-about'));
+      moveIndicator(document.querySelector('.tab.active'));
     }
   })();
 </script>
