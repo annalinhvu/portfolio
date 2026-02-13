@@ -1,1 +1,2 @@
-# No external dependencies — uses Python stdlib sqlite3
+fastapi
+uvicorn[standard]
