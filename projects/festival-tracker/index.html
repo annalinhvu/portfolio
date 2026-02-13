@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Film Festival Tracker | Anna Vu</title>
+<meta name="description" content="Searchable database of experimental film festivals worldwide. Deadlines, fees, categories, and more.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+<style>
+  /* ── Geist fonts ── */
+  @font-face {
+    font-family: 'Geist';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/geist:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+  }
+  @font-face {
+    font-family: 'Geist Mono';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/geist-mono:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+  }
+
+  /* ── Light theme — warm parchment + ink ── */
+  :root[data-theme="light"] {
+    --bg: #f0ece4;
+    --surface: #faf8f4;
+    --surface-hover: #f5f1ea;
+    --border: #d6d0c4;
+    --border-hover: #c2b9a8;
+    --text-1: #1a1612;
+    --text-2: #3d362e;
+    --text-3: #6b6054;
+    --text-4: #9a8e7e;
+    --accent: #c4863a;
+    --accent-2: #a86f2c;
+    --accent-bg: rgba(196,134,58,0.07);
+    --accent-glow: rgba(196,134,58,0.15);
+    --amber: #b8860b;
+    --indigo: #4a4272;
+    --indigo-bg: rgba(74,66,114,0.06);
+    --indigo-border: rgba(74,66,114,0.18);
+    --tag-border: rgba(196,134,58,0.25);
+    --tag-color: #8a6428;
+    --red: #8b4049;
+    --red-bg: rgba(139,64,73,0.06);
+    --red-border: rgba(139,64,73,0.20);
+    --grain-opacity: 0.03;
+  }
+
+  /* ── Dark theme — deep cinema ink ── */
+  :root[data-theme="dark"] {
+    --bg: #0c0a0e;
+    --surface: #141218;
+    --surface-hover: #1c1922;
+    --border: #2a2634;
+    --border-hover: #3d3748;
+    --text-1: #ede8f0;
+    --text-2: #c4bcc8;
+    --text-3: #8a8290;
+    --text-4: #5e5868;
+    --accent: #e0a650;
+    --accent-2: #c8923e;
+    --accent-bg: rgba(224,166,80,0.08);
+    --accent-glow: rgba(224,166,80,0.12);
+    --amber: #d4a84a;
+    --indigo: #9a90cc;
+    --indigo-bg: rgba(154,144,204,0.08);
+    --indigo-border: rgba(154,144,204,0.20);
+    --tag-border: rgba(224,166,80,0.22);
+    --tag-color: #e0a650;
+    --red: #d08088;
+    --red-bg: rgba(208,128,136,0.08);
+    --red-border: rgba(208,128,136,0.20);
+    --grain-opacity: 0.04;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    background: var(--bg);
+    color: var(--text-2);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+    animation: pageEntrance 0.5s ease both;
+  }
+
+  /* Film grain overlay */
+  body::after {
+    content: '';
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 100;
+    opacity: var(--grain-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+
+  @keyframes pageEntrance {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* ── Top bar ── */
+  .top-bar {
+    position: sticky; top: 0; z-index: 50;
+    padding: 14px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .back-link {
+    font-family: 'Geist Mono', monospace; font-size: 0.76rem;
+    color: var(--text-3); text-decoration: none; transition: color 0.2s;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .back-link:hover { color: var(--accent); }
+  .page-title {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.72rem; font-weight: 400; color: var(--text-4);
+    letter-spacing: 3px; text-transform: uppercase;
+    position: absolute; left: 50%; transform: translateX(-50%);
+    white-space: nowrap;
+  }
+  .theme-toggle {
+    background: none; border: none; cursor: pointer;
+    font-size: 0.85rem; color: var(--text-4); padding: 4px 8px; transition: color 0.2s;
+  }
+  .theme-toggle:hover { color: var(--text-2); }
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 10px;
+  }
+
+  /* ── Page ── */
+  .page { max-width: 1440px; margin: 0 auto; padding: 32px 32px 80px; }
+
+  /* ── Stats row ── */
+  .stats-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+  .stat-chip {
+    font-family: 'Geist Mono', monospace; font-size: 0.62rem;
+    padding: 5px 14px; border-radius: 20px;
+    background: var(--accent-bg); border: 1px solid var(--tag-border);
+    color: var(--accent); letter-spacing: 1px; text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .stat-chip .stat-val { font-weight: 600; }
+
+  /* ── Filter bar ── */
+  .filter-bar {
+    display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px;
+    align-items: center;
+  }
+  .filter-bar select,
+  .filter-bar input {
+    font-family: 'Geist Mono', monospace; font-size: 0.76rem;
+    padding: 9px 14px; border-radius: 8px;
+    border: 1px solid var(--border); background: var(--surface);
+    color: var(--text-2); transition: all 0.2s;
+    outline: none;
+  }
+  .filter-bar select:hover,
+  .filter-bar input:hover { border-color: var(--border-hover); }
+  .filter-bar select:focus,
+  .filter-bar input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-bg); }
+  .filter-bar input { flex: 1; min-width: 180px; }
+  .filter-bar input::placeholder { color: var(--text-4); }
+
+  /* ── Section header ── */
+  .section-header {
+    font-family: 'Geist Mono', monospace; font-size: 0.68rem; font-weight: 400;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--accent);
+    margin: 28px 0 14px; padding-left: 2px;
+  }
+  .section-header:first-child { margin-top: 0; }
+
+  /* ── Card ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    transition: all 0.25s;
+    overflow: hidden;
+    position: relative;
+  }
+  .card:hover { border-color: var(--border-hover); }
+
+  /* ── Festival list grid ── */
+  .festival-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .festival-card {
+    padding: 24px;
+    cursor: pointer;
+    word-break: break-word;
+    border-left: 3px solid transparent;
+  }
+  .festival-card:hover {
+    border-color: var(--border-hover);
+    border-left-color: var(--accent);
+    box-shadow: 0 2px 20px var(--accent-glow);
+  }
+  .festival-card-top {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 12px;
+  }
+  .festival-name {
+    font-size: 0.95rem; font-weight: 600; color: var(--text-1);
+    margin-bottom: 4px; transition: color 0.3s; line-height: 1.4;
+  }
+  .festival-location {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.7rem; color: var(--text-4); margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+  .festival-card-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+
+  /* ── Tags ── */
+  .tag {
+    font-family: 'Geist Mono', monospace; font-size: 0.62rem;
+    padding: 3px 9px; border-radius: 4px;
+    border: 1px solid var(--tag-border); color: var(--tag-color);
+    transition: all 0.2s; cursor: default;
+    letter-spacing: 0.5px;
+  }
+  .tag:hover { background: var(--accent-bg); border-color: var(--accent); }
+
+  /* ── Tier badges ── */
+  .tier-badge {
+    font-family: 'Geist Mono', monospace; font-size: 0.58rem;
+    padding: 3px 10px; border-radius: 4px;
+    text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500;
+  }
+  .tier-major {
+    background: var(--accent-bg); color: var(--accent);
+    border: 1px solid var(--tag-border);
+  }
+  .tier-mid {
+    background: var(--indigo-bg); color: var(--indigo);
+    border: 1px solid var(--indigo-border);
+  }
+  .tier-emerging {
+    background: var(--red-bg); color: var(--red);
+    border: 1px solid var(--red-border);
+  }
+
+  /* ── Event month ── */
+  .event-month {
+    font-family: 'Geist Mono', monospace; font-size: 0.62rem;
+    color: var(--text-4); letter-spacing: 1px; text-transform: uppercase;
+  }
+
+  /* ── View transitions ── */
+  .view { transition: opacity 0.3s ease, transform 0.3s ease; }
+  .view-hidden {
+    opacity: 0; transform: translateY(8px);
+    position: absolute; pointer-events: none; visibility: hidden;
+  }
+  .view-visible {
+    opacity: 1; transform: translateY(0);
+    position: relative; pointer-events: auto; visibility: visible;
+  }
+
+  /* ── Staggered card reveal ── */
+  @keyframes staggerIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .stagger-item { opacity: 0; animation: staggerIn 0.3s ease forwards; }
+
+  /* ── Detail view ── */
+  .detail-back {
+    font-family: 'Geist Mono', monospace; font-size: 0.72rem;
+    color: var(--text-4); background: none; border: none;
+    cursor: pointer; padding: 0; margin-bottom: 20px;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: color 0.2s; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .detail-back:hover { color: var(--accent); }
+  .detail-back:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px;
+  }
+
+  .detail-header {
+    padding: 36px; margin-bottom: 14px;
+    border-top: 3px solid var(--accent);
+  }
+  .detail-header-top {
+    display: flex; gap: 10px; align-items: center;
+    margin-bottom: 16px;
+  }
+  .detail-name {
+    font-size: 1.8rem; font-weight: 600; color: var(--text-1);
+    margin-bottom: 8px; letter-spacing: -0.5px; word-break: break-word;
+    line-height: 1.25;
+  }
+  .detail-location {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.78rem; color: var(--text-4); margin-bottom: 18px;
+    letter-spacing: 1px;
+  }
+  .detail-desc {
+    font-size: 0.9rem; color: var(--text-2); line-height: 1.8;
+    margin-bottom: 20px; max-width: 680px;
+  }
+  .detail-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 22px; }
+  .detail-links { display: flex; gap: 10px; flex-wrap: wrap; }
+  .pill-link {
+    font-family: 'Geist Mono', monospace; font-size: 0.68rem;
+    color: var(--accent); text-decoration: none;
+    padding: 8px 18px; border: 1px solid var(--tag-border); border-radius: 6px;
+    transition: all 0.2s; display: inline-block;
+    letter-spacing: 0.5px;
+  }
+  .pill-link:hover {
+    background: var(--accent-bg); border-color: var(--accent);
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+  .pill-link:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px;
+  }
+
+  /* ── Deadlines table ── */
+  .deadlines-card { padding: 24px; margin-bottom: 14px; }
+  .deadlines-table { width: 100%; border-collapse: collapse; }
+  .deadlines-table th {
+    font-family: 'Geist Mono', monospace; font-size: 0.58rem;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-4); text-align: left; padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .deadlines-table td {
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.8rem; color: var(--text-2); padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .deadlines-table tr:last-child td { border-bottom: none; }
+  .deadline-past td { opacity: 0.3; }
+  .deadline-tier-early { color: var(--accent); font-weight: 500; }
+  .deadline-tier-late { color: var(--red); font-weight: 500; }
+
+  /* ── Categories card ── */
+  .categories-card { padding: 24px; }
+  .category-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .category-chip {
+    font-family: 'Geist Mono', monospace; font-size: 0.68rem;
+    padding: 6px 14px; border-radius: 4px;
+    border: 1px solid var(--border); color: var(--text-3);
+    transition: all 0.2s;
+  }
+  .category-chip:hover {
+    border-color: var(--accent); color: var(--accent);
+    background: var(--accent-bg);
+  }
+  .category-runtime {
+    color: var(--text-4); font-size: 0.58rem; margin-left: 5px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Empty / loading states ── */
+  .state-message {
+    text-align: center; padding: 60px 24px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.82rem; color: var(--text-4); line-height: 1.8;
+    letter-spacing: 0.5px;
+  }
+  .state-message a {
+    color: var(--accent); text-decoration: none; cursor: pointer;
+    border-bottom: 1px solid var(--tag-border); transition: all 0.2s;
+  }
+  .state-message a:hover { border-color: var(--accent); }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .festival-grid { grid-template-columns: repeat(2, 1fr); }
+    .page { padding: 24px 16px 60px; }
+    .top-bar { padding: 12px 16px; }
+    .page-title { font-size: 0.65rem; letter-spacing: 2px; }
+    .detail-header { padding: 24px; }
+    .detail-name { font-size: 1.4rem; }
+  }
+  @media (max-width: 480px) {
+    .festival-grid { grid-template-columns: 1fr; }
+    .page-title { position: static; transform: none; text-align: center; }
+    .top-bar { flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .detail-header { padding: 20px; }
+    .detail-name { font-size: 1.2rem; }
+    .deadlines-table th,
+    .deadlines-table td { padding: 8px 8px; font-size: 0.72rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="../../index.html#lab" class="back-link">&larr; Portfolio</a>
+  <span class="page-title">Film Festival Tracker</span>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+</div>
+
+<div class="page">
+
+  <!-- ── List View ── -->
+  <div id="list-view" class="view view-visible">
+    <div class="stats-row" id="stats-row"></div>
+    <div class="filter-bar" id="filter-bar">
+      <select id="filter-tier"><option value="">All Tiers</option></select>
+      <select id="filter-focus"><option value="">All Focus</option></select>
+      <select id="filter-country"><option value="">All Countries</option></select>
+      <input type="text" id="filter-search" placeholder="Search festivals...">
+    </div>
+    <div id="festival-list"></div>
+  </div>
+
+  <!-- ── Detail View ── -->
+  <div id="detail-view" class="view view-hidden">
+    <button class="detail-back" onclick="showList()">&larr; Back to list</button>
+    <div id="detail-content"></div>
+  </div>
+
+</div>
+
+<script>
+/* ── State ── */
+var allFestivals = [];
+var filteredFestivals = [];
+var currentView = 'list';
+var API_BASE = 'http://127.0.0.1:8000';
+
+/* ── Helpers ── */
+function escapeHtml(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+function formatDate(iso) {
+  if (!iso) return '';
+  var d = new Date(iso + 'T00:00:00');
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+}
+
+function isPast(iso) {
+  if (!iso) return false;
+  return new Date(iso + 'T23:59:59') < new Date();
+}
+
+function formatRuntime(min, max) {
+  if (min != null && max != null) return min + '–' + max + ' min';
+  if (min != null) return min + '+ min';
+  if (max != null) return '\u2264' + max + ' min';
+  return '';
+}
+
+function debounce(fn, ms) {
+  var timer;
+  return function() {
+    clearTimeout(timer);
+    timer = setTimeout(fn, ms);
+  };
+}
+
+function tierBadgeClass(tier) {
+  if (tier === 'major') return 'tier-major';
+  if (tier === 'mid') return 'tier-mid';
+  if (tier === 'emerging') return 'tier-emerging';
+  return '';
+}
+
+function deadlineTierClass(tier) {
+  if (tier === 'early') return 'deadline-tier-early';
+  if (tier === 'late') return 'deadline-tier-late';
+  return '';
+}
+
+/* ── Theme ── */
+function toggleTheme() {
+  var html = document.documentElement;
+  var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('ft-theme', next);
+  updateToggle(next);
+}
+function updateToggle(t) {
+  document.querySelector('.theme-toggle').textContent = t === 'dark' ? '\u2600' : '\u263E';
+}
+
+/* ── Stats ── */
+function renderStats() {
+  var countries = new Set();
+  allFestivals.forEach(function(f) { if (f.country) countries.add(f.country); });
+
+  var el = document.getElementById('stats-row');
+  el.innerHTML =
+    '<span class="stat-chip"><span class="stat-val">' + allFestivals.length + '</span> festivals</span>' +
+    '<span class="stat-chip"><span class="stat-val">' + countries.size + '</span> countries</span>';
+}
+
+/* ── Filters ── */
+function populateFilters() {
+  var tiers = new Set();
+  var focuses = new Set();
+  var countries = new Set();
+
+  allFestivals.forEach(function(f) {
+    if (f.tier) tiers.add(f.tier);
+    if (f.focus) focuses.add(f.focus);
+    if (f.country) countries.add(f.country);
+  });
+
+  var tierSelect = document.getElementById('filter-tier');
+  Array.from(tiers).sort().forEach(function(t) {
+    var o = document.createElement('option');
+    o.value = t;
+    o.textContent = t.charAt(0).toUpperCase() + t.slice(1);
+    tierSelect.appendChild(o);
+  });
+
+  var focusSelect = document.getElementById('filter-focus');
+  Array.from(focuses).sort().forEach(function(f) {
+    var o = document.createElement('option');
+    o.value = f;
+    o.textContent = f.charAt(0).toUpperCase() + f.slice(1);
+    focusSelect.appendChild(o);
+  });
+
+  var countrySelect = document.getElementById('filter-country');
+  Array.from(countries).sort().forEach(function(c) {
+    var o = document.createElement('option');
+    o.value = c;
+    o.textContent = c;
+    countrySelect.appendChild(o);
+  });
+}
+
+function applyFilters() {
+  var tier = document.getElementById('filter-tier').value;
+  var focus = document.getElementById('filter-focus').value;
+  var country = document.getElementById('filter-country').value;
+  var search = document.getElementById('filter-search').value.toLowerCase().trim();
+
+  filteredFestivals = allFestivals.filter(function(f) {
+    if (tier && f.tier !== tier) return false;
+    if (focus && f.focus !== focus) return false;
+    if (country && f.country !== country) return false;
+    if (search && f.name.toLowerCase().indexOf(search) === -1) return false;
+    return true;
+  });
+
+  renderList();
+}
+
+/* ── List rendering ── */
+function renderList() {
+  var container = document.getElementById('festival-list');
+
+  if (filteredFestivals.length === 0) {
+    container.innerHTML =
+      '<div class="state-message">' +
+      'No festivals match your filters.<br>' +
+      '<a onclick="clearFilters()">Clear filters</a>' +
+      '</div>';
+    return;
+  }
+
+  var html = '<div class="festival-grid">';
+  filteredFestivals.forEach(function(f, i) {
+    var premiereTag = '';
+    if (f.premiere_req && f.premiere_req !== 'none') {
+      var label = f.premiere_req.replace('_', ' ');
+      premiereTag = '<span class="tag">' + escapeHtml(label) + ' premiere</span>';
+    }
+
+    html +=
+      '<div class="card festival-card stagger-item" style="animation-delay:' + (i * 0.03) + 's" onclick="showDetail(' + f.id + ')">' +
+        '<div class="festival-card-top">' +
+          '<span class="tier-badge ' + tierBadgeClass(f.tier) + '">' + escapeHtml(f.tier || '') + '</span>' +
+          '<span class="event-month">' + escapeHtml(f.event_month || '') + '</span>' +
+        '</div>' +
+        '<div class="festival-name">' + escapeHtml(f.name) + '</div>' +
+        '<div class="festival-location">' + escapeHtml((f.city || '') + ', ' + (f.country || '')) + '</div>' +
+        '<div class="festival-card-tags">' +
+          '<span class="tag">' + escapeHtml(f.focus || '') + '</span>' +
+          premiereTag +
+        '</div>' +
+      '</div>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+function clearFilters() {
+  document.getElementById('filter-tier').value = '';
+  document.getElementById('filter-focus').value = '';
+  document.getElementById('filter-country').value = '';
+  document.getElementById('filter-search').value = '';
+  applyFilters();
+}
+
+/* ── Detail view ── */
+function showDetail(id) {
+  currentView = 'detail';
+  location.hash = 'festival/' + id;
+
+  var listView = document.getElementById('list-view');
+  var detailView = document.getElementById('detail-view');
+  var detailContent = document.getElementById('detail-content');
+
+  listView.classList.remove('view-visible');
+  listView.classList.add('view-hidden');
+
+  detailContent.innerHTML = '<div class="state-message">Loading...</div>';
+  detailView.classList.remove('view-hidden');
+  detailView.classList.add('view-visible');
+
+  fetch(API_BASE + '/festivals/' + id)
+    .then(function(r) {
+      if (!r.ok) throw new Error('Not found');
+      return r.json();
+    })
+    .then(function(f) {
+      renderDetail(f);
+    })
+    .catch(function() {
+      detailContent.innerHTML =
+        '<div class="card state-message">Could not load festival details. Make sure the API server is running.</div>';
+    });
+}
+
+function renderDetail(f) {
+  var container = document.getElementById('detail-content');
+  var html = '';
+
+  var premiereTag = '';
+  if (f.premiere_req && f.premiere_req !== 'none') {
+    var label = f.premiere_req.replace('_', ' ');
+    premiereTag = '<span class="tag">' + escapeHtml(label) + ' premiere</span>';
+  }
+
+  var websiteLink = f.website
+    ? '<a href="' + escapeHtml(f.website) + '" target="_blank" rel="noopener" class="pill-link">Website</a>'
+    : '';
+  var filmfreewayLink = f.filmfreeway
+    ? '<a href="' + escapeHtml(f.filmfreeway) + '" target="_blank" rel="noopener" class="pill-link">FilmFreeway</a>'
+    : '';
+
+  html +=
+    '<div class="card detail-header stagger-item" style="animation-delay:0s">' +
+      '<div class="detail-header-top">' +
+        '<span class="tier-badge ' + tierBadgeClass(f.tier) + '">' + escapeHtml(f.tier || '') + '</span>' +
+        '<span class="event-month">' + escapeHtml(f.event_month || '') + '</span>' +
+      '</div>' +
+      '<h1 class="detail-name">' + escapeHtml(f.name) + '</h1>' +
+      '<div class="detail-location">' + escapeHtml((f.city || '') + ', ' + (f.country || '')) + '</div>' +
+      '<div class="detail-desc">' + escapeHtml(f.description || '') + '</div>' +
+      '<div class="detail-tags">' +
+        '<span class="tag">' + escapeHtml(f.focus || '') + '</span>' +
+        premiereTag +
+      '</div>' +
+      '<div class="detail-links">' + websiteLink + filmfreewayLink + '</div>' +
+    '</div>';
+
+  if (f.deadlines && f.deadlines.length > 0) {
+    html += '<div class="section-header stagger-item" style="animation-delay:0.03s">Deadlines</div>';
+    html +=
+      '<div class="card deadlines-card stagger-item" style="animation-delay:0.06s">' +
+        '<table class="deadlines-table">' +
+          '<thead><tr>' +
+            '<th>Year</th><th>Tier</th><th>Deadline</th><th>Fee</th>' +
+          '</tr></thead><tbody>';
+
+    f.deadlines.forEach(function(d) {
+      var past = isPast(d.deadline);
+      var tierClass = deadlineTierClass(d.tier);
+      var fee = d.fee_usd != null ? '$' + d.fee_usd.toFixed(0) : 'Free';
+      html +=
+        '<tr class="' + (past ? 'deadline-past' : '') + '">' +
+          '<td>' + d.year + '</td>' +
+          '<td class="' + tierClass + '">' + escapeHtml(d.tier) + '</td>' +
+          '<td>' + formatDate(d.deadline) + '</td>' +
+          '<td>' + fee + '</td>' +
+        '</tr>';
+    });
+
+    html += '</tbody></table></div>';
+  }
+
+  if (f.categories && f.categories.length > 0) {
+    html += '<div class="section-header stagger-item" style="animation-delay:0.09s">Categories</div>';
+    html += '<div class="card categories-card stagger-item" style="animation-delay:0.12s"><div class="category-chips">';
+
+    f.categories.forEach(function(c) {
+      var runtime = formatRuntime(c.min_runtime, c.max_runtime);
+      var runtimeHtml = runtime ? '<span class="category-runtime">(' + runtime + ')</span>' : '';
+      html += '<span class="category-chip">' + escapeHtml(c.name) + runtimeHtml + '</span>';
+    });
+
+    html += '</div></div>';
+  }
+
+  container.innerHTML = html;
+}
+
+function showList() {
+  currentView = 'list';
+  location.hash = '';
+
+  var listView = document.getElementById('list-view');
+  var detailView = document.getElementById('detail-view');
+
+  detailView.classList.remove('view-visible');
+  detailView.classList.add('view-hidden');
+  listView.classList.remove('view-hidden');
+  listView.classList.add('view-visible');
+}
+
+/* ── Hash routing ── */
+function handleHash() {
+  var hash = location.hash.replace('#', '');
+  if (hash.startsWith('festival/')) {
+    var id = parseInt(hash.split('/')[1], 10);
+    if (!isNaN(id)) {
+      showDetail(id);
+      return;
+    }
+  }
+  if (currentView !== 'list') {
+    showList();
+  }
+}
+
+window.addEventListener('hashchange', handleHash);
+
+/* ── Init ── */
+function init() {
+  var savedTheme = localStorage.getItem('ft-theme');
+  if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+  updateToggle(document.documentElement.getAttribute('data-theme'));
+
+  var container = document.getElementById('festival-list');
+  container.innerHTML = '<div class="state-message">Loading festivals...</div>';
+
+  fetch(API_BASE + '/festivals')
+    .then(function(r) {
+      if (!r.ok) throw new Error('API error');
+      return r.json();
+    })
+    .then(function(data) {
+      allFestivals = data;
+      filteredFestivals = data;
+      populateFilters();
+      renderStats();
+      renderList();
+      handleHash();
+    })
+    .catch(function() {
+      container.innerHTML =
+        '<div class="card state-message">' +
+        'Could not connect to the API.<br>' +
+        'Start the server with: <code style="font-family:\'Geist Mono\',monospace;font-size:0.82rem;color:var(--accent)">uvicorn api:app --reload</code>' +
+        '</div>';
+    });
+
+  document.getElementById('filter-tier').addEventListener('change', applyFilters);
+  document.getElementById('filter-focus').addEventListener('change', applyFilters);
+  document.getElementById('filter-country').addEventListener('change', applyFilters);
+  document.getElementById('filter-search').addEventListener('input', debounce(applyFilters, 250));
+}
+
+init();
+</script>
+
+</body>
+</html>

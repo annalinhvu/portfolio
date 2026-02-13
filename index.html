@@ -113,7 +113,7 @@
   .theme-toggle:hover { color: var(--text-2); }
 
   /* ── Page container ── */
-  .page { position: relative; z-index: 1; max-width: 1020px; margin: 0 auto; padding: 28px 24px 80px; overflow: hidden; }
+  .page { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 28px 32px 80px; overflow: hidden; }
 
   /* ── Panel transitions ── */
   .panel { position: absolute; top: 0; left: 0; right: 0; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s; }
@@ -358,6 +358,13 @@
     border: 1px solid var(--border);
   }
   .lab-status-soon::before { background: var(--text-4); }
+  .lab-status-live {
+    background: var(--lab-accent-dim); color: var(--accent);
+    border: 1px solid var(--lab-border);
+  }
+  .lab-status-live::before {
+    background: var(--accent);
+  }
   @keyframes labPulse {
     0%,100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.4; transform: scale(0.75); }
@@ -790,15 +797,15 @@
 
     <p class="lab-intro">Where data meets film. Projects I'm building.</p>
 
-    <div class="card lab-card">
+    <a href="projects/festival-tracker/index.html" class="card lab-card" style="display:block;text-decoration:none;color:inherit;cursor:pointer">
       <div class="lab-header">
         <span class="lab-num">01</span>
-        <span class="lab-status lab-status-researching">Researching</span>
+        <span class="lab-status lab-status-live">Live</span>
       </div>
       <div class="lab-title">Film Festival Tracker</div>
-      <p class="lab-desc">A searchable database of experimental film festivals worldwide. Deadlines, fees, past selections, and acceptance rates &mdash; everything in one place to plan smarter submissions.</p>
+      <p class="lab-desc">A searchable database of experimental film festivals worldwide. Deadlines, fees, past selections, and acceptance rates. Everything in one place to plan smarter submissions.</p>
       <div class="lab-tags"><span>Python</span><span>BeautifulSoup</span><span>SQLite</span><span>Flask / FastAPI</span></div>
-    </div>
+    </a>
 
     <hr class="lab-divider">
 
@@ -808,7 +815,7 @@
         <span class="lab-status lab-status-soon">Coming Soon</span>
       </div>
       <div class="lab-title">Analog Film Stock Database</div>
-      <p class="lab-desc">Price tracking, availability, and lab locations for analog film stocks. Find where to buy, where to develop, and how much it costs &mdash; across stocks and cities.</p>
+      <p class="lab-desc">Price tracking, availability, and lab locations for analog film stocks. Find where to buy, where to develop, and how much it costs across stocks and cities.</p>
       <div class="lab-tags"><span>Python</span><span>Web Scraping</span><span>SQLite</span><span>React / Vanilla JS</span></div>
     </div>
 
@@ -820,7 +827,7 @@
         <span class="lab-status lab-status-soon">Coming Soon</span>
       </div>
       <div class="lab-title">NYC Film Scene Map</div>
-      <p class="lab-desc">An interactive map of New York's experimental film world. Screening venues, workshops, labs, galleries, and community spaces &mdash; all in one place.</p>
+      <p class="lab-desc">An interactive map of New York's experimental film world. Screening venues, workshops, labs, galleries, and community spaces, all in one place.</p>
       <div class="lab-tags"><span>Python</span><span>Geocoding</span><span>Mapbox / Leaflet</span><span>Web App</span></div>
     </div>
 
