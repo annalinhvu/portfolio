@@ -222,6 +222,25 @@
     letter-spacing: 0.5px;
   }
   .festival-card-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+  .festival-known-for {
+    font-size: 0.72rem; color: var(--text-3); font-style: italic;
+    margin-bottom: 10px; line-height: 1.5;
+  }
+  .festival-meta-row {
+    display: flex; gap: 8px; align-items: center; margin-bottom: 10px;
+  }
+  .prestige-dots {
+    display: inline-flex; gap: 3px; align-items: center;
+  }
+  .prestige-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--border); transition: background 0.2s;
+  }
+  .prestige-dot.filled { background: var(--accent); }
+  .acceptance-label {
+    font-family: 'Geist Mono', monospace; font-size: 0.58rem;
+    color: var(--text-4); letter-spacing: 0.5px; text-transform: uppercase;
+  }
 
   /* ── Tags ── */
   .tag {
@@ -415,6 +434,9 @@
       <select id="filter-tier"><option value="">All Tiers</option></select>
       <select id="filter-focus"><option value="">All Focus</option></select>
       <select id="filter-country"><option value="">All Countries</option></select>
+      <select id="filter-acceptance"><option value="">All Selectivity</option></select>
+      <select id="filter-prestige"><option value="">All Prestige</option><option value="5">5 dots</option><option value="4">4+ dots</option><option value="3">3+ dots</option><option value="2">2+ dots</option></select>
+      <select id="filter-premiere"><option value="">Any Premiere Req</option></select>
       <input type="text" id="filter-search" placeholder="Search festivals...">
     </div>
     <div id="festival-list"></div>
@@ -476,6 +498,15 @@ function tierBadgeClass(tier) {
   return '';
 }
 
+function renderPrestige(n) {
+  var html = '<span class="prestige-dots">';
+  for (var i = 1; i <= 5; i++) {
+    html += '<span class="prestige-dot' + (i <= n ? ' filled' : '') + '"></span>';
+  }
+  html += '</span>';
+  return html;
+}
+
 function deadlineTierClass(tier) {
   if (tier === 'early') return 'deadline-tier-early';
   if (tier === 'late') return 'deadline-tier-late';
@@ -510,11 +541,15 @@ function populateFilters() {
   var tiers = new Set();
   var focuses = new Set();
   var countries = new Set();
+  var acceptances = new Set();
+  var premieres = new Set();
 
   allFestivals.forEach(function(f) {
     if (f.tier) tiers.add(f.tier);
     if (f.focus) focuses.add(f.focus);
     if (f.country) countries.add(f.country);
+    if (f.acceptance) acceptances.add(f.acceptance);
+    if (f.premiere_req) premieres.add(f.premiere_req);
   });
 
   var tierSelect = document.getElementById('filter-tier');
@@ -540,18 +575,48 @@ function populateFilters() {
     o.textContent = c;
     countrySelect.appendChild(o);
   });
+
+  var acceptanceSelect = document.getElementById('filter-acceptance');
+  var acceptOrder = ['very selective', 'selective', 'moderate', 'open'];
+  acceptOrder.forEach(function(a) {
+    if (acceptances.has(a)) {
+      var o = document.createElement('option');
+      o.value = a;
+      o.textContent = a.charAt(0).toUpperCase() + a.slice(1);
+      acceptanceSelect.appendChild(o);
+    }
+  });
+
+  var premiereSelect = document.getElementById('filter-premiere');
+  Array.from(premieres).sort().forEach(function(p) {
+    if (p === 'none') return;
+    var o = document.createElement('option');
+    o.value = p;
+    o.textContent = p.replace('_', ' ').charAt(0).toUpperCase() + p.replace('_', ' ').slice(1);
+    premiereSelect.appendChild(o);
+  });
+  var noneOpt = document.createElement('option');
+  noneOpt.value = 'none';
+  noneOpt.textContent = 'No requirement';
+  premiereSelect.appendChild(noneOpt);
 }
 
 function applyFilters() {
   var tier = document.getElementById('filter-tier').value;
   var focus = document.getElementById('filter-focus').value;
   var country = document.getElementById('filter-country').value;
+  var acceptance = document.getElementById('filter-acceptance').value;
+  var prestige = document.getElementById('filter-prestige').value;
+  var premiere = document.getElementById('filter-premiere').value;
   var search = document.getElementById('filter-search').value.toLowerCase().trim();
 
   filteredFestivals = allFestivals.filter(function(f) {
     if (tier && f.tier !== tier) return false;
     if (focus && f.focus !== focus) return false;
     if (country && f.country !== country) return false;
+    if (acceptance && f.acceptance !== acceptance) return false;
+    if (prestige && (f.prestige || 0) < parseInt(prestige, 10)) return false;
+    if (premiere && f.premiere_req !== premiere) return false;
     if (search && f.name.toLowerCase().indexOf(search) === -1) return false;
     return true;
   });
@@ -588,6 +653,11 @@ function renderList() {
         '</div>' +
         '<div class="festival-name">' + escapeHtml(f.name) + '</div>' +
         '<div class="festival-location">' + escapeHtml((f.city || '') + ', ' + (f.country || '')) + '</div>' +
+        (f.known_for ? '<div class="festival-known-for">' + escapeHtml(f.known_for) + '</div>' : '') +
+        '<div class="festival-meta-row">' +
+          (f.prestige ? renderPrestige(f.prestige) : '') +
+          (f.acceptance ? '<span class="acceptance-label">' + escapeHtml(f.acceptance) + '</span>' : '') +
+        '</div>' +
         '<div class="festival-card-tags">' +
           '<span class="tag">' + escapeHtml(f.focus || '') + '</span>' +
           premiereTag +
@@ -602,6 +672,9 @@ function clearFilters() {
   document.getElementById('filter-tier').value = '';
   document.getElementById('filter-focus').value = '';
   document.getElementById('filter-country').value = '';
+  document.getElementById('filter-acceptance').value = '';
+  document.getElementById('filter-prestige').value = '';
+  document.getElementById('filter-premiere').value = '';
   document.getElementById('filter-search').value = '';
   applyFilters();
 }
@@ -662,6 +735,11 @@ function renderDetail(f) {
       '<h1 class="detail-name">' + escapeHtml(f.name) + '</h1>' +
       '<div class="detail-location">' + escapeHtml((f.city || '') + ', ' + (f.country || '')) + '</div>' +
       '<div class="detail-desc">' + escapeHtml(f.description || '') + '</div>' +
+      (f.known_for ? '<div class="festival-known-for" style="margin-bottom:14px;font-size:0.82rem">' + escapeHtml(f.known_for) + '</div>' : '') +
+      '<div class="festival-meta-row" style="margin-bottom:16px">' +
+        (f.prestige ? renderPrestige(f.prestige) : '') +
+        (f.acceptance ? '<span class="acceptance-label">' + escapeHtml(f.acceptance) + '</span>' : '') +
+      '</div>' +
       '<div class="detail-tags">' +
         '<span class="tag">' + escapeHtml(f.focus || '') + '</span>' +
         premiereTag +
@@ -773,6 +851,9 @@ function init() {
   document.getElementById('filter-tier').addEventListener('change', applyFilters);
   document.getElementById('filter-focus').addEventListener('change', applyFilters);
   document.getElementById('filter-country').addEventListener('change', applyFilters);
+  document.getElementById('filter-acceptance').addEventListener('change', applyFilters);
+  document.getElementById('filter-prestige').addEventListener('change', applyFilters);
+  document.getElementById('filter-premiere').addEventListener('change', applyFilters);
   document.getElementById('filter-search').addEventListener('input', debounce(applyFilters, 250));
 }
 
