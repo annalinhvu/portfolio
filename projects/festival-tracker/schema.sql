@@ -13,6 +13,9 @@ CREATE TABLE IF NOT EXISTS festivals (
     tier          TEXT,
     event_month   TEXT,
     premiere_req  TEXT,
+    prestige      INTEGER,
+    acceptance    TEXT,
+    known_for     TEXT,
     created_at    TEXT DEFAULT (datetime('now')),
     updated_at    TEXT DEFAULT (datetime('now'))
 );

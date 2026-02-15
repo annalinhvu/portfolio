@@ -49,7 +49,7 @@ def list_festivals(
         clauses.append("name LIKE ?")
         params.append(f"%{search}%")
 
-    sql = "SELECT id, name, city, country, website, filmfreeway, description, focus, tier, event_month, premiere_req FROM festivals"
+    sql = "SELECT id, name, city, country, website, filmfreeway, description, focus, tier, event_month, premiere_req, prestige, acceptance, known_for FROM festivals"
     if clauses:
         sql += " WHERE " + " AND ".join(clauses)
     sql += " ORDER BY name"
@@ -62,7 +62,7 @@ def list_festivals(
 def get_festival(festival_id: int, conn=Depends(get_conn)):
     rows = db.query(
         conn,
-        "SELECT id, name, city, country, website, filmfreeway, description, focus, tier, event_month, premiere_req FROM festivals WHERE id = ?",
+        "SELECT id, name, city, country, website, filmfreeway, description, focus, tier, event_month, premiere_req, prestige, acceptance, known_for FROM festivals WHERE id = ?",
         (festival_id,),
     )
     if not rows:

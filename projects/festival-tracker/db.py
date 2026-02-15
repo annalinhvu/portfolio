@@ -39,7 +39,8 @@ def upsert_festival(conn, data):
         fields = []
         values = []
         for key in ("city", "country", "website", "filmfreeway", "description",
-                     "focus", "tier", "event_month", "premiere_req"):
+                     "focus", "tier", "event_month", "premiere_req",
+                     "prestige", "acceptance", "known_for"):
             if key in data:
                 fields.append(f"{key} = ?")
                 values.append(data[key])
@@ -57,7 +58,8 @@ def upsert_festival(conn, data):
     placeholders = []
     values = []
     for key in ("name", "city", "country", "website", "filmfreeway",
-                 "description", "focus", "tier", "event_month", "premiere_req"):
+                 "description", "focus", "tier", "event_month", "premiere_req",
+                 "prestige", "acceptance", "known_for"):
         if key in data:
             cols.append(key)
             placeholders.append("?")
