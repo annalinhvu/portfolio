@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NYC Film Scene Map</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --paper:#f4efe6;--paper-2:#ece7dd;--paper-3:#e2ddd3;
+  --ink:#2c2420;--ink-2:#5c5248;--ink-3:#8a7e72;--ink-4:#b0a698;--ink-5:#ccc4b8;
+  --accent:#b8453e;--accent-light:#d4756e;
+  --water:#e6e9ee;--park:#cdd8c4;--park-stroke:#b8c4ac;
+  --land:#ede8de;--land-stroke:#c8bfb0;
+  --bridge:#b8b0a4;--grid:#ddd6ca;
+  --surface:#f4efe6;--surface-2:#ece7dd;
+  --border:#d8d0c4;--radius:4px;
+  --sidebar-w:340px;
+}
+[data-theme="dark"]{
+  --paper:#17140f;--paper-2:#1e1a14;--paper-3:#262118;
+  --ink:#d4cdc4;--ink-2:#a89e90;--ink-3:#7a7068;--ink-4:#524840;--ink-5:#3a3228;
+  --accent:#d4756e;--accent-light:#e8a098;
+  --water:#12100c;--park:#1a2014;--park-stroke:#2a3420;
+  --land:#1c1812;--land-stroke:#3a3228;
+  --bridge:#3a3228;--grid:#221e18;
+  --surface:#1a1610;--surface-2:#221e18;
+  --border:#3a3228;
+}
+
+body{
+  font-family:Georgia,'Times New Roman',serif;
+  background:var(--paper);color:var(--ink);
+  height:100vh;overflow:hidden;display:flex;flex-direction:column;
+}
+
+/* ── Top bar ── */
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 24px;height:56px;min-height:56px;
+  background:var(--surface);border-bottom:1px solid var(--border);
+  z-index:1000;
+}
+.topbar a{
+  color:var(--ink-3);text-decoration:none;font-size:.7rem;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  letter-spacing:1px;text-transform:uppercase;transition:color .2s;
+}
+.topbar a:hover{color:var(--accent)}
+.topbar-center{text-align:center}
+.topbar-title{
+  font-size:1rem;font-weight:400;color:var(--ink);
+  letter-spacing:3px;text-transform:uppercase;
+}
+.topbar-sub{
+  font-size:.6rem;color:var(--ink-3);letter-spacing:2px;
+  text-transform:uppercase;margin-top:2px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+.theme-btn{
+  background:none;border:1px solid var(--border);border-radius:var(--radius);
+  color:var(--ink-3);cursor:pointer;padding:3px 10px;font-size:.65rem;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  letter-spacing:1px;text-transform:uppercase;transition:all .2s;
+}
+.theme-btn:hover{border-color:var(--ink-3);color:var(--ink)}
+
+/* ── Main layout ── */
+.main{display:flex;flex:1;overflow:hidden;position:relative}
+
+/* ── Sidebar (book index) ── */
+.sidebar{
+  width:var(--sidebar-w);min-width:var(--sidebar-w);
+  background:var(--surface);border-right:1px solid var(--border);
+  display:flex;flex-direction:column;overflow:hidden;z-index:900;
+}
+.sidebar-header{padding:16px 20px 14px;border-bottom:1px solid var(--border)}
+.sidebar-header h2{
+  font-size:.6rem;color:var(--ink-3);font-weight:400;
+  margin-bottom:12px;letter-spacing:2.5px;text-transform:uppercase;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+
+/* Category tags */
+.cat-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.cat-tag{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:3px 10px;font-size:.65rem;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  letter-spacing:1px;text-transform:uppercase;
+  cursor:pointer;border:1px solid var(--border);border-radius:2px;
+  transition:all .2s;user-select:none;
+  background:transparent;color:var(--ink-3);
+}
+.cat-tag .shape{width:8px;height:8px;flex-shrink:0}
+.cat-tag.active{border-color:var(--ink-2);color:var(--ink);background:var(--paper-2)}
+
+.filters-row{display:flex;gap:8px}
+.filters-row select,.filters-row input{
+  flex:1;padding:6px 10px;border-radius:var(--radius);
+  border:1px solid var(--border);background:transparent;
+  color:var(--ink);font-size:.75rem;outline:none;transition:border-color .2s;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+.filters-row select:focus,.filters-row input:focus{border-color:var(--ink-3)}
+
+.venue-count{
+  padding:8px 20px;font-size:.6rem;color:var(--ink-4);
+  border-bottom:1px solid var(--border);letter-spacing:1.5px;
+  text-transform:uppercase;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+
+/* ── Venue index list ── */
+.venue-list{flex:1;overflow-y:auto;padding:4px 0}
+.venue-entry{
+  padding:10px 20px;cursor:pointer;
+  border-bottom:1px solid var(--paper-3);
+  transition:all .15s;
+  border-left:2px solid transparent;
+}
+.venue-entry:hover{background:var(--paper-2)}
+.venue-entry.active{background:var(--paper-2);border-left-color:var(--accent)}
+.venue-entry-top{display:flex;align-items:baseline;gap:8px}
+.venue-entry-shape{width:7px;height:7px;flex-shrink:0;position:relative;top:0px}
+.venue-entry-shape svg{width:7px;height:7px;display:block}
+.venue-entry-name{
+  font-size:.82rem;font-weight:400;color:var(--ink);
+  font-family:Georgia,'Times New Roman',serif;
+}
+.venue-entry-sep{color:var(--ink-5);font-size:.75rem}
+.venue-entry-hood{
+  font-size:.7rem;color:var(--ink-3);font-style:italic;
+}
+.venue-entry-tag{
+  font-size:.6rem;color:var(--ink-4);letter-spacing:1px;text-transform:uppercase;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  margin-top:2px;
+}
+.venue-entry-note{
+  font-size:.7rem;color:var(--ink-3);margin-top:3px;font-style:italic;
+  line-height:1.3;
+}
+
+/* ── Venue detail ── */
+.venue-detail{flex:1;overflow-y:auto;padding:20px;display:none}
+.venue-detail.visible{display:block}
+.venue-detail-back{
+  background:none;border:none;color:var(--accent);cursor:pointer;
+  font-size:.7rem;margin-bottom:16px;padding:0;letter-spacing:1px;
+  text-transform:uppercase;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+.venue-detail-back:hover{text-decoration:underline}
+.venue-detail h3{font-size:1.1rem;margin-bottom:4px;font-weight:400;letter-spacing:1px}
+.venue-detail .cat-label{
+  display:inline-block;font-size:.6rem;color:var(--ink-3);
+  letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+.venue-detail .detail-field{margin-bottom:12px}
+.venue-detail .detail-label{
+  font-size:.55rem;color:var(--ink-4);text-transform:uppercase;
+  letter-spacing:1.5px;margin-bottom:3px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+.venue-detail .detail-value{font-size:.82rem;color:var(--ink);line-height:1.6}
+.venue-detail .detail-value a{color:var(--accent);text-decoration:none}
+.venue-detail .detail-value a:hover{text-decoration:underline}
+
+/* ── SVG Map ── */
+.map-wrap{flex:1;position:relative;overflow:hidden;background:var(--water)}
+.map-wrap svg{width:100%;height:100%;display:block}
+
+.borough-path{fill:var(--land);stroke:var(--land-stroke);stroke-width:1.2;stroke-linejoin:round}
+.park-path{fill:var(--park);stroke:var(--park-stroke);stroke-width:0.5}
+.water-line{fill:none;stroke:var(--water);stroke-linecap:round;opacity:0.6}
+.bridge-line{stroke:var(--bridge);stroke-width:1;stroke-dasharray:3,2.5}
+.grid-line{stroke:var(--grid);stroke-width:0.4}
+
+/* Map typography */
+.borough-label{
+  font-family:Georgia,serif;font-size:10px;fill:var(--ink-4);font-weight:400;
+  letter-spacing:5px;text-transform:uppercase;pointer-events:none;
+}
+.river-label{
+  font-family:Georgia,serif;font-size:7.5px;fill:var(--ink-5);font-weight:400;
+  letter-spacing:2.5px;text-transform:uppercase;pointer-events:none;
+  font-style:italic;
+}
+.nhood-label{
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:6.5px;fill:var(--ink-4);font-weight:500;
+  pointer-events:none;letter-spacing:0.8px;
+}
+.bridge-label{
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:5.5px;fill:var(--ink-4);pointer-events:none;letter-spacing:0.5px;
+}
+.park-label{
+  font-family:Georgia,serif;font-size:6px;fill:var(--park-stroke);font-weight:400;
+  letter-spacing:2px;text-transform:uppercase;pointer-events:none;font-style:italic;
+}
+
+/* ── Markers (print style) ── */
+.marker-group{cursor:pointer}
+.marker-group.hidden{opacity:0;pointer-events:none;transition:opacity .3s}
+.marker-dot{fill:var(--ink);transition:transform .2s ease-out;transform-box:fill-box;transform-origin:center}
+.marker-ring{fill:none;stroke:var(--accent);stroke-width:1.2;opacity:0;transition:opacity .2s;transform-box:fill-box;transform-origin:center}
+.marker-group:hover .marker-dot{transform:scale(1.3)}
+.marker-group:hover .marker-ring{opacity:0.6}
+.marker-group.selected .marker-ring{opacity:1;stroke-width:1.5}
+.marker-group.selected .marker-dot{fill:var(--accent)}
+
+/* Map venue labels (top venues shown directly) */
+.venue-map-label{
+  font-family:Georgia,serif;font-size:7px;fill:var(--ink-2);font-weight:400;
+  pointer-events:none;letter-spacing:0.3px;
+}
+.leader-line{stroke:var(--ink-4);stroke-width:0.5;stroke-dasharray:1.5,1.5;pointer-events:none}
+
+/* Hover annotation */
+.annotation{pointer-events:none;opacity:0;transition:opacity .2s}
+.marker-group:hover .annotation,.marker-group.selected .annotation{opacity:1}
+.annotation-text{
+  font-family:Georgia,serif;font-size:7.5px;fill:var(--ink);font-weight:400;
+  letter-spacing:0.3px;
+}
+.annotation-line{stroke:var(--ink-3);stroke-width:0.5}
+
+/* Cluster */
+.cluster-group{cursor:pointer}
+.cluster-bg{fill:var(--paper-2);stroke:var(--land-stroke);stroke-width:1;transition:transform .15s;transform-box:fill-box;transform-origin:center}
+.cluster-count{
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:8px;fill:var(--ink-2);font-weight:600;pointer-events:none;
+}
+.cluster-group:hover .cluster-bg{transform:scale(1.08)}
+
+/* Margin annotations */
+.margin-note{
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:6px;fill:var(--ink-5);letter-spacing:1px;
+  text-transform:uppercase;pointer-events:none;
+}
+
+/* Atmosphere */
+.noise-rect{pointer-events:none;opacity:0.04}
+.grain-rect{pointer-events:none}
+
+/* ── Tooltip ── */
+.venue-tooltip{
+  position:absolute;pointer-events:none;
+  background:var(--surface);color:var(--ink);
+  border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+  padding:10px 14px;font-size:.8rem;line-height:1.4;
+  z-index:100;opacity:0;transition:opacity .15s;
+  max-width:220px;
+}
+.venue-tooltip.visible{opacity:1}
+.venue-tooltip .tt-name{font-weight:400;font-size:.82rem;margin-bottom:2px;font-family:Georgia,serif}
+.venue-tooltip .tt-highlight{color:var(--ink-3);font-style:italic;font-size:.72rem}
+.venue-tooltip .tt-meta{
+  color:var(--ink-4);font-size:.6rem;margin-top:4px;letter-spacing:1px;
+  text-transform:uppercase;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+/* ── Responsive ── */
+@media(max-width:768px){
+  .main{flex-direction:column-reverse}
+  .sidebar{width:100%;min-width:100%;max-height:45vh;min-height:140px;border-right:none;border-top:1px solid var(--border)}
+  .sidebar-header h2{display:none}
+  :root{--sidebar-w:100%}
+}
+.venue-list::-webkit-scrollbar,.venue-detail::-webkit-scrollbar{width:3px}
+.venue-list::-webkit-scrollbar-thumb,.venue-detail::-webkit-scrollbar-thumb{background:var(--ink-5);border-radius:2px}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="../../index.html">&larr; Portfolio</a>
+  <div class="topbar-center">
+    <div class="topbar-title">NYC Film Scene Map</div>
+    <div class="topbar-sub">cinemas &middot; labs &middot; galleries &middot; workshops</div>
+  </div>
+  <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">Dark</button>
+</div>
+
+<div class="main">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>Index</h2>
+      <div class="cat-tags" id="catTags"></div>
+      <div class="filters-row">
+        <select id="boroughSelect"><option value="">All boroughs</option></select>
+        <input type="text" id="searchInput" placeholder="Search...">
+      </div>
+    </div>
+    <div class="venue-count" id="venueCount"></div>
+    <div class="venue-list" id="venueList"></div>
+    <div class="venue-detail" id="venueDetail"></div>
+  </aside>
+  <div class="map-wrap" id="mapWrap">
+    <svg id="mapSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="venue-tooltip" id="tooltip"></div>
+  </div>
+</div>
+
+<script>
+const API = '';
+const CATEGORIES = ['cinema','lab','gallery','organization','workshop'];
+const CAT_LABELS = {cinema:'Cinema',lab:'Lab',gallery:'Gallery',organization:'Org',workshop:'Workshop'};
+
+// Shapes centered at 0,0
+const SHAPES = {
+  cinema:       {d:'M-3.5,0 A3.5,3.5 0 1,1 3.5,0 A3.5,3.5 0 1,1 -3.5,0', pill:'<circle cx="4" cy="4" r="3" fill="currentColor"/>'},
+  lab:          {d:'M0,-4 L3.5,0 0,4 -3.5,0 Z', pill:'<path d="M4,1 L7,4 4,7 1,4 Z" fill="currentColor"/>'},
+  gallery:      {d:'M-3,-3 L3,-3 3,3 -3,3 Z', pill:'<rect x="1" y="1" width="6" height="6" fill="currentColor"/>'},
+  organization: {d:'M0,-4 L3.5,-2 3.5,2 0,4 -3.5,2 -3.5,-2 Z', pill:'<path d="M4,0.5 L7.3,2.25 7.3,5.75 4,7.5 0.7,5.75 0.7,2.25 Z" fill="currentColor"/>'},
+  workshop:     {d:'M0,-4 L3.8,3 -3.8,3 Z', pill:'<path d="M4,1 L7.5,7 0.5,7 Z" fill="currentColor"/>'},
+};
+
+// Top venues to label on map directly
+const FEATURED = ['Anthology Film Archives','Metrograph','Film Forum','BAM Rose Cinemas',
+  'Spectacle Theater','Nitehawk Cinema','MoMA','Light Industry','Mono No Aware','DCTV'];
+
+let allVenues = [];
+let markerEls = {};
+let clusterEls = [];
+let activeCategories = new Set(CATEGORIES);
+let currentBorough = '';
+let currentSearch = '';
+let selectedId = null;
+
+// ── Geography ──
+const GEO = {minLat:40.640,maxLat:40.790,minLng:-74.025,maxLng:-73.905};
+const PAD = 50;
+
+const BOROUGHS = {
+  Manhattan: [
+    [40.6998,-74.0187],[40.7005,-74.0155],[40.7010,-74.0125],
+    [40.7045,-74.0130],[40.7080,-74.0108],[40.7110,-74.0095],
+    [40.7140,-74.0085],[40.7170,-74.0080],[40.7200,-74.0075],
+    [40.7235,-74.0070],[40.7270,-74.0058],[40.7305,-74.0048],
+    [40.7340,-74.0020],[40.7380,-74.0015],[40.7410,-74.0008],
+    [40.7450,-74.0000],[40.7490,-73.9990],[40.7530,-73.9985],
+    [40.7570,-73.9980],[40.7600,-73.9972],
+    [40.7660,-73.9920],[40.7700,-73.9900],[40.7740,-73.9875],
+    [40.7780,-73.9850],[40.7810,-73.9830],[40.7840,-73.9800],
+    [40.7860,-73.9770],[40.7870,-73.9735],
+    [40.7850,-73.9710],[40.7830,-73.9700],[40.7800,-73.9700],
+    [40.7770,-73.9710],[40.7740,-73.9715],
+    [40.7710,-73.9720],[40.7680,-73.9725],[40.7650,-73.9730],
+    [40.7620,-73.9740],[40.7590,-73.9750],
+    [40.7560,-73.9755],[40.7530,-73.9760],[40.7500,-73.9765],
+    [40.7470,-73.9680],[40.7450,-73.9715],
+    [40.7420,-73.9740],[40.7390,-73.9755],[40.7360,-73.9770],
+    [40.7330,-73.9780],[40.7300,-73.9800],[40.7270,-73.9825],
+    [40.7230,-73.9840],[40.7200,-73.9855],[40.7170,-73.9870],
+    [40.7140,-73.9890],[40.7110,-73.9905],
+    [40.7080,-73.9930],[40.7050,-73.9960],[40.7030,-73.9990],
+    [40.7010,-74.0020],[40.6998,-74.0060],
+    [40.6990,-74.0110],[40.6992,-74.0150]
+  ],
+  Brooklyn: [
+    [40.7350,-73.9575],[40.7320,-73.9560],[40.7290,-73.9560],
+    [40.7240,-73.9580],[40.7200,-73.9600],[40.7160,-73.9610],
+    [40.7120,-73.9620],[40.7080,-73.9625],
+    [40.7040,-73.9640],[40.7010,-73.9680],[40.6990,-73.9720],
+    [40.6960,-73.9760],[40.6930,-73.9800],
+    [40.6900,-73.9840],[40.6870,-73.9880],[40.6840,-73.9940],
+    [40.6810,-74.0000],[40.6780,-74.0030],[40.6750,-74.0050],
+    [40.6700,-74.0070],[40.6650,-74.0080],[40.6600,-74.0050],
+    [40.6550,-73.9990],[40.6500,-73.9900],[40.6480,-73.9800],
+    [40.6470,-73.9700],[40.6480,-73.9600],
+    [40.6500,-73.9500],[40.6550,-73.9400],[40.6600,-73.9350],
+    [40.6650,-73.9300],[40.6700,-73.9250],[40.6750,-73.9200],
+    [40.6800,-73.9180],[40.6850,-73.9170],[40.6900,-73.9160],
+    [40.6950,-73.9160],[40.7000,-73.9170],
+    [40.7050,-73.9200],[40.7100,-73.9250],[40.7150,-73.9320],
+    [40.7180,-73.9380],[40.7200,-73.9420],
+    [40.7240,-73.9460],[40.7280,-73.9490],[40.7320,-73.9530],
+    [40.7350,-73.9560]
+  ],
+  Queens: [
+    [40.7360,-73.9560],[40.7380,-73.9520],[40.7400,-73.9480],
+    [40.7420,-73.9440],[40.7440,-73.9420],
+    [40.7460,-73.9400],[40.7480,-73.9380],[40.7500,-73.9365],
+    [40.7530,-73.9350],[40.7560,-73.9345],[40.7590,-73.9340],
+    [40.7620,-73.9320],[40.7650,-73.9280],[40.7680,-73.9240],
+    [40.7710,-73.9200],[40.7740,-73.9170],[40.7770,-73.9140],
+    [40.7790,-73.9110],[40.7800,-73.9080],
+    [40.7780,-73.9060],[40.7750,-73.9050],[40.7720,-73.9060],
+    [40.7680,-73.9080],[40.7640,-73.9100],[40.7600,-73.9120],
+    [40.7560,-73.9140],[40.7520,-73.9150],[40.7480,-73.9160],
+    [40.7440,-73.9170],[40.7400,-73.9180],
+    [40.7350,-73.9200],[40.7300,-73.9230],[40.7250,-73.9300],
+    [40.7220,-73.9370],[40.7230,-73.9420],[40.7260,-73.9460],
+    [40.7300,-73.9500],[40.7340,-73.9540]
+  ]
+};
+
+const RIVERS = [
+  {c:[[40.6910,-73.9780],[40.6950,-73.9730],[40.6990,-73.9680],[40.7030,-73.9650],[40.7070,-73.9630],[40.7110,-73.9615],[40.7150,-73.9610],[40.7190,-73.9605],[40.7230,-73.9590],[40.7260,-73.9560],[40.7300,-73.9540],[40.7340,-73.9520],[40.7380,-73.9500],[40.7420,-73.9430],[40.7460,-73.9400],[40.7500,-73.9370],[40.7540,-73.9350],[40.7580,-73.9340],[40.7620,-73.9320],[40.7660,-73.9280],[40.7700,-73.9240]],w:'4'},
+  {c:[[40.6998,-74.0200],[40.7050,-74.0160],[40.7110,-74.0120],[40.7200,-74.0100],[40.7300,-74.0070],[40.7400,-74.0030],[40.7500,-74.0000],[40.7600,-73.9985],[40.7700,-73.9920],[40.7800,-73.9840],[40.7870,-73.9770]],w:'4'},
+  {c:[[40.7360,-73.9560],[40.7340,-73.9540],[40.7300,-73.9510],[40.7260,-73.9470],[40.7230,-73.9430],[40.7200,-73.9410],[40.7160,-73.9370],[40.7130,-73.9310]],w:'1.5'},
+];
+
+const BRIDGES = [
+  {n:'Brooklyn',f:[40.7063,-73.9969],t:[40.6983,-73.9735]},
+  {n:'Manhattan',f:[40.7095,-73.9920],t:[40.7035,-73.9660]},
+  {n:'Williamsburg',f:[40.7137,-73.9885],t:[40.7133,-73.9625]},
+  {n:'Queensboro',f:[40.7568,-73.9550],t:[40.7510,-73.9365]},
+];
+
+const PARKS = {
+  'Central Park':[[40.7644,-73.9730],[40.7680,-73.9720],[40.7720,-73.9710],[40.7760,-73.9700],[40.7800,-73.9690],[40.7830,-73.9680],[40.7830,-73.9580],[40.7800,-73.9590],[40.7760,-73.9600],[40.7720,-73.9610],[40.7680,-73.9620],[40.7644,-73.9630]],
+  'Prospect Park':[[40.6720,-73.9720],[40.6750,-73.9700],[40.6770,-73.9660],[40.6780,-73.9620],[40.6770,-73.9580],[40.6740,-73.9560],[40.6710,-73.9570],[40.6690,-73.9600],[40.6680,-73.9640],[40.6690,-73.9690]],
+  'McCarren':[[40.7208,-73.9520],[40.7225,-73.9505],[40.7225,-73.9470],[40.7208,-73.9460],[40.7195,-73.9475],[40.7195,-73.9510]],
+};
+
+const PARK_LABELS = [
+  {n:'Central Park',lat:40.7740,lng:-73.9660},
+  {n:'Prospect Pk.',lat:40.6720,lng:-73.9640},
+];
+
+const NHOODS = [
+  {n:'East Village',lat:40.7268,lng:-73.9845},{n:'Williamsburg',lat:40.7125,lng:-73.9545},
+  {n:'Greenpoint',lat:40.7295,lng:-73.9505},{n:'LES',lat:40.7165,lng:-73.9870},
+  {n:'West Village',lat:40.7340,lng:-74.0015},{n:'Chelsea',lat:40.7475,lng:-74.0010},
+  {n:'Midtown',lat:40.7565,lng:-73.9870},{n:'UWS',lat:40.7745,lng:-73.9810},
+  {n:'Tribeca',lat:40.7185,lng:-74.0040},{n:'Chinatown',lat:40.7150,lng:-73.9995},
+  {n:'Ft. Greene',lat:40.6882,lng:-73.9745},{n:'Bushwick',lat:40.7025,lng:-73.9215},
+  {n:'Sunset Park',lat:40.6555,lng:-73.9950},{n:'Astoria',lat:40.7645,lng:-73.9200},
+  {n:'LIC',lat:40.7485,lng:-73.9385},{n:'DUMBO',lat:40.7035,lng:-73.9690},
+  {n:'Park Slope',lat:40.6758,lng:-73.9770},{n:'Flatiron',lat:40.7418,lng:-73.9885},
+  {n:'SoHo',lat:40.7230,lng:-73.9985},{n:'NoHo',lat:40.7280,lng:-73.9930},
+  {n:'Meatpacking',lat:40.7405,lng:-74.0070},{n:'Murray Hill',lat:40.7470,lng:-73.9790},
+];
+
+const RIVER_LABELS = [
+  {n:'East River',lat:40.7180,lng:-73.9610,r:-35},
+  {n:'Hudson River',lat:40.7380,lng:-74.0110,r:-72},
+];
+
+const B_LABELS = {Manhattan:[40.748,-73.990],Brooklyn:[40.668,-73.952],Queens:[40.758,-73.918]};
+
+const GRID_LINES = [
+  [[40.710,-73.997],[40.780,-73.980]],[[40.715,-73.993],[40.780,-73.975]],[[40.720,-73.988],[40.775,-73.972]],
+  [[40.720,-74.005],[40.720,-73.975]],[[40.730,-74.002],[40.730,-73.978]],
+  [[40.740,-73.999],[40.740,-73.976]],[[40.750,-73.998],[40.750,-73.974]],
+  [[40.760,-73.993],[40.760,-73.973]],[[40.770,-73.988],[40.770,-73.971]],
+];
+
+// ── Theme ──
+function getTheme(){ return localStorage.getItem('nfm-theme') || 'light' }
+function setTheme(t){
+  document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : '');
+  localStorage.setItem('nfm-theme', t);
+  document.getElementById('themeBtn').textContent = t === 'light' ? 'Dark' : 'Light';
+  if(allVenues.length) renderVenueList(getFiltered());
+}
+document.getElementById('themeBtn').addEventListener('click', () => {
+  setTheme(getTheme() === 'light' ? 'dark' : 'light');
+});
+
+// ── Projection ──
+let svgW = 800, svgH = 600;
+function proj(lat,lng){
+  return {
+    x: PAD + ((lng-GEO.minLng)/(GEO.maxLng-GEO.minLng))*(svgW-2*PAD),
+    y: PAD + ((GEO.maxLat-lat)/(GEO.maxLat-GEO.minLat))*(svgH-2*PAD)
+  };
+}
+function cPath(cs){ return cs.map((c,i)=>{const p=proj(c[0],c[1]);return `${i?'L':'M'}${p.x.toFixed(1)},${p.y.toFixed(1)}`;}).join(' ')+' Z'; }
+function oPath(cs){ return cs.map((c,i)=>{const p=proj(c[0],c[1]);return `${i?'L':'M'}${p.x.toFixed(1)},${p.y.toFixed(1)}`;}).join(' '); }
+
+// ── SVG ──
+const svg = document.getElementById('mapSvg');
+const NS = 'http://www.w3.org/2000/svg';
+function el(tag,a){
+  const e=document.createElementNS(NS,tag);
+  for(const[k,v]of Object.entries(a||{})){
+    if(k==='text') e.textContent=v;
+    else if(k==='cls') e.setAttribute('class',v);
+    else e.setAttribute(k,v);
+  }
+  return e;
+}
+
+// ── Clustering ──
+function cluster(venues){
+  const pts = venues.map(v=>{const p=proj(v.lat,v.lng);return{v,x:p.x,y:p.y,used:false};});
+  const clusters=[], singles=[];
+  for(let i=0;i<pts.length;i++){
+    if(pts[i].used) continue;
+    const g=[pts[i]]; pts[i].used=true;
+    for(let j=i+1;j<pts.length;j++){
+      if(pts[j].used) continue;
+      if(Math.hypot(pts[i].x-pts[j].x,pts[i].y-pts[j].y)<20){g.push(pts[j]);pts[j].used=true;}
+    }
+    if(g.length>2){
+      clusters.push({cx:g.reduce((s,p)=>s+p.x,0)/g.length, cy:g.reduce((s,p)=>s+p.y,0)/g.length, vs:g.map(p=>p.v)});
+    } else g.forEach(p=>singles.push(p));
+  }
+  return {clusters,singles};
+}
+
+// ── Build SVG ──
+function initSvg(){
+  const w=document.getElementById('mapWrap');
+  svgW=w.clientWidth||800; svgH=w.clientHeight||600;
+  svg.setAttribute('viewBox',`0 0 ${svgW} ${svgH}`);
+  while(svg.firstChild) svg.removeChild(svg.firstChild);
+
+  // Defs
+  const defs=el('defs');
+  // Paper grain noise
+  const nf=el('filter',{id:'grain',x:'0',y:'0',width:'100%',height:'100%'});
+  nf.appendChild(el('feTurbulence',{type:'fractalNoise',baseFrequency:'0.9',numOctaves:'4',stitchTiles:'stitch',result:'n'}));
+  nf.appendChild(el('feColorMatrix',{type:'saturate',values:'0','in':'n',result:'ng'}));
+  nf.appendChild(el('feBlend',{'in':'SourceGraphic',in2:'ng',mode:'multiply'}));
+  defs.appendChild(nf);
+  svg.appendChild(defs);
+
+  // Land
+  for(const[,cs]of Object.entries(BOROUGHS)) svg.appendChild(el('path',{d:cPath(cs),cls:'borough-path'}));
+
+  // Parks
+  for(const[,cs]of Object.entries(PARKS)) svg.appendChild(el('path',{d:cPath(cs),cls:'park-path'}));
+
+  // Grid
+  GRID_LINES.forEach(s=>{const a=proj(s[0][0],s[0][1]),b=proj(s[1][0],s[1][1]);
+    svg.appendChild(el('line',{x1:a.x.toFixed(1),y1:a.y.toFixed(1),x2:b.x.toFixed(1),y2:b.y.toFixed(1),cls:'grid-line'}));});
+
+  // Rivers
+  RIVERS.forEach(r=>svg.appendChild(el('path',{d:oPath(r.c),cls:'water-line','stroke-width':r.w})));
+
+  // Bridges
+  BRIDGES.forEach(b=>{
+    const f=proj(b.f[0],b.f[1]),t=proj(b.t[0],b.t[1]);
+    svg.appendChild(el('line',{x1:f.x.toFixed(1),y1:f.y.toFixed(1),x2:t.x.toFixed(1),y2:t.y.toFixed(1),cls:'bridge-line'}));
+    const mx=(f.x+t.x)/2,my=(f.y+t.y)/2,ang=Math.atan2(t.y-f.y,t.x-f.x)*180/Math.PI;
+    svg.appendChild(el('text',{x:mx.toFixed(1),y:(my-3).toFixed(1),'text-anchor':'middle',
+      transform:`rotate(${ang.toFixed(0)} ${mx.toFixed(1)} ${(my-3).toFixed(1)})`,cls:'bridge-label',text:b.n+' Br.'}));
+  });
+
+  // Park labels
+  PARK_LABELS.forEach(p=>{const pt=proj(p.lat,p.lng);
+    svg.appendChild(el('text',{x:pt.x.toFixed(1),y:pt.y.toFixed(1),'text-anchor':'middle',cls:'park-label',text:p.n}));});
+
+  // River labels
+  RIVER_LABELS.forEach(r=>{const p=proj(r.lat,r.lng);
+    svg.appendChild(el('text',{x:p.x.toFixed(1),y:p.y.toFixed(1),'text-anchor':'middle',
+      transform:`rotate(${r.r} ${p.x.toFixed(1)} ${p.y.toFixed(1)})`,cls:'river-label',text:r.n}));});
+
+  // Neighborhood labels
+  NHOODS.forEach(n=>{const p=proj(n.lat,n.lng);
+    svg.appendChild(el('text',{x:p.x.toFixed(1),y:p.y.toFixed(1),'text-anchor':'middle',cls:'nhood-label',text:n.n}));});
+
+  // Borough labels
+  for(const[name,pos]of Object.entries(B_LABELS)){const p=proj(pos[0],pos[1]);
+    svg.appendChild(el('text',{x:p.x.toFixed(1),y:p.y.toFixed(1),'text-anchor':'middle',cls:'borough-label',text:name}));}
+
+  // Markers
+  if(allVenues.length) buildMarkers();
+
+  // Paper grain overlay
+  svg.appendChild(el('rect',{x:'0',y:'0',width:svgW,height:svgH,filter:'url(#grain)',cls:'noise-rect',fill:'transparent'}));
+
+  // Margin notes
+  const now = new Date();
+  const dateStr = now.toLocaleDateString('en-US',{month:'short',year:'numeric'});
+  svg.appendChild(el('text',{x:(svgW-12).toFixed(0),y:(svgH-10).toFixed(0),'text-anchor':'end',cls:'margin-note',
+    text:allVenues.length+' venues \u00b7 '+dateStr}));
+}
+
+// ── Markers ──
+function buildMarkers(){
+  Object.values(markerEls).forEach(m=>{if(m.g.parentNode)m.g.remove();});
+  clusterEls.forEach(c=>{if(c.g.parentNode)c.g.remove();});
+  markerEls={}; clusterEls=[];
+
+  const filtered=getFiltered();
+  const{clusters:cls,singles}=cluster(filtered);
+  const ins=svg.querySelector('.noise-rect')||null;
+
+  singles.forEach(s=>{
+    const v=s.v, isFeat=FEATURED.includes(v.name);
+    const g=el('g',{cls:'marker-group','data-id':v.id});
+    g.setAttribute('transform',`translate(${s.x.toFixed(1)},${s.y.toFixed(1)})`);
+
+    // Selection ring
+    g.appendChild(el('circle',{cx:'0',cy:'0',r:'8',cls:'marker-ring'}));
+    // Dot shape
+    g.appendChild(el('path',{d:SHAPES[v.category].d,cls:'marker-dot'}));
+
+    // Annotation on hover (name + leader line)
+    const ag=el('g',{cls:'annotation'});
+    ag.appendChild(el('line',{x1:'0',y1:'-5',x2:'0',y2:'-14',cls:'annotation-line'}));
+    ag.appendChild(el('text',{x:'0',y:'-17','text-anchor':'middle',cls:'annotation-text',
+      text:v.name.length>22?v.name.slice(0,20)+'...':v.name}));
+    g.appendChild(ag);
+
+    // Featured: show label permanently
+    if(isFeat){
+      const lbl=el('text',{x:'6',y:'3','text-anchor':'start',cls:'venue-map-label',text:v.name});
+      g.appendChild(lbl);
+      g.appendChild(el('line',{x1:'4',y1:'0',x2:'5.5',y2:'1',cls:'leader-line'}));
+    }
+
+    g.addEventListener('mouseenter',e=>showTooltip(e,v,s.x,s.y));
+    g.addEventListener('mouseleave',hideTooltip);
+    g.addEventListener('click',()=>{window.location.hash='#venue/'+v.id;});
+
+    svg.insertBefore(g,ins);
+    markerEls[v.id]={g,x:s.x,y:s.y};
+  });
+
+  cls.forEach(cl=>{
+    const g=el('g',{cls:'cluster-group'});
+    g.setAttribute('transform',`translate(${cl.cx.toFixed(1)},${cl.cy.toFixed(1)})`);
+    g.appendChild(el('circle',{cx:'0',cy:'0',r:'10',cls:'cluster-bg'}));
+    g.appendChild(el('text',{x:'0',y:'3','text-anchor':'middle',cls:'cluster-count',text:String(cl.vs.length)}));
+    g.addEventListener('mouseenter',e=>{
+      const names=cl.vs.slice(0,3).map(v=>v.name).join(', ')+(cl.vs.length>3?' ...':'');
+      showClusterTip(e,cl.vs.length+' venues',names,cl.cx,cl.cy);
+    });
+    g.addEventListener('mouseleave',hideTooltip);
+    g.addEventListener('click',()=>{cl.vs.forEach(v=>highlightCard(v.id));});
+    svg.insertBefore(g,ins);
+    clusterEls.push({g,vs:cl.vs});
+  });
+}
+
+function selectVenue(id){
+  Object.values(markerEls).forEach(m=>m.g.classList.remove('selected'));
+  selectedId=id;
+  if(id!=null&&markerEls[id]) markerEls[id].g.classList.add('selected');
+}
+
+// ── Tooltip ──
+const tooltip=document.getElementById('tooltip');
+function showTooltip(e,v,sx,sy){
+  const sr=svg.getBoundingClientRect();
+  let tx=sx*(sr.width/svgW)+14,ty=sy*(sr.height/svgH)-10;
+  const wr=document.getElementById('mapWrap');
+  if(tx+220>wr.clientWidth) tx=sx*(sr.width/svgW)-234;
+  tooltip.innerHTML='<div class="tt-name">'+v.name+'</div>'
+    +(v.highlight?'<div class="tt-highlight">'+v.highlight+'</div>':'')
+    +'<div class="tt-meta">'+(v.neighborhood||'')+' \u00b7 '+(CAT_LABELS[v.category]||v.category)+'</div>';
+  tooltip.style.left=tx+'px';tooltip.style.top=ty+'px';
+  tooltip.classList.add('visible');
+}
+function showClusterTip(e,t,s,sx,sy){
+  const sr=svg.getBoundingClientRect();
+  let tx=sx*(sr.width/svgW)+14,ty=sy*(sr.height/svgH)-10;
+  tooltip.innerHTML='<div class="tt-name">'+t+'</div><div class="tt-highlight">'+s+'</div>';
+  tooltip.style.left=tx+'px';tooltip.style.top=ty+'px';
+  tooltip.classList.add('visible');
+}
+function hideTooltip(){tooltip.classList.remove('visible');}
+
+// ── Category tags ──
+function renderTags(){
+  const el=document.getElementById('catTags');
+  el.innerHTML=CATEGORIES.map(c=>
+    '<span class="cat-tag '+(activeCategories.has(c)?'active':'')+'" data-cat="'+c+'">'
+    +'<svg class="shape" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">'+SHAPES[c].pill+'</svg>'
+    +CAT_LABELS[c]+'</span>'
+  ).join('');
+  el.querySelectorAll('.cat-tag').forEach(t=>{
+    t.addEventListener('click',()=>{
+      const c=t.dataset.cat;
+      if(activeCategories.has(c)) activeCategories.delete(c); else activeCategories.add(c);
+      renderTags(); applyFilters();
+    });
+  });
+}
+
+// ── Boroughs ──
+async function loadBoroughs(){
+  const r=await fetch(API+'/boroughs'),d=await r.json();
+  const s=document.getElementById('boroughSelect');
+  d.forEach(b=>{const o=document.createElement('option');o.value=b.borough;o.textContent=b.borough+' ('+b.count+')';s.appendChild(o);});
+}
+document.getElementById('boroughSelect').addEventListener('change',e=>{currentBorough=e.target.value;applyFilters();});
+document.getElementById('searchInput').addEventListener('input',e=>{currentSearch=e.target.value.toLowerCase();applyFilters();});
+
+// ── Data ──
+async function loadVenues(){
+  const r=await fetch(API+'/venues');
+  allVenues=await r.json();
+  buildMarkers(); applyFilters();
+}
+
+function getFiltered(){
+  return allVenues.filter(v=>{
+    if(!activeCategories.has(v.category)) return false;
+    if(currentBorough&&v.borough!==currentBorough) return false;
+    if(currentSearch){
+      const h=(v.name+' '+(v.neighborhood||'')+' '+(v.description||'')+' '+(v.highlight||'')).toLowerCase();
+      if(!h.includes(currentSearch)) return false;
+    }
+    return true;
+  });
+}
+
+function applyFilters(){
+  const f=getFiltered();
+  buildMarkers();
+  renderVenueList(f);
+  document.getElementById('venueCount').textContent=f.length+' venue'+(f.length!==1?'s':'');
+}
+
+// ── Sidebar ──
+function renderVenueList(venues){
+  const el=document.getElementById('venueList');
+  if(!venues.length){el.innerHTML='<div style="padding:20px;color:var(--ink-4);font-size:.8rem;font-style:italic">No results.</div>';return;}
+  el.innerHTML=venues.map(v=>
+    '<div class="venue-entry" data-id="'+v.id+'">'
+    +'<div class="venue-entry-top">'
+    +'<span class="venue-entry-shape"><svg viewBox="-5 -5 10 10" xmlns="http://www.w3.org/2000/svg"><path d="'+SHAPES[v.category].d+'" fill="currentColor"/></svg></span>'
+    +'<span class="venue-entry-name">'+v.name+'</span>'
+    +'<span class="venue-entry-sep">&mdash;</span>'
+    +'<span class="venue-entry-hood">'+(v.neighborhood||'')+'</span>'
+    +'</div>'
+    +(v.highlight?'<div class="venue-entry-note">'+v.highlight+'</div>':'')
+    +'</div>'
+  ).join('');
+  el.querySelectorAll('.venue-entry').forEach(c=>{
+    c.addEventListener('click',()=>{window.location.hash='#venue/'+c.dataset.id;});
+  });
+}
+
+function highlightCard(id){
+  document.querySelectorAll('.venue-entry').forEach(c=>c.classList.remove('active'));
+  const c=document.querySelector('.venue-entry[data-id="'+id+'"]');
+  if(c){c.classList.add('active');c.scrollIntoView({behavior:'smooth',block:'nearest'});}
+  selectVenue(id);
+}
+
+// ── Detail ──
+function showDetail(id){
+  const v=allVenues.find(x=>x.id===id);
+  if(!v) return;
+  const e=document.getElementById('venueDetail');
+  e.innerHTML=
+    '<button class="venue-detail-back" id="detailBack">&larr; Back to index</button>'
+    +'<h3>'+v.name+'</h3>'
+    +'<div class="cat-label">'+CAT_LABELS[v.category]+'</div>'
+    +(v.highlight?'<div class="detail-field"><div class="detail-value" style="font-style:italic;color:var(--ink-3)">'+v.highlight+'</div></div>':'')
+    +(v.address?'<div class="detail-field"><div class="detail-label">Address</div><div class="detail-value">'+v.address+'</div></div>':'')
+    +(v.neighborhood?'<div class="detail-field"><div class="detail-label">Neighborhood</div><div class="detail-value">'+v.neighborhood+', '+(v.borough||'')+'</div></div>':'')
+    +(v.description?'<div class="detail-field"><div class="detail-label">About</div><div class="detail-value">'+v.description+'</div></div>':'')
+    +(v.url?'<div class="detail-field"><div class="detail-label">Website</div><div class="detail-value"><a href="'+v.url+'" target="_blank" rel="noopener">'+v.url.replace('https://','').replace('http://','')+'</a></div></div>':'');
+  e.classList.add('visible');
+  document.getElementById('venueList').style.display='none';
+  document.getElementById('venueCount').style.display='none';
+  document.getElementById('detailBack').addEventListener('click',()=>{window.location.hash='#map';});
+  highlightCard(id);
+}
+
+function hideDetail(){
+  document.getElementById('venueDetail').classList.remove('visible');
+  document.getElementById('venueList').style.display='';
+  document.getElementById('venueCount').style.display='';
+  selectVenue(null);
+}
+
+// ── Routing ──
+function handleRoute(){
+  const h=window.location.hash||'#map';
+  if(h.startsWith('#venue/')){const id=+h.split('/')[1];if(id)showDetail(id);}
+  else hideDetail();
+}
+window.addEventListener('hashchange',handleRoute);
+
+// ── Resize ──
+let rt;
+window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(initSvg,200);});
+
+// ── Init ──
+(async function(){
+  setTheme(getTheme());
+  renderTags();
+  initSvg();
+  await Promise.all([loadBoroughs(),loadVenues()]);
+  handleRoute();
+})();
+</script>
+</body>
+</html>

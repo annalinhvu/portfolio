@@ -17,6 +17,12 @@ source .venv/bin/activate
 uvicorn api:app --host 0.0.0.0 --port 8001 &
 echo "  Film Stocks      → http://127.0.0.1:8001"
 
+# NYC Film Scene Map (port 8002)
+cd "$DIR/projects/nyc-film-map"
+source .venv/bin/activate
+uvicorn api:app --host 0.0.0.0 --port 8002 &
+echo "  NYC Film Map     → http://127.0.0.1:8002"
+
 echo ""
 echo "All servers running. Press Ctrl+C to stop all."
 wait
