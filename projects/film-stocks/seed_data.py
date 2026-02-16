@@ -216,8 +216,8 @@ LABS = [
     {"name": "Frame Discreet", "city": "Brooklyn", "country": "USA", "url": "https://framediscreet.com", "turnaround": "5-7 days", "mail_in": 1},
     {"name": "Negative Supply Lab", "city": "Rochester", "country": "USA", "url": "https://www.negativesupply.com", "turnaround": "5-7 days", "mail_in": 1},
     {"name": "Yale Film & Video", "city": "Burbank", "country": "USA", "url": "https://yalefilmandvideo.com", "turnaround": "3-5 days", "mail_in": 1},
-    {"name": "Mono No Aware", "city": "New York", "country": "USA", "url": "https://www.mono-no-aware.com", "turnaround": "5-7 days", "mail_in": 0},
-    {"name": "Metropolis Post", "city": "New York", "country": "USA", "url": "https://metropolispost.com", "turnaround": "3-5 days", "mail_in": 1},
+    {"name": "Mono No Aware", "city": "New York", "country": "USA", "url": "https://mononoawarefilm.com", "turnaround": "5-7 days", "mail_in": 0},
+    {"name": "Metropolis Post", "city": "New York", "country": "USA", "url": "http://metpostny.com", "turnaround": "3-5 days", "mail_in": 1},
 ]
 
 # Prices: map (stock_name, vendor_name) -> (price_usd, in_stock)

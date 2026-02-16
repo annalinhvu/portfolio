@@ -610,7 +610,7 @@ body {
 <div id="content"></div>
 
 <script>
-const API = 'http://localhost:8001';
+const API = 'http://127.0.0.1:8001';
 
 // ── State ──
 let allStocks = [];
@@ -1008,21 +1008,27 @@ async function handleRoute() {
 }
 
 // ── Init ──
+async function loadData() {
+  [allStocks, allLabs] = await Promise.all([fetchStocks(), fetchLabs()]);
+}
+
 async function init() {
   initTheme();
 
   const content = document.getElementById('content');
   content.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
 
-  try {
-    [allStocks, allLabs] = await Promise.all([fetchStocks(), fetchLabs()]);
-  } catch (err) {
-    content.innerHTML = `<div class="empty"><div class="empty-icon">&#x26a0;&#xfe0f;</div><h3>Unable to connect to API</h3><p>Make sure the API is running on port 8001</p></div>`;
-    return;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      await loadData();
+      renderStats();
+      handleRoute();
+      return;
+    } catch (err) {
+      if (attempt < 2) await new Promise(r => setTimeout(r, 500));
+    }
   }
-
-  renderStats();
-  handleRoute();
+  content.innerHTML = `<div class="empty"><div class="empty-icon">&#x26a0;&#xfe0f;</div><h3>Unable to connect to API</h3><p>Make sure the API is running on port 8001</p></div>`;
 }
 
 window.addEventListener('hashchange', handleRoute);

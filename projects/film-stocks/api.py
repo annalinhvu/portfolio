@@ -165,4 +165,7 @@ def list_processes(conn=Depends(get_conn)):
 
 @app.get("/")
 def serve_frontend():
-    return FileResponse(os.path.join(os.path.dirname(__file__), "index.html"))
+    return FileResponse(
+        os.path.join(os.path.dirname(__file__), "index.html"),
+        headers={"Cache-Control": "no-cache"},
+    )
