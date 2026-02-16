@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analog Film Stock Database</title>
+<style>
+/* ── Reset & Variables ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0f0d0d;
+  --surface: #1a1616;
+  --surface-2: #221e1e;
+  --border: #2a2424;
+  --text-1: #e8e0d8;
+  --text-2: #a09890;
+  --text-3: #706860;
+  --accent: #c84b31;
+  --accent-2: #e06040;
+  --secondary: #5b8a9a;
+  --secondary-2: #7aacbc;
+  --kodak: #fcc200;
+  --ilford: #8a8a8a;
+  --fuji: #22a854;
+  --cinestill: #e8742a;
+  --lomo: #b266d9;
+  --fomapan: #a0785a;
+  --washi: #6a9a6a;
+  --tag-bg: rgba(200,75,49,0.12);
+  --tag-text: #e06040;
+  --green: #4caf50;
+  --amber: #ff9800;
+  --red: #e53935;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.3);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+:root[data-theme="light"] {
+  --bg: #f5f0ea;
+  --surface: #ffffff;
+  --surface-2: #f0ebe5;
+  --border: #ddd5cc;
+  --text-1: #1a1616;
+  --text-2: #5a524a;
+  --text-3: #8a827a;
+  --accent: #b33d28;
+  --accent-2: #c84b31;
+  --secondary: #3d6d7a;
+  --secondary-2: #5b8a9a;
+  --tag-bg: rgba(179,61,40,0.1);
+  --tag-text: #b33d28;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text-1);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ── Top Bar ── */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-link {
+  color: var(--text-2);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--accent); }
+
+.topbar h1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.topbar h1 span { color: var(--accent); }
+
+.theme-toggle {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ── Tab Pills ── */
+.tabs {
+  display: flex;
+  gap: 4px;
+  padding: 16px 24px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tab-btn {
+  padding: 8px 24px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-2);
+  border-radius: 99px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  font-family: var(--font);
+}
+.tab-btn:hover { color: var(--text-1); border-color: var(--text-3); }
+.tab-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* ── Stats Row ── */
+.stats {
+  display: flex;
+  gap: 24px;
+  padding: 16px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat {
+  font-size: 0.82rem;
+  color: var(--text-3);
+}
+.stat strong {
+  color: var(--text-1);
+  font-size: 1.1rem;
+  margin-right: 4px;
+}
+
+/* ── Filter Bar ── */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 24px 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.filter-select, .filter-input {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text-1);
+  font-size: 0.84rem;
+  font-family: var(--font);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.filter-select:focus, .filter-input:focus { border-color: var(--accent); }
+.filter-input { min-width: 200px; }
+.filter-input::placeholder { color: var(--text-3); }
+
+.filter-clear {
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text-2);
+  font-size: 0.84rem;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: all 0.2s;
+}
+.filter-clear:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ── Card Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 0 24px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+
+/* ── Stock Card ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-1px);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.brand-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.08);
+}
+.brand-kodak { color: var(--kodak); background: rgba(252,194,0,0.12); }
+.brand-ilford { color: var(--ilford); background: rgba(138,138,138,0.15); }
+.brand-fujifilm { color: var(--fuji); background: rgba(34,168,84,0.12); }
+.brand-cinestill { color: var(--cinestill); background: rgba(232,116,42,0.12); }
+.brand-lomography { color: var(--lomo); background: rgba(178,102,217,0.12); }
+.brand-fomapan { color: var(--fomapan); background: rgba(160,120,90,0.15); }
+.brand-film-washi { color: var(--washi); background: rgba(106,154,106,0.15); }
+
+.iso-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--secondary);
+  font-family: var(--mono);
+}
+
+.card-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.tag {
+  font-size: 0.7rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-weight: 500;
+}
+.tag-secondary {
+  background: rgba(91,138,154,0.12);
+  color: var(--secondary);
+}
+
+.card-chars {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 0.72rem;
+  color: var(--text-3);
+}
+.card-chars span::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--text-3);
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: var(--text-3);
+}
+.status-dot::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.status-available::before { background: var(--green); }
+.status-limited::before { background: var(--amber); }
+.status-discontinued::before { background: var(--red); }
+
+.best-for {
+  font-size: 0.75rem;
+  color: var(--text-3);
+  font-style: italic;
+  text-align: right;
+  flex: 1;
+  margin-left: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Lab Card ── */
+.lab-card-item { }
+
+.lab-card-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.lab-card-location {
+  font-size: 0.84rem;
+  color: var(--text-2);
+  margin-bottom: 8px;
+}
+
+.lab-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.turnaround-badge {
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(91,138,154,0.12);
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.mail-in-badge {
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(76,175,80,0.12);
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* ── Detail View ── */
+.detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-2);
+  text-decoration: none;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.detail-back:hover { color: var(--accent); }
+
+.detail-header {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.detail-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.detail-name {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.detail-desc {
+  font-size: 0.92rem;
+  color: var(--text-2);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.detail-chars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.char-tag {
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+}
+.char-tag strong { color: var(--text-1); }
+
+.detail-section {
+  margin-bottom: 20px;
+}
+
+.detail-section h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--accent);
+}
+
+/* ── Tables ── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 2px solid var(--border);
+  color: var(--text-3);
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.data-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-1);
+}
+
+.data-table tr:hover td { background: var(--surface-2); }
+
+.price-val {
+  font-weight: 700;
+  font-family: var(--mono);
+  color: var(--accent);
+}
+
+.in-stock-yes { color: var(--green); font-weight: 600; }
+.in-stock-no { color: var(--red); font-weight: 600; }
+
+.vendor-link {
+  color: var(--secondary);
+  text-decoration: none;
+}
+.vendor-link:hover { text-decoration: underline; }
+
+/* ── Lab Detail ── */
+.lab-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--secondary);
+  text-decoration: none;
+  font-size: 0.88rem;
+  margin-top: 8px;
+}
+.lab-link:hover { text-decoration: underline; }
+
+.lab-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+/* ── Empty State ── */
+.empty {
+  text-align: center;
+  padding: 60px 24px;
+  color: var(--text-3);
+}
+.empty-icon { font-size: 2.5rem; margin-bottom: 12px; }
+.empty h3 { font-size: 1.1rem; color: var(--text-2); margin-bottom: 4px; }
+
+/* ── Compatible Labs List (in stock detail) ── */
+.compat-labs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.compat-lab {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.compat-lab:hover { border-color: var(--accent); }
+.compat-lab-name { font-weight: 700; font-size: 0.88rem; margin-bottom: 2px; }
+.compat-lab-loc { font-size: 0.78rem; color: var(--text-3); }
+
+/* ── Loading ── */
+.loading {
+  display: flex;
+  justify-content: center;
+  padding: 60px;
+}
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .topbar { padding: 12px 16px; }
+  .topbar h1 { font-size: 0.95rem; }
+  .tabs, .stats, .filters, .grid { padding-left: 16px; padding-right: 16px; }
+  .detail { padding: 16px; }
+  .stats { gap: 16px; }
+  .filter-input { min-width: 140px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<header class="topbar">
+  <div class="topbar-left">
+    <a href="../../index.html" class="back-link">&larr; Portfolio</a>
+    <h1>Analog <span>Film Stock</span> Database</h1>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+  </button>
+</header>
+
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab-btn active" data-tab="stocks" onclick="switchTab('stocks')">Film Stocks</button>
+  <button class="tab-btn" data-tab="labs" onclick="switchTab('labs')">Labs</button>
+</div>
+
+<!-- Stats -->
+<div class="stats" id="stats"></div>
+
+<!-- Filters -->
+<div class="filters" id="filters"></div>
+
+<!-- Content -->
+<div id="content"></div>
+
+<script>
+const API = 'http://localhost:8001';
+
+// ── State ──
+let allStocks = [];
+let allLabs = [];
+let currentTab = 'stocks';
+let stockFilters = { brand: '', type: '', format: '', process: '', status: '', search: '' };
+let labFilters = { country: '', process: '', mail_in: '' };
+
+// ── Theme ──
+function initTheme() {
+  const saved = localStorage.getItem('fs-theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('fs-theme', next);
+}
+
+// ── Data Fetching ──
+async function fetchStocks(params = {}) {
+  const q = new URLSearchParams();
+  Object.entries(params).forEach(([k, v]) => { if (v) q.set(k, v); });
+  const url = `${API}/stocks${q.toString() ? '?' + q : ''}`;
+  const res = await fetch(url);
+  return res.json();
+}
+
+async function fetchStock(id) {
+  const res = await fetch(`${API}/stocks/${id}`);
+  return res.json();
+}
+
+async function fetchLabs(params = {}) {
+  const q = new URLSearchParams();
+  Object.entries(params).forEach(([k, v]) => { if (v !== '' && v !== null && v !== undefined) q.set(k, v); });
+  const url = `${API}/labs${q.toString() ? '?' + q : ''}`;
+  const res = await fetch(url);
+  return res.json();
+}
+
+async function fetchLab(id) {
+  const res = await fetch(`${API}/labs/${id}`);
+  return res.json();
+}
+
+// ── Brand Helpers ──
+function brandClass(brand) {
+  return 'brand-' + brand.toLowerCase().replace(/\s+/g, '-');
+}
+
+function typeLabel(t) {
+  const map = {
+    color_negative: 'Color Neg', bw_negative: 'B&W Neg',
+    color_reversal: 'Color Reversal', bw_reversal: 'B&W Reversal'
+  };
+  return map[t] || t;
+}
+
+function statusLabel(s) {
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+// ── Rendering: Stock Cards ──
+function renderStockCard(stock) {
+  return `
+    <div class="card" onclick="navigate('stock/${stock.id}')">
+      <div class="card-top">
+        <span class="brand-badge ${brandClass(stock.brand)}">${stock.brand}</span>
+        <span class="iso-badge">ISO ${stock.iso}</span>
+      </div>
+      <div class="card-name">${stock.name}</div>
+      <div class="card-tags">
+        <span class="tag">${typeLabel(stock.type)}</span>
+        <span class="tag">${stock.format}</span>
+        <span class="tag tag-secondary">${stock.process}</span>
+      </div>
+      <div class="card-chars">
+        ${stock.grain ? `<span>${stock.grain} grain</span>` : ''}
+        ${stock.tone ? `<span>${stock.tone}</span>` : ''}
+        ${stock.saturation ? `<span>${stock.saturation}</span>` : ''}
+      </div>
+      <div class="card-bottom">
+        <span class="status-dot status-${stock.status}">${statusLabel(stock.status)}</span>
+        ${stock.best_for ? `<span class="best-for">${stock.best_for}</span>` : ''}
+      </div>
+    </div>
+  `;
+}
+
+// ── Rendering: Lab Cards ──
+function renderLabCard(lab) {
+  return `
+    <div class="card lab-card-item" onclick="navigate('lab/${lab.id}')">
+      <div class="lab-card-name">${lab.name}</div>
+      <div class="lab-card-location">${lab.city}, ${lab.country}</div>
+      <div class="lab-card-meta">
+        <span class="turnaround-badge">${lab.turnaround}</span>
+        ${lab.mail_in ? '<span class="mail-in-badge">Mail-In</span>' : ''}
+      </div>
+      <div class="card-tags">
+        ${(lab.processes || []).map(p => `<span class="tag tag-secondary">${p}</span>`).join('')}
+      </div>
+    </div>
+  `;
+}
+
+// ── Rendering: Stock Detail ──
+async function renderStockDetail(id) {
+  const content = document.getElementById('content');
+  content.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+
+  const stock = await fetchStock(id);
+  const labs = await fetchLabs({ process: stock.process });
+
+  content.innerHTML = `
+    <div class="detail">
+      <a class="detail-back" onclick="navigate('stocks')">&larr; Back to stocks</a>
+
+      <div class="detail-header">
+        <div class="detail-top">
+          <span class="brand-badge ${brandClass(stock.brand)}">${stock.brand}</span>
+          <span class="iso-badge">ISO ${stock.iso}</span>
+        </div>
+        <div class="detail-name">${stock.name}</div>
+        <div class="detail-tags">
+          <span class="tag">${typeLabel(stock.type)}</span>
+          <span class="tag">${stock.format}</span>
+          <span class="tag tag-secondary">${stock.process}</span>
+          <span class="status-dot status-${stock.status}">${statusLabel(stock.status)}</span>
+        </div>
+        ${stock.description ? `<div class="detail-desc">${stock.description}</div>` : ''}
+        <div class="detail-chars">
+          ${stock.grain ? `<span class="char-tag"><strong>Grain:</strong> ${stock.grain}</span>` : ''}
+          ${stock.tone ? `<span class="char-tag"><strong>Tone:</strong> ${stock.tone}</span>` : ''}
+          ${stock.saturation ? `<span class="char-tag"><strong>Saturation:</strong> ${stock.saturation}</span>` : ''}
+          ${stock.latitude ? `<span class="char-tag"><strong>Latitude:</strong> ${stock.latitude}</span>` : ''}
+        </div>
+        ${stock.best_for ? `<div class="detail-desc" style="margin-top:12px;margin-bottom:0;font-style:italic">${stock.best_for}</div>` : ''}
+      </div>
+
+      <div class="detail-section">
+        <h3>Where to Buy</h3>
+        ${stock.prices && stock.prices.length ? `
+          <table class="data-table">
+            <thead><tr><th>Vendor</th><th>Price</th><th>Unit</th><th>In Stock</th></tr></thead>
+            <tbody>
+              ${stock.prices.map(p => `
+                <tr>
+                  <td>${p.vendor_url ? `<a class="vendor-link" href="${p.vendor_url}" target="_blank" rel="noopener">${p.vendor_name}</a>` : p.vendor_name}
+                    <span style="color:var(--text-3);font-size:0.75rem;margin-left:4px">${p.vendor_country || ''}</span></td>
+                  <td><span class="price-val">$${p.price_usd.toFixed(2)}</span></td>
+                  <td>${p.per_unit}</td>
+                  <td><span class="${p.in_stock ? 'in-stock-yes' : 'in-stock-no'}">${p.in_stock ? 'Yes' : 'No'}</span></td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        ` : '<p style="color:var(--text-3)">No pricing data available.</p>'}
+      </div>
+
+      <div class="detail-section">
+        <h3>Where to Develop (${stock.process})</h3>
+        ${labs.length ? `
+          <div class="compat-labs">
+            ${labs.map(l => `
+              <div class="compat-lab" onclick="navigate('lab/${l.id}')">
+                <div class="compat-lab-name">${l.name}</div>
+                <div class="compat-lab-loc">${l.city}, ${l.country}${l.mail_in ? ' &middot; Mail-In' : ''}</div>
+              </div>
+            `).join('')}
+          </div>
+        ` : '<p style="color:var(--text-3)">No compatible labs found.</p>'}
+      </div>
+    </div>
+  `;
+}
+
+// ── Rendering: Lab Detail ──
+async function renderLabDetail(id) {
+  const content = document.getElementById('content');
+  content.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+
+  const lab = await fetchLab(id);
+
+  content.innerHTML = `
+    <div class="detail">
+      <a class="detail-back" onclick="navigate('labs')">&larr; Back to labs</a>
+
+      <div class="detail-header">
+        <div class="detail-name">${lab.name}</div>
+        <div class="lab-card-location" style="margin-top:4px">${lab.city}, ${lab.country}</div>
+        <div class="lab-detail-meta">
+          <span class="turnaround-badge">${lab.turnaround}</span>
+          ${lab.mail_in ? '<span class="mail-in-badge">Mail-In</span>' : '<span class="tag" style="background:var(--surface-2);color:var(--text-3)">In-Person Only</span>'}
+        </div>
+        ${lab.url ? `<a class="lab-link" href="${lab.url}" target="_blank" rel="noopener">${lab.url.replace(/^https?:\/\//, '')} &rarr;</a>` : ''}
+      </div>
+
+      <div class="detail-section">
+        <h3>Services &amp; Pricing</h3>
+        ${lab.services && lab.services.length ? `
+          <table class="data-table">
+            <thead><tr><th>Process</th><th>Format</th><th>Dev Price</th><th>Scan Price</th><th>Total</th></tr></thead>
+            <tbody>
+              ${lab.services.map(s => `
+                <tr>
+                  <td><span class="tag tag-secondary">${s.process}</span></td>
+                  <td>${s.format}</td>
+                  <td>${s.dev_price != null ? `<span class="price-val">$${s.dev_price.toFixed(2)}</span>` : '—'}</td>
+                  <td>${s.scan_price != null ? `<span class="price-val">$${s.scan_price.toFixed(2)}</span>` : '—'}</td>
+                  <td>${s.dev_price != null && s.scan_price != null ? `<span class="price-val">$${(s.dev_price + s.scan_price).toFixed(2)}</span>` : '—'}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        ` : '<p style="color:var(--text-3)">No service data available.</p>'}
+      </div>
+    </div>
+  `;
+}
+
+// ── Filters ──
+function renderStockFilters() {
+  const brands = [...new Set(allStocks.map(s => s.brand))].sort();
+  const types = [...new Set(allStocks.map(s => s.type))];
+  const formats = [...new Set(allStocks.map(s => s.format))];
+  const processes = [...new Set(allStocks.map(s => s.process))];
+
+  document.getElementById('filters').innerHTML = `
+    <select class="filter-select" onchange="stockFilters.brand=this.value;applyStockFilters()">
+      <option value="">All Brands</option>
+      ${brands.map(b => `<option value="${b}" ${stockFilters.brand===b?'selected':''}>${b}</option>`).join('')}
+    </select>
+    <select class="filter-select" onchange="stockFilters.type=this.value;applyStockFilters()">
+      <option value="">All Types</option>
+      <option value="color_negative" ${stockFilters.type==='color_negative'?'selected':''}>Color Negative</option>
+      <option value="bw_negative" ${stockFilters.type==='bw_negative'?'selected':''}>B&W Negative</option>
+      <option value="color_reversal" ${stockFilters.type==='color_reversal'?'selected':''}>Color Reversal</option>
+      <option value="bw_reversal" ${stockFilters.type==='bw_reversal'?'selected':''}>B&W Reversal</option>
+    </select>
+    <select class="filter-select" onchange="stockFilters.format=this.value;applyStockFilters()">
+      <option value="">All Formats</option>
+      ${formats.map(f => `<option value="${f}" ${stockFilters.format===f?'selected':''}>${f}</option>`).join('')}
+    </select>
+    <select class="filter-select" onchange="stockFilters.process=this.value;applyStockFilters()">
+      <option value="">All Processes</option>
+      ${processes.map(p => `<option value="${p}" ${stockFilters.process===p?'selected':''}>${p}</option>`).join('')}
+    </select>
+    <select class="filter-select" onchange="stockFilters.status=this.value;applyStockFilters()">
+      <option value="">All Status</option>
+      <option value="available" ${stockFilters.status==='available'?'selected':''}>Available</option>
+      <option value="limited" ${stockFilters.status==='limited'?'selected':''}>Limited</option>
+      <option value="discontinued" ${stockFilters.status==='discontinued'?'selected':''}>Discontinued</option>
+    </select>
+    <input class="filter-input" type="text" placeholder="Search stocks..." value="${stockFilters.search}" oninput="stockFilters.search=this.value;applyStockFilters()">
+    <button class="filter-clear" onclick="clearStockFilters()">Clear</button>
+  `;
+}
+
+function renderLabFilters() {
+  const countries = [...new Set(allLabs.map(l => l.country))].sort();
+  const processes = [...new Set(allLabs.flatMap(l => l.processes || []))].sort();
+
+  document.getElementById('filters').innerHTML = `
+    <select class="filter-select" onchange="labFilters.country=this.value;applyLabFilters()">
+      <option value="">All Countries</option>
+      ${countries.map(c => `<option value="${c}" ${labFilters.country===c?'selected':''}>${c}</option>`).join('')}
+    </select>
+    <select class="filter-select" onchange="labFilters.process=this.value;applyLabFilters()">
+      <option value="">All Processes</option>
+      ${processes.map(p => `<option value="${p}" ${labFilters.process===p?'selected':''}>${p}</option>`).join('')}
+    </select>
+    <select class="filter-select" onchange="labFilters.mail_in=this.value;applyLabFilters()">
+      <option value="">Mail-In: Any</option>
+      <option value="1" ${labFilters.mail_in==='1'?'selected':''}>Mail-In: Yes</option>
+      <option value="0" ${labFilters.mail_in==='0'?'selected':''}>Mail-In: No</option>
+    </select>
+    <button class="filter-clear" onclick="clearLabFilters()">Clear</button>
+  `;
+}
+
+function applyStockFilters() {
+  let filtered = allStocks;
+  if (stockFilters.brand) filtered = filtered.filter(s => s.brand === stockFilters.brand);
+  if (stockFilters.type) filtered = filtered.filter(s => s.type === stockFilters.type);
+  if (stockFilters.format) filtered = filtered.filter(s => s.format === stockFilters.format);
+  if (stockFilters.process) filtered = filtered.filter(s => s.process === stockFilters.process);
+  if (stockFilters.status) filtered = filtered.filter(s => s.status === stockFilters.status);
+  if (stockFilters.search) {
+    const q = stockFilters.search.toLowerCase();
+    filtered = filtered.filter(s =>
+      s.name.toLowerCase().includes(q) ||
+      s.brand.toLowerCase().includes(q) ||
+      (s.best_for && s.best_for.toLowerCase().includes(q))
+    );
+  }
+  renderStockGrid(filtered);
+}
+
+function applyLabFilters() {
+  let filtered = allLabs;
+  if (labFilters.country) filtered = filtered.filter(l => l.country === labFilters.country);
+  if (labFilters.process) filtered = filtered.filter(l => (l.processes || []).includes(labFilters.process));
+  if (labFilters.mail_in !== '') filtered = filtered.filter(l => String(l.mail_in) === labFilters.mail_in);
+  renderLabGrid(filtered);
+}
+
+function clearStockFilters() {
+  stockFilters = { brand: '', type: '', format: '', process: '', status: '', search: '' };
+  renderStockFilters();
+  renderStockGrid(allStocks);
+}
+
+function clearLabFilters() {
+  labFilters = { country: '', process: '', mail_in: '' };
+  renderLabFilters();
+  renderLabGrid(allLabs);
+}
+
+function renderStockGrid(stocks) {
+  const content = document.getElementById('content');
+  if (!stocks.length) {
+    content.innerHTML = `<div class="empty"><div class="empty-icon">&#x1f4f7;</div><h3>No stocks found</h3><p>Try adjusting your filters</p></div>`;
+    return;
+  }
+  content.innerHTML = `<div class="grid">${stocks.map(renderStockCard).join('')}</div>`;
+}
+
+function renderLabGrid(labs) {
+  const content = document.getElementById('content');
+  if (!labs.length) {
+    content.innerHTML = `<div class="empty"><div class="empty-icon">&#x1f9ea;</div><h3>No labs found</h3><p>Try adjusting your filters</p></div>`;
+    return;
+  }
+  content.innerHTML = `<div class="grid">${labs.map(renderLabCard).join('')}</div>`;
+}
+
+// ── Stats ──
+function renderStats() {
+  const brands = new Set(allStocks.map(s => s.brand)).size;
+  document.getElementById('stats').innerHTML = `
+    <div class="stat"><strong>${allStocks.length}</strong>stocks</div>
+    <div class="stat"><strong>${brands}</strong>brands</div>
+    <div class="stat"><strong>${allLabs.length}</strong>labs</div>
+  `;
+}
+
+// ── Tab Switching ──
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  if (tab === 'stocks') navigate('stocks');
+  else navigate('labs');
+}
+
+// ── Hash Routing ──
+function navigate(route) {
+  window.location.hash = route;
+}
+
+async function handleRoute() {
+  const hash = window.location.hash.slice(1) || 'stocks';
+  const parts = hash.split('/');
+
+  // Update tab UI
+  if (parts[0] === 'stock' || parts[0] === 'stocks') {
+    currentTab = 'stocks';
+  } else if (parts[0] === 'lab' || parts[0] === 'labs') {
+    currentTab = 'labs';
+  }
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === currentTab));
+
+  if (parts[0] === 'stocks') {
+    document.getElementById('stats').style.display = '';
+    document.getElementById('filters').style.display = '';
+    renderStockFilters();
+    applyStockFilters();
+  } else if (parts[0] === 'stock' && parts[1]) {
+    document.getElementById('stats').style.display = 'none';
+    document.getElementById('filters').style.display = 'none';
+    await renderStockDetail(parts[1]);
+  } else if (parts[0] === 'labs') {
+    document.getElementById('stats').style.display = '';
+    document.getElementById('filters').style.display = '';
+    renderLabFilters();
+    applyLabFilters();
+  } else if (parts[0] === 'lab' && parts[1]) {
+    document.getElementById('stats').style.display = 'none';
+    document.getElementById('filters').style.display = 'none';
+    await renderLabDetail(parts[1]);
+  }
+}
+
+// ── Init ──
+async function init() {
+  initTheme();
+
+  const content = document.getElementById('content');
+  content.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+
+  try {
+    [allStocks, allLabs] = await Promise.all([fetchStocks(), fetchLabs()]);
+  } catch (err) {
+    content.innerHTML = `<div class="empty"><div class="empty-icon">&#x26a0;&#xfe0f;</div><h3>Unable to connect to API</h3><p>Make sure the API is running on port 8001</p></div>`;
+    return;
+  }
+
+  renderStats();
+  handleRoute();
+}
+
+window.addEventListener('hashchange', handleRoute);
+init();
+</script>
+</body>
+</html>

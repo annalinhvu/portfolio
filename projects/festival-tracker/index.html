@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Film Festival Tracker | Anna Vu</title>
+<title>Experimental Film Festival Tracker | Anna Vu</title>
 <meta name="description" content="Searchable database of experimental film festivals worldwide. Deadlines, fees, categories, and more.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
 <style>
@@ -421,7 +421,7 @@
 
 <div class="top-bar">
   <a href="../../index.html#lab" class="back-link">&larr; Portfolio</a>
-  <span class="page-title">Film Festival Tracker</span>
+  <span class="page-title">Experimental Film Festival Tracker</span>
   <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
 </div>
 
@@ -432,10 +432,8 @@
     <div class="stats-row" id="stats-row"></div>
     <div class="filter-bar" id="filter-bar">
       <select id="filter-tier"><option value="">All Tiers</option></select>
-      <select id="filter-focus"><option value="">All Focus</option></select>
       <select id="filter-country"><option value="">All Countries</option></select>
       <select id="filter-acceptance"><option value="">All Selectivity</option></select>
-      <select id="filter-prestige"><option value="">All Prestige</option><option value="5">5 dots</option><option value="4">4+ dots</option><option value="3">3+ dots</option><option value="2">2+ dots</option></select>
       <select id="filter-premiere"><option value="">Any Premiere Req</option></select>
       <input type="text" id="filter-search" placeholder="Search festivals...">
     </div>
@@ -560,14 +558,6 @@ function populateFilters() {
     tierSelect.appendChild(o);
   });
 
-  var focusSelect = document.getElementById('filter-focus');
-  Array.from(focuses).sort().forEach(function(f) {
-    var o = document.createElement('option');
-    o.value = f;
-    o.textContent = f.charAt(0).toUpperCase() + f.slice(1);
-    focusSelect.appendChild(o);
-  });
-
   var countrySelect = document.getElementById('filter-country');
   Array.from(countries).sort().forEach(function(c) {
     var o = document.createElement('option');
@@ -603,19 +593,15 @@ function populateFilters() {
 
 function applyFilters() {
   var tier = document.getElementById('filter-tier').value;
-  var focus = document.getElementById('filter-focus').value;
   var country = document.getElementById('filter-country').value;
   var acceptance = document.getElementById('filter-acceptance').value;
-  var prestige = document.getElementById('filter-prestige').value;
   var premiere = document.getElementById('filter-premiere').value;
   var search = document.getElementById('filter-search').value.toLowerCase().trim();
 
   filteredFestivals = allFestivals.filter(function(f) {
     if (tier && f.tier !== tier) return false;
-    if (focus && f.focus !== focus) return false;
     if (country && f.country !== country) return false;
     if (acceptance && f.acceptance !== acceptance) return false;
-    if (prestige && (f.prestige || 0) < parseInt(prestige, 10)) return false;
     if (premiere && f.premiere_req !== premiere) return false;
     if (search && f.name.toLowerCase().indexOf(search) === -1) return false;
     return true;
@@ -670,10 +656,8 @@ function renderList() {
 
 function clearFilters() {
   document.getElementById('filter-tier').value = '';
-  document.getElementById('filter-focus').value = '';
   document.getElementById('filter-country').value = '';
   document.getElementById('filter-acceptance').value = '';
-  document.getElementById('filter-prestige').value = '';
   document.getElementById('filter-premiere').value = '';
   document.getElementById('filter-search').value = '';
   applyFilters();
@@ -849,10 +833,8 @@ function init() {
     });
 
   document.getElementById('filter-tier').addEventListener('change', applyFilters);
-  document.getElementById('filter-focus').addEventListener('change', applyFilters);
   document.getElementById('filter-country').addEventListener('change', applyFilters);
   document.getElementById('filter-acceptance').addEventListener('change', applyFilters);
-  document.getElementById('filter-prestige').addEventListener('change', applyFilters);
   document.getElementById('filter-premiere').addEventListener('change', applyFilters);
   document.getElementById('filter-search').addEventListener('input', debounce(applyFilters, 250));
 }
