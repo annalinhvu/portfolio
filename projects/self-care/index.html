@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Only Good Things</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root[data-theme="light"]{
+  --bg:#faf6f0;
+  --surface:#ffffff;
+  --surface-2:#f5f0e8;
+  --text-1:#2d2a26;
+  --text-2:#5c5650;
+  --text-3:#8a837a;
+  --text-4:#b8b0a4;
+  --accent:#7b9e87;
+  --accent-2:#c47d5a;
+  --accent-3:#d4a0a0;
+  --accent-4:#c9a96e;
+  --border:#e8e0d6;
+  --border-hover:#d4ccc0;
+  --shadow:0 2px 8px rgba(0,0,0,0.06);
+  --shadow-hover:0 6px 20px rgba(0,0,0,0.1);
+  --cat-body:#d4a0a0;
+  --cat-mind:#a0b8d4;
+  --cat-creative:#c9a96e;
+  --cat-nature:#7b9e87;
+  --cat-nourish:#c47d5a;
+  --cat-rest:#b8a0d4;
+}
+:root[data-theme="dark"]{
+  --bg:#1a1816;
+  --surface:#242120;
+  --surface-2:#2e2a28;
+  --text-1:#e8e2da;
+  --text-2:#c4bbb0;
+  --text-3:#8a837a;
+  --text-4:#5c5650;
+  --accent:#9bbaa5;
+  --accent-2:#d49a7a;
+  --accent-3:#d4a0a0;
+  --accent-4:#d4be82;
+  --border:#3a3532;
+  --border-hover:#4a4540;
+  --shadow:0 2px 8px rgba(0,0,0,0.2);
+  --shadow-hover:0 6px 20px rgba(0,0,0,0.3);
+  --cat-body:#d4a0a0;
+  --cat-mind:#a0b8d4;
+  --cat-creative:#d4be82;
+  --cat-nature:#9bbaa5;
+  --cat-nourish:#d49a7a;
+  --cat-rest:#c4aee0;
+}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  background:var(--bg);color:var(--text-2);
+  min-height:100vh;transition:background .3s,color .3s;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── Top bar ── */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 28px;height:52px;
+  background:var(--surface);border-bottom:1px solid var(--border);
+  transition:background .3s,border-color .3s;
+}
+.topbar-left a{
+  color:var(--text-4);text-decoration:none;font-size:.7rem;
+  letter-spacing:1px;text-transform:uppercase;transition:color .2s;
+}
+.topbar-left a:hover{color:var(--accent)}
+.topbar-title{
+  font-family:Georgia,serif;font-size:1rem;font-weight:400;
+  color:var(--text-1);letter-spacing:.5px;
+  position:absolute;left:50%;transform:translateX(-50%);
+}
+.topbar-right{display:flex;align-items:center;gap:8px}
+.theme-btn{
+  background:none;border:none;cursor:pointer;font-size:1rem;
+  color:var(--text-4);padding:4px 8px;transition:color .2s;
+}
+.theme-btn:hover{color:var(--text-2)}
+
+/* ── Page container ── */
+.page{max-width:1100px;margin:0 auto;padding:32px 28px 80px}
+
+/* ── Header / tagline ── */
+.catalog-header{text-align:center;margin-bottom:32px}
+.catalog-tagline{
+  font-family:Georgia,serif;font-style:italic;
+  font-size:.95rem;color:var(--text-3);letter-spacing:.3px;
+}
+
+/* ── Filters ── */
+.filters{margin-bottom:24px}
+.category-pills{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+  margin-bottom:16px;
+}
+.cat-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 14px;border-radius:20px;
+  border:1px solid var(--border);background:var(--surface);
+  font-size:.75rem;letter-spacing:.5px;text-transform:capitalize;
+  color:var(--text-3);cursor:pointer;transition:all .2s;
+  user-select:none;
+}
+.cat-pill:hover{border-color:var(--border-hover)}
+.cat-pill .dot{
+  width:8px;height:8px;border-radius:50%;
+  transition:transform .2s;
+}
+.cat-pill.active{
+  border-color:var(--text-3);color:var(--text-1);
+  background:var(--surface-2);
+}
+.cat-pill.active .dot{transform:scale(1.3)}
+
+.filter-row{
+  display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+}
+.filter-select{
+  padding:7px 14px;border-radius:8px;
+  border:1px solid var(--border);background:var(--surface);
+  font-size:.78rem;color:var(--text-2);
+  cursor:pointer;transition:border-color .2s;
+  -webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238a837a'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 10px center;
+  padding-right:28px;
+}
+.filter-select:hover,.filter-select:focus{border-color:var(--accent);outline:none}
+.search-input{
+  padding:7px 14px;border-radius:8px;
+  border:1px solid var(--border);background:var(--surface);
+  font-size:.78rem;color:var(--text-2);width:200px;
+  transition:border-color .2s;
+}
+.search-input::placeholder{color:var(--text-4)}
+.search-input:hover,.search-input:focus{border-color:var(--accent);outline:none}
+
+/* ── Count ── */
+.result-count{
+  font-size:.78rem;color:var(--text-4);margin-bottom:20px;
+  letter-spacing:.5px;
+}
+
+/* ── Card grid ── */
+.card-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+}
+@media(max-width:900px){.card-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.card-grid{grid-template-columns:1fr}}
+
+/* ── Activity card ── */
+.activity-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:8px;padding:20px 22px 18px;
+  border-top:3px solid var(--border);
+  cursor:pointer;transition:all .25s;
+  box-shadow:var(--shadow);
+  display:flex;flex-direction:column;
+}
+.activity-card:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-hover);
+}
+.card-category{
+  font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;
+  font-weight:600;margin-bottom:8px;
+}
+.card-name{
+  font-family:Georgia,serif;font-size:1rem;font-weight:400;
+  color:var(--text-1);margin-bottom:6px;line-height:1.3;
+}
+.card-tagline{
+  font-family:Georgia,serif;font-style:italic;
+  font-size:.82rem;color:var(--text-3);margin-bottom:auto;
+  line-height:1.5;padding-bottom:14px;
+}
+.card-meta{
+  display:flex;gap:6px;flex-wrap:wrap;align-items:center;
+  font-size:.68rem;color:var(--text-4);letter-spacing:.3px;
+  padding-top:12px;border-top:1px solid var(--border);
+}
+.card-meta span{display:inline-flex;align-items:center;gap:3px}
+.meta-sep{color:var(--border)}
+
+/* ── Detail view ── */
+.detail-view{display:none}
+.detail-view.active{display:block}
+.catalog-view.hidden{display:none}
+
+.detail-back{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.78rem;color:var(--text-3);text-decoration:none;
+  cursor:pointer;margin-bottom:24px;transition:color .2s;
+  background:none;border:none;font-family:inherit;
+}
+.detail-back:hover{color:var(--accent)}
+
+.detail-header{margin-bottom:28px}
+.detail-category{
+  font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;
+  font-weight:600;margin-bottom:8px;display:inline-block;
+}
+.detail-name{
+  font-family:Georgia,serif;font-size:1.8rem;font-weight:400;
+  color:var(--text-1);margin-bottom:8px;line-height:1.2;
+}
+.detail-tagline{
+  font-family:Georgia,serif;font-style:italic;
+  font-size:1.05rem;color:var(--text-3);margin-bottom:16px;
+}
+.detail-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.badge{
+  padding:4px 12px;border-radius:20px;font-size:.68rem;
+  letter-spacing:.5px;border:1px solid var(--border);
+  color:var(--text-3);text-transform:capitalize;
+}
+
+.detail-body{
+  display:grid;grid-template-columns:2fr 1fr;gap:32px;
+}
+@media(max-width:700px){.detail-body{grid-template-columns:1fr}}
+
+.detail-description{
+  font-size:.92rem;color:var(--text-2);line-height:1.8;
+  margin-bottom:28px;
+}
+
+.detail-section{margin-bottom:24px}
+.detail-section-title{
+  font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:12px;font-weight:600;
+}
+.detail-supplies{
+  list-style:none;
+}
+.detail-supplies li{
+  font-size:.85rem;color:var(--text-2);padding:4px 0;
+  padding-left:16px;position:relative;line-height:1.6;
+}
+.detail-supplies li::before{
+  content:'';position:absolute;left:2px;top:11px;
+  width:6px;height:6px;border-radius:50%;
+  background:var(--accent);opacity:.5;
+}
+.detail-instructions{
+  list-style:none;counter-reset:steps;
+}
+.detail-instructions li{
+  font-size:.85rem;color:var(--text-2);padding:6px 0;
+  padding-left:28px;position:relative;line-height:1.7;
+  counter-increment:steps;
+}
+.detail-instructions li::before{
+  content:counter(steps);position:absolute;left:0;top:6px;
+  font-family:Georgia,serif;font-size:.82rem;
+  color:var(--accent);font-weight:400;
+  width:20px;text-align:center;
+}
+
+.detail-meta{
+  background:var(--surface-2);border-radius:8px;padding:20px;
+  height:fit-content;
+}
+.meta-item{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:8px 0;border-bottom:1px solid var(--border);
+  font-size:.8rem;
+}
+.meta-item:last-child{border-bottom:none}
+.meta-label{color:var(--text-3);text-transform:capitalize}
+.meta-value{color:var(--text-1);font-weight:500;text-transform:capitalize}
+
+/* ── Animations ── */
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeIn .3s ease forwards}
+
+/* ── Responsive ── */
+@media(max-width:600px){
+  .topbar{padding:0 16px}
+  .topbar-title{font-size:.88rem}
+  .page{padding:20px 16px 60px}
+  .detail-name{font-size:1.4rem}
+  .search-input{width:100%}
+  .filter-row{flex-direction:column;align-items:stretch}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="http://127.0.0.1:8080#lab">&larr; Portfolio</a>
+  </div>
+  <div class="topbar-title">Only Good Things</div>
+  <div class="topbar-right">
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- Catalog View -->
+  <div class="catalog-view" id="catalogView">
+    <div class="catalog-header">
+      <p class="catalog-tagline">a catalog of small rituals &amp; gentle acts</p>
+    </div>
+
+    <div class="filters">
+      <div class="category-pills" id="categoryPills"></div>
+      <div class="filter-row">
+        <select class="filter-select" id="seasonFilter">
+          <option value="">All seasons</option>
+          <option value="spring">Spring</option>
+          <option value="summer">Summer</option>
+          <option value="fall">Fall</option>
+          <option value="winter">Winter</option>
+        </select>
+        <select class="filter-select" id="durationFilter">
+          <option value="">Any duration</option>
+          <option value="quick">Quick (&le;15 min)</option>
+          <option value="medium">Medium (30 min)</option>
+          <option value="long">Long (60+ min)</option>
+        </select>
+        <select class="filter-select" id="settingFilter">
+          <option value="">Any setting</option>
+          <option value="indoor">Indoor</option>
+          <option value="outdoor">Outdoor</option>
+        </select>
+        <input type="search" class="search-input" id="searchInput" placeholder="Search activities...">
+      </div>
+    </div>
+
+    <div class="result-count" id="resultCount"></div>
+    <div class="card-grid" id="cardGrid"></div>
+  </div>
+
+  <!-- Detail View -->
+  <div class="detail-view" id="detailView">
+    <button class="detail-back" onclick="showCatalog()">&larr; Back to catalog</button>
+    <div id="detailContent"></div>
+  </div>
+
+</div>
+
+<script>
+const API = '';
+const CAT_COLORS = {
+  body: 'var(--cat-body)',
+  mind: 'var(--cat-mind)',
+  creative: 'var(--cat-creative)',
+  nature: 'var(--cat-nature)',
+  nourish: 'var(--cat-nourish)',
+  rest: 'var(--cat-rest)',
+};
+const CAT_ICONS = {
+  body: '\u2022',
+  mind: '\u2022',
+  creative: '\u2022',
+  nature: '\u2022',
+  nourish: '\u2022',
+  rest: '\u2022',
+};
+
+let allActivities = [];
+let activeCategories = new Set();
+let searchTimeout = null;
+
+/* ── Theme ── */
+function toggleTheme() {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('ogt-theme', next);
+  updateThemeBtn(next);
+}
+function updateThemeBtn(t) {
+  document.querySelector('.theme-btn').textContent = t === 'dark' ? '\u2600' : '\u263E';
+}
+
+/* ── Data fetching ── */
+async function fetchActivities() {
+  const res = await fetch(API + '/activities');
+  allActivities = await res.json();
+  buildCategoryPills();
+  applyFilters();
+}
+
+/* ── Category pills ── */
+function buildCategoryPills() {
+  const cats = [...new Set(allActivities.map(a => a.category))].sort();
+  const container = document.getElementById('categoryPills');
+  container.innerHTML = '';
+  cats.forEach(cat => {
+    const pill = document.createElement('button');
+    pill.className = 'cat-pill active';
+    pill.dataset.cat = cat;
+    pill.innerHTML = '<span class="dot" style="background:' + CAT_COLORS[cat] + '"></span>' + cat;
+    pill.onclick = () => toggleCategory(cat, pill);
+    container.appendChild(pill);
+    activeCategories.add(cat);
+  });
+}
+
+function toggleCategory(cat, pill) {
+  if (activeCategories.has(cat)) {
+    activeCategories.delete(cat);
+    pill.classList.remove('active');
+  } else {
+    activeCategories.add(cat);
+    pill.classList.add('active');
+  }
+  applyFilters();
+}
+
+/* ── Filtering ── */
+function applyFilters() {
+  const season = document.getElementById('seasonFilter').value;
+  const duration = document.getElementById('durationFilter').value;
+  const setting = document.getElementById('settingFilter').value;
+  const search = document.getElementById('searchInput').value.toLowerCase().trim();
+
+  let filtered = allActivities.filter(a => {
+    if (!activeCategories.has(a.category)) return false;
+    if (season && a.season !== season && a.season !== 'all') return false;
+    if (setting && a.setting !== setting && a.setting !== 'either') return false;
+    if (duration) {
+      if (duration === 'quick' && a.duration_min > 15) return false;
+      if (duration === 'medium' && (a.duration_min < 20 || a.duration_min > 45)) return false;
+      if (duration === 'long' && a.duration_min < 60) return false;
+    }
+    if (search) {
+      const haystack = (a.name + ' ' + a.description + ' ' + a.tagline).toLowerCase();
+      if (!haystack.includes(search)) return false;
+    }
+    return true;
+  });
+
+  renderCards(filtered);
+  document.getElementById('resultCount').textContent = filtered.length + ' activit' + (filtered.length === 1 ? 'y' : 'ies');
+}
+
+/* ── Card rendering ── */
+function renderCards(activities) {
+  const grid = document.getElementById('cardGrid');
+  grid.innerHTML = '';
+  activities.forEach((a, i) => {
+    const card = document.createElement('div');
+    card.className = 'activity-card fade-in';
+    card.style.animationDelay = (i * 0.03) + 's';
+    card.style.borderTopColor = CAT_COLORS[a.category];
+    card.onclick = () => showDetail(a.id);
+    card.innerHTML =
+      '<div class="card-category" style="color:' + CAT_COLORS[a.category] + '">' + a.category + '</div>' +
+      '<div class="card-name">' + esc(a.name) + '</div>' +
+      '<div class="card-tagline">' + esc(a.tagline) + '</div>' +
+      '<div class="card-meta">' +
+        '<span>' + a.duration_min + ' min</span>' +
+        '<span class="meta-sep">&middot;</span>' +
+        '<span>' + a.season + '</span>' +
+        '<span class="meta-sep">&middot;</span>' +
+        '<span>' + a.difficulty + '</span>' +
+      '</div>';
+    grid.appendChild(card);
+  });
+}
+
+/* ── Detail view ── */
+async function showDetail(id) {
+  const res = await fetch(API + '/activities/' + id);
+  const a = await res.json();
+
+  location.hash = 'activity/' + id;
+
+  document.getElementById('catalogView').classList.add('hidden');
+  const dv = document.getElementById('detailView');
+  dv.classList.add('active');
+
+  const supplies = (a.supplies || '').split(',').map(s => s.trim()).filter(Boolean);
+  const instructions = (a.instructions || '').split('\n').filter(s => s.trim());
+
+  const moonLabels = {new:'New Moon',full:'Full Moon',waxing:'Waxing',waning:'Waning',any:'Any phase'};
+
+  document.getElementById('detailContent').innerHTML =
+    '<div class="detail-header fade-in">' +
+      '<div class="detail-category" style="color:' + CAT_COLORS[a.category] + '">' + a.category + '</div>' +
+      '<div class="detail-name">' + esc(a.name) + '</div>' +
+      '<div class="detail-tagline">' + esc(a.tagline) + '</div>' +
+      '<div class="detail-badges">' +
+        '<span class="badge">' + a.benefit + '</span>' +
+        '<span class="badge">' + a.difficulty + '</span>' +
+        '<span class="badge">' + a.setting + '</span>' +
+      '</div>' +
+    '</div>' +
+    '<div class="detail-body">' +
+      '<div class="detail-main fade-in" style="animation-delay:.05s">' +
+        '<div class="detail-description">' + esc(a.description) + '</div>' +
+        (supplies.length ? (
+          '<div class="detail-section">' +
+            '<div class="detail-section-title">You\'ll need</div>' +
+            '<ul class="detail-supplies">' + supplies.map(s => '<li>' + esc(s) + '</li>').join('') + '</ul>' +
+          '</div>'
+        ) : '') +
+        '<div class="detail-section">' +
+          '<div class="detail-section-title">How to</div>' +
+          '<ol class="detail-instructions">' + instructions.map(s => '<li>' + esc(s.replace(/^\d+\.\s*/, '')) + '</li>').join('') + '</ol>' +
+        '</div>' +
+      '</div>' +
+      '<div class="detail-meta fade-in" style="animation-delay:.1s">' +
+        '<div class="meta-item"><span class="meta-label">Duration</span><span class="meta-value">' + a.duration_min + ' min</span></div>' +
+        '<div class="meta-item"><span class="meta-label">Difficulty</span><span class="meta-value">' + a.difficulty + '</span></div>' +
+        '<div class="meta-item"><span class="meta-label">Season</span><span class="meta-value">' + a.season + '</span></div>' +
+        '<div class="meta-item"><span class="meta-label">Setting</span><span class="meta-value">' + a.setting + '</span></div>' +
+        '<div class="meta-item"><span class="meta-label">Benefit</span><span class="meta-value">' + a.benefit + '</span></div>' +
+        '<div class="meta-item"><span class="meta-label">Moon phase</span><span class="meta-value">' + (moonLabels[a.moon_phase] || a.moon_phase) + '</span></div>' +
+      '</div>' +
+    '</div>';
+
+  window.scrollTo(0, 0);
+}
+
+function showCatalog() {
+  location.hash = 'catalog';
+  document.getElementById('detailView').classList.remove('active');
+  document.getElementById('catalogView').classList.remove('hidden');
+}
+
+/* ── Hash routing ── */
+function handleHash() {
+  const hash = location.hash.replace('#', '');
+  if (hash.startsWith('activity/')) {
+    const id = parseInt(hash.split('/')[1]);
+    if (id) showDetail(id);
+  } else {
+    showCatalog();
+  }
+}
+
+/* ── Util ── */
+function esc(s) {
+  if (!s) return '';
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+/* ── Init ── */
+(function() {
+  const saved = localStorage.getItem('ogt-theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+  updateThemeBtn(document.documentElement.getAttribute('data-theme'));
+
+  document.getElementById('seasonFilter').onchange = applyFilters;
+  document.getElementById('durationFilter').onchange = applyFilters;
+  document.getElementById('settingFilter').onchange = applyFilters;
+  document.getElementById('searchInput').oninput = function() {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(applyFilters, 150);
+  };
+
+  fetchActivities().then(() => {
+    if (location.hash) handleHash();
+  });
+
+  window.addEventListener('hashchange', handleHash);
+})();
+</script>
+</body>
+</html>

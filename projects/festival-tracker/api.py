@@ -1,9 +1,11 @@
 """Film Festival Tracker — FastAPI application."""
 
+import os
 from datetime import date
 
 from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 
 import db
 
@@ -131,3 +133,11 @@ def list_categories(
             "SELECT id, festival_id, name, min_runtime, max_runtime FROM categories ORDER BY name",
         )
     return [dict(r) for r in rows]
+
+
+@app.get("/")
+def serve_frontend():
+    return FileResponse(
+        os.path.join(os.path.dirname(__file__), "index.html"),
+        headers={"Cache-Control": "no-cache"},
+    )

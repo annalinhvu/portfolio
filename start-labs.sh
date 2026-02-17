@@ -23,6 +23,12 @@ source .venv/bin/activate
 uvicorn api:app --host 0.0.0.0 --port 8002 &
 echo "  NYC Film Map     → http://127.0.0.1:8002"
 
+# Self-Care Activity Catalog (port 8003)
+cd "$DIR/projects/self-care"
+source .venv/bin/activate
+uvicorn api:app --host 0.0.0.0 --port 8003 &
+echo "  Self-Care        → http://127.0.0.1:8003"
+
 echo ""
 echo "All servers running. Press Ctrl+C to stop all."
 wait
