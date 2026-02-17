@@ -11,22 +11,22 @@
   --paper:#f4efe6;--paper-2:#ece7dd;--paper-3:#e2ddd3;
   --ink:#2c2420;--ink-2:#5c5248;--ink-3:#8a7e72;--ink-4:#b0a698;--ink-5:#ccc4b8;
   --accent:#b8453e;--accent-light:#d4756e;
-  --water:#e6e9ee;--park:#cdd8c4;--park-stroke:#b8c4ac;
-  --land:#ede8de;--land-stroke:#c8bfb0;
+  --water:#ece8e0;--park:#d8dfcc;--park-stroke:#bfc9af;
+  --land:#eae4d8;--land-stroke:#c4baa8;
   --bridge:#b8b0a4;--grid:#ddd6ca;
   --surface:#f4efe6;--surface-2:#ece7dd;
-  --border:#d8d0c4;--radius:4px;
+  --border:#ddd6ca;--radius:3px;
   --sidebar-w:340px;
 }
 [data-theme="dark"]{
   --paper:#17140f;--paper-2:#1e1a14;--paper-3:#262118;
   --ink:#d4cdc4;--ink-2:#a89e90;--ink-3:#7a7068;--ink-4:#524840;--ink-5:#3a3228;
   --accent:#d4756e;--accent-light:#e8a098;
-  --water:#12100c;--park:#1a2014;--park-stroke:#2a3420;
-  --land:#1c1812;--land-stroke:#3a3228;
+  --water:#13110d;--park:#1a2014;--park-stroke:#2a3420;
+  --land:#1e1a14;--land-stroke:#3a3228;
   --bridge:#3a3228;--grid:#221e18;
   --surface:#1a1610;--surface-2:#221e18;
-  --border:#3a3228;
+  --border:#302a22;
 }
 
 body{
@@ -38,33 +38,33 @@ body{
 /* ── Top bar ── */
 .topbar{
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 24px;height:56px;min-height:56px;
+  padding:0 24px;height:52px;min-height:52px;
   background:var(--surface);border-bottom:1px solid var(--border);
   z-index:1000;
 }
 .topbar a{
-  color:var(--ink-3);text-decoration:none;font-size:.7rem;
+  color:var(--ink-4);text-decoration:none;font-size:.65rem;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   letter-spacing:1px;text-transform:uppercase;transition:color .2s;
 }
 .topbar a:hover{color:var(--accent)}
 .topbar-center{text-align:center}
 .topbar-title{
-  font-size:1rem;font-weight:400;color:var(--ink);
-  letter-spacing:3px;text-transform:uppercase;
+  font-size:.95rem;font-weight:400;color:var(--ink);
+  letter-spacing:3.5px;text-transform:uppercase;
 }
 .topbar-sub{
-  font-size:.6rem;color:var(--ink-3);letter-spacing:2px;
-  text-transform:uppercase;margin-top:2px;
+  font-size:.55rem;color:var(--ink-4);letter-spacing:2px;
+  text-transform:uppercase;margin-top:1px;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 }
 .theme-btn{
-  background:none;border:1px solid var(--border);border-radius:var(--radius);
-  color:var(--ink-3);cursor:pointer;padding:3px 10px;font-size:.65rem;
+  background:none;border:none;border-bottom:1px solid var(--ink-5);
+  color:var(--ink-4);cursor:pointer;padding:2px 0;font-size:.6rem;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   letter-spacing:1px;text-transform:uppercase;transition:all .2s;
 }
-.theme-btn:hover{border-color:var(--ink-3);color:var(--ink)}
+.theme-btn:hover{border-bottom-color:var(--ink-3);color:var(--ink-2)}
 
 /* ── Main layout ── */
 .main{display:flex;flex:1;overflow:hidden;position:relative}
@@ -77,69 +77,70 @@ body{
 }
 .sidebar-header{padding:16px 20px 14px;border-bottom:1px solid var(--border)}
 .sidebar-header h2{
-  font-size:.6rem;color:var(--ink-3);font-weight:400;
-  margin-bottom:12px;letter-spacing:2.5px;text-transform:uppercase;
+  font-size:.55rem;color:var(--ink-4);font-weight:400;
+  margin-bottom:12px;letter-spacing:3px;text-transform:uppercase;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 }
 
-/* Category tags */
-.cat-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+/* Category tags — book tab style */
+.cat-tags{display:flex;flex-wrap:wrap;gap:4px 12px;margin-bottom:14px}
 .cat-tag{
-  display:inline-flex;align-items:center;gap:5px;
-  padding:3px 10px;font-size:.65rem;
+  display:inline-flex;align-items:center;gap:4px;
+  padding:2px 0;font-size:.62rem;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  letter-spacing:1px;text-transform:uppercase;
-  cursor:pointer;border:1px solid var(--border);border-radius:2px;
+  letter-spacing:0.8px;text-transform:uppercase;
+  cursor:pointer;border:none;border-bottom:1.5px solid transparent;
   transition:all .2s;user-select:none;
-  background:transparent;color:var(--ink-3);
+  background:transparent;color:var(--ink-4);
 }
-.cat-tag .shape{width:8px;height:8px;flex-shrink:0}
-.cat-tag.active{border-color:var(--ink-2);color:var(--ink);background:var(--paper-2)}
+.cat-tag .shape{width:7px;height:7px;flex-shrink:0}
+.cat-tag:hover{color:var(--ink-3)}
+.cat-tag.active{border-bottom-color:var(--ink-3);color:var(--ink-2)}
 
 .filters-row{display:flex;gap:8px}
 .filters-row select,.filters-row input{
-  flex:1;padding:6px 10px;border-radius:var(--radius);
+  flex:1;padding:5px 8px;border-radius:var(--radius);
   border:1px solid var(--border);background:transparent;
-  color:var(--ink);font-size:.75rem;outline:none;transition:border-color .2s;
+  color:var(--ink);font-size:.72rem;outline:none;transition:border-color .2s;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 }
-.filters-row select:focus,.filters-row input:focus{border-color:var(--ink-3)}
+.filters-row select:focus,.filters-row input:focus{border-color:var(--ink-4)}
 
 .venue-count{
-  padding:8px 20px;font-size:.6rem;color:var(--ink-4);
-  border-bottom:1px solid var(--border);letter-spacing:1.5px;
+  padding:7px 20px;font-size:.55rem;color:var(--ink-5);
+  border-bottom:1px solid var(--paper-3);letter-spacing:1.5px;
   text-transform:uppercase;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 }
 
 /* ── Venue index list ── */
-.venue-list{flex:1;overflow-y:auto;padding:4px 0}
+.venue-list{flex:1;overflow-y:auto;padding:2px 0}
 .venue-entry{
-  padding:10px 20px;cursor:pointer;
-  border-bottom:1px solid var(--paper-3);
+  padding:9px 20px;cursor:pointer;
+  border-bottom:1px solid var(--paper-2);
   transition:all .15s;
   border-left:2px solid transparent;
 }
 .venue-entry:hover{background:var(--paper-2)}
 .venue-entry.active{background:var(--paper-2);border-left-color:var(--accent)}
-.venue-entry-top{display:flex;align-items:baseline;gap:8px}
-.venue-entry-shape{width:7px;height:7px;flex-shrink:0;position:relative;top:0px}
-.venue-entry-shape svg{width:7px;height:7px;display:block}
+.venue-entry-top{display:flex;align-items:baseline;gap:7px}
+.venue-entry-shape{width:6px;height:6px;flex-shrink:0;position:relative;top:0}
+.venue-entry-shape svg{width:6px;height:6px;display:block}
 .venue-entry-name{
-  font-size:.82rem;font-weight:400;color:var(--ink);
+  font-size:.78rem;font-weight:400;color:var(--ink);
   font-family:Georgia,'Times New Roman',serif;
 }
-.venue-entry-sep{color:var(--ink-5);font-size:.75rem}
+.venue-entry-sep{color:var(--ink-5);font-size:.72rem}
 .venue-entry-hood{
-  font-size:.7rem;color:var(--ink-3);font-style:italic;
+  font-size:.68rem;color:var(--ink-3);font-style:italic;
 }
 .venue-entry-tag{
-  font-size:.6rem;color:var(--ink-4);letter-spacing:1px;text-transform:uppercase;
+  font-size:.55rem;color:var(--ink-5);letter-spacing:1px;text-transform:uppercase;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   margin-top:2px;
 }
 .venue-entry-note{
-  font-size:.7rem;color:var(--ink-3);margin-top:3px;font-style:italic;
+  font-size:.68rem;color:var(--ink-4);margin-top:2px;font-style:italic;
   line-height:1.3;
 }
 
@@ -148,122 +149,127 @@ body{
 .venue-detail.visible{display:block}
 .venue-detail-back{
   background:none;border:none;color:var(--accent);cursor:pointer;
-  font-size:.7rem;margin-bottom:16px;padding:0;letter-spacing:1px;
+  font-size:.65rem;margin-bottom:16px;padding:0;letter-spacing:1px;
   text-transform:uppercase;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 }
 .venue-detail-back:hover{text-decoration:underline}
-.venue-detail h3{font-size:1.1rem;margin-bottom:4px;font-weight:400;letter-spacing:1px}
+.venue-detail h3{font-size:1.05rem;margin-bottom:4px;font-weight:400;letter-spacing:1px}
 .venue-detail .cat-label{
-  display:inline-block;font-size:.6rem;color:var(--ink-3);
+  display:inline-block;font-size:.55rem;color:var(--ink-4);
   letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 }
 .venue-detail .detail-field{margin-bottom:12px}
 .venue-detail .detail-label{
-  font-size:.55rem;color:var(--ink-4);text-transform:uppercase;
+  font-size:.5rem;color:var(--ink-5);text-transform:uppercase;
   letter-spacing:1.5px;margin-bottom:3px;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 }
-.venue-detail .detail-value{font-size:.82rem;color:var(--ink);line-height:1.6}
+.venue-detail .detail-value{font-size:.8rem;color:var(--ink);line-height:1.6}
 .venue-detail .detail-value a{color:var(--accent);text-decoration:none}
 .venue-detail .detail-value a:hover{text-decoration:underline}
 
 /* ── SVG Map ── */
-.map-wrap{flex:1;position:relative;overflow:hidden;background:var(--water)}
+.map-wrap{flex:1;position:relative;overflow:hidden;background:var(--paper)}
 .map-wrap svg{width:100%;height:100%;display:block}
 
-.borough-path{fill:var(--land);stroke:var(--land-stroke);stroke-width:1.2;stroke-linejoin:round}
-.park-path{fill:var(--park);stroke:var(--park-stroke);stroke-width:0.5}
-.water-line{fill:none;stroke:var(--water);stroke-linecap:round;opacity:0.6}
-.bridge-line{stroke:var(--bridge);stroke-width:1;stroke-dasharray:3,2.5}
-.grid-line{stroke:var(--grid);stroke-width:0.4}
+.borough-path{fill:var(--land);stroke:var(--land-stroke);stroke-width:0.8;stroke-linejoin:round}
+.park-path{fill:var(--park);stroke:var(--park-stroke);stroke-width:0.4;opacity:0.75}
+.water-line{fill:none;stroke:var(--land-stroke);stroke-linecap:round;opacity:0.4}
+.bridge-line{stroke:var(--ink-4);stroke-width:0.6;stroke-dasharray:2.5,2}
+.grid-line{stroke:var(--grid);stroke-width:0.25;opacity:0.6}
 
 /* Map typography */
 .borough-label{
-  font-family:Georgia,serif;font-size:10px;fill:var(--ink-4);font-weight:400;
-  letter-spacing:5px;text-transform:uppercase;pointer-events:none;
+  font-family:Georgia,serif;font-size:9px;fill:var(--ink-5);font-weight:400;
+  letter-spacing:6px;text-transform:uppercase;pointer-events:none;opacity:0.7;
 }
 .river-label{
-  font-family:Georgia,serif;font-size:7.5px;fill:var(--ink-5);font-weight:400;
+  font-family:Georgia,serif;font-size:6.5px;fill:var(--ink-5);font-weight:400;
   letter-spacing:2.5px;text-transform:uppercase;pointer-events:none;
-  font-style:italic;
+  font-style:italic;opacity:0.5;
 }
 .nhood-label{
   font-family:-apple-system,BlinkMacSystemFont,sans-serif;
-  font-size:6.5px;fill:var(--ink-4);font-weight:500;
-  pointer-events:none;letter-spacing:0.8px;
+  font-size:5.5px;fill:var(--ink-4);font-weight:400;
+  pointer-events:none;letter-spacing:0.6px;opacity:0.8;
 }
 .bridge-label{
   font-family:-apple-system,BlinkMacSystemFont,sans-serif;
-  font-size:5.5px;fill:var(--ink-4);pointer-events:none;letter-spacing:0.5px;
+  font-size:5px;fill:var(--ink-5);pointer-events:none;letter-spacing:0.4px;opacity:0.6;
 }
 .park-label{
-  font-family:Georgia,serif;font-size:6px;fill:var(--park-stroke);font-weight:400;
-  letter-spacing:2px;text-transform:uppercase;pointer-events:none;font-style:italic;
+  font-family:Georgia,serif;font-size:5.5px;fill:var(--park-stroke);font-weight:400;
+  letter-spacing:2px;text-transform:uppercase;pointer-events:none;font-style:italic;opacity:0.7;
 }
 
-/* ── Markers (print style) ── */
+/* ── Markers (ink on paper) ── */
 .marker-group{cursor:pointer}
 .marker-group.hidden{opacity:0;pointer-events:none;transition:opacity .3s}
-.marker-dot{fill:var(--ink);transition:transform .2s ease-out;transform-box:fill-box;transform-origin:center}
-.marker-ring{fill:none;stroke:var(--accent);stroke-width:1.2;opacity:0;transition:opacity .2s;transform-box:fill-box;transform-origin:center}
-.marker-group:hover .marker-dot{transform:scale(1.3)}
-.marker-group:hover .marker-ring{opacity:0.6}
-.marker-group.selected .marker-ring{opacity:1;stroke-width:1.5}
+.marker-dot{fill:var(--ink-3);transition:all .2s ease-out;transform-box:fill-box;transform-origin:center;filter:url(#ink-bleed)}
+.marker-ring{fill:none;stroke:var(--accent);stroke-width:1;opacity:0;transition:opacity .2s;transform-box:fill-box;transform-origin:center}
+.marker-group:hover .marker-dot{transform:scale(1.15);fill:var(--ink-2)}
+.marker-group:hover .marker-ring{opacity:0.45}
+.marker-group.selected .marker-ring{opacity:0.9;stroke-width:1.2}
 .marker-group.selected .marker-dot{fill:var(--accent)}
 
-/* Map venue labels (top venues shown directly) */
+/* Map venue labels (caption style — small serif italic) */
 .venue-map-label{
-  font-family:Georgia,serif;font-size:7px;fill:var(--ink-2);font-weight:400;
-  pointer-events:none;letter-spacing:0.3px;
+  font-family:Georgia,serif;font-size:6px;fill:var(--ink-3);font-weight:400;
+  pointer-events:none;letter-spacing:0.2px;font-style:italic;
 }
-.leader-line{stroke:var(--ink-4);stroke-width:0.5;stroke-dasharray:1.5,1.5;pointer-events:none}
+.leader-line{stroke:var(--ink-5);stroke-width:0.4;stroke-dasharray:1.5,1.5;pointer-events:none}
 
 /* Hover annotation */
 .annotation{pointer-events:none;opacity:0;transition:opacity .2s}
 .marker-group:hover .annotation,.marker-group.selected .annotation{opacity:1}
 .annotation-text{
-  font-family:Georgia,serif;font-size:7.5px;fill:var(--ink);font-weight:400;
-  letter-spacing:0.3px;
+  font-family:Georgia,serif;font-size:6.5px;fill:var(--ink-2);font-weight:400;
+  letter-spacing:0.2px;font-style:italic;
 }
-.annotation-line{stroke:var(--ink-3);stroke-width:0.5}
+.annotation-line{stroke:var(--ink-4);stroke-width:0.4}
 
-/* Cluster */
+/* Cluster — stamp style */
 .cluster-group{cursor:pointer}
-.cluster-bg{fill:var(--paper-2);stroke:var(--land-stroke);stroke-width:1;transition:transform .15s;transform-box:fill-box;transform-origin:center}
+.cluster-bg{fill:var(--paper-2);stroke:var(--ink-3);stroke-width:0.7;transition:transform .15s;transform-box:fill-box;transform-origin:center}
 .cluster-count{
-  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
-  font-size:8px;fill:var(--ink-2);font-weight:600;pointer-events:none;
+  font-family:Georgia,serif;
+  font-size:7px;fill:var(--ink-3);font-weight:400;pointer-events:none;
+  letter-spacing:0.5px;
 }
-.cluster-group:hover .cluster-bg{transform:scale(1.08)}
+.cluster-sub{
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:4px;fill:var(--ink-4);font-weight:400;pointer-events:none;
+  letter-spacing:0.8px;text-transform:uppercase;
+}
+.cluster-group:hover .cluster-bg{transform:scale(1.04)}
 
 /* Margin annotations */
 .margin-note{
   font-family:-apple-system,BlinkMacSystemFont,sans-serif;
-  font-size:6px;fill:var(--ink-5);letter-spacing:1px;
-  text-transform:uppercase;pointer-events:none;
+  font-size:5.5px;fill:var(--ink-5);letter-spacing:1px;
+  text-transform:uppercase;pointer-events:none;opacity:0.6;
 }
 
-/* Atmosphere */
-.noise-rect{pointer-events:none;opacity:0.04}
-.grain-rect{pointer-events:none}
+/* Paper grain overlay */
+.grain-overlay{pointer-events:none;opacity:0.035}
 
 /* ── Tooltip ── */
 .venue-tooltip{
   position:absolute;pointer-events:none;
   background:var(--surface);color:var(--ink);
   border:1px solid var(--border);border-radius:var(--radius);
-  box-shadow:0 2px 12px rgba(0,0,0,.08);
-  padding:10px 14px;font-size:.8rem;line-height:1.4;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+  padding:8px 12px;font-size:.75rem;line-height:1.4;
   z-index:100;opacity:0;transition:opacity .15s;
-  max-width:220px;
+  max-width:200px;
 }
 .venue-tooltip.visible{opacity:1}
-.venue-tooltip .tt-name{font-weight:400;font-size:.82rem;margin-bottom:2px;font-family:Georgia,serif}
-.venue-tooltip .tt-highlight{color:var(--ink-3);font-style:italic;font-size:.72rem}
+.venue-tooltip .tt-name{font-weight:400;font-size:.78rem;margin-bottom:2px;font-family:Georgia,serif}
+.venue-tooltip .tt-highlight{color:var(--ink-3);font-style:italic;font-size:.68rem}
 .venue-tooltip .tt-meta{
-  color:var(--ink-4);font-size:.6rem;margin-top:4px;letter-spacing:1px;
+  color:var(--ink-5);font-size:.55rem;margin-top:3px;letter-spacing:1px;
   text-transform:uppercase;
   font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 }
@@ -275,7 +281,7 @@ body{
   .sidebar-header h2{display:none}
   :root{--sidebar-w:100%}
 }
-.venue-list::-webkit-scrollbar,.venue-detail::-webkit-scrollbar{width:3px}
+.venue-list::-webkit-scrollbar,.venue-detail::-webkit-scrollbar{width:2px}
 .venue-list::-webkit-scrollbar-thumb,.venue-detail::-webkit-scrollbar-thumb{background:var(--ink-5);border-radius:2px}
 </style>
 </head>
@@ -315,13 +321,13 @@ const API = '';
 const CATEGORIES = ['cinema','lab','gallery','organization','workshop'];
 const CAT_LABELS = {cinema:'Cinema',lab:'Lab',gallery:'Gallery',organization:'Org',workshop:'Workshop'};
 
-// Shapes centered at 0,0
+// Shapes centered at 0,0 — reduced ~15% for delicacy
 const SHAPES = {
-  cinema:       {d:'M-3.5,0 A3.5,3.5 0 1,1 3.5,0 A3.5,3.5 0 1,1 -3.5,0', pill:'<circle cx="4" cy="4" r="3" fill="currentColor"/>'},
-  lab:          {d:'M0,-4 L3.5,0 0,4 -3.5,0 Z', pill:'<path d="M4,1 L7,4 4,7 1,4 Z" fill="currentColor"/>'},
-  gallery:      {d:'M-3,-3 L3,-3 3,3 -3,3 Z', pill:'<rect x="1" y="1" width="6" height="6" fill="currentColor"/>'},
-  organization: {d:'M0,-4 L3.5,-2 3.5,2 0,4 -3.5,2 -3.5,-2 Z', pill:'<path d="M4,0.5 L7.3,2.25 7.3,5.75 4,7.5 0.7,5.75 0.7,2.25 Z" fill="currentColor"/>'},
-  workshop:     {d:'M0,-4 L3.8,3 -3.8,3 Z', pill:'<path d="M4,1 L7.5,7 0.5,7 Z" fill="currentColor"/>'},
+  cinema:       {d:'M-3,0 A3,3 0 1,1 3,0 A3,3 0 1,1 -3,0', pill:'<circle cx="4" cy="4" r="2.5" fill="currentColor"/>'},
+  lab:          {d:'M0,-3.4 L3,0 0,3.4 -3,0 Z', pill:'<path d="M4,1.2 L6.8,4 4,6.8 1.2,4 Z" fill="currentColor"/>'},
+  gallery:      {d:'M-2.5,-2.5 L2.5,-2.5 2.5,2.5 -2.5,2.5 Z', pill:'<rect x="1.2" y="1.2" width="5.6" height="5.6" fill="currentColor"/>'},
+  organization: {d:'M0,-3.4 L3,-1.7 3,1.7 0,3.4 -3,1.7 -3,-1.7 Z', pill:'<path d="M4,0.8 L6.8,2.3 6.8,5.7 4,7.2 1.2,5.7 1.2,2.3 Z" fill="currentColor"/>'},
+  workshop:     {d:'M0,-3.4 L3.2,2.5 -3.2,2.5 Z', pill:'<path d="M4,1.2 L7.2,6.8 0.8,6.8 Z" fill="currentColor"/>'},
 };
 
 // Top venues to label on map directly
@@ -405,9 +411,9 @@ const BOROUGHS = {
 };
 
 const RIVERS = [
-  {c:[[40.6910,-73.9780],[40.6950,-73.9730],[40.6990,-73.9680],[40.7030,-73.9650],[40.7070,-73.9630],[40.7110,-73.9615],[40.7150,-73.9610],[40.7190,-73.9605],[40.7230,-73.9590],[40.7260,-73.9560],[40.7300,-73.9540],[40.7340,-73.9520],[40.7380,-73.9500],[40.7420,-73.9430],[40.7460,-73.9400],[40.7500,-73.9370],[40.7540,-73.9350],[40.7580,-73.9340],[40.7620,-73.9320],[40.7660,-73.9280],[40.7700,-73.9240]],w:'4'},
-  {c:[[40.6998,-74.0200],[40.7050,-74.0160],[40.7110,-74.0120],[40.7200,-74.0100],[40.7300,-74.0070],[40.7400,-74.0030],[40.7500,-74.0000],[40.7600,-73.9985],[40.7700,-73.9920],[40.7800,-73.9840],[40.7870,-73.9770]],w:'4'},
-  {c:[[40.7360,-73.9560],[40.7340,-73.9540],[40.7300,-73.9510],[40.7260,-73.9470],[40.7230,-73.9430],[40.7200,-73.9410],[40.7160,-73.9370],[40.7130,-73.9310]],w:'1.5'},
+  {c:[[40.6910,-73.9780],[40.6950,-73.9730],[40.6990,-73.9680],[40.7030,-73.9650],[40.7070,-73.9630],[40.7110,-73.9615],[40.7150,-73.9610],[40.7190,-73.9605],[40.7230,-73.9590],[40.7260,-73.9560],[40.7300,-73.9540],[40.7340,-73.9520],[40.7380,-73.9500],[40.7420,-73.9430],[40.7460,-73.9400],[40.7500,-73.9370],[40.7540,-73.9350],[40.7580,-73.9340],[40.7620,-73.9320],[40.7660,-73.9280],[40.7700,-73.9240]],w:'3.5'},
+  {c:[[40.6998,-74.0200],[40.7050,-74.0160],[40.7110,-74.0120],[40.7200,-74.0100],[40.7300,-74.0070],[40.7400,-74.0030],[40.7500,-74.0000],[40.7600,-73.9985],[40.7700,-73.9920],[40.7800,-73.9840],[40.7870,-73.9770]],w:'3.5'},
+  {c:[[40.7360,-73.9560],[40.7340,-73.9540],[40.7300,-73.9510],[40.7260,-73.9470],[40.7230,-73.9430],[40.7200,-73.9410],[40.7160,-73.9370],[40.7130,-73.9310]],w:'1.2'},
 ];
 
 const BRIDGES = [
@@ -476,8 +482,8 @@ function proj(lat,lng){
     y: PAD + ((GEO.maxLat-lat)/(GEO.maxLat-GEO.minLat))*(svgH-2*PAD)
   };
 }
-function cPath(cs){ return cs.map((c,i)=>{const p=proj(c[0],c[1]);return `${i?'L':'M'}${p.x.toFixed(1)},${p.y.toFixed(1)}`;}).join(' ')+' Z'; }
-function oPath(cs){ return cs.map((c,i)=>{const p=proj(c[0],c[1]);return `${i?'L':'M'}${p.x.toFixed(1)},${p.y.toFixed(1)}`;}).join(' '); }
+function cPath(cs){ return cs.map((c,i)=>{const p=proj(c[0],c[1]);return (i?'L':'M')+p.x.toFixed(1)+','+p.y.toFixed(1);}).join(' ')+' Z'; }
+function oPath(cs){ return cs.map((c,i)=>{const p=proj(c[0],c[1]);return (i?'L':'M')+p.x.toFixed(1)+','+p.y.toFixed(1);}).join(' '); }
 
 // ── SVG ──
 const svg = document.getElementById('mapSvg');
@@ -514,142 +520,165 @@ function cluster(venues){
 function initSvg(){
   const w=document.getElementById('mapWrap');
   svgW=w.clientWidth||800; svgH=w.clientHeight||600;
-  svg.setAttribute('viewBox',`0 0 ${svgW} ${svgH}`);
+  svg.setAttribute('viewBox','0 0 '+svgW+' '+svgH);
   while(svg.firstChild) svg.removeChild(svg.firstChild);
 
-  // Defs
+  // Defs — filters
   const defs=el('defs');
-  // Paper grain noise
-  const nf=el('filter',{id:'grain',x:'0',y:'0',width:'100%',height:'100%'});
-  nf.appendChild(el('feTurbulence',{type:'fractalNoise',baseFrequency:'0.9',numOctaves:'4',stitchTiles:'stitch',result:'n'}));
-  nf.appendChild(el('feColorMatrix',{type:'saturate',values:'0','in':'n',result:'ng'}));
-  nf.appendChild(el('feBlend',{'in':'SourceGraphic',in2:'ng',mode:'multiply'}));
-  defs.appendChild(nf);
+
+  // Ink bleed — tiny soft edge for markers (like ink on paper)
+  const inkBleed=el('filter',{id:'ink-bleed',x:'-10%',y:'-10%',width:'120%',height:'120%'});
+  inkBleed.appendChild(el('feGaussianBlur',{'in':'SourceGraphic',stdDeviation:'0.25'}));
+  defs.appendChild(inkBleed);
+
+  // Paper grain
+  const grain=el('filter',{id:'grain',x:'0',y:'0',width:'100%',height:'100%'});
+  grain.appendChild(el('feTurbulence',{type:'fractalNoise',baseFrequency:'0.85',numOctaves:'4',stitchTiles:'stitch',result:'n'}));
+  grain.appendChild(el('feColorMatrix',{type:'saturate',values:'0','in':'n',result:'ng'}));
+  grain.appendChild(el('feBlend',{'in':'SourceGraphic',in2:'ng',mode:'multiply'}));
+  defs.appendChild(grain);
+
   svg.appendChild(defs);
 
   // Land
-  for(const[,cs]of Object.entries(BOROUGHS)) svg.appendChild(el('path',{d:cPath(cs),cls:'borough-path'}));
+  for(var bName in BOROUGHS){
+    svg.appendChild(el('path',{d:cPath(BOROUGHS[bName]),cls:'borough-path'}));
+  }
 
   // Parks
-  for(const[,cs]of Object.entries(PARKS)) svg.appendChild(el('path',{d:cPath(cs),cls:'park-path'}));
+  for(var pName in PARKS){
+    svg.appendChild(el('path',{d:cPath(PARKS[pName]),cls:'park-path'}));
+  }
 
   // Grid
-  GRID_LINES.forEach(s=>{const a=proj(s[0][0],s[0][1]),b=proj(s[1][0],s[1][1]);
-    svg.appendChild(el('line',{x1:a.x.toFixed(1),y1:a.y.toFixed(1),x2:b.x.toFixed(1),y2:b.y.toFixed(1),cls:'grid-line'}));});
+  GRID_LINES.forEach(function(s){
+    var a=proj(s[0][0],s[0][1]),b=proj(s[1][0],s[1][1]);
+    svg.appendChild(el('line',{x1:a.x.toFixed(1),y1:a.y.toFixed(1),x2:b.x.toFixed(1),y2:b.y.toFixed(1),cls:'grid-line'}));
+  });
 
   // Rivers
-  RIVERS.forEach(r=>svg.appendChild(el('path',{d:oPath(r.c),cls:'water-line','stroke-width':r.w})));
+  RIVERS.forEach(function(r){
+    svg.appendChild(el('path',{d:oPath(r.c),cls:'water-line','stroke-width':r.w}));
+  });
 
   // Bridges
-  BRIDGES.forEach(b=>{
-    const f=proj(b.f[0],b.f[1]),t=proj(b.t[0],b.t[1]);
+  BRIDGES.forEach(function(b){
+    var f=proj(b.f[0],b.f[1]),t=proj(b.t[0],b.t[1]);
     svg.appendChild(el('line',{x1:f.x.toFixed(1),y1:f.y.toFixed(1),x2:t.x.toFixed(1),y2:t.y.toFixed(1),cls:'bridge-line'}));
-    const mx=(f.x+t.x)/2,my=(f.y+t.y)/2,ang=Math.atan2(t.y-f.y,t.x-f.x)*180/Math.PI;
-    svg.appendChild(el('text',{x:mx.toFixed(1),y:(my-3).toFixed(1),'text-anchor':'middle',
-      transform:`rotate(${ang.toFixed(0)} ${mx.toFixed(1)} ${(my-3).toFixed(1)})`,cls:'bridge-label',text:b.n+' Br.'}));
+    var mx=(f.x+t.x)/2,my=(f.y+t.y)/2,ang=Math.atan2(t.y-f.y,t.x-f.x)*180/Math.PI;
+    svg.appendChild(el('text',{x:mx.toFixed(1),y:(my-2.5).toFixed(1),'text-anchor':'middle',
+      transform:'rotate('+ang.toFixed(0)+' '+mx.toFixed(1)+' '+(my-2.5).toFixed(1)+')',cls:'bridge-label',text:b.n+' Br.'}));
   });
 
   // Park labels
-  PARK_LABELS.forEach(p=>{const pt=proj(p.lat,p.lng);
+  PARK_LABELS.forEach(function(p){var pt=proj(p.lat,p.lng);
     svg.appendChild(el('text',{x:pt.x.toFixed(1),y:pt.y.toFixed(1),'text-anchor':'middle',cls:'park-label',text:p.n}));});
 
   // River labels
-  RIVER_LABELS.forEach(r=>{const p=proj(r.lat,r.lng);
+  RIVER_LABELS.forEach(function(r){var p=proj(r.lat,r.lng);
     svg.appendChild(el('text',{x:p.x.toFixed(1),y:p.y.toFixed(1),'text-anchor':'middle',
-      transform:`rotate(${r.r} ${p.x.toFixed(1)} ${p.y.toFixed(1)})`,cls:'river-label',text:r.n}));});
+      transform:'rotate('+r.r+' '+p.x.toFixed(1)+' '+p.y.toFixed(1)+')',cls:'river-label',text:r.n}));});
 
   // Neighborhood labels
-  NHOODS.forEach(n=>{const p=proj(n.lat,n.lng);
+  NHOODS.forEach(function(n){var p=proj(n.lat,n.lng);
     svg.appendChild(el('text',{x:p.x.toFixed(1),y:p.y.toFixed(1),'text-anchor':'middle',cls:'nhood-label',text:n.n}));});
 
   // Borough labels
-  for(const[name,pos]of Object.entries(B_LABELS)){const p=proj(pos[0],pos[1]);
+  for(var name in B_LABELS){var pos=B_LABELS[name],p=proj(pos[0],pos[1]);
     svg.appendChild(el('text',{x:p.x.toFixed(1),y:p.y.toFixed(1),'text-anchor':'middle',cls:'borough-label',text:name}));}
+
+  // Markers placeholder — insert point for markers
+  var markerAnchor=el('g',{cls:'marker-anchor'});
+  svg.appendChild(markerAnchor);
 
   // Markers
   if(allVenues.length) buildMarkers();
 
-  // Paper grain overlay
-  svg.appendChild(el('rect',{x:'0',y:'0',width:svgW,height:svgH,filter:'url(#grain)',cls:'noise-rect',fill:'transparent'}));
+  // Paper grain overlay — covers entire map
+  svg.appendChild(el('rect',{x:'0',y:'0',width:String(svgW),height:String(svgH),filter:'url(#grain)',cls:'grain-overlay',fill:'transparent'}));
 
   // Margin notes
-  const now = new Date();
-  const dateStr = now.toLocaleDateString('en-US',{month:'short',year:'numeric'});
-  svg.appendChild(el('text',{x:(svgW-12).toFixed(0),y:(svgH-10).toFixed(0),'text-anchor':'end',cls:'margin-note',
+  var now = new Date();
+  var dateStr = now.toLocaleDateString('en-US',{month:'short',year:'numeric'});
+  svg.appendChild(el('text',{x:String(svgW-12),y:String(svgH-10),'text-anchor':'end',cls:'margin-note',
     text:allVenues.length+' venues \u00b7 '+dateStr}));
 }
 
 // ── Markers ──
 function buildMarkers(){
-  Object.values(markerEls).forEach(m=>{if(m.g.parentNode)m.g.remove();});
-  clusterEls.forEach(c=>{if(c.g.parentNode)c.g.remove();});
+  Object.values(markerEls).forEach(function(m){if(m.g.parentNode)m.g.remove();});
+  clusterEls.forEach(function(c){if(c.g.parentNode)c.g.remove();});
   markerEls={}; clusterEls=[];
 
-  const filtered=getFiltered();
-  const{clusters:cls,singles}=cluster(filtered);
-  const ins=svg.querySelector('.noise-rect')||null;
+  var filtered=getFiltered();
+  var result=cluster(filtered);
+  var cls=result.clusters, singles=result.singles;
+  var anchor=svg.querySelector('.marker-anchor');
+  if(!anchor){anchor=el('g',{cls:'marker-anchor'});var grainEl=svg.querySelector('.grain-overlay');if(grainEl)svg.insertBefore(anchor,grainEl);else svg.appendChild(anchor);}
 
-  singles.forEach(s=>{
-    const v=s.v, isFeat=FEATURED.includes(v.name);
-    const g=el('g',{cls:'marker-group','data-id':v.id});
-    g.setAttribute('transform',`translate(${s.x.toFixed(1)},${s.y.toFixed(1)})`);
+  singles.forEach(function(s){
+    var v=s.v, isFeat=FEATURED.indexOf(v.name)!==-1;
+    var g=el('g',{cls:'marker-group','data-id':String(v.id)});
+    g.setAttribute('transform','translate('+s.x.toFixed(1)+','+s.y.toFixed(1)+')');
 
     // Selection ring
-    g.appendChild(el('circle',{cx:'0',cy:'0',r:'8',cls:'marker-ring'}));
+    g.appendChild(el('circle',{cx:'0',cy:'0',r:'7',cls:'marker-ring'}));
     // Dot shape
     g.appendChild(el('path',{d:SHAPES[v.category].d,cls:'marker-dot'}));
 
-    // Annotation on hover (name + leader line)
-    const ag=el('g',{cls:'annotation'});
-    ag.appendChild(el('line',{x1:'0',y1:'-5',x2:'0',y2:'-14',cls:'annotation-line'}));
-    ag.appendChild(el('text',{x:'0',y:'-17','text-anchor':'middle',cls:'annotation-text',
-      text:v.name.length>22?v.name.slice(0,20)+'...':v.name}));
+    // Annotation on hover (name + leader line) — italic caption style
+    var ag=el('g',{cls:'annotation'});
+    ag.appendChild(el('line',{x1:'0',y1:'-4',x2:'0',y2:'-12',cls:'annotation-line'}));
+    var label=v.name.length>24?v.name.slice(0,22)+'\u2026':v.name;
+    ag.appendChild(el('text',{x:'0',y:'-14.5','text-anchor':'middle',cls:'annotation-text',text:label}));
     g.appendChild(ag);
 
-    // Featured: show label permanently
+    // Featured: show label permanently with leader line
     if(isFeat){
-      const lbl=el('text',{x:'6',y:'3','text-anchor':'start',cls:'venue-map-label',text:v.name});
-      g.appendChild(lbl);
-      g.appendChild(el('line',{x1:'4',y1:'0',x2:'5.5',y2:'1',cls:'leader-line'}));
+      g.appendChild(el('line',{x1:'4',y1:'0',x2:'8',y2:'-2',cls:'leader-line'}));
+      g.appendChild(el('text',{x:'9',y:'-1','text-anchor':'start',cls:'venue-map-label',text:v.name}));
     }
 
-    g.addEventListener('mouseenter',e=>showTooltip(e,v,s.x,s.y));
+    g.addEventListener('mouseenter',function(e){showTooltip(e,v,s.x,s.y);});
     g.addEventListener('mouseleave',hideTooltip);
-    g.addEventListener('click',()=>{window.location.hash='#venue/'+v.id;});
+    g.addEventListener('click',function(){window.location.hash='#venue/'+v.id;});
 
-    svg.insertBefore(g,ins);
-    markerEls[v.id]={g,x:s.x,y:s.y};
+    anchor.appendChild(g);
+    markerEls[v.id]={g:g,x:s.x,y:s.y};
   });
 
-  cls.forEach(cl=>{
-    const g=el('g',{cls:'cluster-group'});
-    g.setAttribute('transform',`translate(${cl.cx.toFixed(1)},${cl.cy.toFixed(1)})`);
-    g.appendChild(el('circle',{cx:'0',cy:'0',r:'10',cls:'cluster-bg'}));
-    g.appendChild(el('text',{x:'0',y:'3','text-anchor':'middle',cls:'cluster-count',text:String(cl.vs.length)}));
-    g.addEventListener('mouseenter',e=>{
-      const names=cl.vs.slice(0,3).map(v=>v.name).join(', ')+(cl.vs.length>3?' ...':'');
+  // Clusters — stamp style
+  cls.forEach(function(cl){
+    var g=el('g',{cls:'cluster-group'});
+    g.setAttribute('transform','translate('+cl.cx.toFixed(1)+','+cl.cy.toFixed(1)+')');
+    // Slightly irregular circle (stamp feel) via ellipse
+    g.appendChild(el('ellipse',{cx:'0',cy:'0',rx:'9',ry:'8.2',cls:'cluster-bg'}));
+    g.appendChild(el('text',{x:'0',y:'1','text-anchor':'middle',cls:'cluster-count',text:String(cl.vs.length)}));
+    g.appendChild(el('text',{x:'0',y:'7','text-anchor':'middle',cls:'cluster-sub',text:'venues'}));
+    g.addEventListener('mouseenter',function(e){
+      var names=cl.vs.slice(0,3).map(function(v){return v.name;}).join(', ')+(cl.vs.length>3?' \u2026':'');
       showClusterTip(e,cl.vs.length+' venues',names,cl.cx,cl.cy);
     });
     g.addEventListener('mouseleave',hideTooltip);
-    g.addEventListener('click',()=>{cl.vs.forEach(v=>highlightCard(v.id));});
-    svg.insertBefore(g,ins);
-    clusterEls.push({g,vs:cl.vs});
+    g.addEventListener('click',function(){cl.vs.forEach(function(v){highlightCard(v.id);});});
+    anchor.appendChild(g);
+    clusterEls.push({g:g,vs:cl.vs});
   });
 }
 
 function selectVenue(id){
-  Object.values(markerEls).forEach(m=>m.g.classList.remove('selected'));
+  Object.values(markerEls).forEach(function(m){m.g.classList.remove('selected');});
   selectedId=id;
   if(id!=null&&markerEls[id]) markerEls[id].g.classList.add('selected');
 }
 
 // ── Tooltip ──
-const tooltip=document.getElementById('tooltip');
+var tooltip=document.getElementById('tooltip');
 function showTooltip(e,v,sx,sy){
-  const sr=svg.getBoundingClientRect();
-  let tx=sx*(sr.width/svgW)+14,ty=sy*(sr.height/svgH)-10;
-  const wr=document.getElementById('mapWrap');
-  if(tx+220>wr.clientWidth) tx=sx*(sr.width/svgW)-234;
+  var sr=svg.getBoundingClientRect();
+  var tx=sx*(sr.width/svgW)+14,ty=sy*(sr.height/svgH)-10;
+  var wr=document.getElementById('mapWrap');
+  if(tx+200>wr.clientWidth) tx=sx*(sr.width/svgW)-214;
   tooltip.innerHTML='<div class="tt-name">'+v.name+'</div>'
     +(v.highlight?'<div class="tt-highlight">'+v.highlight+'</div>':'')
     +'<div class="tt-meta">'+(v.neighborhood||'')+' \u00b7 '+(CAT_LABELS[v.category]||v.category)+'</div>';
@@ -657,8 +686,8 @@ function showTooltip(e,v,sx,sy){
   tooltip.classList.add('visible');
 }
 function showClusterTip(e,t,s,sx,sy){
-  const sr=svg.getBoundingClientRect();
-  let tx=sx*(sr.width/svgW)+14,ty=sy*(sr.height/svgH)-10;
+  var sr=svg.getBoundingClientRect();
+  var tx=sx*(sr.width/svgW)+14,ty=sy*(sr.height/svgH)-10;
   tooltip.innerHTML='<div class="tt-name">'+t+'</div><div class="tt-highlight">'+s+'</div>';
   tooltip.style.left=tx+'px';tooltip.style.top=ty+'px';
   tooltip.classList.add('visible');
@@ -667,15 +696,15 @@ function hideTooltip(){tooltip.classList.remove('visible');}
 
 // ── Category tags ──
 function renderTags(){
-  const el=document.getElementById('catTags');
-  el.innerHTML=CATEGORIES.map(c=>
-    '<span class="cat-tag '+(activeCategories.has(c)?'active':'')+'" data-cat="'+c+'">'
+  var container=document.getElementById('catTags');
+  container.innerHTML=CATEGORIES.map(function(c){
+    return '<span class="cat-tag '+(activeCategories.has(c)?'active':'')+'" data-cat="'+c+'">'
     +'<svg class="shape" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">'+SHAPES[c].pill+'</svg>'
-    +CAT_LABELS[c]+'</span>'
-  ).join('');
-  el.querySelectorAll('.cat-tag').forEach(t=>{
-    t.addEventListener('click',()=>{
-      const c=t.dataset.cat;
+    +CAT_LABELS[c]+'</span>';
+  }).join('');
+  container.querySelectorAll('.cat-tag').forEach(function(t){
+    t.addEventListener('click',function(){
+      var c=t.dataset.cat;
       if(activeCategories.has(c)) activeCategories.delete(c); else activeCategories.add(c);
       renderTags(); applyFilters();
     });
@@ -683,35 +712,41 @@ function renderTags(){
 }
 
 // ── Boroughs ──
-async function loadBoroughs(){
-  const r=await fetch(API+'/boroughs'),d=await r.json();
-  const s=document.getElementById('boroughSelect');
-  d.forEach(b=>{const o=document.createElement('option');o.value=b.borough;o.textContent=b.borough+' ('+b.count+')';s.appendChild(o);});
+function loadBoroughs(){
+  return fetch(API+'/boroughs').then(function(r){return r.json();}).then(function(d){
+    var s=document.getElementById('boroughSelect');
+    d.forEach(function(b){var o=document.createElement('option');o.value=b.borough;o.textContent=b.borough+' ('+b.count+')';s.appendChild(o);});
+  });
 }
-document.getElementById('boroughSelect').addEventListener('change',e=>{currentBorough=e.target.value;applyFilters();});
-document.getElementById('searchInput').addEventListener('input',e=>{currentSearch=e.target.value.toLowerCase();applyFilters();});
+document.getElementById('boroughSelect').addEventListener('change',function(e){currentBorough=e.target.value;applyFilters();});
+document.getElementById('searchInput').addEventListener('input',function(e){currentSearch=e.target.value.toLowerCase();applyFilters();});
 
 // ── Data ──
-async function loadVenues(){
-  const r=await fetch(API+'/venues');
-  allVenues=await r.json();
-  buildMarkers(); applyFilters();
+function loadVenues(){
+  return fetch(API+'/venues').then(function(r){return r.json();}).then(function(data){
+    allVenues=data;
+    buildMarkers();
+    applyFilters();
+  }).catch(function(e){
+    console.error('loadVenues error:', e);
+    document.getElementById('venueCount').textContent='Error loading venues';
+  });
 }
 
 function getFiltered(){
-  return allVenues.filter(v=>{
+  return allVenues.filter(function(v){
     if(!activeCategories.has(v.category)) return false;
     if(currentBorough&&v.borough!==currentBorough) return false;
     if(currentSearch){
-      const h=(v.name+' '+(v.neighborhood||'')+' '+(v.description||'')+' '+(v.highlight||'')).toLowerCase();
-      if(!h.includes(currentSearch)) return false;
+      var h=(v.name+' '+(v.neighborhood||'')+' '+(v.description||'')+' '+(v.highlight||'')).toLowerCase();
+      if(h.indexOf(currentSearch)===-1) return false;
     }
     return true;
   });
 }
 
 function applyFilters(){
-  const f=getFiltered();
+  var f=getFiltered();
   buildMarkers();
   renderVenueList(f);
   document.getElementById('venueCount').textContent=f.length+' venue'+(f.length!==1?'s':'');
@@ -719,36 +754,36 @@ function applyFilters(){
 
 // ── Sidebar ──
 function renderVenueList(venues){
-  const el=document.getElementById('venueList');
-  if(!venues.length){el.innerHTML='<div style="padding:20px;color:var(--ink-4);font-size:.8rem;font-style:italic">No results.</div>';return;}
-  el.innerHTML=venues.map(v=>
-    '<div class="venue-entry" data-id="'+v.id+'">'
+  var container=document.getElementById('venueList');
+  if(!venues.length){container.innerHTML='<div style="padding:20px;color:var(--ink-4);font-size:.78rem;font-style:italic">No results.</div>';return;}
+  container.innerHTML=venues.map(function(v){
+    return '<div class="venue-entry" data-id="'+v.id+'">'
     +'<div class="venue-entry-top">'
     +'<span class="venue-entry-shape"><svg viewBox="-5 -5 10 10" xmlns="http://www.w3.org/2000/svg"><path d="'+SHAPES[v.category].d+'" fill="currentColor"/></svg></span>'
     +'<span class="venue-entry-name">'+v.name+'</span>'
-    +'<span class="venue-entry-sep">&mdash;</span>'
+    +'<span class="venue-entry-sep">\u2014</span>'
     +'<span class="venue-entry-hood">'+(v.neighborhood||'')+'</span>'
     +'</div>'
     +(v.highlight?'<div class="venue-entry-note">'+v.highlight+'</div>':'')
-    +'</div>'
-  ).join('');
-  el.querySelectorAll('.venue-entry').forEach(c=>{
-    c.addEventListener('click',()=>{window.location.hash='#venue/'+c.dataset.id;});
+    +'</div>';
+  }).join('');
+  container.querySelectorAll('.venue-entry').forEach(function(c){
+    c.addEventListener('click',function(){window.location.hash='#venue/'+c.dataset.id;});
   });
 }
 
 function highlightCard(id){
-  document.querySelectorAll('.venue-entry').forEach(c=>c.classList.remove('active'));
-  const c=document.querySelector('.venue-entry[data-id="'+id+'"]');
+  document.querySelectorAll('.venue-entry').forEach(function(c){c.classList.remove('active');});
+  var c=document.querySelector('.venue-entry[data-id="'+id+'"]');
   if(c){c.classList.add('active');c.scrollIntoView({behavior:'smooth',block:'nearest'});}
   selectVenue(id);
 }
 
 // ── Detail ──
 function showDetail(id){
-  const v=allVenues.find(x=>x.id===id);
+  var v=allVenues.find(function(x){return x.id===id;});
   if(!v) return;
-  const e=document.getElementById('venueDetail');
+  var e=document.getElementById('venueDetail');
   e.innerHTML=
     '<button class="venue-detail-back" id="detailBack">&larr; Back to index</button>'
     +'<h3>'+v.name+'</h3>'
@@ -761,7 +796,7 @@ function showDetail(id){
   e.classList.add('visible');
   document.getElementById('venueList').style.display='none';
   document.getElementById('venueCount').style.display='none';
-  document.getElementById('detailBack').addEventListener('click',()=>{window.location.hash='#map';});
+  document.getElementById('detailBack').addEventListener('click',function(){window.location.hash='#map';});
   highlightCard(id);
 }
 
@@ -774,23 +809,26 @@ function hideDetail(){
 
 // ── Routing ──
 function handleRoute(){
-  const h=window.location.hash||'#map';
-  if(h.startsWith('#venue/')){const id=+h.split('/')[1];if(id)showDetail(id);}
+  var h=window.location.hash||'#map';
+  if(h.indexOf('#venue/')===0){var id=parseInt(h.split('/')[1]);if(id)showDetail(id);}
   else hideDetail();
 }
 window.addEventListener('hashchange',handleRoute);
 
 // ── Resize ──
-let rt;
-window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(initSvg,200);});
+var rt;
+window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(initSvg,200);});
 
 // ── Init ──
-(async function(){
+(function(){
   setTheme(getTheme());
   renderTags();
   initSvg();
-  await Promise.all([loadBoroughs(),loadVenues()]);
-  handleRoute();
+  Promise.all([loadBoroughs(),loadVenues()]).then(function(){
+    handleRoute();
+  }).catch(function(e){
+    console.error('Init error:', e);
+  });
 })();
 </script>
 </body>
