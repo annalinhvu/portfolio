@@ -1,6 +1,7 @@
 """Only Good Things — Self-Care Activity Catalog API."""
 
 import os
+from datetime import date, timedelta
 
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -134,6 +135,66 @@ def list_completions(
             "ORDER BY c.completed_at DESC",
         )
     return [dict(r) for r in rows]
+
+
+@app.get("/completions/stats")
+def completion_stats(conn=Depends(get_conn)):
+    total_completions = db.query(
+        conn, "SELECT COUNT(*) as n FROM completions"
+    )[0]["n"]
+
+    unique_activities = db.query(
+        conn, "SELECT COUNT(DISTINCT activity_id) as n FROM completions"
+    )[0]["n"]
+
+    total_activities = db.query(
+        conn, "SELECT COUNT(*) as n FROM activities"
+    )[0]["n"]
+
+    week_ago = (date.today() - timedelta(days=7)).isoformat()
+    this_week = db.query(
+        conn, "SELECT COUNT(*) as n FROM completions WHERE completed_at >= ?", (week_ago,)
+    )[0]["n"]
+
+    # Streak: consecutive days with at least one completion, from today backwards
+    day_rows = db.query(
+        conn,
+        "SELECT DISTINCT completed_at FROM completions ORDER BY completed_at DESC",
+    )
+    streak_days = 0
+    check = date.today()
+    day_set = {r["completed_at"] for r in day_rows}
+    while check.isoformat() in day_set:
+        streak_days += 1
+        check -= timedelta(days=1)
+
+    # By category
+    cat_rows = db.query(
+        conn,
+        "SELECT a.category, COUNT(*) as count FROM completions c "
+        "JOIN activities a ON a.id = c.activity_id "
+        "GROUP BY a.category ORDER BY count DESC",
+    )
+    by_category = [dict(r) for r in cat_rows]
+
+    # Recent 15
+    recent_rows = db.query(
+        conn,
+        "SELECT c.id, c.activity_id, a.name, a.category, c.completed_at, c.notes "
+        "FROM completions c JOIN activities a ON a.id = c.activity_id "
+        "ORDER BY c.completed_at DESC, c.id DESC LIMIT 15",
+    )
+    recent = [dict(r) for r in recent_rows]
+
+    return {
+        "total_completions": total_completions,
+        "unique_activities": unique_activities,
+        "total_activities": total_activities,
+        "this_week": this_week,
+        "streak_days": streak_days,
+        "by_category": by_category,
+        "recent": recent,
+    }
 
 
 @app.post("/completions")

@@ -453,6 +453,110 @@ body{
   font-size:.9rem;
 }
 
+/* ── Progress view ── */
+.progress-view{display:none}
+.progress-view.active{display:block}
+
+.progress-header{text-align:center;margin-bottom:32px;padding:20px 0 8px}
+.progress-title{
+  font-family:Georgia,serif;font-size:1.6rem;font-weight:400;
+  color:var(--text-1);margin-bottom:8px;letter-spacing:.5px;
+}
+.progress-tagline{
+  font-family:Georgia,serif;font-style:italic;
+  font-size:.95rem;color:var(--text-3);letter-spacing:.3px;
+  margin-bottom:12px;
+}
+
+.stat-cards{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  margin-bottom:32px;
+}
+@media(max-width:800px){.stat-cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.stat-cards{grid-template-columns:1fr}}
+
+.stat-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:8px;padding:20px;text-align:center;
+  box-shadow:var(--shadow);
+}
+.stat-number{
+  font-family:Georgia,serif;font-size:2rem;font-weight:400;
+  color:var(--text-1);line-height:1.2;
+}
+.stat-label{
+  font-size:.72rem;letter-spacing:.8px;text-transform:uppercase;
+  color:var(--text-3);margin-top:4px;
+}
+
+.progress-section{margin-bottom:32px}
+.progress-section-title{
+  font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:16px;font-weight:600;
+}
+
+.category-bars{display:flex;flex-direction:column;gap:12px}
+.cat-bar-row{display:flex;align-items:center;gap:12px}
+.cat-bar-label{
+  font-size:.8rem;color:var(--text-2);text-transform:capitalize;
+  width:80px;text-align:right;flex-shrink:0;
+}
+.cat-bar-track{
+  flex:1;height:20px;background:var(--surface-2);
+  border-radius:10px;overflow:hidden;
+}
+.cat-bar-fill{
+  height:100%;border-radius:10px;
+  transition:width .5s ease;min-width:2px;
+}
+.cat-bar-count{
+  font-size:.75rem;color:var(--text-3);width:32px;flex-shrink:0;
+}
+
+.recent-list{display:flex;flex-direction:column;gap:0}
+.recent-item{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 0;border-bottom:1px solid var(--border);
+  font-size:.85rem;
+}
+.recent-item:last-child{border-bottom:none}
+.recent-dot{
+  width:8px;height:8px;border-radius:50%;flex-shrink:0;
+}
+.recent-name{
+  color:var(--text-1);cursor:pointer;flex-shrink:0;
+}
+.recent-name:hover{color:var(--accent);text-decoration:underline}
+.recent-notes{
+  color:var(--text-3);font-style:italic;flex:1;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.recent-date{
+  color:var(--text-4);font-size:.75rem;flex-shrink:0;
+}
+
+.progress-empty{
+  text-align:center;padding:60px 20px;color:var(--text-4);
+}
+.progress-empty p{
+  font-family:Georgia,serif;font-style:italic;
+  font-size:.95rem;margin-bottom:16px;line-height:1.6;
+}
+.progress-empty a{
+  color:var(--accent);text-decoration:none;
+  font-size:.85rem;
+}
+.progress-empty a:hover{text-decoration:underline}
+
+/* ── Topbar nav ── */
+.topbar-nav{display:flex;align-items:center;gap:12px}
+.topbar-nav a{
+  color:var(--text-4);text-decoration:none;font-size:.7rem;
+  letter-spacing:1px;text-transform:uppercase;transition:color .2s;
+}
+.topbar-nav a:hover{color:var(--accent)}
+.topbar-nav .nav-sep{color:var(--border);font-size:.6rem}
+
 /* ── Animations ── */
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .fade-in{animation:fadeIn .3s ease forwards}
@@ -472,8 +576,12 @@ body{
 <body>
 
 <div class="topbar">
-  <div class="topbar-left">
+  <div class="topbar-left topbar-nav">
     <a href="http://127.0.0.1:8080#lab">&larr; Portfolio</a>
+    <span class="nav-sep">/</span>
+    <a href="#catalog">Catalog</a>
+    <span class="nav-sep">/</span>
+    <a href="#progress">My Progress</a>
   </div>
   <div class="topbar-title">Only Good Things</div>
   <div class="topbar-right">
@@ -565,6 +673,16 @@ body{
   <div class="detail-view" id="detailView">
     <button class="detail-back" onclick="showCatalog()">&larr; Back to catalog</button>
     <div id="detailContent"></div>
+  </div>
+
+  <!-- Progress View -->
+  <div class="progress-view" id="progressView">
+    <div class="progress-header">
+      <div class="progress-title">My Progress</div>
+      <p class="progress-tagline">every small act of care adds up</p>
+      <div class="catalog-divider"></div>
+    </div>
+    <div id="progressContent"></div>
   </div>
 
 </div>
@@ -717,6 +835,7 @@ async function showDetail(id) {
   location.hash = 'activity/' + id;
 
   document.getElementById('catalogView').classList.add('hidden');
+  document.getElementById('progressView').classList.remove('active');
   const dv = document.getElementById('detailView');
   dv.classList.add('active');
 
@@ -824,6 +943,7 @@ async function deleteCompletion(completionId, activityId) {
 function showCatalog() {
   location.hash = 'catalog';
   document.getElementById('detailView').classList.remove('active');
+  document.getElementById('progressView').classList.remove('active');
   document.getElementById('catalogView').classList.remove('hidden');
   applyFilters();
 }
@@ -834,9 +954,88 @@ function handleHash() {
   if (hash.startsWith('activity/')) {
     const id = parseInt(hash.split('/')[1]);
     if (id) showDetail(id);
+  } else if (hash === 'progress') {
+    showProgress();
   } else {
     showCatalog();
   }
+}
+
+/* ── Progress view ── */
+async function showProgress() {
+  location.hash = 'progress';
+  document.getElementById('catalogView').classList.add('hidden');
+  document.getElementById('detailView').classList.remove('active');
+  document.getElementById('progressView').classList.add('active');
+
+  const container = document.getElementById('progressContent');
+  container.innerHTML = '<p style="text-align:center;color:var(--text-4);padding:40px">Loading...</p>';
+
+  try {
+    const res = await fetch(API + '/completions/stats');
+    const s = await res.json();
+
+    if (s.total_completions === 0) {
+      container.innerHTML =
+        '<div class="progress-empty fade-in">' +
+          '<div style="font-size:2rem;margin-bottom:12px;opacity:.3">\u2E2E</div>' +
+          '<p>You haven\'t tracked any activities yet.<br>Every journey starts with a single step.</p>' +
+          '<a href="#catalog">\u2190 Browse the catalog</a>' +
+        '</div>';
+      return;
+    }
+
+    let html = '';
+
+    /* Stat cards */
+    html += '<div class="stat-cards">' +
+      '<div class="stat-card fade-in"><div class="stat-number">' + s.total_completions + '</div><div class="stat-label">Total completions</div></div>' +
+      '<div class="stat-card fade-in" style="animation-delay:.05s"><div class="stat-number">' + s.unique_activities + '/' + s.total_activities + '</div><div class="stat-label">Activities explored</div></div>' +
+      '<div class="stat-card fade-in" style="animation-delay:.1s"><div class="stat-number">' + s.this_week + '</div><div class="stat-label">This week</div></div>' +
+      '<div class="stat-card fade-in" style="animation-delay:.15s"><div class="stat-number">' + s.streak_days + '</div><div class="stat-label">Day streak</div></div>' +
+    '</div>';
+
+    /* Category breakdown */
+    if (s.by_category.length) {
+      const maxCat = Math.max(...s.by_category.map(c => c.count));
+      html += '<div class="progress-section fade-in" style="animation-delay:.2s">' +
+        '<div class="progress-section-title">By category</div>' +
+        '<div class="category-bars">';
+      s.by_category.forEach(c => {
+        const pct = Math.round((c.count / maxCat) * 100);
+        const color = CAT_COLORS[c.category] || 'var(--accent)';
+        html += '<div class="cat-bar-row">' +
+          '<span class="cat-bar-label">' + c.category + '</span>' +
+          '<div class="cat-bar-track"><div class="cat-bar-fill" style="width:' + pct + '%;background:' + color + '"></div></div>' +
+          '<span class="cat-bar-count">' + c.count + '</span>' +
+        '</div>';
+      });
+      html += '</div></div>';
+    }
+
+    /* Recent activity */
+    if (s.recent.length) {
+      html += '<div class="progress-section fade-in" style="animation-delay:.25s">' +
+        '<div class="progress-section-title">Recent activity</div>' +
+        '<div class="recent-list">';
+      s.recent.forEach(r => {
+        const color = CAT_COLORS[r.category] || 'var(--accent)';
+        html += '<div class="recent-item">' +
+          '<span class="recent-dot" style="background:' + color + '"></span>' +
+          '<span class="recent-name" onclick="showDetail(' + r.activity_id + ')">' + esc(r.name) + '</span>' +
+          '<span class="recent-notes">' + (r.notes ? esc(r.notes) : '') + '</span>' +
+          '<span class="recent-date">' + formatDate(r.completed_at) + '</span>' +
+        '</div>';
+      });
+      html += '</div></div>';
+    }
+
+    container.innerHTML = html;
+  } catch (e) {
+    container.innerHTML = '<div class="progress-empty"><p>Could not load stats.</p></div>';
+  }
+
+  window.scrollTo(0, 0);
 }
 
 /* ── Util ── */

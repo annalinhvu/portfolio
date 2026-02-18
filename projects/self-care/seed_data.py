@@ -2066,8 +2066,10 @@ def seed(db_path=None):
                 placeholders.append("?")
                 values.append(entry[key])
 
+        update_clause = ', '.join(f"{c} = excluded.{c}" for c in cols if c != 'name')
         conn.execute(
-            f"INSERT OR IGNORE INTO activities ({', '.join(cols)}) VALUES ({', '.join(placeholders)})",
+            f"INSERT INTO activities ({', '.join(cols)}) VALUES ({', '.join(placeholders)}) "
+            f"ON CONFLICT(name) DO UPDATE SET {update_clause}",
             values,
         )
         count += 1
@@ -2079,6 +2081,4 @@ def seed(db_path=None):
 
 if __name__ == "__main__":
     db_path = os.path.join(os.path.dirname(__file__), "self_care.db")
-    if os.path.exists(db_path):
-        os.remove(db_path)
     seed(db_path)
