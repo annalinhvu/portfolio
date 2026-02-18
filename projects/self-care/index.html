@@ -59,7 +59,39 @@ body{
   background:var(--bg);color:var(--text-2);
   min-height:100vh;transition:background .3s,color .3s;
   -webkit-font-smoothing:antialiased;
+  position:relative;overflow-x:hidden;
 }
+
+/* ── Decorative background ── */
+.bg-decor{
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  pointer-events:none;z-index:0;overflow:hidden;
+}
+.bg-leaf{
+  position:absolute;opacity:.045;transition:opacity .3s;
+}
+[data-theme="dark"] .bg-leaf{opacity:.03}
+.bg-leaf svg{width:100%;height:100%}
+
+.bg-leaf-1{top:5%;left:-2%;width:180px;height:180px;transform:rotate(-15deg)}
+.bg-leaf-2{top:18%;right:-1%;width:140px;height:140px;transform:rotate(25deg) scaleX(-1)}
+.bg-leaf-3{top:40%;left:1%;width:120px;height:120px;transform:rotate(40deg)}
+.bg-leaf-4{top:55%;right:2%;width:160px;height:160px;transform:rotate(-30deg) scaleX(-1)}
+.bg-leaf-5{top:75%;left:-1%;width:150px;height:150px;transform:rotate(10deg)}
+.bg-leaf-6{top:88%;right:0%;width:130px;height:130px;transform:rotate(-45deg)}
+
+.bg-dot{
+  position:absolute;border-radius:50%;opacity:.06;
+  transition:opacity .3s;
+}
+[data-theme="dark"] .bg-dot{opacity:.04}
+.bg-dot-1{width:200px;height:200px;top:12%;right:8%;background:var(--accent-3)}
+.bg-dot-2{width:160px;height:160px;top:35%;left:5%;background:var(--accent)}
+.bg-dot-3{width:120px;height:120px;top:65%;right:12%;background:var(--accent-4)}
+.bg-dot-4{width:180px;height:180px;top:82%;left:8%;background:var(--accent-2)}
+
+/* ── Subtle grid pattern on page ── */
+.page{position:relative;z-index:1}
 
 /* ── Top bar ── */
 .topbar{
@@ -87,13 +119,22 @@ body{
 .theme-btn:hover{color:var(--text-2)}
 
 /* ── Page container ── */
-.page{max-width:1100px;margin:0 auto;padding:32px 28px 80px}
+.page{max-width:1100px;margin:0 auto;padding:32px 28px 80px;position:relative;z-index:1}
 
 /* ── Header / tagline ── */
-.catalog-header{text-align:center;margin-bottom:32px}
+.catalog-header{text-align:center;margin-bottom:36px;padding:20px 0 8px}
+.catalog-title{
+  font-family:Georgia,serif;font-size:1.6rem;font-weight:400;
+  color:var(--text-1);margin-bottom:8px;letter-spacing:.5px;
+}
 .catalog-tagline{
   font-family:Georgia,serif;font-style:italic;
   font-size:.95rem;color:var(--text-3);letter-spacing:.3px;
+  margin-bottom:12px;
+}
+.catalog-divider{
+  width:60px;height:1px;background:var(--accent);
+  margin:0 auto;opacity:.4;
 }
 
 /* ── Filters ── */
@@ -279,6 +320,31 @@ body{
 .meta-label{color:var(--text-3);text-transform:capitalize}
 .meta-value{color:var(--text-1);font-weight:500;text-transform:capitalize}
 
+/* ── Footer ── */
+.catalog-footer{
+  text-align:center;padding:48px 0 20px;
+  color:var(--text-4);font-size:.72rem;
+  letter-spacing:.5px;
+}
+.catalog-footer .footer-leaf{
+  display:inline-block;margin-bottom:12px;opacity:.15;
+}
+.catalog-footer .footer-leaf svg{width:28px;height:28px}
+.catalog-footer p{line-height:1.8}
+
+/* ── Empty state ── */
+.empty-state{
+  text-align:center;padding:60px 20px;
+  color:var(--text-4);
+}
+.empty-state .empty-icon{
+  font-size:2rem;margin-bottom:12px;opacity:.3;
+}
+.empty-state p{
+  font-family:Georgia,serif;font-style:italic;
+  font-size:.9rem;
+}
+
 /* ── Animations ── */
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .fade-in{animation:fadeIn .3s ease forwards}
@@ -291,6 +357,7 @@ body{
   .detail-name{font-size:1.4rem}
   .search-input{width:100%}
   .filter-row{flex-direction:column;align-items:stretch}
+  .bg-decor{display:none}
 }
 </style>
 </head>
@@ -306,12 +373,29 @@ body{
   </div>
 </div>
 
+<!-- Decorative background -->
+<div class="bg-decor">
+  <!-- Botanical leaves -->
+  <div class="bg-leaf bg-leaf-1"><svg viewBox="0 0 100 100"><path d="M50 10 C20 30, 10 60, 50 90 C90 60, 80 30, 50 10Z" fill="currentColor" style="color:var(--accent)"/><path d="M50 20 L50 80" stroke="currentColor" stroke-width=".5" fill="none" style="color:var(--accent)"/><path d="M50 35 L30 25" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent)"/><path d="M50 50 L25 42" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent)"/><path d="M50 65 L28 60" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent)"/><path d="M50 35 L70 25" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent)"/><path d="M50 50 L75 42" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent)"/><path d="M50 65 L72 60" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent)"/></svg></div>
+  <div class="bg-leaf bg-leaf-2"><svg viewBox="0 0 100 100"><path d="M50 10 C20 30, 10 60, 50 90 C90 60, 80 30, 50 10Z" fill="currentColor" style="color:var(--accent-2)"/><path d="M50 20 L50 80" stroke="currentColor" stroke-width=".5" fill="none" style="color:var(--accent-2)"/><path d="M50 40 L30 30" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent-2)"/><path d="M50 55 L28 48" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent-2)"/><path d="M50 40 L70 30" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent-2)"/><path d="M50 55 L72 48" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent-2)"/></svg></div>
+  <div class="bg-leaf bg-leaf-3"><svg viewBox="0 0 100 120"><ellipse cx="50" cy="60" rx="22" ry="50" fill="currentColor" style="color:var(--accent-3)"/><path d="M50 15 L50 105" stroke="currentColor" stroke-width=".5" fill="none" style="color:var(--accent-3)"/></svg></div>
+  <div class="bg-leaf bg-leaf-4"><svg viewBox="0 0 100 100"><path d="M50 10 C20 30, 10 60, 50 90 C90 60, 80 30, 50 10Z" fill="currentColor" style="color:var(--accent-4)"/><path d="M50 20 L50 80" stroke="currentColor" stroke-width=".5" fill="none" style="color:var(--accent-4)"/><path d="M50 38 L32 28" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent-4)"/><path d="M50 52 L30 45" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent-4)"/><path d="M50 38 L68 28" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent-4)"/><path d="M50 52 L70 45" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent-4)"/></svg></div>
+  <div class="bg-leaf bg-leaf-5"><svg viewBox="0 0 100 120"><ellipse cx="50" cy="60" rx="22" ry="50" fill="currentColor" style="color:var(--accent)"/><path d="M50 15 L50 105" stroke="currentColor" stroke-width=".5" fill="none" style="color:var(--accent)"/></svg></div>
+  <div class="bg-leaf bg-leaf-6"><svg viewBox="0 0 100 100"><path d="M50 10 C20 30, 10 60, 50 90 C90 60, 80 30, 50 10Z" fill="currentColor" style="color:var(--accent-3)"/><path d="M50 20 L50 80" stroke="currentColor" stroke-width=".5" fill="none" style="color:var(--accent-3)"/></svg></div>
+  <!-- Soft dots -->
+  <div class="bg-dot bg-dot-1"></div>
+  <div class="bg-dot bg-dot-2"></div>
+  <div class="bg-dot bg-dot-3"></div>
+  <div class="bg-dot bg-dot-4"></div>
+</div>
+
 <div class="page">
 
   <!-- Catalog View -->
   <div class="catalog-view" id="catalogView">
     <div class="catalog-header">
       <p class="catalog-tagline">a catalog of small rituals &amp; gentle acts</p>
+      <div class="catalog-divider"></div>
     </div>
 
     <div class="filters">
@@ -341,6 +425,11 @@ body{
 
     <div class="result-count" id="resultCount"></div>
     <div class="card-grid" id="cardGrid"></div>
+
+    <div class="catalog-footer">
+      <div class="footer-leaf"><svg viewBox="0 0 100 100"><path d="M50 10 C20 30, 10 60, 50 90 C90 60, 80 30, 50 10Z" fill="currentColor" style="color:var(--accent)"/><path d="M50 20 L50 80" stroke="currentColor" stroke-width="1" fill="none" style="color:var(--accent)"/></svg></div>
+      <p>curated with care &amp; good intentions</p>
+    </div>
   </div>
 
   <!-- Detail View -->
@@ -452,6 +541,10 @@ function applyFilters() {
 function renderCards(activities) {
   const grid = document.getElementById('cardGrid');
   grid.innerHTML = '';
+  if (activities.length === 0) {
+    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">\u2E2E</div><p>No activities match your filters — try broadening your search</p></div>';
+    return;
+  }
   activities.forEach((a, i) => {
     const card = document.createElement('div');
     card.className = 'activity-card fade-in';
