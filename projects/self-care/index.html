@@ -67,30 +67,73 @@ body{
   position:fixed;top:0;left:0;right:0;bottom:0;
   pointer-events:none;z-index:0;overflow:hidden;
 }
-.bg-leaf{
-  position:absolute;opacity:.045;transition:opacity .3s;
+.bg-item{
+  position:absolute;transition:opacity .3s;
 }
-[data-theme="dark"] .bg-leaf{opacity:.03}
-.bg-leaf svg{width:100%;height:100%}
+.bg-item svg{width:100%;height:100%;display:block}
 
-.bg-leaf-1{top:5%;left:-2%;width:180px;height:180px;transform:rotate(-15deg)}
-.bg-leaf-2{top:18%;right:-1%;width:140px;height:140px;transform:rotate(25deg) scaleX(-1)}
-.bg-leaf-3{top:40%;left:1%;width:120px;height:120px;transform:rotate(40deg)}
-.bg-leaf-4{top:55%;right:2%;width:160px;height:160px;transform:rotate(-30deg) scaleX(-1)}
-.bg-leaf-5{top:75%;left:-1%;width:150px;height:150px;transform:rotate(10deg)}
-.bg-leaf-6{top:88%;right:0%;width:130px;height:130px;transform:rotate(-45deg)}
+/* Floating animation */
+@keyframes bgFloat{
+  0%,100%{transform:translateY(0) rotate(var(--r,0deg))}
+  50%{transform:translateY(-8px) rotate(var(--r,0deg))}
+}
+@keyframes bgFloatSlow{
+  0%,100%{transform:translateY(0) rotate(var(--r,0deg))}
+  50%{transform:translateY(-5px) rotate(var(--r,0deg))}
+}
+@keyframes bgSpin{
+  0%{transform:rotate(0deg)}
+  100%{transform:rotate(360deg)}
+}
+.bg-float{animation:bgFloat 6s ease-in-out infinite}
+.bg-float-slow{animation:bgFloatSlow 8s ease-in-out infinite}
 
-.bg-dot{
-  position:absolute;border-radius:50%;opacity:.06;
+/* Leaves */
+.bg-leaf{opacity:.06}
+[data-theme="dark"] .bg-leaf{opacity:.04}
+.bg-l1{top:3%;left:2%;width:80px;height:80px;--r:-20deg;animation-delay:0s}
+.bg-l2{top:22%;right:3%;width:65px;height:65px;--r:30deg;animation-delay:1s}
+.bg-l3{top:48%;left:1%;width:70px;height:70px;--r:15deg;animation-delay:2s}
+.bg-l4{top:72%;right:2%;width:75px;height:75px;--r:-25deg;animation-delay:.5s}
+
+/* Flowers */
+.bg-flower{opacity:.07}
+[data-theme="dark"] .bg-flower{opacity:.045}
+.bg-f1{top:8%;right:6%;width:45px;height:45px;animation-delay:1.5s}
+.bg-f2{top:32%;left:4%;width:35px;height:35px;animation-delay:3s}
+.bg-f3{top:58%;right:5%;width:40px;height:40px;animation-delay:0s}
+.bg-f4{top:85%;left:3%;width:38px;height:38px;animation-delay:2.5s}
+.bg-f5{top:15%;left:8%;width:30px;height:30px;animation-delay:4s}
+.bg-f6{top:68%;left:6%;width:32px;height:32px;animation-delay:1s}
+
+/* Stars & moons */
+.bg-star{opacity:.06}
+[data-theme="dark"] .bg-star{opacity:.08}
+.bg-s1{top:5%;right:12%;width:20px;height:20px;animation-delay:2s}
+.bg-s2{top:28%;left:7%;width:16px;height:16px;animation-delay:0s}
+.bg-s3{top:45%;right:8%;width:18px;height:18px;animation-delay:3s}
+.bg-s4{top:78%;right:10%;width:14px;height:14px;animation-delay:1s}
+.bg-s5{top:62%;left:3%;width:15px;height:15px;animation-delay:4s}
+.bg-s6{top:92%;left:10%;width:17px;height:17px;animation-delay:2.5s}
+
+.bg-moon{opacity:.05}
+[data-theme="dark"] .bg-moon{opacity:.07}
+.bg-m1{top:12%;left:5%;width:40px;height:40px;animation-delay:1s}
+.bg-m2{top:55%;right:4%;width:35px;height:35px;animation-delay:3s}
+
+/* Soft blobs */
+.bg-blob{
+  position:absolute;border-radius:50%;
+  opacity:.05;filter:blur(40px);
   transition:opacity .3s;
 }
-[data-theme="dark"] .bg-dot{opacity:.04}
-.bg-dot-1{width:200px;height:200px;top:12%;right:8%;background:var(--accent-3)}
-.bg-dot-2{width:160px;height:160px;top:35%;left:5%;background:var(--accent)}
-.bg-dot-3{width:120px;height:120px;top:65%;right:12%;background:var(--accent-4)}
-.bg-dot-4{width:180px;height:180px;top:82%;left:8%;background:var(--accent-2)}
+[data-theme="dark"] .bg-blob{opacity:.035}
+.bg-b1{width:250px;height:250px;top:8%;right:5%;background:var(--accent-3)}
+.bg-b2{width:200px;height:200px;top:38%;left:2%;background:var(--accent)}
+.bg-b3{width:180px;height:180px;top:65%;right:8%;background:var(--accent-4)}
+.bg-b4{width:220px;height:220px;top:85%;left:5%;background:var(--accent-2)}
 
-/* ── Subtle grid pattern on page ── */
+/* ── Page ── */
 .page{position:relative;z-index:1}
 
 /* ── Top bar ── */
@@ -119,7 +162,7 @@ body{
 .theme-btn:hover{color:var(--text-2)}
 
 /* ── Page container ── */
-.page{max-width:1100px;margin:0 auto;padding:32px 28px 80px;position:relative;z-index:1}
+.page{max-width:1400px;margin:0 auto;padding:32px 28px 80px;position:relative;z-index:1}
 
 /* ── Header / tagline ── */
 .catalog-header{text-align:center;margin-bottom:36px;padding:20px 0 8px}
@@ -193,9 +236,10 @@ body{
 
 /* ── Card grid ── */
 .card-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
 }
-@media(max-width:900px){.card-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1100px){.card-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:800px){.card-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.card-grid{grid-template-columns:1fr}}
 
 /* ── Activity card ── */
@@ -332,6 +376,70 @@ body{
 .catalog-footer .footer-leaf svg{width:28px;height:28px}
 .catalog-footer p{line-height:1.8}
 
+/* ── Completion tracking ── */
+.done-badge{
+  position:absolute;top:12px;right:12px;
+  width:22px;height:22px;border-radius:50%;
+  background:var(--accent);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;font-weight:700;
+  opacity:.85;
+}
+.activity-card{position:relative}
+.done-count{
+  font-size:.6rem;color:var(--accent);font-weight:600;
+  margin-left:auto;padding-left:8px;white-space:nowrap;
+}
+
+/* Mark done form */
+.mark-done-section{
+  margin-top:28px;padding:20px;
+  background:var(--surface-2);border-radius:8px;
+}
+.mark-done-title{
+  font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:12px;font-weight:600;
+}
+.mark-done-row{
+  display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;
+}
+.mark-done-field{display:flex;flex-direction:column;gap:4px}
+.mark-done-field label{
+  font-size:.68rem;color:var(--text-3);text-transform:uppercase;
+  letter-spacing:.5px;
+}
+.mark-done-field input{
+  padding:7px 12px;border-radius:6px;
+  border:1px solid var(--border);background:var(--surface);
+  font-size:.8rem;color:var(--text-2);
+}
+.mark-done-field input:focus{border-color:var(--accent);outline:none}
+.mark-done-btn{
+  padding:8px 20px;border-radius:6px;
+  background:var(--accent);color:#fff;
+  border:none;font-size:.78rem;font-weight:500;
+  cursor:pointer;transition:background .2s;
+  white-space:nowrap;
+}
+.mark-done-btn:hover{opacity:.9}
+
+/* Completion log */
+.completion-log{margin-top:16px}
+.completion-entry{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:8px 0;border-bottom:1px solid var(--border);
+  font-size:.8rem;
+}
+.completion-entry:last-child{border-bottom:none}
+.completion-date{color:var(--text-1);font-weight:500}
+.completion-notes{color:var(--text-3);font-style:italic;flex:1;margin:0 12px}
+.completion-delete{
+  background:none;border:none;color:var(--text-4);
+  cursor:pointer;font-size:.7rem;padding:4px 8px;
+  transition:color .2s;border-radius:4px;
+}
+.completion-delete:hover{color:var(--accent-2)}
+
 /* ── Empty state ── */
 .empty-state{
   text-align:center;padding:60px 20px;
@@ -375,18 +483,39 @@ body{
 
 <!-- Decorative background -->
 <div class="bg-decor">
-  <!-- Botanical leaves -->
-  <div class="bg-leaf bg-leaf-1"><svg viewBox="0 0 100 100"><path d="M50 10 C20 30, 10 60, 50 90 C90 60, 80 30, 50 10Z" fill="currentColor" style="color:var(--accent)"/><path d="M50 20 L50 80" stroke="currentColor" stroke-width=".5" fill="none" style="color:var(--accent)"/><path d="M50 35 L30 25" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent)"/><path d="M50 50 L25 42" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent)"/><path d="M50 65 L28 60" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent)"/><path d="M50 35 L70 25" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent)"/><path d="M50 50 L75 42" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent)"/><path d="M50 65 L72 60" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent)"/></svg></div>
-  <div class="bg-leaf bg-leaf-2"><svg viewBox="0 0 100 100"><path d="M50 10 C20 30, 10 60, 50 90 C90 60, 80 30, 50 10Z" fill="currentColor" style="color:var(--accent-2)"/><path d="M50 20 L50 80" stroke="currentColor" stroke-width=".5" fill="none" style="color:var(--accent-2)"/><path d="M50 40 L30 30" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent-2)"/><path d="M50 55 L28 48" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent-2)"/><path d="M50 40 L70 30" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent-2)"/><path d="M50 55 L72 48" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent-2)"/></svg></div>
-  <div class="bg-leaf bg-leaf-3"><svg viewBox="0 0 100 120"><ellipse cx="50" cy="60" rx="22" ry="50" fill="currentColor" style="color:var(--accent-3)"/><path d="M50 15 L50 105" stroke="currentColor" stroke-width=".5" fill="none" style="color:var(--accent-3)"/></svg></div>
-  <div class="bg-leaf bg-leaf-4"><svg viewBox="0 0 100 100"><path d="M50 10 C20 30, 10 60, 50 90 C90 60, 80 30, 50 10Z" fill="currentColor" style="color:var(--accent-4)"/><path d="M50 20 L50 80" stroke="currentColor" stroke-width=".5" fill="none" style="color:var(--accent-4)"/><path d="M50 38 L32 28" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent-4)"/><path d="M50 52 L30 45" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent-4)"/><path d="M50 38 L68 28" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent-4)"/><path d="M50 52 L70 45" stroke="currentColor" stroke-width=".3" fill="none" style="color:var(--accent-4)"/></svg></div>
-  <div class="bg-leaf bg-leaf-5"><svg viewBox="0 0 100 120"><ellipse cx="50" cy="60" rx="22" ry="50" fill="currentColor" style="color:var(--accent)"/><path d="M50 15 L50 105" stroke="currentColor" stroke-width=".5" fill="none" style="color:var(--accent)"/></svg></div>
-  <div class="bg-leaf bg-leaf-6"><svg viewBox="0 0 100 100"><path d="M50 10 C20 30, 10 60, 50 90 C90 60, 80 30, 50 10Z" fill="currentColor" style="color:var(--accent-3)"/><path d="M50 20 L50 80" stroke="currentColor" stroke-width=".5" fill="none" style="color:var(--accent-3)"/></svg></div>
-  <!-- Soft dots -->
-  <div class="bg-dot bg-dot-1"></div>
-  <div class="bg-dot bg-dot-2"></div>
-  <div class="bg-dot bg-dot-3"></div>
-  <div class="bg-dot bg-dot-4"></div>
+  <!-- Leaves with veins -->
+  <div class="bg-item bg-leaf bg-l1 bg-float"><svg viewBox="0 0 100 100"><path d="M50 5 C15 30, 8 65, 50 95 C92 65, 85 30, 50 5Z" fill="var(--accent)"/><path d="M50 15 L50 85" stroke="var(--bg)" stroke-width=".8" fill="none"/><path d="M50 35 L30 22M50 50 L25 40M50 65 L28 57M50 35 L70 22M50 50 L75 40M50 65 L72 57" stroke="var(--bg)" stroke-width=".4" fill="none"/></svg></div>
+  <div class="bg-item bg-leaf bg-l2 bg-float-slow"><svg viewBox="0 0 100 100"><path d="M50 5 C15 30, 8 65, 50 95 C92 65, 85 30, 50 5Z" fill="var(--accent-2)"/><path d="M50 15 L50 85" stroke="var(--bg)" stroke-width=".8" fill="none"/><path d="M50 38 L32 26M50 55 L28 46M50 38 L68 26M50 55 L72 46" stroke="var(--bg)" stroke-width=".4" fill="none"/></svg></div>
+  <div class="bg-item bg-leaf bg-l3 bg-float"><svg viewBox="0 0 80 120"><ellipse cx="40" cy="60" rx="20" ry="52" fill="var(--accent-3)"/><path d="M40 12 L40 108" stroke="var(--bg)" stroke-width=".6" fill="none"/></svg></div>
+  <div class="bg-item bg-leaf bg-l4 bg-float-slow"><svg viewBox="0 0 100 100"><path d="M50 5 C15 30, 8 65, 50 95 C92 65, 85 30, 50 5Z" fill="var(--accent-4)"/><path d="M50 15 L50 85" stroke="var(--bg)" stroke-width=".8" fill="none"/><path d="M50 40 L30 28M50 58 L26 48M50 40 L70 28M50 58 L74 48" stroke="var(--bg)" stroke-width=".4" fill="none"/></svg></div>
+
+  <!-- Flowers — 5 petals -->
+  <div class="bg-item bg-flower bg-f1 bg-float-slow"><svg viewBox="0 0 100 100"><circle cx="50" cy="30" r="16" fill="var(--accent-3)"/><circle cx="69" cy="44" r="16" fill="var(--accent-3)"/><circle cx="62" cy="67" r="16" fill="var(--accent-3)"/><circle cx="38" cy="67" r="16" fill="var(--accent-3)"/><circle cx="31" cy="44" r="16" fill="var(--accent-3)"/><circle cx="50" cy="50" r="10" fill="var(--accent-4)"/></svg></div>
+  <div class="bg-item bg-flower bg-f2 bg-float"><svg viewBox="0 0 100 100"><circle cx="50" cy="30" r="14" fill="var(--accent)"/><circle cx="67" cy="43" r="14" fill="var(--accent)"/><circle cx="60" cy="65" r="14" fill="var(--accent)"/><circle cx="40" cy="65" r="14" fill="var(--accent)"/><circle cx="33" cy="43" r="14" fill="var(--accent)"/><circle cx="50" cy="49" r="8" fill="var(--accent-4)"/></svg></div>
+  <div class="bg-item bg-flower bg-f3 bg-float-slow"><svg viewBox="0 0 100 100"><circle cx="50" cy="32" r="15" fill="var(--accent-2)"/><circle cx="68" cy="44" r="15" fill="var(--accent-2)"/><circle cx="61" cy="66" r="15" fill="var(--accent-2)"/><circle cx="39" cy="66" r="15" fill="var(--accent-2)"/><circle cx="32" cy="44" r="15" fill="var(--accent-2)"/><circle cx="50" cy="50" r="9" fill="var(--accent-4)"/></svg></div>
+  <div class="bg-item bg-flower bg-f4 bg-float"><svg viewBox="0 0 100 100"><circle cx="50" cy="30" r="14" fill="var(--accent-3)"/><circle cx="67" cy="43" r="14" fill="var(--accent-3)"/><circle cx="60" cy="65" r="14" fill="var(--accent-3)"/><circle cx="40" cy="65" r="14" fill="var(--accent-3)"/><circle cx="33" cy="43" r="14" fill="var(--accent-3)"/><circle cx="50" cy="49" r="8" fill="var(--accent-2)"/></svg></div>
+  <!-- Tiny daisies -->
+  <div class="bg-item bg-flower bg-f5 bg-float"><svg viewBox="0 0 100 100"><ellipse cx="50" cy="28" rx="8" ry="18" fill="var(--accent)"/><ellipse cx="50" cy="72" rx="8" ry="18" fill="var(--accent)"/><ellipse cx="28" cy="50" rx="18" ry="8" fill="var(--accent)"/><ellipse cx="72" cy="50" rx="18" ry="8" fill="var(--accent)"/><circle cx="50" cy="50" r="7" fill="var(--accent-4)"/></svg></div>
+  <div class="bg-item bg-flower bg-f6 bg-float-slow"><svg viewBox="0 0 100 100"><ellipse cx="50" cy="28" rx="8" ry="18" fill="var(--accent-2)"/><ellipse cx="50" cy="72" rx="8" ry="18" fill="var(--accent-2)"/><ellipse cx="28" cy="50" rx="18" ry="8" fill="var(--accent-2)"/><ellipse cx="72" cy="50" rx="18" ry="8" fill="var(--accent-2)"/><circle cx="50" cy="50" r="7" fill="var(--accent-3)"/></svg></div>
+
+  <!-- Stars -->
+  <div class="bg-item bg-star bg-s1 bg-float"><svg viewBox="0 0 100 100"><polygon points="50,5 61,38 95,38 67,59 78,93 50,72 22,93 33,59 5,38 39,38" fill="var(--accent-4)"/></svg></div>
+  <div class="bg-item bg-star bg-s2 bg-float-slow"><svg viewBox="0 0 100 100"><polygon points="50,5 61,38 95,38 67,59 78,93 50,72 22,93 33,59 5,38 39,38" fill="var(--accent-3)"/></svg></div>
+  <div class="bg-item bg-star bg-s3 bg-float"><svg viewBox="0 0 100 100"><polygon points="50,5 61,38 95,38 67,59 78,93 50,72 22,93 33,59 5,38 39,38" fill="var(--accent)"/></svg></div>
+  <div class="bg-item bg-star bg-s4 bg-float-slow"><svg viewBox="0 0 100 100"><polygon points="50,5 61,38 95,38 67,59 78,93 50,72 22,93 33,59 5,38 39,38" fill="var(--accent-2)"/></svg></div>
+  <!-- Tiny sparkles (4-point stars) -->
+  <div class="bg-item bg-star bg-s5 bg-float"><svg viewBox="0 0 100 100"><path d="M50 10 L55 45 L90 50 L55 55 L50 90 L45 55 L10 50 L45 45Z" fill="var(--accent-4)"/></svg></div>
+  <div class="bg-item bg-star bg-s6 bg-float-slow"><svg viewBox="0 0 100 100"><path d="M50 10 L55 45 L90 50 L55 55 L50 90 L45 55 L10 50 L45 45Z" fill="var(--accent-3)"/></svg></div>
+
+  <!-- Crescent moons -->
+  <div class="bg-item bg-moon bg-m1 bg-float-slow"><svg viewBox="0 0 100 100"><path d="M60 10 A40 40 0 1 0 60 90 A30 30 0 1 1 60 10Z" fill="var(--accent-4)"/></svg></div>
+  <div class="bg-item bg-moon bg-m2 bg-float"><svg viewBox="0 0 100 100"><path d="M60 10 A40 40 0 1 0 60 90 A30 30 0 1 1 60 10Z" fill="var(--accent-3)"/></svg></div>
+
+  <!-- Soft gradient blobs -->
+  <div class="bg-blob bg-b1"></div>
+  <div class="bg-blob bg-b2"></div>
+  <div class="bg-blob bg-b3"></div>
+  <div class="bg-blob bg-b4"></div>
 </div>
 
 <div class="page">
@@ -462,6 +591,7 @@ const CAT_ICONS = {
 let allActivities = [];
 let activeCategories = new Set();
 let searchTimeout = null;
+let completionMap = {}; /* activity_id -> [{id, completed_at, notes}] */
 
 /* ── Theme ── */
 function toggleTheme() {
@@ -476,7 +606,18 @@ function updateThemeBtn(t) {
 }
 
 /* ── Data fetching ── */
+async function fetchCompletions() {
+  const res = await fetch(API + '/completions');
+  const data = await res.json();
+  completionMap = {};
+  data.forEach(c => {
+    if (!completionMap[c.activity_id]) completionMap[c.activity_id] = [];
+    completionMap[c.activity_id].push(c);
+  });
+}
+
 async function fetchActivities() {
+  await fetchCompletions();
   const res = await fetch(API + '/activities');
   allActivities = await res.json();
   buildCategoryPills();
@@ -551,7 +692,9 @@ function renderCards(activities) {
     card.style.animationDelay = (i * 0.03) + 's';
     card.style.borderTopColor = CAT_COLORS[a.category];
     card.onclick = () => showDetail(a.id);
+    const doneCount = (completionMap[a.id] || []).length;
     card.innerHTML =
+      (doneCount ? '<div class="done-badge" title="Done ' + doneCount + ' time' + (doneCount > 1 ? 's' : '') + '">' + doneCount + '</div>' : '') +
       '<div class="card-category" style="color:' + CAT_COLORS[a.category] + '">' + a.category + '</div>' +
       '<div class="card-name">' + esc(a.name) + '</div>' +
       '<div class="card-tagline">' + esc(a.tagline) + '</div>' +
@@ -617,13 +760,72 @@ async function showDetail(id) {
       '</div>' +
     '</div>';
 
+  /* Completion log & mark-done form */
+  const completions = completionMap[a.id] || [];
+  const today = new Date().toISOString().split('T')[0];
+  const logHtml = completions.length ? (
+    '<div class="completion-log">' +
+      completions.map(c =>
+        '<div class="completion-entry">' +
+          '<span class="completion-date">' + formatDate(c.completed_at) + '</span>' +
+          '<span class="completion-notes">' + (c.notes ? esc(c.notes) : '') + '</span>' +
+          '<button class="completion-delete" onclick="deleteCompletion(' + c.id + ',' + a.id + ')" title="Remove">\u2715</button>' +
+        '</div>'
+      ).join('') +
+    '</div>'
+  ) : '<p style="font-size:.8rem;color:var(--text-4);margin-top:8px;font-style:italic">Not done yet — give it a try!</p>';
+
+  document.getElementById('detailContent').innerHTML +=
+    '<div class="mark-done-section fade-in" style="animation-delay:.15s">' +
+      '<div class="mark-done-title">Track this activity</div>' +
+      '<div class="mark-done-row">' +
+        '<div class="mark-done-field">' +
+          '<label>Date</label>' +
+          '<input type="date" id="doneDate" value="' + today + '">' +
+        '</div>' +
+        '<div class="mark-done-field" style="flex:1">' +
+          '<label>Notes (optional)</label>' +
+          '<input type="text" id="doneNotes" placeholder="How was it?">' +
+        '</div>' +
+        '<button class="mark-done-btn" onclick="markDone(' + a.id + ')">Done!</button>' +
+      '</div>' +
+      logHtml +
+    '</div>';
+
   window.scrollTo(0, 0);
+}
+
+function formatDate(d) {
+  if (!d) return '';
+  const parts = d.split('-');
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return months[parseInt(parts[1])-1] + ' ' + parseInt(parts[2]) + ', ' + parts[0];
+}
+
+async function markDone(activityId) {
+  const date = document.getElementById('doneDate').value;
+  const notes = document.getElementById('doneNotes').value.trim();
+  if (!date) return;
+  await fetch(API + '/completions', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({activity_id: activityId, completed_at: date, notes: notes || null}),
+  });
+  await fetchCompletions();
+  showDetail(activityId);
+}
+
+async function deleteCompletion(completionId, activityId) {
+  await fetch(API + '/completions/' + completionId, {method: 'DELETE'});
+  await fetchCompletions();
+  showDetail(activityId);
 }
 
 function showCatalog() {
   location.hash = 'catalog';
   document.getElementById('detailView').classList.remove('active');
   document.getElementById('catalogView').classList.remove('hidden');
+  applyFilters();
 }
 
 /* ── Hash routing ── */

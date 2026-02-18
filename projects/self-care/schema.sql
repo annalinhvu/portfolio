@@ -17,3 +17,11 @@ CREATE TABLE IF NOT EXISTS activities (
     created_at    TEXT DEFAULT (datetime('now')),
     UNIQUE(name)
 );
+
+CREATE TABLE IF NOT EXISTS completions (
+    id            INTEGER PRIMARY KEY AUTOINCREMENT,
+    activity_id   INTEGER NOT NULL REFERENCES activities(id),
+    completed_at  TEXT NOT NULL DEFAULT (date('now')),
+    notes         TEXT,
+    created_at    TEXT DEFAULT (datetime('now'))
+);

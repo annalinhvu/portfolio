@@ -5,8 +5,15 @@ import os
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
+from pydantic import BaseModel
 
 import db
+
+
+class CompletionIn(BaseModel):
+    activity_id: int
+    completed_at: str | None = None
+    notes: str | None = None
 
 app = FastAPI(title="Only Good Things")
 
@@ -104,6 +111,53 @@ def list_benefits(conn=Depends(get_conn)):
         "SELECT benefit, COUNT(*) as count FROM activities GROUP BY benefit ORDER BY benefit",
     )
     return [dict(r) for r in rows]
+
+
+@app.get("/completions")
+def list_completions(
+    activity_id: int | None = None,
+    conn=Depends(get_conn),
+):
+    if activity_id:
+        rows = db.query(
+            conn,
+            "SELECT c.id, c.activity_id, a.name, a.category, c.completed_at, c.notes "
+            "FROM completions c JOIN activities a ON a.id = c.activity_id "
+            "WHERE c.activity_id = ? ORDER BY c.completed_at DESC",
+            (activity_id,),
+        )
+    else:
+        rows = db.query(
+            conn,
+            "SELECT c.id, c.activity_id, a.name, a.category, c.completed_at, c.notes "
+            "FROM completions c JOIN activities a ON a.id = c.activity_id "
+            "ORDER BY c.completed_at DESC",
+        )
+    return [dict(r) for r in rows]
+
+
+@app.post("/completions")
+def add_completion(data: CompletionIn, conn=Depends(get_conn)):
+    activity = db.query(conn, "SELECT id FROM activities WHERE id = ?", (data.activity_id,))
+    if not activity:
+        raise HTTPException(status_code=404, detail="Activity not found")
+    cur = conn.execute(
+        "INSERT INTO completions (activity_id, completed_at, notes) VALUES (?, ?, ?)",
+        (data.activity_id, data.completed_at or None, data.notes),
+    )
+    conn.commit()
+    row = db.query(conn, "SELECT * FROM completions WHERE id = ?", (cur.lastrowid,))
+    return dict(row[0])
+
+
+@app.delete("/completions/{completion_id}")
+def delete_completion(completion_id: int, conn=Depends(get_conn)):
+    rows = db.query(conn, "SELECT id FROM completions WHERE id = ?", (completion_id,))
+    if not rows:
+        raise HTTPException(status_code=404, detail="Completion not found")
+    conn.execute("DELETE FROM completions WHERE id = ?", (completion_id,))
+    conn.commit()
+    return {"deleted": True}
 
 
 @app.get("/")
