@@ -17,9 +17,9 @@
   --sidebar-w:340px;
   --cat-cinema:#c4726c;
   --cat-lab:#8a9a6c;
-  --cat-gallery:#b8a472;
+  --cat-museum:#b8a472;
   --cat-org:#7a8a9a;
-  --cat-workshop:#7a9a72;
+  --cat-school:#7a9a72;
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 }
 
@@ -174,7 +174,7 @@ body{
 .legend-dot{width:7px;height:7px;border-radius:50%;display:inline-block}
 .legend-diamond{width:7px;height:7px;display:inline-block;transform:rotate(45deg);border-radius:1px}
 .legend-hex{width:7px;height:7px;display:inline-block;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
-.legend-tri{width:0;height:0;display:inline-block;border-left:3.5px solid transparent;border-right:3.5px solid transparent;border-bottom:7px solid var(--cat-workshop)}
+.legend-tri{width:0;height:0;display:inline-block;border-left:3.5px solid transparent;border-right:3.5px solid transparent;border-bottom:7px solid var(--cat-school)}
 
 /* ── Leaflet map ── */
 .map-wrap{flex:1;position:relative}
@@ -228,7 +228,7 @@ body{
   <a href="../../index.html">&larr; Portfolio</a>
   <div class="topbar-center">
     <div class="topbar-title">NYC Film Scene Map</div>
-    <div class="topbar-sub">cinemas &middot; labs &middot; galleries &middot; workshops</div>
+    <div class="topbar-sub">cinemas &middot; labs &middot; museums &middot; schools</div>
   </div>
   <div class="topbar-spacer"></div>
 </div>
@@ -258,14 +258,14 @@ body{
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 const API = '';
-const CATEGORIES = ['cinema','lab','gallery','organization','workshop'];
-const CAT_LABELS = {cinema:'Cinema',lab:'Lab',gallery:'Gallery',organization:'Org',workshop:'Workshop'};
+const CATEGORIES = ['cinema','lab','museum','organization','school'];
+const CAT_LABELS = {cinema:'Cinema',lab:'Lab',museum:'Museum',organization:'Org',school:'School'};
 const CAT_COLORS = {
   cinema:'#c4726c',
   lab:'#8a9a6c',
-  gallery:'#b8a472',
+  museum:'#b8a472',
   organization:'#7a8a9a',
-  workshop:'#7a9a72'
+  school:'#7a9a72'
 };
 
 let allVenues = [];
@@ -299,13 +299,13 @@ function makeIcon(category){
     case 'lab':
       svg = '<circle cx="10" cy="10" r="7" fill="'+color+'" stroke="#fff" stroke-width="1.5" opacity="0.9"/>';
       break;
-    case 'gallery':
+    case 'museum':
       svg = '<rect x="4" y="4" width="12" height="12" rx="1" fill="'+color+'" stroke="#fff" stroke-width="1.5" opacity="0.9" transform="rotate(45 10 10)"/>';
       break;
     case 'organization':
       svg = '<polygon points="10,2 17.66,5.5 17.66,14.5 10,18 2.34,14.5 2.34,5.5" fill="'+color+'" stroke="#fff" stroke-width="1.5" opacity="0.9"/>';
       break;
-    case 'workshop':
+    case 'school':
       svg = '<polygon points="10,2 18,17 2,17" fill="'+color+'" stroke="#fff" stroke-width="1.5" opacity="0.9"/>';
       break;
     default:
@@ -328,13 +328,13 @@ function makeSelectedIcon(category){
     case 'lab':
       svg = '<circle cx="13" cy="13" r="10" fill="'+color+'" stroke="#fff" stroke-width="2" opacity="0.95"/>';
       break;
-    case 'gallery':
+    case 'museum':
       svg = '<rect x="4.5" y="4.5" width="17" height="17" rx="1.5" fill="'+color+'" stroke="#fff" stroke-width="2" opacity="0.95" transform="rotate(45 13 13)"/>';
       break;
     case 'organization':
       svg = '<polygon points="13,1 22,5.5 22,17.5 13,22 4,17.5 4,5.5" fill="'+color+'" stroke="#fff" stroke-width="2" opacity="0.95"/>';
       break;
-    case 'workshop':
+    case 'school':
       svg = '<polygon points="13,1 24,22 2,22" fill="'+color+'" stroke="#fff" stroke-width="2" opacity="0.95"/>';
       break;
     default:
@@ -403,9 +403,9 @@ function renderLegend(count){
   el.innerHTML = '<span class="count">'+count+' venues</span>'
     +'<span class="legend-item"><span class="legend-dot" style="background:var(--cat-cinema)"></span> Cinema</span>'
     +'<span class="legend-item"><span class="legend-dot" style="background:var(--cat-lab)"></span> Lab</span>'
-    +'<span class="legend-item"><span class="legend-diamond" style="background:var(--cat-gallery)"></span> Gallery</span>'
+    +'<span class="legend-item"><span class="legend-diamond" style="background:var(--cat-museum)"></span> Museum</span>'
     +'<span class="legend-item"><span class="legend-hex" style="background:var(--cat-org)"></span> Org</span>'
-    +'<span class="legend-item"><span class="legend-tri"></span> Workshop</span>';
+    +'<span class="legend-item"><span class="legend-tri"></span> School</span>';
 }
 
 // ── Category tags ──
@@ -416,11 +416,11 @@ function shapeHtml(cat,size){
     case 'cinema':
     case 'lab':
       return '<span class="dot" style="background:'+color+';width:'+s+'px;height:'+s+'px"></span>';
-    case 'gallery':
+    case 'museum':
       return '<span class="diamond" style="background:'+color+';width:'+s+'px;height:'+s+'px"></span>';
     case 'organization':
       return '<span class="hex" style="background:'+color+';width:'+s+'px;height:'+s+'px"></span>';
-    case 'workshop':
+    case 'school':
       return '<span class="tri" style="border-bottom-color:'+color+';border-left-width:'+(s/2)+'px;border-right-width:'+(s/2)+'px;border-bottom-width:'+s+'px"></span>';
     default:
       return '<span class="dot" style="background:'+color+'"></span>';
@@ -433,11 +433,11 @@ function entryShapeHtml(cat){
     case 'cinema':
     case 'lab':
       return '<span class="venue-entry-dot" style="background:'+color+'"></span>';
-    case 'gallery':
+    case 'museum':
       return '<span class="venue-entry-diamond" style="background:'+color+'"></span>';
     case 'organization':
       return '<span class="venue-entry-hex" style="background:'+color+'"></span>';
-    case 'workshop':
+    case 'school':
       return '<span class="venue-entry-tri" style="color:'+color+'"></span>';
     default:
       return '<span class="venue-entry-dot" style="background:'+color+'"></span>';
