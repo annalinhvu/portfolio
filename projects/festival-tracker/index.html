@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Experimental Film Festival Tracker | Anna Vu</title>
-<meta name="description" content="Searchable database of experimental film festivals worldwide. Deadlines, fees, categories, and more.">
+<title>Film Festival Tracker | Anna Vu</title>
+<meta name="description" content="Searchable database of experimental and documentary film festivals worldwide. Deadlines, fees, categories, and more.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
 <style>
   /* ── Geist fonts ── */
@@ -421,7 +421,7 @@
 
 <div class="top-bar">
   <a href="../../index.html#lab" class="back-link">&larr; Portfolio</a>
-  <span class="page-title">Experimental Film Festival Tracker</span>
+  <span class="page-title">Film Festival Tracker</span>
   <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
 </div>
 
@@ -431,6 +431,7 @@
   <div id="list-view" class="view view-visible">
     <div class="stats-row" id="stats-row"></div>
     <div class="filter-bar" id="filter-bar">
+      <select id="filter-focus"><option value="">All Focus</option></select>
       <select id="filter-tier"><option value="">All Tiers</option></select>
       <select id="filter-country"><option value="">All Countries</option></select>
       <select id="filter-acceptance"><option value="">All Selectivity</option></select>
@@ -550,6 +551,14 @@ function populateFilters() {
     if (f.premiere_req) premieres.add(f.premiere_req);
   });
 
+  var focusSelect = document.getElementById('filter-focus');
+  Array.from(focuses).sort().forEach(function(f) {
+    var o = document.createElement('option');
+    o.value = f;
+    o.textContent = f.charAt(0).toUpperCase() + f.slice(1);
+    focusSelect.appendChild(o);
+  });
+
   var tierSelect = document.getElementById('filter-tier');
   Array.from(tiers).sort().forEach(function(t) {
     var o = document.createElement('option');
@@ -592,6 +601,7 @@ function populateFilters() {
 }
 
 function applyFilters() {
+  var focus = document.getElementById('filter-focus').value;
   var tier = document.getElementById('filter-tier').value;
   var country = document.getElementById('filter-country').value;
   var acceptance = document.getElementById('filter-acceptance').value;
@@ -599,6 +609,7 @@ function applyFilters() {
   var search = document.getElementById('filter-search').value.toLowerCase().trim();
 
   filteredFestivals = allFestivals.filter(function(f) {
+    if (focus && f.focus !== focus) return false;
     if (tier && f.tier !== tier) return false;
     if (country && f.country !== country) return false;
     if (acceptance && f.acceptance !== acceptance) return false;
@@ -655,6 +666,7 @@ function renderList() {
 }
 
 function clearFilters() {
+  document.getElementById('filter-focus').value = '';
   document.getElementById('filter-tier').value = '';
   document.getElementById('filter-country').value = '';
   document.getElementById('filter-acceptance').value = '';
@@ -832,6 +844,7 @@ function init() {
         '</div>';
     });
 
+  document.getElementById('filter-focus').addEventListener('change', applyFilters);
   document.getElementById('filter-tier').addEventListener('change', applyFilters);
   document.getElementById('filter-country').addEventListener('change', applyFilters);
   document.getElementById('filter-acceptance').addEventListener('change', applyFilters);
