@@ -1,0 +1,1431 @@
+[
+  {
+    "id": 15,
+    "name": "Canadiana Lab",
+    "city": "Toronto",
+    "country": "Canada",
+    "url": "https://canadianalab.com",
+    "turnaround": "5-7 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 64,
+        "lab_id": 15,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 13.0,
+        "scan_price": 9.0
+      },
+      {
+        "id": 63,
+        "lab_id": 15,
+        "process": "C-41",
+        "format": "120",
+        "dev_price": 11.0,
+        "scan_price": 9.0
+      },
+      {
+        "id": 62,
+        "lab_id": 15,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 11.0,
+        "scan_price": 9.0
+      },
+      {
+        "id": 65,
+        "lab_id": 15,
+        "process": "E-6",
+        "format": "35mm",
+        "dev_price": 15.0,
+        "scan_price": 9.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Carmencita Film Lab",
+    "city": "Valencia",
+    "country": "Spain",
+    "url": "https://carmencitafilmlab.com",
+    "turnaround": "5-7 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 35,
+        "lab_id": 8,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 14.0,
+        "scan_price": 10.0
+      },
+      {
+        "id": 34,
+        "lab_id": 8,
+        "process": "C-41",
+        "format": "120",
+        "dev_price": 12.0,
+        "scan_price": 10.0
+      },
+      {
+        "id": 33,
+        "lab_id": 8,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 12.0,
+        "scan_price": 10.0
+      },
+      {
+        "id": 36,
+        "lab_id": 8,
+        "process": "E-6",
+        "format": "35mm",
+        "dev_price": 16.0,
+        "scan_price": 10.0
+      },
+      {
+        "id": 37,
+        "lab_id": 8,
+        "process": "ECN-2",
+        "format": "35mm",
+        "dev_price": 18.0,
+        "scan_price": 10.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6",
+      "ECN-2"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Cinelab",
+    "city": "New Bedford",
+    "country": "USA",
+    "url": "https://www.cinelab.com",
+    "turnaround": "5-7 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 69,
+        "lab_id": 16,
+        "process": "BW",
+        "format": "16mm",
+        "dev_price": 40.0,
+        "scan_price": 55.0
+      },
+      {
+        "id": 70,
+        "lab_id": 16,
+        "process": "BW",
+        "format": "super8",
+        "dev_price": 30.0,
+        "scan_price": 45.0
+      },
+      {
+        "id": 71,
+        "lab_id": 16,
+        "process": "E-6",
+        "format": "16mm",
+        "dev_price": 50.0,
+        "scan_price": 55.0
+      },
+      {
+        "id": 72,
+        "lab_id": 16,
+        "process": "E-6",
+        "format": "super8",
+        "dev_price": 40.0,
+        "scan_price": 45.0
+      },
+      {
+        "id": 66,
+        "lab_id": 16,
+        "process": "ECN-2",
+        "format": "16mm",
+        "dev_price": 45.0,
+        "scan_price": 55.0
+      },
+      {
+        "id": 68,
+        "lab_id": 16,
+        "process": "ECN-2",
+        "format": "35mm",
+        "dev_price": 55.0,
+        "scan_price": 65.0
+      },
+      {
+        "id": 67,
+        "lab_id": 16,
+        "process": "ECN-2",
+        "format": "super8",
+        "dev_price": 35.0,
+        "scan_price": 45.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "E-6",
+      "ECN-2"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Dwayne's Photo",
+    "city": "Parsons",
+    "country": "USA",
+    "url": "https://dwaynesphoto.com",
+    "turnaround": "5-7 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 88,
+        "lab_id": 19,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 11.0,
+        "scan_price": 7.0
+      },
+      {
+        "id": 87,
+        "lab_id": 19,
+        "process": "C-41",
+        "format": "120",
+        "dev_price": 9.0,
+        "scan_price": 7.0
+      },
+      {
+        "id": 86,
+        "lab_id": 19,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 9.0,
+        "scan_price": 7.0
+      },
+      {
+        "id": 89,
+        "lab_id": 19,
+        "process": "E-6",
+        "format": "35mm",
+        "dev_price": 13.0,
+        "scan_price": 7.0
+      },
+      {
+        "id": 90,
+        "lab_id": 19,
+        "process": "ECN-2",
+        "format": "super8",
+        "dev_price": 30.0,
+        "scan_price": 42.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6",
+      "ECN-2"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Frame Discreet",
+    "city": "Brooklyn",
+    "country": "USA",
+    "url": "https://framediscreet.com",
+    "turnaround": "5-7 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 99,
+        "lab_id": 21,
+        "process": "BW",
+        "format": "16mm",
+        "dev_price": 42.0,
+        "scan_price": 55.0
+      },
+      {
+        "id": 103,
+        "lab_id": 21,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 14.0,
+        "scan_price": 10.0
+      },
+      {
+        "id": 100,
+        "lab_id": 21,
+        "process": "BW",
+        "format": "super8",
+        "dev_price": 30.0,
+        "scan_price": 42.0
+      },
+      {
+        "id": 102,
+        "lab_id": 21,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 12.0,
+        "scan_price": 10.0
+      },
+      {
+        "id": 101,
+        "lab_id": 21,
+        "process": "E-6",
+        "format": "16mm",
+        "dev_price": 52.0,
+        "scan_price": 55.0
+      },
+      {
+        "id": 97,
+        "lab_id": 21,
+        "process": "ECN-2",
+        "format": "16mm",
+        "dev_price": 48.0,
+        "scan_price": 55.0
+      },
+      {
+        "id": 98,
+        "lab_id": 21,
+        "process": "ECN-2",
+        "format": "super8",
+        "dev_price": 35.0,
+        "scan_price": 42.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6",
+      "ECN-2"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Gamma Ray Digital",
+    "city": "Chicago",
+    "country": "USA",
+    "url": "https://gammaraydigital.com",
+    "turnaround": "3-5 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 93,
+        "lab_id": 20,
+        "process": "BW",
+        "format": "16mm",
+        "dev_price": 38.0,
+        "scan_price": 50.0
+      },
+      {
+        "id": 96,
+        "lab_id": 20,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 12.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 94,
+        "lab_id": 20,
+        "process": "BW",
+        "format": "super8",
+        "dev_price": 28.0,
+        "scan_price": 40.0
+      },
+      {
+        "id": 95,
+        "lab_id": 20,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 10.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 91,
+        "lab_id": 20,
+        "process": "ECN-2",
+        "format": "16mm",
+        "dev_price": 42.0,
+        "scan_price": 50.0
+      },
+      {
+        "id": 92,
+        "lab_id": 20,
+        "process": "ECN-2",
+        "format": "super8",
+        "dev_price": 32.0,
+        "scan_price": 40.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "ECN-2"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Gelatin Labs",
+    "city": "Salt Lake City",
+    "country": "USA",
+    "url": "https://gelatinlabs.com",
+    "turnaround": "3-5 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 26,
+        "lab_id": 6,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 14.0,
+        "scan_price": 10.0
+      },
+      {
+        "id": 25,
+        "lab_id": 6,
+        "process": "C-41",
+        "format": "120",
+        "dev_price": 12.0,
+        "scan_price": 10.0
+      },
+      {
+        "id": 24,
+        "lab_id": 6,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 12.0,
+        "scan_price": 10.0
+      },
+      {
+        "id": 27,
+        "lab_id": 6,
+        "process": "E-6",
+        "format": "35mm",
+        "dev_price": 16.0,
+        "scan_price": 10.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Indie Film Lab",
+    "city": "Montgomery",
+    "country": "USA",
+    "url": "https://www.indiefilmlab.com",
+    "turnaround": "5-7 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 14,
+        "lab_id": 3,
+        "process": "BW",
+        "format": "120",
+        "dev_price": 15.0,
+        "scan_price": 11.0
+      },
+      {
+        "id": 13,
+        "lab_id": 3,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 15.0,
+        "scan_price": 11.0
+      },
+      {
+        "id": 12,
+        "lab_id": 3,
+        "process": "C-41",
+        "format": "120",
+        "dev_price": 13.0,
+        "scan_price": 11.0
+      },
+      {
+        "id": 11,
+        "lab_id": 3,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 13.0,
+        "scan_price": 11.0
+      },
+      {
+        "id": 15,
+        "lab_id": 3,
+        "process": "E-6",
+        "format": "35mm",
+        "dev_price": 17.0,
+        "scan_price": 11.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Memphis Film Lab",
+    "city": "Memphis",
+    "country": "USA",
+    "url": "https://www.memphisfilmlab.org",
+    "turnaround": "3-5 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 22,
+        "lab_id": 5,
+        "process": "BW",
+        "format": "120",
+        "dev_price": 12.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 21,
+        "lab_id": 5,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 12.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 20,
+        "lab_id": 5,
+        "process": "C-41",
+        "format": "120",
+        "dev_price": 10.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 19,
+        "lab_id": 5,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 10.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 23,
+        "lab_id": 5,
+        "process": "E-6",
+        "format": "35mm",
+        "dev_price": 15.0,
+        "scan_price": 8.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Metro Lab",
+    "city": "Sydney",
+    "country": "Australia",
+    "url": "https://metrolab.com.au",
+    "turnaround": "3-5 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 50,
+        "lab_id": 12,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 13.0,
+        "scan_price": 9.0
+      },
+      {
+        "id": 49,
+        "lab_id": 12,
+        "process": "C-41",
+        "format": "120",
+        "dev_price": 11.0,
+        "scan_price": 9.0
+      },
+      {
+        "id": 48,
+        "lab_id": 12,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 11.0,
+        "scan_price": 9.0
+      },
+      {
+        "id": 51,
+        "lab_id": 12,
+        "process": "E-6",
+        "format": "35mm",
+        "dev_price": 15.0,
+        "scan_price": 9.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6"
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Metropolis Post",
+    "city": "New York",
+    "country": "USA",
+    "url": "http://metpostny.com",
+    "turnaround": "3-5 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 124,
+        "lab_id": 25,
+        "process": "BW",
+        "format": "16mm",
+        "dev_price": 42.0,
+        "scan_price": 55.0
+      },
+      {
+        "id": 125,
+        "lab_id": 25,
+        "process": "BW",
+        "format": "super8",
+        "dev_price": 32.0,
+        "scan_price": 44.0
+      },
+      {
+        "id": 128,
+        "lab_id": 25,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 12.0,
+        "scan_price": 10.0
+      },
+      {
+        "id": 126,
+        "lab_id": 25,
+        "process": "E-6",
+        "format": "16mm",
+        "dev_price": 50.0,
+        "scan_price": 55.0
+      },
+      {
+        "id": 127,
+        "lab_id": 25,
+        "process": "E-6",
+        "format": "super8",
+        "dev_price": 40.0,
+        "scan_price": 44.0
+      },
+      {
+        "id": 121,
+        "lab_id": 25,
+        "process": "ECN-2",
+        "format": "16mm",
+        "dev_price": 46.0,
+        "scan_price": 55.0
+      },
+      {
+        "id": 123,
+        "lab_id": 25,
+        "process": "ECN-2",
+        "format": "35mm",
+        "dev_price": 56.0,
+        "scan_price": 65.0
+      },
+      {
+        "id": 122,
+        "lab_id": 25,
+        "process": "ECN-2",
+        "format": "super8",
+        "dev_price": 34.0,
+        "scan_price": 44.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6",
+      "ECN-2"
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Mono No Aware",
+    "city": "New York",
+    "country": "USA",
+    "url": "https://mononoawarefilm.com",
+    "turnaround": "5-7 days",
+    "mail_in": 0,
+    "services": [
+      {
+        "id": 118,
+        "lab_id": 24,
+        "process": "BW",
+        "format": "16mm",
+        "dev_price": 40.0,
+        "scan_price": 52.0
+      },
+      {
+        "id": 119,
+        "lab_id": 24,
+        "process": "BW",
+        "format": "super8",
+        "dev_price": 30.0,
+        "scan_price": 42.0
+      },
+      {
+        "id": 120,
+        "lab_id": 24,
+        "process": "E-6",
+        "format": "16mm",
+        "dev_price": 48.0,
+        "scan_price": 52.0
+      },
+      {
+        "id": 116,
+        "lab_id": 24,
+        "process": "ECN-2",
+        "format": "16mm",
+        "dev_price": 45.0,
+        "scan_price": 52.0
+      },
+      {
+        "id": 117,
+        "lab_id": 24,
+        "process": "ECN-2",
+        "format": "super8",
+        "dev_price": 35.0,
+        "scan_price": 42.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "E-6",
+      "ECN-2"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Mori Film Lab",
+    "city": "Tokyo",
+    "country": "Japan",
+    "url": "https://morifilmlab.com",
+    "turnaround": "3-5 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 40,
+        "lab_id": 9,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 10.0,
+        "scan_price": 7.0
+      },
+      {
+        "id": 39,
+        "lab_id": 9,
+        "process": "C-41",
+        "format": "120",
+        "dev_price": 8.0,
+        "scan_price": 7.0
+      },
+      {
+        "id": 38,
+        "lab_id": 9,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 8.0,
+        "scan_price": 7.0
+      },
+      {
+        "id": 41,
+        "lab_id": 9,
+        "process": "E-6",
+        "format": "35mm",
+        "dev_price": 12.0,
+        "scan_price": 7.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Negative Supply Lab",
+    "city": "Rochester",
+    "country": "USA",
+    "url": "https://www.negativesupply.com",
+    "turnaround": "5-7 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 106,
+        "lab_id": 22,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 13.0,
+        "scan_price": 9.0
+      },
+      {
+        "id": 105,
+        "lab_id": 22,
+        "process": "C-41",
+        "format": "120",
+        "dev_price": 11.0,
+        "scan_price": 9.0
+      },
+      {
+        "id": 104,
+        "lab_id": 22,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 11.0,
+        "scan_price": 9.0
+      },
+      {
+        "id": 107,
+        "lab_id": 22,
+        "process": "E-6",
+        "format": "35mm",
+        "dev_price": 15.0,
+        "scan_price": 9.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Old School Photo Lab",
+    "city": "Dover",
+    "country": "USA",
+    "url": "https://oldschoolphotolab.com",
+    "turnaround": "5-7 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 55,
+        "lab_id": 13,
+        "process": "BW",
+        "format": "120",
+        "dev_price": 12.0,
+        "scan_price": 7.0
+      },
+      {
+        "id": 54,
+        "lab_id": 13,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 12.0,
+        "scan_price": 7.0
+      },
+      {
+        "id": 53,
+        "lab_id": 13,
+        "process": "C-41",
+        "format": "120",
+        "dev_price": 10.0,
+        "scan_price": 7.0
+      },
+      {
+        "id": 52,
+        "lab_id": 13,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 10.0,
+        "scan_price": 7.0
+      },
+      {
+        "id": 56,
+        "lab_id": 13,
+        "process": "E-6",
+        "format": "35mm",
+        "dev_price": 14.0,
+        "scan_price": 7.0
+      },
+      {
+        "id": 57,
+        "lab_id": 13,
+        "process": "ECN-2",
+        "format": "35mm",
+        "dev_price": 16.0,
+        "scan_price": 7.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6",
+      "ECN-2"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Photo Palace",
+    "city": "London",
+    "country": "UK",
+    "url": "https://photopalace.co.uk",
+    "turnaround": "3-5 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 60,
+        "lab_id": 14,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 12.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 59,
+        "lab_id": 14,
+        "process": "C-41",
+        "format": "120",
+        "dev_price": 10.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 58,
+        "lab_id": 14,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 10.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 61,
+        "lab_id": 14,
+        "process": "E-6",
+        "format": "35mm",
+        "dev_price": 14.0,
+        "scan_price": 8.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Pro8mm",
+    "city": "Burbank",
+    "country": "USA",
+    "url": "https://www.pro8mm.com",
+    "turnaround": "5-7 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 85,
+        "lab_id": 18,
+        "process": "BW",
+        "format": "16mm",
+        "dev_price": 38.0,
+        "scan_price": 52.0
+      },
+      {
+        "id": 82,
+        "lab_id": 18,
+        "process": "BW",
+        "format": "super8",
+        "dev_price": 25.0,
+        "scan_price": 38.0
+      },
+      {
+        "id": 81,
+        "lab_id": 18,
+        "process": "C-41",
+        "format": "super8",
+        "dev_price": 25.0,
+        "scan_price": 38.0
+      },
+      {
+        "id": 83,
+        "lab_id": 18,
+        "process": "E-6",
+        "format": "super8",
+        "dev_price": 32.0,
+        "scan_price": 38.0
+      },
+      {
+        "id": 84,
+        "lab_id": 18,
+        "process": "ECN-2",
+        "format": "16mm",
+        "dev_price": 42.0,
+        "scan_price": 52.0
+      },
+      {
+        "id": 80,
+        "lab_id": 18,
+        "process": "ECN-2",
+        "format": "super8",
+        "dev_price": 28.0,
+        "scan_price": 38.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6",
+      "ECN-2"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Process One",
+    "city": "Los Angeles",
+    "country": "USA",
+    "url": "https://www.processone.com",
+    "turnaround": "1-3 days",
+    "mail_in": 0,
+    "services": [
+      {
+        "id": 32,
+        "lab_id": 7,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 12.0,
+        "scan_price": 9.0
+      },
+      {
+        "id": 29,
+        "lab_id": 7,
+        "process": "C-41",
+        "format": "120",
+        "dev_price": 9.0,
+        "scan_price": 9.0
+      },
+      {
+        "id": 28,
+        "lab_id": 7,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 9.0,
+        "scan_price": 9.0
+      },
+      {
+        "id": 31,
+        "lab_id": 7,
+        "process": "E-6",
+        "format": "120",
+        "dev_price": 14.0,
+        "scan_price": 9.0
+      },
+      {
+        "id": 30,
+        "lab_id": 7,
+        "process": "E-6",
+        "format": "35mm",
+        "dev_price": 14.0,
+        "scan_price": 9.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Richard Photo Lab",
+    "city": "Hollywood",
+    "country": "USA",
+    "url": "https://richardphotolab.com",
+    "turnaround": "5-7 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 9,
+        "lab_id": 2,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 16.0,
+        "scan_price": 12.0
+      },
+      {
+        "id": 8,
+        "lab_id": 2,
+        "process": "C-41",
+        "format": "120",
+        "dev_price": 14.0,
+        "scan_price": 12.0
+      },
+      {
+        "id": 7,
+        "lab_id": 2,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 14.0,
+        "scan_price": 12.0
+      },
+      {
+        "id": 10,
+        "lab_id": 2,
+        "process": "E-6",
+        "format": "35mm",
+        "dev_price": 18.0,
+        "scan_price": 12.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Silverpan Lab",
+    "city": "Berlin",
+    "country": "Germany",
+    "url": "https://silverpan.de",
+    "turnaround": "5-7 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 46,
+        "lab_id": 11,
+        "process": "BW",
+        "format": "120",
+        "dev_price": 10.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 45,
+        "lab_id": 11,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 10.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 47,
+        "lab_id": 11,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 11.0,
+        "scan_price": 8.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Spectra Film & Video",
+    "city": "North Hollywood",
+    "country": "USA",
+    "url": "https://www.spectrafilmandvideo.com",
+    "turnaround": "3-5 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 75,
+        "lab_id": 17,
+        "process": "BW",
+        "format": "16mm",
+        "dev_price": 35.0,
+        "scan_price": 50.0
+      },
+      {
+        "id": 76,
+        "lab_id": 17,
+        "process": "BW",
+        "format": "super8",
+        "dev_price": 28.0,
+        "scan_price": 40.0
+      },
+      {
+        "id": 79,
+        "lab_id": 17,
+        "process": "C-41",
+        "format": "super8",
+        "dev_price": 28.0,
+        "scan_price": 40.0
+      },
+      {
+        "id": 77,
+        "lab_id": 17,
+        "process": "E-6",
+        "format": "16mm",
+        "dev_price": 45.0,
+        "scan_price": 50.0
+      },
+      {
+        "id": 78,
+        "lab_id": 17,
+        "process": "E-6",
+        "format": "super8",
+        "dev_price": 35.0,
+        "scan_price": 40.0
+      },
+      {
+        "id": 73,
+        "lab_id": 17,
+        "process": "ECN-2",
+        "format": "16mm",
+        "dev_price": 40.0,
+        "scan_price": 50.0
+      },
+      {
+        "id": 74,
+        "lab_id": 17,
+        "process": "ECN-2",
+        "format": "super8",
+        "dev_price": 30.0,
+        "scan_price": 40.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6",
+      "ECN-2"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Take It Easy Lab",
+    "city": "Tokyo",
+    "country": "Japan",
+    "url": "https://www.tielab.jp",
+    "turnaround": "5-7 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 44,
+        "lab_id": 10,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 11.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 43,
+        "lab_id": 10,
+        "process": "C-41",
+        "format": "120",
+        "dev_price": 9.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 42,
+        "lab_id": 10,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 9.0,
+        "scan_price": 8.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41"
+    ]
+  },
+  {
+    "id": 1,
+    "name": "The Darkroom",
+    "city": "San Clemente",
+    "country": "USA",
+    "url": "https://thedarkroom.com",
+    "turnaround": "5-7 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 4,
+        "lab_id": 1,
+        "process": "BW",
+        "format": "120",
+        "dev_price": 14.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 3,
+        "lab_id": 1,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 14.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 2,
+        "lab_id": 1,
+        "process": "C-41",
+        "format": "120",
+        "dev_price": 11.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 1,
+        "lab_id": 1,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 11.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 115,
+        "lab_id": 1,
+        "process": "C-41",
+        "format": "super8",
+        "dev_price": 28.0,
+        "scan_price": 40.0
+      },
+      {
+        "id": 6,
+        "lab_id": 1,
+        "process": "E-6",
+        "format": "120",
+        "dev_price": 16.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 5,
+        "lab_id": 1,
+        "process": "E-6",
+        "format": "35mm",
+        "dev_price": 16.0,
+        "scan_price": 8.0
+      },
+      {
+        "id": 114,
+        "lab_id": 1,
+        "process": "ECN-2",
+        "format": "super8",
+        "dev_price": 32.0,
+        "scan_price": 40.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41",
+      "E-6",
+      "ECN-2"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "The FIND Lab",
+    "city": "Orem",
+    "country": "USA",
+    "url": "https://thefindlab.com",
+    "turnaround": "5-7 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 18,
+        "lab_id": 4,
+        "process": "BW",
+        "format": "35mm",
+        "dev_price": 16.0,
+        "scan_price": 13.0
+      },
+      {
+        "id": 17,
+        "lab_id": 4,
+        "process": "C-41",
+        "format": "120",
+        "dev_price": 14.0,
+        "scan_price": 13.0
+      },
+      {
+        "id": 16,
+        "lab_id": 4,
+        "process": "C-41",
+        "format": "35mm",
+        "dev_price": 14.0,
+        "scan_price": 13.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "C-41"
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Yale Film & Video",
+    "city": "Burbank",
+    "country": "USA",
+    "url": "https://yalefilmandvideo.com",
+    "turnaround": "3-5 days",
+    "mail_in": 1,
+    "services": [
+      {
+        "id": 110,
+        "lab_id": 23,
+        "process": "BW",
+        "format": "16mm",
+        "dev_price": 40.0,
+        "scan_price": 52.0
+      },
+      {
+        "id": 111,
+        "lab_id": 23,
+        "process": "BW",
+        "format": "super8",
+        "dev_price": 30.0,
+        "scan_price": 42.0
+      },
+      {
+        "id": 112,
+        "lab_id": 23,
+        "process": "E-6",
+        "format": "16mm",
+        "dev_price": 48.0,
+        "scan_price": 52.0
+      },
+      {
+        "id": 113,
+        "lab_id": 23,
+        "process": "E-6",
+        "format": "super8",
+        "dev_price": 38.0,
+        "scan_price": 42.0
+      },
+      {
+        "id": 108,
+        "lab_id": 23,
+        "process": "ECN-2",
+        "format": "16mm",
+        "dev_price": 44.0,
+        "scan_price": 52.0
+      },
+      {
+        "id": 109,
+        "lab_id": 23,
+        "process": "ECN-2",
+        "format": "super8",
+        "dev_price": 34.0,
+        "scan_price": 42.0
+      }
+    ],
+    "processes": [
+      "BW",
+      "E-6",
+      "ECN-2"
+    ]
+  }
+]

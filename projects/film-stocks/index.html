@@ -610,8 +610,6 @@ body {
 <div id="content"></div>
 
 <script>
-const API = 'http://127.0.0.1:8001';
-
 // ── State ──
 let allStocks = [];
 let allLabs = [];
@@ -632,31 +630,17 @@ function toggleTheme() {
   localStorage.setItem('fs-theme', next);
 }
 
-// ── Data Fetching ──
-async function fetchStocks(params = {}) {
-  const q = new URLSearchParams();
-  Object.entries(params).forEach(([k, v]) => { if (v) q.set(k, v); });
-  const url = `${API}/stocks${q.toString() ? '?' + q : ''}`;
-  const res = await fetch(url);
-  return res.json();
+// ── Data Lookup ──
+function findStock(id) {
+  return allStocks.find(s => s.id === Number(id));
 }
 
-async function fetchStock(id) {
-  const res = await fetch(`${API}/stocks/${id}`);
-  return res.json();
+function findLab(id) {
+  return allLabs.find(l => l.id === Number(id));
 }
 
-async function fetchLabs(params = {}) {
-  const q = new URLSearchParams();
-  Object.entries(params).forEach(([k, v]) => { if (v !== '' && v !== null && v !== undefined) q.set(k, v); });
-  const url = `${API}/labs${q.toString() ? '?' + q : ''}`;
-  const res = await fetch(url);
-  return res.json();
-}
-
-async function fetchLab(id) {
-  const res = await fetch(`${API}/labs/${id}`);
-  return res.json();
+function findLabsByProcess(process) {
+  return allLabs.filter(l => (l.processes || []).includes(process));
 }
 
 // ── Brand Helpers ──
@@ -721,12 +705,11 @@ function renderLabCard(lab) {
 }
 
 // ── Rendering: Stock Detail ──
-async function renderStockDetail(id) {
+function renderStockDetail(id) {
   const content = document.getElementById('content');
-  content.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
-
-  const stock = await fetchStock(id);
-  const labs = await fetchLabs({ process: stock.process });
+  const stock = findStock(id);
+  if (!stock) { content.innerHTML = '<div class="empty"><h3>Stock not found</h3></div>'; return; }
+  const labs = findLabsByProcess(stock.process);
 
   content.innerHTML = `
     <div class="detail">
@@ -792,11 +775,10 @@ async function renderStockDetail(id) {
 }
 
 // ── Rendering: Lab Detail ──
-async function renderLabDetail(id) {
+function renderLabDetail(id) {
   const content = document.getElementById('content');
-  content.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
-
-  const lab = await fetchLab(id);
+  const lab = findLab(id);
+  if (!lab) { content.innerHTML = '<div class="empty"><h3>Lab not found</h3></div>'; return; }
 
   content.innerHTML = `
     <div class="detail">
@@ -975,7 +957,7 @@ function navigate(route) {
   window.location.hash = route;
 }
 
-async function handleRoute() {
+function handleRoute() {
   const hash = window.location.hash.slice(1) || 'stocks';
   const parts = hash.split('/');
 
@@ -995,7 +977,7 @@ async function handleRoute() {
   } else if (parts[0] === 'stock' && parts[1]) {
     document.getElementById('stats').style.display = 'none';
     document.getElementById('filters').style.display = 'none';
-    await renderStockDetail(parts[1]);
+    renderStockDetail(parts[1]);
   } else if (parts[0] === 'labs') {
     document.getElementById('stats').style.display = '';
     document.getElementById('filters').style.display = '';
@@ -1004,13 +986,18 @@ async function handleRoute() {
   } else if (parts[0] === 'lab' && parts[1]) {
     document.getElementById('stats').style.display = 'none';
     document.getElementById('filters').style.display = 'none';
-    await renderLabDetail(parts[1]);
+    renderLabDetail(parts[1]);
   }
 }
 
 // ── Init ──
 async function loadData() {
-  [allStocks, allLabs] = await Promise.all([fetchStocks(), fetchLabs()]);
+  const [stocksRes, labsRes] = await Promise.all([
+    fetch('data/stocks.json'),
+    fetch('data/labs.json'),
+  ]);
+  allStocks = await stocksRes.json();
+  allLabs = await labsRes.json();
 }
 
 async function init() {
@@ -1019,17 +1006,13 @@ async function init() {
   const content = document.getElementById('content');
   content.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
 
-  for (let attempt = 0; attempt < 3; attempt++) {
-    try {
-      await loadData();
-      renderStats();
-      handleRoute();
-      return;
-    } catch (err) {
-      if (attempt < 2) await new Promise(r => setTimeout(r, 500));
-    }
+  try {
+    await loadData();
+    renderStats();
+    handleRoute();
+  } catch (err) {
+    content.innerHTML = `<div class="empty"><div class="empty-icon">&#x26a0;&#xfe0f;</div><h3>Unable to load data</h3><p>Could not fetch stock/lab data.</p></div>`;
   }
-  content.innerHTML = `<div class="empty"><div class="empty-icon">&#x26a0;&#xfe0f;</div><h3>Unable to connect to API</h3><p>Make sure the API is running on port 8001</p></div>`;
 }
 
 window.addEventListener('hashchange', handleRoute);

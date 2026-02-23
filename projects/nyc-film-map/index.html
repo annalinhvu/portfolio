@@ -462,15 +462,18 @@ function renderTags(){
 }
 
 // ── Boroughs ──
-function loadBoroughs(){
-  return fetch(API+'/boroughs').then(function(r){return r.json();}).then(function(d){
-    var s = document.getElementById('boroughSelect');
-    d.forEach(function(b){
-      var o = document.createElement('option');
-      o.value = b.borough;
-      o.textContent = b.borough+' ('+b.count+')';
-      s.appendChild(o);
-    });
+function buildBoroughSelect(){
+  var counts = {};
+  allVenues.forEach(function(v){
+    if(v.borough){ counts[v.borough] = (counts[v.borough]||0) + 1; }
+  });
+  var boroughs = Object.keys(counts).sort();
+  var s = document.getElementById('boroughSelect');
+  boroughs.forEach(function(b){
+    var o = document.createElement('option');
+    o.value = b;
+    o.textContent = b+' ('+counts[b]+')';
+    s.appendChild(o);
   });
 }
 document.getElementById('boroughSelect').addEventListener('change',function(e){currentBorough=e.target.value;applyFilters();});
@@ -478,8 +481,9 @@ document.getElementById('searchInput').addEventListener('input',function(e){curr
 
 // ── Data ──
 function loadVenues(){
-  return fetch(API+'/venues').then(function(r){return r.json();}).then(function(data){
+  return fetch('data/venues.json').then(function(r){return r.json();}).then(function(data){
     allVenues = data;
+    buildBoroughSelect();
     buildMarkers();
     applyFilters();
   }).catch(function(e){
@@ -583,7 +587,7 @@ window.addEventListener('hashchange',handleRoute);
   initMap();
   renderTags();
   renderLegend(0);
-  Promise.all([loadBoroughs(),loadVenues()]).then(function(){
+  loadVenues().then(function(){
     handleRoute();
   }).catch(function(e){
     console.error('Init error:',e);

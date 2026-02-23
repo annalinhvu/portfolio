@@ -688,7 +688,6 @@ body{
 </div>
 
 <script>
-const API = '';
 const CAT_COLORS = {
   body: 'var(--cat-body)',
   mind: 'var(--cat-mind)',
@@ -723,20 +722,26 @@ function updateThemeBtn(t) {
   document.querySelector('.theme-btn').textContent = t === 'dark' ? '\u2600' : '\u263E';
 }
 
-/* ── Data fetching ── */
-async function fetchCompletions() {
-  const res = await fetch(API + '/completions');
-  const data = await res.json();
+/* ── localStorage completions ── */
+function getCompletions() {
+  try { return JSON.parse(localStorage.getItem('ogt-completions') || '[]'); }
+  catch { return []; }
+}
+function saveCompletions(list) {
+  localStorage.setItem('ogt-completions', JSON.stringify(list));
+}
+function loadCompletionMap() {
   completionMap = {};
-  data.forEach(c => {
+  getCompletions().forEach(c => {
     if (!completionMap[c.activity_id]) completionMap[c.activity_id] = [];
     completionMap[c.activity_id].push(c);
   });
 }
 
+/* ── Data loading ── */
 async function fetchActivities() {
-  await fetchCompletions();
-  const res = await fetch(API + '/activities');
+  loadCompletionMap();
+  const res = await fetch('data/activities.json');
   allActivities = await res.json();
   buildCategoryPills();
   applyFilters();
@@ -828,9 +833,9 @@ function renderCards(activities) {
 }
 
 /* ── Detail view ── */
-async function showDetail(id) {
-  const res = await fetch(API + '/activities/' + id);
-  const a = await res.json();
+function showDetail(id) {
+  const a = allActivities.find(x => x.id === id);
+  if (!a) return;
 
   location.hash = 'activity/' + id;
 
@@ -921,22 +926,22 @@ function formatDate(d) {
   return months[parseInt(parts[1])-1] + ' ' + parseInt(parts[2]) + ', ' + parts[0];
 }
 
-async function markDone(activityId) {
+function markDone(activityId) {
   const date = document.getElementById('doneDate').value;
   const notes = document.getElementById('doneNotes').value.trim();
   if (!date) return;
-  await fetch(API + '/completions', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({activity_id: activityId, completed_at: date, notes: notes || null}),
-  });
-  await fetchCompletions();
+  const list = getCompletions();
+  const nextId = list.length ? Math.max(...list.map(c => c.id)) + 1 : 1;
+  list.push({id: nextId, activity_id: activityId, completed_at: date, notes: notes || null});
+  saveCompletions(list);
+  loadCompletionMap();
   showDetail(activityId);
 }
 
-async function deleteCompletion(completionId, activityId) {
-  await fetch(API + '/completions/' + completionId, {method: 'DELETE'});
-  await fetchCompletions();
+function deleteCompletion(completionId, activityId) {
+  const list = getCompletions().filter(c => c.id !== completionId);
+  saveCompletions(list);
+  loadCompletionMap();
   showDetail(activityId);
 }
 
@@ -961,80 +966,122 @@ function handleHash() {
   }
 }
 
+/* ── Stats computation (client-side) ── */
+function computeStats() {
+  const completions = getCompletions();
+  const total_completions = completions.length;
+  const unique_activities = new Set(completions.map(c => c.activity_id)).size;
+  const total_activities = allActivities.length;
+
+  const today = new Date();
+  const weekAgo = new Date(today);
+  weekAgo.setDate(weekAgo.getDate() - 7);
+  const weekAgoStr = weekAgo.toISOString().split('T')[0];
+  const this_week = completions.filter(c => c.completed_at >= weekAgoStr).length;
+
+  /* Streak: consecutive days with at least one completion, from today backwards */
+  const daySet = new Set(completions.map(c => c.completed_at));
+  let streak_days = 0;
+  const check = new Date(today);
+  while (daySet.has(check.toISOString().split('T')[0])) {
+    streak_days++;
+    check.setDate(check.getDate() - 1);
+  }
+
+  /* By category */
+  const actMap = {};
+  allActivities.forEach(a => { actMap[a.id] = a; });
+  const catCounts = {};
+  completions.forEach(c => {
+    const a = actMap[c.activity_id];
+    if (a) {
+      catCounts[a.category] = (catCounts[a.category] || 0) + 1;
+    }
+  });
+  const by_category = Object.entries(catCounts)
+    .map(([category, count]) => ({category, count}))
+    .sort((a, b) => b.count - a.count);
+
+  /* Recent 15 */
+  const sorted = [...completions].sort((a, b) => {
+    if (b.completed_at !== a.completed_at) return b.completed_at < a.completed_at ? -1 : 1;
+    return b.id - a.id;
+  });
+  const recent = sorted.slice(0, 15).map(c => {
+    const a = actMap[c.activity_id] || {};
+    return {id: c.id, activity_id: c.activity_id, name: a.name || '', category: a.category || '', completed_at: c.completed_at, notes: c.notes};
+  });
+
+  return {total_completions, unique_activities, total_activities, this_week, streak_days, by_category, recent};
+}
+
 /* ── Progress view ── */
-async function showProgress() {
+function showProgress() {
   location.hash = 'progress';
   document.getElementById('catalogView').classList.add('hidden');
   document.getElementById('detailView').classList.remove('active');
   document.getElementById('progressView').classList.add('active');
 
   const container = document.getElementById('progressContent');
-  container.innerHTML = '<p style="text-align:center;color:var(--text-4);padding:40px">Loading...</p>';
+  const s = computeStats();
 
-  try {
-    const res = await fetch(API + '/completions/stats');
-    const s = await res.json();
-
-    if (s.total_completions === 0) {
-      container.innerHTML =
-        '<div class="progress-empty fade-in">' +
-          '<div style="font-size:2rem;margin-bottom:12px;opacity:.3">\u2E2E</div>' +
-          '<p>You haven\'t tracked any activities yet.<br>Every journey starts with a single step.</p>' +
-          '<a href="#catalog">\u2190 Browse the catalog</a>' +
-        '</div>';
-      return;
-    }
-
-    let html = '';
-
-    /* Stat cards */
-    html += '<div class="stat-cards">' +
-      '<div class="stat-card fade-in"><div class="stat-number">' + s.total_completions + '</div><div class="stat-label">Total completions</div></div>' +
-      '<div class="stat-card fade-in" style="animation-delay:.05s"><div class="stat-number">' + s.unique_activities + '/' + s.total_activities + '</div><div class="stat-label">Activities explored</div></div>' +
-      '<div class="stat-card fade-in" style="animation-delay:.1s"><div class="stat-number">' + s.this_week + '</div><div class="stat-label">This week</div></div>' +
-      '<div class="stat-card fade-in" style="animation-delay:.15s"><div class="stat-number">' + s.streak_days + '</div><div class="stat-label">Day streak</div></div>' +
-    '</div>';
-
-    /* Category breakdown */
-    if (s.by_category.length) {
-      const maxCat = Math.max(...s.by_category.map(c => c.count));
-      html += '<div class="progress-section fade-in" style="animation-delay:.2s">' +
-        '<div class="progress-section-title">By category</div>' +
-        '<div class="category-bars">';
-      s.by_category.forEach(c => {
-        const pct = Math.round((c.count / maxCat) * 100);
-        const color = CAT_COLORS[c.category] || 'var(--accent)';
-        html += '<div class="cat-bar-row">' +
-          '<span class="cat-bar-label">' + c.category + '</span>' +
-          '<div class="cat-bar-track"><div class="cat-bar-fill" style="width:' + pct + '%;background:' + color + '"></div></div>' +
-          '<span class="cat-bar-count">' + c.count + '</span>' +
-        '</div>';
-      });
-      html += '</div></div>';
-    }
-
-    /* Recent activity */
-    if (s.recent.length) {
-      html += '<div class="progress-section fade-in" style="animation-delay:.25s">' +
-        '<div class="progress-section-title">Recent activity</div>' +
-        '<div class="recent-list">';
-      s.recent.forEach(r => {
-        const color = CAT_COLORS[r.category] || 'var(--accent)';
-        html += '<div class="recent-item">' +
-          '<span class="recent-dot" style="background:' + color + '"></span>' +
-          '<span class="recent-name" onclick="showDetail(' + r.activity_id + ')">' + esc(r.name) + '</span>' +
-          '<span class="recent-notes">' + (r.notes ? esc(r.notes) : '') + '</span>' +
-          '<span class="recent-date">' + formatDate(r.completed_at) + '</span>' +
-        '</div>';
-      });
-      html += '</div></div>';
-    }
-
-    container.innerHTML = html;
-  } catch (e) {
-    container.innerHTML = '<div class="progress-empty"><p>Could not load stats.</p></div>';
+  if (s.total_completions === 0) {
+    container.innerHTML =
+      '<div class="progress-empty fade-in">' +
+        '<div style="font-size:2rem;margin-bottom:12px;opacity:.3">\u2E2E</div>' +
+        '<p>You haven\'t tracked any activities yet.<br>Every journey starts with a single step.</p>' +
+        '<a href="#catalog">\u2190 Browse the catalog</a>' +
+      '</div>';
+    window.scrollTo(0, 0);
+    return;
   }
 
+  let html = '';
+
+  /* Stat cards */
+  html += '<div class="stat-cards">' +
+    '<div class="stat-card fade-in"><div class="stat-number">' + s.total_completions + '</div><div class="stat-label">Total completions</div></div>' +
+    '<div class="stat-card fade-in" style="animation-delay:.05s"><div class="stat-number">' + s.unique_activities + '/' + s.total_activities + '</div><div class="stat-label">Activities explored</div></div>' +
+    '<div class="stat-card fade-in" style="animation-delay:.1s"><div class="stat-number">' + s.this_week + '</div><div class="stat-label">This week</div></div>' +
+    '<div class="stat-card fade-in" style="animation-delay:.15s"><div class="stat-number">' + s.streak_days + '</div><div class="stat-label">Day streak</div></div>' +
+  '</div>';
+
+  /* Category breakdown */
+  if (s.by_category.length) {
+    const maxCat = Math.max(...s.by_category.map(c => c.count));
+    html += '<div class="progress-section fade-in" style="animation-delay:.2s">' +
+      '<div class="progress-section-title">By category</div>' +
+      '<div class="category-bars">';
+    s.by_category.forEach(c => {
+      const pct = Math.round((c.count / maxCat) * 100);
+      const color = CAT_COLORS[c.category] || 'var(--accent)';
+      html += '<div class="cat-bar-row">' +
+        '<span class="cat-bar-label">' + c.category + '</span>' +
+        '<div class="cat-bar-track"><div class="cat-bar-fill" style="width:' + pct + '%;background:' + color + '"></div></div>' +
+        '<span class="cat-bar-count">' + c.count + '</span>' +
+      '</div>';
+    });
+    html += '</div></div>';
+  }
+
+  /* Recent activity */
+  if (s.recent.length) {
+    html += '<div class="progress-section fade-in" style="animation-delay:.25s">' +
+      '<div class="progress-section-title">Recent activity</div>' +
+      '<div class="recent-list">';
+    s.recent.forEach(r => {
+      const color = CAT_COLORS[r.category] || 'var(--accent)';
+      html += '<div class="recent-item">' +
+        '<span class="recent-dot" style="background:' + color + '"></span>' +
+        '<span class="recent-name" onclick="showDetail(' + r.activity_id + ')">' + esc(r.name) + '</span>' +
+        '<span class="recent-notes">' + (r.notes ? esc(r.notes) : '') + '</span>' +
+        '<span class="recent-date">' + formatDate(r.completed_at) + '</span>' +
+      '</div>';
+    });
+    html += '</div></div>';
+  }
+
+  container.innerHTML = html;
   window.scrollTo(0, 0);
 }
 

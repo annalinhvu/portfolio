@@ -1,0 +1,2225 @@
+[
+  {
+    "id": 29,
+    "name": "400D",
+    "brand": "CineStill",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 400,
+    "process": "C-41",
+    "description": "Daylight-balanced versatile film based on motion picture stock. Subtle halation.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "vivid",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Versatile cinema-style color",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 14.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 14.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "50D",
+    "brand": "CineStill",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 50,
+    "process": "C-41",
+    "description": "Modified Kodak Vision3 50D for C-41 processing. Fine grain with cinema colors.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "vivid",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Daylight cinema look in C-41",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 14.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 14.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "800T",
+    "brand": "CineStill",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 800,
+    "process": "C-41",
+    "description": "Modified Kodak Vision3 500T. Iconic red halation around highlights. Made for night.",
+    "grain": "medium",
+    "tone": "cool",
+    "saturation": "vivid",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Night photography with halation glow",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 15.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 15.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 15.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 16.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Moment",
+        "vendor_url": "https://www.shopmoment.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "BwXX",
+    "brand": "CineStill",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 250,
+    "process": "BW",
+    "description": "Based on Kodak Double-X motion picture stock. Classic noir-style B&W rendering.",
+    "grain": "medium",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Cinema-style B&W",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 13.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 13.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Washi Z",
+    "brand": "Film Washi",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 400,
+    "process": "BW",
+    "description": "Repurposed aerial surveillance film. Extreme contrast with unique texture.",
+    "grain": "heavy",
+    "tone": "cool",
+    "saturation": "muted",
+    "latitude": "narrow",
+    "status": "limited",
+    "best_for": "Extreme contrast aerial surveillance look",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 14.0,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Japan Camera Hunter",
+        "vendor_url": "https://www.japancamerahunter.com",
+        "vendor_country": "Japan"
+      },
+      {
+        "price_usd": 15.0,
+        "per_unit": "roll",
+        "in_stock": 0,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Film Photography Project",
+        "vendor_url": "https://filmphotographyproject.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Fomapan 100",
+    "brand": "Fomapan",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 100,
+    "process": "BW",
+    "description": "Czech-made B&W film. Great value with classic rendering and fine grain.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "moderate",
+    "status": "available",
+    "best_for": "Budget fine-grain B&W",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 4.9,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Macodirect",
+        "vendor_url": "https://www.macodirect.de",
+        "vendor_country": "Germany"
+      },
+      {
+        "price_usd": 5.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 5.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Fomapan 200",
+    "brand": "Fomapan",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 200,
+    "process": "BW",
+    "description": "Medium-speed B&W with pleasant tonality. Excellent value for students and experimenters.",
+    "grain": "medium",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "moderate",
+    "status": "available",
+    "best_for": "Versatile budget B&W",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 5.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 5.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Fomapan 400",
+    "brand": "Fomapan",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 400,
+    "process": "BW",
+    "description": "High-speed B&W with distinctive heavy grain. Popular for street and documentary work.",
+    "grain": "heavy",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Gritty high-speed budget B&W",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 5.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 5.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Fomapan R100 16mm",
+    "brand": "Fomapan",
+    "type": "bw_reversal",
+    "format": "16mm",
+    "iso": 100,
+    "process": "BW",
+    "description": "100ft roll of affordable B&W reversal film. Great for students and experimental filmmakers.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "narrow",
+    "status": "available",
+    "best_for": "Budget B&W reversal 16mm",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 24.9,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Macodirect",
+        "vendor_url": "https://www.macodirect.de",
+        "vendor_country": "Germany"
+      },
+      {
+        "price_usd": 29.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 29.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "C200",
+    "brand": "Fujifilm",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 200,
+    "process": "C-41",
+    "description": "Affordable color negative with characteristic Fuji greens. Increasingly hard to find.",
+    "grain": "medium",
+    "tone": "cool",
+    "saturation": "moderate",
+    "latitude": "moderate",
+    "status": "limited",
+    "best_for": "Budget color with Fuji tones",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 10.9,
+        "per_unit": "roll",
+        "in_stock": 0,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Macodirect",
+        "vendor_url": "https://www.macodirect.de",
+        "vendor_country": "Germany"
+      },
+      {
+        "price_usd": 11.99,
+        "per_unit": "roll",
+        "in_stock": 0,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Analogue Wonderland",
+        "vendor_url": "https://analoguewonderland.co.uk",
+        "vendor_country": "UK"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Provia 100F",
+    "brand": "Fujifilm",
+    "type": "color_reversal",
+    "format": "35mm",
+    "iso": 100,
+    "process": "E-6",
+    "description": "Professional slide film with faithful color reproduction and ultra-fine grain.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "vivid",
+    "latitude": "narrow",
+    "status": "available",
+    "best_for": "Reference-grade color slides",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 14.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 14.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Superia X-TRA 400",
+    "brand": "Fujifilm",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 400,
+    "process": "C-41",
+    "description": "Consumer color film known for punchy greens and blues. A Fuji signature look.",
+    "grain": "medium",
+    "tone": "cool",
+    "saturation": "vivid",
+    "latitude": "moderate",
+    "status": "available",
+    "best_for": "Vivid everyday color with cool tones",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 9.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 9.99,
+        "per_unit": "roll",
+        "in_stock": 0,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Velvia 50",
+    "brand": "Fujifilm",
+    "type": "color_reversal",
+    "format": "35mm",
+    "iso": 50,
+    "process": "E-6",
+    "description": "Legendary slide film with extreme color saturation. The landscape photographer's choice.",
+    "grain": "fine",
+    "tone": "warm",
+    "saturation": "vivid",
+    "latitude": "narrow",
+    "status": "limited",
+    "best_for": "Ultra-saturated landscape slides",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 14.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 14.99,
+        "per_unit": "roll",
+        "in_stock": 0,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Delta 100",
+    "brand": "Ilford",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 100,
+    "process": "BW",
+    "description": "Core-shell crystal technology for extremely fine grain and high resolution.",
+    "grain": "fine",
+    "tone": "cool",
+    "saturation": "muted",
+    "latitude": "moderate",
+    "status": "available",
+    "best_for": "High-resolution B&W detail",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 9.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 9.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Delta 3200",
+    "brand": "Ilford",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 3200,
+    "process": "BW",
+    "description": "Ultra-high-speed B&W film for available-light photography. Beautiful heavy grain.",
+    "grain": "heavy",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Ultra-low-light and high-grain aesthetic",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 12.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 12.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Delta 400",
+    "brand": "Ilford",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 400,
+    "process": "BW",
+    "description": "Modern tabular grain B&W film. Fine grain for its speed with smooth tonality.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Modern B&W with fine grain at speed",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 9.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 9.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "FP4 Plus 125",
+    "brand": "Ilford",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 125,
+    "process": "BW",
+    "description": "Medium-speed B&W with excellent sharpness and fine grain. Great for controlled lighting.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "moderate",
+    "status": "available",
+    "best_for": "Medium-speed B&W with fine grain",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 8.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 8.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 8.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "HP5 Plus 400",
+    "brand": "Ilford",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 400,
+    "process": "BW",
+    "description": "Classic high-speed B&W film. Extremely versatile with wide push/pull latitude.",
+    "grain": "medium",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "All-around B&W workhorse",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 8.5,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Macodirect",
+        "vendor_url": "https://www.macodirect.de",
+        "vendor_country": "Germany"
+      },
+      {
+        "price_usd": 8.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 8.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 8.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 9.5,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Analogue Wonderland",
+        "vendor_url": "https://analoguewonderland.co.uk",
+        "vendor_country": "UK"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Ortho Plus 80",
+    "brand": "Ilford",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 80,
+    "process": "BW",
+    "description": "Orthochromatic B&W film. Blind to red light, creating unique skin tones and landscapes.",
+    "grain": "fine",
+    "tone": "cool",
+    "saturation": "muted",
+    "latitude": "narrow",
+    "status": "available",
+    "best_for": "Orthochromatic B&W portraits",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 10.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 10.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Pan F Plus 50",
+    "brand": "Ilford",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 50,
+    "process": "BW",
+    "description": "Exceptionally fine grain B&W film for maximum sharpness in good light.",
+    "grain": "fine",
+    "tone": "cool",
+    "saturation": "muted",
+    "latitude": "narrow",
+    "status": "available",
+    "best_for": "Ultra-fine grain B&W in bright light",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 9.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 9.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "SFX 200",
+    "brand": "Ilford",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 200,
+    "process": "BW",
+    "description": "Extended red sensitivity B&W film. Creates striking infrared-like effects with deep red filter.",
+    "grain": "medium",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "moderate",
+    "status": "available",
+    "best_for": "Near-infrared creative effects",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 10.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 10.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "XP2 Super 400",
+    "brand": "Ilford",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 400,
+    "process": "C-41",
+    "description": "Chromogenic B&W film processed in C-41 chemistry. Develop anywhere color film is processed.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "B&W processed at any lab (C-41)",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 10.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 10.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "ColorPlus 200",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 200,
+    "process": "C-41",
+    "description": "Affordable color negative film with pleasant warm tones and reliable results.",
+    "grain": "medium",
+    "tone": "warm",
+    "saturation": "moderate",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Budget-friendly everyday color",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 6.9,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Macodirect",
+        "vendor_url": "https://www.macodirect.de",
+        "vendor_country": "Germany"
+      },
+      {
+        "price_usd": 7.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 7.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Double-X 7222 16mm",
+    "brand": "Kodak",
+    "type": "bw_negative",
+    "format": "16mm",
+    "iso": 250,
+    "process": "BW",
+    "description": "100ft roll of legendary Double-X B&W stock. Used in countless classic films and music videos.",
+    "grain": "medium",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Classic cinema B&W 16mm",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 44.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 45.0,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Film Photography Project",
+        "vendor_url": "https://filmphotographyproject.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 46.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Ektachrome 100D 7294 16mm",
+    "brand": "Kodak",
+    "type": "color_reversal",
+    "format": "16mm",
+    "iso": 100,
+    "process": "E-6",
+    "description": "100ft roll of color reversal motion picture film. Vibrant colors, projects directly.",
+    "grain": "fine",
+    "tone": "cool",
+    "saturation": "vivid",
+    "latitude": "narrow",
+    "status": "available",
+    "best_for": "Color reversal 16mm projection",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 64.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 66.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Ektachrome 100D Super 8",
+    "brand": "Kodak",
+    "type": "color_reversal",
+    "format": "super8",
+    "iso": 100,
+    "process": "E-6",
+    "description": "Super 8 cartridge of Ektachrome. Beautiful for projection with vivid, saturated colors.",
+    "grain": "fine",
+    "tone": "cool",
+    "saturation": "vivid",
+    "latitude": "narrow",
+    "status": "available",
+    "best_for": "Vibrant color Super 8 projection",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 39.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 41.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Pro8mm",
+        "vendor_url": "https://www.pro8mm.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Ektachrome E100",
+    "brand": "Kodak",
+    "type": "color_reversal",
+    "format": "35mm",
+    "iso": 100,
+    "process": "E-6",
+    "description": "Revived slide film with clean color, fine grain, and classic reversal pop.",
+    "grain": "fine",
+    "tone": "cool",
+    "saturation": "vivid",
+    "latitude": "narrow",
+    "status": "available",
+    "best_for": "Slides with vivid, clean color",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 16.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 16.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 17.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Ektar 100",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 100,
+    "process": "C-41",
+    "description": "World's finest grain color negative film. Ultra-vivid colors ideal for landscapes.",
+    "grain": "fine",
+    "tone": "cool",
+    "saturation": "vivid",
+    "latitude": "moderate",
+    "status": "available",
+    "best_for": "Landscapes and nature with vivid color",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 11.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 11.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 11.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Gold 200",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 200,
+    "process": "C-41",
+    "description": "Consumer classic with warm, golden color rendering. Great for sunny outdoor shooting.",
+    "grain": "medium",
+    "tone": "warm",
+    "saturation": "vivid",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Everyday shooting with warm golden tones",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 8.5,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Film Supply Club",
+        "vendor_url": "https://filmsupplyclub.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 8.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 8.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 9.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Moment",
+        "vendor_url": "https://www.shopmoment.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Gold 200 Super 8",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "super8",
+    "iso": 200,
+    "process": "C-41",
+    "description": "Super 8 cartridge loaded with Gold 200. Warm, nostalgic look at a consumer price point.",
+    "grain": "medium",
+    "tone": "warm",
+    "saturation": "vivid",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Affordable Super 8 color",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 29.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 31.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Pro8mm",
+        "vendor_url": "https://www.pro8mm.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Portra 160",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 160,
+    "process": "C-41",
+    "description": "Professional color negative with exceptionally smooth grain and natural color reproduction.",
+    "grain": "fine",
+    "tone": "warm",
+    "saturation": "moderate",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Portraits with natural skin tones",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 11.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 11.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 11.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 13.5,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Analogue Wonderland",
+        "vendor_url": "https://analoguewonderland.co.uk",
+        "vendor_country": "UK"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Portra 400",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 400,
+    "process": "C-41",
+    "description": "The gold standard for portrait photography. Unmatched skin tones with wide exposure latitude.",
+    "grain": "fine",
+    "tone": "warm",
+    "saturation": "moderate",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Versatile portrait and wedding work",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 11.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 11.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 11.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 12.9,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Macodirect",
+        "vendor_url": "https://www.macodirect.de",
+        "vendor_country": "Germany"
+      },
+      {
+        "price_usd": 12.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Moment",
+        "vendor_url": "https://www.shopmoment.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 13.5,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Analogue Wonderland",
+        "vendor_url": "https://analoguewonderland.co.uk",
+        "vendor_country": "UK"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Portra 800",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 800,
+    "process": "C-41",
+    "description": "High-speed portrait film with warm tones. Great for indoor and low-light shooting.",
+    "grain": "medium",
+    "tone": "warm",
+    "saturation": "moderate",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Low-light portraits and events",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 13.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 13.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 15.5,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Analogue Wonderland",
+        "vendor_url": "https://analoguewonderland.co.uk",
+        "vendor_country": "UK"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "T-Max 100",
+    "brand": "Kodak",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 100,
+    "process": "BW",
+    "description": "Tabular grain B&W film with extremely fine grain and high sharpness.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "moderate",
+    "status": "available",
+    "best_for": "Fine detail B&W work",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 10.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 10.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "T-Max 400",
+    "brand": "Kodak",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 400,
+    "process": "BW",
+    "description": "High-speed tabular grain film combining speed with remarkably fine grain.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Versatile B&W with fine grain",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 10.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 10.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Tri-X 400",
+    "brand": "Kodak",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 400,
+    "process": "BW",
+    "description": "The legendary B&W film. Rich tonal range with distinctive grain character.",
+    "grain": "medium",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Classic photojournalism and street",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 10.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 10.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 10.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 12.5,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Analogue Wonderland",
+        "vendor_url": "https://analoguewonderland.co.uk",
+        "vendor_country": "UK"
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Tri-X Reversal 7266 16mm",
+    "brand": "Kodak",
+    "type": "bw_reversal",
+    "format": "16mm",
+    "iso": 200,
+    "process": "BW",
+    "description": "100ft roll of B&W reversal film. Projects directly without printing. High contrast with rich blacks.",
+    "grain": "medium",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "moderate",
+    "status": "available",
+    "best_for": "B&W reversal projection and scanning",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 49.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 51.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Tri-X Reversal 7266 Super 8",
+    "brand": "Kodak",
+    "type": "bw_reversal",
+    "format": "super8",
+    "iso": 200,
+    "process": "BW",
+    "description": "Super 8 cartridge of Tri-X reversal. Iconic B&W look for home movies and art film.",
+    "grain": "medium",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "moderate",
+    "status": "available",
+    "best_for": "B&W Super 8 with classic texture",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 32.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 34.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Pro8mm",
+        "vendor_url": "https://www.pro8mm.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "UltraMax 400",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 400,
+    "process": "C-41",
+    "description": "Versatile consumer film with punchy colors. Works well in varied lighting conditions.",
+    "grain": "medium",
+    "tone": "warm",
+    "saturation": "vivid",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "All-purpose consumer shooting",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 8.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 8.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Adorama",
+        "vendor_url": "https://www.adorama.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 9.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Moment",
+        "vendor_url": "https://www.shopmoment.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Vision3 200T 16mm",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "16mm",
+    "iso": 200,
+    "process": "ECN-2",
+    "description": "100ft roll of 7213 tungsten-balanced stock. Great for mixed and interior lighting.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "vivid",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Versatile tungsten 16mm",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 54.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 56.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Vision3 200T Super 8",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "super8",
+    "iso": 200,
+    "process": "ECN-2",
+    "description": "Super 8 cartridge of 7213 tungsten stock. Ideal for indoor and mixed lighting.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "vivid",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Tungsten Super 8 for interiors",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 34.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 36.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Pro8mm",
+        "vendor_url": "https://www.pro8mm.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Vision3 250D",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 250,
+    "process": "ECN-2",
+    "description": "Medium-speed motion picture stock with wide latitude. Beautiful for daylight shooting.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "vivid",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Daylight cinema versatility",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 12.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Film Photography Project",
+        "vendor_url": "https://filmphotographyproject.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Vision3 250D 16mm",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "16mm",
+    "iso": 250,
+    "process": "ECN-2",
+    "description": "100ft roll of 7207 daylight stock. Versatile medium-speed option for 16mm.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "vivid",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Daylight 16mm with extra speed",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 54.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 56.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Vision3 500T",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 500,
+    "process": "ECN-2",
+    "description": "Tungsten-balanced cinema stock. Creates iconic blue-shifted tones under daylight.",
+    "grain": "medium",
+    "tone": "cool",
+    "saturation": "moderate",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Tungsten-balanced night shooting",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 12.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Film Photography Project",
+        "vendor_url": "https://filmphotographyproject.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 13.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Vision3 500T 16mm",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "16mm",
+    "iso": 500,
+    "process": "ECN-2",
+    "description": "100ft roll of 7219 tungsten stock. The go-to for night scenes and available-light 16mm work.",
+    "grain": "medium",
+    "tone": "cool",
+    "saturation": "moderate",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Low-light 16mm cinematography",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 52.0,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Spectra Film & Video",
+        "vendor_url": "https://www.spectrafilmandvideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 54.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 56.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Vision3 500T Super 8",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "super8",
+    "iso": 500,
+    "process": "ECN-2",
+    "description": "Super 8 cartridge of 7219 stock. Maximum speed for available-light Super 8 filmmaking.",
+    "grain": "medium",
+    "tone": "cool",
+    "saturation": "moderate",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Low-light Super 8 shooting",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 33.0,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Spectra Film & Video",
+        "vendor_url": "https://www.spectrafilmandvideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 34.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 36.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Pro8mm",
+        "vendor_url": "https://www.pro8mm.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Vision3 50D",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 50,
+    "process": "ECN-2",
+    "description": "Motion picture film stock respooled for still cameras. Incredible color and dynamic range.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "vivid",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Daylight cinema-look stills",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 12.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Film Photography Project",
+        "vendor_url": "https://filmphotographyproject.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 13.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Vision3 50D 16mm",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "16mm",
+    "iso": 50,
+    "process": "ECN-2",
+    "description": "100ft roll of 7203 motion picture stock. The standard for daylight 16mm cinematography.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "vivid",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Daylight 16mm filmmaking",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 52.0,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Spectra Film & Video",
+        "vendor_url": "https://www.spectrafilmandvideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 54.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 56.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Vision3 50D Super 8",
+    "brand": "Kodak",
+    "type": "color_negative",
+    "format": "super8",
+    "iso": 50,
+    "process": "ECN-2",
+    "description": "Super 8 cartridge of 7203 stock. Stunning detail and color for the format.",
+    "grain": "fine",
+    "tone": "neutral",
+    "saturation": "vivid",
+    "latitude": "wide",
+    "status": "available",
+    "best_for": "Daylight Super 8 with cinema color",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 33.0,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Spectra Film & Video",
+        "vendor_url": "https://www.spectrafilmandvideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 34.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      },
+      {
+        "price_usd": 36.99,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Pro8mm",
+        "vendor_url": "https://www.pro8mm.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Color Negative 100",
+    "brand": "Lomography",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 100,
+    "process": "C-41",
+    "description": "Punchy, saturated color film for bright conditions. Great for experimental shooting.",
+    "grain": "medium",
+    "tone": "warm",
+    "saturation": "vivid",
+    "latitude": "moderate",
+    "status": "available",
+    "best_for": "Saturated daylight fun",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 10.9,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Lomography Shop",
+        "vendor_url": "https://shop.lomography.com",
+        "vendor_country": "Austria"
+      },
+      {
+        "price_usd": 11.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Freestyle Photo",
+        "vendor_url": "https://www.freestylephoto.biz",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Color Negative 400",
+    "brand": "Lomography",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 400,
+    "process": "C-41",
+    "description": "All-purpose color film with vivid rendering. Works well in varied conditions.",
+    "grain": "medium",
+    "tone": "warm",
+    "saturation": "vivid",
+    "latitude": "moderate",
+    "status": "available",
+    "best_for": "Versatile experimental color",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 10.9,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Lomography Shop",
+        "vendor_url": "https://shop.lomography.com",
+        "vendor_country": "Austria"
+      },
+      {
+        "price_usd": 11.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Color Negative 800",
+    "brand": "Lomography",
+    "type": "color_negative",
+    "format": "35mm",
+    "iso": 800,
+    "process": "C-41",
+    "description": "High-speed color film with heavy grain and saturated colors. Embrace the grain.",
+    "grain": "heavy",
+    "tone": "warm",
+    "saturation": "vivid",
+    "latitude": "moderate",
+    "status": "available",
+    "best_for": "Low-light experimental shooting",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 11.9,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Lomography Shop",
+        "vendor_url": "https://shop.lomography.com",
+        "vendor_country": "Austria"
+      },
+      {
+        "price_usd": 12.49,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "B&H Photo",
+        "vendor_url": "https://www.bhphotovideo.com",
+        "vendor_country": "USA"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Lady Grey 400",
+    "brand": "Lomography",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 400,
+    "process": "BW",
+    "description": "Affordable B&W film with pleasing grain structure and smooth tonal range.",
+    "grain": "medium",
+    "tone": "neutral",
+    "saturation": "muted",
+    "latitude": "moderate",
+    "status": "available",
+    "best_for": "Accessible B&W with character",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 9.9,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Lomography Shop",
+        "vendor_url": "https://shop.lomography.com",
+        "vendor_country": "Austria"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Potsdam 100",
+    "brand": "Lomography",
+    "type": "bw_negative",
+    "format": "35mm",
+    "iso": 100,
+    "process": "BW",
+    "description": "Based on ORWO film stock. High contrast with a unique vintage cinema look.",
+    "grain": "fine",
+    "tone": "cool",
+    "saturation": "muted",
+    "latitude": "moderate",
+    "status": "available",
+    "best_for": "High-contrast B&W with German cine feel",
+    "created_at": "2026-02-19 19:00:49",
+    "prices": [
+      {
+        "price_usd": 9.9,
+        "per_unit": "roll",
+        "in_stock": 1,
+        "last_checked": "2026-02-19 19:00:49",
+        "vendor_name": "Lomography Shop",
+        "vendor_url": "https://shop.lomography.com",
+        "vendor_country": "Austria"
+      }
+    ]
+  }
+]
