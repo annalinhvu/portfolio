@@ -205,9 +205,30 @@ body{
 }
 .cat-pill.active .dot{transform:scale(1.3)}
 
-.filter-row{
-  display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+.filter-controls{
+  display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;
+  margin-bottom:8px;
 }
+.filter-toggle-btn{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:6px 14px;border-radius:20px;
+  border:1px solid var(--border);background:var(--surface);
+  font-size:.75rem;letter-spacing:.4px;color:var(--text-3);
+  cursor:pointer;transition:all .2s;
+}
+.filter-toggle-btn:hover{border-color:var(--border-hover)}
+.filter-toggle-btn.active{border-color:var(--text-3);color:var(--text-1);background:var(--surface-2)}
+.filter-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--accent);color:#fff;
+  width:15px;height:15px;border-radius:50%;
+  font-size:.6rem;font-weight:700;
+}
+.filter-drawer{
+  display:none;gap:10px;justify-content:center;flex-wrap:wrap;
+  margin-top:8px;
+}
+.filter-drawer.open{display:flex}
 .filter-select{
   padding:7px 14px;border-radius:8px;
   border:1px solid var(--border);background:var(--surface);
@@ -236,10 +257,9 @@ body{
 
 /* ── Card grid ── */
 .card-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
 }
-@media(max-width:1100px){.card-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:800px){.card-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1100px){.card-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.card-grid{grid-template-columns:1fr}}
 
 /* ── Activity card ── */
@@ -568,7 +588,8 @@ body{
   .page{padding:20px 16px 60px}
   .detail-name{font-size:1.4rem}
   .search-input{width:100%}
-  .filter-row{flex-direction:column;align-items:stretch}
+  .filter-controls{flex-direction:column;align-items:stretch}
+  .filter-drawer.open{flex-direction:column;align-items:stretch}
   .bg-decor{display:none}
 }
 </style>
@@ -637,7 +658,11 @@ body{
 
     <div class="filters">
       <div class="category-pills" id="categoryPills"></div>
-      <div class="filter-row">
+      <div class="filter-controls">
+        <button id="filterToggle" class="filter-toggle-btn" onclick="toggleFilters()">⊞ Filters</button>
+        <input type="search" class="search-input" id="searchInput" placeholder="Search activities...">
+      </div>
+      <div class="filter-drawer" id="filterDrawer">
         <select class="filter-select" id="seasonFilter">
           <option value="">All seasons</option>
           <option value="spring">Spring</option>
@@ -656,7 +681,6 @@ body{
           <option value="indoor">Indoor</option>
           <option value="outdoor">Outdoor</option>
         </select>
-        <input type="search" class="search-input" id="searchInput" placeholder="Search activities...">
       </div>
     </div>
 
@@ -774,12 +798,32 @@ function toggleCategory(cat, pill) {
   applyFilters();
 }
 
+/* ── Filter toggle ── */
+function toggleFilters() {
+  const drawer = document.getElementById('filterDrawer');
+  const btn = document.getElementById('filterToggle');
+  drawer.classList.toggle('open');
+  btn.classList.toggle('active');
+}
+
 /* ── Filtering ── */
 function applyFilters() {
   const season = document.getElementById('seasonFilter').value;
   const duration = document.getElementById('durationFilter').value;
   const setting = document.getElementById('settingFilter').value;
   const search = document.getElementById('searchInput').value.toLowerCase().trim();
+
+  // Update filter badge
+  const activeCount = [season, duration, setting].filter(Boolean).length;
+  const btn = document.getElementById('filterToggle');
+  const existing = btn.querySelector('.filter-badge');
+  if (existing) existing.remove();
+  if (activeCount > 0) {
+    const badge = document.createElement('span');
+    badge.className = 'filter-badge';
+    badge.textContent = activeCount;
+    btn.appendChild(badge);
+  }
 
   let filtered = allActivities.filter(a => {
     if (!activeCategories.has(a.category)) return false;
