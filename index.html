@@ -12,7 +12,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Anna (Linh) Vu | Data Engineer">
 <meta name="twitter:description" content="Senior Data Engineer in NYC building reliable pipelines and scalable data models.">
-<meta name="theme-color" content="#f4f7f1">
+<meta name="theme-color" content="#eef2e8">
 <meta property="og:url" content="https://annalinhvu.github.io/portfolio/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 <style>
@@ -32,42 +32,46 @@
     src: url(https://cdn.jsdelivr.net/fontsource/fonts/geist-mono:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
   }
 
-  /* ── Light theme (default) — soft sage ── */
+  /* ── Light theme (default) — deep sage ── */
   :root[data-theme="light"] {
-    --bg: #f4f7f1;
+    --bg: #eef2e8;
     --surface: #ffffff;
-    --surface-hover: #f7faf4;
-    --border: #d0dac4;
-    --border-hover: #b8c4ab;
-    --text-1: #1a1f16;
-    --text-2: #3d4636;
-    --text-3: #5e6b54;
-    --text-4: #8a957e;
-    --accent: #5a7247;
-    --accent-2: #4a6238;
-    --accent-bg: rgba(90,114,71,0.06);
+    --surface-hover: #f0f5eb;
+    --border: #c4d2b4;
+    --border-hover: #9db88a;
+    --text-1: #182014;
+    --text-2: #324030;
+    --text-3: #4e6442;
+    --text-4: #7a9068;
+    --accent: #3d6b2a;
+    --accent-2: #2d5820;
+    --accent-bg: rgba(61,107,42,0.07);
     --amber: #7a6332;
-    --tag-border: rgba(90,114,71,0.22);
-    --tag-color: #4a6238;
+    --rose: #b86e62;
+    --rose-bg: rgba(184,110,98,0.08);
+    --tag-border: rgba(61,107,42,0.24);
+    --tag-color: #2d5820;
   }
 
-  /* ── Dark theme — deep olive ── */
+  /* ── Dark theme — deep forest ── */
   :root[data-theme="dark"] {
-    --bg: #0d0f0c;
-    --surface: #161a14;
-    --surface-hover: #1e2319;
-    --border: #2e3528;
-    --border-hover: #3d4635;
-    --text-1: #e8ede2;
-    --text-2: #c4ccb8;
-    --text-3: #8e9a80;
-    --text-4: #5e6b54;
-    --accent: #a3c48a;
-    --accent-2: #8ab470;
-    --accent-bg: rgba(163,196,138,0.08);
+    --bg: #0c1009;
+    --surface: #141c11;
+    --surface-hover: #1c2618;
+    --border: #2a3825;
+    --border-hover: #3a5030;
+    --text-1: #e4ecde;
+    --text-2: #c0ccb0;
+    --text-3: #8a9c78;
+    --text-4: #5c6e50;
+    --accent: #90c870;
+    --accent-2: #78b458;
+    --accent-bg: rgba(144,200,112,0.08);
     --amber: #c4a86a;
-    --tag-border: rgba(163,196,138,0.22);
-    --tag-color: #a3c48a;
+    --rose: #d49088;
+    --rose-bg: rgba(212,144,136,0.08);
+    --tag-border: rgba(144,200,112,0.22);
+    --tag-color: #90c870;
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -97,7 +101,7 @@
   }
   .top-bar nav { margin-left: auto; display: flex; gap: 4px; position: relative; }
   .tab-indicator {
-    position: absolute; bottom: 2px; height: 2px; border-radius: 1px;
+    position: absolute; bottom: 2px; height: 3px; border-radius: 2px;
     background: var(--accent); transition: left 0.3s ease, width 0.3s ease;
     pointer-events: none;
   }
@@ -129,8 +133,9 @@
     padding: 28px;
     transition: all 0.2s;
     overflow: hidden;
+    box-shadow: 0 1px 4px rgba(30,50,20,0.06);
   }
-  .card:hover { border-color: var(--border-hover); }
+  .card:hover { border-color: var(--border-hover); box-shadow: 0 3px 12px rgba(30,50,20,0.10); }
 
   /* ── Grid ── */
   .bento { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
@@ -243,29 +248,30 @@
   .snapshot-card .snap-label::before {
     content: ''; display: inline-block; width: 8px; height: 2px; border-radius: 1px;
   }
-  .snap-now .snap-label { color: #5a7247; }
-  .snap-now .snap-label::before { background: #5a7247; }
-  .snap-next .snap-label { color: #6a6a96; }
-  .snap-next .snap-label::before { background: #6a6a96; }
+  .snap-now .snap-label { color: #3d6b2a; }
+  .snap-now .snap-label::before { background: #3d6b2a; }
+  .snap-next .snap-label { color: #5a5a90; }
+  .snap-next .snap-label::before { background: #5a5a90; }
   .snap-always .snap-label { color: #8b7040; }
   .snap-always .snap-label::before { background: #8b7040; }
-  .snap-home .snap-label { color: #96605e; }
-  .snap-home .snap-label::before { background: #96605e; }
-  [data-theme="dark"] .snap-now .snap-label { color: #a3c48a; }
-  [data-theme="dark"] .snap-now .snap-label::before { background: #a3c48a; }
+  .snap-home .snap-label { color: #b86e62; }
+  .snap-home .snap-label::before { background: #b86e62; }
+  [data-theme="dark"] .snap-now .snap-label { color: #90c870; }
+  [data-theme="dark"] .snap-now .snap-label::before { background: #90c870; }
   [data-theme="dark"] .snap-next .snap-label { color: #a8a8d0; }
   [data-theme="dark"] .snap-next .snap-label::before { background: #a8a8d0; }
   [data-theme="dark"] .snap-always .snap-label { color: #d4b070; }
   [data-theme="dark"] .snap-always .snap-label::before { background: #d4b070; }
-  [data-theme="dark"] .snap-home .snap-label { color: #d09090; }
-  [data-theme="dark"] .snap-home .snap-label::before { background: #d09090; }
+  [data-theme="dark"] .snap-home .snap-label { color: #d49088; }
+  [data-theme="dark"] .snap-home .snap-label::before { background: #d49088; }
   .snapshot-card .snap-text { font-size: 0.84rem; color: var(--text-2); line-height: 1.65; }
 
   /* ── Section header ── */
   .section-header {
     font-family: 'Geist Mono', monospace; font-size: 0.76rem; font-weight: 500;
     letter-spacing: 2px; text-transform: uppercase; color: var(--accent);
-    margin: 24px 0 12px; padding-left: 4px;
+    margin: 24px 0 12px; padding-left: 10px;
+    border-left: 3px solid var(--accent);
   }
   .section-header:first-child { margin-top: 0; }
 
@@ -274,10 +280,10 @@
   .pipeline { width: 100%; display: block; }
   .pipe-stage { fill: var(--surface); stroke-width: 1.5; transition: fill 0.2s; }
   .pipe-group { cursor: pointer; }
-  .pipe-stage-1 { stroke: rgba(90,114,71,0.45); }
-  .pipe-stage-2 { stroke: rgba(106,106,150,0.45); }
-  .pipe-stage-3 { stroke: rgba(139,112,64,0.45); }
-  .pipe-stage-4 { stroke: rgba(150,96,94,0.45); }
+  .pipe-stage-1 { stroke: rgba(61,107,42,0.5); }
+  .pipe-stage-2 { stroke: rgba(90,90,144,0.5); }
+  .pipe-stage-3 { stroke: rgba(139,112,64,0.5); }
+  .pipe-stage-4 { stroke: rgba(184,110,98,0.5); }
   .pipe-label { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-anchor: middle; pointer-events: none; }
   .pipe-sub { font-family: 'Geist', system-ui, sans-serif; font-size: 7.5px; text-anchor: middle; opacity: 0; transition: opacity 0.25s; pointer-events: none; }
   .pipe-group:hover .pipe-sub { opacity: 1; }
@@ -830,7 +836,7 @@
   <!-- ══════════ LAB ══════════ -->
   <div class="panel" id="panel-lab" role="tabpanel" aria-labelledby="tab-lab">
 
-    <p class="lab-intro">Where data meets film. Projects I'm building.</p>
+    <p class="lab-intro">Side projects built for curiosity — data, film, food, and everything in between.</p>
 
     <a href="projects/festival-tracker/" class="card lab-card" style="display:block;text-decoration:none;color:inherit;cursor:pointer">
       <div class="lab-header">
