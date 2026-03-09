@@ -96,21 +96,45 @@ body{
 
 /* ── Masthead ── */
 .masthead{
+  background:var(--accent);
+  padding:48px 32px 44px;
   text-align:center;
-  padding:52px 32px 44px;
-  margin:0 auto;max-width:1140px;
-  border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+  border-bottom:3px solid rgba(0,0,0,.1);
+}
+:root[data-theme="dark"] .masthead{background:#5a2810}
+.masthead::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,.1) 1.5px,transparent 1.5px);
+  background-size:24px 24px;pointer-events:none;
+}
+.masthead-label{
+  display:inline-block;
+  border:2px solid rgba(255,255,255,.45);
+  padding:20px 52px;
+  position:relative;z-index:1;
+}
+.masthead-label::before{
+  content:'';position:absolute;inset:6px;
+  border:1px solid rgba(255,255,255,.22);
+  pointer-events:none;
+}
+.masthead-eyebrow{
+  font-size:.5rem;letter-spacing:3.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.65);margin-bottom:8px;
 }
 .masthead-title{
   font-family:Georgia,serif;
-  font-size:clamp(2.8rem,6vw,4.5rem);
-  font-style:italic;font-weight:400;
-  color:var(--text-1);line-height:1;
-  letter-spacing:-1px;margin-bottom:10px;
+  font-size:1.75rem;
+  font-style:normal;font-weight:400;
+  color:#fff;line-height:1;
+  letter-spacing:6px;text-transform:uppercase;
+  margin-bottom:0;
 }
 .masthead-tag{
-  font-size:.88rem;color:var(--text-3);
-  font-style:italic;
+  font-size:.52rem;letter-spacing:2.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.58);
+  font-style:normal;margin-top:10px;
 }
 
 /* ── Category strip ── */
@@ -134,6 +158,13 @@ body{
   font-family:inherit;white-space:nowrap;
 }
 .cat-pill:hover{color:var(--text-1);border-color:var(--text-3)}
+.cat-pill[data-cat="breakfast"]:hover{color:var(--cat-breakfast);border-color:var(--cat-breakfast)}
+.cat-pill[data-cat="main"]:hover{color:var(--cat-main);border-color:var(--cat-main)}
+.cat-pill[data-cat="side"]:hover{color:var(--cat-side);border-color:var(--cat-side)}
+.cat-pill[data-cat="dessert"]:hover{color:var(--cat-dessert);border-color:var(--cat-dessert)}
+.cat-pill[data-cat="snack"]:hover{color:var(--cat-snack);border-color:var(--cat-snack)}
+.cat-pill[data-cat="drink"]:hover{color:var(--cat-drink);border-color:var(--cat-drink)}
+.cat-pill[data-cat="vietnamese"]:hover{color:var(--cat-vietnamese);border-color:var(--cat-vietnamese)}
 .cat-pill.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 .cat-pill[data-cat="breakfast"].active{background:var(--cat-breakfast);border-color:var(--cat-breakfast);color:#fff}
 .cat-pill[data-cat="main"].active{background:var(--cat-main);border-color:var(--cat-main);color:#fff}
@@ -190,7 +221,7 @@ body{
 .recipe-card{
   background:var(--card);
   border:1px solid var(--border);
-  border-radius:12px;
+  border-radius:16px;
   cursor:pointer;
   transition:transform .22s,box-shadow .22s;
   box-shadow:var(--sh);
@@ -198,13 +229,19 @@ body{
   overflow:hidden;
 }
 .recipe-card:hover{
-  transform:translateY(-4px);
+  transform:translateY(-5px);
   box-shadow:var(--sh-h);
 }
 /* Colored category band */
 .card-band{
-  padding:10px 14px;
+  padding:11px 15px;
   display:flex;align-items:center;justify-content:space-between;
+  position:relative;
+}
+.card-band::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.14) 0%,transparent 55%);
+  pointer-events:none;
 }
 .band-cat{
   font-size:.58rem;letter-spacing:1.8px;text-transform:uppercase;
@@ -410,7 +447,8 @@ body{
 @media(max-width:540px){
   .topbar,.cat-strip{padding-left:16px;padding-right:16px}
   .page{padding:0 16px 80px}
-  .masthead{padding:40px 20px 36px}
+  .masthead{padding:36px 16px 32px}
+  .masthead-label{padding:16px 28px}
   .detail-head-section,.orn-rule{padding-left:18px;padding-right:18px}
 }
 </style>
@@ -431,8 +469,11 @@ body{
 <div class="catalog-view" id="catalogView">
 
   <div class="masthead">
-    <h1 class="masthead-title">From Scratch</h1>
-    <p class="masthead-tag">a collection of recipes made with care</p>
+    <div class="masthead-label">
+      <p class="masthead-eyebrow">a personal recipe index</p>
+      <h1 class="masthead-title">From Scratch</h1>
+      <p class="masthead-tag">made with care</p>
+    </div>
   </div>
 
   <div class="cat-wrap">
