@@ -12,56 +12,50 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root[data-theme="light"]{
-  --bg:#ede8dc;
-  --card:#faf6ed;
-  --card-head:#ede5cf;
-  --text-1:#2c1f10;
-  --text-2:#4a3828;
-  --text-3:#8a7460;
-  --text-4:#b8a484;
-  --accent:#7a3a1e;
+  --bg:#f6ede0;
+  --card:#fffdf8;
+  --text-1:#2c1a0e;
+  --text-2:#4a3020;
+  --text-3:#7a5a42;
+  --text-4:#b09070;
+  --accent:#a8552a;
   --accent-warm:#c4784a;
-  --border:#c4aa84;
-  --border-in:#d8c8a8;
-  --border-dash:#b89870;
-  --sh:0 2px 4px rgba(80,48,16,.12),0 4px 14px rgba(80,48,16,.08);
-  --sh-h:0 4px 8px rgba(80,48,16,.16),0 12px 32px rgba(80,48,16,.14);
-  --cat-breakfast:#b07828;
-  --cat-main:#8a3a22;
-  --cat-side:#3a6e46;
-  --cat-dessert:#884060;
-  --cat-snack:#9a5c28;
-  --cat-drink:#2a4a7e;
+  --border:#e4d0b8;
+  --sh:0 2px 6px rgba(80,40,10,.07),0 1px 3px rgba(80,40,10,.05);
+  --sh-h:0 6px 20px rgba(80,40,10,.13),0 3px 8px rgba(80,40,10,.09);
+  --cat-breakfast:#b8880a;
+  --cat-main:#a8452a;
+  --cat-side:#3a7a4a;
+  --cat-dessert:#a85870;
+  --cat-snack:#a87030;
+  --cat-drink:#3a6898;
+  --cat-vietnamese:#7a3a78;
 }
 :root[data-theme="dark"]{
-  --bg:#18120a;
-  --card:#22180e;
-  --card-head:#2c2010;
-  --text-1:#e4d0a4;
-  --text-2:#c0a86c;
-  --text-3:#886c4c;
-  --text-4:#584030;
-  --accent:#c07c3a;
-  --accent-warm:#d49850;
-  --border:#382a18;
-  --border-in:#483820;
-  --border-dash:#483824;
-  --sh:0 2px 4px rgba(0,0,0,.3),0 4px 14px rgba(0,0,0,.24);
-  --sh-h:0 4px 8px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.36);
-  --cat-breakfast:#c09040;
-  --cat-main:#b05838;
-  --cat-side:#5a9068;
-  --cat-dessert:#a86080;
-  --cat-snack:#b07038;
-  --cat-drink:#5878b0;
+  --bg:#1c1008;
+  --card:#261808;
+  --text-1:#f0dfc0;
+  --text-2:#d0b890;
+  --text-3:#906848;
+  --text-4:#5c4028;
+  --accent:#c47040;
+  --accent-warm:#d88c58;
+  --border:#3c2818;
+  --sh:0 2px 6px rgba(0,0,0,.28),0 1px 3px rgba(0,0,0,.22);
+  --sh-h:0 6px 20px rgba(0,0,0,.4),0 3px 8px rgba(0,0,0,.32);
+  --cat-breakfast:#c89820;
+  --cat-main:#c05838;
+  --cat-side:#4a9a5a;
+  --cat-dessert:#c06888;
+  --cat-snack:#c08040;
+  --cat-drink:#5888b8;
+  --cat-vietnamese:#a05aa0;
 }
 
 /* ── Base ── */
 body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   background-color:var(--bg);
-  /* linen dot texture */
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Ccircle cx='1.5' cy='1.5' r='.65' fill='rgba(80,55,20,.055)'/%3E%3Ccircle cx='5.5' cy='5.5' r='.65' fill='rgba(80,55,20,.055)'/%3E%3C/svg%3E");
   color:var(--text-2);min-height:100vh;
   transition:background-color .3s,color .3s;
   -webkit-font-smoothing:antialiased;
@@ -72,7 +66,7 @@ body{
   position:sticky;top:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 28px;height:44px;
-  background:var(--card);border-bottom:1.5px solid var(--border);
+  background:var(--bg);border-bottom:1px solid var(--border);
   transition:background .3s,border-color .3s;
 }
 .back-link{
@@ -103,27 +97,20 @@ body{
 /* ── Masthead ── */
 .masthead{
   text-align:center;
-  padding:60px 32px 52px;
-  margin:36px auto 0;max-width:1140px;
-  border-top:3px double var(--border);
-  border-bottom:3px double var(--border);
-}
-.masthead-orn{
-  display:block;color:var(--accent);
-  font-size:.65rem;letter-spacing:8px;opacity:.55;
-  margin-bottom:22px;
+  padding:52px 32px 44px;
+  margin:0 auto;max-width:1140px;
+  border-bottom:1px solid var(--border);
 }
 .masthead-title{
   font-family:Georgia,serif;
-  font-size:clamp(3.2rem,7vw,5.4rem);
+  font-size:clamp(2.8rem,6vw,4.5rem);
   font-style:italic;font-weight:400;
-  color:var(--text-1);line-height:.92;
-  letter-spacing:-2px;margin-bottom:16px;
+  color:var(--text-1);line-height:1;
+  letter-spacing:-1px;margin-bottom:10px;
 }
 .masthead-tag{
-  font-family:Georgia,serif;font-style:italic;
-  font-size:.9rem;color:var(--text-3);margin-bottom:22px;
-  letter-spacing:.4px;
+  font-size:.88rem;color:var(--text-3);
+  font-style:italic;
 }
 
 /* ── Category strip ── */
@@ -147,16 +134,14 @@ body{
   font-family:inherit;white-space:nowrap;
 }
 .cat-pill:hover{color:var(--text-1);border-color:var(--text-3)}
-.cat-pill.active{
-  color:var(--accent-warm);border-color:var(--accent-warm);
-  background:transparent;
-}
-.cat-pill[data-cat="breakfast"].active{color:var(--cat-breakfast);border-color:var(--cat-breakfast)}
-.cat-pill[data-cat="main"].active{color:var(--cat-main);border-color:var(--cat-main)}
-.cat-pill[data-cat="side"].active{color:var(--cat-side);border-color:var(--cat-side)}
-.cat-pill[data-cat="dessert"].active{color:var(--cat-dessert);border-color:var(--cat-dessert)}
-.cat-pill[data-cat="snack"].active{color:var(--cat-snack);border-color:var(--cat-snack)}
-.cat-pill[data-cat="drink"].active{color:var(--cat-drink);border-color:var(--cat-drink)}
+.cat-pill.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.cat-pill[data-cat="breakfast"].active{background:var(--cat-breakfast);border-color:var(--cat-breakfast);color:#fff}
+.cat-pill[data-cat="main"].active{background:var(--cat-main);border-color:var(--cat-main);color:#fff}
+.cat-pill[data-cat="side"].active{background:var(--cat-side);border-color:var(--cat-side);color:#fff}
+.cat-pill[data-cat="dessert"].active{background:var(--cat-dessert);border-color:var(--cat-dessert);color:#fff}
+.cat-pill[data-cat="snack"].active{background:var(--cat-snack);border-color:var(--cat-snack);color:#fff}
+.cat-pill[data-cat="drink"].active{background:var(--cat-drink);border-color:var(--cat-drink);color:#fff}
+.cat-pill[data-cat="vietnamese"].active{background:var(--cat-vietnamese);border-color:var(--cat-vietnamese);color:#fff}
 
 /* ── Page ── */
 .page{max-width:1140px;margin:0 auto;padding:0 28px 100px}
@@ -204,65 +189,48 @@ body{
 /* ── Recipe card ── */
 .recipe-card{
   background:var(--card);
-  border:1.5px solid var(--border);
-  border-radius:4px;
-  padding:4px;
+  border:1px solid var(--border);
+  border-radius:12px;
   cursor:pointer;
   transition:transform .22s,box-shadow .22s;
   box-shadow:var(--sh);
   display:flex;flex-direction:column;
+  overflow:hidden;
 }
 .recipe-card:hover{
-  transform:translateY(-3px) rotate(.2deg);
+  transform:translateY(-4px);
   box-shadow:var(--sh-h);
 }
-/* Inner frame — the double-border effect */
-.card-frame{
-  border:1px solid var(--border-in);
-  border-radius:1px;overflow:hidden;
-  display:flex;flex-direction:column;flex:1;
-}
-/* Card header row */
-.card-top{
-  background:var(--card-head);
-  padding:9px 12px;
+/* Colored category band */
+.card-band{
+  padding:10px 14px;
   display:flex;align-items:center;justify-content:space-between;
-  border-bottom:1px solid var(--border-in);
 }
-.hole-punch{
-  width:12px;height:12px;border-radius:50%;
-  border:1.5px solid var(--border);background:var(--bg);
-  flex-shrink:0;
+.band-cat{
+  font-size:.58rem;letter-spacing:1.8px;text-transform:uppercase;
+  color:rgba(255,255,255,.92);font-weight:600;
 }
-.cat-stamp{
-  display:flex;align-items:center;gap:4px;
-  font-size:.55rem;letter-spacing:1.6px;text-transform:uppercase;font-weight:700;
-}
-.stamp-icon{font-size:.58rem;line-height:1}
-
 /* Card body */
 .card-body{
-  padding:14px 14px 10px;flex:1;background:var(--card);
+  padding:16px 16px 12px;flex:1;
 }
 .card-name{
-  font-family:Georgia,serif;font-size:1.06rem;
-  font-style:italic;color:var(--text-1);
-  margin-bottom:6px;line-height:1.3;
+  font-family:Georgia,serif;font-size:1.05rem;
+  font-weight:400;color:var(--text-1);
+  margin-bottom:7px;line-height:1.3;
 }
 .card-tag{
-  font-family:Georgia,serif;font-size:.78rem;
+  font-size:.78rem;font-style:italic;
   color:var(--text-3);line-height:1.5;
 }
-
 /* Card footer */
 .card-foot{
-  background:var(--card);
-  padding:8px 12px 12px;
-  border-top:1px dashed var(--border-dash);
+  padding:10px 16px 14px;
+  border-top:1px solid var(--border);
   display:flex;align-items:center;gap:8px;
 }
 .cuisine-lbl{
-  font-size:.54rem;letter-spacing:1.3px;text-transform:uppercase;
+  font-size:.56rem;letter-spacing:1.2px;text-transform:uppercase;
   color:var(--text-3);font-weight:600;
 }
 .diff-dots{display:inline-flex;align-items:center;gap:3px;flex-shrink:0}
@@ -273,7 +241,7 @@ body{
 .d-dot.on{background:var(--accent-warm)}
 .card-time{
   font-size:.6rem;color:var(--text-4);
-  margin-left:auto;white-space:nowrap;letter-spacing:.4px;
+  margin-left:auto;white-space:nowrap;
 }
 .heart-btn{
   background:none;border:none;cursor:pointer;
@@ -306,65 +274,55 @@ body{
 
 /* Detail = large recipe card */
 .detail-card{
-  background:var(--card);border:1.5px solid var(--border);
-  border-radius:5px;padding:6px;box-shadow:var(--sh-h);
+  background:var(--card);border:1px solid var(--border);
+  border-radius:14px;overflow:hidden;box-shadow:var(--sh-h);
 }
-.detail-frame{
-  border:1px solid var(--border-in);border-radius:2px;overflow:hidden;
+.detail-band{
+  padding:14px 28px;
+  display:flex;align-items:center;gap:10px;
 }
-.detail-top{
-  background:var(--card-head);padding:13px 28px;
-  display:flex;align-items:center;justify-content:space-between;
-  border-bottom:1.5px solid var(--border-in);
-}
-.detail-hole{
-  width:16px;height:16px;border-radius:50%;
-  border:1.5px solid var(--border);background:var(--bg);
-}
-.detail-stamp{
-  display:flex;align-items:center;gap:6px;
-  font-size:.6rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;
+.detail-band-cat{
+  font-size:.62rem;letter-spacing:1.8px;text-transform:uppercase;
+  color:rgba(255,255,255,.92);font-weight:600;
 }
 .detail-head-section{
-  padding:32px 36px 0;
-  border-bottom:1px solid var(--border-in);
-  padding-bottom:28px;
+  padding:28px 32px 24px;
+  border-bottom:1px solid var(--border);
 }
 .detail-title{
   font-family:Georgia,serif;
   font-size:clamp(1.8rem,3.5vw,2.8rem);
-  font-style:italic;font-weight:400;color:var(--text-1);
-  line-height:1.05;letter-spacing:-.5px;margin-bottom:10px;
+  font-weight:400;color:var(--text-1);
+  line-height:1.05;letter-spacing:-.5px;margin-bottom:8px;
 }
 .detail-tagline{
-  font-family:Georgia,serif;font-style:italic;
-  font-size:.95rem;color:var(--text-3);margin-bottom:14px;
+  font-style:italic;
+  font-size:.92rem;color:var(--text-3);margin-bottom:12px;
 }
 .detail-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:0}
 .badge{
-  font-size:.54rem;letter-spacing:1.2px;text-transform:uppercase;
-  color:var(--text-3);border:1px solid var(--border-in);
-  padding:3px 8px;border-radius:1px;
+  font-size:.56rem;letter-spacing:1px;text-transform:uppercase;
+  color:var(--text-3);border:1px solid var(--border);
+  padding:3px 9px;border-radius:20px;
 }
-/* Ornamental divider */
+/* Section divider */
 .orn-rule{
   display:flex;align-items:center;gap:14px;
-  padding:0 36px;margin:24px 0;
-  color:var(--accent);font-size:.62rem;letter-spacing:6px;opacity:.45;
+  padding:0 32px;margin:20px 0;
 }
 .orn-rule::before,.orn-rule::after{
-  content:'';flex:1;height:1px;background:var(--border-in);
+  content:'';flex:1;height:1px;background:var(--border);
 }
 .detail-body{
   display:grid;grid-template-columns:2fr 1fr;gap:0;
 }
 @media(max-width:640px){.detail-body{grid-template-columns:1fr}}
 .detail-main{
-  padding:28px 36px 36px;
-  border-right:1px solid var(--border-in);
+  padding:28px 32px 36px;
+  border-right:1px solid var(--border);
 }
-@media(max-width:640px){.detail-main{border-right:none;border-bottom:1px solid var(--border-in);padding:24px 20px}}
-.detail-sidebar{padding:28px 28px 36px}
+@media(max-width:640px){.detail-main{border-right:none;border-bottom:1px solid var(--border);padding:24px 20px}}
+.detail-sidebar{padding:28px 24px 36px}
 @media(max-width:640px){.detail-sidebar{padding:24px 20px}}
 
 .detail-desc{
@@ -373,54 +331,55 @@ body{
 .det-section{margin-bottom:24px}
 .det-label{
   font-size:.56rem;letter-spacing:2px;text-transform:uppercase;
-  color:var(--accent-warm);margin-bottom:10px;font-weight:600;
+  color:var(--accent);margin-bottom:10px;font-weight:600;
   display:flex;align-items:center;gap:10px;
 }
-.det-label::after{content:'';flex:1;height:1px;background:var(--border-in)}
+.det-label::after{content:'';flex:1;height:1px;background:var(--border)}
 .ing-list{list-style:none}
 .ing-list li{
   font-size:.84rem;color:var(--text-2);
-  padding:5px 0 5px 14px;position:relative;
-  line-height:1.6;border-bottom:1px solid var(--border-in);
+  padding:6px 0 6px 14px;position:relative;
+  line-height:1.6;border-bottom:1px solid var(--border);
 }
 .ing-list li:last-child{border-bottom:none}
 .ing-list li::before{
-  content:'';position:absolute;left:0;top:12px;
+  content:'';position:absolute;left:0;top:13px;
   width:5px;height:5px;border-radius:50%;
-  background:var(--accent-warm);opacity:.5;
+  background:var(--accent-warm);opacity:.6;
 }
 .step-list{list-style:none;counter-reset:steps}
 .step-list li{
   font-size:.84rem;color:var(--text-2);
-  padding:7px 0 7px 28px;position:relative;
+  padding:8px 0 8px 28px;position:relative;
   line-height:1.8;counter-increment:steps;
-  border-bottom:1px solid var(--border-in);
+  border-bottom:1px solid var(--border);
 }
 .step-list li:last-child{border-bottom:none}
 .step-list li::before{
-  content:counter(steps);position:absolute;left:0;top:7px;
+  content:counter(steps);position:absolute;left:0;top:8px;
   font-family:Georgia,serif;font-style:italic;font-size:.8rem;
   color:var(--accent-warm);width:20px;text-align:center;
 }
 .tips-wrap{
-  padding:12px 14px;
-  border:1px dashed var(--border-dash);border-radius:2px;
+  padding:12px 16px;
+  background:rgba(168,85,42,.06);
+  border-left:3px solid var(--accent-warm);border-radius:0 8px 8px 0;
 }
 .tips-text{
-  font-family:Georgia,serif;font-style:italic;
+  font-style:italic;
   font-size:.82rem;color:var(--text-3);line-height:1.8;
 }
-/* Sidebar sticky inner */
+/* Sidebar */
 .sb-inner{position:sticky;top:calc(44px + 47px + 24px)}
 .sb-label{
   font-size:.54rem;letter-spacing:2px;text-transform:uppercase;
-  color:var(--accent-warm);margin-bottom:10px;font-weight:600;
+  color:var(--accent);margin-bottom:10px;font-weight:600;
   display:flex;align-items:center;gap:10px;
 }
-.sb-label::after{content:'';flex:1;height:1px;background:var(--border-in)}
+.sb-label::after{content:'';flex:1;height:1px;background:var(--border)}
 .sb-stat{
   display:flex;justify-content:space-between;
-  padding:8px 0;border-bottom:1px solid var(--border-in);font-size:.78rem;
+  padding:8px 0;border-bottom:1px solid var(--border);font-size:.78rem;
 }
 .sb-stat:last-of-type{border-bottom:none}
 .sb-key{color:var(--text-3);text-transform:capitalize}
@@ -428,12 +387,12 @@ body{
 .save-btn{
   display:flex;align-items:center;justify-content:center;gap:6px;
   margin-top:16px;padding:10px;width:100%;
-  border:1px solid var(--border);border-radius:2px;
+  border:1px solid var(--border);border-radius:8px;
   background:none;font-size:.56rem;letter-spacing:1.2px;text-transform:uppercase;
   color:var(--text-3);cursor:pointer;transition:all .2s;font-family:inherit;
 }
 .save-btn:hover{border-color:var(--accent-warm);color:var(--accent-warm)}
-.save-btn.saved{border-color:var(--accent-warm);color:var(--accent-warm);background:var(--card-head)}
+.save-btn.saved{border-color:var(--accent-warm);color:var(--accent-warm);background:rgba(196,120,74,.08)}
 
 /* ── Footer ── */
 .page-footer{
@@ -472,10 +431,8 @@ body{
 <div class="catalog-view" id="catalogView">
 
   <div class="masthead">
-    <span class="masthead-orn">&#10022;&ensp;&#10022;&ensp;&#10022;</span>
     <h1 class="masthead-title">From Scratch</h1>
     <p class="masthead-tag">a collection of recipes made with care</p>
-    <span class="masthead-orn">&#10022;&ensp;&#10022;&ensp;&#10022;</span>
   </div>
 
   <div class="cat-wrap">
@@ -486,8 +443,9 @@ body{
       <button class="cat-pill"        data-cat="side"      onclick="setCat('side',this)">Side</button>
       <button class="cat-pill"        data-cat="dessert"   onclick="setCat('dessert',this)">Dessert</button>
       <button class="cat-pill"        data-cat="snack"     onclick="setCat('snack',this)">Snack</button>
-      <button class="cat-pill"        data-cat="drink"     onclick="setCat('drink',this)">Drink</button>
-      <button class="cat-pill"        data-cat="saved"     onclick="setCat('saved',this)">&#9825;&thinsp;Saved</button>
+      <button class="cat-pill"        data-cat="drink"      onclick="setCat('drink',this)">Drink</button>
+      <button class="cat-pill"        data-cat="vietnamese" onclick="setCat('vietnamese',this)">Vietnamese</button>
+      <button class="cat-pill"        data-cat="saved"      onclick="setCat('saved',this)">&#9825;&thinsp;Saved</button>
     </div>
   </div>
 
@@ -506,6 +464,7 @@ body{
         <option value="french">French</option>
         <option value="american">American</option>
         <option value="mexican">Mexican</option>
+        <option value="vietnamese">Vietnamese</option>
         <option value="other">Other</option>
       </select>
       <select class="filter-select" id="difficultyFilter" onchange="applyFilters()">
@@ -541,10 +500,7 @@ const CAT_COLORS = {
   breakfast:'var(--cat-breakfast)', main:'var(--cat-main)',
   side:'var(--cat-side)',           dessert:'var(--cat-dessert)',
   snack:'var(--cat-snack)',         drink:'var(--cat-drink)',
-};
-const CAT_ICONS = {
-  breakfast:'\u25CE', main:'\u25C6', side:'\u25C7',
-  dessert:'\u2726',   snack:'\u25CA', drink:'\u25CB',
+  vietnamese:'var(--cat-vietnamese)',
 };
 
 let allRecipes = [], activeCat = 'all', savedIds = new Set(), searchTimer = null;
@@ -610,6 +566,7 @@ function applyFilters(){
   const dif=document.getElementById('difficultyFilter').value;
   const out=allRecipes.filter(r=>{
     if(activeCat==='saved'){if(!savedIds.has(r.id))return false;}
+    else if(activeCat==='vietnamese'){if(r.cuisine!=='vietnamese')return false;}
     else if(activeCat!=='all'){if(r.category!==activeCat)return false;}
     if(cui&&r.cuisine!==cui)return false;
     if(dif&&r.difficulty!==dif)return false;
@@ -644,28 +601,22 @@ function renderCards(list){
   }
   g.innerHTML=list.map((r,i)=>{
     const col=CAT_COLORS[r.category]||'var(--accent-warm)';
-    const ico=CAT_ICONS[r.category]||'\u25C6';
     const sv=savedIds.has(r.id);
     const tot=r.prep_time_min+r.cook_time_min;
     return `<div class="recipe-card card-in" style="animation-delay:${i*.035}s" onclick="showDetail(${r.id})">
-      <div class="card-frame">
-        <div class="card-top">
-          <span class="hole-punch"></span>
-          <span class="cat-stamp" style="color:${col}">
-            <span class="stamp-icon">${ico}</span>${r.category}
-          </span>
-        </div>
-        <div class="card-body">
-          <div class="card-name">${r.name}</div>
-          <div class="card-tag">${r.tagline}</div>
-        </div>
-        <div class="card-foot">
-          <span class="cuisine-lbl">${r.cuisine}</span>
-          <span class="diff-dots">${diffDots(r.difficulty)}</span>
-          <span class="card-time">${fmtTime(tot)}</span>
-          <button class="heart-btn${sv?' saved':''}" data-id="${r.id}"
-            onclick="toggleFavorite(${r.id},event)">${sv?'&#9829;':'&#9825;'}</button>
-        </div>
+      <div class="card-band" style="background:${col}">
+        <span class="band-cat">${r.category}</span>
+        <button class="heart-btn${sv?' saved':''}" data-id="${r.id}"
+          onclick="toggleFavorite(${r.id},event)" style="color:rgba(255,255,255,${sv?'1':'.6'})">${sv?'&#9829;':'&#9825;'}</button>
+      </div>
+      <div class="card-body">
+        <div class="card-name">${r.name}</div>
+        <div class="card-tag">${r.tagline}</div>
+      </div>
+      <div class="card-foot">
+        <span class="cuisine-lbl">${r.cuisine}</span>
+        <span class="diff-dots">${diffDots(r.difficulty)}</span>
+        <span class="card-time">${fmtTime(tot)}</span>
       </div>
     </div>`;
   }).join('');
@@ -675,7 +626,6 @@ function renderCards(list){
 function showDetail(id){
   const r=allRecipes.find(x=>x.id===id); if(!r)return;
   const col=CAT_COLORS[r.category]||'var(--accent-warm)';
-  const ico=CAT_ICONS[r.category]||'\u25C6';
   const sv=savedIds.has(r.id);
   const ings=r.ingredients.split('\n').map(l=>l.replace(/^-\s*/,'').trim()).filter(Boolean);
   const steps=r.instructions.split('\n').map(l=>l.replace(/^\d+\.\s*/,'').trim()).filter(Boolean);
@@ -688,17 +638,15 @@ function showDetail(id){
 
   document.getElementById('detailContent').innerHTML=`
     <div class="detail-card">
-      <div class="detail-frame">
-        <div class="detail-top">
-          <span class="detail-hole"></span>
-          <span class="detail-stamp" style="color:${col}"><span>${ico}</span>${r.category}</span>
-        </div>
-        <div class="detail-head-section">
+      <div class="detail-band" style="background:${col}">
+        <span class="detail-band-cat">${r.category}</span>
+      </div>
+      <div class="detail-head-section">
           <h1 class="detail-title">${r.name}</h1>
           <p class="detail-tagline">${r.tagline}</p>
           ${dBadges?'<div class="detail-badges">'+dBadges+'</div>':''}
         </div>
-        <div class="orn-rule">&#10022;&ensp;&#10022;&ensp;&#10022;</div>
+        <div class="orn-rule"></div>
         <div class="detail-body">
           <div class="detail-main">
             <p class="detail-desc">${r.description}</p>
