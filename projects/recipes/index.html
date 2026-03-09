@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>From Scratch — Recipe Index</title>
-<meta name="description" content="A personal recipe index — ~37 dishes filterable by cuisine, meal type, and ingredients.">
+<meta name="description" content="A personal Vietnamese recipe index — 38 dishes from Northern, Central, and Southern Vietnam.">
 <meta name="theme-color" content="#ede8dc">
 <meta property="og:title" content="From Scratch — Recipe Index">
 <meta property="og:url" content="https://annalinhvu.github.io/portfolio/projects/recipes/">
@@ -471,7 +471,6 @@ body{
       <button class="cat-pill"        data-cat="dessert"   onclick="setCat('dessert',this)">Dessert</button>
       <button class="cat-pill"        data-cat="snack"     onclick="setCat('snack',this)">Snack</button>
       <button class="cat-pill"        data-cat="drink"      onclick="setCat('drink',this)">Drink</button>
-      <button class="cat-pill"        data-cat="vietnamese" onclick="setCat('vietnamese',this)">Vietnamese</button>
       <button class="cat-pill"        data-cat="saved"      onclick="setCat('saved',this)">&#9825;&thinsp;Saved</button>
     </div>
   </div>
@@ -484,15 +483,10 @@ body{
           placeholder="Search recipes, ingredients..." oninput="onSearch()">
       </div>
       <select class="filter-select" id="cuisineFilter" onchange="applyFilters()">
-        <option value="">All cuisines</option>
-        <option value="italian">Italian</option>
-        <option value="japanese">Japanese</option>
-        <option value="korean">Korean</option>
-        <option value="french">French</option>
-        <option value="american">American</option>
-        <option value="mexican">Mexican</option>
-        <option value="vietnamese">Vietnamese</option>
-        <option value="other">Other</option>
+        <option value="">All regions</option>
+        <option value="northern">Northern</option>
+        <option value="central">Central</option>
+        <option value="southern">Southern</option>
       </select>
       <select class="filter-select" id="difficultyFilter" onchange="applyFilters()">
         <option value="">Any difficulty</option>
@@ -588,7 +582,6 @@ function applyFilters(){
   const dif=document.getElementById('difficultyFilter').value;
   const out=allRecipes.filter(r=>{
     if(activeCat==='saved'){if(!savedIds.has(r.id))return false;}
-    else if(activeCat==='vietnamese'){if(r.cuisine!=='vietnamese')return false;}
     else if(activeCat!=='all'){if(r.category!==activeCat)return false;}
     if(cui&&r.cuisine!==cui)return false;
     if(dif&&r.difficulty!==dif)return false;
@@ -688,7 +681,7 @@ function showDetail(id){
               <div class="sb-stat"><span class="sb-key">Total</span><span class="sb-val">${fmtTime(tot)}</span></div>
               <div class="sb-stat"><span class="sb-key">Serves</span><span class="sb-val">${r.servings}</span></div>
               <div class="sb-stat"><span class="sb-key">Difficulty</span><span class="sb-val">${r.difficulty}</span></div>
-              <div class="sb-stat"><span class="sb-key">Cuisine</span><span class="sb-val">${r.cuisine}</span></div>
+              <div class="sb-stat"><span class="sb-key">Region</span><span class="sb-val">${r.cuisine}</span></div>
               <div class="sb-stat"><span class="sb-key">Source</span><span class="sb-val">${r.source}</span></div>
               <button class="save-btn${sv?' saved':''}" id="detailSaveBtn" data-id="${r.id}"
                 onclick="toggleFavorite(${r.id},event)">
