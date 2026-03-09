@@ -4,52 +4,38 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>From Scratch — Recipe Index</title>
-<meta name="description" content="A personal Vietnamese recipe index — 38 dishes from Northern, Central, and Southern Vietnam.">
-<meta name="theme-color" content="#ede8dc">
+<meta name="description" content="A personal Vietnamese recipe index — 100 dishes from Northern, Central, and Southern Vietnam.">
+<meta name="theme-color" content="#c41c1c">
 <meta property="og:title" content="From Scratch — Recipe Index">
 <meta property="og:url" content="https://annalinhvu.github.io/portfolio/projects/recipes/">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root[data-theme="light"]{
-  --bg:#f6ede0;
-  --card:#fffdf8;
-  --text-1:#2c1a0e;
-  --text-2:#4a3020;
-  --text-3:#7a5a42;
-  --text-4:#b09070;
-  --accent:#a8552a;
-  --accent-warm:#c4784a;
-  --border:#e4d0b8;
-  --sh:0 2px 6px rgba(80,40,10,.07),0 1px 3px rgba(80,40,10,.05);
-  --sh-h:0 6px 20px rgba(80,40,10,.13),0 3px 8px rgba(80,40,10,.09);
-  --cat-breakfast:#b8880a;
-  --cat-main:#a8452a;
-  --cat-side:#3a7a4a;
-  --cat-dessert:#a85870;
-  --cat-snack:#a87030;
-  --cat-drink:#3a6898;
-  --cat-vietnamese:#7a3a78;
+  --bg:#faf5ec;
+  --card:#ffffff;
+  --text-1:#1a0808;
+  --text-2:#3a1818;
+  --text-3:#7a4848;
+  --text-4:#b09898;
+  --accent:#c41c1c;
+  --accent-warm:#e03030;
+  --border:#e8d4cc;
+  --sh:0 1px 3px rgba(80,0,0,.07),0 0 0 1px rgba(80,0,0,.05);
+  --sh-h:0 4px 16px rgba(80,0,0,.12),0 1px 4px rgba(80,0,0,.08);
 }
 :root[data-theme="dark"]{
-  --bg:#1c1008;
-  --card:#261808;
-  --text-1:#f0dfc0;
-  --text-2:#d0b890;
-  --text-3:#906848;
-  --text-4:#5c4028;
-  --accent:#c47040;
-  --accent-warm:#d88c58;
-  --border:#3c2818;
-  --sh:0 2px 6px rgba(0,0,0,.28),0 1px 3px rgba(0,0,0,.22);
-  --sh-h:0 6px 20px rgba(0,0,0,.4),0 3px 8px rgba(0,0,0,.32);
-  --cat-breakfast:#c89820;
-  --cat-main:#c05838;
-  --cat-side:#4a9a5a;
-  --cat-dessert:#c06888;
-  --cat-snack:#c08040;
-  --cat-drink:#5888b8;
-  --cat-vietnamese:#a05aa0;
+  --bg:#130808;
+  --card:#200c0c;
+  --text-1:#f5e0d8;
+  --text-2:#d8b0a8;
+  --text-3:#a07070;
+  --text-4:#5c3838;
+  --accent:#e02828;
+  --accent-warm:#f04848;
+  --border:#3c1818;
+  --sh:0 2px 8px rgba(0,0,0,.3),0 1px 3px rgba(0,0,0,.22);
+  --sh-h:0 6px 20px rgba(0,0,0,.45),0 3px 8px rgba(0,0,0,.3);
 }
 
 /* ── Base ── */
@@ -66,75 +52,60 @@ body{
   position:sticky;top:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 28px;height:44px;
-  background:var(--bg);border-bottom:1px solid var(--border);
-  transition:background .3s,border-color .3s;
+  background:var(--bg);border-bottom:2px solid var(--accent);
+  transition:background .3s;
 }
 .back-link{
-  font-size:.58rem;letter-spacing:1.4px;text-transform:uppercase;
+  font-size:.56rem;letter-spacing:1.6px;text-transform:uppercase;font-weight:600;
   color:var(--text-4);text-decoration:none;transition:color .2s;
 }
-.back-link:hover{color:var(--text-2)}
+.back-link:hover{color:var(--accent)}
 .topbar-brand{
-  font-family:Georgia,serif;font-style:italic;
-  font-size:.95rem;color:var(--text-3);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-weight:800;font-size:.88rem;letter-spacing:-0.5px;
+  color:var(--accent);text-transform:uppercase;
   position:absolute;left:50%;transform:translateX(-50%);
 }
 .topbar-right{display:flex;align-items:center;gap:4px}
 .saved-btn{
   display:inline-flex;align-items:center;gap:4px;
   padding:4px 10px;border-radius:2px;
-  border:1px solid var(--border);background:none;
-  font-size:.62rem;letter-spacing:.5px;color:var(--text-4);
-  cursor:pointer;transition:all .2s;font-family:inherit;
+  border:1.5px solid var(--border);background:none;
+  font-size:.6rem;letter-spacing:.5px;color:var(--text-4);
+  cursor:pointer;transition:all .2s;font-family:inherit;font-weight:600;
 }
-.saved-btn:hover,.saved-btn.has-saved{color:var(--accent-warm);border-color:var(--accent-warm)}
+.saved-btn:hover,.saved-btn.has-saved{color:var(--accent);border-color:var(--accent)}
 .theme-btn{
   background:none;border:none;cursor:pointer;
   font-size:.85rem;color:var(--text-4);padding:4px 8px;transition:color .2s;
 }
-.theme-btn:hover{color:var(--text-2)}
+.theme-btn:hover{color:var(--accent)}
 
 /* ── Masthead ── */
 .masthead{
   background:var(--accent);
   padding:48px 32px 44px;
   text-align:center;
-  position:relative;overflow:hidden;
-  border-bottom:3px solid rgba(0,0,0,.1);
+  border-bottom:5px solid rgba(0,0,0,.18);
 }
-:root[data-theme="dark"] .masthead{background:#5a2810}
-.masthead::before{
-  content:'';position:absolute;inset:0;
-  background-image:radial-gradient(circle,rgba(255,255,255,.1) 1.5px,transparent 1.5px);
-  background-size:24px 24px;pointer-events:none;
-}
-.masthead-label{
-  display:inline-block;
-  border:2px solid rgba(255,255,255,.45);
-  padding:20px 52px;
-  position:relative;z-index:1;
-}
-.masthead-label::before{
-  content:'';position:absolute;inset:6px;
-  border:1px solid rgba(255,255,255,.22);
-  pointer-events:none;
-}
+:root[data-theme="dark"] .masthead{background:#a81414}
 .masthead-eyebrow{
-  font-size:.5rem;letter-spacing:3.5px;text-transform:uppercase;
-  color:rgba(255,255,255,.65);margin-bottom:8px;
+  font-size:.48rem;letter-spacing:3.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.52);margin-bottom:10px;
 }
 .masthead-title{
-  font-family:Georgia,serif;
-  font-size:1.75rem;
-  font-style:normal;font-weight:400;
-  color:#fff;line-height:1;
-  letter-spacing:6px;text-transform:uppercase;
-  margin-bottom:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:clamp(2.6rem,7vw,5rem);
+  font-weight:900;
+  color:#fff;line-height:.92;
+  letter-spacing:-3px;text-transform:uppercase;
+  margin-bottom:12px;
 }
 .masthead-tag{
-  font-size:.52rem;letter-spacing:2.5px;text-transform:uppercase;
-  color:rgba(255,255,255,.58);
-  font-style:normal;margin-top:10px;
+  font-family:Georgia,serif;font-style:italic;
+  font-size:.88rem;
+  color:rgba(255,255,255,.6);
+  letter-spacing:.5px;
 }
 
 /* ── Category strip ── */
@@ -146,15 +117,15 @@ body{
 }
 .cat-wrap::-webkit-scrollbar{display:none}
 .cat-strip{
-  display:flex;gap:8px;padding:11px 28px;
+  display:flex;gap:6px;padding:10px 28px;
   min-width:max-content;
 }
 .cat-pill{
   padding:5px 13px;border-radius:2px;
-  border:1px solid var(--border);
+  border:1.5px solid var(--border);
   background:none;
-  font-size:.58rem;letter-spacing:1.4px;text-transform:uppercase;
-  color:var(--text-3);cursor:pointer;transition:all .18s;
+  font-size:.54rem;letter-spacing:1.8px;text-transform:uppercase;font-weight:700;
+  color:var(--text-3);cursor:pointer;transition:all .15s;
   font-family:inherit;white-space:nowrap;
 }
 .cat-pill:hover{color:var(--accent);border-color:var(--accent)}
@@ -164,7 +135,7 @@ body{
 .page{max-width:1140px;margin:0 auto;padding:0 28px 100px}
 
 .filter-row{
-  display:flex;gap:8px;padding:16px 0;
+  display:flex;gap:8px;padding:14px 0;
   border-bottom:1px solid var(--border);
   align-items:center;flex-wrap:wrap;
 }
@@ -175,7 +146,7 @@ body{
 }
 .search-input{
   width:100%;padding:8px 12px 8px 28px;border-radius:2px;
-  border:1px solid var(--border);background:var(--card);
+  border:1.5px solid var(--border);background:var(--card);
   font-size:.78rem;color:var(--text-2);font-family:inherit;
   transition:border-color .2s;
 }
@@ -183,22 +154,22 @@ body{
 .search-input:focus{outline:none;border-color:var(--accent)}
 .filter-select{
   padding:8px 26px 8px 10px;border-radius:2px;
-  border:1px solid var(--border);background:var(--card);
+  border:1.5px solid var(--border);background:var(--card);
   font-size:.74rem;color:var(--text-2);font-family:inherit;
   cursor:pointer;-webkit-appearance:none;appearance:none;
-  background-image:url("data:image/svg+xml,%3Csvg width='9' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l4.5 5L9 0z' fill='%238a7460'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg width='9' height='5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l4.5 5L9 0z' fill='%23a07070'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 8px center;
   transition:border-color .2s;
 }
 .filter-select:focus{outline:none;border-color:var(--accent)}
 .result-count{
-  padding:14px 0 6px;font-size:.58rem;
-  letter-spacing:1.6px;text-transform:uppercase;color:var(--text-4);
+  padding:14px 0 6px;font-size:.56rem;
+  letter-spacing:1.8px;text-transform:uppercase;color:var(--text-4);font-weight:600;
 }
 
 /* ── Card grid ── */
 .card-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
 }
 @media(max-width:960px){.card-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:540px){.card-grid{grid-template-columns:1fr}}
@@ -207,72 +178,56 @@ body{
 .recipe-card{
   background:var(--card);
   border:1px solid var(--border);
-  border-radius:16px;
+  border-left:4px solid var(--accent);
+  border-radius:2px;
   cursor:pointer;
-  transition:transform .22s,box-shadow .22s;
+  transition:transform .18s,box-shadow .18s;
   box-shadow:var(--sh);
   display:flex;flex-direction:column;
-  overflow:hidden;
 }
 .recipe-card:hover{
-  transform:translateY(-5px);
+  transform:translateY(-3px);
   box-shadow:var(--sh-h);
 }
-/* Colored category band */
-.card-band{
-  padding:11px 15px;
+.card-top{
+  padding:13px 15px 0;
   display:flex;align-items:center;justify-content:space-between;
-  position:relative;
 }
-.card-band::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,.14) 0%,transparent 55%);
-  pointer-events:none;
+.card-cat{
+  font-size:.5rem;letter-spacing:2px;text-transform:uppercase;
+  color:var(--accent);font-weight:700;
 }
-.band-cat{
-  font-size:.58rem;letter-spacing:1.8px;text-transform:uppercase;
-  color:rgba(255,255,255,.92);font-weight:600;
+.card-time-top{
+  font-size:.54rem;color:var(--text-4);
 }
-/* Card body */
 .card-body{
-  padding:16px 16px 12px;flex:1;
+  padding:8px 15px 10px;flex:1;
 }
 .card-name{
-  font-family:Georgia,serif;font-size:1.05rem;
+  font-family:Georgia,serif;font-size:1.02rem;
   font-weight:400;color:var(--text-1);
-  margin-bottom:7px;line-height:1.3;
+  margin-bottom:5px;line-height:1.25;
 }
 .card-tag{
-  font-size:.78rem;font-style:italic;
+  font-size:.76rem;font-style:italic;
   color:var(--text-3);line-height:1.5;
 }
-/* Card footer */
 .card-foot{
-  padding:10px 16px 14px;
+  padding:9px 15px 12px;
   border-top:1px solid var(--border);
-  display:flex;align-items:center;gap:8px;
+  display:flex;align-items:center;justify-content:space-between;
 }
 .cuisine-lbl{
-  font-size:.56rem;letter-spacing:1.2px;text-transform:uppercase;
-  color:var(--text-3);font-weight:600;
-}
-.diff-dots{display:inline-flex;align-items:center;gap:3px;flex-shrink:0}
-.d-dot{
-  width:6px;height:6px;border-radius:50%;
-  border:1.5px solid var(--accent-warm);
-}
-.d-dot.on{background:var(--accent-warm)}
-.card-time{
-  font-size:.6rem;color:var(--text-4);
-  margin-left:auto;white-space:nowrap;
+  font-size:.5rem;letter-spacing:1.4px;text-transform:uppercase;
+  color:var(--text-4);font-weight:600;
 }
 .heart-btn{
   background:none;border:none;cursor:pointer;
   font-size:.88rem;line-height:1;padding:2px;
   color:var(--text-4);transition:all .18s;flex-shrink:0;
 }
-.heart-btn:hover{color:var(--accent-warm);transform:scale(1.2)}
-.heart-btn.saved{color:var(--accent-warm)}
+.heart-btn:hover{color:var(--accent);transform:scale(1.2)}
+.heart-btn.saved{color:var(--accent)}
 
 /* ── Empty state ── */
 .empty-state{
@@ -289,28 +244,24 @@ body{
 /* ── Detail ── */
 .detail-back{
   display:inline-flex;align-items:center;gap:5px;
-  font-size:.56rem;letter-spacing:1.4px;text-transform:uppercase;
+  font-size:.54rem;letter-spacing:1.6px;text-transform:uppercase;font-weight:600;
   color:var(--text-4);cursor:pointer;padding:20px 0 14px;
   transition:color .2s;background:none;border:none;font-family:inherit;
 }
-.detail-back:hover{color:var(--text-2)}
+.detail-back:hover{color:var(--accent)}
 
-/* Detail = large recipe card */
 .detail-card{
   background:var(--card);border:1px solid var(--border);
-  border-radius:14px;overflow:hidden;box-shadow:var(--sh-h);
-}
-.detail-band{
-  padding:14px 28px;
-  display:flex;align-items:center;gap:10px;
-}
-.detail-band-cat{
-  font-size:.62rem;letter-spacing:1.8px;text-transform:uppercase;
-  color:rgba(255,255,255,.92);font-weight:600;
+  border-left:5px solid var(--accent);
+  border-radius:3px;overflow:hidden;box-shadow:var(--sh-h);
 }
 .detail-head-section{
   padding:28px 32px 24px;
   border-bottom:1px solid var(--border);
+}
+.detail-cat-label{
+  font-size:.5rem;letter-spacing:2px;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:12px;
 }
 .detail-title{
   font-family:Georgia,serif;
@@ -324,9 +275,9 @@ body{
 }
 .detail-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:0}
 .badge{
-  font-size:.56rem;letter-spacing:1px;text-transform:uppercase;
-  color:var(--text-3);border:1px solid var(--border);
-  padding:3px 9px;border-radius:20px;
+  font-size:.54rem;letter-spacing:1px;text-transform:uppercase;
+  color:var(--accent);border:1.5px solid var(--accent);
+  padding:3px 9px;border-radius:2px;opacity:.7;
 }
 /* Section divider */
 .orn-rule{
@@ -353,8 +304,8 @@ body{
 }
 .det-section{margin-bottom:24px}
 .det-label{
-  font-size:.56rem;letter-spacing:2px;text-transform:uppercase;
-  color:var(--accent);margin-bottom:10px;font-weight:600;
+  font-size:.52rem;letter-spacing:2px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:10px;font-weight:700;
   display:flex;align-items:center;gap:10px;
 }
 .det-label::after{content:'';flex:1;height:1px;background:var(--border)}
@@ -368,7 +319,7 @@ body{
 .ing-list li::before{
   content:'';position:absolute;left:0;top:13px;
   width:5px;height:5px;border-radius:50%;
-  background:var(--accent-warm);opacity:.6;
+  background:var(--accent);opacity:.5;
 }
 .step-list{list-style:none;counter-reset:steps}
 .step-list li{
@@ -381,22 +332,22 @@ body{
 .step-list li::before{
   content:counter(steps);position:absolute;left:0;top:8px;
   font-family:Georgia,serif;font-style:italic;font-size:.8rem;
-  color:var(--accent-warm);width:20px;text-align:center;
+  color:var(--accent);width:20px;text-align:center;
 }
 .tips-wrap{
   padding:12px 16px;
-  background:rgba(168,85,42,.06);
-  border-left:3px solid var(--accent-warm);border-radius:0 8px 8px 0;
+  background:rgba(196,28,28,.05);
+  border-left:3px solid var(--accent);border-radius:0 4px 4px 0;
 }
 .tips-text{
   font-style:italic;
   font-size:.82rem;color:var(--text-3);line-height:1.8;
 }
 /* Sidebar */
-.sb-inner{position:sticky;top:calc(44px + 47px + 24px)}
+.sb-inner{position:sticky;top:calc(44px + 45px + 24px)}
 .sb-label{
-  font-size:.54rem;letter-spacing:2px;text-transform:uppercase;
-  color:var(--accent);margin-bottom:10px;font-weight:600;
+  font-size:.52rem;letter-spacing:2px;text-transform:uppercase;
+  color:var(--accent);margin-bottom:10px;font-weight:700;
   display:flex;align-items:center;gap:10px;
 }
 .sb-label::after{content:'';flex:1;height:1px;background:var(--border)}
@@ -410,31 +361,30 @@ body{
 .save-btn{
   display:flex;align-items:center;justify-content:center;gap:6px;
   margin-top:16px;padding:10px;width:100%;
-  border:1px solid var(--border);border-radius:8px;
-  background:none;font-size:.56rem;letter-spacing:1.2px;text-transform:uppercase;
+  border:1.5px solid var(--border);border-radius:2px;
+  background:none;font-size:.54rem;letter-spacing:1.4px;text-transform:uppercase;font-weight:700;
   color:var(--text-3);cursor:pointer;transition:all .2s;font-family:inherit;
 }
-.save-btn:hover{border-color:var(--accent-warm);color:var(--accent-warm)}
-.save-btn.saved{border-color:var(--accent-warm);color:var(--accent-warm);background:rgba(196,120,74,.08)}
+.save-btn:hover{border-color:var(--accent);color:var(--accent)}
+.save-btn.saved{border-color:var(--accent);color:var(--accent);background:rgba(196,28,28,.06)}
 
 /* ── Footer ── */
 .page-footer{
   padding:52px 0 12px;text-align:center;
-  font-size:.56rem;letter-spacing:1.4px;text-transform:uppercase;color:var(--text-4);
+  font-size:.54rem;letter-spacing:1.6px;text-transform:uppercase;color:var(--text-4);font-weight:600;
 }
 .page-footer a{color:var(--text-4);text-decoration:none;transition:color .2s}
-.page-footer a:hover{color:var(--text-2)}
+.page-footer a:hover{color:var(--accent)}
 
 /* ── Animations ── */
 @keyframes cardIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.card-in{animation:cardIn .28s ease forwards}
+.card-in{animation:cardIn .26s ease forwards}
 
 /* ── Responsive ── */
 @media(max-width:540px){
   .topbar,.cat-strip{padding-left:16px;padding-right:16px}
   .page{padding:0 16px 80px}
-  .masthead{padding:36px 16px 32px}
-  .masthead-label{padding:16px 28px}
+  .masthead{padding:36px 20px 32px}
   .detail-head-section,.orn-rule{padding-left:18px;padding-right:18px}
 }
 </style>
@@ -455,11 +405,9 @@ body{
 <div class="catalog-view" id="catalogView">
 
   <div class="masthead">
-    <div class="masthead-label">
-      <p class="masthead-eyebrow">a personal recipe index</p>
-      <h1 class="masthead-title">From Scratch</h1>
-      <p class="masthead-tag">made with care</p>
-    </div>
+    <p class="masthead-eyebrow">a personal recipe index</p>
+    <h1 class="masthead-title">From Scratch</h1>
+    <p class="masthead-tag">100 Vietnamese recipes made with care</p>
   </div>
 
   <div class="cat-wrap">
@@ -516,8 +464,6 @@ body{
 <script>
 const LS_FAV   = 'from-scratch-favorites';
 const LS_THEME = 'from-scratch-theme';
-
-const BAND_COLOR = 'var(--accent)';
 
 let allRecipes = [], activeCat = 'all', savedIds = new Set(), searchTimer = null;
 
@@ -577,7 +523,7 @@ function filterSaved(){
 }
 function onSearch(){ clearTimeout(searchTimer); searchTimer=setTimeout(applyFilters,150); }
 function applyFilters(){
-  const q=( document.getElementById('searchInput').value||'').toLowerCase().trim();
+  const q=(document.getElementById('searchInput').value||'').toLowerCase().trim();
   const cui=document.getElementById('cuisineFilter').value;
   const dif=document.getElementById('difficultyFilter').value;
   const out=allRecipes.filter(r=>{
@@ -597,10 +543,6 @@ function applyFilters(){
 }
 
 /* ── Helpers ── */
-function diffDots(d){
-  const n={easy:1,moderate:2,involved:3}[d]||1;
-  return [0,1,2].map(i=>`<span class="d-dot${i<n?' on':''}"></span>`).join('');
-}
 function fmtTime(m){
   if(!m)return'—';
   if(m>=60){const h=Math.floor(m/60),r=m%60;return h+'h'+(r?'\u2009'+r+'m':'');}
@@ -617,11 +559,10 @@ function renderCards(list){
   g.innerHTML=list.map((r,i)=>{
     const sv=savedIds.has(r.id);
     const tot=r.prep_time_min+r.cook_time_min;
-    return `<div class="recipe-card card-in" style="animation-delay:${i*.035}s" onclick="showDetail(${r.id})">
-      <div class="card-band" style="background:${BAND_COLOR}">
-        <span class="band-cat">${r.category}</span>
-        <button class="heart-btn${sv?' saved':''}" data-id="${r.id}"
-          onclick="toggleFavorite(${r.id},event)" style="color:rgba(255,255,255,${sv?'1':'.6'})">${sv?'&#9829;':'&#9825;'}</button>
+    return `<div class="recipe-card card-in" style="animation-delay:${i*.03}s" onclick="showDetail(${r.id})">
+      <div class="card-top">
+        <span class="card-cat">${r.category}</span>
+        <span class="card-time-top">${fmtTime(tot)}</span>
       </div>
       <div class="card-body">
         <div class="card-name">${r.name}</div>
@@ -629,8 +570,8 @@ function renderCards(list){
       </div>
       <div class="card-foot">
         <span class="cuisine-lbl">${r.cuisine}</span>
-        <span class="diff-dots">${diffDots(r.difficulty)}</span>
-        <span class="card-time">${fmtTime(tot)}</span>
+        <button class="heart-btn${sv?' saved':''}" data-id="${r.id}"
+          onclick="toggleFavorite(${r.id},event)">${sv?'&#9829;':'&#9825;'}</button>
       </div>
     </div>`;
   }).join('');
@@ -651,43 +592,40 @@ function showDetail(id){
 
   document.getElementById('detailContent').innerHTML=`
     <div class="detail-card">
-      <div class="detail-band" style="background:${BAND_COLOR}">
-        <span class="detail-band-cat">${r.category}</span>
-      </div>
       <div class="detail-head-section">
-          <h1 class="detail-title">${r.name}</h1>
-          <p class="detail-tagline">${r.tagline}</p>
-          ${dBadges?'<div class="detail-badges">'+dBadges+'</div>':''}
-        </div>
-        <div class="orn-rule"></div>
-        <div class="detail-body">
-          <div class="detail-main">
-            <p class="detail-desc">${r.description}</p>
-            <div class="det-section">
-              <div class="det-label">Ingredients</div>
-              <ul class="ing-list">${ings.map(i=>`<li>${i}</li>`).join('')}</ul>
-            </div>
-            <div class="det-section">
-              <div class="det-label">Instructions</div>
-              <ol class="step-list">${steps.map(s=>`<li>${s}</li>`).join('')}</ol>
-            </div>
-            ${tipsHtml}
+        <div class="detail-cat-label">${r.category}</div>
+        <h1 class="detail-title">${r.name}</h1>
+        <p class="detail-tagline">${r.tagline}</p>
+        ${dBadges?'<div class="detail-badges">'+dBadges+'</div>':''}
+      </div>
+      <div class="orn-rule"></div>
+      <div class="detail-body">
+        <div class="detail-main">
+          <p class="detail-desc">${r.description}</p>
+          <div class="det-section">
+            <div class="det-label">Ingredients</div>
+            <ul class="ing-list">${ings.map(i=>`<li>${i}</li>`).join('')}</ul>
           </div>
-          <div class="detail-sidebar">
-            <div class="sb-inner">
-              <div class="sb-label">Quick Facts</div>
-              <div class="sb-stat"><span class="sb-key">Prep</span><span class="sb-val">${r.prep_time_min} min</span></div>
-              <div class="sb-stat"><span class="sb-key">Cook</span><span class="sb-val">${r.cook_time_min>0?r.cook_time_min+' min':'—'}</span></div>
-              <div class="sb-stat"><span class="sb-key">Total</span><span class="sb-val">${fmtTime(tot)}</span></div>
-              <div class="sb-stat"><span class="sb-key">Serves</span><span class="sb-val">${r.servings}</span></div>
-              <div class="sb-stat"><span class="sb-key">Difficulty</span><span class="sb-val">${r.difficulty}</span></div>
-              <div class="sb-stat"><span class="sb-key">Region</span><span class="sb-val">${r.cuisine}</span></div>
-              <div class="sb-stat"><span class="sb-key">Source</span><span class="sb-val">${r.source}</span></div>
-              <button class="save-btn${sv?' saved':''}" id="detailSaveBtn" data-id="${r.id}"
-                onclick="toggleFavorite(${r.id},event)">
-                ${sv?'&#9829;&ensp;Saved':'&#9825;&ensp;Save Recipe'}
-              </button>
-            </div>
+          <div class="det-section">
+            <div class="det-label">Instructions</div>
+            <ol class="step-list">${steps.map(s=>`<li>${s}</li>`).join('')}</ol>
+          </div>
+          ${tipsHtml}
+        </div>
+        <div class="detail-sidebar">
+          <div class="sb-inner">
+            <div class="sb-label">Quick Facts</div>
+            <div class="sb-stat"><span class="sb-key">Prep</span><span class="sb-val">${r.prep_time_min} min</span></div>
+            <div class="sb-stat"><span class="sb-key">Cook</span><span class="sb-val">${r.cook_time_min>0?r.cook_time_min+' min':'—'}</span></div>
+            <div class="sb-stat"><span class="sb-key">Total</span><span class="sb-val">${fmtTime(tot)}</span></div>
+            <div class="sb-stat"><span class="sb-key">Serves</span><span class="sb-val">${r.servings}</span></div>
+            <div class="sb-stat"><span class="sb-key">Difficulty</span><span class="sb-val">${r.difficulty}</span></div>
+            <div class="sb-stat"><span class="sb-key">Region</span><span class="sb-val">${r.cuisine}</span></div>
+            <div class="sb-stat"><span class="sb-key">Source</span><span class="sb-val">${r.source}</span></div>
+            <button class="save-btn${sv?' saved':''}" id="detailSaveBtn" data-id="${r.id}"
+              onclick="toggleFavorite(${r.id},event)">
+              ${sv?'&#9829;&ensp;Saved':'&#9825;&ensp;Save Recipe'}
+            </button>
           </div>
         </div>
       </div>
