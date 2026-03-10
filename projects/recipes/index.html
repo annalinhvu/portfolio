@@ -5,37 +5,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cơm Nhà — Recipe Index</title>
 <meta name="description" content="A personal Vietnamese recipe index — 100 dishes from Northern, Central, and Southern Vietnam.">
-<meta name="theme-color" content="#c41c1c">
+<meta name="theme-color" content="#9E1C1C">
 <meta property="og:title" content="Cơm Nhà — Recipe Index">
 <meta property="og:url" content="https://annalinhvu.github.io/portfolio/projects/recipes/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root[data-theme="light"]{
-  --bg:#fdf8ec;
-  --card:#ffffff;
-  --text-1:#1a0808;
-  --text-2:#3a1818;
-  --text-3:#6a3820;
-  --text-4:#aa8858;
-  --accent:#c41c1c;
-  --gold:#c89010;
-  --gold-l:#e4a818;
-  --border:#e4d0a0;
-  --sh:0 1px 3px rgba(80,20,0,.07),0 0 0 1px rgba(80,20,0,.05);
-  --sh-h:0 4px 16px rgba(80,20,0,.13),0 1px 4px rgba(80,20,0,.08);
+  --bg:#F6F1E7;
+  --card:#FFFDF7;
+  --text-1:#1C0808;
+  --text-2:#3A1A0A;
+  --text-3:#6B3820;
+  --text-4:#A88050;
+  --accent:#9E1C1C;
+  --accent-2:#C62828;
+  --gold:#C9A227;
+  --gold-l:#E0B830;
+  --border:rgba(201,162,39,.35);
+  --sh:0 2px 8px rgba(100,20,0,.06),0 1px 3px rgba(100,20,0,.04);
+  --sh-h:0 6px 20px rgba(100,20,0,.13),0 3px 8px rgba(100,20,0,.07);
 }
 :root[data-theme="dark"]{
-  --bg:#110608;
-  --card:#1e0c0a;
-  --text-1:#f8e8c0;
-  --text-2:#d8b880;
-  --text-3:#a07848;
-  --text-4:#6a4828;
-  --accent:#e02828;
-  --gold:#d4a820;
-  --gold-l:#e8c038;
-  --border:#3c1e08;
+  --bg:#130808;
+  --card:#1E0C0A;
+  --text-1:#F8E8C0;
+  --text-2:#D8B880;
+  --text-3:#A07848;
+  --text-4:#6A4828;
+  --accent:#C62828;
+  --accent-2:#E03030;
+  --gold:#C9A227;
+  --gold-l:#E0B830;
+  --border:rgba(201,162,39,.18);
   --sh:0 2px 8px rgba(0,0,0,.3),0 1px 3px rgba(0,0,0,.22);
   --sh-h:0 6px 20px rgba(0,0,0,.45),0 3px 8px rgba(0,0,0,.3);
 }
@@ -65,9 +70,9 @@ body{
 }
 .back-link:hover{color:var(--accent)}
 .topbar-brand{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  font-weight:800;font-size:.88rem;letter-spacing:-.5px;
-  color:var(--accent);text-transform:uppercase;
+  font-family:'Playfair Display',Georgia,serif;
+  font-style:italic;font-weight:700;font-size:1rem;letter-spacing:.5px;
+  color:var(--accent);
   position:absolute;left:50%;transform:translateX(-50%);
 }
 .topbar-right{display:flex;align-items:center;gap:4px}
@@ -93,11 +98,11 @@ body{
   border-bottom:3px solid rgba(0,0,0,.15);
   position:relative;overflow:hidden;
 }
-:root[data-theme="dark"] .masthead{background:#a81414}
+:root[data-theme="dark"] .masthead{background:#7a1212}
 .masthead::before{
   content:'';position:absolute;inset:0;
-  background-image:radial-gradient(circle,rgba(220,168,24,.18) 1.5px,transparent 1.5px);
-  background-size:22px 22px;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='34' fill='none' stroke='%23C9A227' stroke-width='1.5' stroke-opacity='0.22'/%3E%3Ccircle cx='40' cy='40' r='24' fill='none' stroke='%23C9A227' stroke-width='1' stroke-opacity='0.16'/%3E%3Ccircle cx='40' cy='40' r='14' fill='none' stroke='%23C9A227' stroke-width='1' stroke-opacity='0.12'/%3E%3Ccircle cx='40' cy='40' r='4' fill='%23C9A227' fill-opacity='0.14'/%3E%3C/svg%3E");
+  background-size:80px 80px;pointer-events:none;
 }
 .masthead-eyebrow{
   font-size:.46rem;letter-spacing:3px;text-transform:uppercase;
@@ -152,15 +157,15 @@ body{
   min-width:max-content;
 }
 .cat-pill{
-  padding:5px 13px;border-radius:2px;
-  border:1.5px solid var(--border);
+  padding:5px 13px;border-radius:3px;
+  border:1.5px solid var(--gold);
   background:none;
   font-size:.54rem;letter-spacing:1.8px;text-transform:uppercase;font-weight:700;
   color:var(--text-3);cursor:pointer;transition:all .15s;
-  font-family:inherit;white-space:nowrap;
+  font-family:inherit;white-space:nowrap;opacity:.7;
 }
-.cat-pill:hover{color:var(--accent);border-color:var(--accent)}
-.cat-pill.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.cat-pill:hover{color:var(--gold);border-color:var(--gold);opacity:1}
+.cat-pill.active{background:var(--accent);color:#fff;border-color:var(--accent);opacity:1}
 
 /* ── Page ── */
 .page{max-width:1140px;margin:0 auto;padding:0 28px 100px}
@@ -208,9 +213,9 @@ body{
 /* ── Recipe card ── */
 .recipe-card{
   background:var(--card);
-  border:1px solid var(--border);
+  border:1px solid var(--gold);
   border-left:4px solid var(--accent);
-  border-radius:2px;
+  border-radius:6px;
   cursor:pointer;
   transition:transform .18s,box-shadow .18s;
   box-shadow:var(--sh);
@@ -235,9 +240,9 @@ body{
   padding:8px 15px 10px;flex:1;
 }
 .card-name{
-  font-family:Georgia,serif;font-size:1.02rem;
-  font-weight:400;color:var(--text-1);
-  margin-bottom:5px;line-height:1.25;
+  font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;
+  font-weight:700;color:var(--text-1);
+  margin-bottom:5px;line-height:1.22;
 }
 .card-tag{
   font-size:.76rem;font-style:italic;
@@ -290,10 +295,10 @@ body{
 .detail-back:hover{color:var(--accent)}
 
 .detail-card{
-  background:var(--card);border:1px solid var(--border);
+  background:var(--card);border:1px solid var(--gold);
   border-left:5px solid var(--accent);
   border-top:3px solid var(--gold);
-  border-radius:2px;overflow:hidden;box-shadow:var(--sh-h);
+  border-radius:6px;overflow:hidden;box-shadow:var(--sh-h);
 }
 .detail-head-section{
   padding:28px 32px 24px;
@@ -304,9 +309,9 @@ body{
   color:var(--gold);font-weight:700;margin-bottom:12px;
 }
 .detail-title{
-  font-family:Georgia,serif;
+  font-family:'Playfair Display',Georgia,serif;
   font-size:clamp(1.8rem,3.5vw,2.8rem);
-  font-weight:400;color:var(--text-1);
+  font-weight:700;color:var(--text-1);
   line-height:1.05;letter-spacing:-.5px;margin-bottom:8px;
 }
 .detail-tagline{
@@ -415,7 +420,7 @@ body{
   font-size:.52rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-4);font-weight:600;
 }
 .page-footer::before{
-  content:'◆';display:block;color:rgba(200,144,16,.4);font-size:.5rem;margin-bottom:18px;letter-spacing:6px;
+  content:'✦';display:block;color:rgba(201,162,39,.5);font-size:.5rem;margin-bottom:18px;letter-spacing:6px;
 }
 .page-footer a{color:var(--text-4);text-decoration:none;transition:color .2s}
 .page-footer a:hover{color:var(--accent)}
@@ -450,7 +455,7 @@ body{
 <div class="catalog-view" id="catalogView">
 
   <div class="masthead">
-    <div class="mast-rule">&#9670;</div>
+    <div class="mast-rule">&#10022;</div>
     <p class="masthead-tag">100 Vietnamese recipes &mdash; nấu từ đầu</p>
   </div>
 
@@ -659,7 +664,7 @@ function showDetail(id){
         <p class="detail-tagline">${r.tagline}</p>
         ${dBadges?'<div class="detail-badges">'+dBadges+'</div>':''}
       </div>
-      <div class="orn-rule">&#9670;</div>
+      <div class="orn-rule">&#10022;</div>
       <div class="detail-body">
         <div class="detail-main">
           <p class="detail-desc">${r.description}</p>
