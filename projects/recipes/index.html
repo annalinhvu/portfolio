@@ -263,6 +263,31 @@ body{
 .heart-btn:hover{color:var(--gold);transform:scale(1.2)}
 .heart-btn.saved{color:var(--gold)}
 
+/* ── Card photo ── */
+.card-photo{
+  height:140px;position:relative;overflow:hidden;flex-shrink:0;
+}
+.card-photo::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 45%,rgba(0,0,0,.28) 100%);
+  pointer-events:none;
+}
+.card-img{width:100%;height:100%;object-fit:cover;display:block}
+.region-badge{
+  font-size:.5rem;letter-spacing:1.2px;font-style:italic;
+  color:var(--gold);font-weight:600;
+}
+/* ── Detail photo ── */
+.detail-photo{
+  height:240px;position:relative;overflow:hidden;flex-shrink:0;
+}
+.detail-photo::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 35%,rgba(0,0,0,.35) 100%);
+  pointer-events:none;
+}
+.detail-img{width:100%;height:100%;object-fit:cover;display:block}
+
 /* ── Empty state ── */
 .empty-state{
   text-align:center;padding:80px 20px;
@@ -455,14 +480,15 @@ body{
 
   <div class="cat-wrap">
     <div class="cat-strip">
-      <button class="cat-pill active" data-cat="all"       onclick="setCat('all',this)">All</button>
-      <button class="cat-pill"        data-cat="breakfast" onclick="setCat('breakfast',this)">Breakfast</button>
-      <button class="cat-pill"        data-cat="main"      onclick="setCat('main',this)">Main</button>
-      <button class="cat-pill"        data-cat="side"      onclick="setCat('side',this)">Side</button>
-      <button class="cat-pill"        data-cat="dessert"   onclick="setCat('dessert',this)">Dessert</button>
-      <button class="cat-pill"        data-cat="snack"     onclick="setCat('snack',this)">Snack</button>
-      <button class="cat-pill"        data-cat="drink"      onclick="setCat('drink',this)">Drink</button>
-      <button class="cat-pill"        data-cat="saved"      onclick="setCat('saved',this)">&#9825;&thinsp;Saved</button>
+      <button class="cat-pill active" data-cat="all"     onclick="setCat('all',this)">All</button>
+      <button class="cat-pill"        data-cat="noodles" onclick="setCat('noodles',this)">Noodles</button>
+      <button class="cat-pill"        data-cat="rice"    onclick="setCat('rice',this)">Rice</button>
+      <button class="cat-pill"        data-cat="mains"   onclick="setCat('mains',this)">Mains</button>
+      <button class="cat-pill"        data-cat="bánh"    onclick="setCat('bánh',this)">Bánh</button>
+      <button class="cat-pill"        data-cat="sides"   onclick="setCat('sides',this)">Sides</button>
+      <button class="cat-pill"        data-cat="sweets"  onclick="setCat('sweets',this)">Sweets</button>
+      <button class="cat-pill"        data-cat="drinks"  onclick="setCat('drinks',this)">Drinks</button>
+      <button class="cat-pill"        data-cat="saved"   onclick="setCat('saved',this)">&#9825;&thinsp;Saved</button>
     </div>
   </div>
 
@@ -586,6 +612,17 @@ function applyFilters(){
 }
 
 /* ── Helpers ── */
+const CAT_GRAD={
+  noodles:'linear-gradient(160deg,#d4880a,#8b3808)',
+  rice:   'linear-gradient(160deg,#ddb84a,#a07820)',
+  mains:  'linear-gradient(160deg,#8b2810,#c04828)',
+  'bánh': 'linear-gradient(160deg,#c47028,#8b4010)',
+  sides:  'linear-gradient(160deg,#3a7830,#1a5018)',
+  sweets: 'linear-gradient(160deg,#c84878,#8b2848)',
+  drinks: 'linear-gradient(160deg,#1a4878,#3a7898)',
+};
+function catGrad(c){return CAT_GRAD[c]||'linear-gradient(160deg,#888,#444)';}
+function regionLabel(c){return{northern:'Miền Bắc',central:'Miền Trung',southern:'Miền Nam'}[c]||c;}
 function diffStars(d){
   const n={easy:1,moderate:2,involved:3}[d]||1;
   return [1,2,3].map(i=>`<span class="d-star${i<=n?' on':''}">&#9733;</span>`).join('');
@@ -606,7 +643,9 @@ function renderCards(list){
   g.innerHTML=list.map((r,i)=>{
     const sv=savedIds.has(r.id);
     const tot=r.prep_time_min+r.cook_time_min;
+    const photoHtml=r.photo?`<img class="card-img" src="${r.photo}" alt="${r.name}" loading="lazy" onerror="this.style.display='none'">`:'' ;
     return `<div class="recipe-card card-in" style="animation-delay:${i*.03}s" onclick="showDetail(${r.id})">
+      <div class="card-photo" style="background:${catGrad(r.category)}">${photoHtml}</div>
       <div class="card-top">
         <span class="card-cat">${r.category}</span>
         <span class="card-stars">${diffStars(r.difficulty)}</span>
@@ -616,7 +655,7 @@ function renderCards(list){
         <div class="card-tag">${r.tagline}</div>
       </div>
       <div class="card-foot">
-        <span class="cuisine-lbl">${r.cuisine}</span>
+        <span class="region-badge">${regionLabel(r.cuisine)}</span>
         <span class="card-time-foot">${fmtTime(tot)}</span>
         <button class="heart-btn${sv?' saved':''}" data-id="${r.id}"
           onclick="toggleFavorite(${r.id},event)">${sv?'&#9829;':'&#9825;'}</button>
@@ -638,8 +677,10 @@ function showDetail(id){
   </div>`:'';
   const tot=r.prep_time_min+r.cook_time_min;
 
+  const detailPhotoHtml=r.photo?`<img class="detail-img" src="${r.photo}" alt="${r.name}" onerror="this.style.display='none'">`:'' ;
   document.getElementById('detailContent').innerHTML=`
     <div class="detail-card">
+      <div class="detail-photo" style="background:${catGrad(r.category)}">${detailPhotoHtml}</div>
       <div class="detail-head-section">
         <div class="detail-cat-label">${r.category}</div>
         <h1 class="detail-title">${r.name}</h1>
@@ -668,7 +709,7 @@ function showDetail(id){
             <div class="sb-stat"><span class="sb-key">Total</span><span class="sb-val">${fmtTime(tot)}</span></div>
             <div class="sb-stat"><span class="sb-key">Serves</span><span class="sb-val">${r.servings}</span></div>
             <div class="sb-stat"><span class="sb-key">Difficulty</span><span class="sb-val">${r.difficulty}</span></div>
-            <div class="sb-stat"><span class="sb-key">Region</span><span class="sb-val">${r.cuisine}</span></div>
+            <div class="sb-stat"><span class="sb-key">Region</span><span class="sb-val">${regionLabel(r.cuisine)}</span></div>
             <div class="sb-stat"><span class="sb-key">Source</span><span class="sb-val">${r.source}</span></div>
             <button class="save-btn${sv?' saved':''}" id="detailSaveBtn" data-id="${r.id}"
               onclick="toggleFavorite(${r.id},event)">
