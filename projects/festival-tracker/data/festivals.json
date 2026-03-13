@@ -220,6 +220,53 @@
     ]
   },
   {
+    "id": 86,
+    "name": "American Documentary Film Festival",
+    "city": "Palm Springs, CA",
+    "country": "USA",
+    "website": "https://www.amDocfest.org",
+    "filmfreeway": "https://filmfreeway.com/AmericanDocumentaryFilmFestival",
+    "description": "A festival dedicated to documentary films that examine American life, politics, culture, and the broader human condition.",
+    "focus": "documentary",
+    "tier": "emerging",
+    "event_month": "March",
+    "premiere_req": "none",
+    "prestige": 2,
+    "acceptance": "open",
+    "known_for": "American stories told through documentary film",
+    "deadlines": [
+      {
+        "year": 2026,
+        "tier": "early",
+        "deadline": "2025-10-15",
+        "fee_usd": 35.0
+      },
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2025-12-15",
+        "fee_usd": 50.0
+      }
+    ],
+    "categories": [
+      {
+        "name": "documentary feature",
+        "min_runtime": 60,
+        "max_runtime": null
+      },
+      {
+        "name": "documentary short",
+        "min_runtime": null,
+        "max_runtime": 30
+      },
+      {
+        "name": "student documentary",
+        "min_runtime": null,
+        "max_runtime": 60
+      }
+    ]
+  },
+  {
     "id": 1,
     "name": "Ann Arbor Film Festival",
     "city": "Ann Arbor, MI",
@@ -383,6 +430,59 @@
     ]
   },
   {
+    "id": 74,
+    "name": "Big Sky Documentary Film Festival",
+    "city": "Missoula, MT",
+    "country": "USA",
+    "website": "https://www.bigskydocfest.com",
+    "filmfreeway": "https://filmfreeway.com/BigSkyDocumentaryFilmFestival",
+    "description": "The largest documentary film festival in the American West, with a strong commitment to independent non-fiction and filmmaker development.",
+    "focus": "documentary",
+    "tier": "mid",
+    "event_month": "February",
+    "premiere_req": "none",
+    "prestige": 3,
+    "acceptance": "moderate",
+    "known_for": "Largest documentary festival in the American West",
+    "deadlines": [
+      {
+        "year": 2026,
+        "tier": "early",
+        "deadline": "2025-08-01",
+        "fee_usd": 40.0
+      },
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2025-10-01",
+        "fee_usd": 55.0
+      },
+      {
+        "year": 2026,
+        "tier": "late",
+        "deadline": "2025-11-15",
+        "fee_usd": 70.0
+      }
+    ],
+    "categories": [
+      {
+        "name": "feature documentary",
+        "min_runtime": 50,
+        "max_runtime": null
+      },
+      {
+        "name": "short documentary",
+        "min_runtime": null,
+        "max_runtime": 30
+      },
+      {
+        "name": "student documentary",
+        "min_runtime": null,
+        "max_runtime": 60
+      }
+    ]
+  },
+  {
     "id": 29,
     "name": "Black Star Film Festival",
     "city": "Philadelphia, PA",
@@ -437,6 +537,53 @@
         "name": "short film",
         "min_runtime": null,
         "max_runtime": 40
+      }
+    ]
+  },
+  {
+    "id": 88,
+    "name": "Blackstar Film Festival",
+    "city": "Philadelphia, PA",
+    "country": "USA",
+    "website": "https://blackstarfest.org",
+    "filmfreeway": "https://filmfreeway.com/BlackStarFilmFestival",
+    "description": "A festival centered on films by and about Black, Brown, and Indigenous people, with a strong documentary strand championing underrepresented voices.",
+    "focus": "documentary",
+    "tier": "mid",
+    "event_month": "August",
+    "premiere_req": "none",
+    "prestige": 4,
+    "acceptance": "selective",
+    "known_for": "Centering Black, Brown, and Indigenous documentary voices",
+    "deadlines": [
+      {
+        "year": 2026,
+        "tier": "early",
+        "deadline": "2026-01-15",
+        "fee_usd": 30.0
+      },
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2026-03-15",
+        "fee_usd": 45.0
+      }
+    ],
+    "categories": [
+      {
+        "name": "documentary feature",
+        "min_runtime": 60,
+        "max_runtime": null
+      },
+      {
+        "name": "documentary short",
+        "min_runtime": null,
+        "max_runtime": 30
+      },
+      {
+        "name": "experimental documentary",
+        "min_runtime": null,
+        "max_runtime": 60
       }
     ]
   },
@@ -536,15 +683,21 @@
     "country": "Denmark",
     "website": "https://cphdox.dk",
     "filmfreeway": null,
-    "description": "One of the world's largest documentary film festivals, with strong programming in hybrid, essay, and experimental non-fiction.",
-    "focus": "experimental",
+    "description": "One of Europe's largest and most adventurous documentary film festivals, blending non-fiction cinema with art installations, music, and debate.",
+    "focus": "documentary",
     "tier": "major",
     "event_month": "March",
     "premiere_req": "international",
     "prestige": 5,
     "acceptance": "very selective",
-    "known_for": "World leader in hybrid documentary forms",
+    "known_for": "Mixing documentary with contemporary art and performance",
     "deadlines": [
+      {
+        "year": 2026,
+        "tier": "early",
+        "deadline": "2025-09-15",
+        "fee_usd": null
+      },
       {
         "year": 2026,
         "tier": "regular",
@@ -554,9 +707,24 @@
     ],
     "categories": [
       {
+        "name": "feature documentary",
+        "min_runtime": 60,
+        "max_runtime": null
+      },
+      {
         "name": "feature film",
         "min_runtime": 60,
         "max_runtime": null
+      },
+      {
+        "name": "mid-length",
+        "min_runtime": 30,
+        "max_runtime": 60
+      },
+      {
+        "name": "short documentary",
+        "min_runtime": null,
+        "max_runtime": 30
       },
       {
         "name": "short film",
@@ -930,6 +1098,100 @@
     ]
   },
   {
+    "id": 72,
+    "name": "DOK Leipzig",
+    "city": "Leipzig",
+    "country": "Germany",
+    "website": "https://www.dok-leipzig.de",
+    "filmfreeway": "https://filmfreeway.com/DOKLeipzig",
+    "description": "One of the oldest documentary and animation film festivals in the world, with a proud tradition of political and artistic non-fiction.",
+    "focus": "documentary",
+    "tier": "major",
+    "event_month": "October",
+    "premiere_req": "none",
+    "prestige": 4,
+    "acceptance": "selective",
+    "known_for": "Political documentary with deep roots in German cinema history",
+    "deadlines": [
+      {
+        "year": 2025,
+        "tier": "early",
+        "deadline": "2025-04-15",
+        "fee_usd": null
+      },
+      {
+        "year": 2025,
+        "tier": "regular",
+        "deadline": "2025-06-01",
+        "fee_usd": null
+      },
+      {
+        "year": 2026,
+        "tier": "early",
+        "deadline": "2026-04-15",
+        "fee_usd": null
+      }
+    ],
+    "categories": [
+      {
+        "name": "animated documentary",
+        "min_runtime": null,
+        "max_runtime": 60
+      },
+      {
+        "name": "documentary feature",
+        "min_runtime": 45,
+        "max_runtime": null
+      },
+      {
+        "name": "documentary short",
+        "min_runtime": null,
+        "max_runtime": 45
+      }
+    ]
+  },
+  {
+    "id": 89,
+    "name": "DOKFest Kassel",
+    "city": "Kassel",
+    "country": "Germany",
+    "website": "https://www.dokukassel.de",
+    "filmfreeway": "https://filmfreeway.com/DOKFestKassel",
+    "description": "An international documentary and video art festival in Kassel, focused on politically engaged and socially aware non-fiction filmmaking.",
+    "focus": "documentary",
+    "tier": "emerging",
+    "event_month": "November",
+    "premiere_req": "none",
+    "prestige": 2,
+    "acceptance": "moderate",
+    "known_for": "Politically engaged documentary and video art in Germany",
+    "deadlines": [
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2026-06-01",
+        "fee_usd": null
+      }
+    ],
+    "categories": [
+      {
+        "name": "documentary feature",
+        "min_runtime": 60,
+        "max_runtime": null
+      },
+      {
+        "name": "documentary short",
+        "min_runtime": null,
+        "max_runtime": 60
+      },
+      {
+        "name": "video art",
+        "min_runtime": null,
+        "max_runtime": 30
+      }
+    ]
+  },
+  {
     "id": 62,
     "name": "DocAviv",
     "city": "Tel Aviv",
@@ -968,6 +1230,78 @@
         "name": "short documentary",
         "min_runtime": null,
         "max_runtime": 50
+      }
+    ]
+  },
+  {
+    "id": 85,
+    "name": "DocEdge",
+    "city": "Wellington",
+    "country": "New Zealand",
+    "website": "https://docedge.nz",
+    "filmfreeway": "https://filmfreeway.com/DocEdge",
+    "description": "New Zealand's international documentary film festival, bringing bold non-fiction cinema to Wellington and Auckland each year.",
+    "focus": "documentary",
+    "tier": "emerging",
+    "event_month": "May",
+    "premiere_req": "none",
+    "prestige": 2,
+    "acceptance": "moderate",
+    "known_for": "New Zealand's premier documentary film festival",
+    "deadlines": [
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2026-01-15",
+        "fee_usd": null
+      }
+    ],
+    "categories": [
+      {
+        "name": "feature documentary",
+        "min_runtime": 60,
+        "max_runtime": null
+      },
+      {
+        "name": "short documentary",
+        "min_runtime": null,
+        "max_runtime": 30
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "name": "DocPoint \u2013 Helsinki Documentary Film Festival",
+    "city": "Helsinki",
+    "country": "Finland",
+    "website": "https://docpoint.info",
+    "filmfreeway": null,
+    "description": "Finland's largest documentary film festival, presenting a bold programme of Nordic and international non-fiction cinema each winter.",
+    "focus": "documentary",
+    "tier": "mid",
+    "event_month": "February",
+    "premiere_req": "none",
+    "prestige": 3,
+    "acceptance": "moderate",
+    "known_for": "Nordic documentary and international non-fiction",
+    "deadlines": [
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2025-10-15",
+        "fee_usd": null
+      }
+    ],
+    "categories": [
+      {
+        "name": "feature documentary",
+        "min_runtime": 60,
+        "max_runtime": null
+      },
+      {
+        "name": "short documentary",
+        "min_runtime": null,
+        "max_runtime": 30
       }
     ]
   },
@@ -1092,6 +1426,42 @@
       },
       {
         "name": "short documentary",
+        "min_runtime": null,
+        "max_runtime": 30
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "name": "Dok.Fest M\u00fcnchen",
+    "city": "Munich",
+    "country": "Germany",
+    "website": "https://www.dokfest-muenchen.de",
+    "filmfreeway": "https://filmfreeway.com/DokFestMunich",
+    "description": "One of Germany's most important documentary film festivals, presenting international and German non-fiction in the heart of Bavaria.",
+    "focus": "documentary",
+    "tier": "mid",
+    "event_month": "May",
+    "premiere_req": "none",
+    "prestige": 3,
+    "acceptance": "selective",
+    "known_for": "German documentary showcase with strong international programming",
+    "deadlines": [
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2026-01-31",
+        "fee_usd": null
+      }
+    ],
+    "categories": [
+      {
+        "name": "documentary feature",
+        "min_runtime": 60,
+        "max_runtime": null
+      },
+      {
+        "name": "documentary short",
         "min_runtime": null,
         "max_runtime": 30
       }
@@ -1766,6 +2136,42 @@
     ]
   },
   {
+    "id": 83,
+    "name": "Human Rights Watch Film Festival",
+    "city": "New York, NY",
+    "country": "USA",
+    "website": "https://ff.hrw.org",
+    "filmfreeway": null,
+    "description": "A festival dedicated exclusively to human rights documentary and fiction, running in New York and London with a globally engaged audience.",
+    "focus": "documentary",
+    "tier": "mid",
+    "event_month": "June",
+    "premiere_req": "none",
+    "prestige": 3,
+    "acceptance": "selective",
+    "known_for": "Human rights cinema with global advocacy impact",
+    "deadlines": [
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2026-01-15",
+        "fee_usd": null
+      }
+    ],
+    "categories": [
+      {
+        "name": "documentary feature",
+        "min_runtime": 60,
+        "max_runtime": null
+      },
+      {
+        "name": "documentary short",
+        "min_runtime": null,
+        "max_runtime": 40
+      }
+    ]
+  },
+  {
     "id": 51,
     "name": "IDFA (International Documentary Film Festival Amsterdam)",
     "city": "Amsterdam",
@@ -1902,6 +2308,99 @@
         "name": "short film",
         "min_runtime": null,
         "max_runtime": 60
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "name": "It's All True International Documentary Film Festival",
+    "city": "S\u00e3o Paulo",
+    "country": "Brazil",
+    "website": "https://www.itsalltrue.com.br",
+    "filmfreeway": "https://filmfreeway.com/ItsAllTrue",
+    "description": "Latin America's leading documentary festival, a vital showcase for Brazilian and international non-fiction cinema.",
+    "focus": "documentary",
+    "tier": "mid",
+    "event_month": "April",
+    "premiere_req": "none",
+    "prestige": 3,
+    "acceptance": "moderate",
+    "known_for": "Latin America's premier documentary showcase",
+    "deadlines": [
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2025-12-15",
+        "fee_usd": null
+      }
+    ],
+    "categories": [
+      {
+        "name": "Brazilian documentary",
+        "min_runtime": null,
+        "max_runtime": 120
+      },
+      {
+        "name": "feature documentary",
+        "min_runtime": 52,
+        "max_runtime": null
+      },
+      {
+        "name": "short documentary",
+        "min_runtime": null,
+        "max_runtime": 30
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "name": "Ji.hlava International Documentary Film Festival",
+    "city": "Jihlava",
+    "country": "Czech Republic",
+    "website": "https://www.ji-hlava.com",
+    "filmfreeway": "https://filmfreeway.com/JihlavaIDF",
+    "description": "Central Europe's most important documentary and creative non-fiction festival, known for championing hybrid, essay, and experimental documentary forms.",
+    "focus": "documentary",
+    "tier": "mid",
+    "event_month": "October",
+    "premiere_req": "none",
+    "prestige": 4,
+    "acceptance": "selective",
+    "known_for": "Essay film and hybrid documentary in Central Europe",
+    "deadlines": [
+      {
+        "year": 2025,
+        "tier": "regular",
+        "deadline": "2025-06-15",
+        "fee_usd": null
+      },
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2026-06-15",
+        "fee_usd": null
+      }
+    ],
+    "categories": [
+      {
+        "name": "essay film",
+        "min_runtime": null,
+        "max_runtime": 90
+      },
+      {
+        "name": "exprmntl \u2014 experimental",
+        "min_runtime": null,
+        "max_runtime": 30
+      },
+      {
+        "name": "feature documentary",
+        "min_runtime": 60,
+        "max_runtime": null
+      },
+      {
+        "name": "short documentary",
+        "min_runtime": null,
+        "max_runtime": 30
       }
     ]
   },
@@ -2252,6 +2751,53 @@
     ]
   },
   {
+    "id": 84,
+    "name": "Mountainfilm in Telluride",
+    "city": "Telluride, CO",
+    "country": "USA",
+    "website": "https://mountainfilm.org",
+    "filmfreeway": "https://filmfreeway.com/MountainfilminTelluride",
+    "description": "A celebrated festival devoted to films about adventure, environment, and culture \u2014 non-fiction storytelling rooted in the natural world.",
+    "focus": "documentary",
+    "tier": "mid",
+    "event_month": "May",
+    "premiere_req": "none",
+    "prestige": 3,
+    "acceptance": "moderate",
+    "known_for": "Adventure, environment, and wilderness documentary",
+    "deadlines": [
+      {
+        "year": 2026,
+        "tier": "early",
+        "deadline": "2025-10-01",
+        "fee_usd": 40.0
+      },
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2025-12-01",
+        "fee_usd": 55.0
+      }
+    ],
+    "categories": [
+      {
+        "name": "adventure / environment",
+        "min_runtime": null,
+        "max_runtime": 120
+      },
+      {
+        "name": "documentary feature",
+        "min_runtime": 50,
+        "max_runtime": null
+      },
+      {
+        "name": "documentary short",
+        "min_runtime": null,
+        "max_runtime": 30
+      }
+    ]
+  },
+  {
     "id": 4,
     "name": "New York Film Festival \u2014 Projections",
     "city": "New York, NY",
@@ -2523,6 +3069,53 @@
     ]
   },
   {
+    "id": 75,
+    "name": "RIDM (Rencontres Internationales du Documentaire de Montr\u00e9al)",
+    "city": "Montreal",
+    "country": "Canada",
+    "website": "https://ridm.ca",
+    "filmfreeway": "https://filmfreeway.com/RIDM",
+    "description": "Montreal's international documentary film festival, recognized for championing formally adventurous and politically engaged non-fiction cinema.",
+    "focus": "documentary",
+    "tier": "mid",
+    "event_month": "November",
+    "premiere_req": "none",
+    "prestige": 3,
+    "acceptance": "selective",
+    "known_for": "Formally adventurous documentary from around the world",
+    "deadlines": [
+      {
+        "year": 2025,
+        "tier": "regular",
+        "deadline": "2025-07-15",
+        "fee_usd": null
+      },
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2026-07-15",
+        "fee_usd": null
+      }
+    ],
+    "categories": [
+      {
+        "name": "feature documentary",
+        "min_runtime": 60,
+        "max_runtime": null
+      },
+      {
+        "name": "medium-length documentary",
+        "min_runtime": 30,
+        "max_runtime": 60
+      },
+      {
+        "name": "short documentary",
+        "min_runtime": null,
+        "max_runtime": 30
+      }
+    ]
+  },
+  {
     "id": 20,
     "name": "S8 Mostra de Cinema Perif\u00e9rico",
     "city": "A Coru\u00f1a",
@@ -2569,6 +3162,96 @@
       },
       {
         "name": "short film",
+        "min_runtime": null,
+        "max_runtime": 30
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "name": "SF DocFest",
+    "city": "San Francisco, CA",
+    "country": "USA",
+    "website": "https://sfdocfest.com",
+    "filmfreeway": "https://filmfreeway.com/SFDocFest",
+    "description": "San Francisco's dedicated documentary festival, showcasing activist, investigative, and personal non-fiction from the Bay Area and beyond.",
+    "focus": "documentary",
+    "tier": "mid",
+    "event_month": "June",
+    "premiere_req": "none",
+    "prestige": 2,
+    "acceptance": "moderate",
+    "known_for": "Activist and investigative documentary in the Bay Area",
+    "deadlines": [
+      {
+        "year": 2026,
+        "tier": "early",
+        "deadline": "2026-01-15",
+        "fee_usd": 35.0
+      },
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2026-03-01",
+        "fee_usd": 50.0
+      }
+    ],
+    "categories": [
+      {
+        "name": "documentary feature",
+        "min_runtime": 50,
+        "max_runtime": null
+      },
+      {
+        "name": "documentary short",
+        "min_runtime": null,
+        "max_runtime": 30
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "name": "SXSW Documentary",
+    "city": "Austin, TX",
+    "country": "USA",
+    "website": "https://www.sxsw.com/film",
+    "filmfreeway": "https://filmfreeway.com/SXSW",
+    "description": "SXSW's documentary programming is among the most coveted in the US, with a penchant for music docs, tech stories, and culturally urgent non-fiction.",
+    "focus": "documentary",
+    "tier": "major",
+    "event_month": "March",
+    "premiere_req": "world",
+    "prestige": 5,
+    "acceptance": "very selective",
+    "known_for": "Music docs, tech narratives, and culturally urgent non-fiction",
+    "deadlines": [
+      {
+        "year": 2026,
+        "tier": "early",
+        "deadline": "2025-08-22",
+        "fee_usd": 50.0
+      },
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2025-10-17",
+        "fee_usd": 75.0
+      },
+      {
+        "year": 2026,
+        "tier": "late",
+        "deadline": "2025-11-14",
+        "fee_usd": 95.0
+      }
+    ],
+    "categories": [
+      {
+        "name": "documentary feature",
+        "min_runtime": 60,
+        "max_runtime": null
+      },
+      {
+        "name": "documentary short",
         "min_runtime": null,
         "max_runtime": 30
       }
@@ -2758,6 +3441,42 @@
     ]
   },
   {
+    "id": 80,
+    "name": "Tempo Documentary Festival",
+    "city": "Stockholm",
+    "country": "Sweden",
+    "website": "https://www.tempofestival.se",
+    "filmfreeway": null,
+    "description": "Scandinavia's foremost documentary film festival, devoted to non-fiction storytelling that spans personal stories to global investigative cinema.",
+    "focus": "documentary",
+    "tier": "mid",
+    "event_month": "March",
+    "premiere_req": "none",
+    "prestige": 3,
+    "acceptance": "moderate",
+    "known_for": "Scandinavia's foremost documentary film festival",
+    "deadlines": [
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2025-11-01",
+        "fee_usd": null
+      }
+    ],
+    "categories": [
+      {
+        "name": "feature documentary",
+        "min_runtime": 60,
+        "max_runtime": null
+      },
+      {
+        "name": "short documentary",
+        "min_runtime": null,
+        "max_runtime": 30
+      }
+    ]
+  },
+  {
     "id": 58,
     "name": "Thessaloniki Documentary Festival",
     "city": "Thessaloniki",
@@ -2838,6 +3557,48 @@
         "name": "short film",
         "min_runtime": null,
         "max_runtime": 50
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Tribeca Festival (Documentary)",
+    "city": "New York, NY",
+    "country": "USA",
+    "website": "https://tribecafilm.com",
+    "filmfreeway": null,
+    "description": "New York's flagship festival with a strong documentary slate, known for socially engaged non-fiction and high-profile premieres.",
+    "focus": "documentary",
+    "tier": "major",
+    "event_month": "June",
+    "premiere_req": "world",
+    "prestige": 5,
+    "acceptance": "very selective",
+    "known_for": "High-profile documentary premieres in New York City",
+    "deadlines": [
+      {
+        "year": 2026,
+        "tier": "early",
+        "deadline": "2025-11-01",
+        "fee_usd": 65.0
+      },
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2026-01-15",
+        "fee_usd": 85.0
+      }
+    ],
+    "categories": [
+      {
+        "name": "documentary feature",
+        "min_runtime": 70,
+        "max_runtime": null
+      },
+      {
+        "name": "documentary short",
+        "min_runtime": null,
+        "max_runtime": 30
       }
     ]
   },
@@ -3062,6 +3823,42 @@
     ]
   },
   {
+    "id": 87,
+    "name": "Visible Evidence",
+    "city": "Various",
+    "country": "International",
+    "website": "https://visibleevidence.org",
+    "filmfreeway": null,
+    "description": "The leading academic conference and screening series devoted to documentary studies, held annually at rotating international institutions.",
+    "focus": "documentary",
+    "tier": "mid",
+    "event_month": "August",
+    "premiere_req": "none",
+    "prestige": 3,
+    "acceptance": "selective",
+    "known_for": "The premier academic forum for documentary theory and practice",
+    "deadlines": [
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2026-03-01",
+        "fee_usd": null
+      }
+    ],
+    "categories": [
+      {
+        "name": "documentary work-in-progress",
+        "min_runtime": null,
+        "max_runtime": 90
+      },
+      {
+        "name": "essay and hybrid film",
+        "min_runtime": null,
+        "max_runtime": 60
+      }
+    ]
+  },
+  {
     "id": 56,
     "name": "Visions du R\u00e9el",
     "city": "Nyon",
@@ -3182,6 +3979,53 @@
         "name": "short film",
         "min_runtime": null,
         "max_runtime": 60
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "name": "ZagrebDox",
+    "city": "Zagreb",
+    "country": "Croatia",
+    "website": "https://www.zagrebdox.net",
+    "filmfreeway": "https://filmfreeway.com/ZagrebDox",
+    "description": "Southeast Europe's leading documentary festival, with a focus on urgent, politically engaged non-fiction from across the globe.",
+    "focus": "documentary",
+    "tier": "mid",
+    "event_month": "March",
+    "premiere_req": "none",
+    "prestige": 3,
+    "acceptance": "moderate",
+    "known_for": "Southeast Europe's leading documentary platform",
+    "deadlines": [
+      {
+        "year": 2026,
+        "tier": "early",
+        "deadline": "2025-11-01",
+        "fee_usd": null
+      },
+      {
+        "year": 2026,
+        "tier": "regular",
+        "deadline": "2026-01-01",
+        "fee_usd": null
+      }
+    ],
+    "categories": [
+      {
+        "name": "international competition",
+        "min_runtime": null,
+        "max_runtime": 120
+      },
+      {
+        "name": "regional documentary",
+        "min_runtime": null,
+        "max_runtime": 120
+      },
+      {
+        "name": "short documentary",
+        "min_runtime": null,
+        "max_runtime": 30
       }
     ]
   }
