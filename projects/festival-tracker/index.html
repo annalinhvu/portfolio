@@ -711,6 +711,7 @@ function showDetail(id) {
   listView.classList.add('view-hidden');
   detailView.classList.remove('view-hidden');
   detailView.classList.add('view-visible');
+  window.scrollTo(0, 0);
 
   var f = allFestivals.find(function(x) { return x.id === id; });
   if (f) {
