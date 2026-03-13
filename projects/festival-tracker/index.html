@@ -140,6 +140,26 @@
   /* ── Page ── */
   .page { max-width: 1440px; margin: 0 auto; padding: 32px 32px 80px; }
 
+  /* ── Group toggle ── */
+  .group-toggle {
+    display: flex; gap: 0; margin-bottom: 24px;
+    border: 1px solid var(--border); border-radius: 8px;
+    overflow: hidden; width: fit-content;
+  }
+  .group-btn {
+    font-family: 'Geist Mono', monospace; font-size: 0.72rem;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 10px 28px; border: none; cursor: pointer;
+    background: var(--surface); color: var(--text-3);
+    transition: all 0.2s; position: relative;
+  }
+  .group-btn + .group-btn { border-left: 1px solid var(--border); }
+  .group-btn:hover { color: var(--text-1); background: var(--surface-hover); }
+  .group-btn.active {
+    background: var(--accent-bg); color: var(--accent);
+    font-weight: 600;
+  }
+
   /* ── Stats row ── */
   .stats-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
   .stat-chip {
@@ -429,9 +449,12 @@
 
   <!-- ── List View ── -->
   <div id="list-view" class="view view-visible">
+    <div class="group-toggle">
+      <button class="group-btn active" id="btn-documentary" onclick="setGroup('documentary')">Documentary</button>
+      <button class="group-btn" id="btn-experimental" onclick="setGroup('experimental')">Experimental</button>
+    </div>
     <div class="stats-row" id="stats-row"></div>
     <div class="filter-bar" id="filter-bar">
-      <select id="filter-focus"><option value="">All Focus</option></select>
       <select id="filter-tier"><option value="">All Tiers</option></select>
       <select id="filter-country"><option value="">All Countries</option></select>
       <select id="filter-acceptance"><option value="">All Selectivity</option></select>
@@ -454,6 +477,16 @@
 var allFestivals = [];
 var filteredFestivals = [];
 var currentView = 'list';
+var activeGroup = 'documentary'; // 'documentary' | 'experimental'
+
+var EXPERIMENTAL_FOCUSES = ['experimental', 'avant-garde', 'underground'];
+
+function setGroup(group) {
+  activeGroup = group;
+  document.getElementById('btn-documentary').classList.toggle('active', group === 'documentary');
+  document.getElementById('btn-experimental').classList.toggle('active', group === 'experimental');
+  applyFilters();
+}
 
 /* ── Helpers ── */
 function escapeHtml(str) {
@@ -526,36 +559,26 @@ function updateToggle(t) {
 /* ── Stats ── */
 function renderStats() {
   var countries = new Set();
-  allFestivals.forEach(function(f) { if (f.country) countries.add(f.country); });
+  filteredFestivals.forEach(function(f) { if (f.country) countries.add(f.country); });
 
   var el = document.getElementById('stats-row');
   el.innerHTML =
-    '<span class="stat-chip"><span class="stat-val">' + allFestivals.length + '</span> festivals</span>' +
+    '<span class="stat-chip"><span class="stat-val">' + filteredFestivals.length + '</span> festivals</span>' +
     '<span class="stat-chip"><span class="stat-val">' + countries.size + '</span> countries</span>';
 }
 
 /* ── Filters ── */
 function populateFilters() {
   var tiers = new Set();
-  var focuses = new Set();
   var countries = new Set();
   var acceptances = new Set();
   var premieres = new Set();
 
   allFestivals.forEach(function(f) {
     if (f.tier) tiers.add(f.tier);
-    if (f.focus) focuses.add(f.focus);
     if (f.country) countries.add(f.country);
     if (f.acceptance) acceptances.add(f.acceptance);
     if (f.premiere_req) premieres.add(f.premiere_req);
-  });
-
-  var focusSelect = document.getElementById('filter-focus');
-  Array.from(focuses).sort().forEach(function(f) {
-    var o = document.createElement('option');
-    o.value = f;
-    o.textContent = f.charAt(0).toUpperCase() + f.slice(1);
-    focusSelect.appendChild(o);
   });
 
   var tierSelect = document.getElementById('filter-tier');
@@ -600,7 +623,6 @@ function populateFilters() {
 }
 
 function applyFilters() {
-  var focus = document.getElementById('filter-focus').value;
   var tier = document.getElementById('filter-tier').value;
   var country = document.getElementById('filter-country').value;
   var acceptance = document.getElementById('filter-acceptance').value;
@@ -608,7 +630,9 @@ function applyFilters() {
   var search = document.getElementById('filter-search').value.toLowerCase().trim();
 
   filteredFestivals = allFestivals.filter(function(f) {
-    if (focus && f.focus !== focus) return false;
+    // Group filter
+    if (activeGroup === 'documentary' && f.focus !== 'documentary') return false;
+    if (activeGroup === 'experimental' && EXPERIMENTAL_FOCUSES.indexOf(f.focus) === -1) return false;
     if (tier && f.tier !== tier) return false;
     if (country && f.country !== country) return false;
     if (acceptance && f.acceptance !== acceptance) return false;
@@ -617,6 +641,7 @@ function applyFilters() {
     return true;
   });
 
+  renderStats();
   renderList();
 }
 
@@ -665,7 +690,6 @@ function renderList() {
 }
 
 function clearFilters() {
-  document.getElementById('filter-focus').value = '';
   document.getElementById('filter-tier').value = '';
   document.getElementById('filter-country').value = '';
   document.getElementById('filter-acceptance').value = '';
@@ -822,10 +846,8 @@ function init() {
     })
     .then(function(data) {
       allFestivals = data;
-      filteredFestivals = data;
       populateFilters();
-      renderStats();
-      renderList();
+      applyFilters();
       handleHash();
     })
     .catch(function() {
@@ -835,7 +857,6 @@ function init() {
         '</div>';
     });
 
-  document.getElementById('filter-focus').addEventListener('change', applyFilters);
   document.getElementById('filter-tier').addEventListener('change', applyFilters);
   document.getElementById('filter-country').addEventListener('change', applyFilters);
   document.getElementById('filter-acceptance').addEventListener('change', applyFilters);
