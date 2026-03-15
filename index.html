@@ -150,7 +150,7 @@
     box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   }
   .card:hover { border-color: var(--border-hover); box-shadow: 0 3px 12px rgba(0,0,0,0.09); }
-  .card + .card { margin-top: 16px; }
+  .card-stack { display: flex; flex-direction: column; gap: 16px; }
 
   /* ── Grid ── */
   .bento { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
@@ -587,6 +587,7 @@
       </div>
     </div>
 
+    <div class="card-stack">
     <div class="card">
       <div class="sec-title">Education</div>
       <div class="edu-entry">
@@ -631,6 +632,7 @@
         <div class="edu-school">Marketing &amp; Analytics Platforms</div>
         <div class="edu-degree">Google Analytics 4 · Campaign Manager 360 · Search Ads 360 · Google Ads · Facebook Ads · TikTok Ads · Snapchat Ads · Amazon Ads · Kantar · MRI Simmons · Brandwatch · Kochava</div>
       </div>
+    </div>
     </div>
 
   </div>
