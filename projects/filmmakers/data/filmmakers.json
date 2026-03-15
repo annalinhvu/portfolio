@@ -1,0 +1,476 @@
+[
+  {
+    "id": 1,
+    "name": "Agnès Varda",
+    "nationality": "french",
+    "birth_year": 1928,
+    "death_year": 2019,
+    "era": "new-wave",
+    "tagline": "The grandmother of the French New Wave",
+    "bio": "Agnès Varda began making films a decade before the New Wave had a name, forging a singular path that blended documentary rigor with poetic imagination. Her work is marked by a deep curiosity about everyday people and overlooked places, a playful feminist sensibility, and a willingness to reinvent herself at any age. Her final films, made in her eighties, were among her most inventive and joyful.",
+    "why": "Her camera feels like a form of love — attentive, unhurried, and always on the side of the overlooked.",
+    "notable_films": [
+      { "title": "La Pointe Courte", "year": 1955 },
+      { "title": "Cléo from 5 to 7", "year": 1962 },
+      { "title": "Vagabond", "year": 1985 },
+      { "title": "The Gleaners & I", "year": 2000 },
+      { "title": "Faces Places", "year": 2017 }
+    ],
+    "style_tags": ["essay-film", "documentary", "feminist"]
+  },
+  {
+    "id": 2,
+    "name": "Stan Brakhage",
+    "nationality": "american",
+    "birth_year": 1933,
+    "death_year": 2003,
+    "era": "avant-garde",
+    "tagline": "The poet who painted light directly onto film",
+    "bio": "Stan Brakhage was the most prolific and radical of American avant-garde filmmakers, producing over 370 works across five decades. He scratched, painted, and collaged directly onto film emulsion, questioning every convention of cinema — narrative, sound, even the camera itself. His work is an ongoing inquiry into vision: what does it mean to truly see without the filters of language and habit?",
+    "why": "Brakhage taught me that cinema is not about stories but about light, duration, and perception itself — that the eye can be remade.",
+    "notable_films": [
+      { "title": "Anticipation of the Night", "year": 1958 },
+      { "title": "Mothlight", "year": 1963 },
+      { "title": "Dog Star Man", "year": 1964 },
+      { "title": "The Act of Seeing with One's Own Eyes", "year": 1971 },
+      { "title": "Night Music", "year": 1986 }
+    ],
+    "style_tags": ["experimental", "abstract", "silent"]
+  },
+  {
+    "id": 3,
+    "name": "Jonas Mekas",
+    "nationality": "american",
+    "birth_year": 1922,
+    "death_year": 2019,
+    "era": "avant-garde",
+    "tagline": "The poet of exile, diaspora, and daily wonder",
+    "bio": "Born in Lithuania, displaced by World War II, Jonas Mekas arrived in New York in 1949 and spent the next seven decades documenting his life in an ecstatic visual diary. He was also the great champion of American avant-garde cinema — co-founding Anthology Film Archives — while his own camera work remained resolutely personal, capturing fragments of beauty in the ordinary rhythms of an immigrant life.",
+    "why": "Mekas showed me that a life lived attentively is its own kind of cinema — that ordinary days, filmed with love, become poetry.",
+    "notable_films": [
+      { "title": "Walden", "year": 1969 },
+      { "title": "Reminiscences of a Journey to Lithuania", "year": 1972 },
+      { "title": "Lost Lost Lost", "year": 1976 },
+      { "title": "He Stands in a Desert...", "year": 1986 },
+      { "title": "As I Was Moving Ahead Occasionally I Saw Brief Glimpses of Beauty", "year": 2000 }
+    ],
+    "style_tags": ["diary-film", "documentary", "experimental"]
+  },
+  {
+    "id": 4,
+    "name": "Jean-Luc Godard",
+    "nationality": "french",
+    "birth_year": 1930,
+    "death_year": 2022,
+    "era": "new-wave",
+    "tagline": "The revolutionary who dismantled cinema to rebuild it",
+    "bio": "Jean-Luc Godard burst onto the scene with Breathless in 1960 and never stopped questioning what cinema could be. He dismantled narrative conventions, broke the fourth wall, incorporated philosophy and politics into his films, and in his later career made works that felt closer to video essays than any recognizable genre. He was cinema's greatest provocateur and its most restless mind.",
+    "why": "Every Godard film asks: what is this thing we call cinema, and what can it do that nothing else can?",
+    "notable_films": [
+      { "title": "Breathless", "year": 1960 },
+      { "title": "Vivre sa vie", "year": 1962 },
+      { "title": "Contempt", "year": 1963 },
+      { "title": "2 or 3 Things I Know About Her", "year": 1967 },
+      { "title": "Histoire(s) du cinéma", "year": 1998 }
+    ],
+    "style_tags": ["essay-film", "political", "experimental"]
+  },
+  {
+    "id": 5,
+    "name": "Chantal Akerman",
+    "nationality": "belgian",
+    "birth_year": 1950,
+    "death_year": 2015,
+    "era": "avant-garde",
+    "tagline": "Pioneer of durational cinema and feminist form",
+    "bio": "Chantal Akerman made one of cinema's most radical films at 25: Jeanne Dielman, a nearly four-hour portrait of a housewife's routine that transforms repetition into revelation. Throughout her career she explored themes of displacement, desire, and the female body through rigorously formal means — long takes, fixed cameras, and an unflinching attention to domestic space and time.",
+    "why": "Akerman made me understand that how you show something is inseparable from what you're saying about it.",
+    "notable_films": [
+      { "title": "Je tu il elle", "year": 1974 },
+      { "title": "Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles", "year": 1975 },
+      { "title": "News from Home", "year": 1977 },
+      { "title": "Les Rendez-vous d'Anna", "year": 1978 },
+      { "title": "No Home Movie", "year": 2015 }
+    ],
+    "style_tags": ["experimental", "feminist", "slow-cinema"]
+  },
+  {
+    "id": 6,
+    "name": "Andrei Tarkovsky",
+    "nationality": "russian",
+    "birth_year": 1932,
+    "death_year": 1986,
+    "era": "contemporary",
+    "tagline": "Sculptor of time, poet of the soul",
+    "bio": "Andrei Tarkovsky believed cinema's unique property was its ability to render time visible — not just to record events but to sculpt duration itself. His seven features are among the most visually and spiritually demanding in all of cinema, dwelling in landscapes of ruin and grace, memory and longing, faith and doubt. He remains cinema's most transcendent artist.",
+    "why": "No filmmaker has made me feel more acutely the passage of time, or the weight of spiritual longing.",
+    "notable_films": [
+      { "title": "Ivan's Childhood", "year": 1962 },
+      { "title": "Andrei Rublev", "year": 1966 },
+      { "title": "Solaris", "year": 1972 },
+      { "title": "The Mirror", "year": 1975 },
+      { "title": "Stalker", "year": 1979 }
+    ],
+    "style_tags": ["poetic", "spiritual", "slow-cinema"]
+  },
+  {
+    "id": 7,
+    "name": "Ingmar Bergman",
+    "nationality": "swedish",
+    "birth_year": 1918,
+    "death_year": 2007,
+    "era": "classical",
+    "tagline": "Explorer of the human condition in its darkest corners",
+    "bio": "Ingmar Bergman made over forty films across five decades, returning obsessively to questions of faith, death, love, and the impossibility of truly knowing another person. Working with cinematographer Sven Nykvist and a repertory company of extraordinary actors, he created a body of work of unrivaled psychological intensity. Few filmmakers have gone so deep into the human interior.",
+    "why": "Bergman taught me that cinema can be as honest about pain and uncertainty as the best literature — maybe more so.",
+    "notable_films": [
+      { "title": "The Seventh Seal", "year": 1957 },
+      { "title": "Wild Strawberries", "year": 1957 },
+      { "title": "Persona", "year": 1966 },
+      { "title": "Cries and Whispers", "year": 1972 },
+      { "title": "Fanny and Alexander", "year": 1982 }
+    ],
+    "style_tags": ["psychological", "existential", "humanist"]
+  },
+  {
+    "id": 8,
+    "name": "Wong Kar-wai",
+    "nationality": "hongkong",
+    "birth_year": 1958,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Cinema's poet of memory and unrequited longing",
+    "bio": "Wong Kar-wai makes films about desire, time, and the space between people who almost connect. Shooting without scripts, often improvising with cinematographer Christopher Doyle, he creates a world of blurred motion, saturated colors, and pop music that aches. His films don't follow narrative logic — they follow the logic of memory and longing.",
+    "why": "He makes you feel the specific texture of missing someone — not in a generic way, but with unbearable precision.",
+    "notable_films": [
+      { "title": "Days of Being Wild", "year": 1990 },
+      { "title": "Chungking Express", "year": 1994 },
+      { "title": "Fallen Angels", "year": 1995 },
+      { "title": "Happy Together", "year": 1997 },
+      { "title": "In the Mood for Love", "year": 2000 }
+    ],
+    "style_tags": ["poetic", "romantic", "experimental"]
+  },
+  {
+    "id": 9,
+    "name": "François Truffaut",
+    "nationality": "french",
+    "birth_year": 1932,
+    "death_year": 1984,
+    "era": "new-wave",
+    "tagline": "The humanist heart of the French New Wave",
+    "bio": "François Truffaut began as cinema's most passionate critic before becoming one of its most beloved directors. Where Godard was provocateur, Truffaut was humanist — his films are warm, ironic, and deeply felt, especially in the Antoine Doinel cycle that traced a character from troubled adolescence to adulthood. He loved cinema more than almost anyone and it shows in every frame.",
+    "why": "Truffaut reminds me that cinema at its best is an act of empathy — a way of saying I understand what it is like to be you.",
+    "notable_films": [
+      { "title": "The 400 Blows", "year": 1959 },
+      { "title": "Jules and Jim", "year": 1962 },
+      { "title": "Stolen Kisses", "year": 1968 },
+      { "title": "The Wild Child", "year": 1970 },
+      { "title": "Day for Night", "year": 1973 }
+    ],
+    "style_tags": ["humanist", "autobiographical", "new-wave"]
+  },
+  {
+    "id": 10,
+    "name": "Abbas Kiarostami",
+    "nationality": "iranian",
+    "birth_year": 1940,
+    "death_year": 2016,
+    "era": "contemporary",
+    "tagline": "Philosopher of the boundary between cinema and life",
+    "bio": "Abbas Kiarostami made films that blur the line between documentary and fiction, between the world as it is and as we imagine it. Working in Iran with non-professional actors, he created a body of work of extraordinary philosophical complexity and visual simplicity. His films ask: what is real? What does it mean to represent a life?",
+    "why": "Kiarostami showed me that the deepest questions about cinema can be asked with the most minimal means.",
+    "notable_films": [
+      { "title": "Where Is the Friend's Home?", "year": 1987 },
+      { "title": "Close-Up", "year": 1990 },
+      { "title": "Through the Olive Trees", "year": 1994 },
+      { "title": "Taste of Cherry", "year": 1997 },
+      { "title": "The Wind Will Carry Us", "year": 1999 }
+    ],
+    "style_tags": ["minimalist", "philosophical", "documentary"]
+  },
+  {
+    "id": 11,
+    "name": "Maya Deren",
+    "nationality": "american",
+    "birth_year": 1917,
+    "death_year": 1961,
+    "era": "avant-garde",
+    "tagline": "The mother of American experimental cinema",
+    "bio": "Maya Deren arrived in New York in the early 1940s and almost single-handedly created American avant-garde cinema. Her films — shot on 16mm with almost no budget — explore dreamlike states, ritual, feminine identity, and the surreal logic of the unconscious. She was also a tireless advocate for independent film, arguing for cinema as a personal art form decades before that idea was common.",
+    "why": "Deren's films feel like dreams you have actually had — familiar and strange at once, charged with a logic you cannot quite articulate.",
+    "notable_films": [
+      { "title": "Meshes of the Afternoon", "year": 1943 },
+      { "title": "At Land", "year": 1944 },
+      { "title": "A Study in Choreography for Camera", "year": 1945 },
+      { "title": "Ritual in Transfigured Time", "year": 1946 },
+      { "title": "Meditation on Violence", "year": 1948 }
+    ],
+    "style_tags": ["surrealist", "feminist", "experimental"]
+  },
+  {
+    "id": 12,
+    "name": "Akira Kurosawa",
+    "nationality": "japanese",
+    "birth_year": 1910,
+    "death_year": 1998,
+    "era": "classical",
+    "tagline": "Master of human drama and the visual epic",
+    "bio": "Akira Kurosawa was the first Japanese filmmaker to achieve international recognition, and remains one of the most influential directors in cinema history. His films range from intimate character studies to sweeping historical epics, always driven by a deep humanism and precise visual intelligence. He could make Shakespeare feel Japanese and samurai films feel universal.",
+    "why": "Kurosawa understood that spectacle and humanity are not in tension — that the grandest scale can hold the most personal truth.",
+    "notable_films": [
+      { "title": "Rashomon", "year": 1950 },
+      { "title": "Ikiru", "year": 1952 },
+      { "title": "Seven Samurai", "year": 1954 },
+      { "title": "Yojimbo", "year": 1961 },
+      { "title": "Ran", "year": 1985 }
+    ],
+    "style_tags": ["humanist", "epic", "visual-poetry"]
+  },
+  {
+    "id": 13,
+    "name": "Chris Marker",
+    "nationality": "french",
+    "birth_year": 1921,
+    "death_year": 2012,
+    "era": "avant-garde",
+    "tagline": "The philosopher-traveler of the essay film",
+    "bio": "Chris Marker was cinema's great essayist — a filmmaker, photographer, and writer who moved between documentary, fiction, and pure meditation with equal ease. His films are collections of images, questions, and associations rather than arguments; they trust the viewer to make meaning from juxtaposition. He was also deeply political, a committed leftist whose work engaged obsessively with history, memory, and time.",
+    "why": "Marker made me understand that a film can think — not illustrate ideas, but genuinely think through images.",
+    "notable_films": [
+      { "title": "Letter from Siberia", "year": 1957 },
+      { "title": "La Jetée", "year": 1962 },
+      { "title": "Sans Soleil", "year": 1983 },
+      { "title": "The Last Bolshevik", "year": 1993 },
+      { "title": "Level Five", "year": 1997 }
+    ],
+    "style_tags": ["essay-film", "documentary", "political"]
+  },
+  {
+    "id": 14,
+    "name": "Robert Bresson",
+    "nationality": "french",
+    "birth_year": 1901,
+    "death_year": 1999,
+    "era": "classical",
+    "tagline": "The purist who stripped cinema to its spiritual core",
+    "bio": "Robert Bresson made only thirteen films in fifty years, each one more rigorous than the last. He rejected trained actors and theatrical conventions, working instead with what he called 'models' — people who read lines flatly and move without expression, allowing the viewer to project onto them. The result is a cinema of extraordinary spiritual intensity: minimal on the surface, bottomless underneath.",
+    "why": "Bresson showed me that restraint can be the most powerful tool in cinema — that what you withhold is as important as what you show.",
+    "notable_films": [
+      { "title": "A Man Escaped", "year": 1956 },
+      { "title": "Pickpocket", "year": 1959 },
+      { "title": "Au Hasard Balthazar", "year": 1966 },
+      { "title": "Mouchette", "year": 1967 },
+      { "title": "Four Nights of a Dreamer", "year": 1971 }
+    ],
+    "style_tags": ["minimalist", "spiritual", "austere"]
+  },
+  {
+    "id": 15,
+    "name": "Jacques Rivette",
+    "nationality": "french",
+    "birth_year": 1928,
+    "death_year": 2016,
+    "era": "new-wave",
+    "tagline": "Master of duration, improvisation, and theatrical mystery",
+    "bio": "The least known of the Cahiers critics-turned-directors, Jacques Rivette made some of the longest and strangest films in cinema history — improvisational, conspiratorial, shot over months with evolving scripts. His films feel like secret rituals happening in real time, in the actual streets and apartments of Paris. He trusted the process over the result.",
+    "why": "Rivette's films feel like being invited into something real that you do not quite understand — which is exactly what great cinema does.",
+    "notable_films": [
+      { "title": "Paris Belongs to Us", "year": 1961 },
+      { "title": "L'Amour fou", "year": 1969 },
+      { "title": "Out 1", "year": 1971 },
+      { "title": "Céline and Julie Go Boating", "year": 1974 },
+      { "title": "La Belle Noiseuse", "year": 1991 }
+    ],
+    "style_tags": ["experimental", "improvisational", "theatrical"]
+  },
+  {
+    "id": 16,
+    "name": "Terrence Malick",
+    "nationality": "american",
+    "birth_year": 1943,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Philosopher of grace, nature, and the inner voice",
+    "bio": "Terrence Malick made two masterpieces in the 1970s, disappeared for twenty years, and returned to make more. His films have no conventional plots — they are meditations on time, memory, mortality, and the relationship between humanity and the natural world. Shot in luminous natural light, narrated in inner voices, structured like music, they demand a different kind of attention.",
+    "why": "Malick makes films that feel like trying to hold a memory — it almost works, and the almost-working is the whole point.",
+    "notable_films": [
+      { "title": "Badlands", "year": 1973 },
+      { "title": "Days of Heaven", "year": 1978 },
+      { "title": "The Thin Red Line", "year": 1998 },
+      { "title": "The Tree of Life", "year": 2011 },
+      { "title": "To the Wonder", "year": 2012 }
+    ],
+    "style_tags": ["poetic", "philosophical", "lyrical"]
+  },
+  {
+    "id": 17,
+    "name": "Céline Sciamma",
+    "nationality": "french",
+    "birth_year": 1980,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Tender and precise chronicler of queer and feminine experience",
+    "bio": "Céline Sciamma makes films about becoming — about the specific textures of adolescence, desire, and identity, especially for girls and queer people. Her work is formally rigorous and emotionally generous, combining precise visual compositions with performances of extraordinary nuance. Portrait of a Lady on Fire is one of the great love films ever made.",
+    "why": "Sciamma writes and directs with a scalpel — she finds exactly the right gesture, the right silence, the right look to say everything.",
+    "notable_films": [
+      { "title": "Water Lilies", "year": 2007 },
+      { "title": "Tomboy", "year": 2011 },
+      { "title": "Girlhood", "year": 2014 },
+      { "title": "Portrait of a Lady on Fire", "year": 2019 },
+      { "title": "Petite Maman", "year": 2021 }
+    ],
+    "style_tags": ["feminist", "queer", "minimalist"]
+  },
+  {
+    "id": 18,
+    "name": "Claire Denis",
+    "nationality": "french",
+    "birth_year": 1946,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Sensory storyteller who trusts the body over words",
+    "bio": "Claire Denis makes films that communicate through sensation — bodies in space, texture, music, and the way light falls on skin. Her films resist easy interpretation; they accumulate meaning the way memories do, through fragments and feelings rather than explanation. She worked as assistant to Wenders and Akerman before making her own extraordinary body of work.",
+    "why": "Denis taught me that cinema can bypass language and speak directly to something physical — that we understand more than we can say.",
+    "notable_films": [
+      { "title": "Chocolat", "year": 1988 },
+      { "title": "Beau Travail", "year": 1999 },
+      { "title": "Trouble Every Day", "year": 2001 },
+      { "title": "35 Shots of Rum", "year": 2008 },
+      { "title": "White Material", "year": 2009 }
+    ],
+    "style_tags": ["sensory", "lyrical", "postcolonial"]
+  },
+  {
+    "id": 19,
+    "name": "Hou Hsiao-hsien",
+    "nationality": "taiwanese",
+    "birth_year": 1947,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Master of long takes, historical memory, and quiet grief",
+    "bio": "Hou Hsiao-hsien's films observe their characters from a careful, respectful distance — long takes, fixed or slowly moving cameras, natural light. His Taiwanese trilogy is a monumental reckoning with colonial history and identity. His more personal films are among cinema's most beautiful contemplations of time passing, of what gets lost and what endures.",
+    "why": "Hou's films taught me patience — how to sit with a moment until it reveals everything.",
+    "notable_films": [
+      { "title": "A Summer at Grandpa's", "year": 1984 },
+      { "title": "A City of Sadness", "year": 1989 },
+      { "title": "The Puppetmaster", "year": 1993 },
+      { "title": "Millennium Mambo", "year": 2001 },
+      { "title": "Three Times", "year": 2005 }
+    ],
+    "style_tags": ["slow-cinema", "historical", "lyrical"]
+  },
+  {
+    "id": 20,
+    "name": "Hayao Miyazaki",
+    "nationality": "japanese",
+    "birth_year": 1941,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Architect of wonder, protector of childhood imagination",
+    "bio": "Hayao Miyazaki co-founded Studio Ghibli and created a body of animated films that stand among cinema's great achievements regardless of medium. His films embrace complexity — morally ambiguous figures, female protagonists, ecological themes, ambivalent endings — while maintaining a fundamental faith in children's capacity to understand the world. Every frame is hand-drawn with obsessive care.",
+    "why": "Miyazaki reminds me that wonder is not childish — it is a form of wisdom.",
+    "notable_films": [
+      { "title": "Nausicaä of the Valley of the Wind", "year": 1984 },
+      { "title": "My Neighbor Totoro", "year": 1988 },
+      { "title": "Princess Mononoke", "year": 1997 },
+      { "title": "Spirited Away", "year": 2001 },
+      { "title": "The Wind Rises", "year": 2013 }
+    ],
+    "style_tags": ["animation", "ecological", "humanist"]
+  },
+  {
+    "id": 21,
+    "name": "John Cassavetes",
+    "nationality": "american",
+    "birth_year": 1929,
+    "death_year": 1989,
+    "era": "classical",
+    "tagline": "The godfather of American independent cinema",
+    "bio": "John Cassavetes financed his own films by acting in Hollywood movies, then used that money to make raw, improvisational portraits of people in emotional extremis. His films are uncomfortable, overlong, and alive in a way that most cinema never manages — they feel like being trapped in the most honest conversation you have ever had. He invented American independent cinema almost by accident.",
+    "why": "Cassavetes proved that the most radical thing a filmmaker can do is trust actors enough to follow them wherever they go.",
+    "notable_films": [
+      { "title": "Shadows", "year": 1958 },
+      { "title": "Faces", "year": 1968 },
+      { "title": "Husbands", "year": 1970 },
+      { "title": "A Woman Under the Influence", "year": 1974 },
+      { "title": "The Killing of a Chinese Bookie", "year": 1976 }
+    ],
+    "style_tags": ["improvisational", "independent", "humanist"]
+  },
+  {
+    "id": 22,
+    "name": "Park Chan-wook",
+    "nationality": "korean",
+    "birth_year": 1963,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Architect of elegant, operatic revenge",
+    "bio": "Park Chan-wook makes films of extraordinary formal precision and moral complexity. His Vengeance Trilogy interrogates the logic of revenge with a cold, almost clinical intelligence while delivering visceral emotional impact. Later films like The Handmaiden and Decision to Leave show an artist expanding into more lyrical territory without losing his edge.",
+    "why": "Park showed me that genre cinema can be as sophisticated and humane as any art film — that form and feeling are not in conflict.",
+    "notable_films": [
+      { "title": "Sympathy for Mr. Vengeance", "year": 2002 },
+      { "title": "Oldboy", "year": 2003 },
+      { "title": "Lady Vengeance", "year": 2005 },
+      { "title": "The Handmaiden", "year": 2016 },
+      { "title": "Decision to Leave", "year": 2022 }
+    ],
+    "style_tags": ["genre", "political", "visual-poetry"]
+  },
+  {
+    "id": 23,
+    "name": "Bong Joon-ho",
+    "nationality": "korean",
+    "birth_year": 1969,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Genre-bending storyteller with a radical social conscience",
+    "bio": "Bong Joon-ho works in genre — thriller, horror, science fiction — but uses it as a vehicle for merciless social critique. His films are about class, capitalism, and the violence that structures ordinary life, delivered with the compulsive watchability of a great thriller. Parasite's sweep at Cannes and the Oscars confirmed what his Korean fans already knew.",
+    "why": "Bong makes films that are simultaneously wildly entertaining and deeply uncomfortable — the best kind of cinema.",
+    "notable_films": [
+      { "title": "Memories of Murder", "year": 2003 },
+      { "title": "The Host", "year": 2006 },
+      { "title": "Mother", "year": 2009 },
+      { "title": "Snowpiercer", "year": 2013 },
+      { "title": "Parasite", "year": 2019 }
+    ],
+    "style_tags": ["genre", "political", "social-critique"]
+  },
+  {
+    "id": 24,
+    "name": "Alfonso Cuarón",
+    "nationality": "mexican",
+    "birth_year": 1961,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Technical master with a deeply personal vision",
+    "bio": "Alfonso Cuarón moves fluidly between intimate personal drama and large-scale spectacle, always finding the human within the technical. His long-take cinematography in Children of Men changed how action cinema thought about camera movement; Roma, shot in luminous black and white in his childhood neighborhood, is one of cinema's great acts of personal memory and social witness.",
+    "why": "Cuarón shows that technical mastery and personal vulnerability can exist in the same frame — that craft is an expression of care.",
+    "notable_films": [
+      { "title": "Y Tu Mamá También", "year": 2001 },
+      { "title": "Children of Men", "year": 2006 },
+      { "title": "Gravity", "year": 2013 },
+      { "title": "Roma", "year": 2018 }
+    ],
+    "style_tags": ["humanist", "technical", "political"]
+  },
+  {
+    "id": 25,
+    "name": "Richard Linklater",
+    "nationality": "american",
+    "birth_year": 1960,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Chronicler of time passing and conversations worth having",
+    "bio": "Richard Linklater makes films about time — not dramatically, but tenderly. His Before trilogy follows two people talking over the course of a day, revisited across eighteen years; Boyhood was filmed with the same actors over twelve years, capturing actual childhood passing on screen. His films trust that ordinary life — a conversation, a night out, a summer morning — is the proper subject of cinema.",
+    "why": "Linklater makes me want to pay more attention to the ordinary days — the ones that feel insignificant but turn out to be everything.",
+    "notable_films": [
+      { "title": "Slacker", "year": 1990 },
+      { "title": "Dazed and Confused", "year": 1993 },
+      { "title": "Before Sunrise", "year": 1995 },
+      { "title": "Before Sunset", "year": 2004 },
+      { "title": "Boyhood", "year": 2014 }
+    ],
+    "style_tags": ["humanist", "conversational", "time"]
+  }
+]
