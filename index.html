@@ -305,10 +305,14 @@
   .section-header {
     font-family: 'Geist Mono', monospace; font-size: 0.76rem; font-weight: 500;
     letter-spacing: 2px; text-transform: uppercase; color: var(--accent);
-    margin: 24px 0 12px; padding-left: 10px;
+    margin: 24px 0 4px; padding-left: 10px;
     border-left: 3px solid var(--accent);
   }
   .section-header:first-child { margin-top: 0; }
+  .section-sub {
+    font-size: 0.78rem; color: var(--text-4); font-style: italic;
+    margin: 0 0 12px 13px;
+  }
 
   /* ── Pipeline visualization ── */
   .pipeline-wrap { margin-bottom: 12px; padding: 4px 0; position: relative; }
@@ -487,7 +491,7 @@
     <button class="tab active" data-tab="about" role="tab" aria-selected="true" aria-controls="panel-about" id="tab-about" tabindex="0">About</button>
     <button class="tab" data-tab="projects" role="tab" aria-selected="false" aria-controls="panel-projects" id="tab-projects" tabindex="-1">Projects</button>
     <button class="tab" data-tab="experience" role="tab" aria-selected="false" aria-controls="panel-experience" id="tab-experience" tabindex="-1">Experience</button>
-    <button class="tab" data-tab="skills" role="tab" aria-selected="false" aria-controls="panel-skills" id="tab-skills" tabindex="-1">Skills</button>
+    <button class="tab" data-tab="skills" role="tab" aria-selected="false" aria-controls="panel-skills" id="tab-skills" tabindex="-1">Skills & Interests</button>
     <button class="tab" data-tab="lab" role="tab" aria-selected="false" aria-controls="panel-lab" id="tab-lab" tabindex="-1">Lab</button>
     <div class="tab-indicator"></div>
   </nav>
@@ -816,6 +820,8 @@
   <!-- ══════════ SKILLS ══════════ -->
   <div class="panel" id="panel-skills" role="tabpanel" aria-labelledby="tab-skills">
 
+    <div class="section-header">Professional Craft</div>
+    <div class="section-sub">Data Engineering</div>
     <div class="bento">
       <div class="card col-2">
         <div class="skill-list">
@@ -850,6 +856,31 @@
       <div class="card col-4">
         <div class="skill-list">
           <div><h4>Marketing &amp; Analytics Platforms</h4><p>Google Analytics 4 · Campaign Manager 360 · Kantar · MRI Simmons · Brandwatch · Kochava</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header">Creative Work</div>
+    <div class="section-sub">Filmmaking &amp; storytelling</div>
+    <div class="bento">
+      <div class="card col-2">
+        <div class="skill-list">
+          <div><h4>Film</h4><p>Analog filmmaking · documentary storytelling · editing &amp; visual storytelling</p></div>
+        </div>
+      </div>
+      <div class="card col-2">
+        <div class="skill-list">
+          <div><h4>Photography</h4><p>35mm photography · film development · portfolio projects &amp; short films</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header">Outside the Screen</div>
+    <div class="section-sub">Hands-on hobbies &amp; everyday creativity</div>
+    <div class="bento">
+      <div class="card col-4">
+        <div class="skill-list">
+          <div><h4>Life</h4><p>Crochet · piano · ukulele · photography · community volunteering · cooking · exploring film and art</p></div>
         </div>
       </div>
     </div>
