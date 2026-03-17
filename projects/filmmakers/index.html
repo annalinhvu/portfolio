@@ -414,6 +414,81 @@
     .save-btn:hover { border-color: var(--amber); color: var(--amber); }
     .save-btn.saved { border-color: var(--amber); color: var(--amber); background: var(--amber-bg); }
 
+    /* ── Spotlight ── */
+    .spotlight {
+      margin-bottom: 52px;
+      padding: 32px 36px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      position: relative;
+      transition: border-color 0.2s;
+      cursor: pointer;
+    }
+    .spotlight:hover { border-color: var(--border-h); }
+    .spotlight-eyebrow {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 20px;
+    }
+    .spotlight-label {
+      font-family: 'Geist Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--text-4);
+    }
+    .spotlight-era {
+      font-family: 'Geist Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 1.4px; text-transform: uppercase;
+    }
+    .spotlight .era-avant-garde { color: var(--e-ag); }
+    .spotlight .era-new-wave    { color: var(--e-nw); }
+    .spotlight .era-classical   { color: var(--e-cl); }
+    .spotlight .era-contemporary{ color: var(--e-co); }
+    .spotlight-name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 200;
+      letter-spacing: -0.03em; color: var(--text-1);
+      margin-bottom: 8px; line-height: 1.05;
+    }
+    .spotlight-tagline {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 0.9rem; font-style: italic; font-weight: 300;
+      color: var(--text-3); margin-bottom: 18px;
+    }
+    .spotlight-bio {
+      font-size: 0.84rem; color: var(--text-3); line-height: 1.75;
+      max-width: 680px; margin-bottom: 22px;
+    }
+    .spotlight-footer {
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .spotlight-read {
+      font-family: 'Geist Mono', monospace; font-size: 0.6rem;
+      letter-spacing: 1px; text-transform: uppercase; color: var(--text-3);
+      transition: color 0.15s;
+    }
+    .spotlight:hover .spotlight-read { color: var(--text-1); }
+    .spotlight-meta {
+      font-family: 'Geist Mono', monospace; font-size: 0.56rem;
+      color: var(--text-4); letter-spacing: 0.5px;
+    }
+
+    /* ── Era sections ── */
+    .era-section { margin-bottom: 0; }
+    .era-section-head {
+      display: flex; align-items: baseline; gap: 12px;
+      padding: 28px 0 14px;
+    }
+    .era-section-head-label {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 0.78rem; font-weight: 300; letter-spacing: 0.05em;
+    }
+    .era-section-head-count {
+      font-family: 'Geist Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 1px; color: var(--text-4);
+    }
+    .era-section-head.head-avant-garde .era-section-head-label { color: var(--e-ag); }
+    .era-section-head.head-new-wave    .era-section-head-label { color: var(--e-nw); }
+    .era-section-head.head-classical   .era-section-head-label { color: var(--e-cl); }
+    .era-section-head.head-contemporary .era-section-head-label { color: var(--e-co); }
+
     /* ── Responsive ── */
     @media (max-width: 600px) {
       .page { padding: 40px 20px 80px; }
@@ -464,7 +539,8 @@
       </div>
     </div>
 
-    <div class="count" id="result-count">25 directors</div>
+    <div id="spotlight" class="spotlight" style="display:none" onclick="spotlightClick()"></div>
+    <div class="count" id="result-count"></div>
     <div class="director-list" id="director-list"></div>
 
   </div>
@@ -513,6 +589,10 @@
     applyFilters();
   }
 
+  const ERA_ORDER = ['avant-garde', 'new-wave', 'classical', 'contemporary'];
+  const ERA_LABEL = { 'avant-garde':'Avant-Garde', 'new-wave':'New Wave', 'classical':'Classical', 'contemporary':'Contemporary' };
+  let spotlightId = null;
+
   function applyFilters() {
     let r = all;
     if (activeEra === 'saved') r = r.filter(f => savedIds.has(f.id));
@@ -522,38 +602,86 @@
       const q = searchQ.toLowerCase();
       r = r.filter(f => f.name.toLowerCase().includes(q) || f.tagline.toLowerCase().includes(q));
     }
-    render(r);
+    const isDefault = activeEra === 'all' && !activeNat && !searchQ;
+    renderSpotlight(isDefault);
+    render(r, isDefault);
     document.getElementById('result-count').textContent = `${r.length} director${r.length !== 1 ? 's' : ''}`;
   }
 
-  function render(list) {
-    const el = document.getElementById('director-list');
-    if (!list.length) {
-      el.innerHTML = '<p class="empty">No directors match.</p>';
-      return;
+  function renderSpotlight(show) {
+    const el = document.getElementById('spotlight');
+    if (!show || !all.length) { el.style.display = 'none'; return; }
+    if (!spotlightId) {
+      const seed = Math.floor(Date.now() / 86400000);
+      spotlightId = all[seed % all.length].id;
     }
-    el.innerHTML = list.map((f, i) => {
-      const years = f.death_year ? `${f.birth_year}–${f.death_year}` : `b. ${f.birth_year}`;
-      const num = String(i + 1).padStart(2, '0');
-      return `
-        <div class="director-entry era-${f.era}"
-          onclick="showDetail(${f.id})"
-          role="button" tabindex="0"
-          onkeydown="if(event.key==='Enter'||event.key===' ')showDetail(${f.id})">
-          <span class="entry-num">${num}</span>
-          <div class="entry-body">
-            <div class="entry-name">${f.name}</div>
-            <div class="entry-tagline">${f.tagline}</div>
+    const f = all.find(x => x.id === spotlightId);
+    if (!f) { el.style.display = 'none'; return; }
+    const excerpt = f.bio.length > 200 ? f.bio.slice(0, 200).replace(/\s\S+$/, '') + '...' : f.bio;
+    const years = f.death_year ? `${f.birth_year}–${f.death_year}` : `b. ${f.birth_year}`;
+    el.style.display = 'block';
+    el.innerHTML = `
+      <div class="spotlight-eyebrow">
+        <span class="spotlight-label">Director of the Day</span>
+        <span class="spotlight-era era-${f.era}">${ERA_LABEL[f.era]}</span>
+      </div>
+      <div class="spotlight-name">${f.name}</div>
+      <div class="spotlight-tagline">${f.tagline}</div>
+      <div class="spotlight-bio">${excerpt}</div>
+      <div class="spotlight-footer">
+        <span class="spotlight-read">Read profile →</span>
+        <span class="spotlight-meta">${fn(f.nationality)} · ${years}</span>
+      </div>`;
+  }
+
+  function spotlightClick() {
+    if (spotlightId) showDetail(spotlightId);
+  }
+
+  function entryHTML(f, num) {
+    const years = f.death_year ? `${f.birth_year}–${f.death_year}` : `b. ${f.birth_year}`;
+    return `
+      <div class="director-entry era-${f.era}"
+        onclick="showDetail(${f.id})"
+        role="button" tabindex="0"
+        onkeydown="if(event.key==='Enter'||event.key===' ')showDetail(${f.id})">
+        <span class="entry-num">${String(num).padStart(2,'0')}</span>
+        <div class="entry-body">
+          <div class="entry-name">${f.name}</div>
+          <div class="entry-tagline">${f.tagline}</div>
+        </div>
+        <div class="entry-right">
+          <span class="entry-era">${fe(f.era)}</span>
+          <span class="entry-years">${years}</span>
+          <button class="entry-heart ${savedIds.has(f.id)?'saved':''}"
+            onclick="toggleFav(${f.id},event)"
+            aria-label="Save">♥</button>
+        </div>
+      </div>`;
+  }
+
+  function render(list, grouped) {
+    const el = document.getElementById('director-list');
+    if (!list.length) { el.innerHTML = '<p class="empty">No directors match.</p>'; return; }
+
+    if (grouped) {
+      const byEra = {};
+      ERA_ORDER.forEach(e => byEra[e] = []);
+      list.forEach(f => { if (byEra[f.era]) byEra[f.era].push(f); });
+      el.innerHTML = ERA_ORDER.map(era => {
+        const dirs = byEra[era];
+        if (!dirs.length) return '';
+        return `<div class="era-section">
+          <div class="era-section-head head-${era}">
+            <span class="era-section-head-label">${ERA_LABEL[era]}</span>
+            <span class="era-section-head-count">${dirs.length} directors</span>
           </div>
-          <div class="entry-right">
-            <span class="entry-era">${fe(f.era)}</span>
-            <span class="entry-years">${years}</span>
-            <button class="entry-heart ${savedIds.has(f.id)?'saved':''}"
-              onclick="toggleFav(${f.id},event)"
-              aria-label="Save">♥</button>
-          </div>
+          ${dirs.map((f, i) => entryHTML(f, i + 1)).join('')}
         </div>`;
-    }).join('');
+      }).join('');
+    } else {
+      el.innerHTML = list.map((f, i) => entryHTML(f, i + 1)).join('');
+    }
   }
 
   function showDetail(id) {
