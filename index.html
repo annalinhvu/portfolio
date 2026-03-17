@@ -460,7 +460,8 @@
   .lv-03 { color: var(--indigo);  background: var(--indigo-bg); }
   .lv-04 { color: var(--green);   background: var(--green-bg); }
   .lv-05 { color: var(--red);     background: var(--red-bg); }
-  .lv-06 { color: var(--amber);  background: var(--amber-bg); }
+  .lv-06 { color: #909090; background: #f0f0f0; }
+  [data-theme="dark"] .lv-06 { color: #606060; background: #1a1a1a; }
 
   /* ── Responsive ── */
   @media(max-width:768px) {
@@ -1116,32 +1117,26 @@
 
     <a href="projects/filmmakers/" class="card lab-card" style="display:block;text-decoration:none;color:inherit;cursor:pointer">
       <div class="lab-visual lv-06">
-        <svg viewBox="0 0 560 90" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-          <!-- Typographic list rows — mirrors the Auteurs page layout -->
-          <!-- Row 1: number + long name + short era label -->
-          <rect x="52" y="16" width="14" height="2.5" rx="1" fill="currentColor" opacity="0.22"/>
-          <rect x="80" y="16" width="162" height="2.5" rx="1" fill="currentColor" opacity="0.55"/>
-          <rect x="420" y="16" width="68" height="2.5" rx="1" fill="currentColor" opacity="0.28"/>
-          <!-- Row 1 tagline -->
-          <rect x="80" y="24" width="118" height="2" rx="1" fill="currentColor" opacity="0.18"/>
-          <!-- Row 2 -->
-          <rect x="52" y="38" width="14" height="2.5" rx="1" fill="currentColor" opacity="0.22"/>
-          <rect x="80" y="38" width="140" height="2.5" rx="1" fill="currentColor" opacity="0.45"/>
-          <rect x="420" y="38" width="82" height="2.5" rx="1" fill="currentColor" opacity="0.22"/>
-          <rect x="80" y="46" width="100" height="2" rx="1" fill="currentColor" opacity="0.15"/>
-          <!-- Row 3 -->
-          <rect x="52" y="60" width="14" height="2.5" rx="1" fill="currentColor" opacity="0.22"/>
-          <rect x="80" y="60" width="188" height="2.5" rx="1" fill="currentColor" opacity="0.60"/>
-          <rect x="420" y="60" width="58" height="2.5" rx="1" fill="currentColor" opacity="0.28"/>
-          <rect x="80" y="68" width="130" height="2" rx="1" fill="currentColor" opacity="0.18"/>
-          <!-- Row 4 -->
-          <rect x="52" y="82" width="14" height="2.5" rx="1" fill="currentColor" opacity="0.22"/>
-          <rect x="80" y="82" width="110" height="2.5" rx="1" fill="currentColor" opacity="0.35"/>
-          <rect x="420" y="82" width="74" height="2.5" rx="1" fill="currentColor" opacity="0.20"/>
-          <!-- Dividers between rows -->
-          <line x1="40" y1="32" x2="520" y2="32" stroke="currentColor" stroke-width="0.5" opacity="0.12"/>
-          <line x1="40" y1="54" x2="520" y2="54" stroke="currentColor" stroke-width="0.5" opacity="0.12"/>
-          <line x1="40" y1="76" x2="520" y2="76" stroke="currentColor" stroke-width="0.5" opacity="0.12"/>
+        <svg viewBox="0 0 560 90" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+          <!-- Clapperboard body -->
+          <rect x="190" y="32" width="180" height="42" rx="4" fill="none" stroke="currentColor" stroke-width="2.5" opacity="0.5"/>
+          <!-- Clapperboard top bar -->
+          <rect x="190" y="20" width="180" height="16" rx="3" fill="currentColor" opacity="0.18"/>
+          <!-- Clapper stripes on top bar -->
+          <line x1="218" y1="20" x2="211" y2="36" stroke="currentColor" stroke-width="2.5" opacity="0.45"/>
+          <line x1="236" y1="20" x2="229" y2="36" stroke="currentColor" stroke-width="2.5" opacity="0.45"/>
+          <line x1="254" y1="20" x2="247" y2="36" stroke="currentColor" stroke-width="2.5" opacity="0.45"/>
+          <line x1="272" y1="20" x2="265" y2="36" stroke="currentColor" stroke-width="2.5" opacity="0.45"/>
+          <line x1="290" y1="20" x2="283" y2="36" stroke="currentColor" stroke-width="2.5" opacity="0.45"/>
+          <line x1="308" y1="20" x2="301" y2="36" stroke="currentColor" stroke-width="2.5" opacity="0.45"/>
+          <line x1="326" y1="20" x2="319" y2="36" stroke="currentColor" stroke-width="2.5" opacity="0.45"/>
+          <line x1="344" y1="20" x2="337" y2="36" stroke="currentColor" stroke-width="2.5" opacity="0.45"/>
+          <!-- Lines inside body suggesting text -->
+          <line x1="206" y1="46" x2="354" y2="46" stroke="currentColor" stroke-width="1.5" opacity="0.2"/>
+          <line x1="206" y1="56" x2="320" y2="56" stroke="currentColor" stroke-width="1.5" opacity="0.14"/>
+          <line x1="206" y1="66" x2="338" y2="66" stroke="currentColor" stroke-width="1.5" opacity="0.14"/>
+          <!-- Hinge dot -->
+          <circle cx="190" cy="28" r="3" fill="currentColor" opacity="0.35"/>
         </svg>
       </div>
       <div class="lab-header">
