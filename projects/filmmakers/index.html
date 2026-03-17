@@ -472,6 +472,14 @@
 
     /* ── Era sections ── */
     .era-section { margin-bottom: 0; }
+    .era-entries {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 40px;
+    }
+    @media (max-width: 760px) {
+      .era-entries { grid-template-columns: 1fr; gap: 0; }
+    }
     .era-section-head {
       display: flex; align-items: baseline; gap: 12px;
       padding: 28px 0 14px;
@@ -676,11 +684,11 @@
             <span class="era-section-head-label">${ERA_LABEL[era]}</span>
             <span class="era-section-head-count">${dirs.length} directors</span>
           </div>
-          ${dirs.map((f, i) => entryHTML(f, i + 1)).join('')}
+          <div class="era-entries">${dirs.map((f, i) => entryHTML(f, i + 1)).join('')}</div>
         </div>`;
       }).join('');
     } else {
-      el.innerHTML = list.map((f, i) => entryHTML(f, i + 1)).join('');
+      el.innerHTML = `<div class="era-entries">${list.map((f, i) => entryHTML(f, i + 1)).join('')}</div>`;
     }
   }
 
