@@ -321,7 +321,7 @@
       line-height: 1.85; margin-bottom: 40px;
     }
 
-    /* Films — screening program */
+    /* Films, screening program */
     .film-list { list-style: none; }
     .film-item {
       display: flex; align-items: baseline; gap: 12px;
@@ -336,6 +336,41 @@
     .film-y {
       font-family: 'Geist Mono', monospace; font-size: 0.6rem;
       color: var(--text-4); flex-shrink: 0;
+    }
+
+    /* Where to Start */
+    .start-block {
+      margin-bottom: 40px;
+      padding: 20px 24px;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--amber);
+      border-radius: 2px;
+    }
+    .start-label {
+      font-family: 'Geist Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 1.8px; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 10px;
+    }
+    .start-film {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1rem; font-weight: 300; color: var(--text-1);
+      margin-bottom: 6px;
+    }
+    .start-year {
+      font-family: 'Geist Mono', monospace; font-size: 0.6rem;
+      color: var(--text-4); margin-left: 8px;
+    }
+    .start-note {
+      font-size: 0.84rem; color: var(--text-2); line-height: 1.7;
+    }
+
+    /* Key themes */
+    .key-themes { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .key-theme {
+      font-family: 'Geist Mono', monospace; font-size: 0.54rem;
+      letter-spacing: 0.8px; text-transform: uppercase;
+      color: var(--text-3); border: 1px solid var(--border);
+      padding: 4px 10px; border-radius: 2px;
     }
 
     /* Sidebar */
@@ -430,7 +465,7 @@
   let stimer = null;
 
   const ERA = { 'avant-garde':'Avant-garde', 'new-wave':'New Wave', 'classical':'Classical', 'contemporary':'Contemporary' };
-  const NAT = { french:'French', american:'American', japanese:'Japanese', belgian:'Belgian', russian:'Russian', swedish:'Swedish', hongkong:'Hong Kong', iranian:'Iranian', korean:'Korean', taiwanese:'Taiwanese', mexican:'Mexican' };
+  const NAT = { french:'French', american:'American', japanese:'Japanese', belgian:'Belgian', russian:'Russian', swedish:'Swedish', hongkong:'Hong Kong', iranian:'Iranian', korean:'Korean', taiwanese:'Taiwanese', mexican:'Mexican', indian:'Indian', italian:'Italian', senegalese:'Senegalese', czech:'Czech', argentinian:'Argentinian', polish:'Polish', german:'German', scottish:'Scottish', chinese:'Chinese', spanish:'Spanish', thai:'Thai' };
   const fe = e => ERA[e] || e;
   const fn = n => NAT[n] || n.charAt(0).toUpperCase()+n.slice(1);
 
@@ -534,6 +569,18 @@
         <div class="detail-main">
           <p class="detail-section">About</p>
           <p class="detail-bio">${f.bio}</p>
+
+          ${f.key_themes?.length ? `
+          <p class="detail-section">Key Themes</p>
+          <div class="key-themes">${f.key_themes.map(t=>`<span class="key-theme">${t}</span>`).join('')}</div>
+          <div style="margin-bottom:40px"></div>` : ''}
+
+          ${f.start_with ? `
+          <p class="detail-section">Where to Start</p>
+          <div class="start-block">
+            <div class="start-film">${f.start_with.film}<span class="start-year">${f.start_with.year}</span></div>
+            <p class="start-note">${f.start_with.note}</p>
+          </div>` : ''}
 
           <p class="detail-section">Films</p>
           <ul class="film-list">

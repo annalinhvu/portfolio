@@ -10,18 +10,62 @@
     "bio": "Agnès Varda began making films a decade before the New Wave had a name, forging a singular path that blended documentary rigor with poetic imagination. Her work is marked by a deep curiosity about everyday people and overlooked places, a playful feminist sensibility, and a willingness to reinvent herself at any age. Her final films, made in her eighties, were among her most inventive and joyful.",
     "why": "Her camera feels like a form of love, attentive, unhurried, and always on the side of the overlooked.",
     "notable_films": [
-      { "title": "La Pointe Courte", "year": 1955 },
-      { "title": "Cléo from 5 to 7", "year": 1962 },
-      { "title": "Le Bonheur", "year": 1965 },
-      { "title": "Lions Love", "year": 1969 },
-      { "title": "One Sings, the Other Doesn't", "year": 1977 },
-      { "title": "Vagabond", "year": 1985 },
-      { "title": "Jacquot de Nantes", "year": 1991 },
-      { "title": "The Gleaners & I", "year": 2000 },
-      { "title": "The Beaches of Agnès", "year": 2008 },
-      { "title": "Faces Places", "year": 2017 }
+      {
+        "title": "La Pointe Courte",
+        "year": 1955
+      },
+      {
+        "title": "Cléo from 5 to 7",
+        "year": 1962
+      },
+      {
+        "title": "Le Bonheur",
+        "year": 1965
+      },
+      {
+        "title": "Lions Love",
+        "year": 1969
+      },
+      {
+        "title": "One Sings, the Other Doesn't",
+        "year": 1977
+      },
+      {
+        "title": "Vagabond",
+        "year": 1985
+      },
+      {
+        "title": "Jacquot de Nantes",
+        "year": 1991
+      },
+      {
+        "title": "The Gleaners & I",
+        "year": 2000
+      },
+      {
+        "title": "The Beaches of Agnès",
+        "year": 2008
+      },
+      {
+        "title": "Faces Places",
+        "year": 2017
+      }
     ],
-    "style_tags": ["essay-film", "documentary", "feminist"]
+    "style_tags": [
+      "essay-film",
+      "documentary",
+      "feminist"
+    ],
+    "start_with": {
+      "film": "Cléo from 5 to 7",
+      "year": 1962,
+      "note": "Formally daring yet immediately human. The perfect portrait of a woman owning her own gaze."
+    },
+    "key_themes": [
+      "female subjectivity",
+      "documentary poetry",
+      "time and mortality"
+    ]
   },
   {
     "id": 2,
@@ -34,18 +78,62 @@
     "bio": "Stan Brakhage was the most prolific and radical of American avant-garde filmmakers, producing over 370 works across five decades. He scratched, painted, and collaged directly onto film emulsion, questioning every convention of cinema, narrative, sound, even the camera itself. His work is an ongoing inquiry into vision: what does it mean to truly see without the filters of language and habit?",
     "why": "Brakhage taught me that cinema is not about stories but about light, duration, and perception itself, that the eye can be remade.",
     "notable_films": [
-      { "title": "Desistfilm", "year": 1954 },
-      { "title": "The Way to Shadow Garden", "year": 1955 },
-      { "title": "Anticipation of the Night", "year": 1958 },
-      { "title": "Window Water Baby Moving", "year": 1959 },
-      { "title": "Cat's Cradle", "year": 1959 },
-      { "title": "Mothlight", "year": 1963 },
-      { "title": "Dog Star Man", "year": 1964 },
-      { "title": "The Act of Seeing with One's Own Eyes", "year": 1971 },
-      { "title": "Text of Light", "year": 1974 },
-      { "title": "Night Music", "year": 1986 }
+      {
+        "title": "Desistfilm",
+        "year": 1954
+      },
+      {
+        "title": "The Way to Shadow Garden",
+        "year": 1955
+      },
+      {
+        "title": "Anticipation of the Night",
+        "year": 1958
+      },
+      {
+        "title": "Window Water Baby Moving",
+        "year": 1959
+      },
+      {
+        "title": "Cat's Cradle",
+        "year": 1959
+      },
+      {
+        "title": "Mothlight",
+        "year": 1963
+      },
+      {
+        "title": "Dog Star Man",
+        "year": 1964
+      },
+      {
+        "title": "The Act of Seeing with One's Own Eyes",
+        "year": 1971
+      },
+      {
+        "title": "Text of Light",
+        "year": 1974
+      },
+      {
+        "title": "Night Music",
+        "year": 1986
+      }
     ],
-    "style_tags": ["experimental", "abstract", "silent"]
+    "style_tags": [
+      "experimental",
+      "abstract",
+      "silent"
+    ],
+    "start_with": {
+      "film": "Mothlight",
+      "year": 1963,
+      "note": "Three minutes, no camera. Watch it once and you will never think about what cinema is made of the same way."
+    },
+    "key_themes": [
+      "pure vision",
+      "materiality of film",
+      "the act of seeing"
+    ]
   },
   {
     "id": 3,
@@ -58,18 +146,62 @@
     "bio": "Born in Lithuania, displaced by World War II, Jonas Mekas arrived in New York in 1949 and spent the next seven decades documenting his life in an ecstatic visual diary. He was also the great champion of American avant-garde cinema, co-founding Anthology Film Archives, while his own camera work remained resolutely personal, capturing fragments of beauty in the ordinary rhythms of an immigrant life.",
     "why": "Mekas showed me that a life lived attentively is its own kind of cinema, that ordinary days, filmed with love, become poetry.",
     "notable_films": [
-      { "title": "Guns of the Trees", "year": 1961 },
-      { "title": "Film Magazine of the Arts", "year": 1963 },
-      { "title": "The Brig", "year": 1964 },
-      { "title": "Report from Millbrook", "year": 1966 },
-      { "title": "Walden", "year": 1969 },
-      { "title": "Reminiscences of a Journey to Lithuania", "year": 1972 },
-      { "title": "Lost Lost Lost", "year": 1976 },
-      { "title": "He Stands in a Desert...", "year": 1986 },
-      { "title": "Zefiro Torna", "year": 1992 },
-      { "title": "As I Was Moving Ahead Occasionally I Saw Brief Glimpses of Beauty", "year": 2000 }
+      {
+        "title": "Guns of the Trees",
+        "year": 1961
+      },
+      {
+        "title": "Film Magazine of the Arts",
+        "year": 1963
+      },
+      {
+        "title": "The Brig",
+        "year": 1964
+      },
+      {
+        "title": "Report from Millbrook",
+        "year": 1966
+      },
+      {
+        "title": "Walden",
+        "year": 1969
+      },
+      {
+        "title": "Reminiscences of a Journey to Lithuania",
+        "year": 1972
+      },
+      {
+        "title": "Lost Lost Lost",
+        "year": 1976
+      },
+      {
+        "title": "He Stands in a Desert...",
+        "year": 1986
+      },
+      {
+        "title": "Zefiro Torna",
+        "year": 1992
+      },
+      {
+        "title": "As I Was Moving Ahead Occasionally I Saw Brief Glimpses of Beauty",
+        "year": 2000
+      }
     ],
-    "style_tags": ["diary-film", "documentary", "experimental"]
+    "style_tags": [
+      "diary-film",
+      "documentary",
+      "experimental"
+    ],
+    "start_with": {
+      "film": "Lost Lost Lost",
+      "year": 1976,
+      "note": "Six years of diary footage compressed into a film about memory, exile, and the beauty of paying attention."
+    },
+    "key_themes": [
+      "exile and memory",
+      "everyday beauty",
+      "the diary form"
+    ]
   },
   {
     "id": 4,
@@ -82,19 +214,66 @@
     "bio": "Jean-Luc Godard burst onto the scene with Breathless in 1960 and never stopped questioning what cinema could be. He dismantled narrative conventions, broke the fourth wall, incorporated philosophy and politics into his films, and in his later career made works that felt closer to video essays than any recognizable genre. He was cinema's greatest provocateur and its most restless mind.",
     "why": "Every Godard film asks: what is this thing we call cinema, and what can it do that nothing else can?",
     "notable_films": [
-      { "title": "Breathless", "year": 1960 },
-      { "title": "Vivre sa vie", "year": 1962 },
-      { "title": "Contempt", "year": 1963 },
-      { "title": "Band of Outsiders", "year": 1964 },
-      { "title": "Alphaville", "year": 1965 },
-      { "title": "Pierrot le Fou", "year": 1965 },
-      { "title": "2 or 3 Things I Know About Her", "year": 1967 },
-      { "title": "Weekend", "year": 1967 },
-      { "title": "Every Man for Himself", "year": 1980 },
-      { "title": "Hail Mary", "year": 1985 },
-      { "title": "Histoire(s) du cinéma", "year": 1998 }
+      {
+        "title": "Breathless",
+        "year": 1960
+      },
+      {
+        "title": "Vivre sa vie",
+        "year": 1962
+      },
+      {
+        "title": "Contempt",
+        "year": 1963
+      },
+      {
+        "title": "Band of Outsiders",
+        "year": 1964
+      },
+      {
+        "title": "Alphaville",
+        "year": 1965
+      },
+      {
+        "title": "Pierrot le Fou",
+        "year": 1965
+      },
+      {
+        "title": "2 or 3 Things I Know About Her",
+        "year": 1967
+      },
+      {
+        "title": "Weekend",
+        "year": 1967
+      },
+      {
+        "title": "Every Man for Himself",
+        "year": 1980
+      },
+      {
+        "title": "Hail Mary",
+        "year": 1985
+      },
+      {
+        "title": "Histoire(s) du cinéma",
+        "year": 1998
+      }
     ],
-    "style_tags": ["essay-film", "political", "experimental"]
+    "style_tags": [
+      "essay-film",
+      "political",
+      "experimental"
+    ],
+    "start_with": {
+      "film": "Breathless",
+      "year": 1960,
+      "note": "The film that started it all. Watch Breathless before the work gets harder."
+    },
+    "key_themes": [
+      "cinema self-awareness",
+      "politics and image",
+      "love and alienation"
+    ]
   },
   {
     "id": 5,
@@ -107,19 +286,66 @@
     "bio": "Chantal Akerman made one of cinema's most radical films at 25: Jeanne Dielman, a nearly four-hour portrait of a housewife's routine that transforms repetition into revelation. Throughout her career she explored themes of displacement, desire, and the female body through rigorously formal means, long takes, fixed cameras, and an unflinching attention to domestic space and time.",
     "why": "Akerman made me understand that how you show something is inseparable from what you're saying about it.",
     "notable_films": [
-      { "title": "Je tu il elle", "year": 1974 },
-      { "title": "Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles", "year": 1975 },
-      { "title": "News from Home", "year": 1977 },
-      { "title": "Les Rendez-vous d'Anna", "year": 1978 },
-      { "title": "Toute une nuit", "year": 1982 },
-      { "title": "The Eighties", "year": 1983 },
-      { "title": "Window Shopping", "year": 1986 },
-      { "title": "D'Est", "year": 1993 },
-      { "title": "La Captive", "year": 2000 },
-      { "title": "Almayer's Folly", "year": 2011 },
-      { "title": "No Home Movie", "year": 2015 }
+      {
+        "title": "Je tu il elle",
+        "year": 1974
+      },
+      {
+        "title": "Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles",
+        "year": 1975
+      },
+      {
+        "title": "News from Home",
+        "year": 1977
+      },
+      {
+        "title": "Les Rendez-vous d'Anna",
+        "year": 1978
+      },
+      {
+        "title": "Toute une nuit",
+        "year": 1982
+      },
+      {
+        "title": "The Eighties",
+        "year": 1983
+      },
+      {
+        "title": "Window Shopping",
+        "year": 1986
+      },
+      {
+        "title": "D'Est",
+        "year": 1993
+      },
+      {
+        "title": "La Captive",
+        "year": 2000
+      },
+      {
+        "title": "Almayer's Folly",
+        "year": 2011
+      },
+      {
+        "title": "No Home Movie",
+        "year": 2015
+      }
     ],
-    "style_tags": ["experimental", "feminist", "slow-cinema"]
+    "style_tags": [
+      "experimental",
+      "feminist",
+      "slow-cinema"
+    ],
+    "start_with": {
+      "film": "Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles",
+      "year": 1975,
+      "note": "Demanding but essential. Nothing else shows you what duration can do to ordinary life."
+    },
+    "key_themes": [
+      "feminist form",
+      "domestic time",
+      "displacement"
+    ]
   },
   {
     "id": 6,
@@ -132,18 +358,62 @@
     "bio": "Andrei Tarkovsky believed cinema's unique property was its ability to render time visible, not just to record events but to sculpt duration itself. His seven features are among the most visually and spiritually demanding in all of cinema, dwelling in landscapes of ruin and grace, memory and longing, faith and doubt. He remains cinema's most transcendent artist.",
     "why": "No filmmaker has made me feel more acutely the passage of time, or the weight of spiritual longing.",
     "notable_films": [
-      { "title": "The Killers", "year": 1956 },
-      { "title": "There Will Be No Leave Today", "year": 1959 },
-      { "title": "The Steamroller and the Violin", "year": 1961 },
-      { "title": "Ivan's Childhood", "year": 1962 },
-      { "title": "Andrei Rublev", "year": 1966 },
-      { "title": "Solaris", "year": 1972 },
-      { "title": "The Mirror", "year": 1975 },
-      { "title": "Stalker", "year": 1979 },
-      { "title": "Nostalghia", "year": 1983 },
-      { "title": "The Sacrifice", "year": 1986 }
+      {
+        "title": "The Killers",
+        "year": 1956
+      },
+      {
+        "title": "There Will Be No Leave Today",
+        "year": 1959
+      },
+      {
+        "title": "The Steamroller and the Violin",
+        "year": 1961
+      },
+      {
+        "title": "Ivan's Childhood",
+        "year": 1962
+      },
+      {
+        "title": "Andrei Rublev",
+        "year": 1966
+      },
+      {
+        "title": "Solaris",
+        "year": 1972
+      },
+      {
+        "title": "The Mirror",
+        "year": 1975
+      },
+      {
+        "title": "Stalker",
+        "year": 1979
+      },
+      {
+        "title": "Nostalghia",
+        "year": 1983
+      },
+      {
+        "title": "The Sacrifice",
+        "year": 1986
+      }
     ],
-    "style_tags": ["poetic", "spiritual", "slow-cinema"]
+    "style_tags": [
+      "poetic",
+      "spiritual",
+      "slow-cinema"
+    ],
+    "start_with": {
+      "film": "Stalker",
+      "year": 1979,
+      "note": "His most accessible masterwork. A journey into a zone where your deepest wish might come true."
+    },
+    "key_themes": [
+      "spiritual longing",
+      "sculpting time",
+      "memory and landscape"
+    ]
   },
   {
     "id": 7,
@@ -156,19 +426,66 @@
     "bio": "Ingmar Bergman made over forty films across five decades, returning obsessively to questions of faith, death, love, and the impossibility of truly knowing another person. Working with cinematographer Sven Nykvist and a repertory company of extraordinary actors, he created a body of work of unrivaled psychological intensity. Few filmmakers have gone so deep into the human interior.",
     "why": "Bergman taught me that cinema can be as honest about pain and uncertainty as the best literature, maybe more so.",
     "notable_films": [
-      { "title": "Sawdust and Tinsel", "year": 1953 },
-      { "title": "Smiles of a Summer Night", "year": 1955 },
-      { "title": "The Seventh Seal", "year": 1957 },
-      { "title": "Wild Strawberries", "year": 1957 },
-      { "title": "Through a Glass Darkly", "year": 1961 },
-      { "title": "Winter Light", "year": 1963 },
-      { "title": "Persona", "year": 1966 },
-      { "title": "Cries and Whispers", "year": 1972 },
-      { "title": "Scenes from a Marriage", "year": 1973 },
-      { "title": "Autumn Sonata", "year": 1978 },
-      { "title": "Fanny and Alexander", "year": 1982 }
+      {
+        "title": "Sawdust and Tinsel",
+        "year": 1953
+      },
+      {
+        "title": "Smiles of a Summer Night",
+        "year": 1955
+      },
+      {
+        "title": "The Seventh Seal",
+        "year": 1957
+      },
+      {
+        "title": "Wild Strawberries",
+        "year": 1957
+      },
+      {
+        "title": "Through a Glass Darkly",
+        "year": 1961
+      },
+      {
+        "title": "Winter Light",
+        "year": 1963
+      },
+      {
+        "title": "Persona",
+        "year": 1966
+      },
+      {
+        "title": "Cries and Whispers",
+        "year": 1972
+      },
+      {
+        "title": "Scenes from a Marriage",
+        "year": 1973
+      },
+      {
+        "title": "Autumn Sonata",
+        "year": 1978
+      },
+      {
+        "title": "Fanny and Alexander",
+        "year": 1982
+      }
     ],
-    "style_tags": ["psychological", "existential", "humanist"]
+    "style_tags": [
+      "psychological",
+      "existential",
+      "humanist"
+    ],
+    "start_with": {
+      "film": "Wild Strawberries",
+      "year": 1957,
+      "note": "Gentler than his reputation suggests. A man drives to receive an award and reviews his whole life."
+    },
+    "key_themes": [
+      "death and faith",
+      "psychological interiority",
+      "the impossible relationship"
+    ]
   },
   {
     "id": 8,
@@ -181,18 +498,62 @@
     "bio": "Wong Kar-wai makes films about desire, time, and the space between people who almost connect. Shooting without scripts, often improvising with cinematographer Christopher Doyle, he creates a world of blurred motion, saturated colors, and pop music that aches. His films don't follow narrative logic, they follow the logic of memory and longing.",
     "why": "He makes you feel the specific texture of missing someone, not in a generic way, but with unbearable precision.",
     "notable_films": [
-      { "title": "As Tears Go By", "year": 1988 },
-      { "title": "Days of Being Wild", "year": 1990 },
-      { "title": "Ashes of Time", "year": 1994 },
-      { "title": "Chungking Express", "year": 1994 },
-      { "title": "Fallen Angels", "year": 1995 },
-      { "title": "Happy Together", "year": 1997 },
-      { "title": "In the Mood for Love", "year": 2000 },
-      { "title": "2046", "year": 2004 },
-      { "title": "My Blueberry Nights", "year": 2007 },
-      { "title": "The Grandmaster", "year": 2013 }
+      {
+        "title": "As Tears Go By",
+        "year": 1988
+      },
+      {
+        "title": "Days of Being Wild",
+        "year": 1990
+      },
+      {
+        "title": "Ashes of Time",
+        "year": 1994
+      },
+      {
+        "title": "Chungking Express",
+        "year": 1994
+      },
+      {
+        "title": "Fallen Angels",
+        "year": 1995
+      },
+      {
+        "title": "Happy Together",
+        "year": 1997
+      },
+      {
+        "title": "In the Mood for Love",
+        "year": 2000
+      },
+      {
+        "title": "2046",
+        "year": 2004
+      },
+      {
+        "title": "My Blueberry Nights",
+        "year": 2007
+      },
+      {
+        "title": "The Grandmaster",
+        "year": 2013
+      }
     ],
-    "style_tags": ["poetic", "romantic", "experimental"]
+    "style_tags": [
+      "poetic",
+      "romantic",
+      "experimental"
+    ],
+    "start_with": {
+      "film": "Chungking Express",
+      "year": 1994,
+      "note": "Lighter than In the Mood for Love, just as beautiful. Two love stories told sideways."
+    },
+    "key_themes": [
+      "unrequited desire",
+      "urban solitude",
+      "time and memory"
+    ]
   },
   {
     "id": 9,
@@ -205,19 +566,66 @@
     "bio": "François Truffaut began as cinema's most passionate critic before becoming one of its most beloved directors. Where Godard was provocateur, Truffaut was humanist, his films are warm, ironic, and deeply felt, especially in the Antoine Doinel cycle that traced a character from troubled adolescence to adulthood. He loved cinema more than almost anyone and it shows in every frame.",
     "why": "Truffaut reminds me that cinema at its best is an act of empathy, a way of saying I understand what it is like to be you.",
     "notable_films": [
-      { "title": "The 400 Blows", "year": 1959 },
-      { "title": "Shoot the Piano Player", "year": 1960 },
-      { "title": "Jules and Jim", "year": 1962 },
-      { "title": "The Soft Skin", "year": 1964 },
-      { "title": "Fahrenheit 451", "year": 1966 },
-      { "title": "Stolen Kisses", "year": 1968 },
-      { "title": "The Wild Child", "year": 1970 },
-      { "title": "Two English Girls", "year": 1971 },
-      { "title": "Day for Night", "year": 1973 },
-      { "title": "The Story of Adele H.", "year": 1975 },
-      { "title": "The Last Metro", "year": 1980 }
+      {
+        "title": "The 400 Blows",
+        "year": 1959
+      },
+      {
+        "title": "Shoot the Piano Player",
+        "year": 1960
+      },
+      {
+        "title": "Jules and Jim",
+        "year": 1962
+      },
+      {
+        "title": "The Soft Skin",
+        "year": 1964
+      },
+      {
+        "title": "Fahrenheit 451",
+        "year": 1966
+      },
+      {
+        "title": "Stolen Kisses",
+        "year": 1968
+      },
+      {
+        "title": "The Wild Child",
+        "year": 1970
+      },
+      {
+        "title": "Two English Girls",
+        "year": 1971
+      },
+      {
+        "title": "Day for Night",
+        "year": 1973
+      },
+      {
+        "title": "The Story of Adele H.",
+        "year": 1975
+      },
+      {
+        "title": "The Last Metro",
+        "year": 1980
+      }
     ],
-    "style_tags": ["humanist", "autobiographical", "new-wave"]
+    "style_tags": [
+      "humanist",
+      "autobiographical",
+      "new-wave"
+    ],
+    "start_with": {
+      "film": "The 400 Blows",
+      "year": 1959,
+      "note": "His own childhood, filmed with aching precision. The film that invented the modern coming-of-age story."
+    },
+    "key_themes": [
+      "childhood and becoming",
+      "cinephilia",
+      "human warmth"
+    ]
   },
   {
     "id": 10,
@@ -230,19 +638,66 @@
     "bio": "Abbas Kiarostami made films that blur the line between documentary and fiction, between the world as it is and as we imagine it. Working in Iran with non-professional actors, he created a body of work of extraordinary philosophical complexity and visual simplicity. His films ask: what is real? What does it mean to represent a life?",
     "why": "Kiarostami showed me that the deepest questions about cinema can be asked with the most minimal means.",
     "notable_films": [
-      { "title": "The Bread and Alley", "year": 1970 },
-      { "title": "Where Is the Friend's Home?", "year": 1987 },
-      { "title": "Homework", "year": 1989 },
-      { "title": "Close-Up", "year": 1990 },
-      { "title": "Life and Nothing More", "year": 1992 },
-      { "title": "Through the Olive Trees", "year": 1994 },
-      { "title": "Taste of Cherry", "year": 1997 },
-      { "title": "The Wind Will Carry Us", "year": 1999 },
-      { "title": "Ten", "year": 2002 },
-      { "title": "Certified Copy", "year": 2010 },
-      { "title": "Like Someone in Love", "year": 2012 }
+      {
+        "title": "The Bread and Alley",
+        "year": 1970
+      },
+      {
+        "title": "Where Is the Friend's Home?",
+        "year": 1987
+      },
+      {
+        "title": "Homework",
+        "year": 1989
+      },
+      {
+        "title": "Close-Up",
+        "year": 1990
+      },
+      {
+        "title": "Life and Nothing More",
+        "year": 1992
+      },
+      {
+        "title": "Through the Olive Trees",
+        "year": 1994
+      },
+      {
+        "title": "Taste of Cherry",
+        "year": 1997
+      },
+      {
+        "title": "The Wind Will Carry Us",
+        "year": 1999
+      },
+      {
+        "title": "Ten",
+        "year": 2002
+      },
+      {
+        "title": "Certified Copy",
+        "year": 2010
+      },
+      {
+        "title": "Like Someone in Love",
+        "year": 2012
+      }
     ],
-    "style_tags": ["minimalist", "philosophical", "documentary"]
+    "style_tags": [
+      "minimalist",
+      "philosophical",
+      "documentary"
+    ],
+    "start_with": {
+      "film": "Taste of Cherry",
+      "year": 1997,
+      "note": "A man drives strangers around Tehran asking them to help him find a reason to live."
+    },
+    "key_themes": [
+      "documentary and fiction",
+      "the act of looking",
+      "mortality"
+    ]
   },
   {
     "id": 11,
@@ -255,15 +710,50 @@
     "bio": "Maya Deren arrived in New York in the early 1940s and almost single-handedly created American avant-garde cinema. Her films, shot on 16mm with almost no budget, explore dreamlike states, ritual, feminine identity, and the surreal logic of the unconscious. She was also a tireless advocate for independent film, arguing for cinema as a personal art form decades before that idea was common.",
     "why": "Deren's films feel like dreams you have actually had, familiar and strange at once, charged with a logic you cannot quite articulate.",
     "notable_films": [
-      { "title": "Meshes of the Afternoon", "year": 1943 },
-      { "title": "At Land", "year": 1944 },
-      { "title": "A Study in Choreography for Camera", "year": 1945 },
-      { "title": "Ritual in Transfigured Time", "year": 1946 },
-      { "title": "Meditation on Violence", "year": 1948 },
-      { "title": "The Very Eye of Night", "year": 1958 },
-      { "title": "Divine Horsemen: The Living Gods of Haiti", "year": 1985 }
+      {
+        "title": "Meshes of the Afternoon",
+        "year": 1943
+      },
+      {
+        "title": "At Land",
+        "year": 1944
+      },
+      {
+        "title": "A Study in Choreography for Camera",
+        "year": 1945
+      },
+      {
+        "title": "Ritual in Transfigured Time",
+        "year": 1946
+      },
+      {
+        "title": "Meditation on Violence",
+        "year": 1948
+      },
+      {
+        "title": "The Very Eye of Night",
+        "year": 1958
+      },
+      {
+        "title": "Divine Horsemen: The Living Gods of Haiti",
+        "year": 1985
+      }
     ],
-    "style_tags": ["surrealist", "feminist", "experimental"]
+    "style_tags": [
+      "surrealist",
+      "feminist",
+      "experimental"
+    ],
+    "start_with": {
+      "film": "Meshes of the Afternoon",
+      "year": 1943,
+      "note": "Fourteen minutes that changed what cinema could be. Watch it three times."
+    },
+    "key_themes": [
+      "dream logic",
+      "the female body",
+      "ritual and mythology"
+    ]
   },
   {
     "id": 12,
@@ -276,20 +766,70 @@
     "bio": "Akira Kurosawa was the first Japanese filmmaker to achieve international recognition, and remains one of the most influential directors in cinema history. His films range from intimate character studies to sweeping historical epics, always driven by a deep humanism and precise visual intelligence. He could make Shakespeare feel Japanese and samurai films feel universal.",
     "why": "Kurosawa understood that spectacle and humanity are not in tension, that the grandest scale can hold the most personal truth.",
     "notable_films": [
-      { "title": "Sanshiro Sugata", "year": 1943 },
-      { "title": "Stray Dog", "year": 1949 },
-      { "title": "Rashomon", "year": 1950 },
-      { "title": "Ikiru", "year": 1952 },
-      { "title": "Seven Samurai", "year": 1954 },
-      { "title": "The Hidden Fortress", "year": 1958 },
-      { "title": "Yojimbo", "year": 1961 },
-      { "title": "High and Low", "year": 1963 },
-      { "title": "Red Beard", "year": 1965 },
-      { "title": "Kagemusha", "year": 1980 },
-      { "title": "Ran", "year": 1985 },
-      { "title": "Dreams", "year": 1990 }
+      {
+        "title": "Sanshiro Sugata",
+        "year": 1943
+      },
+      {
+        "title": "Stray Dog",
+        "year": 1949
+      },
+      {
+        "title": "Rashomon",
+        "year": 1950
+      },
+      {
+        "title": "Ikiru",
+        "year": 1952
+      },
+      {
+        "title": "Seven Samurai",
+        "year": 1954
+      },
+      {
+        "title": "The Hidden Fortress",
+        "year": 1958
+      },
+      {
+        "title": "Yojimbo",
+        "year": 1961
+      },
+      {
+        "title": "High and Low",
+        "year": 1963
+      },
+      {
+        "title": "Red Beard",
+        "year": 1965
+      },
+      {
+        "title": "Kagemusha",
+        "year": 1980
+      },
+      {
+        "title": "Ran",
+        "year": 1985
+      },
+      {
+        "title": "Dreams",
+        "year": 1990
+      }
     ],
-    "style_tags": ["humanist", "epic", "visual-poetry"]
+    "style_tags": [
+      "humanist",
+      "epic",
+      "visual-poetry"
+    ],
+    "start_with": {
+      "film": "Seven Samurai",
+      "year": 1954,
+      "note": "The film that shows spectacle and humanity are never in conflict. Stay for the mud."
+    },
+    "key_themes": [
+      "human dignity",
+      "spectacle and humanism",
+      "moral courage"
+    ]
   },
   {
     "id": 13,
@@ -302,19 +842,66 @@
     "bio": "Chris Marker was cinema's great essayist, a filmmaker, photographer, and writer who moved between documentary, fiction, and pure meditation with equal ease. His films are collections of images, questions, and associations rather than arguments; they trust the viewer to make meaning from juxtaposition. He was also deeply political, a committed leftist whose work engaged obsessively with history, memory, and time.",
     "why": "Marker made me understand that a film can think, not illustrate ideas, but genuinely think through images.",
     "notable_films": [
-      { "title": "Olympia 52", "year": 1952 },
-      { "title": "Dimanche à Pékin", "year": 1956 },
-      { "title": "Letter from Siberia", "year": 1957 },
-      { "title": "Description of a Struggle", "year": 1960 },
-      { "title": "Cuba Sí!", "year": 1961 },
-      { "title": "La Jetée", "year": 1962 },
-      { "title": "A Grin Without a Cat", "year": 1977 },
-      { "title": "Sans Soleil", "year": 1983 },
-      { "title": "The Last Bolshevik", "year": 1993 },
-      { "title": "Level Five", "year": 1997 },
-      { "title": "The Case of the Grinning Cat", "year": 2004 }
+      {
+        "title": "Olympia 52",
+        "year": 1952
+      },
+      {
+        "title": "Dimanche à Pékin",
+        "year": 1956
+      },
+      {
+        "title": "Letter from Siberia",
+        "year": 1957
+      },
+      {
+        "title": "Description of a Struggle",
+        "year": 1960
+      },
+      {
+        "title": "Cuba Sí!",
+        "year": 1961
+      },
+      {
+        "title": "La Jetée",
+        "year": 1962
+      },
+      {
+        "title": "A Grin Without a Cat",
+        "year": 1977
+      },
+      {
+        "title": "Sans Soleil",
+        "year": 1983
+      },
+      {
+        "title": "The Last Bolshevik",
+        "year": 1993
+      },
+      {
+        "title": "Level Five",
+        "year": 1997
+      },
+      {
+        "title": "The Case of the Grinning Cat",
+        "year": 2004
+      }
     ],
-    "style_tags": ["essay-film", "documentary", "political"]
+    "style_tags": [
+      "essay-film",
+      "documentary",
+      "political"
+    ],
+    "start_with": {
+      "film": "La Jetée",
+      "year": 1962,
+      "note": "Twenty-eight minutes of still photographs. The source of every time-travel film made since."
+    },
+    "key_themes": [
+      "memory and time",
+      "political history",
+      "the essay form"
+    ]
   },
   {
     "id": 14,
@@ -327,20 +914,70 @@
     "bio": "Robert Bresson made only thirteen films in fifty years, each one more rigorous than the last. He rejected trained actors and theatrical conventions, working instead with what he called 'models', people who read lines flatly and move without expression, allowing the viewer to project onto them. The result is a cinema of extraordinary spiritual intensity: minimal on the surface, bottomless underneath.",
     "why": "Bresson showed me that restraint can be the most powerful tool in cinema, that what you withhold is as important as what you show.",
     "notable_films": [
-      { "title": "The Angels of Sin", "year": 1943 },
-      { "title": "The Ladies of the Bois de Boulogne", "year": 1945 },
-      { "title": "Diary of a Country Priest", "year": 1951 },
-      { "title": "A Man Escaped", "year": 1956 },
-      { "title": "Pickpocket", "year": 1959 },
-      { "title": "The Trial of Joan of Arc", "year": 1962 },
-      { "title": "Au Hasard Balthazar", "year": 1966 },
-      { "title": "Mouchette", "year": 1967 },
-      { "title": "A Gentle Creature", "year": 1969 },
-      { "title": "Four Nights of a Dreamer", "year": 1971 },
-      { "title": "The Devil, Probably", "year": 1977 },
-      { "title": "L'Argent", "year": 1983 }
+      {
+        "title": "The Angels of Sin",
+        "year": 1943
+      },
+      {
+        "title": "The Ladies of the Bois de Boulogne",
+        "year": 1945
+      },
+      {
+        "title": "Diary of a Country Priest",
+        "year": 1951
+      },
+      {
+        "title": "A Man Escaped",
+        "year": 1956
+      },
+      {
+        "title": "Pickpocket",
+        "year": 1959
+      },
+      {
+        "title": "The Trial of Joan of Arc",
+        "year": 1962
+      },
+      {
+        "title": "Au Hasard Balthazar",
+        "year": 1966
+      },
+      {
+        "title": "Mouchette",
+        "year": 1967
+      },
+      {
+        "title": "A Gentle Creature",
+        "year": 1969
+      },
+      {
+        "title": "Four Nights of a Dreamer",
+        "year": 1971
+      },
+      {
+        "title": "The Devil, Probably",
+        "year": 1977
+      },
+      {
+        "title": "L'Argent",
+        "year": 1983
+      }
     ],
-    "style_tags": ["minimalist", "spiritual", "austere"]
+    "style_tags": [
+      "minimalist",
+      "spiritual",
+      "austere"
+    ],
+    "start_with": {
+      "film": "Pickpocket",
+      "year": 1959,
+      "note": "His most concentrated film. A man picks pockets and searches for grace without knowing it."
+    },
+    "key_themes": [
+      "spiritual grace",
+      "the body as expression",
+      "economy of means"
+    ]
   },
   {
     "id": 15,
@@ -353,19 +990,66 @@
     "bio": "The least known of the Cahiers critics-turned-directors, Jacques Rivette made some of the longest and strangest films in cinema history, improvisational, conspiratorial, shot over months with evolving scripts. His films feel like secret rituals happening in real time, in the actual streets and apartments of Paris. He trusted the process over the result.",
     "why": "Rivette's films feel like being invited into something real that you do not quite understand, which is exactly what great cinema does.",
     "notable_films": [
-      { "title": "Paris Belongs to Us", "year": 1961 },
-      { "title": "The Nun", "year": 1966 },
-      { "title": "L'Amour fou", "year": 1969 },
-      { "title": "Out 1", "year": 1971 },
-      { "title": "Céline and Julie Go Boating", "year": 1974 },
-      { "title": "Duelle", "year": 1976 },
-      { "title": "Noroît", "year": 1976 },
-      { "title": "The Gang of Four", "year": 1988 },
-      { "title": "La Belle Noiseuse", "year": 1991 },
-      { "title": "Va savoir", "year": 2001 },
-      { "title": "The Duchess of Langeais", "year": 2007 }
+      {
+        "title": "Paris Belongs to Us",
+        "year": 1961
+      },
+      {
+        "title": "The Nun",
+        "year": 1966
+      },
+      {
+        "title": "L'Amour fou",
+        "year": 1969
+      },
+      {
+        "title": "Out 1",
+        "year": 1971
+      },
+      {
+        "title": "Céline and Julie Go Boating",
+        "year": 1974
+      },
+      {
+        "title": "Duelle",
+        "year": 1976
+      },
+      {
+        "title": "Noroît",
+        "year": 1976
+      },
+      {
+        "title": "The Gang of Four",
+        "year": 1988
+      },
+      {
+        "title": "La Belle Noiseuse",
+        "year": 1991
+      },
+      {
+        "title": "Va savoir",
+        "year": 2001
+      },
+      {
+        "title": "The Duchess of Langeais",
+        "year": 2007
+      }
     ],
-    "style_tags": ["experimental", "improvisational", "theatrical"]
+    "style_tags": [
+      "experimental",
+      "improvisational",
+      "theatrical"
+    ],
+    "start_with": {
+      "film": "Céline and Julie Go Boating",
+      "year": 1974,
+      "note": "Three hours of pure invention and delight. The most playful entry into his vast, strange world."
+    },
+    "key_themes": [
+      "theatrical conspiracy",
+      "improvisation",
+      "duration and play"
+    ]
   },
   {
     "id": 16,
@@ -378,18 +1062,62 @@
     "bio": "Terrence Malick made two masterpieces in the 1970s, disappeared for twenty years, and returned to make more. His films have no conventional plots, they are meditations on time, memory, mortality, and the relationship between humanity and the natural world. Shot in luminous natural light, narrated in inner voices, structured like music, they demand a different kind of attention.",
     "why": "Malick makes films that feel like trying to hold a memory, it almost works, and the almost-working is the whole point.",
     "notable_films": [
-      { "title": "Badlands", "year": 1973 },
-      { "title": "Days of Heaven", "year": 1978 },
-      { "title": "The Thin Red Line", "year": 1998 },
-      { "title": "The New World", "year": 2005 },
-      { "title": "The Tree of Life", "year": 2011 },
-      { "title": "To the Wonder", "year": 2012 },
-      { "title": "Knight of Cups", "year": 2015 },
-      { "title": "Voyage of Time", "year": 2016 },
-      { "title": "Song to Song", "year": 2017 },
-      { "title": "A Hidden Life", "year": 2019 }
+      {
+        "title": "Badlands",
+        "year": 1973
+      },
+      {
+        "title": "Days of Heaven",
+        "year": 1978
+      },
+      {
+        "title": "The Thin Red Line",
+        "year": 1998
+      },
+      {
+        "title": "The New World",
+        "year": 2005
+      },
+      {
+        "title": "The Tree of Life",
+        "year": 2011
+      },
+      {
+        "title": "To the Wonder",
+        "year": 2012
+      },
+      {
+        "title": "Knight of Cups",
+        "year": 2015
+      },
+      {
+        "title": "Voyage of Time",
+        "year": 2016
+      },
+      {
+        "title": "Song to Song",
+        "year": 2017
+      },
+      {
+        "title": "A Hidden Life",
+        "year": 2019
+      }
     ],
-    "style_tags": ["poetic", "philosophical", "lyrical"]
+    "style_tags": [
+      "poetic",
+      "philosophical",
+      "lyrical"
+    ],
+    "start_with": {
+      "film": "Days of Heaven",
+      "year": 1978,
+      "note": "Start here before The Tree of Life. The images will stay with you for years."
+    },
+    "key_themes": [
+      "grace and nature",
+      "inner voice",
+      "the American landscape"
+    ]
   },
   {
     "id": 17,
@@ -402,14 +1130,46 @@
     "bio": "Céline Sciamma makes films about becoming, about the specific textures of adolescence, desire, and identity, especially for girls and queer people. Her work is formally rigorous and emotionally generous, combining precise visual compositions with performances of extraordinary nuance. Portrait of a Lady on Fire is one of the great love films ever made.",
     "why": "Sciamma writes and directs with a scalpel, she finds exactly the right gesture, the right silence, the right look to say everything.",
     "notable_films": [
-      { "title": "Water Lilies", "year": 2007 },
-      { "title": "Tomboy", "year": 2011 },
-      { "title": "Girlhood", "year": 2014 },
-      { "title": "My Life as a Courgette", "year": 2016 },
-      { "title": "Portrait of a Lady on Fire", "year": 2019 },
-      { "title": "Petite Maman", "year": 2021 }
+      {
+        "title": "Water Lilies",
+        "year": 2007
+      },
+      {
+        "title": "Tomboy",
+        "year": 2011
+      },
+      {
+        "title": "Girlhood",
+        "year": 2014
+      },
+      {
+        "title": "My Life as a Courgette",
+        "year": 2016
+      },
+      {
+        "title": "Portrait of a Lady on Fire",
+        "year": 2019
+      },
+      {
+        "title": "Petite Maman",
+        "year": 2021
+      }
     ],
-    "style_tags": ["feminist", "queer", "minimalist"]
+    "style_tags": [
+      "feminist",
+      "queer",
+      "minimalist"
+    ],
+    "start_with": {
+      "film": "Portrait of a Lady on Fire",
+      "year": 2019,
+      "note": "Her clearest and most fully realized work. A love story that understands exactly what it is doing."
+    },
+    "key_themes": [
+      "queer desire",
+      "the female gaze",
+      "memory and image"
+    ]
   },
   {
     "id": 18,
@@ -422,20 +1182,70 @@
     "bio": "Claire Denis makes films that communicate through sensation, bodies in space, texture, music, and the way light falls on skin. Her films resist easy interpretation; they accumulate meaning the way memories do, through fragments and feelings rather than explanation. She worked as assistant to Wenders and Akerman before making her own extraordinary body of work.",
     "why": "Denis taught me that cinema can bypass language and speak directly to something physical, that we understand more than we can say.",
     "notable_films": [
-      { "title": "Chocolat", "year": 1988 },
-      { "title": "No Fear, No Die", "year": 1990 },
-      { "title": "I Can't Sleep", "year": 1994 },
-      { "title": "Nénette et Boni", "year": 1996 },
-      { "title": "Beau Travail", "year": 1999 },
-      { "title": "Trouble Every Day", "year": 2001 },
-      { "title": "The Intruder", "year": 2004 },
-      { "title": "35 Shots of Rum", "year": 2008 },
-      { "title": "White Material", "year": 2009 },
-      { "title": "Bastards", "year": 2013 },
-      { "title": "Let the Sunshine In", "year": 2017 },
-      { "title": "Both Sides of the Blade", "year": 2022 }
+      {
+        "title": "Chocolat",
+        "year": 1988
+      },
+      {
+        "title": "No Fear, No Die",
+        "year": 1990
+      },
+      {
+        "title": "I Can't Sleep",
+        "year": 1994
+      },
+      {
+        "title": "Nénette et Boni",
+        "year": 1996
+      },
+      {
+        "title": "Beau Travail",
+        "year": 1999
+      },
+      {
+        "title": "Trouble Every Day",
+        "year": 2001
+      },
+      {
+        "title": "The Intruder",
+        "year": 2004
+      },
+      {
+        "title": "35 Shots of Rum",
+        "year": 2008
+      },
+      {
+        "title": "White Material",
+        "year": 2009
+      },
+      {
+        "title": "Bastards",
+        "year": 2013
+      },
+      {
+        "title": "Let the Sunshine In",
+        "year": 2017
+      },
+      {
+        "title": "Both Sides of the Blade",
+        "year": 2022
+      }
     ],
-    "style_tags": ["sensory", "lyrical", "postcolonial"]
+    "style_tags": [
+      "sensory",
+      "lyrical",
+      "postcolonial"
+    ],
+    "start_with": {
+      "film": "Beau Travail",
+      "year": 1999,
+      "note": "The French Foreign Legion, Marseille, and the body as the only language. Nothing else like it."
+    },
+    "key_themes": [
+      "the body and sensation",
+      "colonial memory",
+      "desire and exclusion"
+    ]
   },
   {
     "id": 19,
@@ -448,19 +1258,66 @@
     "bio": "Hou Hsiao-hsien's films observe their characters from a careful, respectful distance, long takes, fixed or slowly moving cameras, natural light. His Taiwanese trilogy is a monumental reckoning with colonial history and identity. His more personal films are among cinema's most beautiful contemplations of time passing, of what gets lost and what endures.",
     "why": "Hou's films taught me patience, how to sit with a moment until it reveals everything.",
     "notable_films": [
-      { "title": "The Boys from Fengkuei", "year": 1983 },
-      { "title": "A Summer at Grandpa's", "year": 1984 },
-      { "title": "The Time to Live and the Time to Die", "year": 1985 },
-      { "title": "Dust in the Wind", "year": 1986 },
-      { "title": "A City of Sadness", "year": 1989 },
-      { "title": "The Puppetmaster", "year": 1993 },
-      { "title": "Good Men, Good Women", "year": 1995 },
-      { "title": "Flowers of Shanghai", "year": 1998 },
-      { "title": "Millennium Mambo", "year": 2001 },
-      { "title": "Three Times", "year": 2005 },
-      { "title": "The Assassin", "year": 2015 }
+      {
+        "title": "The Boys from Fengkuei",
+        "year": 1983
+      },
+      {
+        "title": "A Summer at Grandpa's",
+        "year": 1984
+      },
+      {
+        "title": "The Time to Live and the Time to Die",
+        "year": 1985
+      },
+      {
+        "title": "Dust in the Wind",
+        "year": 1986
+      },
+      {
+        "title": "A City of Sadness",
+        "year": 1989
+      },
+      {
+        "title": "The Puppetmaster",
+        "year": 1993
+      },
+      {
+        "title": "Good Men, Good Women",
+        "year": 1995
+      },
+      {
+        "title": "Flowers of Shanghai",
+        "year": 1998
+      },
+      {
+        "title": "Millennium Mambo",
+        "year": 2001
+      },
+      {
+        "title": "Three Times",
+        "year": 2005
+      },
+      {
+        "title": "The Assassin",
+        "year": 2015
+      }
     ],
-    "style_tags": ["slow-cinema", "historical", "lyrical"]
+    "style_tags": [
+      "slow-cinema",
+      "historical",
+      "lyrical"
+    ],
+    "start_with": {
+      "film": "A City of Sadness",
+      "year": 1989,
+      "note": "Three generations of a Taiwanese family across a decade of historical upheaval. His masterpiece."
+    },
+    "key_themes": [
+      "historical memory",
+      "long take and distance",
+      "grief and endurance"
+    ]
   },
   {
     "id": 20,
@@ -473,20 +1330,70 @@
     "bio": "Hayao Miyazaki co-founded Studio Ghibli and created a body of animated films that stand among cinema's great achievements regardless of medium. His films embrace complexity, morally ambiguous figures, female protagonists, ecological themes, ambivalent endings, while maintaining a fundamental faith in children's capacity to understand the world. Every frame is hand-drawn with obsessive care.",
     "why": "Miyazaki reminds me that wonder is not childish, it is a form of wisdom.",
     "notable_films": [
-      { "title": "Lupin III: The Castle of Cagliostro", "year": 1979 },
-      { "title": "Nausicaä of the Valley of the Wind", "year": 1984 },
-      { "title": "Castle in the Sky", "year": 1986 },
-      { "title": "My Neighbor Totoro", "year": 1988 },
-      { "title": "Kiki's Delivery Service", "year": 1989 },
-      { "title": "Porco Rosso", "year": 1992 },
-      { "title": "Princess Mononoke", "year": 1997 },
-      { "title": "Spirited Away", "year": 2001 },
-      { "title": "Howl's Moving Castle", "year": 2004 },
-      { "title": "Ponyo", "year": 2008 },
-      { "title": "The Wind Rises", "year": 2013 },
-      { "title": "The Boy and the Heron", "year": 2023 }
+      {
+        "title": "Lupin III: The Castle of Cagliostro",
+        "year": 1979
+      },
+      {
+        "title": "Nausicaä of the Valley of the Wind",
+        "year": 1984
+      },
+      {
+        "title": "Castle in the Sky",
+        "year": 1986
+      },
+      {
+        "title": "My Neighbor Totoro",
+        "year": 1988
+      },
+      {
+        "title": "Kiki's Delivery Service",
+        "year": 1989
+      },
+      {
+        "title": "Porco Rosso",
+        "year": 1992
+      },
+      {
+        "title": "Princess Mononoke",
+        "year": 1997
+      },
+      {
+        "title": "Spirited Away",
+        "year": 2001
+      },
+      {
+        "title": "Howl's Moving Castle",
+        "year": 2004
+      },
+      {
+        "title": "Ponyo",
+        "year": 2008
+      },
+      {
+        "title": "The Wind Rises",
+        "year": 2013
+      },
+      {
+        "title": "The Boy and the Heron",
+        "year": 2023
+      }
     ],
-    "style_tags": ["animation", "ecological", "humanist"]
+    "style_tags": [
+      "animation",
+      "ecological",
+      "humanist"
+    ],
+    "start_with": {
+      "film": "My Neighbor Totoro",
+      "year": 1988,
+      "note": "Pure and complete. A film that contains everything he believes about children and the natural world."
+    },
+    "key_themes": [
+      "ecological wonder",
+      "childhood and imagination",
+      "the natural world"
+    ]
   },
   {
     "id": 21,
@@ -499,19 +1406,66 @@
     "bio": "John Cassavetes financed his own films by acting in Hollywood movies, then used that money to make raw, improvisational portraits of people in emotional extremis. His films are uncomfortable, overlong, and alive in a way that most cinema never manages, they feel like being trapped in the most honest conversation you have ever had. He invented American independent cinema almost by accident.",
     "why": "Cassavetes proved that the most radical thing a filmmaker can do is trust actors enough to follow them wherever they go.",
     "notable_films": [
-      { "title": "Shadows", "year": 1958 },
-      { "title": "Too Late Blues", "year": 1961 },
-      { "title": "A Child Is Waiting", "year": 1963 },
-      { "title": "Faces", "year": 1968 },
-      { "title": "Husbands", "year": 1970 },
-      { "title": "Minnie and Moskowitz", "year": 1971 },
-      { "title": "A Woman Under the Influence", "year": 1974 },
-      { "title": "The Killing of a Chinese Bookie", "year": 1976 },
-      { "title": "Opening Night", "year": 1977 },
-      { "title": "Gloria", "year": 1980 },
-      { "title": "Love Streams", "year": 1984 }
+      {
+        "title": "Shadows",
+        "year": 1958
+      },
+      {
+        "title": "Too Late Blues",
+        "year": 1961
+      },
+      {
+        "title": "A Child Is Waiting",
+        "year": 1963
+      },
+      {
+        "title": "Faces",
+        "year": 1968
+      },
+      {
+        "title": "Husbands",
+        "year": 1970
+      },
+      {
+        "title": "Minnie and Moskowitz",
+        "year": 1971
+      },
+      {
+        "title": "A Woman Under the Influence",
+        "year": 1974
+      },
+      {
+        "title": "The Killing of a Chinese Bookie",
+        "year": 1976
+      },
+      {
+        "title": "Opening Night",
+        "year": 1977
+      },
+      {
+        "title": "Gloria",
+        "year": 1980
+      },
+      {
+        "title": "Love Streams",
+        "year": 1984
+      }
     ],
-    "style_tags": ["improvisational", "independent", "humanist"]
+    "style_tags": [
+      "improvisational",
+      "independent",
+      "humanist"
+    ],
+    "start_with": {
+      "film": "A Woman Under the Influence",
+      "year": 1974,
+      "note": "The most emotionally overwhelming of his films. Gena Rowlands gives one of cinema's greatest performances."
+    },
+    "key_themes": [
+      "emotional truth",
+      "the actor as creator",
+      "marriage and madness"
+    ]
   },
   {
     "id": 22,
@@ -524,17 +1478,58 @@
     "bio": "Park Chan-wook makes films of extraordinary formal precision and moral complexity. His Vengeance Trilogy interrogates the logic of revenge with a cold, almost clinical intelligence while delivering visceral emotional impact. Later films like The Handmaiden and Decision to Leave show an artist expanding into more lyrical territory without losing his edge.",
     "why": "Park showed me that genre cinema can be as sophisticated and humane as any art film, that form and feeling are not in conflict.",
     "notable_films": [
-      { "title": "Joint Security Area", "year": 2000 },
-      { "title": "Sympathy for Mr. Vengeance", "year": 2002 },
-      { "title": "Oldboy", "year": 2003 },
-      { "title": "Lady Vengeance", "year": 2005 },
-      { "title": "I'm a Cyborg, But That's OK", "year": 2006 },
-      { "title": "Thirst", "year": 2009 },
-      { "title": "Stoker", "year": 2013 },
-      { "title": "The Handmaiden", "year": 2016 },
-      { "title": "Decision to Leave", "year": 2022 }
+      {
+        "title": "Joint Security Area",
+        "year": 2000
+      },
+      {
+        "title": "Sympathy for Mr. Vengeance",
+        "year": 2002
+      },
+      {
+        "title": "Oldboy",
+        "year": 2003
+      },
+      {
+        "title": "Lady Vengeance",
+        "year": 2005
+      },
+      {
+        "title": "I'm a Cyborg, But That's OK",
+        "year": 2006
+      },
+      {
+        "title": "Thirst",
+        "year": 2009
+      },
+      {
+        "title": "Stoker",
+        "year": 2013
+      },
+      {
+        "title": "The Handmaiden",
+        "year": 2016
+      },
+      {
+        "title": "Decision to Leave",
+        "year": 2022
+      }
     ],
-    "style_tags": ["genre", "political", "visual-poetry"]
+    "style_tags": [
+      "genre",
+      "political",
+      "visual-poetry"
+    ],
+    "start_with": {
+      "film": "Oldboy",
+      "year": 2003,
+      "note": "Operatically controlled and morally ferocious. The film that introduced him to most Western audiences."
+    },
+    "key_themes": [
+      "revenge and complicity",
+      "formal precision",
+      "moral ambiguity"
+    ]
   },
   {
     "id": 23,
@@ -547,18 +1542,62 @@
     "bio": "Bong Joon-ho works in genre, thriller, horror, science fiction, but uses it as a vehicle for merciless social critique. His films are about class, capitalism, and the violence that structures ordinary life, delivered with the compulsive watchability of a great thriller. Parasite's sweep at Cannes and the Oscars confirmed what his Korean fans already knew.",
     "why": "Bong makes films that are simultaneously wildly entertaining and deeply uncomfortable, the best kind of cinema.",
     "notable_films": [
-      { "title": "Incoherence", "year": 1994 },
-      { "title": "Barking Dogs Never Bite", "year": 2000 },
-      { "title": "Memories of Murder", "year": 2003 },
-      { "title": "The Host", "year": 2006 },
-      { "title": "Shaking Tokyo", "year": 2008 },
-      { "title": "Mother", "year": 2009 },
-      { "title": "Snowpiercer", "year": 2013 },
-      { "title": "Okja", "year": 2017 },
-      { "title": "Parasite", "year": 2019 },
-      { "title": "Mickey 17", "year": 2025 }
+      {
+        "title": "Incoherence",
+        "year": 1994
+      },
+      {
+        "title": "Barking Dogs Never Bite",
+        "year": 2000
+      },
+      {
+        "title": "Memories of Murder",
+        "year": 2003
+      },
+      {
+        "title": "The Host",
+        "year": 2006
+      },
+      {
+        "title": "Shaking Tokyo",
+        "year": 2008
+      },
+      {
+        "title": "Mother",
+        "year": 2009
+      },
+      {
+        "title": "Snowpiercer",
+        "year": 2013
+      },
+      {
+        "title": "Okja",
+        "year": 2017
+      },
+      {
+        "title": "Parasite",
+        "year": 2019
+      },
+      {
+        "title": "Mickey 17",
+        "year": 2025
+      }
     ],
-    "style_tags": ["genre", "political", "social-critique"]
+    "style_tags": [
+      "genre",
+      "political",
+      "social-critique"
+    ],
+    "start_with": {
+      "film": "Memories of Murder",
+      "year": 2003,
+      "note": "His best film. Set in rural Korea, 1986. The most human and formally audacious of his thrillers."
+    },
+    "key_themes": [
+      "class and capitalism",
+      "genre as critique",
+      "social violence"
+    ]
   },
   {
     "id": 24,
@@ -571,16 +1610,54 @@
     "bio": "Alfonso Cuarón moves fluidly between intimate personal drama and large-scale spectacle, always finding the human within the technical. His long-take cinematography in Children of Men changed how action cinema thought about camera movement; Roma, shot in luminous black and white in his childhood neighborhood, is one of cinema's great acts of personal memory and social witness.",
     "why": "Cuarón shows that technical mastery and personal vulnerability can exist in the same frame, that craft is an expression of care.",
     "notable_films": [
-      { "title": "Love in the Time of Hysteria", "year": 1991 },
-      { "title": "A Little Princess", "year": 1995 },
-      { "title": "Great Expectations", "year": 1998 },
-      { "title": "Y Tu Mamá También", "year": 2001 },
-      { "title": "Harry Potter and the Prisoner of Azkaban", "year": 2004 },
-      { "title": "Children of Men", "year": 2006 },
-      { "title": "Gravity", "year": 2013 },
-      { "title": "Roma", "year": 2018 }
+      {
+        "title": "Love in the Time of Hysteria",
+        "year": 1991
+      },
+      {
+        "title": "A Little Princess",
+        "year": 1995
+      },
+      {
+        "title": "Great Expectations",
+        "year": 1998
+      },
+      {
+        "title": "Y Tu Mamá También",
+        "year": 2001
+      },
+      {
+        "title": "Harry Potter and the Prisoner of Azkaban",
+        "year": 2004
+      },
+      {
+        "title": "Children of Men",
+        "year": 2006
+      },
+      {
+        "title": "Gravity",
+        "year": 2013
+      },
+      {
+        "title": "Roma",
+        "year": 2018
+      }
     ],
-    "style_tags": ["humanist", "technical", "political"]
+    "style_tags": [
+      "humanist",
+      "technical",
+      "political"
+    ],
+    "start_with": {
+      "film": "Children of Men",
+      "year": 2006,
+      "note": "The long take that changed action cinema. A world ending and one man refusing to stop."
+    },
+    "key_themes": [
+      "technical mastery",
+      "personal memory",
+      "hope and despair"
+    ]
   },
   {
     "id": 25,
@@ -593,20 +1670,70 @@
     "bio": "Richard Linklater makes films about time, not dramatically, but tenderly. His Before trilogy follows two people talking over the course of a day, revisited across eighteen years; Boyhood was filmed with the same actors over twelve years, capturing actual childhood passing on screen. His films trust that ordinary life, a conversation, a night out, a summer morning, is the proper subject of cinema.",
     "why": "Linklater makes me want to pay more attention to the ordinary days, the ones that feel insignificant but turn out to be everything.",
     "notable_films": [
-      { "title": "Slacker", "year": 1990 },
-      { "title": "Dazed and Confused", "year": 1993 },
-      { "title": "Before Sunrise", "year": 1995 },
-      { "title": "Waking Life", "year": 2001 },
-      { "title": "School of Rock", "year": 2003 },
-      { "title": "Before Sunset", "year": 2004 },
-      { "title": "Fast Food Nation", "year": 2006 },
-      { "title": "Before Midnight", "year": 2013 },
-      { "title": "Boyhood", "year": 2014 },
-      { "title": "Everybody Wants Some!!", "year": 2016 },
-      { "title": "Apollo 10½: A Space Age Childhood", "year": 2022 },
-      { "title": "Hit Man", "year": 2023 }
+      {
+        "title": "Slacker",
+        "year": 1990
+      },
+      {
+        "title": "Dazed and Confused",
+        "year": 1993
+      },
+      {
+        "title": "Before Sunrise",
+        "year": 1995
+      },
+      {
+        "title": "Waking Life",
+        "year": 2001
+      },
+      {
+        "title": "School of Rock",
+        "year": 2003
+      },
+      {
+        "title": "Before Sunset",
+        "year": 2004
+      },
+      {
+        "title": "Fast Food Nation",
+        "year": 2006
+      },
+      {
+        "title": "Before Midnight",
+        "year": 2013
+      },
+      {
+        "title": "Boyhood",
+        "year": 2014
+      },
+      {
+        "title": "Everybody Wants Some!!",
+        "year": 2016
+      },
+      {
+        "title": "Apollo 10½: A Space Age Childhood",
+        "year": 2022
+      },
+      {
+        "title": "Hit Man",
+        "year": 2023
+      }
     ],
-    "style_tags": ["humanist", "conversational", "time"]
+    "style_tags": [
+      "humanist",
+      "conversational",
+      "time"
+    ],
+    "start_with": {
+      "film": "Before Sunrise",
+      "year": 1995,
+      "note": "One night in Vienna. Start here, then give yourself eighteen years watching them grow."
+    },
+    "key_themes": [
+      "time and conversation",
+      "ordinary life as subject",
+      "the long take of years"
+    ]
   },
   {
     "id": 26,
@@ -619,18 +1746,62 @@
     "bio": "David Lynch built a cinema of the uncanny, finding horror and beauty in equal measure beneath the cheerful surface of American life. His films operate by dream logic rather than narrative, drawing on surrealism, industrial sound design, and a painter's eye to create experiences that lodge permanently in the unconscious. He was equally at home in Hollywood and the avant-garde, belonging fully to neither.",
     "why": "Lynch made me understand that cinema can access the unconscious directly, bypassing language and intellect entirely.",
     "notable_films": [
-      { "title": "Eraserhead", "year": 1977 },
-      { "title": "The Elephant Man", "year": 1980 },
-      { "title": "Dune", "year": 1984 },
-      { "title": "Blue Velvet", "year": 1986 },
-      { "title": "Wild at Heart", "year": 1990 },
-      { "title": "Twin Peaks: Fire Walk with Me", "year": 1992 },
-      { "title": "Lost Highway", "year": 1997 },
-      { "title": "The Straight Story", "year": 1999 },
-      { "title": "Mulholland Drive", "year": 2001 },
-      { "title": "Inland Empire", "year": 2006 }
+      {
+        "title": "Eraserhead",
+        "year": 1977
+      },
+      {
+        "title": "The Elephant Man",
+        "year": 1980
+      },
+      {
+        "title": "Dune",
+        "year": 1984
+      },
+      {
+        "title": "Blue Velvet",
+        "year": 1986
+      },
+      {
+        "title": "Wild at Heart",
+        "year": 1990
+      },
+      {
+        "title": "Twin Peaks: Fire Walk with Me",
+        "year": 1992
+      },
+      {
+        "title": "Lost Highway",
+        "year": 1997
+      },
+      {
+        "title": "The Straight Story",
+        "year": 1999
+      },
+      {
+        "title": "Mulholland Drive",
+        "year": 2001
+      },
+      {
+        "title": "Inland Empire",
+        "year": 2006
+      }
     ],
-    "style_tags": ["surrealist", "horror", "experimental"]
+    "style_tags": [
+      "surrealist",
+      "horror",
+      "experimental"
+    ],
+    "start_with": {
+      "film": "Blue Velvet",
+      "year": 1986,
+      "note": "His worldview in its clearest form. Suburban America with something very wrong beneath the surface."
+    },
+    "key_themes": [
+      "the American nightmare",
+      "dream and the unconscious",
+      "surface and darkness"
+    ]
   },
   {
     "id": 27,
@@ -643,18 +1814,62 @@
     "bio": "Jean Renoir was the son of the painter Auguste Renoir and became one of cinema's most complete humanists. His films have a flowing, improvisational quality and a radical generosity toward all their characters, including villains. Rules of the Game, made on the eve of World War II, remains one of cinema's most devastating social comedies and one of its greatest achievements.",
     "why": "Renoir taught me that cinema's highest ethical act is to understand everyone, even those you disagree with.",
     "notable_films": [
-      { "title": "La Chienne", "year": 1931 },
-      { "title": "Boudu Saved from Drowning", "year": 1932 },
-      { "title": "Toni", "year": 1935 },
-      { "title": "The Crime of Monsieur Lange", "year": 1936 },
-      { "title": "A Day in the Country", "year": 1936 },
-      { "title": "The Lower Depths", "year": 1936 },
-      { "title": "Grand Illusion", "year": 1937 },
-      { "title": "La Bête Humaine", "year": 1938 },
-      { "title": "The Rules of the Game", "year": 1939 },
-      { "title": "The River", "year": 1951 }
+      {
+        "title": "La Chienne",
+        "year": 1931
+      },
+      {
+        "title": "Boudu Saved from Drowning",
+        "year": 1932
+      },
+      {
+        "title": "Toni",
+        "year": 1935
+      },
+      {
+        "title": "The Crime of Monsieur Lange",
+        "year": 1936
+      },
+      {
+        "title": "A Day in the Country",
+        "year": 1936
+      },
+      {
+        "title": "The Lower Depths",
+        "year": 1936
+      },
+      {
+        "title": "Grand Illusion",
+        "year": 1937
+      },
+      {
+        "title": "La Bête Humaine",
+        "year": 1938
+      },
+      {
+        "title": "The Rules of the Game",
+        "year": 1939
+      },
+      {
+        "title": "The River",
+        "year": 1951
+      }
     ],
-    "style_tags": ["humanist", "social-realism", "classical"]
+    "style_tags": [
+      "humanist",
+      "social-realism",
+      "classical"
+    ],
+    "start_with": {
+      "film": "The Rules of the Game",
+      "year": 1939,
+      "note": "Weekend house party, world about to go to war. The most devastating social comedy in cinema."
+    },
+    "key_themes": [
+      "social class",
+      "human generosity",
+      "the comedy of manners"
+    ]
   },
   {
     "id": 28,
@@ -667,18 +1882,62 @@
     "bio": "Satyajit Ray almost single-handedly created the Indian art film tradition, making works of extraordinary sensitivity and humanism. The Apu Trilogy, his debut, remains one of cinema's great achievements, capturing rural Bengali life with neorealist clarity and deep emotional truth. Ray worked across genres and registers throughout his career, but his defining quality was his unfailing sympathy for ordinary people facing the pressures of a changing world.",
     "why": "Ray showed me that the most local stories, told with full honesty and care, become universal.",
     "notable_films": [
-      { "title": "Pather Panchali", "year": 1955 },
-      { "title": "Aparajito", "year": 1956 },
-      { "title": "The Music Room", "year": 1958 },
-      { "title": "Apur Sansar", "year": 1959 },
-      { "title": "Devi", "year": 1960 },
-      { "title": "Charulata", "year": 1964 },
-      { "title": "The Big City", "year": 1963 },
-      { "title": "Days and Nights in the Forest", "year": 1970 },
-      { "title": "The Chess Players", "year": 1977 },
-      { "title": "Ghare Baire", "year": 1984 }
+      {
+        "title": "Pather Panchali",
+        "year": 1955
+      },
+      {
+        "title": "Aparajito",
+        "year": 1956
+      },
+      {
+        "title": "The Music Room",
+        "year": 1958
+      },
+      {
+        "title": "Apur Sansar",
+        "year": 1959
+      },
+      {
+        "title": "Devi",
+        "year": 1960
+      },
+      {
+        "title": "Charulata",
+        "year": 1964
+      },
+      {
+        "title": "The Big City",
+        "year": 1963
+      },
+      {
+        "title": "Days and Nights in the Forest",
+        "year": 1970
+      },
+      {
+        "title": "The Chess Players",
+        "year": 1977
+      },
+      {
+        "title": "Ghare Baire",
+        "year": 1984
+      }
     ],
-    "style_tags": ["neorealism", "humanist", "poetic"]
+    "style_tags": [
+      "neorealism",
+      "humanist",
+      "poetic"
+    ],
+    "start_with": {
+      "film": "Pather Panchali",
+      "year": 1955,
+      "note": "The beginning of the Apu Trilogy and one of cinema's most beautiful debut films."
+    },
+    "key_themes": [
+      "postcolonial India",
+      "poverty and beauty",
+      "neorealist humanism"
+    ]
   },
   {
     "id": 29,
@@ -691,18 +1950,62 @@
     "bio": "Michelangelo Antonioni made films about the failure of communication and the alienation of modern life with a visual precision that remains unmatched. Where other filmmakers of his era filled frames with drama, Antonioni removed it, letting landscape and architecture express what characters could not say. His L'Avventura trilogy is cinema's most rigorous examination of emotional absence.",
     "why": "Antonioni showed me that what is left out of a frame can be as expressive as what is in it.",
     "notable_films": [
-      { "title": "Story of a Love Affair", "year": 1950 },
-      { "title": "L'Avventura", "year": 1960 },
-      { "title": "La Notte", "year": 1961 },
-      { "title": "L'Eclisse", "year": 1962 },
-      { "title": "Red Desert", "year": 1964 },
-      { "title": "Blow-Up", "year": 1966 },
-      { "title": "Zabriskie Point", "year": 1970 },
-      { "title": "The Passenger", "year": 1975 },
-      { "title": "The Mystery of Oberwald", "year": 1980 },
-      { "title": "Beyond the Clouds", "year": 1995 }
+      {
+        "title": "Story of a Love Affair",
+        "year": 1950
+      },
+      {
+        "title": "L'Avventura",
+        "year": 1960
+      },
+      {
+        "title": "La Notte",
+        "year": 1961
+      },
+      {
+        "title": "L'Eclisse",
+        "year": 1962
+      },
+      {
+        "title": "Red Desert",
+        "year": 1964
+      },
+      {
+        "title": "Blow-Up",
+        "year": 1966
+      },
+      {
+        "title": "Zabriskie Point",
+        "year": 1970
+      },
+      {
+        "title": "The Passenger",
+        "year": 1975
+      },
+      {
+        "title": "The Mystery of Oberwald",
+        "year": 1980
+      },
+      {
+        "title": "Beyond the Clouds",
+        "year": 1995
+      }
     ],
-    "style_tags": ["modernist", "alienation", "slow-cinema"]
+    "style_tags": [
+      "modernist",
+      "alienation",
+      "slow-cinema"
+    ],
+    "start_with": {
+      "film": "L'Avventura",
+      "year": 1960,
+      "note": "A woman disappears. No one finds her. No one can explain why no one can explain their feelings."
+    },
+    "key_themes": [
+      "modern alienation",
+      "emotional silence",
+      "landscape as psychology"
+    ]
   },
   {
     "id": 30,
@@ -715,18 +2018,62 @@
     "bio": "Federico Fellini began as a neorealist and became cinema's greatest fantasist, creating a body of work in which autobiography, dream, and spectacle are inseparable. His films move between the streets of Rome and the theater of the unconscious with equal freedom, driven by characters who are simultaneously lost and alive. He gave us the word 'Felliniesque' and never needed a definition.",
     "why": "Fellini showed me that the interior life of a filmmaker can itself become the subject of cinema.",
     "notable_films": [
-      { "title": "Variety Lights", "year": 1950 },
-      { "title": "I Vitelloni", "year": 1953 },
-      { "title": "La Strada", "year": 1954 },
-      { "title": "Il Bidone", "year": 1955 },
-      { "title": "Nights of Cabiria", "year": 1957 },
-      { "title": "La Dolce Vita", "year": 1960 },
-      { "title": "8½", "year": 1963 },
-      { "title": "Juliet of the Spirits", "year": 1965 },
-      { "title": "Amarcord", "year": 1973 },
-      { "title": "And the Ship Sails On", "year": 1983 }
+      {
+        "title": "Variety Lights",
+        "year": 1950
+      },
+      {
+        "title": "I Vitelloni",
+        "year": 1953
+      },
+      {
+        "title": "La Strada",
+        "year": 1954
+      },
+      {
+        "title": "Il Bidone",
+        "year": 1955
+      },
+      {
+        "title": "Nights of Cabiria",
+        "year": 1957
+      },
+      {
+        "title": "La Dolce Vita",
+        "year": 1960
+      },
+      {
+        "title": "8½",
+        "year": 1963
+      },
+      {
+        "title": "Juliet of the Spirits",
+        "year": 1965
+      },
+      {
+        "title": "Amarcord",
+        "year": 1973
+      },
+      {
+        "title": "And the Ship Sails On",
+        "year": 1983
+      }
     ],
-    "style_tags": ["baroque", "autobiographical", "surrealist"]
+    "style_tags": [
+      "baroque",
+      "autobiographical",
+      "surrealist"
+    ],
+    "start_with": {
+      "film": "8½",
+      "year": 1963,
+      "note": "A director makes a film about not being able to make a film. The most honest thing ever put on screen."
+    },
+    "key_themes": [
+      "autobiographical fantasy",
+      "desire and memory",
+      "the carnivalesque"
+    ]
   },
   {
     "id": 31,
@@ -739,18 +2086,62 @@
     "bio": "Ousmane Sembène trained as a dockworker and became a novelist before turning to cinema, believing film could reach an audience that could not read. He is considered the father of African cinema, making films that confronted colonialism, neocolonialism, and patriarchy with unflinching directness and a deep love for the people he depicted. His work has had little visibility in the West but is foundational.",
     "why": "Sembène made me understand that cinema must account for whose stories it tells and from whose perspective.",
     "notable_films": [
-      { "title": "Borom Sarret", "year": 1963 },
-      { "title": "Black Girl", "year": 1966 },
-      { "title": "Mandabi", "year": 1968 },
-      { "title": "Emitai", "year": 1971 },
-      { "title": "Xala", "year": 1975 },
-      { "title": "Ceddo", "year": 1977 },
-      { "title": "Camp de Thiaroye", "year": 1988 },
-      { "title": "Guelwaar", "year": 1992 },
-      { "title": "Faat Kiné", "year": 2000 },
-      { "title": "Moolaadé", "year": 2004 }
+      {
+        "title": "Borom Sarret",
+        "year": 1963
+      },
+      {
+        "title": "Black Girl",
+        "year": 1966
+      },
+      {
+        "title": "Mandabi",
+        "year": 1968
+      },
+      {
+        "title": "Emitai",
+        "year": 1971
+      },
+      {
+        "title": "Xala",
+        "year": 1975
+      },
+      {
+        "title": "Ceddo",
+        "year": 1977
+      },
+      {
+        "title": "Camp de Thiaroye",
+        "year": 1988
+      },
+      {
+        "title": "Guelwaar",
+        "year": 1992
+      },
+      {
+        "title": "Faat Kiné",
+        "year": 2000
+      },
+      {
+        "title": "Moolaadé",
+        "year": 2004
+      }
     ],
-    "style_tags": ["postcolonial", "political", "humanist"]
+    "style_tags": [
+      "postcolonial",
+      "political",
+      "humanist"
+    ],
+    "start_with": {
+      "film": "Black Girl",
+      "year": 1966,
+      "note": "Sixty-five minutes. A young Senegalese woman goes to France to work as a maid. Everything follows."
+    },
+    "key_themes": [
+      "postcolonial identity",
+      "African subjectivity",
+      "resistance"
+    ]
   },
   {
     "id": 32,
@@ -763,18 +2154,62 @@
     "bio": "Věra Chytilová was the most radical of the Czech New Wave directors, making films that felt like acts of aesthetic defiance. Daisies is a pure anarchic gesture: two young women decide that since the world is rotten they will be rotten too, and the film follows their gleeful destruction with a dazzling collage of color, editing, and feminist energy. She was banned from filmmaking repeatedly by the communist government.",
     "why": "Chytilová taught me that formal experimentation and feminist politics can be one and the same gesture.",
     "notable_films": [
-      { "title": "Ceiling", "year": 1962 },
-      { "title": "A Bag of Fleas", "year": 1962 },
-      { "title": "Something Different", "year": 1963 },
-      { "title": "Pearls of the Deep", "year": 1965 },
-      { "title": "Daisies", "year": 1966 },
-      { "title": "The Fruit of Paradise", "year": 1970 },
-      { "title": "The Apple Game", "year": 1977 },
-      { "title": "Prefab Story", "year": 1979 },
-      { "title": "The Jester and the Queen", "year": 1987 },
-      { "title": "Trap", "year": 1998 }
+      {
+        "title": "Ceiling",
+        "year": 1962
+      },
+      {
+        "title": "A Bag of Fleas",
+        "year": 1962
+      },
+      {
+        "title": "Something Different",
+        "year": 1963
+      },
+      {
+        "title": "Pearls of the Deep",
+        "year": 1965
+      },
+      {
+        "title": "Daisies",
+        "year": 1966
+      },
+      {
+        "title": "The Fruit of Paradise",
+        "year": 1970
+      },
+      {
+        "title": "The Apple Game",
+        "year": 1977
+      },
+      {
+        "title": "Prefab Story",
+        "year": 1979
+      },
+      {
+        "title": "The Jester and the Queen",
+        "year": 1987
+      },
+      {
+        "title": "Trap",
+        "year": 1998
+      }
     ],
-    "style_tags": ["experimental", "feminist", "avant-garde"]
+    "style_tags": [
+      "experimental",
+      "feminist",
+      "avant-garde"
+    ],
+    "start_with": {
+      "film": "Daisies",
+      "year": 1966,
+      "note": "Two women decide to be as destructive as the world around them. Seventy-four minutes of anarchic joy."
+    },
+    "key_themes": [
+      "feminist anarchy",
+      "collage and form",
+      "resistance to authority"
+    ]
   },
   {
     "id": 33,
@@ -787,15 +2222,50 @@
     "bio": "Edward Yang made only seven films before his death at 59, but they constitute one of cinema's great bodies of work. His films observe the transformations of Taiwanese society from a long, contemplative distance, tracing the collision of tradition and modernity, family obligation and personal desire, across multiple characters and decades. Yi Yi is his masterwork: a three-hour portrait of a Taipei family across a single year that contains everything.",
     "why": "Yang showed me that the long film is not an indulgence but a different relationship to life, one that treats experience as accumulation rather than event.",
     "notable_films": [
-      { "title": "That Day on the Beach", "year": 1983 },
-      { "title": "Taipei Story", "year": 1985 },
-      { "title": "The Terrorizers", "year": 1986 },
-      { "title": "A Brighter Summer Day", "year": 1991 },
-      { "title": "A Confucian Confusion", "year": 1994 },
-      { "title": "Mahjong", "year": 1996 },
-      { "title": "Yi Yi", "year": 2000 }
+      {
+        "title": "That Day on the Beach",
+        "year": 1983
+      },
+      {
+        "title": "Taipei Story",
+        "year": 1985
+      },
+      {
+        "title": "The Terrorizers",
+        "year": 1986
+      },
+      {
+        "title": "A Brighter Summer Day",
+        "year": 1991
+      },
+      {
+        "title": "A Confucian Confusion",
+        "year": 1994
+      },
+      {
+        "title": "Mahjong",
+        "year": 1996
+      },
+      {
+        "title": "Yi Yi",
+        "year": 2000
+      }
     ],
-    "style_tags": ["humanist", "slow-cinema", "social-realism"]
+    "style_tags": [
+      "humanist",
+      "slow-cinema",
+      "social-realism"
+    ],
+    "start_with": {
+      "film": "Yi Yi",
+      "year": 2000,
+      "note": "Three hours that feel like a lifetime. A Taipei family across a single year, seen from every angle."
+    },
+    "key_themes": [
+      "modern Taiwan",
+      "family and generational loss",
+      "urban alienation"
+    ]
   },
   {
     "id": 34,
@@ -808,18 +2278,62 @@
     "bio": "Yasujiro Ozu spent most of his career making variations on a single theme: the family, time, and the sadness of change. He developed a radically still visual style, using low camera angles and cutting against convention to create films of extraordinary emotional depth and serenity. Tokyo Story is widely considered the greatest film ever made, and it is a film in which almost nothing happens.",
     "why": "Ozu taught me that the most painful things in life are also the most ordinary, and that cinema can hold both truths at once.",
     "notable_films": [
-      { "title": "I Was Born, But...", "year": 1932 },
-      { "title": "The Only Son", "year": 1936 },
-      { "title": "There Was a Father", "year": 1942 },
-      { "title": "Late Spring", "year": 1949 },
-      { "title": "Early Summer", "year": 1951 },
-      { "title": "The Flavor of Green Tea Over Rice", "year": 1952 },
-      { "title": "Tokyo Story", "year": 1953 },
-      { "title": "Early Spring", "year": 1956 },
-      { "title": "Good Morning", "year": 1959 },
-      { "title": "An Autumn Afternoon", "year": 1962 }
+      {
+        "title": "I Was Born, But...",
+        "year": 1932
+      },
+      {
+        "title": "The Only Son",
+        "year": 1936
+      },
+      {
+        "title": "There Was a Father",
+        "year": 1942
+      },
+      {
+        "title": "Late Spring",
+        "year": 1949
+      },
+      {
+        "title": "Early Summer",
+        "year": 1951
+      },
+      {
+        "title": "The Flavor of Green Tea Over Rice",
+        "year": 1952
+      },
+      {
+        "title": "Tokyo Story",
+        "year": 1953
+      },
+      {
+        "title": "Early Spring",
+        "year": 1956
+      },
+      {
+        "title": "Good Morning",
+        "year": 1959
+      },
+      {
+        "title": "An Autumn Afternoon",
+        "year": 1962
+      }
     ],
-    "style_tags": ["minimalist", "humanist", "classical"]
+    "style_tags": [
+      "minimalist",
+      "humanist",
+      "classical"
+    ],
+    "start_with": {
+      "film": "Tokyo Story",
+      "year": 1953,
+      "note": "Two old parents visit their adult children in Tokyo. The most quietly devastating film ever made."
+    },
+    "key_themes": [
+      "family and transience",
+      "everyday sadness",
+      "stillness and time"
+    ]
   },
   {
     "id": 35,
@@ -832,19 +2346,66 @@
     "bio": "Pedro Almodóvar emerged from the anarchic cultural explosion of post-Franco Spain and never lost that transgressive energy. His films are saturated in color, desire, and melodrama, celebrating the lives of women, queer people, and outsiders with warmth and complexity. He works in the full emotional register of cinema, from comedy to grief, often within the same scene.",
     "why": "Almodóvar gave me permission to take melodrama seriously, to trust big emotions as a form of truth.",
     "notable_films": [
-      { "title": "Pepi, Luci, Bom", "year": 1980 },
-      { "title": "Dark Habits", "year": 1983 },
-      { "title": "What Have I Done to Deserve This?", "year": 1984 },
-      { "title": "Matador", "year": 1986 },
-      { "title": "Women on the Verge of a Nervous Breakdown", "year": 1988 },
-      { "title": "Tie Me Up! Tie Me Down!", "year": 1990 },
-      { "title": "All About My Mother", "year": 1999 },
-      { "title": "Talk to Her", "year": 2002 },
-      { "title": "Volver", "year": 2006 },
-      { "title": "The Skin I Live In", "year": 2011 },
-      { "title": "Pain and Glory", "year": 2019 }
+      {
+        "title": "Pepi, Luci, Bom",
+        "year": 1980
+      },
+      {
+        "title": "Dark Habits",
+        "year": 1983
+      },
+      {
+        "title": "What Have I Done to Deserve This?",
+        "year": 1984
+      },
+      {
+        "title": "Matador",
+        "year": 1986
+      },
+      {
+        "title": "Women on the Verge of a Nervous Breakdown",
+        "year": 1988
+      },
+      {
+        "title": "Tie Me Up! Tie Me Down!",
+        "year": 1990
+      },
+      {
+        "title": "All About My Mother",
+        "year": 1999
+      },
+      {
+        "title": "Talk to Her",
+        "year": 2002
+      },
+      {
+        "title": "Volver",
+        "year": 2006
+      },
+      {
+        "title": "The Skin I Live In",
+        "year": 2011
+      },
+      {
+        "title": "Pain and Glory",
+        "year": 2019
+      }
     ],
-    "style_tags": ["melodrama", "feminist", "queer"]
+    "style_tags": [
+      "melodrama",
+      "feminist",
+      "queer"
+    ],
+    "start_with": {
+      "film": "All About My Mother",
+      "year": 1999,
+      "note": "A woman loses everything and rebuilds through female friendship. His warmest and most generous film."
+    },
+    "key_themes": [
+      "female solidarity",
+      "desire and melodrama",
+      "identity and transformation"
+    ]
   },
   {
     "id": 36,
@@ -857,17 +2418,58 @@
     "bio": "Apichatpong Weerasethakul makes films that move between waking and dreaming with perfect naturalness, set in the jungles and small towns of northeast Thailand. His films are structured around hauntings, both personal and historical, and are unlike anything else in world cinema: slow, sensory, suffused with a pantheistic spirituality that never feels mystified. Uncle Boonmee Who Can Recall His Past Lives won the Palme d'Or in 2010.",
     "why": "Apichatpong showed me that cinema can hold a completely different relationship to time and consciousness, one closer to dreaming than to storytelling.",
     "notable_films": [
-      { "title": "Mysterious Object at Noon", "year": 2000 },
-      { "title": "Blissfully Yours", "year": 2002 },
-      { "title": "Tropical Malady", "year": 2004 },
-      { "title": "Syndromes and a Century", "year": 2006 },
-      { "title": "Uncle Boonmee Who Can Recall His Past Lives", "year": 2010 },
-      { "title": "Mekong Hotel", "year": 2012 },
-      { "title": "Cemetery of Splendour", "year": 2015 },
-      { "title": "Memoria", "year": 2021 },
-      { "title": "A Conversation with the Sun", "year": 2023 }
+      {
+        "title": "Mysterious Object at Noon",
+        "year": 2000
+      },
+      {
+        "title": "Blissfully Yours",
+        "year": 2002
+      },
+      {
+        "title": "Tropical Malady",
+        "year": 2004
+      },
+      {
+        "title": "Syndromes and a Century",
+        "year": 2006
+      },
+      {
+        "title": "Uncle Boonmee Who Can Recall His Past Lives",
+        "year": 2010
+      },
+      {
+        "title": "Mekong Hotel",
+        "year": 2012
+      },
+      {
+        "title": "Cemetery of Splendour",
+        "year": 2015
+      },
+      {
+        "title": "Memoria",
+        "year": 2021
+      },
+      {
+        "title": "A Conversation with the Sun",
+        "year": 2023
+      }
     ],
-    "style_tags": ["slow-cinema", "spiritual", "experimental"]
+    "style_tags": [
+      "slow-cinema",
+      "spiritual",
+      "experimental"
+    ],
+    "start_with": {
+      "film": "Tropical Malady",
+      "year": 2004,
+      "note": "Two films in one, divided at the midpoint. Follow the logic of the second half like a dream."
+    },
+    "key_themes": [
+      "waking and dreaming",
+      "spiritual haunting",
+      "Thai history and nature"
+    ]
   },
   {
     "id": 37,
@@ -880,13 +2482,42 @@
     "bio": "Agnès Jaoui writes and directs with Jean-Pierre Bacri, creating films that observe the social rituals of French middle-class life with sharp comedy and genuine pathos. Her films feel like social essays disguised as light comedies, attentive to the self-deceptions people need to get through their days. The Taste of Others is her best-known work outside France.",
     "why": "Jaoui made me see that the comedy of manners is still cinema's sharpest lens for examining how people fail each other.",
     "notable_films": [
-      { "title": "The Taste of Others", "year": 2000 },
-      { "title": "Look at Me", "year": 2004 },
-      { "title": "Let's Talk About the Rain", "year": 2008 },
-      { "title": "Under the Rainbow", "year": 2013 },
-      { "title": "I Do...Until I Don't", "year": 2017 }
+      {
+        "title": "The Taste of Others",
+        "year": 2000
+      },
+      {
+        "title": "Look at Me",
+        "year": 2004
+      },
+      {
+        "title": "Let's Talk About the Rain",
+        "year": 2008
+      },
+      {
+        "title": "Under the Rainbow",
+        "year": 2013
+      },
+      {
+        "title": "I Do...Until I Don't",
+        "year": 2017
+      }
     ],
-    "style_tags": ["comedy", "social-realism", "humanist"]
+    "style_tags": [
+      "comedy",
+      "social-realism",
+      "humanist"
+    ],
+    "start_with": {
+      "film": "The Taste of Others",
+      "year": 2000,
+      "note": "A wealthy industrialist falls for an acting teacher. Comedy of manners at its most precise."
+    },
+    "key_themes": [
+      "class and self-delusion",
+      "the comedy of desire",
+      "social ritual"
+    ]
   },
   {
     "id": 38,
@@ -899,12 +2530,38 @@
     "bio": "Lucrecia Martel makes films of extraordinary sensory precision about the slow rot of the Argentine ruling class. Her Salta Trilogy observes idle, privileged families from a close, careful distance, registering the violence and desire that circulate beneath ordinary surfaces. Her films trust the viewer to draw conclusions from what they are shown rather than being told, and her sound design is among cinema's most immersive.",
     "why": "Martel showed me that class analysis and formal rigor are not in tension, that the most political films are often the most formally controlled.",
     "notable_films": [
-      { "title": "La Ciénaga", "year": 2001 },
-      { "title": "The Holy Girl", "year": 2004 },
-      { "title": "The Headless Woman", "year": 2008 },
-      { "title": "Zama", "year": 2017 }
+      {
+        "title": "La Ciénaga",
+        "year": 2001
+      },
+      {
+        "title": "The Holy Girl",
+        "year": 2004
+      },
+      {
+        "title": "The Headless Woman",
+        "year": 2008
+      },
+      {
+        "title": "Zama",
+        "year": 2017
+      }
     ],
-    "style_tags": ["political", "minimalist", "social-critique"]
+    "style_tags": [
+      "political",
+      "minimalist",
+      "social-critique"
+    ],
+    "start_with": {
+      "film": "La Ciénaga",
+      "year": 2001,
+      "note": "A dysfunctional Argentine family at their summer house. Everything is wrong and no one can say what."
+    },
+    "key_themes": [
+      "ruling class decay",
+      "sensory immersion",
+      "postcolonial Argentina"
+    ]
   },
   {
     "id": 39,
@@ -917,18 +2574,62 @@
     "bio": "Krzysztof Kieślowski began making rigorous documentaries in communist Poland before turning to fiction and finding a way to render the moral and spiritual life of ordinary people with extraordinary depth. The Dekalog, ten films loosely based on the Ten Commandments, is among cinema's greatest achievements; the Three Colors trilogy brought his work to international audiences and showed a filmmaker working at absolute mastery.",
     "why": "Kieślowski made me believe that every ordinary person contains the entire depth of a human life, if you have the patience and love to look.",
     "notable_films": [
-      { "title": "Camera Buff", "year": 1979 },
-      { "title": "Blind Chance", "year": 1981 },
-      { "title": "No End", "year": 1985 },
-      { "title": "Dekalog", "year": 1988 },
-      { "title": "A Short Film About Killing", "year": 1988 },
-      { "title": "A Short Film About Love", "year": 1988 },
-      { "title": "The Double Life of Véronique", "year": 1991 },
-      { "title": "Three Colors: Blue", "year": 1993 },
-      { "title": "Three Colors: White", "year": 1994 },
-      { "title": "Three Colors: Red", "year": 1994 }
+      {
+        "title": "Camera Buff",
+        "year": 1979
+      },
+      {
+        "title": "Blind Chance",
+        "year": 1981
+      },
+      {
+        "title": "No End",
+        "year": 1985
+      },
+      {
+        "title": "Dekalog",
+        "year": 1988
+      },
+      {
+        "title": "A Short Film About Killing",
+        "year": 1988
+      },
+      {
+        "title": "A Short Film About Love",
+        "year": 1988
+      },
+      {
+        "title": "The Double Life of Véronique",
+        "year": 1991
+      },
+      {
+        "title": "Three Colors: Blue",
+        "year": 1993
+      },
+      {
+        "title": "Three Colors: White",
+        "year": 1994
+      },
+      {
+        "title": "Three Colors: Red",
+        "year": 1994
+      }
     ],
-    "style_tags": ["humanist", "spiritual", "political"]
+    "style_tags": [
+      "humanist",
+      "spiritual",
+      "political"
+    ],
+    "start_with": {
+      "film": "A Short Film About Love",
+      "year": 1988,
+      "note": "A young man watches his neighbor through binoculars. Intimate and ethically uncomfortable in the best way."
+    },
+    "key_themes": [
+      "moral complexity",
+      "invisible connection",
+      "spiritual attention"
+    ]
   },
   {
     "id": 40,
@@ -941,11 +2642,34 @@
     "bio": "Mati Diop is a Franco-Senegalese filmmaker who made history as the first Black woman to compete in Cannes' main competition, winning the Grand Prix for Atlantics in 2019. Her work weaves together the personal and the political, exploring the tragedy of migration and the ghosts it leaves behind through a lens that is simultaneously poetic and deeply grounded in the real. She is one of the most distinctive voices in contemporary world cinema.",
     "why": "Diop makes films where grief takes on a physical, spectral form, which is the only way grief actually feels.",
     "notable_films": [
-      { "title": "Mille Soleils", "year": 2013 },
-      { "title": "Atlantics", "year": 2019 },
-      { "title": "Dahomey", "year": 2024 }
+      {
+        "title": "Mille Soleils",
+        "year": 2013
+      },
+      {
+        "title": "Atlantics",
+        "year": 2019
+      },
+      {
+        "title": "Dahomey",
+        "year": 2024
+      }
     ],
-    "style_tags": ["postcolonial", "poetic", "feminist"]
+    "style_tags": [
+      "postcolonial",
+      "poetic",
+      "feminist"
+    ],
+    "start_with": {
+      "film": "Atlantics",
+      "year": 2019,
+      "note": "Young men leave Senegal on boats and disappear. Their ghosts return. Her debut and her masterwork."
+    },
+    "key_themes": [
+      "migration and loss",
+      "the Atlantic as wound",
+      "haunting and witness"
+    ]
   },
   {
     "id": 41,
@@ -958,19 +2682,66 @@
     "bio": "Hirokazu Kore-eda makes films about families: broken ones, reconstituted ones, chosen ones, and the quietly impossible ones we are born into. His films have a documentary-like delicacy and a deep warmth for their characters, never judging even those who lie or abandon their children. After the Storm and Shoplifters are among the most emotionally exact films made in recent years.",
     "why": "Kore-eda understands that the family is where all the world's largest questions live in their smallest and most painful form.",
     "notable_films": [
-      { "title": "Maborosi", "year": 1995 },
-      { "title": "After Life", "year": 1998 },
-      { "title": "Distance", "year": 2001 },
-      { "title": "Nobody Knows", "year": 2004 },
-      { "title": "Still Walking", "year": 2008 },
-      { "title": "I Wish", "year": 2011 },
-      { "title": "Like Father, Like Son", "year": 2013 },
-      { "title": "Our Little Sister", "year": 2015 },
-      { "title": "After the Storm", "year": 2016 },
-      { "title": "Shoplifters", "year": 2018 },
-      { "title": "Broker", "year": 2022 }
+      {
+        "title": "Maborosi",
+        "year": 1995
+      },
+      {
+        "title": "After Life",
+        "year": 1998
+      },
+      {
+        "title": "Distance",
+        "year": 2001
+      },
+      {
+        "title": "Nobody Knows",
+        "year": 2004
+      },
+      {
+        "title": "Still Walking",
+        "year": 2008
+      },
+      {
+        "title": "I Wish",
+        "year": 2011
+      },
+      {
+        "title": "Like Father, Like Son",
+        "year": 2013
+      },
+      {
+        "title": "Our Little Sister",
+        "year": 2015
+      },
+      {
+        "title": "After the Storm",
+        "year": 2016
+      },
+      {
+        "title": "Shoplifters",
+        "year": 2018
+      },
+      {
+        "title": "Broker",
+        "year": 2022
+      }
     ],
-    "style_tags": ["humanist", "family", "slow-cinema"]
+    "style_tags": [
+      "humanist",
+      "family",
+      "slow-cinema"
+    ],
+    "start_with": {
+      "film": "Shoplifters",
+      "year": 2018,
+      "note": "A family who steals together. His most complete film and the warmest argument for chosen family."
+    },
+    "key_themes": [
+      "chosen family",
+      "tenderness and grief",
+      "social invisibility"
+    ]
   },
   {
     "id": 42,
@@ -983,15 +2754,50 @@
     "bio": "Leos Carax makes films of extravagant romantic intensity and formal daring, treating cinema as both a personal confession and a grand gesture. His alter ego, played by Denis Lavant, appears across several films as a figure of elemental longing and self-destruction. Holy Motors is his most fully realized work, a meditation on performance, cinema, and mortality that defies any genre.",
     "why": "Carax showed me that cinema can still be an act of pure, unironic romantic belief, that the grand gesture is not embarrassing.",
     "notable_films": [
-      { "title": "Boy Meets Girl", "year": 1984 },
-      { "title": "Mauvais Sang", "year": 1986 },
-      { "title": "The Lovers on the Bridge", "year": 1991 },
-      { "title": "Pola X", "year": 1999 },
-      { "title": "Tokyo!", "year": 2008 },
-      { "title": "Holy Motors", "year": 2012 },
-      { "title": "Annette", "year": 2021 }
+      {
+        "title": "Boy Meets Girl",
+        "year": 1984
+      },
+      {
+        "title": "Mauvais Sang",
+        "year": 1986
+      },
+      {
+        "title": "The Lovers on the Bridge",
+        "year": 1991
+      },
+      {
+        "title": "Pola X",
+        "year": 1999
+      },
+      {
+        "title": "Tokyo!",
+        "year": 2008
+      },
+      {
+        "title": "Holy Motors",
+        "year": 2012
+      },
+      {
+        "title": "Annette",
+        "year": 2021
+      }
     ],
-    "style_tags": ["romantic", "experimental", "baroque"]
+    "style_tags": [
+      "romantic",
+      "experimental",
+      "baroque"
+    ],
+    "start_with": {
+      "film": "Holy Motors",
+      "year": 2012,
+      "note": "Denis Lavant plays nine characters in one day. A meditation on performance, cinema, and what it means to be alive."
+    },
+    "key_themes": [
+      "performance and identity",
+      "cinematic love",
+      "mortality and transformation"
+    ]
   },
   {
     "id": 43,
@@ -1004,12 +2810,38 @@
     "bio": "Lynne Ramsay makes films from inside the minds of traumatized people, using fragmented editing, sensory detail, and a refusal of easy catharsis to create experiences that feel physically immediate. Her work is intensely visual, more concerned with texture and sensation than with conventional psychology. We Need to Talk About Kevin is one of cinema's most unsettling portraits of maternal ambivalence.",
     "why": "Ramsay taught me that cinema can render the interior experience of distress with a precision that no other art form can match.",
     "notable_films": [
-      { "title": "Ratcatcher", "year": 1999 },
-      { "title": "Morvern Callar", "year": 2002 },
-      { "title": "We Need to Talk About Kevin", "year": 2011 },
-      { "title": "You Were Never Really Here", "year": 2017 }
+      {
+        "title": "Ratcatcher",
+        "year": 1999
+      },
+      {
+        "title": "Morvern Callar",
+        "year": 2002
+      },
+      {
+        "title": "We Need to Talk About Kevin",
+        "year": 2011
+      },
+      {
+        "title": "You Were Never Really Here",
+        "year": 2017
+      }
     ],
-    "style_tags": ["psychological", "visceral", "experimental"]
+    "style_tags": [
+      "psychological",
+      "visceral",
+      "experimental"
+    ],
+    "start_with": {
+      "film": "We Need to Talk About Kevin",
+      "year": 2011,
+      "note": "A mother reviews her son's life backward after a school shooting. Fractured, visceral, unforgettable."
+    },
+    "key_themes": [
+      "trauma and guilt",
+      "sensory immersion",
+      "maternal ambivalence"
+    ]
   },
   {
     "id": 44,
@@ -1022,10 +2854,30 @@
     "bio": "Bi Gan emerged from the small Chinese city of Kaili and made one of the most startling debut features in years, followed by Long Day's Journey Into Night, which ends with an unbroken 59-minute 3D sequence filmed in a single take. His films are structured like memory or poetry rather than narrative, moving between the real and the imagined with total freedom. He is one of cinema's most exciting young voices.",
     "why": "Bi Gan made me see that the long take is not a technique but a philosophy, a way of living inside time rather than cutting through it.",
     "notable_films": [
-      { "title": "Kaili Blues", "year": 2015 },
-      { "title": "Long Day's Journey Into Night", "year": 2018 }
+      {
+        "title": "Kaili Blues",
+        "year": 2015
+      },
+      {
+        "title": "Long Day's Journey Into Night",
+        "year": 2018
+      }
     ],
-    "style_tags": ["poetic", "experimental", "slow-cinema"]
+    "style_tags": [
+      "poetic",
+      "experimental",
+      "slow-cinema"
+    ],
+    "start_with": {
+      "film": "Kaili Blues",
+      "year": 2015,
+      "note": "His debut feature, made at 26. A long take through the mountains of Guizhou that becomes a kind of spell."
+    },
+    "key_themes": [
+      "poetic time",
+      "memory and place",
+      "the long take as trance"
+    ]
   },
   {
     "id": 45,
@@ -1038,18 +2890,62 @@
     "bio": "Wim Wenders emerged from the New German Cinema as its most lyrical voice, making films about journeys, displacement, and the power of images to console and deceive. His road trilogy and Paris, Texas are among the great films of the 1970s and 80s, capturing a West Germany looking simultaneously toward America and its own suppressed history. Wings of Desire is his most fully realized work, a meditation on mortality, the city, and the act of witnessing.",
     "why": "Wenders taught me that the camera is not neutral, that every choice of what to film and how is an ethical act.",
     "notable_films": [
-      { "title": "Alice in the Cities", "year": 1974 },
-      { "title": "Wrong Move", "year": 1975 },
-      { "title": "Kings of the Road", "year": 1976 },
-      { "title": "The American Friend", "year": 1977 },
-      { "title": "Lightning Over Water", "year": 1980 },
-      { "title": "The State of Things", "year": 1982 },
-      { "title": "Paris, Texas", "year": 1984 },
-      { "title": "Wings of Desire", "year": 1987 },
-      { "title": "Until the End of the World", "year": 1991 },
-      { "title": "Perfect Days", "year": 2023 }
+      {
+        "title": "Alice in the Cities",
+        "year": 1974
+      },
+      {
+        "title": "Wrong Move",
+        "year": 1975
+      },
+      {
+        "title": "Kings of the Road",
+        "year": 1976
+      },
+      {
+        "title": "The American Friend",
+        "year": 1977
+      },
+      {
+        "title": "Lightning Over Water",
+        "year": 1980
+      },
+      {
+        "title": "The State of Things",
+        "year": 1982
+      },
+      {
+        "title": "Paris, Texas",
+        "year": 1984
+      },
+      {
+        "title": "Wings of Desire",
+        "year": 1987
+      },
+      {
+        "title": "Until the End of the World",
+        "year": 1991
+      },
+      {
+        "title": "Perfect Days",
+        "year": 2023
+      }
     ],
-    "style_tags": ["road-film", "humanist", "poetic"]
+    "style_tags": [
+      "road-film",
+      "humanist",
+      "poetic"
+    ],
+    "start_with": {
+      "film": "Paris, Texas",
+      "year": 1984,
+      "note": "A man in the Texas desert, unable to speak, slowly finding his way back. Harry Dean Stanton at his most essential."
+    },
+    "key_themes": [
+      "road and displacement",
+      "the American image",
+      "silence and longing"
+    ]
   },
   {
     "id": 46,
@@ -1062,18 +2958,62 @@
     "bio": "Werner Herzog has spent fifty years making films about people who push against the limits of the possible, in both documentary and fiction. His documentaries follow obsessives, visionaries, and survivors with an attention that borders on the reckless; his fiction films are operatic explorations of will, madness, and the sublime. He is also cinema's greatest spoken-word presence, his narration a genre unto itself.",
     "why": "Herzog made me believe that the extremes of human experience are not aberrations but revelations, that the edge cases illuminate the center.",
     "notable_films": [
-      { "title": "Aguirre, the Wrath of God", "year": 1972 },
-      { "title": "The Enigma of Kaspar Hauser", "year": 1974 },
-      { "title": "Heart of Glass", "year": 1976 },
-      { "title": "Stroszek", "year": 1977 },
-      { "title": "Nosferatu the Vampyre", "year": 1979 },
-      { "title": "Fitzcarraldo", "year": 1982 },
-      { "title": "Grizzly Man", "year": 2005 },
-      { "title": "Rescue Dawn", "year": 2006 },
-      { "title": "Encounters at the End of the World", "year": 2007 },
-      { "title": "Cave of Forgotten Dreams", "year": 2010 }
+      {
+        "title": "Aguirre, the Wrath of God",
+        "year": 1972
+      },
+      {
+        "title": "The Enigma of Kaspar Hauser",
+        "year": 1974
+      },
+      {
+        "title": "Heart of Glass",
+        "year": 1976
+      },
+      {
+        "title": "Stroszek",
+        "year": 1977
+      },
+      {
+        "title": "Nosferatu the Vampyre",
+        "year": 1979
+      },
+      {
+        "title": "Fitzcarraldo",
+        "year": 1982
+      },
+      {
+        "title": "Grizzly Man",
+        "year": 2005
+      },
+      {
+        "title": "Rescue Dawn",
+        "year": 2006
+      },
+      {
+        "title": "Encounters at the End of the World",
+        "year": 2007
+      },
+      {
+        "title": "Cave of Forgotten Dreams",
+        "year": 2010
+      }
     ],
-    "style_tags": ["documentary", "epic", "philosophical"]
+    "style_tags": [
+      "documentary",
+      "epic",
+      "philosophical"
+    ],
+    "start_with": {
+      "film": "Aguirre, the Wrath of God",
+      "year": 1972,
+      "note": "Klaus Kinski on a raft in the Amazon, believing himself king of the world. Maximum Herzog from minute one."
+    },
+    "key_themes": [
+      "obsession and madness",
+      "nature as indifferent sublime",
+      "the visionary vs the real"
+    ]
   },
   {
     "id": 47,
@@ -1086,18 +3026,62 @@
     "bio": "Rainer Werner Fassbinder made over forty films in thirteen years, working at a pace that seemed to consume him. His films use the melodrama form inherited from Douglas Sirk to expose the mechanisms of power, desire, and mutual exploitation in postwar German society. They are simultaneously emotionally overwhelming and coldly analytical, structured like traps that characters walk into with their eyes open.",
     "why": "Fassbinder taught me that melodrama is not a lesser genre but a precise instrument for examining how oppression is internalized and reproduced.",
     "notable_films": [
-      { "title": "Love Is Colder Than Death", "year": 1969 },
-      { "title": "The Bitter Tears of Petra von Kant", "year": 1972 },
-      { "title": "Ali: Fear Eats the Soul", "year": 1974 },
-      { "title": "Fox and His Friends", "year": 1975 },
-      { "title": "Mother Küsters Goes to Heaven", "year": 1975 },
-      { "title": "Chinese Roulette", "year": 1976 },
-      { "title": "Despair", "year": 1978 },
-      { "title": "The Marriage of Maria Braun", "year": 1979 },
-      { "title": "Berlin Alexanderplatz", "year": 1980 },
-      { "title": "Veronika Voss", "year": 1982 }
+      {
+        "title": "Love Is Colder Than Death",
+        "year": 1969
+      },
+      {
+        "title": "The Bitter Tears of Petra von Kant",
+        "year": 1972
+      },
+      {
+        "title": "Ali: Fear Eats the Soul",
+        "year": 1974
+      },
+      {
+        "title": "Fox and His Friends",
+        "year": 1975
+      },
+      {
+        "title": "Mother Küsters Goes to Heaven",
+        "year": 1975
+      },
+      {
+        "title": "Chinese Roulette",
+        "year": 1976
+      },
+      {
+        "title": "Despair",
+        "year": 1978
+      },
+      {
+        "title": "The Marriage of Maria Braun",
+        "year": 1979
+      },
+      {
+        "title": "Berlin Alexanderplatz",
+        "year": 1980
+      },
+      {
+        "title": "Veronika Voss",
+        "year": 1982
+      }
     ],
-    "style_tags": ["melodrama", "political", "queer"]
+    "style_tags": [
+      "melodrama",
+      "political",
+      "queer"
+    ],
+    "start_with": {
+      "film": "Ali: Fear Eats the Soul",
+      "year": 1974,
+      "note": "An older German woman falls in love with a Moroccan worker. Sirk remade as political analysis."
+    },
+    "key_themes": [
+      "internalized oppression",
+      "desire under capitalism",
+      "melodrama as critique"
+    ]
   },
   {
     "id": 48,
@@ -1110,17 +3094,58 @@
     "bio": "Asghar Farhadi makes films about the moral consequences of ordinary choices, constructing scenarios in which every character has a legitimate claim to be right and no one can escape culpability. His films unfold like thrillers but are really ethical investigations, exploring marriage, class, and complicity in contemporary Iran with relentless precision. A Separation is one of the great films of the twenty-first century.",
     "why": "Farhadi showed me that ethical clarity is a form of evasion, that genuine honesty means living in the discomfort of real complexity.",
     "notable_films": [
-      { "title": "Dancing in the Dust", "year": 2003 },
-      { "title": "Beautiful City", "year": 2004 },
-      { "title": "Fireworks Wednesday", "year": 2006 },
-      { "title": "About Elly", "year": 2009 },
-      { "title": "A Separation", "year": 2011 },
-      { "title": "The Past", "year": 2013 },
-      { "title": "The Salesman", "year": 2016 },
-      { "title": "Everybody Knows", "year": 2018 },
-      { "title": "A Hero", "year": 2021 }
+      {
+        "title": "Dancing in the Dust",
+        "year": 2003
+      },
+      {
+        "title": "Beautiful City",
+        "year": 2004
+      },
+      {
+        "title": "Fireworks Wednesday",
+        "year": 2006
+      },
+      {
+        "title": "About Elly",
+        "year": 2009
+      },
+      {
+        "title": "A Separation",
+        "year": 2011
+      },
+      {
+        "title": "The Past",
+        "year": 2013
+      },
+      {
+        "title": "The Salesman",
+        "year": 2016
+      },
+      {
+        "title": "Everybody Knows",
+        "year": 2018
+      },
+      {
+        "title": "A Hero",
+        "year": 2021
+      }
     ],
-    "style_tags": ["humanist", "thriller", "social-critique"]
+    "style_tags": [
+      "humanist",
+      "thriller",
+      "social-critique"
+    ],
+    "start_with": {
+      "film": "A Separation",
+      "year": 2011,
+      "note": "A husband and wife want different things. A lie is told. Everything follows with terrible logic."
+    },
+    "key_themes": [
+      "moral ambiguity",
+      "class and complicity",
+      "the impossibility of justice"
+    ]
   },
   {
     "id": 49,
@@ -1133,16 +3158,54 @@
     "bio": "Kelly Reichardt works in a stripped-down, almost anti-narrative mode, making films about people at the economic and geographic margins of American life. Her films are set in the American West and feel deeply embedded in landscape and physical reality, refusing the consolations of conventional drama. Working with actress Michelle Williams across several films, she has created a body of work that is quietly devastating in its accumulative effect.",
     "why": "Reichardt made me understand that restraint in American cinema is not limitation but a political and ethical stance.",
     "notable_films": [
-      { "title": "River of Grass", "year": 1994 },
-      { "title": "Old Joy", "year": 2006 },
-      { "title": "Wendy and Lucy", "year": 2008 },
-      { "title": "Meek's Cutoff", "year": 2010 },
-      { "title": "Night Moves", "year": 2013 },
-      { "title": "Certain Women", "year": 2016 },
-      { "title": "First Cow", "year": 2019 },
-      { "title": "Showing Up", "year": 2022 }
+      {
+        "title": "River of Grass",
+        "year": 1994
+      },
+      {
+        "title": "Old Joy",
+        "year": 2006
+      },
+      {
+        "title": "Wendy and Lucy",
+        "year": 2008
+      },
+      {
+        "title": "Meek's Cutoff",
+        "year": 2010
+      },
+      {
+        "title": "Night Moves",
+        "year": 2013
+      },
+      {
+        "title": "Certain Women",
+        "year": 2016
+      },
+      {
+        "title": "First Cow",
+        "year": 2019
+      },
+      {
+        "title": "Showing Up",
+        "year": 2022
+      }
     ],
-    "style_tags": ["minimalist", "slow-cinema", "political"]
+    "style_tags": [
+      "minimalist",
+      "slow-cinema",
+      "political"
+    ],
+    "start_with": {
+      "film": "First Cow",
+      "year": 2019,
+      "note": "Two men in 1820s Oregon and a cow. Her most tender and most American film."
+    },
+    "key_themes": [
+      "slow American life",
+      "economic precarity",
+      "friendship and landscape"
+    ]
   },
   {
     "id": 50,
@@ -1155,18 +3218,65 @@
     "bio": "Tsai Ming-liang makes films about solitude, the body, and the impossibility of connection in the modern city. His films are among the slowest in mainstream art cinema, using extended, often wordless sequences to create an almost meditative relationship with the physical world. His collaboration with actor Lee Kang-sheng, who has appeared in all of his features, is one of cinema's great sustained artistic partnerships.",
     "why": "Tsai taught me that slowness is not absence but presence, that to watch someone exist in time is itself an act of love.",
     "notable_films": [
-      { "title": "Rebels of the Neon God", "year": 1992 },
-      { "title": "Vive L'Amour", "year": 1994 },
-      { "title": "The River", "year": 1997 },
-      { "title": "The Hole", "year": 1998 },
-      { "title": "What Time Is It There?", "year": 2001 },
-      { "title": "Goodbye, Dragon Inn", "year": 2003 },
-      { "title": "The Wayward Cloud", "year": 2005 },
-      { "title": "I Don't Want to Sleep Alone", "year": 2006 },
-      { "title": "Face", "year": 2009 },
-      { "title": "Stray Dogs", "year": 2013 },
-      { "title": "Days", "year": 2020 }
+      {
+        "title": "Rebels of the Neon God",
+        "year": 1992
+      },
+      {
+        "title": "Vive L'Amour",
+        "year": 1994
+      },
+      {
+        "title": "The River",
+        "year": 1997
+      },
+      {
+        "title": "The Hole",
+        "year": 1998
+      },
+      {
+        "title": "What Time Is It There?",
+        "year": 2001
+      },
+      {
+        "title": "Goodbye, Dragon Inn",
+        "year": 2003
+      },
+      {
+        "title": "The Wayward Cloud",
+        "year": 2005
+      },
+      {
+        "title": "I Don't Want to Sleep Alone",
+        "year": 2006
+      },
+      {
+        "title": "Face",
+        "year": 2009
+      },
+      {
+        "title": "Stray Dogs",
+        "year": 2013
+      },
+      {
+        "title": "Days",
+        "year": 2020
+      }
     ],
-    "style_tags": ["slow-cinema", "minimalist", "urban"]
+    "style_tags": [
+      "slow-cinema",
+      "minimalist",
+      "urban"
+    ],
+    "start_with": {
+      "film": "Goodbye, Dragon Inn",
+      "year": 2003,
+      "note": "An empty cinema plays a classic martial arts film. Almost no dialogue. The most honest film ever made about watching films."
+    },
+    "key_themes": [
+      "urban solitude",
+      "the body in time",
+      "cinema watching cinema"
+    ]
   }
 ]
