@@ -285,9 +285,20 @@
       padding: 3px 9px; border-radius: 2px;
     }
 
+    /* Hero title row */
+    .detail-hero-title {
+      display: flex; align-items: baseline; justify-content: center; gap: 14px;
+    }
+    .hero-save-btn {
+      font-size: 1.2rem; color: var(--text-4);
+      transition: color 0.15s; background: none; border: none; cursor: pointer;
+      padding: 0; line-height: 1; flex-shrink: 0;
+    }
+    .hero-save-btn:hover, .hero-save-btn.saved { color: var(--amber); }
+
     /* Pull quote */
     .detail-pull {
-      max-width: 740px; margin: 0 auto 52px;
+      max-width: 680px; margin: 0 auto 0;
       text-align: center;
     }
     .detail-pull-mark {
@@ -301,15 +312,9 @@
       color: var(--text-2); line-height: 1.75;
     }
 
-    /* Body */
-    .detail-body {
-      display: grid; grid-template-columns: 1fr 260px; gap: 60px;
-      align-items: start;
-    }
-    @media (max-width: 680px) {
-      .detail-body { grid-template-columns: 1fr; }
-      .detail-sidebar { order: -1; }
-    }
+    /* Single-column content */
+    .detail-content { max-width: 680px; margin: 0 auto; }
+    .detail-block { margin-bottom: 48px; }
 
     .detail-section {
       font-family: 'Geist Mono', monospace; font-size: 0.55rem;
@@ -340,10 +345,9 @@
 
     /* In Their Own Words */
     .own-words {
-      margin-bottom: 40px;
-      padding: 24px 0;
+      padding: 28px 0 0;
       border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      margin-top: 32px;
     }
     .own-words-label {
       font-family: 'Geist Mono', monospace; font-size: 0.52rem;
@@ -352,9 +356,15 @@
     }
     .own-words-quote {
       font-family: 'Fraunces', Georgia, serif;
-      font-size: 1.05rem; font-style: italic; font-weight: 300;
+      font-size: 1rem; font-style: italic; font-weight: 300;
       color: var(--text-2); line-height: 1.8;
     }
+
+    /* Combined quotes section */
+    .detail-quotes {
+      max-width: 680px; margin: 0 auto 52px; text-align: center;
+    }
+    .detail-content .detail-block:first-child { margin-bottom: 0; }
 
     /* Where to Start */
     .start-block {
@@ -391,28 +401,6 @@
       padding: 4px 10px; border-radius: 2px;
     }
 
-    /* Sidebar */
-    .sidebar-meta { margin-bottom: 20px; }
-    .sidebar-row {
-      display: flex; justify-content: space-between;
-      padding: 10px 0; border-bottom: 1px solid var(--border);
-      gap: 12px;
-    }
-    .sidebar-row:last-child { border-bottom: none; }
-    .s-label {
-      font-family: 'Geist Mono', monospace; font-size: 0.56rem;
-      letter-spacing: 1px; text-transform: uppercase; color: var(--text-4);
-    }
-    .s-val { font-size: 0.8rem; color: var(--text-2); text-align: right; }
-    .save-btn {
-      width: 100%; padding: 10px 0; text-align: center;
-      border: 1px solid var(--border); border-radius: 2px;
-      font-family: 'Geist Mono', monospace; font-size: 0.6rem;
-      letter-spacing: 1px; text-transform: uppercase;
-      color: var(--text-3); transition: all 0.15s;
-    }
-    .save-btn:hover { border-color: var(--amber); color: var(--amber); }
-    .save-btn.saved { border-color: var(--amber); color: var(--amber); background: var(--amber-bg); }
 
     /* ── Spotlight ── */
     .spotlight {
@@ -707,41 +695,47 @@
 
       <div class="detail-hero">
         <span class="detail-era-label detail-era-${f.era}">${fe(f.era)}</span>
-        <h1 class="detail-name">${f.name}</h1>
+        <div class="detail-hero-title">
+          <h1 class="detail-name">${f.name}</h1>
+          <button class="hero-save-btn ${saved?'saved':''}" id="save-btn-d" onclick="toggleFavDetail(${id})" aria-label="Save">${saved?'♥':'♡'}</button>
+        </div>
         <p class="detail-vitals">${fn(f.nationality)} · ${years}</p>
         <p class="detail-tagline">${f.tagline}</p>
-        <div class="detail-tags">${f.style_tags.map(t=>`<span class="detail-tag">${t}</span>`).join('')}</div>
       </div>
 
-      ${f.why ? `
-      <div class="detail-pull">
-        <span class="detail-pull-mark">"</span>
-        <p>${f.why}</p>
-      </div>` : ''}
-
-      <div class="detail-body">
-        <div class="detail-main">
-          <p class="detail-section">About</p>
+      <div class="detail-content">
+        <div class="detail-block">
           <p class="detail-bio">${f.bio}</p>
+        </div>
 
-          ${f.quote ? `
-          <div class="own-words">
+        ${(f.why || f.quote) ? `
+        <div class="detail-quotes">
+          ${f.why ? `<div class="detail-pull">
+            <span class="detail-pull-mark">"</span>
+            <p>${f.why}</p>
+          </div>` : ''}
+          ${f.quote ? `<div class="own-words">
             <p class="own-words-label">In Their Own Words</p>
             <p class="own-words-quote">${f.quote}</p>
           </div>` : ''}
+        </div>` : ''}
 
-          ${f.key_themes?.length ? `
+        ${f.key_themes?.length ? `
+        <div class="detail-block">
           <p class="detail-section">Key Themes</p>
           <div class="key-themes">${f.key_themes.map(t=>`<span class="key-theme">${t}</span>`).join('')}</div>
-          <div style="margin-bottom:40px"></div>` : ''}
+        </div>` : ''}
 
-          ${f.start_with ? `
+        ${f.start_with ? `
+        <div class="detail-block">
           <p class="detail-section">Where to Start</p>
           <div class="start-block">
             <div class="start-film">${f.start_with.film}<span class="start-year">${f.start_with.year}</span></div>
             <p class="start-note">${f.start_with.note}</p>
-          </div>` : ''}
+          </div>
+        </div>` : ''}
 
+        <div class="detail-block">
           <p class="detail-section">Films</p>
           <ul class="film-list">
             ${f.notable_films.map((film,i)=>`
@@ -752,19 +746,6 @@
               </li>`).join('')}
           </ul>
         </div>
-
-        <aside class="detail-sidebar">
-          <p class="detail-section">Info</p>
-          <div class="sidebar-meta">
-            <div class="sidebar-row"><span class="s-label">Nationality</span><span class="s-val">${fn(f.nationality)}</span></div>
-            <div class="sidebar-row"><span class="s-label">Era</span><span class="s-val">${fe(f.era)}</span></div>
-            <div class="sidebar-row"><span class="s-label">Born</span><span class="s-val">${f.birth_year}</span></div>
-            ${f.death_year?`<div class="sidebar-row"><span class="s-label">Died</span><span class="s-val">${f.death_year}</span></div>`:''}
-          </div>
-          <button class="save-btn ${saved?'saved':''}" id="save-btn-d" onclick="toggleFavDetail(${id})">
-            ${saved ? '♥ Saved' : '♡ Save'}
-          </button>
-        </aside>
       </div>`;
 
     window.scrollTo(0, 0);
@@ -791,7 +772,7 @@
     localStorage.setItem('auteurs-saved', JSON.stringify([...savedIds]));
     updateBadge();
     const btn = document.getElementById('save-btn-d');
-    if (btn) { const s=savedIds.has(id); btn.className=`save-btn ${s?'saved':''}`; btn.textContent=s?'♥ Saved':'♡ Save'; }
+    if (btn) { const s=savedIds.has(id); btn.className=`hero-save-btn ${s?'saved':''}`; btn.textContent=s?'♥':'♡'; }
   }
   function updateBadge() {
     const b = document.getElementById('saved-badge');
