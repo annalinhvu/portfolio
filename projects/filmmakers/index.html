@@ -338,6 +338,24 @@
       color: var(--text-4); flex-shrink: 0;
     }
 
+    /* In Their Own Words */
+    .own-words {
+      margin-bottom: 40px;
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .own-words-label {
+      font-family: 'Geist Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 1.8px; text-transform: uppercase;
+      color: var(--text-4); margin-bottom: 14px;
+    }
+    .own-words-quote {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.05rem; font-style: italic; font-weight: 300;
+      color: var(--text-2); line-height: 1.8;
+    }
+
     /* Where to Start */
     .start-block {
       margin-bottom: 40px;
@@ -569,6 +587,12 @@
         <div class="detail-main">
           <p class="detail-section">About</p>
           <p class="detail-bio">${f.bio}</p>
+
+          ${f.quote ? `
+          <div class="own-words">
+            <p class="own-words-label">In Their Own Words</p>
+            <p class="own-words-quote">${f.quote}</p>
+          </div>` : ''}
 
           ${f.key_themes?.length ? `
           <p class="detail-section">Key Themes</p>
