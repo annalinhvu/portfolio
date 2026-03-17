@@ -3328,5 +3328,1827 @@
       "cinema watching cinema"
     ],
     "quote": "Slowness is a form of resistance."
+  },
+  {
+    "id": 51,
+    "name": "Jean-Pierre Melville",
+    "nationality": "french",
+    "birth_year": 1917,
+    "death_year": 1973,
+    "era": "classical",
+    "tagline": "The loneliest filmmaker in Paris, master of the existential heist",
+    "bio": "Jean-Pierre Melville was a self-taught filmmaker who built his own studio and created a body of crime films unlike anything else in French cinema. His gangster films are works of extraordinary purity: stripped of sentiment, saturated in shadows and silence, populated by men who live by a code they know is doomed. He worshipped American cinema but created something entirely his own, a French existentialism in genre clothing.",
+    "why": "Melville showed me that genre can be a form of philosophy, that a man in a hat walking down a rain-wet street can carry the full weight of mortality.",
+    "notable_films": [
+      {
+        "title": "Bob le Flambeur",
+        "year": 1956
+      },
+      {
+        "title": "Two Men in Manhattan",
+        "year": 1959
+      },
+      {
+        "title": "Le Doulos",
+        "year": 1962
+      },
+      {
+        "title": "Le Deuxième Souffle",
+        "year": 1966
+      },
+      {
+        "title": "Le Samouraï",
+        "year": 1967
+      },
+      {
+        "title": "Army of Shadows",
+        "year": 1969
+      },
+      {
+        "title": "Le Cercle Rouge",
+        "year": 1970
+      },
+      {
+        "title": "Un Flic",
+        "year": 1972
+      }
+    ],
+    "style_tags": [
+      "noir",
+      "existential",
+      "minimalist"
+    ],
+    "start_with": {
+      "film": "Le Samouraï",
+      "year": 1967,
+      "note": "Alain Delon, a raincoat, and a bird. The most perfect film noir ever made."
+    },
+    "key_themes": [
+      "code and honor",
+      "solitude as destiny",
+      "the beauty of failure"
+    ],
+    "quote": "I have always been and will remain an outsider."
+  },
+  {
+    "id": 52,
+    "name": "Luis Buñuel",
+    "nationality": "spanish",
+    "birth_year": 1900,
+    "death_year": 1983,
+    "era": "classical",
+    "tagline": "Surrealist provocateur and cinema's great satirist of the bourgeoisie",
+    "bio": "Luis Buñuel began his career by slicing an eyeball onscreen in Un Chien Andalou and never stopped provoking. His films move between savage satire of the Catholic church and the Spanish bourgeoisie, surrealist imagery, and a cold, controlled comedy of manners. He worked in three countries across five decades, making some of his greatest films in his seventies. He was cinema's great rationalist of the irrational.",
+    "why": "Buñuel taught me that the most political act in cinema can be a single absurd image held just a beat too long.",
+    "notable_films": [
+      {
+        "title": "Un Chien Andalou",
+        "year": 1929
+      },
+      {
+        "title": "L'Age d'Or",
+        "year": 1930
+      },
+      {
+        "title": "Los Olvidados",
+        "year": 1950
+      },
+      {
+        "title": "Viridiana",
+        "year": 1961
+      },
+      {
+        "title": "The Exterminating Angel",
+        "year": 1962
+      },
+      {
+        "title": "Belle de Jour",
+        "year": 1967
+      },
+      {
+        "title": "The Discreet Charm of the Bourgeoisie",
+        "year": 1972
+      },
+      {
+        "title": "The Phantom of Liberty",
+        "year": 1974
+      },
+      {
+        "title": "That Obscure Object of Desire",
+        "year": 1977
+      }
+    ],
+    "style_tags": [
+      "surrealist",
+      "satirical",
+      "political"
+    ],
+    "start_with": {
+      "film": "The Discreet Charm of the Bourgeoisie",
+      "year": 1972,
+      "note": "A group of friends keep trying to have dinner and keep being interrupted. Funnier and more terrifying than it sounds."
+    },
+    "key_themes": [
+      "surrealism and the unconscious",
+      "anticlerical satire",
+      "desire and repression"
+    ],
+    "quote": "I am still an atheist, thank God."
+  },
+  {
+    "id": 53,
+    "name": "Carl Theodor Dreyer",
+    "nationality": "danish",
+    "birth_year": 1889,
+    "death_year": 1968,
+    "era": "classical",
+    "tagline": "The most severe and transcendent filmmaker in the history of cinema",
+    "bio": "Carl Theodor Dreyer made only fourteen films in fifty years, each one a rigorous inquiry into faith, suffering, and the human face. The Passion of Joan of Arc remains one of cinema's greatest achievements, filmed almost entirely in close-up, drawing on the actual records of Joan's trial. Dreyer's cinema is demanding and austere, but it offers something no other filmmaker can: direct access to the spiritual life of his characters, made visible on their faces.",
+    "why": "Dreyer showed me that the close-up on a human face is the most powerful image cinema can offer.",
+    "notable_films": [
+      {
+        "title": "The Passion of Joan of Arc",
+        "year": 1928
+      },
+      {
+        "title": "Vampyr",
+        "year": 1932
+      },
+      {
+        "title": "Day of Wrath",
+        "year": 1943
+      },
+      {
+        "title": "Two People",
+        "year": 1945
+      },
+      {
+        "title": "Ordet",
+        "year": 1955
+      },
+      {
+        "title": "Gertrud",
+        "year": 1964
+      }
+    ],
+    "style_tags": [
+      "spiritual",
+      "austere",
+      "face and form"
+    ],
+    "start_with": {
+      "film": "The Passion of Joan of Arc",
+      "year": 1928,
+      "note": "Shot in close-up from the actual transcripts of her trial. Seventy minutes that feel like eternity in the best sense."
+    },
+    "key_themes": [
+      "faith and martyrdom",
+      "the face as landscape",
+      "institutional cruelty"
+    ],
+    "quote": "The human face is the great subject of the cinema."
+  },
+  {
+    "id": 54,
+    "name": "Sergei Eisenstein",
+    "nationality": "russian",
+    "birth_year": 1898,
+    "death_year": 1948,
+    "era": "classical",
+    "tagline": "The theorist who made montage into poetry and politics into art",
+    "bio": "Sergei Eisenstein was cinema's first great theorist and one of its greatest practitioners, developing the concept of intellectual montage in films that changed how cinema understood editing. Battleship Potemkin and October are cornerstones of film history; Ivan the Terrible, his final work, is a baroque historical epic he used to comment on Soviet power with a cunning that bordered on the suicidal.",
+    "why": "Eisenstein taught me that the cut between two images creates a meaning that neither image contains alone.",
+    "notable_films": [
+      {
+        "title": "Strike",
+        "year": 1925
+      },
+      {
+        "title": "Battleship Potemkin",
+        "year": 1925
+      },
+      {
+        "title": "October",
+        "year": 1928
+      },
+      {
+        "title": "The General Line",
+        "year": 1929
+      },
+      {
+        "title": "Alexander Nevsky",
+        "year": 1938
+      },
+      {
+        "title": "Ivan the Terrible Part I",
+        "year": 1944
+      },
+      {
+        "title": "Ivan the Terrible Part II",
+        "year": 1958
+      }
+    ],
+    "style_tags": [
+      "montage",
+      "political",
+      "epic"
+    ],
+    "start_with": {
+      "film": "Battleship Potemkin",
+      "year": 1925,
+      "note": "The Odessa Steps sequence alone is worth an education in cinema. Watch it, then watch everything else differently."
+    },
+    "key_themes": [
+      "montage as meaning",
+      "collective heroism",
+      "political spectacle"
+    ],
+    "quote": "The shot is not the unit of cinema. The collision of two shots is."
+  },
+  {
+    "id": 55,
+    "name": "Stanley Kubrick",
+    "nationality": "american",
+    "birth_year": 1928,
+    "death_year": 1999,
+    "era": "classical",
+    "tagline": "Cinema's coldest eye on human nature, and its most technically precise",
+    "bio": "Stanley Kubrick was the ultimate auteur, controlling every aspect of production to create films of extraordinary formal precision and unsettling intelligence. His career moved through genre as if testing what each could reveal about human nature: war film, horror, science fiction, historical epic. What unites them is a cold clarity about humanity's capacity for violence, self-deception, and the absurd, delivered with images of stunning beauty.",
+    "why": "Kubrick showed me that cinema can be both aesthetically overwhelming and intellectually rigorous, that beauty and ideas are not in tension.",
+    "notable_films": [
+      {
+        "title": "Paths of Glory",
+        "year": 1957
+      },
+      {
+        "title": "Spartacus",
+        "year": 1960
+      },
+      {
+        "title": "Lolita",
+        "year": 1962
+      },
+      {
+        "title": "Dr. Strangelove",
+        "year": 1964
+      },
+      {
+        "title": "2001: A Space Odyssey",
+        "year": 1968
+      },
+      {
+        "title": "A Clockwork Orange",
+        "year": 1971
+      },
+      {
+        "title": "Barry Lyndon",
+        "year": 1975
+      },
+      {
+        "title": "The Shining",
+        "year": 1980
+      },
+      {
+        "title": "Full Metal Jacket",
+        "year": 1987
+      },
+      {
+        "title": "Eyes Wide Shut",
+        "year": 1999
+      }
+    ],
+    "style_tags": [
+      "precision",
+      "satirical",
+      "psychological"
+    ],
+    "start_with": {
+      "film": "Dr. Strangelove",
+      "year": 1964,
+      "note": "A comedy about nuclear annihilation that is more accurate about political psychology than almost any serious film."
+    },
+    "key_themes": [
+      "institutional violence",
+      "human absurdity",
+      "the sublime and the horrific"
+    ],
+    "quote": "The most terrifying fact about the universe is not that it is hostile, but that it is indifferent."
+  },
+  {
+    "id": 56,
+    "name": "Jim Jarmusch",
+    "nationality": "american",
+    "birth_year": 1953,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Poet of the American margin, where nothing much happens and everything matters",
+    "bio": "Jim Jarmusch makes films about people who exist at the edges of American culture, often brought together across cultural or linguistic barriers, always shot in a spare, deadpan style that makes room for unexpected grace and humor. His films have no conventional plots; they are accumulations of conversations, silences, and chance encounters. He is one of American independent cinema's defining voices, working consistently outside the studio system for forty years.",
+    "why": "Jarmusch taught me that nothing happening can be everything happening, if you know how to look.",
+    "notable_films": [
+      {
+        "title": "Stranger Than Paradise",
+        "year": 1984
+      },
+      {
+        "title": "Down by Law",
+        "year": 1986
+      },
+      {
+        "title": "Mystery Train",
+        "year": 1989
+      },
+      {
+        "title": "Night on Earth",
+        "year": 1991
+      },
+      {
+        "title": "Dead Man",
+        "year": 1995
+      },
+      {
+        "title": "Ghost Dog: The Way of the Samurai",
+        "year": 1999
+      },
+      {
+        "title": "Broken Flowers",
+        "year": 2005
+      },
+      {
+        "title": "Only Lovers Left Alive",
+        "year": 2013
+      },
+      {
+        "title": "Paterson",
+        "year": 2016
+      },
+      {
+        "title": "The Dead Don't Die",
+        "year": 2019
+      }
+    ],
+    "style_tags": [
+      "deadpan",
+      "independent",
+      "minimalist"
+    ],
+    "start_with": {
+      "film": "Paterson",
+      "year": 2016,
+      "note": "A bus driver in New Jersey writes poetry. Seven of the most quietly beautiful days in cinema."
+    },
+    "key_themes": [
+      "the marginal and the overlooked",
+      "cross-cultural encounter",
+      "time and routine"
+    ],
+    "quote": "I steal from every single movie ever made."
+  },
+  {
+    "id": 57,
+    "name": "Sofia Coppola",
+    "nationality": "american",
+    "birth_year": 1971,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Poet of feminine interiority, privilege, and the texture of loneliness",
+    "bio": "Sofia Coppola makes films about women caught in gilded cages, trapped by wealth, fame, or circumstance, rendered in images of extraordinary sensory beauty. Her films are often criticized for their narrow world but this is precisely their subject: the specific texture of loneliness available to women who have everything and nothing. Lost in Translation is her most celebrated work; The Virgin Suicides her most formally controlled.",
+    "why": "Coppola made me understand that the cinema of surfaces can be the cinema of depth, that what is left unsaid is the whole point.",
+    "notable_films": [
+      {
+        "title": "The Virgin Suicides",
+        "year": 1999
+      },
+      {
+        "title": "Lost in Translation",
+        "year": 2003
+      },
+      {
+        "title": "Marie Antoinette",
+        "year": 2006
+      },
+      {
+        "title": "Somewhere",
+        "year": 2010
+      },
+      {
+        "title": "The Bling Ring",
+        "year": 2013
+      },
+      {
+        "title": "The Beguiled",
+        "year": 2017
+      },
+      {
+        "title": "On the Rocks",
+        "year": 2020
+      },
+      {
+        "title": "Priscilla",
+        "year": 2023
+      }
+    ],
+    "style_tags": [
+      "feminine interiority",
+      "sensory",
+      "melancholic"
+    ],
+    "start_with": {
+      "film": "Lost in Translation",
+      "year": 2003,
+      "note": "Two people at the edge of their lives, in a hotel in Tokyo, almost connecting. The most honest film about loneliness I know."
+    },
+    "key_themes": [
+      "feminine loneliness",
+      "the gilded cage",
+      "in-between states"
+    ],
+    "quote": "I'm interested in the interior world of women, which isn't often shown."
+  },
+  {
+    "id": 58,
+    "name": "Nuri Bilge Ceylan",
+    "nationality": "turkish",
+    "birth_year": 1959,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Turkish master of Chekhovian silences and breathtaking landscapes",
+    "bio": "Nuri Bilge Ceylan makes films of extraordinary visual and emotional scope, set against the landscapes of Turkey, populated by intellectuals and provincial figures caught in moral and philosophical stalemates. His films are long, dialogue-heavy in the manner of Chekhov, and visually stunning. Winter Sleep won the Palme d'Or in 2014; Once Upon a Time in Anatolia is his most formally perfect work.",
+    "why": "Ceylan showed me that the landscape in a film is never background; it is always psychology.",
+    "notable_films": [
+      {
+        "title": "Uzak",
+        "year": 2003
+      },
+      {
+        "title": "Climates",
+        "year": 2006
+      },
+      {
+        "title": "Three Monkeys",
+        "year": 2008
+      },
+      {
+        "title": "Once Upon a Time in Anatolia",
+        "year": 2011
+      },
+      {
+        "title": "Winter Sleep",
+        "year": 2014
+      },
+      {
+        "title": "The Wild Pear Tree",
+        "year": 2018
+      },
+      {
+        "title": "About Dry Grasses",
+        "year": 2023
+      }
+    ],
+    "style_tags": [
+      "slow-cinema",
+      "philosophical",
+      "landscape"
+    ],
+    "start_with": {
+      "film": "Once Upon a Time in Anatolia",
+      "year": 2011,
+      "note": "Policemen search for a body across a Turkish landscape all night. The landscape is the film."
+    },
+    "key_themes": [
+      "masculine guilt",
+      "landscape as psychology",
+      "provincial isolation"
+    ],
+    "quote": "Cinema is the art of showing people what they would not otherwise want to see about themselves."
+  },
+  {
+    "id": 59,
+    "name": "Hong Sang-soo",
+    "nationality": "korean",
+    "birth_year": 1960,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Minimalist serial poet of alcohol, conversation, and repeated mistakes",
+    "bio": "Hong Sang-soo has made over thirty films in thirty years, each a slight variation on the same material: artists and intellectuals in Seoul or small Korean cities, drinking makgeolli, falling in and out of love, making the same mistakes again. His films have almost no budget, use natural light, and are often made in weeks. Yet they accumulate into one of the richest bodies of work in contemporary cinema, finding infinite variation in the smallest gestures.",
+    "why": "Hong showed me that constraint can be the most liberating form, that returning to the same material deepens rather than diminishes it.",
+    "notable_films": [
+      {
+        "title": "The Power of Kangwon Province",
+        "year": 1998
+      },
+      {
+        "title": "Woman Is the Future of Man",
+        "year": 2004
+      },
+      {
+        "title": "The Day He Arrives",
+        "year": 2011
+      },
+      {
+        "title": "In Another Country",
+        "year": 2012
+      },
+      {
+        "title": "Right Now, Wrong Then",
+        "year": 2015
+      },
+      {
+        "title": "On the Beach at Night Alone",
+        "year": 2017
+      },
+      {
+        "title": "The Woman Who Ran",
+        "year": 2020
+      },
+      {
+        "title": "Introduction",
+        "year": 2021
+      },
+      {
+        "title": "The Novelist's Film",
+        "year": 2022
+      }
+    ],
+    "style_tags": [
+      "minimalist",
+      "conversational",
+      "serial"
+    ],
+    "start_with": {
+      "film": "Right Now, Wrong Then",
+      "year": 2015,
+      "note": "The same day told twice, with one small difference. His method made perfectly visible."
+    },
+    "key_themes": [
+      "repetition and variation",
+      "male self-deception",
+      "the mundane sublime"
+    ],
+    "quote": "I make films to understand what is happening to me."
+  },
+  {
+    "id": 60,
+    "name": "Jafar Panahi",
+    "nationality": "iranian",
+    "birth_year": 1960,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Making films under a government ban with total formal ingenuity",
+    "bio": "Jafar Panahi has been banned from filmmaking by the Iranian government since 2010, sentenced to six years in prison and a twenty-year ban on directing. He has continued making films anyway, in his apartment, in his car, with his family, documenting the paradox of his own situation with wit and philosophical depth. His pre-ban films are extraordinary; his banned films are among cinema's most remarkable acts of resistance and formal invention.",
+    "why": "Panahi proved that the desire to make films cannot be legislated away, and that constraint can produce the most formally inventive cinema.",
+    "notable_films": [
+      {
+        "title": "The White Balloon",
+        "year": 1995
+      },
+      {
+        "title": "The Mirror",
+        "year": 1997
+      },
+      {
+        "title": "The Circle",
+        "year": 2000
+      },
+      {
+        "title": "Crimson Gold",
+        "year": 2003
+      },
+      {
+        "title": "Offside",
+        "year": 2006
+      },
+      {
+        "title": "This Is Not a Film",
+        "year": 2011
+      },
+      {
+        "title": "Closed Curtain",
+        "year": 2013
+      },
+      {
+        "title": "Taxi",
+        "year": 2015
+      },
+      {
+        "title": "Three Faces",
+        "year": 2018
+      },
+      {
+        "title": "No Bears",
+        "year": 2022
+      }
+    ],
+    "style_tags": [
+      "political",
+      "documentary-fiction",
+      "feminist"
+    ],
+    "start_with": {
+      "film": "Taxi",
+      "year": 2015,
+      "note": "Panahi drives a taxi around Tehran while banned from filmmaking, filming his passengers. Won the Golden Bear. Unmissable."
+    },
+    "key_themes": [
+      "cinema under constraint",
+      "female experience in Iran",
+      "documentary and fiction"
+    ],
+    "quote": "As long as I can think, I will make films."
+  },
+  {
+    "id": 61,
+    "name": "Mia Hansen-Løve",
+    "nationality": "french",
+    "birth_year": 1981,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Gentle chronicler of time passing and the aftermath of love",
+    "bio": "Mia Hansen-Løve makes films about transitions: the end of a relationship, the death of a parent, the fading of a political dream. Her films are autobiographical in feeling if not always in fact, shot in natural light with a documentary looseness, and attentive to the specific way time moves differently during periods of grief and change. Things to Come and Bergman Island are her most fully realized works.",
+    "why": "Hansen-Løve taught me that the films most faithful to how time actually feels are the ones where very little seems to happen.",
+    "notable_films": [
+      {
+        "title": "All Is Forgiven",
+        "year": 2007
+      },
+      {
+        "title": "The Father of My Children",
+        "year": 2009
+      },
+      {
+        "title": "Goodbye First Love",
+        "year": 2011
+      },
+      {
+        "title": "Eden",
+        "year": 2014
+      },
+      {
+        "title": "Things to Come",
+        "year": 2016
+      },
+      {
+        "title": "Maya",
+        "year": 2018
+      },
+      {
+        "title": "Bergman Island",
+        "year": 2021
+      },
+      {
+        "title": "One Fine Morning",
+        "year": 2022
+      }
+    ],
+    "style_tags": [
+      "autobiographical",
+      "humanist",
+      "time"
+    ],
+    "start_with": {
+      "film": "Things to Come",
+      "year": 2016,
+      "note": "Isabelle Huppert's philosophy professor loses her marriage and her mother in the same year, and discovers herself. Quietly extraordinary."
+    },
+    "key_themes": [
+      "transitions and endings",
+      "intellectual women",
+      "grief and renewal"
+    ],
+    "quote": "I need to make films about what I have lived."
+  },
+  {
+    "id": 62,
+    "name": "Alice Rohrwacher",
+    "nationality": "italian",
+    "birth_year": 1981,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Italian fabulist of peasant life and the enchantments of the rural world",
+    "bio": "Alice Rohrwacher makes films about the friction between the ancient and the modern in rural Italy, seen through a lens that mixes documentary realism with fairy-tale logic. Her films are set in landscapes of olive groves and medieval villages, populated by people caught between tradition and the forces of capitalism and global culture. Happy as Lazzaro is her masterwork, a film that moves between neorealism and fable with complete naturalness.",
+    "why": "Rohrwacher showed me that magic realism in cinema is not an escape from reality but a deeper way of entering it.",
+    "notable_films": [
+      {
+        "title": "Heavenly Body",
+        "year": 2011
+      },
+      {
+        "title": "The Wonders",
+        "year": 2014
+      },
+      {
+        "title": "Happy as Lazzaro",
+        "year": 2018
+      },
+      {
+        "title": "La Chimera",
+        "year": 2023
+      }
+    ],
+    "style_tags": [
+      "magic realism",
+      "pastoral",
+      "political"
+    ],
+    "start_with": {
+      "film": "Happy as Lazzaro",
+      "year": 2018,
+      "note": "A saint among sharecroppers in contemporary Italy. The film pivots halfway through and becomes something else entirely."
+    },
+    "key_themes": [
+      "peasant life and exploitation",
+      "the sacred in the everyday",
+      "capitalism and innocence"
+    ],
+    "quote": "I believe in the transformative power of stories."
+  },
+  {
+    "id": 63,
+    "name": "Béla Tarr",
+    "nationality": "hungarian",
+    "birth_year": 1955,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Hungarian master of the seven-hour film and the apocalyptic everyday",
+    "bio": "Béla Tarr made seven features across thirty years, each slower and more formally austere than the last. His films are shot in extraordinary long takes, often lasting ten to fifteen minutes, in a black and white that makes the world look like it has always been raining. Sátántangó, his masterpiece, is seven hours long and has been called the greatest film ever made by several critics. He retired from filmmaking in 2011.",
+    "why": "Tarr showed me what cinema can do when it stops caring about entertainment and commits entirely to duration and texture.",
+    "notable_films": [
+      {
+        "title": "Family Nest",
+        "year": 1979
+      },
+      {
+        "title": "The Outsider",
+        "year": 1981
+      },
+      {
+        "title": "Damnation",
+        "year": 1988
+      },
+      {
+        "title": "Sátántangó",
+        "year": 1994
+      },
+      {
+        "title": "Werckmeister Harmonies",
+        "year": 2000
+      },
+      {
+        "title": "The Man from London",
+        "year": 2007
+      },
+      {
+        "title": "The Turin Horse",
+        "year": 2011
+      }
+    ],
+    "style_tags": [
+      "slow-cinema",
+      "austere",
+      "apocalyptic"
+    ],
+    "start_with": {
+      "film": "Werckmeister Harmonies",
+      "year": 2000,
+      "note": "A whale arrives in a small Hungarian town and something terrible begins. Two and a half hours, thirty-nine shots. Start here before Sátántangó."
+    },
+    "key_themes": [
+      "the end of civilization",
+      "duration as experience",
+      "Hungary under communism and after"
+    ],
+    "quote": "I'm not interested in storytelling. I'm interested in feeling."
+  },
+  {
+    "id": 64,
+    "name": "Alain Resnais",
+    "nationality": "french",
+    "birth_year": 1922,
+    "death_year": 2014,
+    "era": "new-wave",
+    "tagline": "Memory's architect, builder of cinema's most rigorous explorations of the past",
+    "bio": "Alain Resnais began with two of the most important short documentaries ever made, about the Holocaust and colonial racism, before making Hiroshima Mon Amour, which introduced the radical time-shifting that would define his career. His films treat memory not as the past but as a force that shapes and distorts the present. In his final decade he made a series of playful, musical films that showed an artist still experimenting at ninety.",
+    "why": "Resnais showed me that how a film is structured in time is itself a form of argument about how we live in time.",
+    "notable_films": [
+      {
+        "title": "Night and Fog",
+        "year": 1956
+      },
+      {
+        "title": "Hiroshima Mon Amour",
+        "year": 1959
+      },
+      {
+        "title": "Last Year at Marienbad",
+        "year": 1961
+      },
+      {
+        "title": "Muriel",
+        "year": 1963
+      },
+      {
+        "title": "Providence",
+        "year": 1977
+      },
+      {
+        "title": "My American Uncle",
+        "year": 1980
+      },
+      {
+        "title": "Wild Grass",
+        "year": 2009
+      },
+      {
+        "title": "You Ain't Seen Nothin' Yet",
+        "year": 2012
+      }
+    ],
+    "style_tags": [
+      "memory",
+      "formal experiment",
+      "new-wave"
+    ],
+    "start_with": {
+      "film": "Hiroshima Mon Amour",
+      "year": 1959,
+      "note": "Two people in Hiroshima. Memory as a force that cannot be contained. The film that made Resnais."
+    },
+    "key_themes": [
+      "memory and trauma",
+      "the architecture of time",
+      "political history and personal experience"
+    ],
+    "quote": "Memory is not the past. It is how the past continues to live in us."
+  },
+  {
+    "id": 65,
+    "name": "Pier Paolo Pasolini",
+    "nationality": "italian",
+    "birth_year": 1922,
+    "death_year": 1975,
+    "era": "classical",
+    "tagline": "Marxist poet who made cinema a sacred, political, erotic act",
+    "bio": "Pier Paolo Pasolini was a poet, novelist, journalist, and filmmaker who brought a literary and theoretical intensity to cinema that no other Italian director matched. His films move between neorealism and myth, between the slums of Rome and the ancient world, driven by a vision of pre-industrial humanity as both more authentic and more corrupted than modernity admits. Murdered in 1975 under circumstances that remain unresolved, he was cinema's great martyred intellectual.",
+    "why": "Pasolini made me understand that cinema can be an act of love toward the people it films, even when it is an act of accusation toward the society that surrounds them.",
+    "notable_films": [
+      {
+        "title": "Accattone",
+        "year": 1961
+      },
+      {
+        "title": "Mamma Roma",
+        "year": 1962
+      },
+      {
+        "title": "The Gospel According to St. Matthew",
+        "year": 1964
+      },
+      {
+        "title": "Teorema",
+        "year": 1968
+      },
+      {
+        "title": "Medea",
+        "year": 1969
+      },
+      {
+        "title": "The Decameron",
+        "year": 1971
+      },
+      {
+        "title": "The Canterbury Tales",
+        "year": 1972
+      },
+      {
+        "title": "Salò",
+        "year": 1975
+      }
+    ],
+    "style_tags": [
+      "political",
+      "mythological",
+      "neorealism"
+    ],
+    "start_with": {
+      "film": "The Gospel According to St. Matthew",
+      "year": 1964,
+      "note": "Shot in southern Italy with non-professional actors, dedicated to Pope John XXIII. The most beautiful film about Jesus ever made."
+    },
+    "key_themes": [
+      "the sacred and the profane",
+      "capitalism as desecration",
+      "the body as political site"
+    ],
+    "quote": "I dream of being a poet for the whole of my life."
+  },
+  {
+    "id": 66,
+    "name": "Martin Scorsese",
+    "nationality": "american",
+    "birth_year": 1942,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Cinema's greatest archivist and one of its most visceral storytellers",
+    "bio": "Martin Scorsese grew up between the church and the street in Little Italy and has spent fifty years making films about guilt, violence, redemption, and the impossibility of escape. His films are saturated in music, Catholic imagery, and a kinetic visual energy that remains unmatched in American cinema. He is also the medium's greatest advocate, fighting constantly for film preservation and the recognition of world cinema.",
+    "why": "Scorsese made me understand that loving cinema and making cinema are the same act, inseparable.",
+    "notable_films": [
+      {
+        "title": "Mean Streets",
+        "year": 1973
+      },
+      {
+        "title": "Taxi Driver",
+        "year": 1976
+      },
+      {
+        "title": "Raging Bull",
+        "year": 1980
+      },
+      {
+        "title": "The King of Comedy",
+        "year": 1982
+      },
+      {
+        "title": "GoodFellas",
+        "year": 1990
+      },
+      {
+        "title": "The Age of Innocence",
+        "year": 1993
+      },
+      {
+        "title": "Casino",
+        "year": 1995
+      },
+      {
+        "title": "Gangs of New York",
+        "year": 2002
+      },
+      {
+        "title": "The Departed",
+        "year": 2006
+      },
+      {
+        "title": "Silence",
+        "year": 2016
+      },
+      {
+        "title": "The Irishman",
+        "year": 2019
+      },
+      {
+        "title": "Killers of the Flower Moon",
+        "year": 2023
+      }
+    ],
+    "style_tags": [
+      "genre",
+      "catholic guilt",
+      "kinetic"
+    ],
+    "start_with": {
+      "film": "GoodFellas",
+      "year": 1990,
+      "note": "The most purely entertaining film about crime ever made, and also one of the most morally serious."
+    },
+    "key_themes": [
+      "guilt and redemption",
+      "the American dream's dark side",
+      "male violence and loyalty"
+    ],
+    "quote": "Cinema is a mirror by which we often see ourselves."
+  },
+  {
+    "id": 67,
+    "name": "Frederick Wiseman",
+    "nationality": "american",
+    "birth_year": 1930,
+    "death_year": null,
+    "era": "avant-garde",
+    "tagline": "America's greatest observational documentarian, fifty years and counting",
+    "bio": "Frederick Wiseman has spent more than fifty years making long, unnarrated documentaries about American institutions: hospitals, schools, courts, welfare offices, ballet companies, libraries. His films have no commentary, no interviews, no titles — only carefully observed scenes that accumulate into a picture of how America organizes itself. Together they form the most comprehensive portrait of American institutional life ever assembled.",
+    "why": "Wiseman taught me that observation without judgment is itself a profound ethical position, that to look carefully and completely is already a form of love.",
+    "notable_films": [
+      {
+        "title": "Titicut Follies",
+        "year": 1967
+      },
+      {
+        "title": "High School",
+        "year": 1968
+      },
+      {
+        "title": "Hospital",
+        "year": 1970
+      },
+      {
+        "title": "Welfare",
+        "year": 1975
+      },
+      {
+        "title": "Near Death",
+        "year": 1989
+      },
+      {
+        "title": "Public Housing",
+        "year": 1997
+      },
+      {
+        "title": "La Danse",
+        "year": 2009
+      },
+      {
+        "title": "At Berkeley",
+        "year": 2013
+      },
+      {
+        "title": "Monrovia, Indiana",
+        "year": 2018
+      },
+      {
+        "title": "City Hall",
+        "year": 2020
+      }
+    ],
+    "style_tags": [
+      "documentary",
+      "observational",
+      "institutional"
+    ],
+    "start_with": {
+      "film": "High School",
+      "year": 1968,
+      "note": "A Philadelphia high school, 1968. Sixty-six minutes about authority, conformity, and young people. Nothing has changed."
+    },
+    "key_themes": [
+      "American institutions",
+      "power and the individual",
+      "observation without judgment"
+    ],
+    "quote": "I don't think of myself as making documentaries. I think of myself as making movies."
+  },
+  {
+    "id": 68,
+    "name": "Naomi Kawase",
+    "nationality": "japanese",
+    "birth_year": 1969,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Japanese poet of grief, nature, and the camera as a form of prayer",
+    "bio": "Naomi Kawase began her career making intimate documentary films about her own life, particularly her search for the father who abandoned her. Her fiction films extend this intimacy into stories of loss, nature, and the relationship between the living and the dead, set in and around her hometown of Nara. Her films treat cinema as a practice of attention rather than a means of storytelling.",
+    "why": "Kawase made me understand that a camera pointed at a tree or a stream can be as intimate and revealing as one pointed at a face.",
+    "notable_films": [
+      {
+        "title": "Embracing",
+        "year": 1992
+      },
+      {
+        "title": "Suzaku",
+        "year": 1997
+      },
+      {
+        "title": "Shara",
+        "year": 2003
+      },
+      {
+        "title": "The Mourning Forest",
+        "year": 2007
+      },
+      {
+        "title": "Hanezu",
+        "year": 2011
+      },
+      {
+        "title": "Still the Water",
+        "year": 2014
+      },
+      {
+        "title": "Sweet Bean",
+        "year": 2015
+      },
+      {
+        "title": "Radiance",
+        "year": 2017
+      },
+      {
+        "title": "True Mothers",
+        "year": 2020
+      }
+    ],
+    "style_tags": [
+      "poetic",
+      "grief",
+      "nature"
+    ],
+    "start_with": {
+      "film": "The Mourning Forest",
+      "year": 2007,
+      "note": "A caregiver and an elderly man with dementia walk into the forest together. Won the Grand Prix at Cannes."
+    },
+    "key_themes": [
+      "grief and nature",
+      "the search for the lost parent",
+      "cinema as prayer"
+    ],
+    "quote": "My films are letters to the world."
+  },
+  {
+    "id": 69,
+    "name": "Vittorio De Sica",
+    "nationality": "italian",
+    "birth_year": 1901,
+    "death_year": 1974,
+    "era": "classical",
+    "tagline": "Neorealism's most human voice, maker of films that broke the world's heart",
+    "bio": "Vittorio De Sica was an actor before he was a director, and the performer's empathy for his characters runs through every film he made. His neorealist masterpieces, Bicycle Thieves and Umberto D, are among cinema's most emotionally devastating achievements, filmed on the streets of Rome with non-professional actors in stories of almost unbearable simplicity. Where Rossellini analyzed the postwar world, De Sica felt it.",
+    "why": "De Sica proved that the simplest story, told with complete honesty and love for its characters, can break your heart more completely than any epic.",
+    "notable_films": [
+      {
+        "title": "Shoeshine",
+        "year": 1946
+      },
+      {
+        "title": "Bicycle Thieves",
+        "year": 1948
+      },
+      {
+        "title": "Miracle in Milan",
+        "year": 1951
+      },
+      {
+        "title": "Umberto D.",
+        "year": 1952
+      },
+      {
+        "title": "Il Tetto",
+        "year": 1956
+      },
+      {
+        "title": "Two Women",
+        "year": 1960
+      },
+      {
+        "title": "The Garden of the Finzi-Continis",
+        "year": 1970
+      },
+      {
+        "title": "A Brief Vacation",
+        "year": 1973
+      }
+    ],
+    "style_tags": [
+      "neorealism",
+      "humanist",
+      "social-realism"
+    ],
+    "start_with": {
+      "film": "Bicycle Thieves",
+      "year": 1948,
+      "note": "A man and his son search Rome for a stolen bicycle. The simplest story in cinema and the most heartbreaking."
+    },
+    "key_themes": [
+      "postwar poverty",
+      "parent and child",
+      "the dignity of the ordinary"
+    ],
+    "quote": "I want to make films that make people cry, not for the characters, but for themselves."
+  },
+  {
+    "id": 70,
+    "name": "Gus Van Sant",
+    "nationality": "american",
+    "birth_year": 1952,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Chronicler of American youth at its most lost and most alive",
+    "bio": "Gus Van Sant has always been drawn to the margins: to runaways, to young men who cannot find a place in the world, to stories of waste and grace that mainstream American cinema ignores. His career oscillates between radical formal experiments and accessible mainstream films. Elephant, his Palme d'Or winner, is among cinema's most challenging formal achievements; Good Will Hunting is his most popular. Both are entirely his.",
+    "why": "Van Sant made me see that American cinema can be simultaneously experimental and deeply emotional, that the avant-garde and the humanist tradition are not opposites.",
+    "notable_films": [
+      {
+        "title": "Mala Noche",
+        "year": 1986
+      },
+      {
+        "title": "Drugstore Cowboy",
+        "year": 1989
+      },
+      {
+        "title": "My Own Private Idaho",
+        "year": 1991
+      },
+      {
+        "title": "Good Will Hunting",
+        "year": 1997
+      },
+      {
+        "title": "Gerry",
+        "year": 2002
+      },
+      {
+        "title": "Elephant",
+        "year": 2003
+      },
+      {
+        "title": "Last Days",
+        "year": 2005
+      },
+      {
+        "title": "Paranoid Park",
+        "year": 2007
+      },
+      {
+        "title": "Milk",
+        "year": 2008
+      }
+    ],
+    "style_tags": [
+      "independent",
+      "youth",
+      "experimental"
+    ],
+    "start_with": {
+      "film": "Elephant",
+      "year": 2003,
+      "note": "A day in an American high school before a shooting. Long takes, non-professional actors. Formal and devastating."
+    },
+    "key_themes": [
+      "American youth and its violence",
+      "queer desire",
+      "formal experiment and emotion"
+    ],
+    "quote": "I make films about outsiders because I am one."
+  },
+  {
+    "id": 71,
+    "name": "Spike Lee",
+    "nationality": "american",
+    "birth_year": 1957,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Cinema's fiercest chronicler of Black American life and racial injustice",
+    "bio": "Spike Lee has spent nearly forty years making films about race, identity, and the persistence of racism in American life with an energy, wit, and formal invention that has few equals. Do the Right Thing remains one of the most important American films ever made, a film that refused to provide the comfortable resolution its audience wanted and has never stopped being relevant.",
+    "why": "Spike Lee made me understand that political cinema does not have to sacrifice formal ambition, that the most urgent subject matter can produce the most daring form.",
+    "notable_films": [
+      {
+        "title": "She's Gotta Have It",
+        "year": 1986
+      },
+      {
+        "title": "School Daze",
+        "year": 1988
+      },
+      {
+        "title": "Do the Right Thing",
+        "year": 1989
+      },
+      {
+        "title": "Mo' Better Blues",
+        "year": 1990
+      },
+      {
+        "title": "Malcolm X",
+        "year": 1992
+      },
+      {
+        "title": "Crooklyn",
+        "year": 1994
+      },
+      {
+        "title": "Clockers",
+        "year": 1995
+      },
+      {
+        "title": "4 Little Girls",
+        "year": 1997
+      },
+      {
+        "title": "25th Hour",
+        "year": 2002
+      },
+      {
+        "title": "Inside Man",
+        "year": 2006
+      },
+      {
+        "title": "BlacKkKlansman",
+        "year": 2018
+      },
+      {
+        "title": "Da 5 Bloods",
+        "year": 2020
+      }
+    ],
+    "style_tags": [
+      "political",
+      "genre",
+      "social-critique"
+    ],
+    "start_with": {
+      "film": "Do the Right Thing",
+      "year": 1989,
+      "note": "One hot day in Brooklyn. The most important American film of the last forty years."
+    },
+    "key_themes": [
+      "race and racism",
+      "Black American identity",
+      "the city as political space"
+    ],
+    "quote": "I want people to think when they walk out of my films."
+  },
+  {
+    "id": 72,
+    "name": "Arnaud Desplechin",
+    "nationality": "french",
+    "birth_year": 1960,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "French master of the emotional baroque and the family as catastrophe",
+    "bio": "Arnaud Desplechin makes films of extravagant emotional and narrative ambition, populated by intellectuals, artists, and academics who talk too much, feel too intensely, and cannot stop loving the wrong people. His films are dense with literary reference and psychological complexity, but always anchored in performances of extraordinary depth. A Christmas Tale and My Golden Days are his most complete works.",
+    "why": "Desplechin showed me that the family is cinema's richest subject because it is where the past is always present, where nothing is ever resolved.",
+    "notable_films": [
+      {
+        "title": "La Vie des morts",
+        "year": 1991
+      },
+      {
+        "title": "My Sex Life... or How I Got Into an Argument",
+        "year": 1996
+      },
+      {
+        "title": "Esther Kahn",
+        "year": 2000
+      },
+      {
+        "title": "Kings & Queen",
+        "year": 2004
+      },
+      {
+        "title": "A Christmas Tale",
+        "year": 2008
+      },
+      {
+        "title": "My Golden Days",
+        "year": 2015
+      },
+      {
+        "title": "Ismael's Ghosts",
+        "year": 2017
+      },
+      {
+        "title": "Oh Mercy!",
+        "year": 2019
+      },
+      {
+        "title": "Brother and Sister",
+        "year": 2022
+      }
+    ],
+    "style_tags": [
+      "baroque",
+      "family",
+      "intellectual"
+    ],
+    "start_with": {
+      "film": "A Christmas Tale",
+      "year": 2008,
+      "note": "A French family gathers for Christmas with a dying mother and unresolved decades of grievance. Chaotic, funny, devastating."
+    },
+    "key_themes": [
+      "family as tragedy and comedy",
+      "Jewish French identity",
+      "love and its impossibility"
+    ],
+    "quote": "Cinema is the art of keeping several contradictory things alive at the same time."
+  },
+  {
+    "id": 73,
+    "name": "Carlos Reygadas",
+    "nationality": "mexican",
+    "birth_year": 1971,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Mexican visionary placing the spiritual and the corporeal in radical tension",
+    "bio": "Carlos Reygadas makes films of confrontational formal beauty that place the spiritual and the physical in direct, often uncomfortable proximity. His films are shot in long takes with non-professional actors in the landscapes of rural Mexico, creating a world that feels simultaneously real and mythological. Post Tenebras Lux, which won him the Best Director prize at Cannes, divided critics and audiences equally, which is exactly what his films intend.",
+    "why": "Reygadas made me uncomfortable in ways that forced me to examine what I think cinema should do, which is probably what great art is for.",
+    "notable_films": [
+      {
+        "title": "Japón",
+        "year": 2002
+      },
+      {
+        "title": "Battle in Heaven",
+        "year": 2005
+      },
+      {
+        "title": "Silent Light",
+        "year": 2007
+      },
+      {
+        "title": "Post Tenebras Lux",
+        "year": 2012
+      },
+      {
+        "title": "Our Time",
+        "year": 2018
+      }
+    ],
+    "style_tags": [
+      "spiritual",
+      "provocateur",
+      "slow-cinema"
+    ],
+    "start_with": {
+      "film": "Silent Light",
+      "year": 2007,
+      "note": "A Mennonite community in Mexico. An extramarital love. Shot with extraordinary beauty. His most accessible and most complete."
+    },
+    "key_themes": [
+      "spirituality and the body",
+      "Mexican landscape",
+      "transgression and grace"
+    ],
+    "quote": "Cinema is the best way I have found to ask questions I cannot answer."
+  },
+  {
+    "id": 74,
+    "name": "Wang Bing",
+    "nationality": "chinese",
+    "birth_year": 1967,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "China's greatest documentarian, witness to a century of forced transitions",
+    "bio": "Wang Bing is a filmmaker whose monumental documentaries bear witness to the human cost of China's industrial and political transformations. West of the Tracks, his nine-hour debut, documents the collapse of a vast industrial complex in northeast China with a patience and compassion that has no equivalent in documentary cinema. He has continued making long, close, humane films about the people most affected by China's modernization.",
+    "why": "Wang Bing taught me that the documentary camera, when used with enough patience and love, can make history visible at the level of a single human face.",
+    "notable_films": [
+      {
+        "title": "West of the Tracks",
+        "year": 2003
+      },
+      {
+        "title": "Fengming: A Chinese Memoir",
+        "year": 2007
+      },
+      {
+        "title": "Crude Oil",
+        "year": 2008
+      },
+      {
+        "title": "The Ditch",
+        "year": 2010
+      },
+      {
+        "title": "Three Sisters",
+        "year": 2012
+      },
+      {
+        "title": "'Til Madness Do Us Part",
+        "year": 2013
+      },
+      {
+        "title": "Dead Souls",
+        "year": 2018
+      },
+      {
+        "title": "Youth (Spring)",
+        "year": 2023
+      }
+    ],
+    "style_tags": [
+      "documentary",
+      "observational",
+      "political"
+    ],
+    "start_with": {
+      "film": "Three Sisters",
+      "year": 2012,
+      "note": "Three young girls living alone on a mountain in Yunnan province. 153 minutes. One of the most important documentaries made this century."
+    },
+    "key_themes": [
+      "industrial China and its human cost",
+      "poverty and endurance",
+      "the long take as witness"
+    ],
+    "quote": "I film what I cannot help but film."
+  },
+  {
+    "id": 75,
+    "name": "Paolo Sorrentino",
+    "nationality": "italian",
+    "birth_year": 1970,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Italian heir to Fellini, architect of the beautiful and the corrupt",
+    "bio": "Paolo Sorrentino makes films of baroque visual splendor about power, aging, and the Italian condition. His films are Felliniesque in their visual excess and their affection for grotesque characters, but driven by a harsher irony and a deeper melancholy. The Great Beauty, which won the Oscar for Best Foreign Film, is his most celebrated work, a portrait of a Roman intellectual in the ruins of a life devoted to beauty.",
+    "why": "Sorrentino made me see that beauty and corruption can coexist in the same frame, that cinema can love what it condemns.",
+    "notable_films": [
+      {
+        "title": "The Consequences of Love",
+        "year": 2004
+      },
+      {
+        "title": "The Family Friend",
+        "year": 2006
+      },
+      {
+        "title": "Il Divo",
+        "year": 2008
+      },
+      {
+        "title": "This Must Be the Place",
+        "year": 2011
+      },
+      {
+        "title": "The Great Beauty",
+        "year": 2013
+      },
+      {
+        "title": "Youth",
+        "year": 2015
+      },
+      {
+        "title": "The Hand of God",
+        "year": 2021
+      }
+    ],
+    "style_tags": [
+      "baroque",
+      "melancholic",
+      "political"
+    ],
+    "start_with": {
+      "film": "The Great Beauty",
+      "year": 2013,
+      "note": "Rome. A journalist approaching old age wanders through parties and ruins. Visually overwhelming and surprisingly tender."
+    },
+    "key_themes": [
+      "Italian decadence",
+      "aging and beauty",
+      "the Catholic and the pagan"
+    ],
+    "quote": "Beauty is the enemy of great art."
+  },
+  {
+    "id": 76,
+    "name": "Joachim Trier",
+    "nationality": "norwegian",
+    "birth_year": 1974,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Norwegian humanist making the sharpest European romantic dramas of his generation",
+    "bio": "Joachim Trier makes films about young adults in Oslo navigating grief, desire, and the difficulty of becoming who you are. His films are formally inventive without being showy, emotionally precise without being sentimental, and anchored in performances of extraordinary intimacy. The Oslo Trilogy established him as one of European cinema's most important voices; The Worst Person in the World was his international breakthrough.",
+    "why": "Trier showed me that a European romantic drama can be as formally adventurous as any art film and as emotionally direct as any popular movie.",
+    "notable_films": [
+      {
+        "title": "Reprise",
+        "year": 2006
+      },
+      {
+        "title": "Oslo, August 31st",
+        "year": 2011
+      },
+      {
+        "title": "Louder Than Bombs",
+        "year": 2015
+      },
+      {
+        "title": "Thelma",
+        "year": 2017
+      },
+      {
+        "title": "The Worst Person in the World",
+        "year": 2021
+      }
+    ],
+    "style_tags": [
+      "humanist",
+      "romantic",
+      "contemporary"
+    ],
+    "start_with": {
+      "film": "The Worst Person in the World",
+      "year": 2021,
+      "note": "A young woman in Oslo figures out who she is. Twelve chapters, a prologue, and an epilogue. The most alive European film of its year."
+    },
+    "key_themes": [
+      "millennial uncertainty",
+      "love and its complications",
+      "grief and identity"
+    ],
+    "quote": "I want to make films that feel like being alive."
+  },
+  {
+    "id": 77,
+    "name": "Elem Klimov",
+    "nationality": "russian",
+    "birth_year": 1933,
+    "death_year": 2003,
+    "era": "classical",
+    "tagline": "Soviet filmmaker who made cinema's most devastating anti-war statement",
+    "bio": "Elem Klimov made only six features in his career before voluntarily stopping after the death of his wife, the filmmaker Larissa Shepitko. His final film, Come and See, is considered one of the greatest war films ever made: a two-and-a-half hour depiction of the Nazi occupation of Belarus in 1943, seen through a teenage boy's eyes, so brutal and formally overwhelming that it is described as impossible to watch more than once, and impossible to forget.",
+    "why": "Klimov made me understand that cinema, at its most committed, can be an act of bearing witness that goes beyond what any other medium can do.",
+    "notable_films": [
+      {
+        "title": "Welcome, or No Trespassing",
+        "year": 1964
+      },
+      {
+        "title": "Adventures of a Dentist",
+        "year": 1965
+      },
+      {
+        "title": "Sport, Sport, Sport",
+        "year": 1970
+      },
+      {
+        "title": "Agony",
+        "year": 1975
+      },
+      {
+        "title": "Farewell",
+        "year": 1983
+      },
+      {
+        "title": "Come and See",
+        "year": 1985
+      }
+    ],
+    "style_tags": [
+      "war",
+      "psychological",
+      "soviet"
+    ],
+    "start_with": {
+      "film": "Come and See",
+      "year": 1985,
+      "note": "A Soviet boy joins the partisans in 1943. The most devastating film ever made about the experience of war."
+    },
+    "key_themes": [
+      "war and its atrocity",
+      "the destruction of innocence",
+      "historical witness"
+    ],
+    "quote": "Cinema is the most powerful art form because it is the most visceral."
+  },
+  {
+    "id": 78,
+    "name": "Andrei Zvyagintsev",
+    "nationality": "russian",
+    "birth_year": 1964,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Russia's greatest contemporary filmmaker, master of quiet family devastation",
+    "bio": "Andrei Zvyagintsev emerged in the early 2000s as the most significant new voice in Russian cinema, making films of austere formal beauty about the collapse of relationships, the failure of institutions, and the moral corruption of post-Soviet Russia. His films work through family drama toward something larger: a diagnosis of a society in which human connection has become impossible. Leviathan, which won at Cannes, is his most explicitly political work.",
+    "why": "Zvyagintsev showed me that a film about a marriage ending can simultaneously be a film about a civilization failing.",
+    "notable_films": [
+      {
+        "title": "The Return",
+        "year": 2003
+      },
+      {
+        "title": "The Banishment",
+        "year": 2007
+      },
+      {
+        "title": "Elena",
+        "year": 2011
+      },
+      {
+        "title": "Leviathan",
+        "year": 2014
+      },
+      {
+        "title": "Loveless",
+        "year": 2017
+      }
+    ],
+    "style_tags": [
+      "austere",
+      "family",
+      "political"
+    ],
+    "start_with": {
+      "film": "The Return",
+      "year": 2003,
+      "note": "Two boys and the father who returns after twelve years. Won the Golden Lion at Venice. A masterful debut."
+    },
+    "key_themes": [
+      "fatherhood and authority",
+      "post-Soviet Russia",
+      "the collapse of the family"
+    ],
+    "quote": "I make films about people who cannot communicate, which is to say I make films about all of us."
+  },
+  {
+    "id": 79,
+    "name": "Sally Potter",
+    "nationality": "british",
+    "birth_year": 1949,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "British experimentalist making cinema at the intersection of music, politics, and the self",
+    "bio": "Sally Potter has spent forty years making films that refuse easy categorization, moving between experimental narrative, musical, adaptation, and political essay with complete freedom. Orlando, her adaptation of Virginia Woolf, remains her most celebrated work, a four-hundred-year story told through one fluid, gender-shifting life. She works at the intersection of cinema, music, and dance, treating film as a temporal art related to all the others.",
+    "why": "Potter taught me that cinema can absorb the other arts without losing itself, that a film can think in music and dance as well as in images.",
+    "notable_films": [
+      {
+        "title": "Thriller",
+        "year": 1979
+      },
+      {
+        "title": "The Gold Diggers",
+        "year": 1983
+      },
+      {
+        "title": "Orlando",
+        "year": 1992
+      },
+      {
+        "title": "The Tango Lesson",
+        "year": 1997
+      },
+      {
+        "title": "The Man Who Cried",
+        "year": 2000
+      },
+      {
+        "title": "Yes",
+        "year": 2004
+      },
+      {
+        "title": "Rage",
+        "year": 2009
+      },
+      {
+        "title": "Ginger & Rosa",
+        "year": 2012
+      },
+      {
+        "title": "The Party",
+        "year": 2017
+      },
+      {
+        "title": "The Roads Not Taken",
+        "year": 2020
+      }
+    ],
+    "style_tags": [
+      "experimental",
+      "feminist",
+      "musical"
+    ],
+    "start_with": {
+      "film": "Orlando",
+      "year": 1992,
+      "note": "Tilda Swinton as a figure who lives four hundred years and changes sex halfway through. Gorgeous, witty, and genuinely moving."
+    },
+    "key_themes": [
+      "gender and identity over time",
+      "cinema and the other arts",
+      "feminist history"
+    ],
+    "quote": "Film is time made visible."
+  },
+  {
+    "id": 80,
+    "name": "Chloé Zhao",
+    "nationality": "chinese",
+    "birth_year": 1982,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Poet of the American West and the people who live outside its promises",
+    "bio": "Chloé Zhao makes films about people who exist at the margins of the American dream, in landscapes of vast, indifferent beauty. Born in China and working in America, she brings an outsider's eye to the country's interior, collaborating closely with non-professional actors to find the human reality in landscapes that mainstream cinema uses only as backdrop. Nomadland brought her work to a wide audience; The Rider remains her most intimate achievement.",
+    "why": "Zhao made me understand that the American landscape is not neutral, that space and freedom in America have always been unevenly distributed.",
+    "notable_films": [
+      {
+        "title": "Songs My Brothers Taught Me",
+        "year": 2015
+      },
+      {
+        "title": "The Rider",
+        "year": 2017
+      },
+      {
+        "title": "Nomadland",
+        "year": 2020
+      },
+      {
+        "title": "Eternals",
+        "year": 2021
+      }
+    ],
+    "style_tags": [
+      "neorealism",
+      "landscape",
+      "humanist"
+    ],
+    "start_with": {
+      "film": "The Rider",
+      "year": 2017,
+      "note": "A rodeo rider recovers from a brain injury and confronts what his life can be. Shot with the real people it depicts."
+    },
+    "key_themes": [
+      "the American West and its myths",
+      "economic precarity and landscape",
+      "non-professional performance"
+    ],
+    "quote": "Cinema can show us who we are when we think no one is looking."
   }
 ]
