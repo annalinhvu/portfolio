@@ -5150,5 +5150,1009 @@
       "non-professional performance"
     ],
     "quote": "Cinema can show us who we are when we think no one is looking."
+  },
+  {
+    "id": 81,
+    "name": "Orson Welles",
+    "nationality": "american",
+    "birth_year": 1915,
+    "death_year": 1985,
+    "era": "classical",
+    "tagline": "The boy wonder who remade cinema in one film",
+    "bio": "Orson Welles arrived in Hollywood at 25 and made Citizen Kane, a film so formally radical it influenced nearly every director who came after him. He pioneered deep-focus photography, non-linear narrative, and expressive camerawork with a confidence that felt reckless and inevitable at once. What followed was a career of financial struggle and studio interference, but also Touch of Evil, The Magnificent Ambersons, and Chimes at Midnight — each a masterwork assembled from scraps. He spent the rest of his life chasing funding, improvising, finishing films in fragments. The gap between what he made and what he could have made is one of cinema's great what-ifs.",
+    "why": "Citizen Kane is the movie everyone invokes and fewer actually watch closely. Sit with the first twenty minutes and you understand why every cinematographer since has been in conversation with Gregg Toland.",
+    "notable_films": [
+      {
+        "title": "Citizen Kane",
+        "year": 1941
+      },
+      {
+        "title": "The Magnificent Ambersons",
+        "year": 1942
+      },
+      {
+        "title": "Touch of Evil",
+        "year": 1958
+      },
+      {
+        "title": "The Trial",
+        "year": 1962
+      },
+      {
+        "title": "Chimes at Midnight",
+        "year": 1965
+      },
+      {
+        "title": "F for Fake",
+        "year": 1973
+      }
+    ],
+    "style_tags": [
+      "deep focus",
+      "baroque compositions",
+      "non-linear narrative",
+      "bravura long takes"
+    ],
+    "start_with": {
+      "film": "Citizen Kane",
+      "year": 1941,
+      "note": "Still the best introduction to what a camera can do when someone is genuinely in love with it."
+    },
+    "key_themes": [
+      "power and its corruption",
+      "memory and myth",
+      "the unreliable narrator"
+    ],
+    "quote": "I passionately hate the idea of being with it. I think an artist has always to be out of step with his time."
+  },
+  {
+    "id": 82,
+    "name": "Jacques Tati",
+    "nationality": "french",
+    "birth_year": 1907,
+    "death_year": 1982,
+    "era": "classical",
+    "tagline": "Comedy as architecture, silence as punchline",
+    "bio": "Jacques Tati made only six features in his lifetime, each one a meticulously engineered world of comic observation. His alter ego Monsieur Hulot is cinema's great bumbling innocent, navigating modernity with bewildered grace. In Playtime, Tati built an entire Paris of glass and steel on a massive soundstage — a film that nearly bankrupted him and took years to shoot. The gags are hidden in corners of the frame, requiring you to search for them. His comedy is gentle, architectural, and almost completely free of cruelty. Few filmmakers have loved ordinary people as much as he did.",
+    "why": "Playtime is one of the only films that makes me feel like I'm watching cinema think. Every inch of the frame is alive with something happening. You have to watch it twice just to catch what you missed.",
+    "notable_films": [
+      {
+        "title": "Jour de Fête",
+        "year": 1949
+      },
+      {
+        "title": "Monsieur Hulot's Holiday",
+        "year": 1953
+      },
+      {
+        "title": "Mon Oncle",
+        "year": 1958
+      },
+      {
+        "title": "Playtime",
+        "year": 1967
+      },
+      {
+        "title": "Traffic",
+        "year": 1971
+      }
+    ],
+    "style_tags": [
+      "long takes",
+      "ambient sound",
+      "ensemble comedy",
+      "spatial gags"
+    ],
+    "start_with": {
+      "film": "Mon Oncle",
+      "year": 1958,
+      "note": "A gentler entry before Playtime — the contrast between old Paris and new suburbs is pure Tati."
+    },
+    "key_themes": [
+      "modernity and alienation",
+      "the comedy of everyday life",
+      "architecture as character"
+    ],
+    "quote": "I have always believed that comedy is a serious business."
+  },
+  {
+    "id": 83,
+    "name": "Éric Rohmer",
+    "nationality": "french",
+    "birth_year": 1920,
+    "death_year": 2010,
+    "era": "new-wave",
+    "tagline": "Conversation as cinema, desire as plot",
+    "bio": "Éric Rohmer was a Cahiers du Cinéma critic who became one of the most prolific and distinctive directors of the French New Wave, though his films bear little resemblance to Godard or Truffaut's. Where they fragmented and provoked, Rohmer listened. His characters talk, obsessively and beautifully, about love, morality, and what they want — while doing something entirely different. His Six Moral Tales, Comedies and Proverbs, and Tales of the Four Seasons span five decades of French life and feeling. He shot with tiny crews in real locations, in available light, and the films feel like eavesdropping on intelligent, confused people.",
+    "why": "My Night at Maud's is nominally about a man debating whether to sleep with a woman who isn't who he wants. What it's actually about is the gap between what we say we believe and what we do. It is so good.",
+    "notable_films": [
+      {
+        "title": "My Night at Maud's",
+        "year": 1969
+      },
+      {
+        "title": "Claire's Knee",
+        "year": 1970
+      },
+      {
+        "title": "The Marquise of O",
+        "year": 1976
+      },
+      {
+        "title": "Pauline at the Beach",
+        "year": 1983
+      },
+      {
+        "title": "The Green Ray",
+        "year": 1986
+      },
+      {
+        "title": "A Tale of Springtime",
+        "year": 1990
+      }
+    ],
+    "style_tags": [
+      "naturalistic dialogue",
+      "location shooting",
+      "moral ambiguity",
+      "seasonal structure"
+    ],
+    "start_with": {
+      "film": "My Night at Maud's",
+      "year": 1969,
+      "note": "Pure Rohmer: a snowy night, a philosophical debate, and a man who lies to himself throughout."
+    },
+    "key_themes": [
+      "desire and rationalization",
+      "moral self-deception",
+      "the rhythms of French life"
+    ],
+    "quote": "I don't film ideas. I film what people say about ideas."
+  },
+  {
+    "id": 84,
+    "name": "Kenji Mizoguchi",
+    "nationality": "japanese",
+    "birth_year": 1898,
+    "death_year": 1956,
+    "era": "classical",
+    "tagline": "The suffering of women, filmed with impossible beauty",
+    "bio": "Kenji Mizoguchi is, alongside Ozu and Kurosawa, one of the pillars of Japanese classical cinema — and the one most committed to depicting the lives of women with unflinching care. His films return again and again to female suffering under patriarchy, poverty, and war, but he refuses sentimentality. The long take and the slow pan were his tools: he would glide through a scene, holding back, observing, letting moments accumulate their full weight. Ugetsu Monogatari and Sansho the Bailiff are among the most formally perfect films ever made. He shot until his death from leukemia at 58, still working.",
+    "why": "Sansho the Bailiff destroyed me. It is slow, deliberate, and devastating. By the final scene you feel you have lived inside another century.",
+    "notable_films": [
+      {
+        "title": "The Story of the Last Chrysanthemums",
+        "year": 1939
+      },
+      {
+        "title": "Ugetsu Monogatari",
+        "year": 1953
+      },
+      {
+        "title": "Sansho the Bailiff",
+        "year": 1954
+      },
+      {
+        "title": "The Life of Oharu",
+        "year": 1952
+      },
+      {
+        "title": "Street of Shame",
+        "year": 1956
+      }
+    ],
+    "style_tags": [
+      "long takes",
+      "slow pans",
+      "female protagonists",
+      "historical drama"
+    ],
+    "start_with": {
+      "film": "Ugetsu Monogatari",
+      "year": 1953,
+      "note": "Ghost story and war film and feminist tragedy all at once. The crane shots alone justify his reputation."
+    },
+    "key_themes": [
+      "female sacrifice and endurance",
+      "the violence of patriarchy",
+      "beauty and suffering"
+    ],
+    "quote": "I am unable to portray a woman's soul with complete adequacy."
+  },
+  {
+    "id": 85,
+    "name": "F.W. Murnau",
+    "nationality": "german",
+    "birth_year": 1888,
+    "death_year": 1931,
+    "era": "classical",
+    "tagline": "The silent film as pure visual poetry",
+    "bio": "F.W. Murnau made Nosferatu, the first great horror film, in 1922 — and then spent the rest of his brief career systematically pushing cinema's expressive possibilities further. Sunrise: A Song of Two Humans is widely considered the greatest silent film, a work of such visual freedom and emotional range that it still astonishes. He moved to Hollywood for his final films, and then to Tahiti for the independently made Tabu, finished just before his death in a car accident at 42. The unchained camera, the expressionist shadow, the landscape as emotional state — Murnau invented the visual language that cinema still speaks.",
+    "why": "Sunrise is one of the first things I'd show someone who thinks silent films are primitive. The first twenty minutes contain more pure cinema than most directors make in a lifetime.",
+    "notable_films": [
+      {
+        "title": "Nosferatu",
+        "year": 1922
+      },
+      {
+        "title": "The Last Laugh",
+        "year": 1924
+      },
+      {
+        "title": "Faust",
+        "year": 1926
+      },
+      {
+        "title": "Sunrise: A Song of Two Humans",
+        "year": 1927
+      },
+      {
+        "title": "Tabu",
+        "year": 1931
+      }
+    ],
+    "style_tags": [
+      "expressionism",
+      "unchained camera",
+      "shadow and light",
+      "silent cinema"
+    ],
+    "start_with": {
+      "film": "Sunrise: A Song of Two Humans",
+      "year": 1927,
+      "note": "Silent cinema at its absolute peak. Watch it and understand why directors still study him."
+    },
+    "key_themes": [
+      "temptation and redemption",
+      "nature vs. civilization",
+      "the power of shadow"
+    ],
+    "quote": "Film is the art of making faces."
+  },
+  {
+    "id": 86,
+    "name": "Michael Haneke",
+    "nationality": "austrian",
+    "birth_year": 1942,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Cinema as accusation, audience as accomplice",
+    "bio": "Michael Haneke makes films that implicate the viewer. From Funny Games — which breaks the fourth wall to ask why you're watching — to Caché, where guilt seeps through a bourgeois apartment, to Amour, his most devastating and humane work, he uses cinema's conventions as traps. Violence in his films is sudden and un-romanticized. Comfort is provisional. Middle-class life conceals enormous moral evasion. He is uncompromising and divisive, but the films that land do so with a weight that stays. The White Ribbon won the Palme d'Or. Amour won it again. Few directors have made such formally controlled, emotionally demanding cinema.",
+    "why": "Caché is one of the most politically charged films of the last thirty years. It's also a perfect thriller. The final shot contains a mystery that the film refuses to explain, and the refusal is the point.",
+    "notable_films": [
+      {
+        "title": "Funny Games",
+        "year": 1997
+      },
+      {
+        "title": "The Piano Teacher",
+        "year": 2001
+      },
+      {
+        "title": "Caché",
+        "year": 2005
+      },
+      {
+        "title": "The White Ribbon",
+        "year": 2009
+      },
+      {
+        "title": "Amour",
+        "year": 2012
+      }
+    ],
+    "style_tags": [
+      "provocation",
+      "long takes",
+      "off-screen violence",
+      "bourgeois critique"
+    ],
+    "start_with": {
+      "film": "Caché",
+      "year": 2005,
+      "note": "Thriller, guilt study, colonial reckoning. The one that proves Haneke isn't just punishing you."
+    },
+    "key_themes": [
+      "bourgeois complicity",
+      "violence and media",
+      "guilt and repression"
+    ],
+    "quote": "If you have a message, send a telegram. Film is not about messages."
+  },
+  {
+    "id": 87,
+    "name": "Yorgos Lanthimos",
+    "nationality": "greek",
+    "birth_year": 1973,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Absurdist systems that reveal how strange we already are",
+    "bio": "Yorgos Lanthimos built his reputation in Greece with Dogtooth — a family sealed off from the outside world and fed lies about language itself — before moving to English-language productions that retained his clinical, airless vision. His films construct social rules taken to their logical extremes: in The Lobster, single people must find a partner or be turned into an animal; in The Favourite, power at court is a performance of total submission. He shoots with wide-angle lenses that distort space, uses flat deliveries that evacuate emotion from dialogue, and creates worlds that feel like ours seen through a one-way mirror.",
+    "why": "Dogtooth remains the purest expression of his worldview — language as control, family as totalitarianism. It is very strange and I think about it often.",
+    "notable_films": [
+      {
+        "title": "Dogtooth",
+        "year": 2009
+      },
+      {
+        "title": "Alps",
+        "year": 2011
+      },
+      {
+        "title": "The Lobster",
+        "year": 2015
+      },
+      {
+        "title": "The Killing of a Sacred Deer",
+        "year": 2017
+      },
+      {
+        "title": "The Favourite",
+        "year": 2018
+      },
+      {
+        "title": "Poor Things",
+        "year": 2023
+      }
+    ],
+    "style_tags": [
+      "wide-angle distortion",
+      "flat delivery",
+      "absurdist rules",
+      "institutional critique"
+    ],
+    "start_with": {
+      "film": "The Lobster",
+      "year": 2015,
+      "note": "A gentler entry into his world. Funny and bleak and genuinely strange."
+    },
+    "key_themes": [
+      "control and conditioning",
+      "the absurdity of social norms",
+      "power dynamics"
+    ],
+    "quote": "I want the audience to be uncomfortable. That's when they're most awake."
+  },
+  {
+    "id": 88,
+    "name": "Aki Kaurismäki",
+    "nationality": "finnish",
+    "birth_year": 1957,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Deadpan tenderness for the forgotten",
+    "bio": "Aki Kaurismäki is the great poet of the unlucky. His films are populated by dockworkers, waitresses, the unemployed, and the quietly desperate — people who express almost nothing and feel everything. He shoots in vivid, painterly colour, uses rock and roll and tango on the soundtrack, and keeps his shots still and unhurried. Dialogue is stripped to the bone. His characters rarely explain themselves. In The Man Without a Past, a man loses his memory after a beating and must rebuild a life with people who have even less than he does. It is one of the funniest and most moving films I've ever seen.",
+    "why": "He makes films for people who've been overlooked by cinema. They're funny without a single joke, sad without a single tear. The restraint is the whole thing.",
+    "notable_films": [
+      {
+        "title": "Shadows in Paradise",
+        "year": 1986
+      },
+      {
+        "title": "Ariel",
+        "year": 1988
+      },
+      {
+        "title": "The Match Factory Girl",
+        "year": 1990
+      },
+      {
+        "title": "The Man Without a Past",
+        "year": 2002
+      },
+      {
+        "title": "Le Havre",
+        "year": 2011
+      },
+      {
+        "title": "The Other Side of Hope",
+        "year": 2017
+      }
+    ],
+    "style_tags": [
+      "deadpan",
+      "working class",
+      "vivid colour palette",
+      "minimal dialogue"
+    ],
+    "start_with": {
+      "film": "The Man Without a Past",
+      "year": 2002,
+      "note": "The warmest entry point. Absurd and tender in equal measure."
+    },
+    "key_themes": [
+      "the dignity of the poor",
+      "solidarity and kindness",
+      "melancholy and dry humor"
+    ],
+    "quote": "I make films for people who don't go to the cinema."
+  },
+  {
+    "id": 89,
+    "name": "Glauber Rocha",
+    "nationality": "brazilian",
+    "birth_year": 1939,
+    "death_year": 1981,
+    "era": "new-wave",
+    "tagline": "An aesthetics of hunger, a cinema of revolt",
+    "bio": "Glauber Rocha was the theoretical and creative engine of Cinema Novo, the Brazilian movement that fused political radicalism with formal invention in the 1960s. His essay 'An Aesthetics of Hunger' argued that poverty in cinema should be expressed through form — rough, unpolished, viscerally present — not smoothed over. Black God, White Devil fuses the Brazilian sertão landscape with myth and violence into something genuinely delirious. Antonio das Mortes, its follow-up, took the hallucination further. He died at 42 from a lung infection, having made a body of work that still feels dangerous.",
+    "why": "Black God, White Devil is cinema as incantation. The landscape feels alive, the violence is ritualistic, and the politics are inseparable from the dust and rock of the sertão.",
+    "notable_films": [
+      {
+        "title": "Barravento",
+        "year": 1962
+      },
+      {
+        "title": "Black God, White Devil",
+        "year": 1964
+      },
+      {
+        "title": "Terra em Transe",
+        "year": 1967
+      },
+      {
+        "title": "Antonio das Mortes",
+        "year": 1969
+      },
+      {
+        "title": "The Lion Has Seven Heads",
+        "year": 1970
+      }
+    ],
+    "style_tags": [
+      "Cinema Novo",
+      "political cinema",
+      "mythic realism",
+      "handheld immediacy"
+    ],
+    "start_with": {
+      "film": "Black God, White Devil",
+      "year": 1964,
+      "note": "Harsh and hallucinatory. A film that feels like it was made from the landscape itself."
+    },
+    "key_themes": [
+      "poverty and revolution",
+      "myth and violence",
+      "Brazilian identity"
+    ],
+    "quote": "A camera in hand and an idea in the head."
+  },
+  {
+    "id": 90,
+    "name": "Djibril Diop Mambéty",
+    "nationality": "senegalese",
+    "birth_year": 1945,
+    "death_year": 1998,
+    "era": "classical",
+    "tagline": "African cinema as pure surrealist poetry",
+    "bio": "Djibril Diop Mambéty made only two features, but they are among the most distinctive films African cinema has produced. Touki Bouki — made in 1973 on almost no money — follows two young Dakar lovers dreaming of Paris, and it cuts between ecstasy and violence with the logic of a fever dream. It was decades ahead of its time. His second feature, Hyenas, came 22 years later. He worked on a planned trilogy of films about the powerless when he died of lung cancer at 53. What remains is irreplaceable: elliptical, visually inventive, rooted in the textures of Senegal while speaking a completely singular cinematic language.",
+    "why": "Touki Bouki is one of the great films of the 1970s. It was in conversation with the French New Wave but came from somewhere entirely its own.",
+    "notable_films": [
+      {
+        "title": "Badou Boy",
+        "year": 1970
+      },
+      {
+        "title": "Touki Bouki",
+        "year": 1973
+      },
+      {
+        "title": "Hyenas",
+        "year": 1992
+      },
+      {
+        "title": "The Little Girl Who Sold the Sun",
+        "year": 1999
+      }
+    ],
+    "style_tags": [
+      "surrealism",
+      "elliptical editing",
+      "African modernity",
+      "poetic realism"
+    ],
+    "start_with": {
+      "film": "Touki Bouki",
+      "year": 1973,
+      "note": "One of the most visually free films ever made. Don't look for a conventional story."
+    },
+    "key_themes": [
+      "desire and escape",
+      "postcolonial identity",
+      "poverty and dreaming"
+    ],
+    "quote": "There are no rules in cinema. Only consequences."
+  },
+  {
+    "id": 91,
+    "name": "Ritwik Ghatak",
+    "nationality": "indian",
+    "birth_year": 1925,
+    "death_year": 1976,
+    "era": "classical",
+    "tagline": "Melodrama as historical wound",
+    "bio": "Ritwik Ghatak is the great underrecognized giant of Indian cinema — known to cinephiles, less canonized than Satyajit Ray, and arguably just as important. Born in what became Bangladesh at Partition, he spent his career making films about the trauma of displacement and the destruction of a culture. Where Ray was lyrical and humanist, Ghatak was raw and operatic, using sound expressionistically, letting emotion overflow. Meghe Dhaka Tara is about a woman who sacrifices everything for her refugee family in Calcutta. It is devastating in the way of someone who has not learned to aestheticize their grief.",
+    "why": "Meghe Dhaka Tara has a scream at its center that I've never forgotten. He uses sound the way Bergman uses faces.",
+    "notable_films": [
+      {
+        "title": "Nagarik",
+        "year": 1952
+      },
+      {
+        "title": "Ajantrik",
+        "year": 1958
+      },
+      {
+        "title": "Meghe Dhaka Tara",
+        "year": 1960
+      },
+      {
+        "title": "Komal Gandhar",
+        "year": 1961
+      },
+      {
+        "title": "Subarnarekha",
+        "year": 1962
+      },
+      {
+        "title": "Jukti Takko Aar Gappo",
+        "year": 1974
+      }
+    ],
+    "style_tags": [
+      "operatic emotion",
+      "expressionist sound",
+      "Partition trauma",
+      "melodrama"
+    ],
+    "start_with": {
+      "film": "Meghe Dhaka Tara",
+      "year": 1960,
+      "note": "The film that announces his scale of feeling. Come prepared."
+    },
+    "key_themes": [
+      "displacement and Partition",
+      "female sacrifice",
+      "cultural loss"
+    ],
+    "quote": "I use melodrama because life is melodrama."
+  },
+  {
+    "id": 92,
+    "name": "Barbara Loden",
+    "nationality": "american",
+    "birth_year": 1932,
+    "death_year": 1980,
+    "era": "classical",
+    "tagline": "Invisible for decades, completely irreplaceable",
+    "bio": "Barbara Loden made exactly one film — Wanda, in 1970 — and it is one of the most remarkable American films of its era. She wrote, directed, and starred in it, shooting on 16mm with a skeleton crew through the coal country of Pennsylvania. The film follows a woman drifting through a life of passivity, abandonment, and small coercions, with no redemption and no judgement. It was largely ignored on release and Loden died of breast cancer at 48, leaving only this one feature. Marguerite Duras called it 'a masterpiece.' Decades later, filmmakers like Kelly Reichardt and Chloé Zhao have cited it as foundational.",
+    "why": "Wanda is the film that makes you realize how few American films actually look at women without a script telling them how to feel. Loden's performance is completely open.",
+    "notable_films": [
+      {
+        "title": "Wanda",
+        "year": 1970
+      }
+    ],
+    "style_tags": [
+      "cinema verité",
+      "female interiority",
+      "working class realism",
+      "16mm"
+    ],
+    "start_with": {
+      "film": "Wanda",
+      "year": 1970,
+      "note": "Her only film and one of the most honest American films ever made."
+    },
+    "key_themes": [
+      "female passivity and drift",
+      "working-class invisibility",
+      "freedom without direction"
+    ],
+    "quote": "I wanted to show a woman who had no options, and make that visible."
+  },
+  {
+    "id": 93,
+    "name": "Olivier Assayas",
+    "nationality": "french",
+    "birth_year": 1955,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "The restlessness of modern life, caught in motion",
+    "bio": "Olivier Assayas is one of the most restless and formally curious directors working in France. He moves between intimate personal films and sprawling political epics, between the 19th century and Instagram, between memoir and genre. His trilogy of films about his ex-wife Maggie Cheung — most fully expressed in Irma Vep — is cinema about cinema, fashion, and the strangeness of creative obsession. Carlos is a five-hour portrait of a revolutionary who became a brand. Personal Shopper uses the thriller form to think about grief and disembodiment. He has never found a fixed form, and that refusal is what makes him essential.",
+    "why": "Irma Vep is endlessly rewatchable. It captures something true about the panic and eroticism of the creative process. Maggie Cheung is extraordinary.",
+    "notable_films": [
+      {
+        "title": "Irma Vep",
+        "year": 1996
+      },
+      {
+        "title": "Demonlover",
+        "year": 2002
+      },
+      {
+        "title": "Clean",
+        "year": 2004
+      },
+      {
+        "title": "Summer Hours",
+        "year": 2008
+      },
+      {
+        "title": "Carlos",
+        "year": 2010
+      },
+      {
+        "title": "Personal Shopper",
+        "year": 2016
+      }
+    ],
+    "style_tags": [
+      "restless handheld",
+      "digressive narrative",
+      "pop culture critique",
+      "ellipsis"
+    ],
+    "start_with": {
+      "film": "Irma Vep",
+      "year": 1996,
+      "note": "A film about making a film. Funny, strange, and alive in every frame."
+    },
+    "key_themes": [
+      "creative obsession",
+      "globalization and identity",
+      "desire and grief"
+    ],
+    "quote": "I never plan. I follow the energy of a film wherever it takes me."
+  },
+  {
+    "id": 94,
+    "name": "Jacques Demy",
+    "nationality": "french",
+    "birth_year": 1931,
+    "death_year": 1990,
+    "era": "new-wave",
+    "tagline": "Sung sadness in Technicolor",
+    "bio": "Jacques Demy made musicals, but not the kind where singing signals joy. In The Umbrellas of Cherbourg, every line of dialogue is sung — including arguments, departures, and a love letter that goes unanswered for twenty years. The colours are saturated to the point of hallucination: pinks and yellows and blues that make the ordinary world look like a bruise. He returned to the same characters across films, built a world in the port towns of Normandy, and collaborated with composer Michel Legrand to create some of the most bittersweet music in cinema. His wife Agnès Varda documented his death from AIDS in Jacquot de Nantes.",
+    "why": "The Umbrellas of Cherbourg is the film I use to explain why colour in cinema is an emotional tool, not a decorative one. The ending quietly destroyed me.",
+    "notable_films": [
+      {
+        "title": "Lola",
+        "year": 1961
+      },
+      {
+        "title": "Bay of Angels",
+        "year": 1963
+      },
+      {
+        "title": "The Umbrellas of Cherbourg",
+        "year": 1964
+      },
+      {
+        "title": "The Young Girls of Rochefort",
+        "year": 1967
+      },
+      {
+        "title": "Donkey Skin",
+        "year": 1970
+      }
+    ],
+    "style_tags": [
+      "sung dialogue",
+      "saturated colour",
+      "bittersweet romance",
+      "fairy tale realism"
+    ],
+    "start_with": {
+      "film": "The Umbrellas of Cherbourg",
+      "year": 1964,
+      "note": "All sung, all beautiful, all sad. An experience unlike anything else."
+    },
+    "key_themes": [
+      "love and its aftermath",
+      "time and loss",
+      "colour as emotion"
+    ],
+    "quote": "I only make films about love. Everything else is detail."
+  },
+  {
+    "id": 95,
+    "name": "Jean Rouch",
+    "nationality": "french",
+    "birth_year": 1917,
+    "death_year": 2004,
+    "era": "avant-garde",
+    "tagline": "The camera as participant, not observer",
+    "bio": "Jean Rouch invented cinema verité — not as a style but as an ethical commitment. He brought a camera into communities in West Africa and later Paris, collaborating with subjects who knew they were being filmed and whose awareness of the camera became part of the film's meaning. Chronicle of a Summer, made with sociologist Edgar Morin, asked Parisians in 1960 whether they were happy and built a documentary from their answers and their reactions to seeing themselves on screen. His fiction films — especially Moi, un Noir — are even harder to categorize. He died in a car accident in Niger at 86, still working.",
+    "why": "Chronicle of a Summer is the film that made me think seriously about what documentaries are actually doing. It asks its questions and then films itself asking them.",
+    "notable_films": [
+      {
+        "title": "Moi, un Noir",
+        "year": 1958
+      },
+      {
+        "title": "Chronicle of a Summer",
+        "year": 1961
+      },
+      {
+        "title": "The Lion Hunters",
+        "year": 1965
+      },
+      {
+        "title": "Jaguar",
+        "year": 1967
+      },
+      {
+        "title": "Petit à Petit",
+        "year": 1971
+      }
+    ],
+    "style_tags": [
+      "cinema verité",
+      "ethnofiction",
+      "participatory camera",
+      "improvisation"
+    ],
+    "start_with": {
+      "film": "Chronicle of a Summer",
+      "year": 1961,
+      "note": "The original cinema verité document. Still fresh, still uncomfortable."
+    },
+    "key_themes": [
+      "observation and participation",
+      "African modernity",
+      "the ethics of filming"
+    ],
+    "quote": "The camera is not a neutral tool. It transforms everything it touches."
+  },
+  {
+    "id": 96,
+    "name": "Larisa Shepitko",
+    "nationality": "russian",
+    "birth_year": 1938,
+    "death_year": 1979,
+    "era": "classical",
+    "tagline": "Transcendence earned through suffering",
+    "bio": "Larisa Shepitko made four films before dying in a car crash at 40. The Ascent, her final completed work, is one of the great films about moral courage and spiritual endurance. Set during the Nazi occupation of Belarus in winter, it follows two Soviet partisans captured and forced toward different choices. Shepitko shot in brutal cold, with cinematography that frames the frozen landscape as both hell and icon. She was the only woman studying under Dovzhenko at VGIK, and her work has a physical, embodied intensity that few filmmakers — of any era or gender — have matched. Her husband Elem Klimov completed Larisa, a documentary tribute, after her death.",
+    "why": "The Ascent contains one of the most devastating sequences I have seen in any film. It is spiritual without being religious, political without being didactic.",
+    "notable_films": [
+      {
+        "title": "Heat",
+        "year": 1963
+      },
+      {
+        "title": "Wings",
+        "year": 1966
+      },
+      {
+        "title": "You and I",
+        "year": 1971
+      },
+      {
+        "title": "The Ascent",
+        "year": 1977
+      }
+    ],
+    "style_tags": [
+      "spiritual intensity",
+      "WWII",
+      "stark black and white",
+      "embodied performance"
+    ],
+    "start_with": {
+      "film": "The Ascent",
+      "year": 1977,
+      "note": "Her masterpiece. Cold and transcendent and completely devastating."
+    },
+    "key_themes": [
+      "moral courage",
+      "sacrifice and betrayal",
+      "the spiritual under totalitarianism"
+    ],
+    "quote": "I am interested in the moment when a person is pushed to the limit of their humanity."
+  },
+  {
+    "id": 97,
+    "name": "Cristian Mungiu",
+    "nationality": "romanian",
+    "birth_year": 1968,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "The weight of the unspoken, held in real time",
+    "bio": "Cristian Mungiu is the most internationally recognized figure of the Romanian New Wave, a loosely affiliated group of filmmakers who emerged in the 2000s with a commitment to long takes, naturalistic performance, and subjects that the Ceausescu era had buried. 4 Months, 3 Weeks and 2 Days won the Palme d'Or in 2007 — a real-time account of a woman helping her roommate get an illegal abortion in 1987 Romania. It is one of the most tense films ever made, assembled almost entirely from static shots that refuse to cut away from discomfort.",
+    "why": "4 Months holds a dinner scene for what feels like fifteen minutes. Nothing happens. Nothing breaks. And by the end you understand everything about how complicity works.",
+    "notable_films": [
+      {
+        "title": "Occident",
+        "year": 2002
+      },
+      {
+        "title": "4 Months, 3 Weeks and 2 Days",
+        "year": 2007
+      },
+      {
+        "title": "Beyond the Hills",
+        "year": 2012
+      },
+      {
+        "title": "Graduation",
+        "year": 2016
+      },
+      {
+        "title": "R.M.N.",
+        "year": 2022
+      }
+    ],
+    "style_tags": [
+      "long takes",
+      "static camera",
+      "real-time tension",
+      "social realism"
+    ],
+    "start_with": {
+      "film": "4 Months, 3 Weeks and 2 Days",
+      "year": 2007,
+      "note": "One of the most controlled and devastating films of the 2000s."
+    },
+    "key_themes": [
+      "communist legacy",
+      "complicity and moral compromise",
+      "female solidarity"
+    ],
+    "quote": "I believe in cinema that puts you in an uncomfortable position and makes you think."
+  },
+  {
+    "id": 98,
+    "name": "Manoel de Oliveira",
+    "nationality": "portuguese",
+    "birth_year": 1908,
+    "death_year": 2015,
+    "era": "classical",
+    "tagline": "A century of cinema, lived and made",
+    "bio": "Manoel de Oliveira made his first film in 1931 and his last at 106. The span of his career is simply unbelievable — he lived through the silent era, the coming of sound, the New Wave, the digital revolution, and made films through all of it, becoming more experimental and radical the older he got. He was suppressed under Salazar's dictatorship, worked in near-obscurity for decades, and then found global recognition late in life. His films are theatrical, literate, and unlike anyone else's — long monologues, frozen tableaux, characters who quote poetry. He is one of cinema's great eccentrics and one of its most unclassifiable artists.",
+    "why": "I recommend him to people who think cinema has said everything it has to say. His films make you feel the art form has unexplored rooms.",
+    "notable_films": [
+      {
+        "title": "Douro, Faina Fluvial",
+        "year": 1931
+      },
+      {
+        "title": "Aniki Bóbó",
+        "year": 1942
+      },
+      {
+        "title": "The Past and the Present",
+        "year": 1972
+      },
+      {
+        "title": "Francisca",
+        "year": 1981
+      },
+      {
+        "title": "The Convent",
+        "year": 1995
+      },
+      {
+        "title": "The Strange Case of Angelica",
+        "year": 2010
+      }
+    ],
+    "style_tags": [
+      "theatrical staging",
+      "literary adaptation",
+      "extreme longevity",
+      "Portuguese identity"
+    ],
+    "start_with": {
+      "film": "The Strange Case of Angelica",
+      "year": 2010,
+      "note": "Made at 101. Haunting, strange, and completely alive. A good way in."
+    },
+    "key_themes": [
+      "time and memory",
+      "Portuguese history",
+      "art and obsession"
+    ],
+    "quote": "Cinema is life. And life, if you look at it carefully, is cinema."
+  },
+  {
+    "id": 99,
+    "name": "Cristi Puiu",
+    "nationality": "romanian",
+    "birth_year": 1967,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "Death and daily life, observed without mercy",
+    "bio": "Cristi Puiu is one of the founding filmmakers of the Romanian New Wave, which announced itself with his film The Death of Mr. Lazarescu in 2005. The film follows a sick, drunk old man being shuttled between hospitals in Bucharest over one night — a dark comedy, a tragedy, an indictment of bureaucratic indifference, and one of the most compassionate films about dying ever made. Puiu shoots in long observational takes with handheld cameras, creating a vérité texture that makes the absurdity feel completely real. Sieranevada, his follow-up after a decade, extends the method: three hours inside a cramped apartment on a family memorial day.",
+    "why": "The Death of Mr. Lazarescu is the film I think about when I hear people say long films are self-indulgent. Every minute earns the next. The accumulation is the point.",
+    "notable_films": [
+      {
+        "title": "Stuff and Dough",
+        "year": 2001
+      },
+      {
+        "title": "The Death of Mr. Lazarescu",
+        "year": 2005
+      },
+      {
+        "title": "Aurora",
+        "year": 2010
+      },
+      {
+        "title": "Sieranevada",
+        "year": 2016
+      },
+      {
+        "title": "Malmkrog",
+        "year": 2020
+      }
+    ],
+    "style_tags": [
+      "long observational takes",
+      "dark humor",
+      "institutional critique",
+      "handheld vérité"
+    ],
+    "start_with": {
+      "film": "The Death of Mr. Lazarescu",
+      "year": 2005,
+      "note": "Long, bleak, funny, and completely unforgettable. The Romanian New Wave at its best."
+    },
+    "key_themes": [
+      "mortality and bureaucracy",
+      "Romanian post-communism",
+      "the comedy of human neglect"
+    ],
+    "quote": "I make films about people who are trying to understand why they are alive."
+  },
+  {
+    "id": 100,
+    "name": "Shirley Clarke",
+    "nationality": "american",
+    "birth_year": 1919,
+    "death_year": 1997,
+    "era": "avant-garde",
+    "tagline": "Jazz rhythms, street honesty, a camera set free",
+    "bio": "Shirley Clarke was a central figure in the American avant-garde and independent film movement of the 1950s and 60s — a choreographer turned filmmaker who brought dance's understanding of rhythm and space into cinema. The Connection filmed a play about junkies waiting for their dealer with a handheld immediacy that felt like a slap to polite American cinema. Portrait of Jason is a two-hour single-take interview with a Black gay hustler named Jason Holliday that remains one of the most complex and morally unresolved documents in nonfiction film. She co-founded the Film-Makers' Cooperative and was largely written out of the canon until recent re-evaluation.",
+    "why": "Portrait of Jason is uncomfortable in ways that mainstream documentary refuses to be. It implicates the camera, the filmmaker, and the viewer simultaneously.",
+    "notable_films": [
+      {
+        "title": "Bridges-Go-Round",
+        "year": 1958
+      },
+      {
+        "title": "The Connection",
+        "year": 1961
+      },
+      {
+        "title": "The Cool World",
+        "year": 1963
+      },
+      {
+        "title": "Portrait of Jason",
+        "year": 1967
+      },
+      {
+        "title": "Ornette: Made in America",
+        "year": 1985
+      }
+    ],
+    "style_tags": [
+      "handheld",
+      "jazz cinema",
+      "documentary hybrids",
+      "queer perspective"
+    ],
+    "start_with": {
+      "film": "Portrait of Jason",
+      "year": 1967,
+      "note": "Radical and uncomfortable. Nothing else quite like it."
+    },
+    "key_themes": [
+      "Black American experience",
+      "queer identity",
+      "the ethics of observation"
+    ],
+    "quote": "I was fighting for women, for Blacks, for independents. That was my life's work."
   }
 ]
