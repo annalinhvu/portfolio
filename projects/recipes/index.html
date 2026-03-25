@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cơm Nhà — Recipe Index</title>
 <meta name="description" content="A personal Vietnamese recipe index — 100 dishes from Northern, Central, and Southern Vietnam.">
-<meta name="theme-color" content="#9E1C1C">
+<meta name="theme-color" content="#4E7A55">
 <meta property="og:title" content="Cơm Nhà — Recipe Index">
 <meta property="og:url" content="https://annalinhvu.github.io/portfolio/projects/recipes/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,12 +85,12 @@ body{
   font-size:.6rem;letter-spacing:.5px;color:var(--text-4);
   cursor:pointer;transition:all .2s;font-family:inherit;font-weight:600;
 }
-.saved-btn:hover,.saved-btn.has-saved{color:var(--gold);border-color:var(--gold)}
+.saved-btn:hover,.saved-btn.has-saved{color:var(--accent);border-color:var(--accent)}
 .theme-btn{
   background:none;border:none;cursor:pointer;
   font-size:.85rem;color:var(--text-4);padding:4px 8px;transition:color .2s;
 }
-.theme-btn:hover{color:var(--gold)}
+.theme-btn:hover{color:var(--accent)}
 
 /* ── Masthead ── */
 .masthead{
@@ -163,7 +163,7 @@ body{
   color:var(--text-3);cursor:pointer;transition:all .15s;
   font-family:inherit;white-space:nowrap;
 }
-.cat-pill:hover{color:var(--gold);border-color:var(--gold)}
+.cat-pill:hover{color:var(--accent);border-color:var(--accent)}
 .cat-pill.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 
 /* ── Page ── */
@@ -186,7 +186,7 @@ body{
   transition:border-color .2s;
 }
 .search-input::placeholder{color:var(--text-4)}
-.search-input:focus{outline:none;border-color:var(--gold)}
+.search-input:focus{outline:none;border-color:var(--accent)}
 .filter-select{
   padding:8px 26px 8px 10px;border-radius:2px;
   border:1.5px solid var(--border);background:var(--card);
@@ -196,7 +196,7 @@ body{
   background-repeat:no-repeat;background-position:right 8px center;
   transition:border-color .2s;
 }
-.filter-select:focus{outline:none;border-color:var(--gold)}
+.filter-select:focus{outline:none;border-color:var(--accent)}
 .result-count{
   padding:14px 0 6px;font-size:.54rem;
   letter-spacing:1.8px;text-transform:uppercase;color:var(--text-4);font-weight:600;
@@ -277,7 +277,7 @@ body{
 }
 .region-badge{
   font-size:.5rem;letter-spacing:1.2px;font-style:italic;
-  color:var(--gold);font-weight:600;
+  color:var(--accent);font-weight:600;
 }
 
 /* ── Empty state ── */
@@ -316,7 +316,7 @@ body{
 }
 .detail-cat-label{
   font-size:.5rem;letter-spacing:2px;text-transform:uppercase;
-  color:var(--gold);font-weight:700;margin-bottom:12px;
+  color:var(--terra);font-weight:700;margin-bottom:12px;
 }
 .detail-title{
   font-family:'Playfair Display',Georgia,serif;
@@ -331,14 +331,14 @@ body{
 .detail-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:0}
 .badge{
   font-size:.54rem;letter-spacing:1px;text-transform:uppercase;
-  color:var(--gold);border:1.5px solid var(--gold);
+  color:var(--terra);border:1.5px solid var(--terra);
   padding:3px 9px;border-radius:2px;opacity:.75;
 }
 /* Section divider */
 .orn-rule{
   display:flex;align-items:center;gap:14px;
   padding:0 32px;margin:20px 0;
-  color:rgba(200,144,16,.5);font-size:.45rem;letter-spacing:4px;
+  color:var(--accent);opacity:.5;font-size:.45rem;letter-spacing:4px;
 }
 .orn-rule::before,.orn-rule::after{
   content:'';flex:1;height:1px;background:var(--border);
@@ -375,7 +375,7 @@ body{
 .ing-list li::before{
   content:'';position:absolute;left:0;top:13px;
   width:5px;height:5px;border-radius:50%;
-  background:var(--gold);opacity:.6;
+  background:var(--accent);opacity:.5;
 }
 .step-list{list-style:none;counter-reset:steps}
 .step-list li{
@@ -388,7 +388,7 @@ body{
 .step-list li::before{
   content:counter(steps);position:absolute;left:0;top:8px;
   font-family:Georgia,serif;font-style:italic;font-size:.8rem;
-  color:var(--gold);width:20px;text-align:center;
+  color:var(--terra);width:20px;text-align:center;
 }
 .tips-wrap{
   padding:12px 16px;
@@ -403,7 +403,7 @@ body{
 .sb-inner{position:sticky;top:calc(46px + 45px + 24px)}
 .sb-label{
   font-size:.52rem;letter-spacing:2px;text-transform:uppercase;
-  color:var(--gold);margin-bottom:10px;font-weight:700;
+  color:var(--accent);margin-bottom:10px;font-weight:700;
   display:flex;align-items:center;gap:10px;
 }
 .sb-label::after{content:'';flex:1;height:1px;background:var(--border)}
@@ -421,8 +421,8 @@ body{
   background:none;font-size:.54rem;letter-spacing:1.4px;text-transform:uppercase;font-weight:700;
   color:var(--text-3);cursor:pointer;transition:all .2s;font-family:inherit;
 }
-.save-btn:hover{border-color:var(--gold);color:var(--gold)}
-.save-btn.saved{border-color:var(--gold);color:var(--gold);background:rgba(200,144,16,.07)}
+.save-btn:hover{border-color:var(--terra);color:var(--terra)}
+.save-btn.saved{border-color:var(--terra);color:var(--terra);background:rgba(184,88,40,.07)}
 
 /* ── Footer ── */
 .page-footer{
@@ -430,7 +430,7 @@ body{
   font-size:.52rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-4);font-weight:600;
 }
 .page-footer::before{
-  content:'✦';display:block;color:rgba(201,162,39,.5);font-size:.5rem;margin-bottom:18px;letter-spacing:6px;
+  content:'✦';display:block;color:rgba(78,122,85,.4);font-size:.5rem;margin-bottom:18px;letter-spacing:6px;
 }
 .page-footer a{color:var(--text-4);text-decoration:none;transition:color .2s}
 .page-footer a:hover{color:var(--accent)}
