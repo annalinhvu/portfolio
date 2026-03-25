@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cơm Nhà — Recipe Index</title>
-<meta name="description" content="A personal Vietnamese recipe index — 100 dishes from Northern, Central, and Southern Vietnam.">
+<title>Cơm Nhà  -  Recipe Index</title>
+<meta name="description" content="A personal Vietnamese recipe index  -  100 dishes from Northern, Central, and Southern Vietnam.">
 <meta name="theme-color" content="#4E7A55">
-<meta property="og:title" content="Cơm Nhà — Recipe Index">
+<meta property="og:title" content="Cơm Nhà  -  Recipe Index">
 <meta property="og:url" content="https://annalinhvu.github.io/portfolio/projects/recipes/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -635,7 +635,7 @@ body{
             </linearGradient>
           </defs>
 
-          <!-- Northern: wide — Red River Delta, Gulf of Tonkin juts right -->
+          <!-- Northern: wide  -  Red River Delta, Gulf of Tonkin juts right -->
           <path class="viet-region map-region-north"
             onclick="browseRegion('northern')"
             d="M3,9 Q18,1 32,1 Q38,5 42,9
@@ -864,7 +864,7 @@ function diffStars(d){
   return [1,2,3].map(i=>`<span class="d-star${i<=n?' on':''}">&#9733;</span>`).join('');
 }
 function fmtTime(m){
-  if(!m)return'—';
+  if(!m)return' - ';
   if(m>=60){const h=Math.floor(m/60),r=m%60;return h+'h'+(r?'\u2009'+r+'m':'');}
   return m+'m';
 }
@@ -955,7 +955,7 @@ function showDetail(id){
           <div class="sb-inner">
             <div class="sb-label">Quick Facts</div>
             <div class="sb-stat"><span class="sb-key">Prep</span><span class="sb-val">${r.prep_time_min} min</span></div>
-            <div class="sb-stat"><span class="sb-key">Cook</span><span class="sb-val">${r.cook_time_min>0?r.cook_time_min+' min':'—'}</span></div>
+            <div class="sb-stat"><span class="sb-key">Cook</span><span class="sb-val">${r.cook_time_min>0?r.cook_time_min+' min':' - '}</span></div>
             <div class="sb-stat"><span class="sb-key">Total</span><span class="sb-val">${fmtTime(tot)}</span></div>
             <div class="sb-stat"><span class="sb-key">Serves</span><span class="sb-val">${r.servings}</span></div>
             <div class="sb-stat"><span class="sb-key">Difficulty</span><span class="sb-val">${r.difficulty}</span></div>
