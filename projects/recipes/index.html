@@ -193,17 +193,86 @@ body{
 .detail-view[data-region="northern"]{
   --region-color:#4A8898;
   --region-tint:rgba(122,170,184,.07);
+  --region-bg:#1A3848;
+  --region-text:#CCE8F4;
 }
 .catalog-view[data-region="central"],
 .detail-view[data-region="central"]{
   --region-color:#A05838;
   --region-tint:rgba(192,120,88,.07);
+  --region-bg:#3A1C0C;
+  --region-text:#F0D4B8;
 }
 .catalog-view[data-region="southern"],
 .detail-view[data-region="southern"]{
   --region-color:#987018;
   --region-tint:rgba(200,160,48,.07);
+  --region-bg:#2A2008;
+  --region-text:#F0E4A8;
 }
+
+/* Per-category banner vars */
+.catalog-view[data-category="noodles"]{--cat-bg:#3C2C0C;--cat-text:#EED8A0}
+.catalog-view[data-category="rice"]   {--cat-bg:#223618;--cat-text:#C4E0A8}
+.catalog-view[data-category="bánh"]   {--cat-bg:#3A2810;--cat-text:#EECCA0}
+.catalog-view[data-category="sides"]  {--cat-bg:#1E3418;--cat-text:#B8E0A0}
+.catalog-view[data-category="sweets"] {--cat-bg:#3A2018;--cat-text:#EEC8B0}
+.catalog-view[data-category="drinks"] {--cat-bg:#1A2C20;--cat-text:#B0D8B8}
+
+/* ── Catalog banner (region or category) ── */
+.catalog-view[data-region] .catalog-header,
+.catalog-view[data-category] .catalog-header{
+  display:block;
+  padding:44px 28px 36px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  position:relative;overflow:hidden;
+}
+.catalog-view[data-region] .catalog-header{background:var(--region-bg)}
+.catalog-view[data-category] .catalog-header{background:var(--cat-bg)}
+.catalog-view[data-region] .catalog-header::before,
+.catalog-view[data-category] .catalog-header::before{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30,4 C20,14 18,26 30,54 C42,26 40,14 30,4 Z' fill='none' stroke='%23FFFFFF' stroke-width='0.8' stroke-opacity='0.06'/%3E%3Cline x1='30' y1='4' x2='30' y2='54' stroke='%23FFFFFF' stroke-width='0.4' stroke-opacity='0.04'/%3E%3C/svg%3E");
+  background-size:60px 60px;pointer-events:none;
+}
+.catalog-view[data-region] .catalog-home-btn,
+.catalog-view[data-category] .catalog-home-btn{
+  position:absolute;top:14px;left:28px;
+  opacity:.55;font-size:.5rem;
+}
+.catalog-view[data-region] .catalog-home-btn{color:var(--region-text)}
+.catalog-view[data-category] .catalog-home-btn{color:var(--cat-text)}
+.catalog-view[data-region] .catalog-home-btn:hover,
+.catalog-view[data-category] .catalog-home-btn:hover{opacity:1}
+.catalog-view[data-region] .catalog-heading,
+.catalog-view[data-category] .catalog-heading{
+  display:block;text-align:center;width:100%;
+  font-size:clamp(1.9rem,5vw,3.2rem);
+  font-weight:700;font-style:italic;letter-spacing:-.3px;
+  text-shadow:0 2px 14px rgba(0,0,0,.22);
+  padding:0;
+}
+.catalog-view[data-region] .catalog-heading{color:var(--region-text)}
+.catalog-view[data-category] .catalog-heading{color:var(--cat-text)}
+
+/* ── Detail region banner ── */
+.detail-view[data-region] .detail-head-section{
+  background:var(--region-bg);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  position:relative;overflow:hidden;
+}
+.detail-view[data-region] .detail-head-section::before{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30,4 C20,14 18,26 30,54 C42,26 40,14 30,4 Z' fill='none' stroke='%23FFFFFF' stroke-width='0.8' stroke-opacity='0.06'/%3E%3Cline x1='30' y1='4' x2='30' y2='54' stroke='%23FFFFFF' stroke-width='0.4' stroke-opacity='0.04'/%3E%3C/svg%3E");
+  background-size:60px 60px;pointer-events:none;
+}
+.detail-view[data-region] .detail-head-section>*{position:relative;z-index:1}
+.detail-view[data-region] .detail-cat-label{color:var(--region-color);opacity:1}
+.detail-view[data-region] .detail-title{color:var(--region-text);text-shadow:0 2px 16px rgba(0,0,0,.22)}
+.detail-view[data-region] .detail-tagline{color:var(--region-text);opacity:.75}
+.detail-view[data-region] .badge{background:rgba(255,255,255,.12);color:var(--region-text);border-color:rgba(255,255,255,.2)}
+.detail-view[data-region] .detail-card{border-top-color:transparent}
+.detail-view[data-region] .detail-back{color:var(--region-color)}
 
 /* ── Page ── */
 .page{max-width:1140px;margin:0 auto;padding:0 28px 100px}
@@ -831,6 +900,10 @@ function setCat(cat,btn){
   btn.classList.add('active');
   const h=document.getElementById('catalogHeading');
   if(h) h.textContent=cat==='all'?'All Recipes':cat==='saved'?'Saved Recipes':(CAT_LABEL[cat]||cat);
+  const cv=document.getElementById('catalogView');
+  delete cv.dataset.region;
+  const REAL_CATS=['noodles','rice','bánh','sides','sweets','drinks'];
+  if(REAL_CATS.includes(cat)) cv.dataset.category=cat; else delete cv.dataset.category;
   applyFilters();
 }
 function filterSaved(){
@@ -1016,6 +1089,7 @@ function showExplore(){
   const cv=document.getElementById('catalogView');
   cv.classList.remove('active');
   delete cv.dataset.region;
+  delete cv.dataset.category;
   document.getElementById('exploreView').classList.remove('hidden');
   history.pushState('',document.title,location.pathname);
   window.scrollTo(0,0);
@@ -1026,7 +1100,9 @@ function browseRegion(region){
   document.querySelectorAll('.cat-pill').forEach(p=>p.classList.toggle('active',p.dataset.cat==='all'));
   const sel=document.getElementById('cuisineFilter');
   if(sel) sel.value=region;
-  document.getElementById('catalogView').dataset.region=region;
+  const cv=document.getElementById('catalogView');
+  cv.dataset.region=region;
+  delete cv.dataset.category;
   const heading={northern:'Miền Bắc',central:'Miền Trung',southern:'Miền Nam'}[region]||region;
   const h=document.getElementById('catalogHeading');
   if(h) h.textContent=heading;
@@ -1039,7 +1115,10 @@ function browseCategory(cat){
   activeCat=cat;
   const sel=document.getElementById('cuisineFilter');
   if(sel) sel.value='';
-  delete document.getElementById('catalogView').dataset.region;
+  const cv=document.getElementById('catalogView');
+  delete cv.dataset.region;
+  const REAL_CATS=['noodles','rice','bánh','sides','sweets','drinks'];
+  if(REAL_CATS.includes(cat)) cv.dataset.category=cat; else delete cv.dataset.category;
   const h=document.getElementById('catalogHeading');
   if(h) h.textContent=CAT_LABEL[cat]||cat;
   showCatalog();
@@ -1051,6 +1130,9 @@ function browseAll(){
   document.querySelectorAll('.cat-pill').forEach(p=>p.classList.toggle('active',p.dataset.cat==='all'));
   const sel=document.getElementById('cuisineFilter');
   if(sel) sel.value='';
+  const cv=document.getElementById('catalogView');
+  delete cv.dataset.region;
+  delete cv.dataset.category;
   const h=document.getElementById('catalogHeading');
   if(h) h.textContent='All Recipes';
   showCatalog();
