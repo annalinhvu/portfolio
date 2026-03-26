@@ -343,12 +343,12 @@ body{
 }
 :root[data-theme="dark"] .viet-region{stroke:#111A0E}
 .viet-region:hover{opacity:.7}
-.map-region-north{fill:#90B888}
+.map-region-north{fill:#7AAAB8}
 .map-region-central{fill:url(#centralGradLight)}
-.map-region-south{fill:#C4A03A}
-:root[data-theme="dark"] .map-region-north{fill:#3E7040}
+.map-region-south{fill:#C8A030}
+:root[data-theme="dark"] .map-region-north{fill:#2A5870}
 :root[data-theme="dark"] .map-region-central{fill:url(#centralGradDark)}
-:root[data-theme="dark"] .map-region-south{fill:#806A18}
+:root[data-theme="dark"] .map-region-south{fill:#806818}
 
 .region-list{display:flex;flex-direction:column;flex:1}
 .region-btn{
@@ -363,9 +363,9 @@ body{
 }
 .region-btn:first-child{border-top:1px solid var(--border)}
 .region-btn:hover{background:rgba(78,122,85,.04)}
-.region-btn.rn:hover{border-left-color:#90B888}
-.region-btn.rc:hover{border-left-color:#B87A58}
-.region-btn.rs:hover{border-left-color:#C4A03A}
+.region-btn.rn:hover{border-left-color:#7AAAB8}
+.region-btn.rc:hover{border-left-color:#C07858}
+.region-btn.rs:hover{border-left-color:#C8A030}
 
 .region-info{flex:1;min-width:0}
 .region-viet{
@@ -382,12 +382,12 @@ body{
   font-size:1.7rem;line-height:1;font-weight:700;
   flex-shrink:0;
 }
-.region-btn.rn .region-count-badge{color:#5E9458}
-.region-btn.rc .region-count-badge{color:#8A5838}
-.region-btn.rs .region-count-badge{color:#907830}
-:root[data-theme="dark"] .region-btn.rn .region-count-badge{color:#6A9E60}
-:root[data-theme="dark"] .region-btn.rc .region-count-badge{color:#A06840}
-:root[data-theme="dark"] .region-btn.rs .region-count-badge{color:#907840}
+.region-btn.rn .region-count-badge{color:#4A8898}
+.region-btn.rc .region-count-badge{color:#A05838}
+.region-btn.rs .region-count-badge{color:#987018}
+:root[data-theme="dark"] .region-btn.rn .region-count-badge{color:#5A9AAC}
+:root[data-theme="dark"] .region-btn.rc .region-count-badge{color:#B07050}
+:root[data-theme="dark"] .region-btn.rs .region-count-badge{color:#A08828}
 
 /* Category tiles */
 .cat-tiles{
@@ -621,17 +621,17 @@ body{
             Central region uses a gradient: terracotta (top) → gold (bottom)
           -->
           <defs>
-            <!-- light mode gradient: clay → harvest gold -->
+            <!-- light mode gradient: terracotta (top) → harvest gold (bottom) -->
             <linearGradient id="centralGradLight" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%"   stop-color="#B87A58"/>
-              <stop offset="55%"  stop-color="#BF9440"/>
-              <stop offset="100%" stop-color="#C4A03A"/>
+              <stop offset="0%"   stop-color="#C07858"/>
+              <stop offset="55%"  stop-color="#C49040"/>
+              <stop offset="100%" stop-color="#C8A030"/>
             </linearGradient>
-            <!-- dark mode gradient: dark clay → dark gold -->
+            <!-- dark mode gradient -->
             <linearGradient id="centralGradDark" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%"   stop-color="#6A3A18"/>
-              <stop offset="55%"  stop-color="#6A5010"/>
-              <stop offset="100%" stop-color="#806A18"/>
+              <stop offset="0%"   stop-color="#703818"/>
+              <stop offset="55%"  stop-color="#705010"/>
+              <stop offset="100%" stop-color="#806818"/>
             </linearGradient>
           </defs>
 
