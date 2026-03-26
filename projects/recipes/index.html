@@ -187,16 +187,19 @@ body{
 .cat-pill:hover{color:var(--region-color,var(--accent));border-color:var(--region-color,var(--accent))}
 .cat-pill.active{background:var(--region-color,var(--accent));color:#fff;border-color:var(--region-color,var(--accent))}
 
-/* Region-tinted catalog */
-.catalog-view[data-region="northern"]{
+/* Region-tinted catalog + detail */
+.catalog-view[data-region="northern"],
+.detail-view[data-region="northern"]{
   --region-color:#4A8898;
   --region-tint:rgba(122,170,184,.07);
 }
-.catalog-view[data-region="central"]{
+.catalog-view[data-region="central"],
+.detail-view[data-region="central"]{
   --region-color:#A05838;
   --region-tint:rgba(192,120,88,.07);
 }
-.catalog-view[data-region="southern"]{
+.catalog-view[data-region="southern"],
+.detail-view[data-region="southern"]{
   --region-color:#987018;
   --region-tint:rgba(200,160,48,.07);
 }
@@ -451,12 +454,12 @@ body{
   color:var(--text-4);cursor:pointer;padding:20px 0 14px;
   transition:color .2s;background:none;border:none;font-family:inherit;
 }
-.detail-back:hover{color:var(--accent)}
+.detail-back:hover{color:var(--region-color,var(--accent))}
 
 .detail-card{
   background:var(--card);border:1px solid var(--border);
-  border-left:5px solid var(--terra);
-  border-top:3px solid var(--accent);
+  border-left:5px solid var(--region-color,var(--terra));
+  border-top:3px solid var(--region-color,var(--accent));
   border-radius:6px;overflow:hidden;box-shadow:var(--sh-h);
 }
 .detail-img-strip{
@@ -468,7 +471,7 @@ body{
 }
 .detail-cat-label{
   font-size:.5rem;letter-spacing:2px;text-transform:uppercase;
-  color:var(--terra);font-weight:700;margin-bottom:12px;
+  color:var(--region-color,var(--terra));font-weight:700;margin-bottom:12px;
 }
 .detail-title{
   font-family:'Playfair Display',Georgia,serif;
@@ -513,7 +516,7 @@ body{
 .det-section{margin-bottom:24px}
 .det-label{
   font-size:.52rem;letter-spacing:2px;text-transform:uppercase;
-  color:var(--accent);margin-bottom:10px;font-weight:700;
+  color:var(--region-color,var(--accent));margin-bottom:10px;font-weight:700;
   display:flex;align-items:center;gap:10px;
 }
 .det-label::after{content:'';flex:1;height:1px;background:var(--border)}
@@ -527,7 +530,7 @@ body{
 .ing-list li::before{
   content:'';position:absolute;left:0;top:13px;
   width:5px;height:5px;border-radius:50%;
-  background:var(--accent);opacity:.5;
+  background:var(--region-color,var(--accent));opacity:.5;
 }
 .step-list{list-style:none;counter-reset:steps}
 .step-list li{
@@ -540,12 +543,12 @@ body{
 .step-list li::before{
   content:counter(steps);position:absolute;left:0;top:8px;
   font-family:Georgia,serif;font-style:italic;font-size:.8rem;
-  color:var(--terra);width:20px;text-align:center;
+  color:var(--region-color,var(--terra));width:20px;text-align:center;
 }
 .tips-wrap{
   padding:12px 16px;
-  background:rgba(78,122,85,.06);
-  border-left:3px solid var(--accent);border-radius:0 4px 4px 0;
+  background:var(--region-tint,rgba(62,112,64,.06));
+  border-left:3px solid var(--region-color,var(--accent));border-radius:0 4px 4px 0;
 }
 .tips-text{
   font-style:italic;
@@ -555,7 +558,7 @@ body{
 .sb-inner{position:sticky;top:calc(46px + 24px)}
 .sb-label{
   font-size:.52rem;letter-spacing:2px;text-transform:uppercase;
-  color:var(--accent);margin-bottom:10px;font-weight:700;
+  color:var(--region-color,var(--accent));margin-bottom:10px;font-weight:700;
   display:flex;align-items:center;gap:10px;
 }
 .sb-label::after{content:'';flex:1;height:1px;background:var(--border)}
@@ -573,8 +576,8 @@ body{
   background:none;font-size:.54rem;letter-spacing:1.4px;text-transform:uppercase;font-weight:700;
   color:var(--text-3);cursor:pointer;transition:all .2s;font-family:inherit;
 }
-.save-btn:hover{border-color:var(--terra);color:var(--terra)}
-.save-btn.saved{border-color:var(--terra);color:var(--terra);background:rgba(184,88,40,.07)}
+.save-btn:hover{border-color:var(--region-color,var(--terra));color:var(--region-color,var(--terra))}
+.save-btn.saved{border-color:var(--region-color,var(--terra));color:var(--region-color,var(--terra));background:var(--region-tint,rgba(184,88,40,.07))}
 
 /* ── Footer ── */
 .page-footer{
@@ -986,7 +989,9 @@ function showDetail(id){
 
   document.getElementById('exploreView').classList.add('hidden');
   document.getElementById('catalogView').classList.remove('active');
-  document.getElementById('detailView').classList.add('active');
+  const dv=document.getElementById('detailView');
+  dv.dataset.region=r.cuisine;
+  dv.classList.add('active');
   window.scrollTo(0,0);
   location.hash='recipe-'+id;
 }
