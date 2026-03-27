@@ -515,16 +515,20 @@
     background: var(--accent); color: var(--bg);
     border-radius: 50%; font-weight: 700;
   }
-  .cal-dots { display: flex; flex-wrap: wrap; gap: 3px; }
-  .cal-dot {
-    width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+  .cal-events { display: flex; flex-direction: column; gap: 2px; }
+  .cal-event {
+    font-size: 0.6rem; line-height: 1.3;
+    padding: 1px 4px; border-radius: 3px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    border-left: 2px solid transparent;
+    max-width: 100%;
   }
-  .cal-dot.early { background: var(--indigo); }
-  .cal-dot.regular { background: var(--accent); }
-  .cal-dot.late { background: var(--red); }
-  .cal-dot-more {
-    font-family: 'Geist Mono', monospace; font-size: 0.5rem;
-    color: var(--text-4); line-height: 7px;
+  .cal-event.early  { background: var(--indigo-bg); border-left-color: var(--indigo); color: var(--indigo); }
+  .cal-event.regular{ background: var(--accent-bg); border-left-color: var(--accent); color: var(--accent); }
+  .cal-event.late   { background: var(--red-bg);    border-left-color: var(--red);    color: var(--red); }
+  .cal-event-more {
+    font-family: 'Geist Mono', monospace; font-size: 0.52rem;
+    color: var(--text-4); padding-left: 4px;
   }
 
   /* ── Calendar day panel ── */
@@ -564,9 +568,9 @@
   }
 
   @media (max-width: 640px) {
-    .cal-day { min-height: 52px; padding: 5px 4px; }
+    .cal-day { min-height: 64px; padding: 5px 4px; }
     .cal-day-num { font-size: 0.62rem; width: 18px; height: 18px; }
-    .cal-dot { width: 5px; height: 5px; }
+    .cal-event { font-size: 0.52rem; }
     .cal-panel-item { flex-wrap: wrap; gap: 8px; }
     .controls-top { flex-direction: column; align-items: flex-start; }
   }
@@ -1027,9 +1031,9 @@ function renderCalendar() {
 
   // Legend
   html += '<div class="cal-legend">'
-        + '<span class="cal-legend-item"><span class="cal-dot early" style="display:inline-block"></span>Early</span>'
-        + '<span class="cal-legend-item"><span class="cal-dot regular" style="display:inline-block"></span>Regular</span>'
-        + '<span class="cal-legend-item"><span class="cal-dot late" style="display:inline-block"></span>Late</span>'
+        + '<span class="cal-legend-item"><span class="cal-event early" style="display:inline-block;pointer-events:none">Early</span></span>'
+        + '<span class="cal-legend-item"><span class="cal-event regular" style="display:inline-block;pointer-events:none">Regular</span></span>'
+        + '<span class="cal-legend-item"><span class="cal-event late" style="display:inline-block;pointer-events:none">Late</span></span>'
         + '</div>';
 
   // Grid
@@ -1060,11 +1064,11 @@ function renderCalendar() {
     html += '<div class="' + cls + '"' + onclick + '>';
     html += '<div class="cal-day-num">' + d + '</div>';
     if (hasDl) {
-      html += '<div class="cal-dots">';
-      dls.slice(0, 7).forEach(function(dl) {
-        html += '<span class="cal-dot ' + dl.tier + '" title="' + escapeHtml(dl.festival.name) + '"></span>';
+      html += '<div class="cal-events">';
+      dls.slice(0, 3).forEach(function(dl) {
+        html += '<span class="cal-event ' + dl.tier + '">' + escapeHtml(dl.festival.name) + '</span>';
       });
-      if (dls.length > 7) html += '<span class="cal-dot-more">+' + (dls.length - 7) + '</span>';
+      if (dls.length > 3) html += '<span class="cal-event-more">+' + (dls.length - 3) + ' more</span>';
       html += '</div>';
     }
     html += '</div>';
