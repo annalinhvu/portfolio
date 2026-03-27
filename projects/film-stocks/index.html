@@ -992,20 +992,32 @@ function renderLabFilters() {
 }
 
 function renderLabFinderWidget(processes, formats) {
+  const countries = [...new Set(allLabs.map(l => l.country))].sort();
   return `
     <div class="lab-finder">
       <h2>Find a Lab</h2>
-      <p>Pick your process and format to see matching labs sorted by price.</p>
+      <p>Filter by process, format, country, or mail-in availability — sorted by price.</p>
       <div class="lab-finder-controls">
         <select class="filter-select" id="finder-process" onchange="finderProcess=this.value;runFinder()">
-          <option value="">Process...</option>
+          <option value="">All Processes</option>
           ${processes.map(p => `<option value="${p}" ${finderProcess===p?'selected':''}>${p}</option>`).join('')}
         </select>
         <select class="filter-select" id="finder-format" onchange="finderFormat=this.value;runFinder()">
-          <option value="">Format...</option>
+          <option value="">All Formats</option>
           ${formats.map(f => `<option value="${f}" ${finderFormat===f?'selected':''}>${f}</option>`).join('')}
         </select>
-        ${finderProcess ? `<button class="filter-clear" onclick="finderProcess='';finderFormat='';runFinder()">Clear</button>` : ''}
+        <select class="filter-select" id="finder-country" onchange="labFilters.country=this.value;runFinder()">
+          <option value="">All Countries</option>
+          ${countries.map(c => `<option value="${c}" ${labFilters.country===c?'selected':''}>${c}</option>`).join('')}
+        </select>
+        <select class="filter-select" id="finder-mailin" onchange="labFilters.mail_in=this.value;runFinder()">
+          <option value="">Mail-In: Any</option>
+          <option value="1" ${labFilters.mail_in==='1'?'selected':''}>Mail-In: Yes</option>
+          <option value="0" ${labFilters.mail_in==='0'?'selected':''}>Mail-In: No</option>
+        </select>
+        ${finderProcess || finderFormat || labFilters.country || labFilters.mail_in
+          ? `<button class="filter-clear" onclick="finderProcess='';finderFormat='';labFilters.country='';labFilters.mail_in='';runFinder()">Clear</button>`
+          : ''}
       </div>
     </div>
   `;
@@ -1018,23 +1030,27 @@ function runFinder() {
   const finderEl = document.getElementById('lab-finder-widget');
   if (finderEl) finderEl.innerHTML = renderLabFinderWidget(processes, formats);
 
-  if (!finderProcess) {
-    // No process selected — show normal lab grid
+  if (!finderProcess && !finderFormat && !labFilters.country && !labFilters.mail_in) {
+    // Nothing selected — show normal lab grid
     applyLabFilters();
     return;
   }
 
-  // Filter and sort labs by price for selected process+format
+  // Filter and sort labs
   const matches = allLabs
-    .filter(l => (l.processes || []).includes(finderProcess))
+    .filter(l => !finderProcess || (l.processes || []).includes(finderProcess))
+    .filter(l => !labFilters.country || l.country === labFilters.country)
+    .filter(l => !labFilters.mail_in || String(l.mail_in) === labFilters.mail_in)
     .map(l => {
-      const svc = finderFormat
-        ? (l.services || []).find(s => s.process === finderProcess && s.format === finderFormat)
-           || (l.services || []).find(s => s.process === finderProcess)
-        : (l.services || []).find(s => s.process === finderProcess);
+      const svc = finderProcess
+        ? (finderFormat
+            ? (l.services || []).find(s => s.process === finderProcess && s.format === finderFormat)
+               || (l.services || []).find(s => s.process === finderProcess)
+            : (l.services || []).find(s => s.process === finderProcess))
+        : null;
       return { lab: l, service: svc || null };
     })
-    .filter(({ service }) => !finderFormat || service)
+    .filter(({ service }) => !finderProcess || !finderFormat || service)
     .sort((a, b) => {
       const tA = a.service ? (a.service.dev_price||0) + (a.service.scan_price||0) : Infinity;
       const tB = b.service ? (b.service.dev_price||0) + (b.service.scan_price||0) : Infinity;
@@ -1045,12 +1061,12 @@ function runFinder() {
   const content = document.getElementById('content');
 
   if (!matches.length) {
-    content.innerHTML = `<div class="empty"><div class="empty-icon">&#x1f9ea;</div><h3>No labs found</h3><p>No labs support ${finderProcess}${finderFormat ? ' / ' + finderFormat : ''}.</p></div>`;
+    content.innerHTML = `<div class="empty"><div class="empty-icon">&#x1f9ea;</div><h3>No labs found</h3><p>Try adjusting your filters.</p></div>`;
     return;
   }
 
   content.innerHTML = `
-    <div class="finder-result-header">${matches.length} lab${matches.length !== 1 ? 's' : ''} for <strong>${finderProcess}</strong>${fmtNote} &mdash; sorted by total price</div>
+    <div class="finder-result-header">${matches.length} lab${matches.length !== 1 ? 's' : ''}${finderProcess ? ` for <strong>${finderProcess}</strong>${fmtNote}` : ''} &mdash; sorted by total price</div>
     <div class="finder-grid">
       ${matches.map(({ lab: l, service: svc }) => {
         const total = svc && svc.dev_price != null && svc.scan_price != null
@@ -1183,7 +1199,7 @@ function handleRoute() {
     renderStockDetail(parts[1]);
   } else if (parts[0] === 'labs') {
     document.getElementById('stats').style.display = '';
-    document.getElementById('filters').style.display = '';
+    document.getElementById('filters').style.display = 'none';
     finderWidget.style.display = '';
     finderProcess = '';
     finderFormat = '';
