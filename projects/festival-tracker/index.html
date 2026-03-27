@@ -435,6 +435,141 @@
     .deadlines-table th,
     .deadlines-table td { padding: 8px 8px; font-size: 0.72rem; }
   }
+
+  /* ── Controls top row ── */
+  .controls-top {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 24px; flex-wrap: wrap; gap: 12px;
+  }
+  .controls-top .group-toggle { margin-bottom: 0; }
+
+  /* ── View toggle (List | Calendar) ── */
+  .view-toggle {
+    display: flex; gap: 0;
+    border: 1px solid var(--border); border-radius: 8px;
+    overflow: hidden; width: fit-content;
+  }
+  .view-btn {
+    font-family: 'Geist Mono', monospace; font-size: 0.72rem;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 10px 22px; border: none; cursor: pointer;
+    background: var(--surface); color: var(--text-3);
+    transition: all 0.2s;
+  }
+  .view-btn + .view-btn { border-left: 1px solid var(--border); }
+  .view-btn:hover { color: var(--text-1); background: var(--surface-hover); }
+  .view-btn.active { background: var(--accent-bg); color: var(--accent); font-weight: 600; }
+
+  /* ── Calendar ── */
+  .cal-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .cal-nav-btn {
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text-2); cursor: pointer; padding: 8px 16px;
+    border-radius: 8px; font-family: 'Geist Mono', monospace;
+    font-size: 0.76rem; transition: all 0.2s;
+  }
+  .cal-nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .cal-month-label {
+    font-family: 'Geist Mono', monospace; font-size: 0.86rem;
+    color: var(--text-1); letter-spacing: 3px; text-transform: uppercase;
+  }
+  .cal-legend {
+    display: flex; gap: 18px; margin-bottom: 16px; flex-wrap: wrap;
+  }
+  .cal-legend-item {
+    display: flex; align-items: center; gap: 6px;
+    font-family: 'Geist Mono', monospace; font-size: 0.62rem;
+    color: var(--text-3); letter-spacing: 1px; text-transform: uppercase;
+  }
+  .cal-grid {
+    display: grid; grid-template-columns: repeat(7, 1fr);
+    gap: 3px; margin-bottom: 24px;
+  }
+  .cal-dow {
+    font-family: 'Geist Mono', monospace; font-size: 0.58rem;
+    color: var(--text-4); text-align: center; padding: 8px 4px 10px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+  }
+  .cal-day {
+    min-height: 76px; padding: 8px 7px 6px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; transition: border-color 0.15s, background 0.15s;
+    position: relative;
+  }
+  .cal-day.has-deadlines { cursor: pointer; }
+  .cal-day.has-deadlines:hover { border-color: var(--accent); background: var(--surface-hover); }
+  .cal-day.selected { border-color: var(--accent); background: var(--accent-bg); }
+  .cal-day.past { opacity: 0.4; pointer-events: none; }
+  .cal-day.past.has-deadlines { opacity: 0.35; }
+  .cal-day.empty-cell { background: none; border-color: transparent; }
+  .cal-day-num {
+    font-family: 'Geist Mono', monospace; font-size: 0.7rem;
+    color: var(--text-3); margin-bottom: 7px;
+    width: 22px; height: 22px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cal-day.today .cal-day-num {
+    background: var(--accent); color: var(--bg);
+    border-radius: 50%; font-weight: 700;
+  }
+  .cal-dots { display: flex; flex-wrap: wrap; gap: 3px; }
+  .cal-dot {
+    width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+  }
+  .cal-dot.early { background: var(--indigo); }
+  .cal-dot.regular { background: var(--accent); }
+  .cal-dot.late { background: var(--red); }
+  .cal-dot-more {
+    font-family: 'Geist Mono', monospace; font-size: 0.5rem;
+    color: var(--text-4); line-height: 7px;
+  }
+
+  /* ── Calendar day panel ── */
+  .cal-day-panel {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 20px 24px; margin-top: 4px;
+    animation: fadeIn 0.15s ease;
+  }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  .cal-panel-date {
+    font-family: 'Geist Mono', monospace; font-size: 0.68rem;
+    color: var(--accent); letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 16px; padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .cal-panel-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 12px 0; border-bottom: 1px solid var(--border);
+    cursor: pointer; transition: all 0.15s;
+  }
+  .cal-panel-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .cal-panel-item:hover .cal-panel-name { color: var(--accent); }
+  .cal-panel-tier {
+    font-family: 'Geist Mono', monospace; font-size: 0.58rem;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 4px; white-space: nowrap; flex-shrink: 0;
+  }
+  .cal-panel-tier.early { background: var(--indigo-bg); color: var(--indigo); border: 1px solid var(--indigo-border); }
+  .cal-panel-tier.regular { background: var(--accent-bg); color: var(--accent); border: 1px solid var(--tag-border); }
+  .cal-panel-tier.late { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+  .cal-panel-body { flex: 1; min-width: 0; }
+  .cal-panel-name { font-size: 0.9rem; color: var(--text-1); font-weight: 500; transition: color 0.15s; }
+  .cal-panel-meta { font-size: 0.76rem; color: var(--text-3); margin-top: 2px; }
+  .cal-panel-fee {
+    font-family: 'Geist Mono', monospace; font-size: 0.72rem;
+    color: var(--text-4); flex-shrink: 0;
+  }
+
+  @media (max-width: 640px) {
+    .cal-day { min-height: 52px; padding: 5px 4px; }
+    .cal-day-num { font-size: 0.62rem; width: 18px; height: 18px; }
+    .cal-dot { width: 5px; height: 5px; }
+    .cal-panel-item { flex-wrap: wrap; gap: 8px; }
+    .controls-top { flex-direction: column; align-items: flex-start; }
+  }
 </style>
 </head>
 <body>
@@ -449,9 +584,15 @@
 
   <!-- ── List View ── -->
   <div id="list-view" class="view view-visible">
-    <div class="group-toggle">
-      <button class="group-btn active" id="btn-documentary" onclick="setGroup('documentary')">Documentary</button>
-      <button class="group-btn" id="btn-experimental" onclick="setGroup('experimental')">Experimental</button>
+    <div class="controls-top">
+      <div class="group-toggle">
+        <button class="group-btn active" id="btn-documentary" onclick="setGroup('documentary')">Documentary</button>
+        <button class="group-btn" id="btn-experimental" onclick="setGroup('experimental')">Experimental</button>
+      </div>
+      <div class="view-toggle">
+        <button class="view-btn active" id="btn-list-view" onclick="setViewMode('list')">List</button>
+        <button class="view-btn" id="btn-cal-view" onclick="setViewMode('calendar')">Calendar</button>
+      </div>
     </div>
     <div class="stats-row" id="stats-row"></div>
     <div class="filter-bar" id="filter-bar">
@@ -461,7 +602,10 @@
       <select id="filter-premiere"><option value="">Any Premiere Req</option></select>
       <input type="text" id="filter-search" placeholder="Search festivals...">
     </div>
-    <div id="festival-list"></div>
+    <div id="list-content">
+      <div id="festival-list"></div>
+    </div>
+    <div id="calendar-view" style="display:none"></div>
   </div>
 
   <!-- ── Detail View ── -->
@@ -478,6 +622,10 @@ var allFestivals = [];
 var filteredFestivals = [];
 var currentView = 'list';
 var activeGroup = 'documentary'; // 'documentary' | 'experimental'
+var viewMode = 'list'; // 'list' | 'calendar'
+var calYear = new Date().getFullYear();
+var calMonth = new Date().getMonth(); // 0-indexed
+var selectedCalDay = null;
 
 var EXPERIMENTAL_FOCUSES = ['experimental', 'avant-garde', 'underground'];
 
@@ -642,7 +790,7 @@ function applyFilters() {
   });
 
   renderStats();
-  renderList();
+  if (viewMode === 'calendar') renderCalendar(); else renderList();
 }
 
 /* ── List rendering ── */
@@ -812,6 +960,7 @@ function showList() {
   detailView.classList.add('view-hidden');
   listView.classList.remove('view-hidden');
   listView.classList.add('view-visible');
+  setViewMode(viewMode);
 }
 
 /* ── Hash routing ── */
@@ -830,6 +979,138 @@ function handleHash() {
 }
 
 window.addEventListener('hashchange', handleHash);
+
+/* ── View mode toggle ── */
+function setViewMode(mode) {
+  viewMode = mode;
+  document.getElementById('btn-list-view').classList.toggle('active', mode === 'list');
+  document.getElementById('btn-cal-view').classList.toggle('active', mode === 'calendar');
+  document.getElementById('list-content').style.display = mode === 'list' ? '' : 'none';
+  document.getElementById('calendar-view').style.display = mode === 'calendar' ? '' : 'none';
+  if (mode === 'calendar') renderCalendar();
+}
+
+/* ── Calendar rendering ── */
+function renderCalendar() {
+  var container = document.getElementById('calendar-view');
+  if (!container) return;
+
+  var today = new Date(); today.setHours(0,0,0,0);
+  var year = calYear, month = calMonth;
+
+  var MONTHS = ['January','February','March','April','May','June',
+                'July','August','September','October','November','December'];
+  var DOWS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+  // Build deadline map from filtered festivals
+  var deadlineMap = {};
+  filteredFestivals.forEach(function(f) {
+    (f.deadlines || []).forEach(function(dl) {
+      var date = dl.deadline || dl.date || '';
+      if (!date) return;
+      if (!deadlineMap[date]) deadlineMap[date] = [];
+      deadlineMap[date].push({ festival: f, tier: dl.tier || 'regular', fee: dl.fee_usd });
+    });
+  });
+
+  var firstDow = new Date(year, month, 1).getDay();
+  var daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  var html = '';
+
+  // Nav
+  html += '<div class="cal-nav">'
+        + '<button class="cal-nav-btn" onclick="calPrev()">&larr;</button>'
+        + '<span class="cal-month-label">' + MONTHS[month] + ' ' + year + '</span>'
+        + '<button class="cal-nav-btn" onclick="calNext()">&rarr;</button>'
+        + '</div>';
+
+  // Legend
+  html += '<div class="cal-legend">'
+        + '<span class="cal-legend-item"><span class="cal-dot early" style="display:inline-block"></span>Early</span>'
+        + '<span class="cal-legend-item"><span class="cal-dot regular" style="display:inline-block"></span>Regular</span>'
+        + '<span class="cal-legend-item"><span class="cal-dot late" style="display:inline-block"></span>Late</span>'
+        + '</div>';
+
+  // Grid
+  html += '<div class="cal-grid">';
+  DOWS.forEach(function(d) { html += '<div class="cal-dow">' + d + '</div>'; });
+
+  // Empty cells before first day
+  for (var e = 0; e < firstDow; e++) html += '<div class="cal-day empty-cell"></div>';
+
+  // Day cells
+  for (var d = 1; d <= daysInMonth; d++) {
+    var dateStr = year + '-' + String(month + 1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+    var dls = deadlineMap[dateStr] || [];
+    var cellDate = new Date(year, month, d);
+    var isToday = cellDate.getTime() === today.getTime();
+    var isPast  = cellDate < today && !isToday;
+    var hasDl   = dls.length > 0;
+    var isSel   = selectedCalDay === dateStr;
+
+    var cls = 'cal-day';
+    if (hasDl)   cls += ' has-deadlines';
+    if (isToday) cls += ' today';
+    if (isPast)  cls += ' past';
+    if (isSel)   cls += ' selected';
+
+    var onclick = hasDl ? ' onclick="selectCalDay(\'' + dateStr + '\')"' : '';
+
+    html += '<div class="' + cls + '"' + onclick + '>';
+    html += '<div class="cal-day-num">' + d + '</div>';
+    if (hasDl) {
+      html += '<div class="cal-dots">';
+      dls.slice(0, 7).forEach(function(dl) {
+        html += '<span class="cal-dot ' + dl.tier + '" title="' + escapeHtml(dl.festival.name) + '"></span>';
+      });
+      if (dls.length > 7) html += '<span class="cal-dot-more">+' + (dls.length - 7) + '</span>';
+      html += '</div>';
+    }
+    html += '</div>';
+  }
+  html += '</div>'; // /cal-grid
+
+  // Selected day panel
+  if (selectedCalDay && deadlineMap[selectedCalDay] && deadlineMap[selectedCalDay].length) {
+    var items = deadlineMap[selectedCalDay];
+    html += '<div class="cal-day-panel">';
+    html += '<div class="cal-panel-date">' + formatDate(selectedCalDay)
+          + ' &mdash; ' + items.length + ' deadline' + (items.length !== 1 ? 's' : '') + '</div>';
+    items.forEach(function(dl) {
+      html += '<div class="cal-panel-item" onclick="showDetail(' + dl.festival.id + ')">'
+            + '<span class="cal-panel-tier ' + dl.tier + '">' + dl.tier + '</span>'
+            + '<div class="cal-panel-body">'
+            + '<div class="cal-panel-name">' + escapeHtml(dl.festival.name) + '</div>'
+            + '<div class="cal-panel-meta">' + escapeHtml(dl.festival.city) + ', ' + escapeHtml(dl.festival.country) + '</div>'
+            + '</div>'
+            + '<span class="cal-panel-fee">' + (dl.fee ? '$' + dl.fee : '') + '</span>'
+            + '</div>';
+    });
+    html += '</div>';
+  }
+
+  container.innerHTML = html;
+}
+
+function calPrev() {
+  calMonth--;
+  if (calMonth < 0) { calMonth = 11; calYear--; }
+  selectedCalDay = null;
+  renderCalendar();
+}
+
+function calNext() {
+  calMonth++;
+  if (calMonth > 11) { calMonth = 0; calYear++; }
+  selectedCalDay = null;
+  renderCalendar();
+}
+
+function selectCalDay(dateStr) {
+  selectedCalDay = (selectedCalDay === dateStr) ? null : dateStr;
+  renderCalendar();
+}
 
 /* ── Init ── */
 function init() {
