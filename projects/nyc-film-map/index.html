@@ -210,13 +210,32 @@ body{
   text-transform:uppercase;font-family:var(--sans);
 }
 
-/* ── Responsive ── */
+/* ── Mobile sidebar toggle ── */
+.sidebar-toggle{display:none}
 @media(max-width:768px){
   .main{flex-direction:column-reverse}
-  .sidebar{width:100%;min-width:100%;max-height:45vh;min-height:140px;border-right:none;border-top:1px solid var(--border)}
+  .sidebar{
+    width:100%;min-width:100%;
+    max-height:var(--sb-h,42vh);
+    border-right:none;border-top:1px solid var(--border);
+    transition:max-height .3s ease;
+  }
+  .sidebar.expanded{max-height:82vh}
   .sidebar-header h2{display:none}
   :root{--sidebar-w:100%}
   .legend-bar{flex-wrap:wrap;gap:8px 14px}
+  .sidebar-toggle{
+    display:flex;align-items:center;justify-content:center;
+    position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+    width:48px;height:28px;
+    background:var(--surface);border:1px solid var(--border);
+    border-radius:14px;cursor:pointer;z-index:10;
+    font-size:.55rem;letter-spacing:1px;text-transform:uppercase;
+    color:var(--ink-3);font-family:var(--sans);
+    box-shadow:0 -2px 6px rgba(0,0,0,.06);
+    transition:color .2s;
+  }
+  .sidebar-toggle:hover{color:var(--ink)}
 }
 .venue-list::-webkit-scrollbar,.venue-detail::-webkit-scrollbar{width:2px}
 .venue-list::-webkit-scrollbar-thumb,.venue-detail::-webkit-scrollbar-thumb{background:var(--ink-5);border-radius:2px}
@@ -234,7 +253,8 @@ body{
 </div>
 
 <div class="main">
-  <aside class="sidebar">
+  <aside class="sidebar" id="sidebar">
+    <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">▲ list</button>
     <div class="sidebar-header">
       <h2>Index</h2>
       <div class="cat-tags" id="catTags"></div>
@@ -444,18 +464,20 @@ function entryShapeHtml(cat){
   }
 }
 
-function renderTags(){
+function renderTags(counts){
+  counts = counts || {};
   var container = document.getElementById('catTags');
   container.innerHTML = CATEGORIES.map(function(c){
+    var n = counts[c] != null ? counts[c] : '';
+    var countStr = n !== '' ? ' <span style="opacity:.55;font-size:.5rem">('+n+')</span>' : '';
     return '<span class="cat-tag '+(activeCategories.has(c)?'active':'')+'" data-cat="'+c+'">'
       +shapeHtml(c)
-      +CAT_LABELS[c]+'</span>';
+      +CAT_LABELS[c]+countStr+'</span>';
   }).join('');
   container.querySelectorAll('.cat-tag').forEach(function(t){
     t.addEventListener('click',function(){
       var c = t.dataset.cat;
       if(activeCategories.has(c)) activeCategories.delete(c); else activeCategories.add(c);
-      renderTags();
       applyFilters();
     });
   });
@@ -506,8 +528,19 @@ function getFiltered(){
 
 function applyFilters(){
   var f = getFiltered();
+  // Count per category (ignoring the category toggle so counts reflect search/borough only)
+  var counts = {};
+  allVenues.filter(function(v){
+    if(currentBorough && v.borough !== currentBorough) return false;
+    if(currentSearch){
+      var h = (v.name+' '+(v.neighborhood||'')+' '+(v.description||'')+' '+(v.highlight||'')).toLowerCase();
+      if(h.indexOf(currentSearch) === -1) return false;
+    }
+    return true;
+  }).forEach(function(v){ counts[v.category] = (counts[v.category]||0)+1; });
   buildMarkers();
   renderVenueList(f);
+  renderTags(counts);
   document.getElementById('venueCount').textContent = f.length+' venue'+(f.length!==1?'s':'');
   renderLegend(f.length);
 }
@@ -570,6 +603,15 @@ function hideDetail(){
   selectVenue(null);
 }
 
+// ── Mobile sidebar toggle ──
+function toggleSidebar(){
+  var sb = document.getElementById('sidebar');
+  var btn = document.getElementById('sidebarToggle');
+  var expanded = sb.classList.toggle('expanded');
+  btn.textContent = expanded ? '▼ map' : '▲ list';
+  if(expanded) map.invalidateSize();
+}
+
 // ── Routing ──
 function handleRoute(){
   var h = window.location.hash || '#map';
@@ -585,7 +627,6 @@ window.addEventListener('hashchange',handleRoute);
 // ── Init ──
 (function(){
   initMap();
-  renderTags();
   renderLegend(0);
   loadVenues().then(function(){
     handleRoute();
