@@ -1,0 +1,656 @@
+[
+  {
+    "id": 1,
+    "name": "Japan",
+    "code": "JP",
+    "region": "asia",
+    "status": "dreaming",
+    "tagline": "Ancient forests, neon cities, and food that borders on spiritual.",
+    "description": "Japan holds the rare ability to be both overwhelming and deeply calming — a place where a centuries-old temple sits two blocks from a convenience store stocking the best egg salad sandwich you've ever had. Every region has its own personality, dialect, and obsession, and the sheer density of things worth caring about never exhausts you.",
+    "best_time": "March–May, October–November",
+    "language": "Japanese",
+    "currency": "Yen (¥)",
+    "cities": [
+      { "name": "Tokyo", "notes": "Bottomless city — Shibuya's scramble, Yanaka's old alleys, Shimokitazawa's vintage shops. You could spend a month and only scratch it." },
+      { "name": "Kyoto", "notes": "Temple walks at dawn before the tour groups arrive. Fushimi Inari at night is something else entirely." },
+      { "name": "Osaka", "notes": "The food capital: takoyaki, okonomiyaki, kushikatsu. People here will argue that Tokyo can't cook." },
+      { "name": "Hakone", "notes": "Ryokan with an onsen overlooking Fuji on a clear morning — one of those experiences that becomes a benchmark for everything after." }
+    ],
+    "food": [
+      { "name": "Ramen", "notes": "Tonkotsu in Fukuoka, shoyu in Tokyo, miso in Sapporo — each region considers its version the only version worth eating." },
+      { "name": "Omakase sushi", "notes": "The counter, the chef, no menu. You trust the process and the fish is whatever came in that morning." },
+      { "name": "Kaiseki", "notes": "A multi-course meal that moves through the seasons in small, precise bites. More ceremony than food, in the best sense." },
+      { "name": "Takoyaki", "notes": "Octopus balls, bonito flakes, mayo, sauce — eaten standing outside a stall in Osaka at 10pm." },
+      { "name": "Onigiri", "notes": "The convenience store kind is genuinely perfect. Tuna mayo, pickled plum, salmon. Breakfast of champions." }
+    ],
+    "tips": [
+      "Get a Suica or IC card at the airport — it works on trains, buses, and most convenience stores nationwide.",
+      "Convenience store food (7-Eleven, FamilyMart, Lawson) is sincerely excellent. Don't skip it.",
+      "Book popular restaurants weeks in advance, especially in Kyoto. Walk-ins at the best places are rare.",
+      "Cash is still king in rural areas and smaller restaurants. Keep some on you."
+    ],
+    "vibe_tags": ["street food", "ancient temples", "onsen", "city energy", "nature", "craft"],
+    "photo": ""
+  },
+  {
+    "id": 2,
+    "name": "Italy",
+    "code": "IT",
+    "region": "europe",
+    "status": "dreaming",
+    "tagline": "Where every meal is a small argument about the right way to do things.",
+    "description": "Italy isn't one country, it's twenty — each region fiercely convinced that its pasta shape, its olive oil, its grandmother's method is the definitive one. There's something infectious about a place that takes beauty and food this seriously, where a Sunday lunch can last until dusk and nobody considers that excessive.",
+    "best_time": "April–June, September–October",
+    "language": "Italian",
+    "currency": "Euro (€)",
+    "cities": [
+      { "name": "Rome", "notes": "Two thousand years of history stacked on top of itself. You turn a corner and walk into the Pantheon. Negroni sbagliato at dusk on a piazza." },
+      { "name": "Bologna", "notes": "The real food capital of Italy, and they'll tell you so. Every ragù, every tortellini, every mortadella here is the original." },
+      { "name": "Naples", "notes": "Chaotic, loud, and home to the best pizza on earth. The sfogliatelle from the bar on the corner at 7am is not optional." },
+      { "name": "Sicily", "notes": "Arancini, cannoli, ancient Greek temples overlooking the sea. A separate universe from the north, and proudly so." }
+    ],
+    "food": [
+      { "name": "Cacio e pepe", "notes": "Three ingredients: pasta, pecorino, black pepper. The simplicity is deceptive — getting the emulsification right takes practice." },
+      { "name": "Neapolitan pizza", "notes": "Soft, slightly charred, wet in the middle. Margherita or marinara. Everything else is a compromise." },
+      { "name": "Bistecca alla Fiorentina", "notes": "A T-bone from a Chianina cow, cooked over charcoal, served rare. Florence does one thing with meat and it's this." },
+      { "name": "Gelato", "notes": "The real thing is denser and less sweet than ice cream. Pistachio from Sicily, stracciatella in Rome — avoid the places with fluorescent towers." },
+      { "name": "Aperitivo", "notes": "Not just a drink — a ritual. Negroni or Aperol Spritz with olives and chips at 6pm before dinner at 9." }
+    ],
+    "tips": [
+      "Eat where the locals eat — away from the tourist center, no English menus outside, tables full at 1pm.",
+      "Lunch is the main meal. A three-course lunch at a trattoria is often better value and quality than dinner.",
+      "Churches require covered shoulders and knees. Carry a scarf.",
+      "The trains connecting smaller towns are scenic and cheap. Don't only stay in the major cities."
+    ],
+    "vibe_tags": ["food culture", "ancient history", "art", "coastal", "piazzas", "slow living"],
+    "photo": ""
+  },
+  {
+    "id": 3,
+    "name": "Taiwan",
+    "code": "TW",
+    "region": "asia",
+    "status": "dreaming",
+    "tagline": "Night markets, mountain hot springs, and the best bubble tea you'll ever have.",
+    "description": "Taiwan packs an improbable amount into a small island: dense, exciting cities alongside gorges and mountain ranges that feel untouched, all surrounded by a food culture that punches far above its weight. People here are legendarily kind to visitors, which makes an already great trip feel even warmer.",
+    "best_time": "October–April",
+    "language": "Mandarin Chinese",
+    "currency": "New Taiwan Dollar (NT$)",
+    "cities": [
+      { "name": "Taipei", "notes": "Walkable, friendly, cheap to eat well. Daan District for coffee shops, Xinyi for skyline views from the 101, Jiufen for nostalgia." },
+      { "name": "Tainan", "notes": "The oldest city on the island and the best food city in Taiwan — a high bar. Every alley has a stall that's been doing one dish for 40 years." },
+      { "name": "Taroko Gorge", "notes": "A marble canyon with turquoise rivers. One of the most dramatic pieces of landscape in Asia." },
+      { "name": "Jiufen", "notes": "Hillside tea houses with red lanterns and mountain views over the sea. The inspiration behind a certain Miyazaki film." }
+    ],
+    "food": [
+      { "name": "Beef noodle soup", "notes": "Braised beef, hand-pulled noodles, rich spiced broth. Taipei's unofficial national dish — every restaurant has its own version." },
+      { "name": "Scallion pancake", "notes": "Flaky, layered, eaten from a street cart with egg folded in. Morning staple." },
+      { "name": "Stinky tofu", "notes": "The smell is a test. The taste is deeply savory and fermented. Night market essential." },
+      { "name": "Bubble milk tea", "notes": "The original. Chun Shui Tang in Taichung claims to have invented it. Creamy, cold, chewy tapioca — no comparison to what the world exports." },
+      { "name": "Oyster omelette", "notes": "Oysters, sweet potato starch, egg, sauce. Found at every night market. Best eaten standing up." }
+    ],
+    "tips": [
+      "Get an EasyCard on arrival — it covers the MRT, buses, and YouBike rentals across the country.",
+      "Night markets are dinner. Raohe, Shilin, Ningxia in Taipei — arrive hungry at 7pm.",
+      "The east coast by scooter or train is worth the extra days. Hualien to Taitung is spectacular.",
+      "Most things are cheaper than you expect. Budget well on food and the rest takes care of itself."
+    ],
+    "vibe_tags": ["night markets", "street food", "hiking", "hot springs", "friendly locals", "mountains"],
+    "photo": ""
+  },
+  {
+    "id": 4,
+    "name": "Ireland",
+    "code": "IE",
+    "region": "europe",
+    "status": "dreaming",
+    "tagline": "Green cliffs, peat fires, and pubs that feel like someone's living room.",
+    "description": "Ireland earns its reputation for landscapes and hospitality — the west coast in particular has a wild, untouched quality that makes everywhere else feel manicured by comparison. The pub culture isn't just drinking; it's the social infrastructure of the country, where strangers start talking and somehow three hours pass.",
+    "best_time": "May–September",
+    "language": "English, Irish",
+    "currency": "Euro (€)",
+    "cities": [
+      { "name": "Dublin", "notes": "More literary and historically dense than its party-city reputation suggests. Trinity College, the Book of Kells, Georgian squares, and yes — Guinness." },
+      { "name": "Galway", "notes": "The west coast's beating heart. Street musicians, oyster festivals, a gateway to Connemara's emptiness." },
+      { "name": "Dingle", "notes": "A peninsula of extraordinary beauty. Dolphins in the harbor, fish chowder at a pub fire, stone walls across the hills." },
+      { "name": "Kilkenny", "notes": "Medieval city with a castle, a medieval mile, and some of the best craft beer in the country." }
+    ],
+    "food": [
+      { "name": "Irish stew", "notes": "Lamb, potatoes, onions, slow-cooked. Simple and deeply satisfying after a day on the cliffs." },
+      { "name": "Full Irish breakfast", "notes": "Rashers, sausages, black pudding, white pudding, eggs, beans, toast, soda bread. The only appropriate response to a cold morning." },
+      { "name": "Seafood chowder", "notes": "Cream-based, loaded with fish and mussels. Best found in a pub on the west coast with soda bread on the side." },
+      { "name": "Guinness", "notes": "Genuinely different on home soil — creamier, fresher, poured properly with the two-minute settle. Worth the trip alone." }
+    ],
+    "tips": [
+      "Rent a car for the west coast — public transport won't take you where you want to go.",
+      "Weather changes hourly. Layers, a waterproof, and no rigid plans.",
+      "The Wild Atlantic Way is a coastal drive from Donegal to Cork. Even a section of it is worth it.",
+      "Pub hours matter. Last orders around 11:30pm — arrive for a pint and a conversation, not just a drink."
+    ],
+    "vibe_tags": ["coastal cliffs", "pub culture", "literature", "hiking", "history", "music"],
+    "photo": ""
+  },
+  {
+    "id": 5,
+    "name": "Greece",
+    "code": "GR",
+    "region": "europe",
+    "status": "dreaming",
+    "tagline": "White walls, blue domes, and olive oil on everything.",
+    "description": "Greece delivers on its promise — the light really is different, the sea really is that color, and eating a simple grilled fish beside the Aegean at sunset really does make you question every life choice that kept you elsewhere. The islands each have their own character, and the mainland is consistently underrated.",
+    "best_time": "May–June, September–October",
+    "language": "Greek",
+    "currency": "Euro (€)",
+    "cities": [
+      { "name": "Athens", "notes": "The Acropolis at golden hour is one of the great urban views on earth. The neighborhoods below — Monastiraki, Psiri, Exarcheia — reward walking." },
+      { "name": "Santorini", "notes": "The cliché exists for a reason. Oia at sunset, caldera views, wine made from vines grown in volcanic ash." },
+      { "name": "Thessaloniki", "notes": "Greece's second city and arguably better for food. Bougatsa for breakfast, meze by the sea, Byzantine churches in every other block." },
+      { "name": "Crete", "notes": "The largest island: ancient Minoan palaces, gorge hikes through Samaria, and a food culture distinct from the rest of the country." }
+    ],
+    "food": [
+      { "name": "Souvlaki", "notes": "Grilled pork or chicken on a skewer with pita, tomato, onion, tzatziki. The best fast food in Europe, eaten standing on the street." },
+      { "name": "Spanakopita", "notes": "Spinach and feta in flaky phyllo. A good version — still warm from the bakery — is something else." },
+      { "name": "Fresh grilled octopus", "notes": "Charred over coals, drizzled with olive oil and lemon. Best eaten at a harbor-side table where they're drying on the line outside." },
+      { "name": "Greek salad", "notes": "No lettuce. Tomatoes, cucumber, olives, capers, a slab of feta, olive oil. The ingredients are the point." },
+      { "name": "Loukoumades", "notes": "Honey-drenched fried dough, dusted with cinnamon. Street food in Athens, ancient as the city itself." }
+    ],
+    "tips": [
+      "Visit the islands in shoulder season (May, September) — same weather, half the crowds and prices.",
+      "Ferry between islands rather than flying — it's part of the experience and lets you see the sea.",
+      "Lunch is the main meal. A proper taverna lunch with carafe wine costs a fraction of an equivalent dinner.",
+      "Most ancient sites open early and are quieter in the first hour after opening."
+    ],
+    "vibe_tags": ["islands", "ancient history", "seafood", "slow living", "swimming", "architecture"],
+    "photo": ""
+  },
+  {
+    "id": 6,
+    "name": "France",
+    "code": "FR",
+    "region": "europe",
+    "status": "dreaming",
+    "tagline": "A country that treats a good lunch like a sacred obligation.",
+    "description": "France is exasperating and magnificent in equal measure — it sets the standard for food, wine, art, and architecture, and it knows it. But beyond the postcard Paris, there's Burgundy wine country in autumn, the rocky Brittany coast, Lyon's bouchons, and Provence in lavender season, each deserving its own trip.",
+    "best_time": "April–June, September–October",
+    "language": "French",
+    "currency": "Euro (€)",
+    "cities": [
+      { "name": "Paris", "notes": "Overwhelming and worth it. Treat it like a neighborhood city — pick an arrondissement and walk until something stops you." },
+      { "name": "Lyon", "notes": "The real food capital of France, and they have the bouchons to prove it. Quenelles, andouillette, praline tart — come hungry." },
+      { "name": "Marseille", "notes": "Gritty, beautiful, misunderstood. Bouillabaisse by the Vieux-Port and the calanques a short drive south." },
+      { "name": "Bordeaux", "notes": "Wine country, grand architecture, and a regenerated waterfront. A city that aged better than most." }
+    ],
+    "food": [
+      { "name": "Croissant", "notes": "The standard for pastry everywhere. A great one — laminated properly, shatteringly flaky — is not the same as what you get outside France." },
+      { "name": "Steak frites", "notes": "Bavette or entrecôte, cooked bleu or saignant, with real frites and a good Béarnaise. A bistro institution." },
+      { "name": "Bouillabaisse", "notes": "Marseille's saffron-scented fish stew, with rouille-slathered croutons and whatever came off the boats that morning." },
+      { "name": "Cheese course", "notes": "A rolling cart, thirty options, a sommelier to guide you through it. The French take this seriously, and rightly so." },
+      { "name": "Tarte Tatin", "notes": "Upside-down caramelized apple tart. The kind of dessert that makes you wonder why anyone does anything else." }
+    ],
+    "tips": [
+      "Learn a few words. Bonjour, s'il vous plaît, merci — the reception you get changes immediately.",
+      "Shops close for lunch. Banks, pharmacies, bakeries — 12:30 to 2pm is sacrosanct.",
+      "The regional trains (TER) are great for getting into the countryside without renting a car.",
+      "A picnic from a market, a boulangerie, and a fromagerie will beat most restaurant meals for half the price."
+    ],
+    "vibe_tags": ["food culture", "wine", "art", "architecture", "markets", "countryside"],
+    "photo": ""
+  },
+  {
+    "id": 7,
+    "name": "Vietnam",
+    "code": "VN",
+    "region": "asia",
+    "status": "planning",
+    "tagline": "A thousand-mile country where every region insists its food is best.",
+    "description": "Vietnam's length means you're essentially traveling through multiple countries — the restrained, refined north feels nothing like the sweeter, more exuberant south, with Hue and Hội An holding their own in between. The food is the architecture of the culture here: breakfast pho, banh mi from a cart, a bowl of bún bò Huế at a plastic table at noon.",
+    "best_time": "February–April (south and center), September–November (north)",
+    "language": "Vietnamese",
+    "currency": "Đồng (₫)",
+    "cities": [
+      { "name": "Hanoi", "notes": "The old quarter's 36 streets, bia hơi corners, Hoan Kiem Lake at dawn. Cooler, older, and less immediately flashy than the south." },
+      { "name": "Hội An", "notes": "Lantern-lit old town, tailors, ancient trading port history. The food here — white rose dumplings, cao lầu — exists nowhere else." },
+      { "name": "Ho Chi Minh City", "notes": "Motorbikes everywhere, always. District 1 for history, District 3 for coffee, Bình Thành for produce markets at 5am." },
+      { "name": "Hà Giang", "notes": "The far north: rice terraces cut into limestone mountains, winding passes, almost no tourists. The most dramatic landscape in the country." }
+    ],
+    "food": [
+      { "name": "Phở", "notes": "The north's version is cleaner, more subtle — just broth, noodles, beef, herbs. Eaten for breakfast, always." },
+      { "name": "Bánh mì", "notes": "French baguette meets Vietnamese filling: pâté, pickled daikon, cilantro, chili. A civilizational achievement for under $1." },
+      { "name": "Bún bò Huế", "notes": "Hue's spicy lemongrass beef noodle soup — more complex and punchy than phở, and criminally underrated outside Vietnam." },
+      { "name": "Cơm tấm", "notes": "Broken rice with grilled pork, a fried egg, pickled vegetables. Saigon's default lunch, eaten at 11am at a plastic stool." },
+      { "name": "Egg coffee", "notes": "Hanoi's invention: robusta espresso topped with a thick, sweet egg yolk cream. Dessert and caffeine in one cup." }
+    ],
+    "tips": [
+      "The overnight train from Hanoi to Da Nang is worth taking — scenic coastal section in the morning.",
+      "Motorbike taxis (Grab Bike) are the fastest way through city traffic. Learn to love them.",
+      "Coffee culture is serious. Ca phe trung (egg coffee), ca phe sua da (iced milk coffee) — spend time in a small café.",
+      "Street food before 10am is often the best meal of the day. Follow where locals are eating."
+    ],
+    "vibe_tags": ["street food", "motorbikes", "mountains", "history", "coffee culture", "markets"],
+    "photo": ""
+  },
+  {
+    "id": 8,
+    "name": "Morocco",
+    "code": "MA",
+    "region": "africa",
+    "status": "dreaming",
+    "tagline": "Labyrinth medinas, spiced tagines, and light that photographers chase forever.",
+    "description": "Morocco operates on its own logic — the medinas are purposefully maze-like, the souks are intentionally overwhelming, and the pace shifts the moment you stop fighting it. The country layers Berber, Arab, and French influences in a way that makes the food, architecture, and daily life impossible to flatten into anything simple.",
+    "best_time": "March–May, September–November",
+    "language": "Arabic, Tamazight, French",
+    "currency": "Moroccan Dirham (MAD)",
+    "cities": [
+      { "name": "Marrakech", "notes": "Djemaa el-Fna at dusk — food stalls, smoke, drummers, storytellers. The medina at 7am before everything opens is equally compelling." },
+      { "name": "Fes", "notes": "The best-preserved medieval city in the world. The tanneries, the university, the 9,000 streets of the medina. A full day just to begin." },
+      { "name": "Chefchaouen", "notes": "The blue city in the Rif Mountains. The color is real, the hike up to the Spanish mosque is worth it, the kif is famously available." },
+      { "name": "Sahara (Merzouga)", "notes": "Dunes at sunrise, a night in a desert camp under a star sky that urban life has made you forget exists." }
+    ],
+    "food": [
+      { "name": "Tagine", "notes": "Slow-cooked in a conical clay pot — lamb with prunes and almonds, chicken with preserved lemon and olives. The technique is the flavor." },
+      { "name": "Couscous", "notes": "Friday's traditional meal: hand-rolled semolina, seven vegetables, a stew poured over the top. A communal ceremony." },
+      { "name": "Pastilla", "notes": "Pigeon (or chicken) in flaky warqa pastry, dusted with sugar and cinnamon. Sweet-savory and confusing in the best way." },
+      { "name": "Harira", "notes": "Tomato, lentil, and chickpea soup. The soup that breaks the Ramadan fast and feeds you on cold desert mornings." },
+      { "name": "Mint tea", "notes": "Gunpowder green tea, fresh mint, a theatrical pour from height to create foam. Hospitality in a glass." }
+    ],
+    "tips": [
+      "Hire a local guide for your first day in a medina — it's worth it to understand the logic before navigating alone.",
+      "Bargaining in souks is expected. Start at a third of the asking price and work up. The ritual is part of the transaction.",
+      "The train from Marrakech to Fes via Casablanca is comfortable and scenic.",
+      "Dress modestly outside of riads and tourist areas — shoulders and knees covered shows respect and improves how you're treated."
+    ],
+    "vibe_tags": ["medinas", "desert", "souks", "architecture", "spices", "riads"],
+    "photo": ""
+  },
+  {
+    "id": 9,
+    "name": "Peru",
+    "code": "PE",
+    "region": "americas",
+    "status": "dreaming",
+    "tagline": "Ancient ruins, ceviche by the Pacific, and altitude that humbles you.",
+    "description": "Peru holds the best food scene in South America and ruins that genuinely stop time — Machu Picchu is a cliché because it earns it, but the Sacred Valley, the floating islands of Titicaca, and the Amazon basin all operate at their own register of extraordinary. Lima has become one of the world's serious food cities without much fanfare.",
+    "best_time": "May–October (dry season)",
+    "language": "Spanish, Quechua",
+    "currency": "Sol (S/)",
+    "cities": [
+      { "name": "Lima", "notes": "Miraflores and Barranco for cliffside restaurants, Pacific views, and the best ceviche of your life. Don't pass through on your way to Cusco." },
+      { "name": "Cusco", "notes": "The former capital of the Inca empire, 3,400m up. Give yourself two days to acclimatize before doing anything strenuous." },
+      { "name": "Sacred Valley", "notes": "Pisac market, salt pans at Maras, circular terraces at Moray. Slower and more beautiful than Cusco." },
+      { "name": "Machu Picchu", "notes": "Go at sunrise, hike the Sun Gate if you can. Seeing it for the first time from above in early light is not like any photograph." }
+    ],
+    "food": [
+      { "name": "Ceviche", "notes": "Raw fish cured in lime juice with ají amarillo, red onion, and cilantro. The leche de tigre left in the bowl is the cure for everything." },
+      { "name": "Lomo saltado", "notes": "Beef stir-fry with tomatoes, onions, and french fries, served over rice. Chinese-Peruvian chifa fusion that became a national dish." },
+      { "name": "Causa", "notes": "Mashed yellow potato layered with avocado, lime, and chicken or seafood. Peru's most underrated dish." },
+      { "name": "Pisco sour", "notes": "The national cocktail. Pisco, lime, egg white, Angostura bitters. Made properly in Lima, it's a serious drink." },
+      { "name": "Anticuchos", "notes": "Grilled beef heart skewers on street carts. Sounds confronting, tastes like the best thing at the grill." }
+    ],
+    "tips": [
+      "Altitude sickness is real. Take coca tea seriously, drink water, and rest the first day in Cusco.",
+      "Book the Inca Trail 6+ months ahead if that's the plan. The Salkantay alternative is less crowded and equally beautiful.",
+      "Lima deserves more time than most itineraries give it. Two to three days minimum.",
+      "The bus to Cusco from Puno (Lake Titicaca) is scenic and cheap. The train to Aguas Calientes is worth the upgrade."
+    ],
+    "vibe_tags": ["ancient ruins", "seafood", "mountains", "food culture", "Amazon", "hiking"],
+    "photo": ""
+  },
+  {
+    "id": 10,
+    "name": "Portugal",
+    "code": "PT",
+    "region": "europe",
+    "status": "dreaming",
+    "tagline": "Fado, custard tarts, and a melancholy beauty that gets under your skin.",
+    "description": "Portugal has been in vogue for years now and still manages to feel unhurried — the country moves at a pace that makes you want to extend your trip by a week and read in a café for an afternoon without guilt. The food is simple and exceptional, the wine is criminally underpriced, and the light on the Alentejo plains in the evening is a particular shade of gold.",
+    "best_time": "April–June, September–October",
+    "language": "Portuguese",
+    "currency": "Euro (€)",
+    "cities": [
+      { "name": "Lisbon", "notes": "Seven hills, vintage trams, fado drifting from open windows at night. Alfama at dusk. The best custard tart in the world at Pastéis de Belém." },
+      { "name": "Porto", "notes": "Ribeira's tiled facades, the Douro River, port wine caves across in Vila Nova de Gaia. A smaller, more intimate city than Lisbon." },
+      { "name": "Alentejo", "notes": "Cork trees, wheat plains, medieval walled towns, and some of the best red wine in Europe. The slow travel antidote." },
+      { "name": "Algarve", "notes": "The southern coast: limestone cliffs, hidden sea caves, and towns that haven't fully given in to the resorts." }
+    ],
+    "food": [
+      { "name": "Pastel de nata", "notes": "Custard tart in flaky pastry, dusted with cinnamon and powdered sugar. Best eaten warm at a stand-up counter with a bica (espresso)." },
+      { "name": "Bacalhau", "notes": "Salt cod prepared 365 ways — this is not an exaggeration. À brás (with eggs and chips), com natas (with cream), cozido with vegetables." },
+      { "name": "Bifanas", "notes": "Marinated pork on a crusty roll. The Portuguese sandwich that makes everything else feel under-seasoned." },
+      { "name": "Grilled sardines", "notes": "Charcoal-grilled, eaten whole with bread and a glass of vinho verde. June's Santo António festival in Lisbon is the peak moment." },
+      { "name": "Francesinha", "notes": "Porto's legendary hangover sandwich: bread, meat, more meat, melted cheese, and a beer-and-tomato sauce poured over the top." }
+    ],
+    "tips": [
+      "Eat lunch at a restaurant with a menu do dia — set lunch of soup, main, and dessert for €10-12 is standard.",
+      "The Douro Valley by train is one of the great rail journeys in Europe. Pinhão is worth an overnight stop.",
+      "Lisbon's trams are scenic but slow. The Metro is fast. Learn both.",
+      "Vinho verde isn't just white — the red version is excellent and rarely exported. Drink it there."
+    ],
+    "vibe_tags": ["fado", "tiles", "seafood", "wine", "coastal", "slow living"],
+    "photo": ""
+  },
+  {
+    "id": 11,
+    "name": "Argentina",
+    "code": "AR",
+    "region": "americas",
+    "status": "dreaming",
+    "tagline": "Steak, red wine, tango, and Patagonia's end-of-the-world drama.",
+    "description": "Argentina is a country of superlatives and extremes — the world's greatest steakhouses in Buenos Aires, the otherworldly granite towers of Patagonia, the salt flats of Jujuy, and a wine country centered on Mendoza that gives Bordeaux a serious argument. The people are intense, opinionated, and exactly the kind of company you want over a long dinner.",
+    "best_time": "October–April (south), all year (north)",
+    "language": "Spanish",
+    "currency": "Peso ($)",
+    "cities": [
+      { "name": "Buenos Aires", "notes": "Paris crossed with chaos. Palermo's leafy streets, San Telmo's antique markets, La Boca's painted buildings. Dinner starts at 10pm and nobody finds this unusual." },
+      { "name": "Mendoza", "notes": "High-altitude malbec vineyards at the foot of the Andes. Bicycle between bodegas and eat an asado lunch under the grape vines." },
+      { "name": "Bariloche", "notes": "Lakes, peaks, Swiss-style chocolate shops, and the gateway to hiking Patagonia's northern circuit." },
+      { "name": "El Calafate / El Chaltén", "notes": "The Perito Moreno Glacier calves ice into the water. The Fitz Roy range at dawn in El Chaltén looks like a painting no one would believe." }
+    ],
+    "food": [
+      { "name": "Asado", "notes": "Not just a grill — a ritual. Hours of slow charcoal cooking, the parrillero tending the meat with the seriousness of a priest. Chorizo, morcilla, beef ribs, then the main cut." },
+      { "name": "Empanadas", "notes": "Baked or fried, each province with its own folding technique and filling. Saltenas in the north, humita in Mendoza. The filling code is in the crimping." },
+      { "name": "Malbec", "notes": "The grape Argentina made its own. High-altitude Mendoza versions are structured and extraordinary. Drink as much as you can while you're there." },
+      { "name": "Dulce de leche", "notes": "Caramelized milk spread on everything. In ice cream, on toast, inside alfajores. The country runs on it." }
+    ],
+    "tips": [
+      "Argentina's economy means exchange rates shift constantly — arrive informed about the best way to exchange currency.",
+      "Dinner genuinely starts at 9 or 10pm. Showing up at 7pm means eating alone in an empty restaurant.",
+      "Patagonia requires planning — trails, buses, and huts book out months in advance in high season.",
+      "Learn a few words of lunfardo (Buenos Aires slang) — it's not Spanish Spanish and locals appreciate the effort."
+    ],
+    "vibe_tags": ["asado", "tango", "wine", "Patagonia", "glaciers", "city energy"],
+    "photo": ""
+  },
+  {
+    "id": 12,
+    "name": "India",
+    "code": "IN",
+    "region": "asia",
+    "status": "dreaming",
+    "tagline": "A civilization so dense and layered it takes multiple trips to even begin.",
+    "description": "India is not a single experience — it's a subcontinent of contradictions operating simultaneously at full volume. The temples of Rajasthan, the Kerala backwaters, the Himalayan foothills, the chaos of Delhi, the calmness of Varanasi at dawn on the Ganga. Every region has its own cuisine, language, and emotional register, and a month barely touches it.",
+    "best_time": "October–March",
+    "language": "Hindi, English (22 official languages)",
+    "currency": "Rupee (₹)",
+    "cities": [
+      { "name": "Varanasi", "notes": "One of the oldest cities on earth. The ghats at dawn, the evening aarti, the burning ghats — confrontational, sacred, unlike anywhere else." },
+      { "name": "Jaipur", "notes": "The Pink City: Amer Fort, Hawa Mahal, spice markets. The gateway to Rajasthan's desert forts and palaces." },
+      { "name": "Kerala", "notes": "Backwaters by houseboat, coconut-heavy cuisine, Ayurvedic treatments, tiger reserves. The slow south." },
+      { "name": "Mumbai", "notes": "The city that never sleeps, means it. Dharavi, Marine Drive at night, street food at Mohammed Ali Road, the art deco Oval Maidan." }
+    ],
+    "food": [
+      { "name": "Dosa", "notes": "Fermented rice and lentil crepe, crisp at the edges, with sambar and coconut chutney. South India's contribution to the world." },
+      { "name": "Biryani", "notes": "Every city swears its version is superior — Hyderabadi dum biryani, Lucknowi with its subtle spicing, Kolkata's with potatoes." },
+      { "name": "Thali", "notes": "A complete meal on one plate — dal, sabzi, rice, roti, pickle, papad. The logic of balance expressed through food." },
+      { "name": "Chaat", "notes": "Delhi street food: pani puri, bhel puri, aloo tikki. Sour, spicy, sweet, crunchy, all at once. Eaten standing up at a cart." },
+      { "name": "Masala chai", "notes": "Ginger, cardamom, black tea, milk, sugar. From a clay cup by the side of the road. The daily ritual that keeps the country moving." }
+    ],
+    "tips": [
+      "Book trains through IRCTC well in advance — the rail network is extraordinary but popular routes fill fast.",
+      "Stomach adjustment is real. Eat street food, but start gradually. Your gut needs a week to calibrate.",
+      "Remove shoes at temples, cover heads at Sikh gurudwaras, dress conservatively in religious sites.",
+      "The distance between two pins on a map tells you nothing about how long it takes to get between them."
+    ],
+    "vibe_tags": ["temples", "street food", "history", "mountains", "chaos", "spirituality"],
+    "photo": ""
+  },
+  {
+    "id": 13,
+    "name": "New Zealand",
+    "code": "NZ",
+    "region": "oceania",
+    "status": "dreaming",
+    "tagline": "Two islands, five climates, and landscapes that feel computer-generated.",
+    "description": "New Zealand's scale is deceptive — you think you can cover it in two weeks and then you realize the South Island alone could take a month. The landscapes shift from fjords to glaciers to volcanic plains to golden beaches within a day's drive, and the hiking (tramping, they call it) is among the best and most accessible in the world.",
+    "best_time": "December–February (summer), March–April (shoulder)",
+    "language": "English, Māori",
+    "currency": "New Zealand Dollar (NZ$)",
+    "cities": [
+      { "name": "Queenstown", "notes": "Adventure sports capital, Remarkables ski resort, Milford Sound day trips. Overhyped as a party town but extraordinary as a landscape base." },
+      { "name": "Auckland", "notes": "Volcanic island city. Sky Tower views, Waiheke Island wine day trip, Ponsonby's food scene." },
+      { "name": "Christchurch", "notes": "Rebuilt after the earthquake in unexpectedly creative ways — shipping container malls, guerrilla art, a city reimagining itself." },
+      { "name": "Rotorua", "notes": "Geothermal landscape: bubbling mud pools, geysers, sulfur in the air. The Māori cultural experience here is the most accessible in the country." }
+    ],
+    "food": [
+      { "name": "Hāngī", "notes": "Māori earth oven cooking — chicken, pork, kumara, and root vegetables steamed underground. The flavor is unlike anything cooked above ground." },
+      { "name": "Pavlova", "notes": "Meringue shell, whipped cream, kiwi and passionfruit on top. New Zealand and Australia both claim it. The debate is eternal." },
+      { "name": "Green-lipped mussels", "notes": "Enormous, fresh, eaten steamed with white wine and herbs. The best ones come from the South Island's Marlborough Sounds." },
+      { "name": "Flat white", "notes": "New Zealand's contribution to coffee culture — smaller than a latte, stronger, better ratio. The origin of a global category." }
+    ],
+    "tips": [
+      "Rent a campervan for the South Island — it's the best way to stop where the light is right and change plans freely.",
+      "Book Great Walk huts (Milford Track, Routeburn) months ahead. They sell out fast.",
+      "The drive from Queenstown to Milford Sound is best done in a day — go early, return for sunset over the lake.",
+      "Weather changes extremely fast, especially in the south. Layers even in summer."
+    ],
+    "vibe_tags": ["hiking", "fjords", "adventure", "Māori culture", "road trip", "landscapes"],
+    "photo": ""
+  },
+  {
+    "id": 14,
+    "name": "Iceland",
+    "code": "IS",
+    "region": "europe",
+    "status": "dreaming",
+    "tagline": "Midnight sun, northern lights, and a country built on fire and ice.",
+    "description": "Iceland is geologically young and in constant motion — new land is still forming in the Reykjanes Peninsula and the glaciers that cover the interior are retreating fast enough to mark on a decade's timeline. The light in summer doesn't set, and in winter, on a clear night away from Reykjavik, the northern lights are the most quietly overwhelming thing in nature.",
+    "best_time": "June–August (midnight sun), September–March (northern lights)",
+    "language": "Icelandic",
+    "currency": "Króna (kr)",
+    "cities": [
+      { "name": "Reykjavik", "notes": "The world's northernmost capital. Small, walkable, colorful. Laugavegur street, Hallgrímskirkja church, the best hot dog in Europe at Bæjarins Beztu." },
+      { "name": "Snæfellsnes Peninsula", "notes": "Glacier volcano, lava fields, black sand beaches, and the lighthouse at the world's edge. Jules Verne's journey to the center of the earth starts here." },
+      { "name": "Jökulsárlón", "notes": "A glacial lagoon where icebergs calve off Vatnajökull and float to a black sand beach. The ice is blue. The seals sit on it." },
+      { "name": "Landmannalaugar", "notes": "Multicolored rhyolite mountains in the highland interior. The start of the Laugavegur Trek and one of the most alien landscapes on earth." }
+    ],
+    "food": [
+      { "name": "Skyr", "notes": "Not quite yogurt, not quite cheese. Thick, protein-dense, slightly sour. The base of every Icelandic breakfast for a thousand years." },
+      { "name": "Lamb", "notes": "Free-range on volcanic grass all summer. The meat is leaner and more complex than anything that was penned. Grilled, roasted, in lamb soup." },
+      { "name": "Plokkfiskur", "notes": "Fish stew: haddock or cod, potatoes, onion, béchamel. The kind of food that makes sense when it's 2°C and the wind is serious." },
+      { "name": "Rúgbrauð", "notes": "Dense rye bread, traditionally baked in geothermal ground. With Icelandic butter and smoked salmon, it's a remarkable thing." }
+    ],
+    "tips": [
+      "A rental car (ideally 4WD) is essential. Public transport doesn't reach the landscapes you came for.",
+      "The Ring Road (Route 1) is 1,300km and doable in 7–10 days. Don't rush the south coast.",
+      "Northern lights require clear skies and solar activity. Have a backup plan, be flexible.",
+      "The Blue Lagoon is a tourist trap. The Myvatn Nature Baths in the north are better, emptier, and less expensive."
+    ],
+    "vibe_tags": ["northern lights", "glaciers", "volcanoes", "midnight sun", "hiking", "hot springs"],
+    "photo": ""
+  },
+  {
+    "id": 15,
+    "name": "Mexico",
+    "code": "MX",
+    "region": "americas",
+    "status": "planning",
+    "tagline": "The country that invented corn, chocolate, and the world's most complex sauces.",
+    "description": "Mexico's food alone justifies the trip — it is one of only a handful of national cuisines with UNESCO Intangible Cultural Heritage status, and eating your way through Oaxaca's moles, Mexico City's tacos al pastor, and Yucatán's cochinita pibil is enough reason to return repeatedly. The culture, archaeological sites, and Pacific and Caribbean coasts are everything else you didn't expect.",
+    "best_time": "November–April",
+    "language": "Spanish",
+    "currency": "Peso ($)",
+    "cities": [
+      { "name": "Mexico City", "notes": "Overwhelming, exciting, and one of the great food cities on earth. Roma and Condesa for brunch and natural wine, Coyoacán for Frida Kahlo, the Zócalo for everything." },
+      { "name": "Oaxaca", "notes": "The food and mezcal capital. Seven moles, tlayudas, memelas, chapulines. The Saturday market at Tlacolula is unmissable." },
+      { "name": "Mérida", "notes": "The Yucatán's cultural capital — colonial plazas, hammocks, cochinita pibil for Sunday breakfast, Chichen Itza a day trip away." },
+      { "name": "San Cristóbal de las Casas", "notes": "Highland Chiapas town surrounded by indigenous Maya communities. Amber, textiles, cold nights, and some of the best coffee in Mexico." }
+    ],
+    "food": [
+      { "name": "Tacos al pastor", "notes": "Pork marinated in achiote and dried chilis, carved from a vertical spit, served with pineapple and salsa on a corn tortilla. Mexico City's street masterpiece." },
+      { "name": "Mole negro", "notes": "Oaxaca's signature sauce: 30+ ingredients including chilis, chocolate, and charred tortilla. Hours to make, impossible to fully understand." },
+      { "name": "Cochinita pibil", "notes": "Slow-roasted pork marinated in bitter orange and achiote, wrapped in banana leaves, cooked underground. Yucatán's ancient technique." },
+      { "name": "Mezcal", "notes": "Oaxacan smoked agave spirit. Not tequila. Sipped slowly from a clay cup with an orange slice and sal de gusano." },
+      { "name": "Elote", "notes": "Grilled corn on a stick, covered in mayo, cheese, lime, and chile powder. The best street food in a country of extraordinary street food." }
+    ],
+    "tips": [
+      "Eat on the street. The taco stand that's been there for 30 years with the line out front will be better than the sit-down restaurant.",
+      "Mexico City's altitude (2,240m) and pollution can hit you the first day. Take it easy on arrival.",
+      "Oaxacan mezcal is not the same as what's exported. Drink papalometl or tobalá in a small mezcalería.",
+      "The overnight bus network is excellent, comfortable, and how locals travel between cities."
+    ],
+    "vibe_tags": ["tacos", "ancient ruins", "mezcal", "markets", "art", "beaches"],
+    "photo": ""
+  },
+  {
+    "id": 16,
+    "name": "Thailand",
+    "code": "TH",
+    "region": "asia",
+    "status": "dreaming",
+    "tagline": "Temples, street food, and an ocean the color of shallow water should not be.",
+    "description": "Thailand has been a backpacker standard for decades and still delivers — the temples are extraordinary, the food is cheap and exceptional, and the islands are exactly as beautiful as everyone says. The north is a different country from the south: Chiang Mai's mountains, night bazaars, and cooking schools vs the Andaman coast's limestone karsts and turquoise bays.",
+    "best_time": "November–February",
+    "language": "Thai",
+    "currency": "Baht (฿)",
+    "cities": [
+      { "name": "Bangkok", "notes": "Chaotic, vibrant, exhausting in the best sense. Wat Pho at sunrise, Chatuchak market on weekends, rooftop bars at night, pad see ew from a cart at 2am." },
+      { "name": "Chiang Mai", "notes": "The north's cultural capital: Doi Inthanon national park, Sunday Walking Street, Thai cooking classes in the old city." },
+      { "name": "Chiang Rai", "notes": "The White Temple (Wat Rong Khun) is as strange as it looks in photos. The Golden Triangle and tea plantations of Doi Mae Salong nearby." },
+      { "name": "Krabi / Railay", "notes": "Limestone sea cliffs, long-tail boats, beaches only accessible by water. The standard for what a Thai beach is supposed to be." }
+    ],
+    "food": [
+      { "name": "Pad thai", "notes": "The export version is nothing like the real thing: rice noodles, egg, shrimp, tamarind, fish sauce, lime, and bean sprouts from a wok over high flame." },
+      { "name": "Som tum", "notes": "Green papaya salad pounded in a mortar: sour, spicy, sweet, salty. Adjustable heat. The most refreshing thing in 35°C heat." },
+      { "name": "Khao soi", "notes": "Northern Thai coconut curry noodle soup with crispy noodles on top. Chiang Mai's signature dish and one of the great bowls in Asia." },
+      { "name": "Mango sticky rice", "notes": "Sweet glutinous rice, fresh mango, coconut cream sauce. Seasonal — best from April to June when the mangoes are ripe." },
+      { "name": "Tom yum goong", "notes": "Spicy-sour prawn soup with lemongrass, galangal, kaffir lime leaves, chili. The flavor is bright and aggressive in exactly the right measure." }
+    ],
+    "tips": [
+      "Remove shoes at temple entrances, keep shoulders and knees covered. A sarong serves both purposes.",
+      "The sleeper train from Bangkok to Chiang Mai is comfortable, scenic, and a classic way to travel.",
+      "Street food from carts and market stalls is safe and often superior to restaurants. The chef cooks one thing and does it well.",
+      "Songkran (Thai New Year, April) means a nationwide water fight. Plan around it or join it."
+    ],
+    "vibe_tags": ["temples", "street food", "islands", "snorkeling", "night markets", "spirituality"],
+    "photo": ""
+  },
+  {
+    "id": 17,
+    "name": "Spain",
+    "code": "ES",
+    "region": "europe",
+    "status": "dreaming",
+    "tagline": "Late dinners, afternoon siestas, and a country that takes pleasure seriously.",
+    "description": "Spain runs on a schedule that seems designed to maximize enjoyment: coffee and toast at 9am, pintxos at noon, proper lunch at 2pm, siesta, evening vermouth at 7pm, dinner at 10pm, then wherever the night goes. Each region — Basque Country, Catalonia, Andalusia, Galicia — operates with its own food culture and barely disguised sense of superiority about it.",
+    "best_time": "April–June, September–October",
+    "language": "Spanish (Castilian), Catalan, Basque, Galician",
+    "currency": "Euro (€)",
+    "cities": [
+      { "name": "San Sebastián", "notes": "More Michelin stars per capita than anywhere on earth. The pintxos bars of the old town — Gilda, anchovy on pepper on olive — are the introduction." },
+      { "name": "Barcelona", "notes": "Gaudí's unfinished city: the Sagrada Família, Park Güell, Casa Batlló. La Boqueria for morning coffee, El Born for the afternoon." },
+      { "name": "Seville", "notes": "Flamenco, orange trees, the Alcázar, and tapas culture at its most essential. The city is best in spring when the jacaranda bloom." },
+      { "name": "Granada", "notes": "The Alhambra at dawn, the Albaicín neighborhood across the valley, and tapas that come free with every drink." }
+    ],
+    "food": [
+      { "name": "Pintxos", "notes": "Basque Country's bar snacks: bread with anchovy, Gilda skewers, croquetas, txistorra sausage. The ritual is standing, ordering wine, and reaching for the plate." },
+      { "name": "Jamón ibérico de bellota", "notes": "Acorn-fed Iberian pig, aged 36+ months. The best is from Extremadura or Huelva. Thin-sliced at room temperature — no cooking required." },
+      { "name": "Paella valenciana", "notes": "From Valencia, not Barcelona. Rice, rabbit, chicken, green beans, saffron. Cooked in a paella pan over orange wood. The socarrat (crispy bottom) is the goal." },
+      { "name": "Tortilla española", "notes": "Potato and egg, cooked slowly in olive oil. Best eaten at room temperature at a bar counter with a glass of wine at noon." },
+      { "name": "Churros con chocolate", "notes": "Fried dough dipped in thick drinking chocolate. Served at 3am after a night out. Spain's most important contribution to late-night culture." }
+    ],
+    "tips": [
+      "Eat on Spanish time. Lunch at 2pm, dinner at 9:30pm. Arriving at 7pm gets you an empty restaurant and bad energy.",
+      "The AVE high-speed train connects Madrid, Barcelona, Seville, and Málaga. Often faster than flying city center to city center.",
+      "In Granada, tapas come free with drinks. Drink slowly, eat a lot.",
+      "August in Madrid or Seville is genuinely brutal — 42°C and everything moves underground."
+    ],
+    "vibe_tags": ["tapas", "flamenco", "architecture", "wine", "coastal", "food culture"],
+    "photo": ""
+  },
+  {
+    "id": 18,
+    "name": "Kenya",
+    "code": "KE",
+    "region": "africa",
+    "status": "dreaming",
+    "tagline": "The Maasai Mara at dawn, a million wildebeest, and a sky with no ceiling.",
+    "description": "Kenya holds the most dramatic wildlife spectacle on earth in the Maasai Mara's Great Migration, but the country is more than a single destination — Nairobi is a genuinely interesting city, the Rift Valley is geologically extraordinary, and the Swahili coast is largely untouched by mass tourism. The people, the light, and the scale of the landscape leave a mark.",
+    "best_time": "July–October (migration), January–February (dry season)",
+    "language": "Swahili, English",
+    "currency": "Kenyan Shilling (KSh)",
+    "cities": [
+      { "name": "Nairobi", "notes": "More layered than its reputation. Westlands for restaurants, Karen for the Blixen museum, Karura Forest for morning runs with colobus monkeys." },
+      { "name": "Maasai Mara", "notes": "The Great Migration of 1.5 million wildebeest crossing the Mara River from July to October. One of the defining animal spectacles on the planet." },
+      { "name": "Lamu", "notes": "Swahili island with no cars, donkeys instead of taxis, and one of the best-preserved old towns in East Africa. Dhow sailing, rooftop dinners." },
+      { "name": "Mount Kenya", "notes": "Africa's second-highest peak and its own ecosystem. The Chogoria route through bamboo forests and giant heather to the glaciers above." }
+    ],
+    "food": [
+      { "name": "Nyama choma", "notes": "Roasted goat or beef, eaten with kachumbari (tomato-onion salsa) and ugali. The centerpiece of any celebration and most Fridays." },
+      { "name": "Ugali", "notes": "Stiff maize porridge, the daily staple. Eaten by hand, used to scoop stews and vegetables. Simple, filling, grounding." },
+      { "name": "Pilau", "notes": "Swahili spiced rice: cardamom, cloves, cumin, cinnamon, cooked with meat. The coastal version of a dish that traveled the old spice routes." },
+      { "name": "Mandazi", "notes": "East African fried dough, lightly sweet with cardamom and coconut. Eaten with chai at breakfast or as a snack." }
+    ],
+    "tips": [
+      "A safari budget matters — the quality of camps and guides varies enormously. Research and spend where it counts.",
+      "The migration timing in the Mara is weather-dependent. Have flexibility around late July to October.",
+      "Nairobi to Mombasa by the SGR (Standard Gauge Railway) is fast, affordable, and comfortable.",
+      "Altitude sickness is possible in the Aberdare and Mount Kenya region — acclimatize before any serious hiking."
+    ],
+    "vibe_tags": ["safari", "wildlife", "Swahili coast", "hiking", "landscapes", "culture"],
+    "photo": ""
+  },
+  {
+    "id": 19,
+    "name": "Norway",
+    "code": "NO",
+    "region": "europe",
+    "status": "dreaming",
+    "tagline": "Fjords so still they look like mirrors, and a darkness that makes the light mean something.",
+    "description": "Norway's landscape is a specific kind of extreme — the fjords cut hundreds of meters deep into cliffs that rise vertically above you, and the light in summer goes golden at midnight and stays that way for hours. The cities are expensive but the wilderness is free, and the country rewards the effort of getting into it properly rather than passing through.",
+    "best_time": "May–September (fjords and midnight sun), November–February (northern lights)",
+    "language": "Norwegian",
+    "currency": "Krone (kr)",
+    "cities": [
+      { "name": "Bergen", "notes": "Gateway to the fjords. Bryggen's Hanseatic wharf, the Fløibanen funicular for views, and fish soup from the market by the harbor." },
+      { "name": "Flåm / Sognefjord", "notes": "The world's deepest fjord. The Flåm Railway descends through waterfalls from the mountain plateau to the water — one of the great train rides in Europe." },
+      { "name": "Tromsø", "notes": "The Arctic city and the best base for northern lights in Norway. Dog sledding, reindeer, and the aurora over the fjord." },
+      { "name": "Lofoten Islands", "notes": "Fishing villages on dramatic rocky peaks surrounded by sea. The most photogenic place in Norway and possibly in Europe." }
+    ],
+    "food": [
+      { "name": "Smoked salmon", "notes": "Norwegian Atlantic salmon, cold-smoked and thinly sliced. With rye bread, dill cream, capers. The Scandinavian open sandwich is the delivery vehicle." },
+      { "name": "Rakfisk", "notes": "Fermented trout — Norway's answer to hákarl. Eaten at Christmas, divisive, genuinely ancient. Acquired taste worth acquiring." },
+      { "name": "Kjøttkaker", "notes": "Norwegian meatballs in brown gravy with mashed potato and lingonberry jam. Comfort food for long dark winters." },
+      { "name": "Brunost", "notes": "Brown cheese made from whey. Caramel-sweet, sliced thin on waffles or crispbread. A uniquely Norwegian morning." }
+    ],
+    "tips": [
+      "Norway is expensive. Budget significantly more than the rest of Europe — cook where you can, eat lunch as the main meal.",
+      "The Hurtigruten coastal ferry from Bergen to Kirkenes is one of the great slow journeys in the world.",
+      "The Norway in a Nutshell route (train, bus, ferry, train) from Oslo to Bergen is a classic for a reason.",
+      "Daylight in summer is relentless — bring a good sleep mask."
+    ],
+    "vibe_tags": ["fjords", "northern lights", "hiking", "coastal", "midnight sun", "remote"],
+    "photo": ""
+  },
+  {
+    "id": 20,
+    "name": "Colombia",
+    "code": "CO",
+    "region": "americas",
+    "status": "dreaming",
+    "tagline": "Coffee country, Caribbean coast, and a city built on escalators into the hillside.",
+    "description": "Colombia has spent a decade becoming one of South America's most compelling destinations — Medellín's transformation from the world's most dangerous city to a design and innovation hub is remarkable, the coffee region is beautiful and accessible, and Cartagena's walled old city under the Caribbean sun is exactly as good as advertised. The country is still finding its voice and it's exciting to watch.",
+    "best_time": "December–March, June–August",
+    "language": "Spanish",
+    "currency": "Peso (COP)",
+    "cities": [
+      { "name": "Medellín", "notes": "The most transformed city in the hemisphere. El Poblado for nightlife, Laureles for locals, the cable cars and outdoor escalators into the comunas above the valley." },
+      { "name": "Cartagena", "notes": "Walled colonial city on the Caribbean. Bougainvillea over yellow walls, ceviche on the street, cumbia at night in the plaza." },
+      { "name": "Coffee Region (Salento)", "notes": "Wax palms in the Cocora Valley, coffee farm tours in the hills, small town squares with colonial architecture and cheap good food." },
+      { "name": "Bogotá", "notes": "High-altitude capital with one of Latin America's best food scenes. La Candelaria's colonial streets, Usaquén's antique market, the gold museum." }
+    ],
+    "food": [
+      { "name": "Arepas", "notes": "Grilled corn cakes in infinite varieties — con queso, con huevo, de choclo. Breakfast, lunch, snack, any time." },
+      { "name": "Bandeja paisa", "notes": "The Antioquian tray: rice, red beans, chicharrón, ground meat, chorizo, fried egg, avocado, arepa. A challenge and a reward." },
+      { "name": "Sancocho", "notes": "Thick stew of chicken, plantain, corn, and potato. The restorative lunch after the night before." },
+      { "name": "Colombian coffee", "notes": "Some of the best in the world, grown in the cloud forests of the coffee triangle. Tinto (black, small cup) or filtered — not the espresso style most tourists expect." },
+      { "name": "Ceviche costeño", "notes": "Cartagena's Caribbean version — shrimp and fish in tomato-based sauce with coconut, different from the Peruvian original and excellent in its own right." }
+    ],
+    "tips": [
+      "Safety has improved enormously but research neighborhoods before arriving and trust local advice on where to go after dark.",
+      "Altitude in Bogotá (2,600m) hits some people. Coffee region towns (1,800m) are gentler. Drink water.",
+      "Colombia's coffee region is compact and beautiful — a weekend is enough, a week is better.",
+      "Tip generously. The service economy here relies on it in a way that's more direct than Europe."
+    ],
+    "vibe_tags": ["coffee", "Caribbean coast", "colonial architecture", "hiking", "city energy", "nature"],
+    "photo": ""
+  }
+]

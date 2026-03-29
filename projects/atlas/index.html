@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas — A Travel Wishlist</title>
+<meta name="description" content="20 countries to explore — cities, food, and reasons to go.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal; font-display: swap; font-weight: 100 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/geist-mono:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+}
+@font-face {
+  font-family: 'Geist';
+  font-style: normal; font-display: swap; font-weight: 100 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/geist:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+}
+
+/* ── Dark (default) ── */
+:root {
+  --bg:        #0d1520;
+  --surface:   #131e2e;
+  --surface-2: #1a2840;
+  --surface-h: #1e304a;
+  --text-1:    #e8eef8;
+  --text-2:    #a8b8d0;
+  --text-3:    #6878a0;
+  --text-4:    #3a4868;
+  --border:    #1e3050;
+  --border-h:  #2a4068;
+  --accent:    #e8c872;
+  --accent-bg: rgba(232,200,114,0.08);
+  --shadow:    0 2px 12px rgba(0,0,0,0.4);
+  --shadow-h:  0 6px 24px rgba(0,0,0,0.6);
+  --asia:      #e07050;
+  --europe:    #6090e0;
+  --americas:  #50c080;
+  --africa:    #e8a840;
+  --oceania:   #40c8c0;
+  --asia-bg:   rgba(224,112,80,0.08);
+  --europe-bg: rgba(96,144,224,0.08);
+  --americas-bg: rgba(80,192,128,0.08);
+  --africa-bg: rgba(232,168,64,0.08);
+  --oceania-bg: rgba(64,200,192,0.08);
+}
+
+:root[data-theme="light"] {
+  --bg:        #f0ede4;
+  --surface:   #faf7f2;
+  --surface-2: #f2ede4;
+  --surface-h: #ede7dc;
+  --text-1:    #1a1814;
+  --text-2:    #3a3530;
+  --text-3:    #6a6258;
+  --text-4:    #9a9288;
+  --border:    #ddd8ce;
+  --border-h:  #c8c0b4;
+  --accent:    #1a3d6e;
+  --accent-bg: rgba(26,61,110,0.07);
+  --shadow:    0 2px 8px rgba(0,0,0,0.07);
+  --shadow-h:  0 6px 20px rgba(0,0,0,0.12);
+  --asia:      #c45030;
+  --europe:    #3a70c0;
+  --americas:  #2a9050;
+  --africa:    #c07820;
+  --oceania:   #1a9898;
+  --asia-bg:   rgba(196,80,48,0.07);
+  --europe-bg: rgba(58,112,192,0.07);
+  --americas-bg: rgba(42,144,80,0.07);
+  --africa-bg: rgba(192,120,32,0.07);
+  --oceania-bg: rgba(26,152,152,0.07);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Geist', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text-2);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ── Topbar ── */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center;
+  padding: 0 24px; height: 46px;
+  gap: 16px;
+  transition: background 0.3s, border-color 0.3s;
+}
+.back-link {
+  font-family: 'Geist Mono', monospace; font-size: 0.72rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--text-3); text-decoration: none; transition: color 0.2s;
+  flex-shrink: 0;
+}
+.back-link:hover { color: var(--accent); }
+.topbar-title {
+  font-family: 'Cormorant Garant', Georgia, serif;
+  font-size: 1.1rem; font-weight: 600; font-style: italic;
+  color: var(--text-1); letter-spacing: 0.5px;
+  flex: 1; text-align: center;
+}
+.topbar-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.wishlist-badge {
+  font-family: 'Geist Mono', monospace; font-size: 0.65rem;
+  color: var(--text-3); background: none; border: 1px solid var(--border);
+  border-radius: 20px; padding: 3px 10px;
+  cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; gap: 4px;
+}
+.wishlist-badge:hover, .wishlist-badge.active {
+  color: var(--accent); border-color: var(--accent);
+  background: var(--accent-bg);
+}
+.theme-btn {
+  font-size: 0.85rem; background: none; border: none;
+  cursor: pointer; color: var(--text-3); transition: color 0.2s;
+  padding: 4px; line-height: 1;
+}
+.theme-btn:hover { color: var(--text-1); }
+
+/* ── Catalog header ── */
+.catalog-header {
+  padding: 48px 24px 32px;
+  max-width: 1200px; margin: 0 auto;
+  text-align: center;
+}
+.catalog-eyebrow {
+  font-family: 'Geist Mono', monospace; font-size: 0.6rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--text-4); margin-bottom: 12px;
+}
+.catalog-title {
+  font-family: 'Cormorant Garant', Georgia, serif;
+  font-size: 3rem; font-weight: 600; font-style: italic;
+  color: var(--text-1); line-height: 1.1; margin-bottom: 10px;
+}
+.catalog-tagline {
+  font-size: 0.9rem; color: var(--text-3); letter-spacing: 0.3px;
+}
+.catalog-divider {
+  width: 40px; height: 1px; background: var(--border);
+  margin: 20px auto 0;
+}
+
+/* ── Filters ── */
+.filters-wrap {
+  position: sticky; top: 46px; z-index: 90;
+  background: var(--bg); border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  transition: background 0.3s, border-color 0.3s;
+}
+.filters-inner { max-width: 1200px; margin: 0 auto; }
+.region-strip {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px;
+}
+.region-pill {
+  font-family: 'Geist Mono', monospace; font-size: 0.62rem;
+  letter-spacing: 0.8px; text-transform: uppercase;
+  border: 1px solid var(--border); border-radius: 20px;
+  padding: 4px 12px; background: none; cursor: pointer;
+  color: var(--text-3); transition: all 0.2s;
+}
+.region-pill:hover { color: var(--text-1); border-color: var(--border-h); }
+.region-pill.active { color: var(--text-1); border-color: var(--text-3); background: var(--surface-2); }
+.region-pill[data-region="asia"].active    { color: var(--asia);     border-color: var(--asia);     background: var(--asia-bg); }
+.region-pill[data-region="europe"].active  { color: var(--europe);   border-color: var(--europe);   background: var(--europe-bg); }
+.region-pill[data-region="americas"].active{ color: var(--americas); border-color: var(--americas); background: var(--americas-bg); }
+.region-pill[data-region="africa"].active  { color: var(--africa);   border-color: var(--africa);   background: var(--africa-bg); }
+.region-pill[data-region="oceania"].active { color: var(--oceania);  border-color: var(--oceania);  background: var(--oceania-bg); }
+.filter-row {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.search-wrap { position: relative; flex: 1; min-width: 180px; }
+.search-wrap::before {
+  content: '⌕'; position: absolute; left: 10px; top: 50%;
+  transform: translateY(-50%); color: var(--text-4); font-size: 0.9rem;
+  pointer-events: none;
+}
+.search-input {
+  width: 100%; padding: 6px 10px 6px 28px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; color: var(--text-1); font-size: 0.8rem;
+  font-family: 'Geist', sans-serif;
+  transition: border-color 0.2s, background 0.2s;
+}
+.search-input:focus { outline: none; border-color: var(--border-h); }
+.search-input::placeholder { color: var(--text-4); }
+.filter-select {
+  padding: 6px 10px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 6px;
+  color: var(--text-2); font-size: 0.78rem;
+  font-family: 'Geist Mono', monospace;
+  cursor: pointer; transition: border-color 0.2s;
+}
+.filter-select:focus { outline: none; border-color: var(--border-h); }
+.result-meta {
+  max-width: 1200px; margin: 0 auto;
+  padding: 10px 24px 0;
+  font-family: 'Geist Mono', monospace; font-size: 0.65rem;
+  color: var(--text-4); letter-spacing: 0.5px;
+}
+
+/* ── Card grid ── */
+.card-grid {
+  max-width: 1200px; margin: 0 auto;
+  padding: 16px 24px 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 1100px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .card-grid { grid-template-columns: 1fr; } }
+
+/* ── Cards ── */
+.country-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--region-color, var(--border));
+  border-radius: 8px;
+  padding: 18px 18px 16px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s, border-color 0.2s;
+  box-shadow: var(--shadow);
+  text-decoration: none; color: inherit;
+  display: flex; flex-direction: column; gap: 10px;
+  animation: fadeUp 0.35s ease both;
+}
+.country-card:hover {
+  background: var(--surface-2);
+  box-shadow: var(--shadow-h);
+  transform: translateY(-2px);
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.card-top {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px;
+}
+.card-region-label {
+  font-family: 'Geist Mono', monospace; font-size: 0.58rem;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--region-color, var(--text-4));
+  display: flex; align-items: center; gap: 6px;
+}
+.card-status {
+  font-family: 'Geist Mono', monospace; font-size: 0.55rem;
+  letter-spacing: 0.8px; text-transform: uppercase;
+  color: var(--text-4); background: var(--surface-2);
+  border: 1px solid var(--border); border-radius: 10px;
+  padding: 2px 7px;
+}
+.card-status.planning { color: var(--accent); border-color: var(--accent); background: var(--accent-bg); }
+.card-status.visited  { color: var(--americas); border-color: var(--americas); background: var(--americas-bg); }
+.heart-btn {
+  background: none; border: none; cursor: pointer;
+  color: var(--text-4); font-size: 1rem; line-height: 1;
+  transition: color 0.2s, transform 0.15s;
+  padding: 0; flex-shrink: 0;
+}
+.heart-btn:hover { color: var(--text-2); }
+.heart-btn.saved { color: var(--accent); transform: scale(1.1); }
+.card-name {
+  font-family: 'Cormorant Garant', Georgia, serif;
+  font-size: 1.6rem; font-weight: 600; font-style: italic;
+  color: var(--text-1); line-height: 1.1;
+}
+.card-tagline {
+  font-size: 0.82rem; color: var(--text-3); line-height: 1.6;
+}
+.card-tags {
+  display: flex; flex-wrap: wrap; gap: 5px; margin-top: 2px;
+}
+.vibe-tag {
+  font-family: 'Geist Mono', monospace; font-size: 0.55rem;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  color: var(--text-4); background: var(--surface-2);
+  border: 1px solid var(--border); border-radius: 3px;
+  padding: 2px 6px;
+}
+
+/* ── Region color cascade ── */
+.rc-asia     { --region-color: var(--asia);     --region-bg: var(--asia-bg); }
+.rc-europe   { --region-color: var(--europe);   --region-bg: var(--europe-bg); }
+.rc-americas { --region-color: var(--americas); --region-bg: var(--americas-bg); }
+.rc-africa   { --region-color: var(--africa);   --region-bg: var(--africa-bg); }
+.rc-oceania  { --region-color: var(--oceania);  --region-bg: var(--oceania-bg); }
+
+/* ── Empty state ── */
+.empty-state {
+  grid-column: 1 / -1; text-align: center;
+  padding: 64px 24px; color: var(--text-4);
+  font-family: 'Geist Mono', monospace; font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+/* ── Detail view ── */
+#view-detail { display: none; }
+.detail-wrap { max-width: 1200px; margin: 0 auto; padding: 32px 24px 64px; }
+.detail-back {
+  font-family: 'Geist Mono', monospace; font-size: 0.68rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--text-3); background: none; border: none;
+  cursor: pointer; transition: color 0.2s; padding: 0; margin-bottom: 28px;
+  display: block;
+}
+.detail-back:hover { color: var(--accent); }
+.detail-region-label {
+  font-family: 'Geist Mono', monospace; font-size: 0.6rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--region-color, var(--text-4)); margin-bottom: 8px;
+}
+.detail-name {
+  font-family: 'Cormorant Garant', Georgia, serif;
+  font-size: 3.5rem; font-weight: 600; font-style: italic;
+  color: var(--text-1); line-height: 1; margin-bottom: 8px;
+}
+.detail-tagline {
+  font-size: 0.95rem; color: var(--text-3); font-style: italic;
+  margin-bottom: 24px; line-height: 1.7;
+}
+.detail-body {
+  display: grid; grid-template-columns: 2fr 1fr; gap: 0;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: var(--surface); overflow: hidden;
+  box-shadow: var(--shadow);
+}
+@media (max-width: 700px) {
+  .detail-body { grid-template-columns: 1fr; }
+  .detail-sidebar { border-top: 1px solid var(--border); border-left: none !important; }
+  .detail-name { font-size: 2.4rem; }
+}
+.detail-main {
+  padding: 32px 36px 40px;
+  border-right: 1px solid var(--border);
+}
+.detail-sidebar {
+  padding: 32px 24px 40px;
+  position: sticky; top: calc(46px + 24px); align-self: start;
+}
+.detail-section { margin-bottom: 32px; }
+.detail-section:last-child { margin-bottom: 0; }
+.detail-section-title {
+  font-family: 'Geist Mono', monospace; font-size: 0.58rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-4); margin-bottom: 16px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--border);
+}
+.detail-description {
+  font-size: 0.9rem; line-height: 1.85; color: var(--text-2);
+}
+.city-list, .food-list { display: flex; flex-direction: column; gap: 14px; }
+.city-item, .food-item {
+  display: flex; flex-direction: column; gap: 3px;
+}
+.city-name, .food-name {
+  font-weight: 600; font-size: 0.85rem; color: var(--text-1);
+  display: flex; align-items: center; gap: 7px;
+}
+.city-name::before {
+  content: ''; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--region-color, var(--border)); flex-shrink: 0;
+}
+.food-name::before {
+  content: ''; width: 5px; height: 5px; border-radius: 2px;
+  background: var(--region-color, var(--border)); flex-shrink: 0;
+}
+.city-notes, .food-notes {
+  font-size: 0.82rem; color: var(--text-3); line-height: 1.65;
+  padding-left: 12px;
+}
+.tips-list { display: flex; flex-direction: column; gap: 10px; }
+.tip-item {
+  font-size: 0.83rem; color: var(--text-2); line-height: 1.65;
+  display: flex; gap: 10px;
+}
+.tip-item::before {
+  content: '—'; color: var(--text-4); flex-shrink: 0; margin-top: 0.05em;
+}
+
+/* ── Sidebar meta ── */
+.meta-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+.meta-row { display: flex; flex-direction: column; gap: 2px; }
+.meta-label {
+  font-family: 'Geist Mono', monospace; font-size: 0.55rem;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-4);
+}
+.meta-value { font-size: 0.83rem; color: var(--text-1); }
+.meta-status {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'Geist Mono', monospace; font-size: 0.62rem;
+  letter-spacing: 0.8px; text-transform: uppercase;
+  padding: 3px 9px; border-radius: 12px; border: 1px solid var(--border);
+  color: var(--text-3); background: var(--surface-2);
+}
+.meta-status.planning { color: var(--accent); border-color: var(--accent); background: var(--accent-bg); }
+.meta-status.visited  { color: var(--americas); border-color: var(--americas); background: var(--americas-bg); }
+.sidebar-heart-btn {
+  width: 100%; padding: 10px; border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-2); color: var(--text-2);
+  font-family: 'Geist Mono', monospace; font-size: 0.68rem;
+  letter-spacing: 1px; text-transform: uppercase;
+  cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+}
+.sidebar-heart-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
+.sidebar-heart-btn.saved { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
+.sidebar-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 20px; }
+
+/* ── Responsive topbar ── */
+@media (max-width: 500px) {
+  .topbar { padding: 0 14px; }
+  .catalog-title { font-size: 2.2rem; }
+  .detail-main { padding: 20px; }
+  .detail-sidebar { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="../../index.html#lab" class="back-link">← Portfolio</a>
+  <div class="topbar-title">Atlas</div>
+  <div class="topbar-right">
+    <button class="wishlist-badge" id="wishlistBadge" onclick="toggleWishlistFilter()">
+      ♥ <span id="wishlistCount">0</span>
+    </button>
+    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">◐</button>
+  </div>
+</div>
+
+<!-- ══ CATALOG VIEW ══ -->
+<div id="view-catalog">
+
+  <div class="catalog-header">
+    <div class="catalog-eyebrow">Personal Travel Wishlist</div>
+    <div class="catalog-title">Atlas</div>
+    <div class="catalog-tagline">20 places. Infinite reasons to go.</div>
+    <div class="catalog-divider"></div>
+  </div>
+
+  <div class="filters-wrap">
+    <div class="filters-inner">
+      <div class="region-strip" id="regionStrip">
+        <button class="region-pill active" data-region="all">All</button>
+        <button class="region-pill" data-region="asia">Asia</button>
+        <button class="region-pill" data-region="europe">Europe</button>
+        <button class="region-pill" data-region="americas">Americas</button>
+        <button class="region-pill" data-region="africa">Africa</button>
+        <button class="region-pill" data-region="oceania">Oceania</button>
+      </div>
+      <div class="filter-row">
+        <div class="search-wrap">
+          <input type="search" class="search-input" id="searchInput" placeholder="Search countries, vibes, food…">
+        </div>
+        <select class="filter-select" id="statusFilter">
+          <option value="all">All statuses</option>
+          <option value="dreaming">Dreaming</option>
+          <option value="planning">Planning</option>
+          <option value="visited">Visited</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-meta" id="resultMeta"></div>
+  <div class="card-grid" id="cardGrid"></div>
+
+</div>
+
+<!-- ══ DETAIL VIEW ══ -->
+<div id="view-detail">
+  <div class="detail-wrap">
+    <button class="detail-back" onclick="showCatalog()">← Back to Atlas</button>
+    <div id="detailContent"></div>
+  </div>
+</div>
+
+<script>
+const REGION_LABELS = { asia: 'Asia', europe: 'Europe', americas: 'Americas', africa: 'Africa', oceania: 'Oceania' };
+const LS_KEY = 'atlas-wishlist';
+
+let allCountries = [];
+let activeRegion = 'all';
+let activeStatus = 'all';
+let showingWishlist = false;
+let searchTimer = null;
+let savedIds = new Set(JSON.parse(localStorage.getItem(LS_KEY) || '[]'));
+
+function savePersist() {
+  localStorage.setItem(LS_KEY, JSON.stringify([...savedIds]));
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function slug(name) {
+  return name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+}
+
+function applyFilters() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  let results = allCountries.filter(c => {
+    if (activeRegion !== 'all' && c.region !== activeRegion) return false;
+    if (activeStatus !== 'all' && c.status !== activeStatus) return false;
+    if (showingWishlist && !savedIds.has(c.id)) return false;
+    if (q) {
+      const hay = [c.name, c.tagline, c.description, ...(c.vibe_tags || []),
+                   ...(c.food || []).map(f => f.name)].join(' ').toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  renderCards(results);
+  document.getElementById('resultMeta').textContent =
+    results.length + ' countr' + (results.length === 1 ? 'y' : 'ies');
+}
+
+function renderCards(countries) {
+  const grid = document.getElementById('cardGrid');
+  if (!countries.length) {
+    grid.innerHTML = '<div class="empty-state">No countries match your filters.</div>';
+    return;
+  }
+  grid.innerHTML = countries.map((c, i) => {
+    const isSaved = savedIds.has(c.id);
+    const tags = (c.vibe_tags || []).slice(0, 4).map(t => `<span class="vibe-tag">${esc(t)}</span>`).join('');
+    return `
+      <div class="country-card rc-${c.region}" style="animation-delay:${i * 0.04}s"
+           onclick="handleCardClick(event, ${c.id})">
+        <div class="card-top">
+          <div class="card-region-label">${esc(REGION_LABELS[c.region] || c.region)}</div>
+          <div style="display:flex;align-items:center;gap:7px">
+            <span class="card-status ${c.status}">${esc(c.status)}</span>
+            <button class="heart-btn ${isSaved ? 'saved' : ''}"
+                    onclick="toggleWishlist(event, ${c.id})"
+                    aria-label="${isSaved ? 'Remove from wishlist' : 'Add to wishlist'}">
+              ${isSaved ? '♥' : '♡'}
+            </button>
+          </div>
+        </div>
+        <div class="card-name">${esc(c.name)}</div>
+        <div class="card-tagline">${esc(c.tagline)}</div>
+        ${tags ? `<div class="card-tags">${tags}</div>` : ''}
+      </div>`;
+  }).join('');
+}
+
+function handleCardClick(e, id) {
+  if (e.target.closest('.heart-btn')) return;
+  showDetail(id);
+}
+
+function showDetail(id) {
+  const c = allCountries.find(x => x.id === id);
+  if (!c) return;
+  const isSaved = savedIds.has(c.id);
+  const regionLabel = REGION_LABELS[c.region] || c.region;
+
+  const cities = (c.cities || []).map(x =>
+    `<div class="city-item">
+      <div class="city-name">${esc(x.name)}</div>
+      <div class="city-notes">${esc(x.notes)}</div>
+    </div>`).join('');
+
+  const food = (c.food || []).map(x =>
+    `<div class="food-item">
+      <div class="food-name">${esc(x.name)}</div>
+      <div class="food-notes">${esc(x.notes)}</div>
+    </div>`).join('');
+
+  const tips = (c.tips || []).map(t =>
+    `<div class="tip-item">${esc(t)}</div>`).join('');
+
+  const tags = (c.vibe_tags || []).map(t =>
+    `<span class="vibe-tag">${esc(t)}</span>`).join('');
+
+  document.getElementById('detailContent').innerHTML = `
+    <div class="rc-${c.region}" style="--region-color: var(--${c.region})">
+      <div class="detail-region-label">${esc(regionLabel)}</div>
+      <div class="detail-name">${esc(c.name)}</div>
+      <div class="detail-tagline">"${esc(c.tagline)}"</div>
+      <div class="detail-body">
+        <div class="detail-main">
+          <div class="detail-section">
+            <div class="detail-section-title">About</div>
+            <div class="detail-description">${esc(c.description)}</div>
+          </div>
+          ${cities ? `<div class="detail-section">
+            <div class="detail-section-title">Cities to Visit</div>
+            <div class="city-list">${cities}</div>
+          </div>` : ''}
+          ${food ? `<div class="detail-section">
+            <div class="detail-section-title">Food to Try</div>
+            <div class="food-list">${food}</div>
+          </div>` : ''}
+          ${tips ? `<div class="detail-section">
+            <div class="detail-section-title">Tips</div>
+            <div class="tips-list">${tips}</div>
+          </div>` : ''}
+        </div>
+        <div class="detail-sidebar">
+          <div class="meta-list">
+            <div class="meta-row">
+              <div class="meta-label">Region</div>
+              <div class="meta-value">${esc(regionLabel)}</div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label">Status</div>
+              <div class="meta-value">
+                <span class="meta-status ${c.status}">${esc(c.status)}</span>
+              </div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label">Best Time</div>
+              <div class="meta-value">${esc(c.best_time)}</div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label">Language</div>
+              <div class="meta-value">${esc(c.language)}</div>
+            </div>
+            <div class="meta-row">
+              <div class="meta-label">Currency</div>
+              <div class="meta-value">${esc(c.currency)}</div>
+            </div>
+          </div>
+          <button class="sidebar-heart-btn ${isSaved ? 'saved' : ''}"
+                  id="sidebarHeart"
+                  onclick="toggleWishlistDetail(${c.id})">
+            ${isSaved ? '♥ Saved' : '♡ Add to Wishlist'}
+          </button>
+          ${tags ? `<div class="sidebar-tags">${tags}</div>` : ''}
+        </div>
+      </div>
+    </div>`;
+
+  document.getElementById('view-catalog').style.display = 'none';
+  document.getElementById('view-detail').style.display = 'block';
+  window.scrollTo(0, 0);
+  history.pushState({ view: 'detail', id }, '', '#' + slug(c.name));
+}
+
+function showCatalog() {
+  document.getElementById('view-detail').style.display = 'none';
+  document.getElementById('view-catalog').style.display = 'block';
+  history.pushState({ view: 'catalog' }, '', location.pathname);
+  updateWishlistBadge();
+}
+
+function toggleWishlist(e, id) {
+  e.stopPropagation();
+  if (savedIds.has(id)) { savedIds.delete(id); } else { savedIds.add(id); }
+  savePersist();
+  updateWishlistBadge();
+  applyFilters();
+}
+
+function toggleWishlistDetail(id) {
+  if (savedIds.has(id)) { savedIds.delete(id); } else { savedIds.add(id); }
+  savePersist();
+  updateWishlistBadge();
+  const btn = document.getElementById('sidebarHeart');
+  if (btn) {
+    btn.className = 'sidebar-heart-btn' + (savedIds.has(id) ? ' saved' : '');
+    btn.textContent = savedIds.has(id) ? '♥ Saved' : '♡ Add to Wishlist';
+  }
+}
+
+function toggleWishlistFilter() {
+  showingWishlist = !showingWishlist;
+  document.getElementById('wishlistBadge').classList.toggle('active', showingWishlist);
+  applyFilters();
+}
+
+function updateWishlistBadge() {
+  document.getElementById('wishlistCount').textContent = savedIds.size;
+}
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('atlas-theme', next);
+}
+
+// Region pills
+document.getElementById('regionStrip').addEventListener('click', e => {
+  const pill = e.target.closest('.region-pill');
+  if (!pill) return;
+  document.querySelectorAll('.region-pill').forEach(p => p.classList.remove('active'));
+  pill.classList.add('active');
+  activeRegion = pill.dataset.region;
+  applyFilters();
+});
+
+// Status filter
+document.getElementById('statusFilter').addEventListener('change', e => {
+  activeStatus = e.target.value;
+  applyFilters();
+});
+
+// Search
+document.getElementById('searchInput').addEventListener('input', () => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(applyFilters, 150);
+});
+
+// Hash routing
+window.addEventListener('popstate', e => {
+  if (e.state && e.state.view === 'detail') {
+    showDetail(e.state.id);
+  } else {
+    document.getElementById('view-detail').style.display = 'none';
+    document.getElementById('view-catalog').style.display = 'block';
+  }
+});
+
+// Init
+const savedTheme = localStorage.getItem('atlas-theme');
+if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+
+fetch('data/countries.json')
+  .then(r => r.json())
+  .then(data => {
+    allCountries = data;
+    updateWishlistBadge();
+    // Handle direct hash link
+    const hash = location.hash.slice(1);
+    if (hash) {
+      const match = allCountries.find(c => slug(c.name) === hash);
+      if (match) { showDetail(match.id); return; }
+    }
+    applyFilters();
+  })
+  .catch(() => {
+    document.getElementById('cardGrid').innerHTML =
+      '<div class="empty-state">Could not load countries. Run a local server.</div>';
+  });
+</script>
+</body>
+</html>
