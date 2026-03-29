@@ -54,6 +54,7 @@
     --indigo-bg: rgba(112,96,168,0.07);
     --red: #b04040;
     --red-bg: rgba(176,64,64,0.07);
+    --pipe-viz: #8a7050;
     --green: #5e7a62;
     --green-bg: rgba(94,122,98,0.07);
     --tag-border: rgba(94,122,98,0.22);
@@ -82,6 +83,7 @@
     --indigo-bg: rgba(160,144,212,0.08);
     --red: #d87070;
     --red-bg: rgba(216,112,112,0.08);
+    --pipe-viz: #c8a870;
     --green: #8aaa8e;
     --green-bg: rgba(138,170,142,0.08);
     --tag-border: rgba(138,170,142,0.22);
@@ -332,10 +334,17 @@
   .pipe-stage-2 { stroke: rgba(122,106,150,0.5); }
   .pipe-stage-3 { stroke: rgba(139,112,64,0.45); }
   .pipe-stage-4 { stroke: rgba(184,100,74,0.5); }
-  .pipe-label { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-anchor: middle; pointer-events: none; }
-  .pipe-sub { font-family: 'Geist', system-ui, sans-serif; font-size: 7.5px; text-anchor: middle; opacity: 0; transition: opacity 0.25s; pointer-events: none; }
+  .pipe-label { font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-anchor: middle; pointer-events: none; fill: currentColor; }
+  .pipe-sub { font-family: 'Geist', system-ui, sans-serif; font-size: 7.5px; text-anchor: middle; opacity: 0; transition: opacity 0.25s; pointer-events: none; fill: currentColor; }
   .pipe-group:hover .pipe-sub { opacity: 1; }
   .pipe-group:hover .pipe-stage { fill: var(--surface-hover); }
+  .pipe-g1 { color: var(--accent); }
+  .pipe-g2 { color: var(--indigo); }
+  .pipe-g3 { color: var(--pipe-viz); }
+  .pipe-g4 { color: var(--amber); }
+  .pipe-dot-1 { fill: var(--accent); }
+  .pipe-dot-2 { fill: var(--indigo); }
+  .pipe-dot-3 { fill: var(--pipe-viz); }
   .pipe-line { stroke: var(--text-4); stroke-width: 1.5; stroke-dasharray: 4,3; opacity: 0.35; }
 
   /* ── Staggered card reveal ── */
@@ -571,38 +580,38 @@
         <line class="pipe-line" x1="325" y1="40" x2="390" y2="40"/>
         <line class="pipe-line" x1="520" y1="40" x2="585" y2="40"/>
 
-        <g class="pipe-group" data-nav="skills">
+        <g class="pipe-group pipe-g1" data-nav="skills">
           <rect class="pipe-stage pipe-stage-1" x="0" y="15" width="130" height="50" rx="12"/>
-          <text class="pipe-label" x="65" y="44" fill="#5e7a62">INGEST</text>
-          <text class="pipe-sub" x="65" y="80" fill="#5e7a62">APIs · SFTP · Platforms · S3</text>
+          <text class="pipe-label" x="65" y="44">INGEST</text>
+          <text class="pipe-sub" x="65" y="80">APIs · SFTP · Platforms · S3</text>
         </g>
-        <g class="pipe-group" data-nav="skills">
+        <g class="pipe-group pipe-g2" data-nav="skills">
           <rect class="pipe-stage pipe-stage-2" x="195" y="15" width="130" height="50" rx="12"/>
-          <text class="pipe-label" x="260" y="44" fill="#7a6a96">TRANSFORM</text>
-          <text class="pipe-sub" x="260" y="80" fill="#7a6a96">Python · Matillion · Snowflake SQL</text>
+          <text class="pipe-label" x="260" y="44">TRANSFORM</text>
+          <text class="pipe-sub" x="260" y="80">Python · Matillion · Snowflake SQL</text>
         </g>
-        <g class="pipe-group" data-nav="projects">
+        <g class="pipe-group pipe-g3" data-nav="projects">
           <rect class="pipe-stage pipe-stage-3" x="390" y="15" width="130" height="50" rx="12"/>
-          <text class="pipe-label" x="455" y="44" fill="#8b7040">VISUALIZE</text>
-          <text class="pipe-sub" x="455" y="80" fill="#8b7040">Looker · Tableau · Automated reporting</text>
+          <text class="pipe-label" x="455" y="44">VISUALIZE</text>
+          <text class="pipe-sub" x="455" y="80">Looker · Tableau · Automated reporting</text>
         </g>
-        <g class="pipe-group" data-nav="experience">
+        <g class="pipe-group pipe-g4" data-nav="experience">
           <rect class="pipe-stage pipe-stage-4" x="585" y="15" width="130" height="50" rx="12"/>
-          <text class="pipe-label" x="650" y="44" fill="#b8644a">ANALYZE</text>
-          <text class="pipe-sub" x="650" y="80" fill="#b8644a">Performance · Budget · Anomalies</text>
+          <text class="pipe-label" x="650" y="44">ANALYZE</text>
+          <text class="pipe-sub" x="650" y="80">Performance · Budget · Anomalies</text>
         </g>
 
-        <circle r="3" fill="#5e7a62" opacity="0"><animateMotion dur="1.2s" begin="0s" repeatCount="indefinite" path="M130,40 L195,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0s" repeatCount="indefinite"/></circle>
-        <circle r="3" fill="#5e7a62" opacity="0"><animateMotion dur="1.2s" begin="0.4s" repeatCount="indefinite" path="M130,40 L195,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0.4s" repeatCount="indefinite"/></circle>
-        <circle r="3" fill="#5e7a62" opacity="0"><animateMotion dur="1.2s" begin="0.8s" repeatCount="indefinite" path="M130,40 L195,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0.8s" repeatCount="indefinite"/></circle>
+        <circle class="pipe-dot-1" r="3" opacity="0"><animateMotion dur="1.2s" begin="0s" repeatCount="indefinite" path="M130,40 L195,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0s" repeatCount="indefinite"/></circle>
+        <circle class="pipe-dot-1" r="3" opacity="0"><animateMotion dur="1.2s" begin="0.4s" repeatCount="indefinite" path="M130,40 L195,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0.4s" repeatCount="indefinite"/></circle>
+        <circle class="pipe-dot-1" r="3" opacity="0"><animateMotion dur="1.2s" begin="0.8s" repeatCount="indefinite" path="M130,40 L195,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0.8s" repeatCount="indefinite"/></circle>
 
-        <circle r="3" fill="#7a6a96" opacity="0"><animateMotion dur="1.2s" begin="0.15s" repeatCount="indefinite" path="M325,40 L390,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0.15s" repeatCount="indefinite"/></circle>
-        <circle r="3" fill="#7a6a96" opacity="0"><animateMotion dur="1.2s" begin="0.55s" repeatCount="indefinite" path="M325,40 L390,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0.55s" repeatCount="indefinite"/></circle>
-        <circle r="3" fill="#7a6a96" opacity="0"><animateMotion dur="1.2s" begin="0.95s" repeatCount="indefinite" path="M325,40 L390,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0.95s" repeatCount="indefinite"/></circle>
+        <circle class="pipe-dot-2" r="3" opacity="0"><animateMotion dur="1.2s" begin="0.15s" repeatCount="indefinite" path="M325,40 L390,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0.15s" repeatCount="indefinite"/></circle>
+        <circle class="pipe-dot-2" r="3" opacity="0"><animateMotion dur="1.2s" begin="0.55s" repeatCount="indefinite" path="M325,40 L390,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0.55s" repeatCount="indefinite"/></circle>
+        <circle class="pipe-dot-2" r="3" opacity="0"><animateMotion dur="1.2s" begin="0.95s" repeatCount="indefinite" path="M325,40 L390,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0.95s" repeatCount="indefinite"/></circle>
 
-        <circle r="3" fill="#8b7040" opacity="0"><animateMotion dur="1.2s" begin="0.3s" repeatCount="indefinite" path="M520,40 L585,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></circle>
-        <circle r="3" fill="#8b7040" opacity="0"><animateMotion dur="1.2s" begin="0.7s" repeatCount="indefinite" path="M520,40 L585,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0.7s" repeatCount="indefinite"/></circle>
-        <circle r="3" fill="#8b7040" opacity="0"><animateMotion dur="1.2s" begin="1.1s" repeatCount="indefinite" path="M520,40 L585,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="1.1s" repeatCount="indefinite"/></circle>
+        <circle class="pipe-dot-3" r="3" opacity="0"><animateMotion dur="1.2s" begin="0.3s" repeatCount="indefinite" path="M520,40 L585,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></circle>
+        <circle class="pipe-dot-3" r="3" opacity="0"><animateMotion dur="1.2s" begin="0.7s" repeatCount="indefinite" path="M520,40 L585,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="0.7s" repeatCount="indefinite"/></circle>
+        <circle class="pipe-dot-3" r="3" opacity="0"><animateMotion dur="1.2s" begin="1.1s" repeatCount="indefinite" path="M520,40 L585,40"/><animate attributeName="opacity" values="0;1;1;0" dur="1.2s" begin="1.1s" repeatCount="indefinite"/></circle>
       </svg>
     </div>
 
@@ -1100,7 +1109,7 @@
         <span class="lab-status lab-status-live">Live</span>
       </div>
       <div class="lab-title">Auteurs</div>
-      <p class="lab-desc">A personal index of 100 filmmakers I admire, filterable by era and nationality.</p>
+      <p class="lab-desc">A personal index of 100 filmmakers I admire, searchable and filterable by style tags.</p>
       <div class="lab-tags"><span>HTML</span><span>JSON</span></div>
     </a>
 

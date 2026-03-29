@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Page Not Found</title>
+<meta http-equiv="refresh" content="5;url=/">
+<style>
+  @font-face {
+    font-family: 'Geist Mono';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/geist-mono:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Geist Mono', monospace;
+    background: #1c2028;
+    color: #b4bcd0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .wrap { padding: 40px; }
+  .code {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #364050;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .msg {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7888a4;
+    margin-bottom: 32px;
+  }
+  a {
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #8aaa8e;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(138,170,142,0.3);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  a:hover { color: #a0c4a4; border-color: rgba(160,196,164,0.5); }
+  .redirect {
+    margin-top: 20px;
+    font-size: 0.6rem;
+    color: #4a5670;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="code">404</div>
+    <div class="msg">Page not found</div>
+    <a href="/">← Back to portfolio</a>
+    <div class="redirect">Redirecting in 5 seconds…</div>
+  </div>
+</body>
+</html>
