@@ -74,7 +74,7 @@ body {
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   display: flex; align-items: center;
-  padding: 0 28px; height: 50px; gap: 20px;
+  padding: 0 28px; height: 58px; gap: 20px;
 }
 .back-link {
   font-size: 0.6rem; letter-spacing: 1.5px; text-transform: uppercase;
@@ -84,7 +84,7 @@ body {
 .topbar-brand {
   flex: 1; text-align: center;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.25rem; letter-spacing: 5px; color: var(--text-1);
+  font-size: 1.8rem; letter-spacing: 8px; color: var(--text-1);
 }
 .topbar-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .saved-btn {
@@ -122,7 +122,7 @@ body {
 
 /* ══ FILTERS ══ */
 .filters-wrap {
-  position: sticky; top: 50px; z-index: 90;
+  position: sticky; top: 58px; z-index: 90;
   background: var(--bg); border-bottom: 1px solid var(--border);
   padding: 10px 28px;
 }
@@ -144,15 +144,22 @@ body {
 .filter-pill[data-region="africa"].active  { color: var(--africa);   border-color: var(--africa); background: rgba(208,144,48,0.08); }
 .filter-pill[data-region="oceania"].active { color: var(--oceania);  border-color: var(--oceania); background: rgba(56,176,168,0.08); }
 .filter-sep { width: 1px; height: 14px; background: var(--border); flex-shrink: 0; }
+.search-wrap {
+  flex: 1; min-width: 160px; position: relative; display: flex; align-items: center;
+}
+.search-icon {
+  position: absolute; left: 9px; font-size: 0.7rem; color: var(--text-4);
+  pointer-events: none; line-height: 1;
+}
 .search-input {
-  flex: 1; min-width: 160px;
-  padding: 5px 10px; background: var(--surface);
+  width: 100%;
+  padding: 5px 10px 5px 28px; background: var(--surface);
   border: 1px solid var(--border); border-radius: 1px;
   color: var(--text-1); font-size: 0.68rem;
   font-family: 'Geist Mono', monospace; letter-spacing: 0.5px;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
-.search-input:focus { outline: none; border-color: var(--border-2); }
+.search-input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold-dim); }
 .search-input::placeholder { color: var(--text-4); }
 
 /* ══ RESULT COUNT ══ */
@@ -183,8 +190,8 @@ body {
   animation: passIn 0.28s ease both;
 }
 .boarding-pass:hover {
-  box-shadow: 0 6px 28px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.3);
-  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.55), 0 3px 12px rgba(0,0,0,0.35);
+  transform: translateY(-4px);
   border-color: var(--border-2);
 }
 @keyframes passIn {
@@ -241,17 +248,22 @@ body {
 /* Italic tagline */
 .pass-tagline {
   font-family: 'Cormorant Garant', Georgia, serif;
-  font-size: 0.88rem; font-style: italic;
-  color: var(--text-3); line-height: 1.55;
-  max-width: 440px;
+  font-size: 1.05rem; font-style: italic;
+  color: var(--text-2); line-height: 1.55;
+  max-width: 440px; opacity: 0.88;
 }
 
 /* Vibe tags */
 .pass-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
 .pass-tag {
   font-size: 0.48rem; letter-spacing: 1px; text-transform: uppercase;
-  color: var(--text-4); border: 1px solid var(--border);
-  padding: 2px 6px;
+  color: var(--text-3); border: 1px solid var(--border-2);
+  background: var(--surface-2);
+  padding: 3px 7px; transition: all 0.15s; cursor: default;
+}
+.pass-tag:hover {
+  background: var(--gold-dim); border-color: var(--gold);
+  color: var(--gold);
 }
 
 /* ══ TEAR LINE ══ */
@@ -309,8 +321,8 @@ body {
   justify-content: space-between;
 }
 .stub-fields {
-  display: flex; flex-direction: column; gap: 11px;
-  margin-bottom: 14px;
+  display: flex; flex-direction: column; gap: 8px;
+  margin-bottom: 10px;
 }
 .stub-field { display: flex; flex-direction: column; gap: 2px; }
 .stub-label {
@@ -523,7 +535,10 @@ body {
     <button class="filter-pill" data-region="africa">Africa</button>
     <button class="filter-pill" data-region="oceania">Oceania</button>
     <div class="filter-sep"></div>
-    <input type="search" class="search-input" id="searchInput" placeholder="Search destinations…">
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input type="search" class="search-input" id="searchInput" placeholder="Search destinations…">
+    </div>
   </div>
 </div>
 
@@ -622,15 +637,19 @@ function renderPasses(list) {
       <div class="pass-stub">
         <div class="stub-fields">
           <div class="stub-field">
-            <div class="stub-label">Season</div>
+            <div class="stub-label">◷ Season</div>
             <div class="stub-value">${esc(c.best_time.split(',')[0])}</div>
           </div>
           <div class="stub-field">
-            <div class="stub-label">Language</div>
+            <div class="stub-label">⊕ Language</div>
             <div class="stub-value">${esc(c.language.split(',')[0].split('(')[0].trim())}</div>
           </div>
           <div class="stub-field">
-            <div class="stub-label">Status</div>
+            <div class="stub-label">✦ Vibe</div>
+            <div class="stub-value">${esc((c.vibe_tags||[])[0]||'—')}</div>
+          </div>
+          <div class="stub-field">
+            <div class="stub-label">◎ Status</div>
             <div class="stub-value"><span class="stub-status ${c.status}">${esc(c.status)}</span></div>
           </div>
         </div>
