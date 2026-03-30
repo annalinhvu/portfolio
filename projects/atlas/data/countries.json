@@ -1117,5 +1117,535 @@
       "remote"
     ],
     "photo": ""
+  },
+  {
+    "id": 20,
+    "name": "South Korea",
+    "code": "KR",
+    "region": "asia",
+    "status": "dreaming",
+    "tagline": "Where hyper-modernity and deep tradition share the same street corner.",
+    "description": "South Korea moves at a speed that is almost disorienting — a place that rebuilt itself entirely within living memory and then decided to export its culture to the rest of the world. Beneath the K-pop and tech economy is a country with centuries of ceramics, temple stays, and fermented everything. Seoul alone could keep you busy for a month.",
+    "best_time": "April–June, September–November",
+    "language": "Korean",
+    "currency": "Won (₩)",
+    "cities": [
+      {
+        "name": "Seoul",
+        "notes": "Gangnam for the glass towers, Bukchon for the hanok alleys, Hongdae for the energy at midnight. All of it in one city."
+      },
+      {
+        "name": "Busan",
+        "notes": "Coastal city with raw seafood markets at dawn, colorful hillside neighborhoods, and an entirely different tempo from Seoul."
+      },
+      {
+        "name": "Gyeongju",
+        "notes": "Ancient Silla capital with royal tombs rising from the city floor like green hills. History you can walk through."
+      }
+    ],
+    "food": [
+      {
+        "name": "Korean BBQ",
+        "notes": "The communal act of grilling meat at the table, with banchan accumulating around you. Samgyeopsal at midnight is a tradition."
+      },
+      {
+        "name": "Bibimbap",
+        "notes": "Rice, vegetables, gochujang, and an egg — simple but perfectly balanced when done right."
+      },
+      {
+        "name": "Jjigae",
+        "notes": "Bubbling stew that arrives still boiling at the table. Sundubu jjigae on a cold morning is unbeatable."
+      }
+    ],
+    "tips": [
+      "T-money card works on all transit — get one at the airport.",
+      "Convenience stores (GS25, CU) are a legitimate meal option at any hour.",
+      "Learn a few phrases in Korean — the effort is genuinely appreciated."
+    ],
+    "vibe_tags": [
+      "city energy",
+      "street food",
+      "ancient temples",
+      "nightlife",
+      "nature"
+    ],
+    "photo": ""
+  },
+  {
+    "id": 21,
+    "name": "Turkey",
+    "code": "TR",
+    "region": "europe",
+    "status": "dreaming",
+    "tagline": "Two continents, one country, and ten thousand years of being at the center of everything.",
+    "description": "Turkey sits at the hinge of civilizations — Byzantine, Ottoman, Greco-Roman, and Anatolian layers stacked so thick that digging for a new metro stop turns up another ancient city. Istanbul alone is an argument for staying a month. But then there is Cappadocia at sunrise and the turquoise Aegean and the southeast that most travelers never reach.",
+    "best_time": "April–May, September–October",
+    "language": "Turkish",
+    "currency": "Lira (₺)",
+    "cities": [
+      {
+        "name": "Istanbul",
+        "notes": "Hagia Sophia, the Grand Bazaar, rooftop tea with a Bosphorus view — and then the neighborhoods: Karaköy, Beyoğlu, Balat."
+      },
+      {
+        "name": "Cappadocia",
+        "notes": "Hot air balloons over fairy chimneys at first light. Underground cave cities carved by early Christians. Genuinely surreal."
+      },
+      {
+        "name": "Göreme",
+        "notes": "Base for Cappadocia — stay in a cave hotel carved from the tufa rock. Worth every cliché."
+      }
+    ],
+    "food": [
+      {
+        "name": "Meze spread",
+        "notes": "Dozens of small dishes — hummus, stuffed grape leaves, fried cheese, ezme — before the main event even arrives."
+      },
+      {
+        "name": "Kebap",
+        "notes": "Adana, İskender, döner — each city has its own and will politely insist theirs is the real one."
+      },
+      {
+        "name": "Baklava",
+        "notes": "Gaziantep is the capital of Turkish baklava. The pistachio version from the right shop will ruin all other desserts."
+      }
+    ],
+    "tips": [
+      "Book Cappadocia balloon rides months ahead — they sell out constantly.",
+      "The Turkish bath (hamam) is worth doing properly at a historic one.",
+      "Bargaining is expected at the Grand Bazaar — enjoy the ritual."
+    ],
+    "vibe_tags": [
+      "ancient history",
+      "food culture",
+      "landscapes",
+      "bazaars",
+      "coastal"
+    ],
+    "photo": ""
+  },
+  {
+    "id": 22,
+    "name": "Egypt",
+    "code": "EG",
+    "region": "africa",
+    "status": "dreaming",
+    "tagline": "The oldest civilization on earth, and it still manages to surprise you.",
+    "description": "Egypt is one of those places where you think you know it from photographs and then you stand in front of the pyramids and realize no image has ever come close. The scale is incomprehensible. Beyond Cairo there is Luxor's open-air museum of temples, the Valley of the Kings, the Nile's slow drift south, and a desert that goes on further than imagination allows.",
+    "best_time": "October–April",
+    "language": "Arabic",
+    "currency": "Egyptian Pound (E£)",
+    "cities": [
+      {
+        "name": "Cairo",
+        "notes": "Chaotic, loud, overwhelming, and completely alive. The Egyptian Museum, Khan el-Khalili, and the pyramids at Giza all in one day."
+      },
+      {
+        "name": "Luxor",
+        "notes": "East bank for temples, west bank for the Valley of the Kings. Cycling between sites at dawn before the heat arrives."
+      },
+      {
+        "name": "Aswan",
+        "notes": "Slower, quieter, and deeply Nubian. The Philae temple island at dusk is otherworldly."
+      }
+    ],
+    "food": [
+      {
+        "name": "Koshari",
+        "notes": "Cairo street food — lentils, pasta, rice, fried onions, and tomato sauce. Looks like chaos, tastes like comfort."
+      },
+      {
+        "name": "Ful medames",
+        "notes": "Fava bean breakfast eaten with flatbread everywhere. The Egyptian morning."
+      },
+      {
+        "name": "Grilled kofta",
+        "notes": "Spiced ground meat on skewers, with tahini and fresh bread. Deceptively simple."
+      }
+    ],
+    "tips": [
+      "Hire a local guide for Luxor — context turns ruins into stories.",
+      "Visit pyramids at Giza first thing in the morning, not midday.",
+      "Negotiate everything — it is part of the social contract, not an imposition."
+    ],
+    "vibe_tags": [
+      "ancient history",
+      "desert",
+      "river",
+      "archaeology",
+      "markets"
+    ],
+    "photo": ""
+  },
+  {
+    "id": 23,
+    "name": "Brazil",
+    "code": "BR",
+    "region": "americas",
+    "status": "dreaming",
+    "tagline": "The largest country in South America and somehow still feels like it has been held back from you.",
+    "description": "Brazil is so large it contains multitudes — the Amazon basin that holds a fifth of the world's freshwater, the otherworldly sand dunes of Lençóis Maranhenses, the Pantanal where wildlife viewing rivals any safari, and Rio de Janeiro, which is simply one of the most beautiful cities on earth in the most theatrical way possible.",
+    "best_time": "June–September (dry season)",
+    "language": "Portuguese",
+    "currency": "Real (R$)",
+    "cities": [
+      {
+        "name": "Rio de Janeiro",
+        "notes": "Ipanema and Copacabana are just the beginning — Lapa, Santa Teresa, the tram to Corcovado. The city is a film set."
+      },
+      {
+        "name": "Salvador",
+        "notes": "Afro-Brazilian culture in its richest form — Carnaval here is older and wilder than Rio's."
+      },
+      {
+        "name": "Manaus",
+        "notes": "Gateway to the Amazon. A 19th-century opera house in the middle of the jungle that still doesn't make sense."
+      }
+    ],
+    "food": [
+      {
+        "name": "Feijoada",
+        "notes": "Black bean and pork stew served with rice, farofa, and orange slices. The national dish, eaten slowly on Saturdays."
+      },
+      {
+        "name": "Churrasco",
+        "notes": "Brazilian BBQ done properly — endless skewers of different cuts brought to the table until you surrender."
+      },
+      {
+        "name": "Açaí",
+        "notes": "Cold, thick, topped with granola and banana. Eaten as a meal, not a snack, especially in Pará where it originates."
+      }
+    ],
+    "tips": [
+      "Learn basic Portuguese — English is not widely spoken outside tourist areas.",
+      "Book Amazon lodges far in advance for peak season.",
+      "Ubiquitous street food is usually the best food — trust the queue."
+    ],
+    "vibe_tags": [
+      "jungle",
+      "beaches",
+      "music",
+      "wildlife",
+      "carnival"
+    ],
+    "photo": ""
+  },
+  {
+    "id": 24,
+    "name": "Australia",
+    "code": "AU",
+    "region": "oceania",
+    "status": "dreaming",
+    "tagline": "A continent at the edge of the world, quietly holding some of the most extraordinary landscapes on earth.",
+    "description": "Australia rewards the traveler willing to go beyond the cities — though the cities themselves are excellent. The interior is ancient and vast in a way that resets something in the brain. The Great Barrier Reef is one of the last places on earth that makes you feel genuinely small. And the wildlife remains fundamentally alien to anyone who did not grow up with it.",
+    "best_time": "April–May, September–November",
+    "language": "English",
+    "currency": "Australian Dollar (A$)",
+    "cities": [
+      {
+        "name": "Sydney",
+        "notes": "Opera House and Harbour Bridge are the postcards, but Newtown and Glebe are the city. Bondi is as good as advertised."
+      },
+      {
+        "name": "Melbourne",
+        "notes": "Coffee culture, laneways full of street art, farmers markets, and a food scene that punches above any global city."
+      },
+      {
+        "name": "Uluru",
+        "notes": "The sandstone monolith at sunrise and sunset, as the color shifts from amber to deep red to violet. Cannot be photographed adequately."
+      }
+    ],
+    "food": [
+      {
+        "name": "Flat white",
+        "notes": "Australia's contribution to coffee culture — Melbourne especially takes this seriously in a way that is contagious."
+      },
+      {
+        "name": "Barramundi",
+        "notes": "Native fish, best grilled simply with lemon. Better at a coastal shack than anywhere fancy."
+      },
+      {
+        "name": "Meat pie",
+        "notes": "Humble pastry filled with beef and gravy. Found everywhere, essential at a footy game."
+      }
+    ],
+    "tips": [
+      "Distances are genuinely enormous — plan domestic flights, not drives.",
+      "Swim between the flags at beaches — rip currents are serious.",
+      "Respect Uluru — climbing is prohibited and the cultural significance is real."
+    ],
+    "vibe_tags": [
+      "wildlife",
+      "beaches",
+      "outback",
+      "city energy",
+      "nature"
+    ],
+    "photo": ""
+  },
+  {
+    "id": 25,
+    "name": "Croatia",
+    "code": "HR",
+    "region": "europe",
+    "status": "dreaming",
+    "tagline": "A coastline so absurdly beautiful it feels like someone was showing off.",
+    "description": "Croatia packs an extraordinary amount into a relatively small country — medieval walled cities on the Adriatic, over a thousand islands, waterfalls in the interior, and a food and wine scene that most of Europe is only just catching up to. Dubrovnik is the famous one, but it is the lesser-known islands and the Dalmatian coast towns that tend to convert people.",
+    "best_time": "May–June, September",
+    "language": "Croatian",
+    "currency": "Euro (€)",
+    "cities": [
+      {
+        "name": "Dubrovnik",
+        "notes": "Walk the city walls at dawn before the cruise ships arrive. The limestone streets glow orange in the early light."
+      },
+      {
+        "name": "Split",
+        "notes": "A Roman emperor's retirement palace that became a city — people still live inside Diocletian's Palace."
+      },
+      {
+        "name": "Hvar",
+        "notes": "Lavender fields, Venetian architecture, and the kind of swimming spots that make you understand why people move here."
+      }
+    ],
+    "food": [
+      {
+        "name": "Black risotto",
+        "notes": "Squid ink risotto from the Dalmatian coast — dramatic to look at, extraordinary to eat."
+      },
+      {
+        "name": "Peka",
+        "notes": "Lamb or octopus slow-cooked under a bell-shaped lid covered in embers. Must be ordered the day before."
+      },
+      {
+        "name": "Pag cheese",
+        "notes": "Sheep's milk cheese from the island of Pag, made from animals that graze on salt-blown herbs. Unique taste."
+      }
+    ],
+    "tips": [
+      "Come in May or September — July and August are beautiful but genuinely crowded.",
+      "Rent a small boat to reach the hidden coves that ferries don't stop at.",
+      "Try Plavac Mali wine — Croatia's Dalmatian red that is underappreciated globally."
+    ],
+    "vibe_tags": [
+      "coastal",
+      "ancient history",
+      "islands",
+      "food culture",
+      "hiking"
+    ],
+    "photo": ""
+  },
+  {
+    "id": 26,
+    "name": "Nepal",
+    "code": "NP",
+    "region": "asia",
+    "status": "dreaming",
+    "tagline": "Home to eight of the world's ten highest peaks, and somehow that undersells it.",
+    "description": "Nepal sits at a kind of physical extreme — the Himalayas dominate everything, culturally and literally. Kathmandu is a dense, layered city where Hindu and Buddhist traditions overlap on every corner. The trekking routes that head north toward Everest base camp or into the Annapurna circuit are among the most extraordinary walks available to any human being willing to put in the altitude.",
+    "best_time": "March–May, October–November",
+    "language": "Nepali",
+    "currency": "Nepalese Rupee (रू)",
+    "cities": [
+      {
+        "name": "Kathmandu",
+        "notes": "Durbar Square, Swayambhunath stupa at sunset, Thamel's organised chaos. Altitude hits at 1,400m — adjust first."
+      },
+      {
+        "name": "Pokhara",
+        "notes": "Gateway to Annapurna, with Phewa Lake in the valley and Machhapuchhre dominating the skyline. A good place to breathe."
+      },
+      {
+        "name": "Namche Bazaar",
+        "notes": "The Sherpa trading hub on the way to Everest — the last real town before the altitude becomes serious."
+      }
+    ],
+    "food": [
+      {
+        "name": "Dal bhat",
+        "notes": "Lentil soup, rice, vegetable curry, and pickles. Eaten twice a day by most Nepalis, refillable, and honestly sustaining."
+      },
+      {
+        "name": "Momo",
+        "notes": "Dumplings — steamed or fried, filled with meat or vegetables, served with a fiery tomato chutney. Everywhere."
+      },
+      {
+        "name": "Thukpa",
+        "notes": "Noodle soup eaten at altitude. Simple, warming, exactly what you need after a long day of trekking."
+      }
+    ],
+    "tips": [
+      "Acclimatize properly — altitude sickness is real and serious above 3,000m.",
+      "Hire a local guide and porter for trekking — it supports the community and they know the mountain.",
+      "Pack layers — temperature swings of 30°C between day and night are common."
+    ],
+    "vibe_tags": [
+      "hiking",
+      "mountains",
+      "ancient temples",
+      "nature",
+      "adventure"
+    ],
+    "photo": ""
+  },
+  {
+    "id": 27,
+    "name": "Tanzania",
+    "code": "TZ",
+    "region": "africa",
+    "status": "dreaming",
+    "tagline": "The Serengeti, Kilimanjaro, and Zanzibar — three entirely different worlds within one border.",
+    "description": "Tanzania holds some of the most iconic wildlife landscapes on earth, and unlike many safari destinations, the infrastructure exists to experience them without feeling manufactured. The Serengeti's great migration is one of the last great animal movements on the planet. Zanzibar's Stone Town carries eight centuries of Swahili, Arab, and colonial history in its narrow lanes. And Kilimanjaro remains the highest walkable peak on earth.",
+    "best_time": "June–October (dry season), January–February (calving season)",
+    "language": "Swahili, English",
+    "currency": "Tanzanian Shilling (TSh)",
+    "cities": [
+      {
+        "name": "Arusha",
+        "notes": "Gateway to the northern safari circuit and Kilimanjaro treks. Well-organized for logistics, but not where you'll spend most of your time."
+      },
+      {
+        "name": "Zanzibar",
+        "notes": "Stone Town's labyrinthine alleys, spice farms, and the white-sand beaches of Nungwi — different enough from the mainland to feel like a separate country."
+      },
+      {
+        "name": "Serengeti",
+        "notes": "Not a city but an experience. The sheer scale of the plains and the density of wildlife during migration is genuinely life-altering."
+      }
+    ],
+    "food": [
+      {
+        "name": "Zanzibar pizza",
+        "notes": "Stuffed flatbread cooked on a griddle in the night market. Misleadingly named, delicious, a local institution."
+      },
+      {
+        "name": "Nyama choma",
+        "notes": "Grilled meat — goat most commonly — eaten with ugali and kachumbari salsa. Simple and perfect."
+      },
+      {
+        "name": "Urojo soup",
+        "notes": "Zanzibar mix soup with coconut, lime, and a dozen ingredients. Found only in Stone Town, worth seeking out."
+      }
+    ],
+    "tips": [
+      "Book safaris through reputable operators — the difference in experience and conservation ethics matters.",
+      "Yellow fever vaccination is required for entry.",
+      "Respect local customs in Zanzibar — dress modestly outside beach areas."
+    ],
+    "vibe_tags": [
+      "wildlife",
+      "safari",
+      "beaches",
+      "hiking",
+      "nature"
+    ],
+    "photo": ""
+  },
+  {
+    "id": 28,
+    "name": "Cuba",
+    "code": "CU",
+    "region": "americas",
+    "status": "dreaming",
+    "tagline": "Frozen in a moment in time, and somehow more alive for it.",
+    "description": "Cuba exists in a state that is hard to explain until you're standing in it — a place where the colonial architecture is genuinely crumbling and genuinely beautiful, where 1950s American cars serve as taxis, and where the music spills out of every window at every hour. Havana is one of the most photogenic cities on earth, but Trinidad and the tobacco valley of Viñales are the parts that tend to stay with you longest.",
+    "best_time": "November–April (dry season)",
+    "language": "Spanish",
+    "currency": "Cuban Peso (CUP)",
+    "cities": [
+      {
+        "name": "Havana",
+        "notes": "Malecón at sunset, the old city on foot, mojitos at La Bodeguita del Medio — and then the real Havana, off the tourist map."
+      },
+      {
+        "name": "Trinidad",
+        "notes": "A UNESCO colonial town frozen in the 18th century, with cobblestone streets and salsa playing from the stairs of every casa."
+      },
+      {
+        "name": "Viñales",
+        "notes": "Tobacco farms in a valley of limestone mogotes. The cigars rolled by hand here are the ones worth bringing home."
+      }
+    ],
+    "food": [
+      {
+        "name": "Ropa vieja",
+        "notes": "Shredded slow-cooked beef in tomato sauce — Cuba's national dish, best from a local paladar, not a hotel."
+      },
+      {
+        "name": "Tostones",
+        "notes": "Twice-fried plantain, salted and served everywhere. The right accompaniment to almost anything."
+      },
+      {
+        "name": "Mojito",
+        "notes": "Rum, lime, mint, sugar, soda — in Cuba, this is not a cocktail-menu item but a fact of life."
+      }
+    ],
+    "tips": [
+      "Bring cash — US cards often don't work; exchange at a CADECA for the best rate.",
+      "Stay in casas particulares (private homestays) rather than state hotels for the real experience.",
+      "Download offline maps — internet access is limited and unreliable."
+    ],
+    "vibe_tags": [
+      "music",
+      "vintage",
+      "beaches",
+      "architecture",
+      "food culture"
+    ],
+    "photo": ""
+  },
+  {
+    "id": 29,
+    "name": "Switzerland",
+    "code": "CH",
+    "region": "europe",
+    "status": "dreaming",
+    "tagline": "The Alps, but make it also fondue and watches and trains that run to the second.",
+    "description": "Switzerland is almost aggressively beautiful — the kind of place that seems too composed to be real. The alpine landscapes are the obvious draw, but the cities are quietly excellent: Zürich for its lake and museums, Basel for its world-class art fairs, Geneva for the strange energy of a small city that hosts the planet's most serious conversations. And the food, which is better than its reputation suggests.",
+    "best_time": "June–September (summer), December–March (skiing)",
+    "language": "German, French, Italian, Romansh",
+    "currency": "Swiss Franc (CHF)",
+    "cities": [
+      {
+        "name": "Zürich",
+        "notes": "Lake Zürich, the old town, the Kunsthaus — and then the Bahnhofstrasse if you need to recalibrate your sense of wealth."
+      },
+      {
+        "name": "Zermatt",
+        "notes": "Car-free village below the Matterhorn. The mountain appears from different angles all day and never gets ordinary."
+      },
+      {
+        "name": "Lucerne",
+        "notes": "Chapel Bridge, the lake, the medieval walls — the most classically Swiss of the cities, in the best way."
+      }
+    ],
+    "food": [
+      {
+        "name": "Fondue",
+        "notes": "Gruyère and Emmental melted with white wine in a communal pot. Best eaten in a mountain restaurant after hiking."
+      },
+      {
+        "name": "Rösti",
+        "notes": "The Swiss-German answer to hash browns — crispy, buttery potato cake that accompanies almost everything."
+      },
+      {
+        "name": "Raclette",
+        "notes": "Melted cheese scraped over potatoes, pickles, and onions. Simple and completely satisfying."
+      }
+    ],
+    "tips": [
+      "The Swiss Travel Pass covers almost all trains, boats, and mountain railways — get it.",
+      "Book mountain railway tickets (Jungfraujoch, Gornergrat) in advance.",
+      "Budget generously — Switzerland is expensive in a way that still catches you off guard."
+    ],
+    "vibe_tags": [
+      "mountains",
+      "hiking",
+      "food culture",
+      "architecture",
+      "skiing"
+    ],
+    "photo": ""
   }
 ]
