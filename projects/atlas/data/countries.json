@@ -1647,5 +1647,176 @@
       "food culture"
     ],
     "photo": ""
+  },
+  {
+    "id": 31,
+    "name": "Canada",
+    "code": "CA",
+    "region": "americas",
+    "status": "dreaming",
+    "tagline": "Vast, quietly breathtaking, and chronically underestimated as a travel destination.",
+    "description": "Canada is the second-largest country on earth and most visitors see a tiny fraction of it. Quebec City feels genuinely European in a way that surprises people. British Columbia is one of the most beautiful places in the world. The Rockies around Banff and Jasper are the mountains that mountains aspire to be. And Toronto is a genuinely great city that tends to be overlooked next to Montreal.",
+    "best_time": "June–September (summer), December–March (skiing)",
+    "language": "English, French",
+    "currency": "Canadian Dollar (C$)",
+    "cities": [
+      {
+        "name": "Montreal",
+        "notes": "The most European city in North America — French language, incredible food scene, underground city in winter, festivals all summer."
+      },
+      {
+        "name": "Vancouver",
+        "notes": "Mountains, ocean, and old-growth forest within an hour of each other. The most naturally situated city on the continent."
+      },
+      {
+        "name": "Quebec City",
+        "notes": "The only walled city in North America. The Old Town at dusk feels like France with better maple syrup."
+      },
+      {
+        "name": "Banff",
+        "notes": "Turquoise glacial lakes, elk on the main street, and mountain views that feel excessive in the best way."
+      }
+    ],
+    "food": [
+      {
+        "name": "Poutine",
+        "notes": "Fries, cheese curds, and gravy. Essential in Quebec, particularly at 2am. La Banquise in Montreal is the benchmark."
+      },
+      {
+        "name": "Montreal bagels",
+        "notes": "Wood-fired, sweeter and denser than New York — the St-Viateur vs Fairmount debate is worth having in person."
+      },
+      {
+        "name": "Butter tarts",
+        "notes": "Flaky pastry filled with a gooey butter-sugar filling. The Canadian dessert that the rest of the world has not discovered yet."
+      }
+    ],
+    "tips": [
+      "VIA Rail trains between Montreal, Ottawa, Toronto, and Quebec City are scenic and worth taking once.",
+      "The national parks (Banff, Jasper, Algonquin) require advance planning in summer.",
+      "Quebec outside Montreal has very limited English — learning some French phrases is genuinely useful."
+    ],
+    "vibe_tags": [
+      "nature",
+      "mountains",
+      "city energy",
+      "food culture",
+      "skiing"
+    ],
+    "photo": ""
+  },
+  {
+    "id": 32,
+    "name": "China",
+    "code": "CN",
+    "region": "asia",
+    "status": "dreaming",
+    "tagline": "Five thousand years of civilization compressed into a country moving faster than any other.",
+    "description": "China is too large and too complex to summarize — a place where a Song dynasty garden and a hypermodern bullet train station share the same city block, and where the food alone could justify a lifetime of travel. The scale of everything here is genuinely different from anywhere else: the rivers, the mountains, the cities, the history, the population. The key is choosing a region and going deep.",
+    "best_time": "April–May, September–October",
+    "language": "Mandarin Chinese",
+    "currency": "Renminbi (¥)",
+    "cities": [
+      {
+        "name": "Beijing",
+        "notes": "The Forbidden City, the hutongs at dusk, Peking duck from Quanjude, the Great Wall at Mutianyu before the crowds. The imperial capital."
+      },
+      {
+        "name": "Shanghai",
+        "notes": "The Bund at night across from Pudong's skyline — two centuries of architecture facing each other across the Huangpu. Restless, global, excellent food."
+      },
+      {
+        "name": "Chengdu",
+        "notes": "The capital of Sichuan cuisine and the place to see giant pandas. A slower, more comfortable pace than the eastern megalopolises."
+      },
+      {
+        "name": "Guilin",
+        "notes": "Karst limestone peaks rising from rice fields and the Li River — the landscape that fills Chinese classical paintings. Genuinely looks like that."
+      }
+    ],
+    "food": [
+      {
+        "name": "Peking duck",
+        "notes": "Crispy lacquered skin wrapped with pancake, spring onion, and hoisin. An elaborate ceremony worth doing properly in Beijing."
+      },
+      {
+        "name": "Sichuan hotpot",
+        "notes": "Numbingly spicy broth with every ingredient imaginable. The communal ritual that defines Chengdu evenings."
+      },
+      {
+        "name": "Dim sum",
+        "notes": "The Cantonese tradition of small plates with tea — best done Sunday morning in a loud, chaotic restaurant with a trolley."
+      }
+    ],
+    "tips": [
+      "Download WeChat and set up Alipay before arriving — cash is increasingly obsolete in cities.",
+      "VPN is essential for accessing Google, Instagram, and most Western services.",
+      "The high-speed rail network is extraordinary — use it between cities instead of flying."
+    ],
+    "vibe_tags": [
+      "ancient history",
+      "food culture",
+      "city energy",
+      "nature",
+      "street food"
+    ],
+    "photo": ""
+  },
+  {
+    "id": 33,
+    "name": "Germany",
+    "code": "DE",
+    "region": "europe",
+    "status": "dreaming",
+    "tagline": "More interesting than its reputation, more layered than its stereotypes, and impossibly good at bread.",
+    "description": "Germany rewards the traveler willing to look past the obvious. Berlin is one of the most alive and culturally dense cities in Europe — still shaped by its division in ways that are visible on every block. Munich is the fairy tale version of Germany, compact and excellently fed. The Rhine valley, the Black Forest, and the Baltic coast are landscapes most visitors never reach. And the Christmas markets are not a cliché — they are genuinely wonderful.",
+    "best_time": "May–September, December (Christmas markets)",
+    "language": "German",
+    "currency": "Euro (€)",
+    "cities": [
+      {
+        "name": "Berlin",
+        "notes": "The East Side Gallery, Museum Island, Kreuzberg's food scene, the memorial at Checkpoint Charlie, and a club culture unlike any other city on earth."
+      },
+      {
+        "name": "Munich",
+        "notes": "Marienplatz, the English Garden, the Deutsches Museum, and Oktoberfest — but also a city worth exploring in any month."
+      },
+      {
+        "name": "Hamburg",
+        "notes": "The port city with the best fish market in Europe (Sunday, 5am), the Speicherstadt warehouse district, and an underrated dining scene."
+      },
+      {
+        "name": "Cologne",
+        "notes": "The cathedral that took 632 years to finish, the Rhine promenade, and the base for exploring the Rhineland wine country."
+      }
+    ],
+    "food": [
+      {
+        "name": "Bread",
+        "notes": "Germany has over 300 varieties of bread. A bakery breakfast of Brötchen with butter is a daily ritual that quickly becomes a craving."
+      },
+      {
+        "name": "Currywurst",
+        "notes": "Berlin street food — sliced sausage with curried ketchup. Humble, iconic, best from a Imbiss stand with a paper plate."
+      },
+      {
+        "name": "Pretzels and beer",
+        "notes": "Specifically in Bavaria, specifically in a beer garden, specifically with a Maß (one liter). The context matters enormously."
+      }
+    ],
+    "tips": [
+      "The Deutsche Bahn rail network connects everything — book in advance for the cheapest fares.",
+      "Berlin is cheap by European capital standards — give yourself more time than you think you need.",
+      "Museum Island in Berlin requires a full day; buy the combined ticket."
+    ],
+    "vibe_tags": [
+      "history",
+      "food culture",
+      "music",
+      "architecture",
+      "Christmas markets"
+    ],
+    "photo": ""
   }
 ]
