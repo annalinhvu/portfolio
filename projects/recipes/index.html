@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cơm Nhà  -  Recipe Index</title>
 <meta name="description" content="A personal Vietnamese recipe index  -  100 dishes from Northern, Central, and Southern Vietnam.">
-<meta name="theme-color" content="#4E7A55">
+<meta name="theme-color" content="#8b3e00">
 <meta property="og:title" content="Cơm Nhà  -  Recipe Index">
 <meta property="og:url" content="https://annalinhvu.github.io/portfolio/projects/recipes/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,13 +94,13 @@ body{
 
 /* ── Masthead ── */
 .masthead{
-  background:#1C3820;
+  background:#8b3e00;
   padding:52px 32px 40px;
   text-align:center;
   border-bottom:1px solid rgba(0,0,0,.2);
   position:relative;overflow:hidden;
 }
-:root[data-theme="dark"] .masthead{background:#0A1408}
+:root[data-theme="dark"] .masthead{background:#3a1500}
 .masthead::before{
   content:'';position:absolute;inset:0;
   background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30,4 C20,14 18,26 30,54 C42,26 40,14 30,4 Z' fill='none' stroke='%23FFFFFF' stroke-width='0.8' stroke-opacity='0.07'/%3E%3Cline x1='30' y1='4' x2='30' y2='54' stroke='%23FFFFFF' stroke-width='0.4' stroke-opacity='0.05'/%3E%3C/svg%3E");
@@ -109,38 +109,38 @@ body{
 .mast-rule{
   display:flex;align-items:center;justify-content:center;gap:12px;
   margin:0 auto 24px;position:relative;z-index:1;
-  color:rgba(180,210,160,.6);font-size:.46rem;letter-spacing:4px;
+  color:rgba(240,200,120,.6);font-size:.46rem;letter-spacing:4px;
 }
 .mast-rule::before,.mast-rule::after{
-  content:'';width:72px;height:1px;background:rgba(180,210,160,.25);
+  content:'';width:72px;height:1px;background:rgba(240,200,120,.25);
 }
 .masthead-title{
   font-family:'Playfair Display',Georgia,serif;
   font-size:clamp(2.8rem,7vw,5rem);
   font-weight:700;font-style:italic;
-  color:#EDE8D8;line-height:1;
+  color:#FFF0D8;line-height:1;
   letter-spacing:-.5px;
   margin-bottom:14px;position:relative;z-index:1;
   text-shadow:0 2px 18px rgba(0,0,0,.18);
 }
-:root[data-theme="dark"] .masthead-title{color:#DDE4C8}
+:root[data-theme="dark"] .masthead-title{color:#F8E0B8}
 .masthead-sub{
   font-family:Georgia,serif;font-style:italic;
-  font-size:.9rem;color:rgba(180,210,160,.8);
+  font-size:.9rem;color:rgba(240,200,120,.8);
   margin-bottom:22px;position:relative;z-index:1;
   letter-spacing:.5px;
 }
 .mast-rule-b{
   display:flex;align-items:center;justify-content:center;gap:12px;
   margin:0 auto 0;position:relative;z-index:1;
-  color:rgba(180,210,160,.6);font-size:.46rem;letter-spacing:4px;
+  color:rgba(240,200,120,.6);font-size:.46rem;letter-spacing:4px;
 }
 .mast-rule-b::before,.mast-rule-b::after{
-  content:'';width:72px;height:1px;background:rgba(180,210,160,.25);
+  content:'';width:72px;height:1px;background:rgba(240,200,120,.25);
 }
 .masthead-tag{
   font-size:.46rem;letter-spacing:2.5px;text-transform:uppercase;
-  color:rgba(180,210,160,.5);
+  color:rgba(240,200,120,.5);
   font-style:normal;position:relative;z-index:1;
 }
 
@@ -935,12 +935,12 @@ function applyFilters(){
 /* ── Helpers ── */
 const CAT_GRAD={
   light:{
-    noodles:'#D8C898', rice:'#B8CC9C', 'bánh':'#CEB888',
-    sides:'#A8C090', sweets:'#CEB4A0', drinks:'#A4B8A0',
+    noodles:'#E8C870', rice:'#D8B870', 'bánh':'#D4A060',
+    sides:'#C8A050', sweets:'#D8A878', drinks:'#C0B060',
   },
   dark:{
-    noodles:'#302610', rice:'#182C10', 'bánh':'#2E2010',
-    sides:'#162810', sweets:'#2C1E18', drinks:'#142018',
+    noodles:'#2A1800', rice:'#201400', 'bánh':'#281600',
+    sides:'#1c1200', sweets:'#281808', drinks:'#181200',
   },
 };
 const CAT_ICON={
