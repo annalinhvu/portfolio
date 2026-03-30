@@ -178,16 +178,21 @@ body {
 .pin-group:hover .pin-ring { filter: brightness(1.5); }
 .pin-group:hover .pin-dot  { filter: brightness(1.5); }
 .pin-label {
-  fill: var(--text-3);
-  font-size: 7.5px;
+  fill: var(--text-2);
+  font-size: 9px;
   font-family: 'Geist Mono', monospace;
   text-transform: uppercase;
   letter-spacing: 1px;
-  opacity: 0;
-  transition: opacity 0.15s;
+  opacity: 0.85;
   pointer-events: none;
+  /* halo so text reads against any map colour */
+  paint-order: stroke fill;
+  stroke: var(--bg);
+  stroke-width: 3.5px;
+  stroke-linejoin: round;
+  transition: fill 0.15s, opacity 0.15s;
 }
-.pin-group:hover .pin-label { opacity: 1; }
+.pin-group:hover .pin-label { fill: var(--text-1); opacity: 1; }
 .pin-saved-dot {
   fill: var(--gold);
   opacity: 0;
