@@ -19,7 +19,7 @@
 /* ══ PALETTE ══ */
 :root {
   --bg:       #181210;
-  --bg-2:     #201810;
+  --bg-2:     #1e1810;
   --surface:  #261e16;
   --surface-2:#2e2418;
   --stub-bg:  #221a12;
@@ -59,22 +59,24 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
 body {
   font-family: 'Geist Mono', monospace;
   background: var(--bg);
   color: var(--text-2);
   -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
+  overflow: hidden;
   transition: background 0.3s, color 0.3s;
 }
 
 /* ══ TOPBAR ══ */
 .topbar {
-  position: sticky; top: 0; z-index: 100;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 52px;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   display: flex; align-items: center;
-  padding: 0 28px; height: 58px; gap: 20px;
+  padding: 0 24px; gap: 16px;
 }
 .back-link {
   font-size: 0.6rem; letter-spacing: 1.5px; text-transform: uppercase;
@@ -88,404 +90,240 @@ body {
 }
 .topbar-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .saved-btn {
-  font-size: 0.58rem; letter-spacing: 1px; text-transform: uppercase;
+  font-size: 0.56rem; letter-spacing: 1px; text-transform: uppercase;
   color: var(--text-3); background: none;
   border: 1px solid var(--border); border-radius: 2px;
   padding: 4px 10px; cursor: pointer; transition: all 0.2s;
 }
-.saved-btn:hover, .saved-btn.active {
-  color: var(--gold); border-color: var(--gold); background: var(--gold-dim);
-}
+.saved-btn:hover, .saved-btn.active { color: var(--gold); border-color: var(--gold); background: var(--gold-dim); }
 .theme-btn {
-  font-size: 0.85rem; background: none; border: none;
+  font-size: 0.9rem; background: none; border: none;
   cursor: pointer; color: var(--text-3); transition: color 0.2s; padding: 4px;
 }
 .theme-btn:hover { color: var(--text-1); }
 
-/* ══ TAGLINE STRIP ══ */
-.tagline-strip {
+/* ══ CONTROLS ══ */
+.controls-bar {
+  position: fixed; top: 52px; left: 0; right: 0; z-index: 90;
+  height: 44px;
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
-  padding: 10px 28px;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 16px;
-}
-.tagline-text {
-  font-size: 0.6rem; letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--text-4);
-}
-.tagline-stamp {
-  display: flex; align-items: center; gap: 14px;
-  font-size: 0.56rem; letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--text-4);
-}
-.tagline-stamp span { color: var(--gold); }
-
-/* ══ FILTERS ══ */
-.filters-wrap {
-  position: sticky; top: 58px; z-index: 90;
-  background: var(--bg); border-bottom: 1px solid var(--border);
-  padding: 10px 28px;
-}
-.filters-inner {
-  max-width: 920px; margin: 0 auto;
-  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  padding: 0 24px;
+  display: flex; align-items: center; gap: 5px;
 }
 .filter-pill {
-  font-size: 0.56rem; letter-spacing: 1.5px; text-transform: uppercase;
+  font-size: 0.53rem; letter-spacing: 1.5px; text-transform: uppercase;
   border: 1px solid var(--border); border-radius: 1px;
-  padding: 5px 11px; background: none; cursor: pointer;
-  color: var(--text-3); transition: all 0.15s;
+  padding: 3px 9px; background: none; cursor: pointer;
+  color: var(--text-4); transition: all 0.15s; flex-shrink: 0; height: 26px;
 }
-.filter-pill:hover { color: var(--text-1); border-color: var(--border-2); }
+.filter-pill:hover { color: var(--text-2); border-color: var(--border-2); }
 .filter-pill.active { color: var(--text-1); border-color: var(--text-3); background: var(--surface-2); }
-.filter-pill[data-region="asia"].active    { color: var(--asia);     border-color: var(--asia); background: rgba(212,96,58,0.08); }
-.filter-pill[data-region="europe"].active  { color: var(--europe);   border-color: var(--europe); background: rgba(74,128,208,0.08); }
+.filter-pill[data-region="asia"].active    { color: var(--asia);     border-color: var(--asia);     background: rgba(212,96,58,0.08); }
+.filter-pill[data-region="europe"].active  { color: var(--europe);   border-color: var(--europe);   background: rgba(74,128,208,0.08); }
 .filter-pill[data-region="americas"].active{ color: var(--americas); border-color: var(--americas); background: rgba(72,168,104,0.08); }
-.filter-pill[data-region="africa"].active  { color: var(--africa);   border-color: var(--africa); background: rgba(208,144,48,0.08); }
-.filter-pill[data-region="oceania"].active { color: var(--oceania);  border-color: var(--oceania); background: rgba(56,176,168,0.08); }
-.filter-sep { width: 1px; height: 14px; background: var(--border); flex-shrink: 0; }
-.search-wrap {
-  flex: 1; min-width: 160px; position: relative; display: flex; align-items: center;
-}
-.search-icon {
-  position: absolute; left: 9px; font-size: 0.7rem; color: var(--text-4);
-  pointer-events: none; line-height: 1;
-}
+.filter-pill[data-region="africa"].active  { color: var(--africa);   border-color: var(--africa);   background: rgba(208,144,48,0.08); }
+.filter-pill[data-region="oceania"].active { color: var(--oceania);  border-color: var(--oceania);  background: rgba(56,176,168,0.08); }
+.filter-sep { width: 1px; height: 16px; background: var(--border); flex-shrink: 0; margin: 0 2px; }
+.search-wrap { flex: 1; min-width: 120px; max-width: 220px; position: relative; display: flex; align-items: center; }
+.search-icon { position: absolute; left: 8px; font-size: 0.7rem; color: var(--text-4); pointer-events: none; }
 .search-input {
-  width: 100%;
-  padding: 5px 10px 5px 28px; background: var(--surface);
-  border: 1px solid var(--border); border-radius: 1px;
-  color: var(--text-1); font-size: 0.68rem;
+  width: 100%; padding: 3px 8px 3px 26px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 1px;
+  color: var(--text-1); font-size: 0.62rem; height: 26px;
   font-family: 'Geist Mono', monospace; letter-spacing: 0.5px;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .search-input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold-dim); }
 .search-input::placeholder { color: var(--text-4); }
 
-/* ══ RESULT COUNT ══ */
-.result-count {
-  max-width: 920px; margin: 0 auto;
-  padding: 10px 28px 4px;
-  font-size: 0.54rem; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--text-4);
-}
-
-/* ══ PASS STACK ══ */
-.pass-stack {
-  max-width: 920px; margin: 0 auto;
-  padding: 10px 28px 80px;
-  display: flex; flex-direction: column; gap: 10px;
-}
-
-/* ══ BOARDING PASS ══ */
-.boarding-pass {
-  display: flex; align-items: stretch;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  cursor: pointer;
-  transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
-  overflow: visible; /* allow hole-punches to bleed out */
-  position: relative;
-  animation: passIn 0.28s ease both;
-}
-.boarding-pass:hover {
-  box-shadow: 0 10px 40px rgba(0,0,0,0.55), 0 3px 12px rgba(0,0,0,0.35);
-  transform: translateY(-4px);
-  border-color: var(--border-2);
-}
-@keyframes passIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Region left accent */
-.pass-accent {
-  width: 4px; flex-shrink: 0;
-  background: var(--region-color, var(--border));
-  border-radius: 4px 0 0 4px;
-}
-
-/* Pass main area */
-.pass-main {
-  flex: 1; min-width: 0;
-  display: flex; flex-direction: column;
-  padding: 18px 22px 16px;
-  gap: 8px;
-}
-
-/* Header row */
-.pass-header {
-  display: flex; align-items: center;
-}
-.pass-flight-no {
-  font-size: 0.54rem; letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--text-4);
-}
-
-/* Country name */
-.pass-country {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2.2rem, 4.5vw, 3rem);
-  letter-spacing: 5px; text-transform: uppercase;
-  color: var(--text-1); line-height: 1;
-}
-
-/* Italic tagline */
-.pass-tagline {
-  font-family: 'Cormorant Garant', Georgia, serif;
-  font-size: 1.05rem; font-style: italic;
-  color: var(--text-2); line-height: 1.55;
-  max-width: 440px; opacity: 0.88;
-}
-
-/* Vibe tags */
-.pass-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
-.pass-tag {
-  font-size: 0.48rem; letter-spacing: 1px; text-transform: uppercase;
-  color: var(--text-3); border: 1px solid var(--border-2);
-  background: var(--surface-2);
-  padding: 3px 7px; transition: all 0.15s; cursor: default;
-}
-.pass-tag:hover {
-  background: var(--gold-dim); border-color: var(--gold);
-  color: var(--gold);
-}
-
-/* ══ TEAR LINE ══ */
-.pass-tear {
-  width: 24px; flex-shrink: 0;
-  position: relative; align-self: stretch;
-  display: flex; align-items: center; justify-content: center;
-}
-/* The dashed vertical line */
-.pass-tear::after {
-  content: '';
-  position: absolute; left: 50%; top: 0; bottom: 0;
-  width: 1px; transform: translateX(-50%);
-  background: repeating-linear-gradient(
-    to bottom,
-    var(--border) 0px, var(--border) 5px,
-    transparent 5px, transparent 9px
-  );
-}
-/* Hole punch top */
-.pass-tear .hole-top,
-.pass-tear .hole-bot {
-  position: absolute; left: 50%; transform: translateX(-50%);
-  width: 18px; height: 9px;
+/* ══ MAP CONTAINER ══ */
+.map-wrap {
+  position: fixed;
+  top: 96px; left: 0; right: 0; bottom: 0;
+  overflow: hidden;
   background: var(--bg);
-  border: 1px solid var(--border);
-  z-index: 2;
 }
-.pass-tear .hole-top {
-  top: -1px;
-  border-radius: 0 0 9px 9px;
-  border-top: none;
+#world-map {
+  width: 100%; height: 100%; display: block;
 }
-.pass-tear .hole-bot {
-  bottom: -1px;
-  border-radius: 9px 9px 0 0;
-  border-bottom: none;
+.map-hint {
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+  font-size: 0.5rem; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-4); pointer-events: none; white-space: nowrap;
+  transition: opacity 0.4s;
 }
-
-/* ══ STUB ══ */
-.pass-stub {
-  width: 172px; flex-shrink: 0;
-  background: var(--stub-bg);
-  /* subtle diagonal stripe */
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      transparent 0, transparent 12px,
-      rgba(255,255,255,0.012) 12px, rgba(255,255,255,0.012) 13px
-    );
-  background-color: var(--stub-bg);
-  border-radius: 0 4px 4px 0;
-  padding: 16px 18px 14px;
-  display: flex; flex-direction: column; gap: 0;
-  justify-content: space-between;
-}
-.stub-fields {
-  display: flex; flex-direction: column; gap: 8px;
-  margin-bottom: 10px;
-}
-.stub-field { display: flex; flex-direction: column; gap: 2px; }
-.stub-label {
-  font-size: 0.46rem; letter-spacing: 2px; text-transform: uppercase;
+.map-loading-msg {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.58rem; letter-spacing: 2px; text-transform: uppercase;
   color: var(--text-4);
 }
-.stub-value {
-  font-size: 0.7rem; color: var(--text-1); letter-spacing: 0.2px;
-}
-.stub-status {
-  font-size: 0.5rem; letter-spacing: 1px; text-transform: uppercase;
-  padding: 2px 7px; border: 1px solid var(--border);
-  color: var(--text-3); display: inline-block;
-}
-.stub-status.planning { color: var(--gold); border-color: var(--gold); }
-.stub-status.visited  { color: var(--americas); border-color: var(--americas); }
 
-/* Fake barcode */
-.stub-barcode {
-  display: flex; gap: 1.5px; align-items: flex-end;
-  height: 24px; margin-bottom: 10px; opacity: 0.35;
+/* Map SVG elements */
+.sphere    { fill: var(--bg-2); }
+.graticule { fill: none; stroke: var(--border); stroke-width: 0.3px; opacity: 0.5; }
+.land      { fill: var(--surface); stroke: var(--border); stroke-width: 0.4px; }
+.flight-path {
+  fill: none; stroke-width: 1.2px;
+  stroke-linecap: round;
 }
-.stub-barcode span {
-  flex: 1; background: var(--text-2); border-radius: 0.5px;
-}
+.fp-asia     { stroke: var(--asia); }
+.fp-europe   { stroke: var(--europe); }
+.fp-americas { stroke: var(--americas); }
+.fp-africa   { stroke: var(--africa); }
+.fp-oceania  { stroke: var(--oceania); }
 
-/* Heart */
-.stub-heart {
+.pin-group { cursor: pointer; }
+.pin-group:hover .pin-ring { filter: brightness(1.5); }
+.pin-group:hover .pin-dot  { filter: brightness(1.5); }
+.pin-label {
+  fill: var(--text-3);
+  font-size: 7.5px;
+  font-family: 'Geist Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+}
+.pin-group:hover .pin-label { opacity: 1; }
+.pin-saved-dot {
+  fill: var(--gold);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.pin-saved-dot.visible { opacity: 1; }
+
+.nyc-marker { pointer-events: none; }
+.nyc-label { fill: var(--gold); font-size: 7px; font-family: 'Geist Mono', monospace; letter-spacing: 1.5px; opacity: 0.7; }
+
+/* ══ OVERLAY ══ */
+.overlay {
+  position: fixed; inset: 0; z-index: 150;
+  background: rgba(0,0,0,0.55);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s;
+}
+.overlay.visible { opacity: 1; pointer-events: all; }
+
+/* ══ SIDE PANEL ══ */
+.side-panel {
+  position: fixed;
+  right: -480px; top: 0; bottom: 0;
+  width: 440px;
+  background: var(--bg);
+  border-left: 1px solid var(--border);
+  z-index: 200;
+  overflow-y: auto;
+  transition: right 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex; flex-direction: column;
+}
+.side-panel.open { right: 0; }
+
+.panel-close {
+  position: absolute; top: 14px; right: 18px; z-index: 10;
   background: none; border: none; cursor: pointer;
-  font-size: 1rem; color: var(--text-4);
-  transition: color 0.2s, transform 0.15s; padding: 0; align-self: flex-end;
+  font-size: 1.3rem; color: var(--text-3); transition: color 0.2s; line-height: 1;
 }
-.stub-heart:hover { color: var(--text-2); }
-.stub-heart.saved { color: var(--gold); transform: scale(1.15); }
+.panel-close:hover { color: var(--text-1); }
 
-/* Region helpers */
+/* Panel boarding pass header */
+.panel-accent { height: 5px; background: var(--region-color, var(--border)); flex-shrink: 0; }
+.panel-pass-head {
+  padding: 24px 28px 20px; border-bottom: 1px solid var(--border);
+  position: relative; flex-shrink: 0;
+}
+.panel-meta {
+  font-size: 0.5rem; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--region-color, var(--text-4)); margin-bottom: 5px;
+}
+.panel-country {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 9vw, 4rem);
+  letter-spacing: 5px; color: var(--text-1); line-height: 0.93;
+  margin-bottom: 12px;
+}
+.panel-tagline {
+  font-family: 'Cormorant Garant', Georgia, serif;
+  font-size: 1.02rem; font-style: italic;
+  color: var(--text-2); line-height: 1.6; opacity: 0.85;
+}
+
+/* Panel meta fields */
+.panel-fields {
+  display: flex; flex-wrap: wrap; gap: 16px;
+  padding: 14px 28px 16px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.panel-field { display: flex; flex-direction: column; gap: 2px; }
+.panel-field-label { font-size: 0.43rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-4); }
+.panel-field-value { font-size: 0.7rem; color: var(--text-1); }
+.status-chip {
+  font-size: 0.44rem; letter-spacing: 1px; text-transform: uppercase;
+  padding: 2px 6px; border: 1px solid var(--border); color: var(--text-3); display: inline-block;
+}
+.status-chip.planning { color: var(--gold); border-color: var(--gold); }
+.status-chip.visited  { color: var(--americas); border-color: var(--americas); }
+
+/* Panel body */
+.panel-body {
+  flex: 1; padding: 20px 28px 0;
+  display: flex; flex-direction: column; gap: 20px;
+  overflow-y: auto;
+}
+.panel-section-label {
+  font-size: 0.44rem; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--text-4); margin-bottom: 11px;
+  padding-bottom: 7px; border-bottom: 1px solid var(--border);
+}
+.panel-section-text { font-size: 0.76rem; color: var(--text-2); line-height: 1.9; }
+.place-list, .food-list { display: flex; flex-direction: column; gap: 11px; }
+.place-name, .food-name {
+  font-size: 0.7rem; color: var(--text-1);
+  display: flex; align-items: center; gap: 7px; margin-bottom: 2px;
+}
+.place-name::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--region-color, var(--border)); flex-shrink: 0; }
+.food-name::before  { content: ''; width: 5px; height: 2px; background: var(--region-color, var(--border)); flex-shrink: 0; }
+.place-notes, .food-notes { font-size: 0.68rem; color: var(--text-3); line-height: 1.7; padding-left: 12px; }
+.tips-list { display: flex; flex-direction: column; gap: 8px; }
+.tip { font-size: 0.72rem; color: var(--text-2); line-height: 1.75; display: flex; gap: 10px; }
+.tip::before { content: '—'; color: var(--text-4); flex-shrink: 0; }
+
+/* Wishlist button — sticky bottom of panel */
+.panel-footer {
+  position: sticky; bottom: 0;
+  padding: 12px 28px 16px;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.wishlist-btn {
+  width: 100%; padding: 10px;
+  background: none; border: 1px solid var(--border); border-radius: 2px;
+  font-size: 0.56rem; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--text-2); cursor: pointer; transition: all 0.2s;
+  font-family: 'Geist Mono', monospace;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+}
+.wishlist-btn:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+.wishlist-btn.saved { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+
+/* Region cascade */
 .rc-asia     { --region-color: var(--asia); }
 .rc-europe   { --region-color: var(--europe); }
 .rc-americas { --region-color: var(--americas); }
 .rc-africa   { --region-color: var(--africa); }
 .rc-oceania  { --region-color: var(--oceania); }
 
-/* ══ EMPTY STATE ══ */
-.empty-state {
-  text-align: center; padding: 64px 24px;
-  color: var(--text-4); font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase;
-}
-
-/* ══ DETAIL VIEW ══ */
-#view-detail { display: none; }
-.detail-wrap { max-width: 920px; margin: 0 auto; padding: 36px 28px 80px; }
-.detail-back {
-  font-size: 0.58rem; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--text-3); background: none; border: none;
-  cursor: pointer; transition: color 0.2s; padding: 0; margin-bottom: 32px; display: block;
-}
-.detail-back:hover { color: var(--gold); }
-
-/* Detail pass header */
-.detail-pass {
-  display: flex; align-items: stretch;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 4px; overflow: visible;
-  margin-bottom: 24px; position: relative;
-}
-.detail-accent {
-  width: 6px; flex-shrink: 0;
-  background: var(--region-color, var(--border));
-  border-radius: 4px 0 0 4px;
-}
-.detail-pass-main {
-  flex: 1; padding: 28px 32px; display: flex; flex-direction: column; gap: 6px;
-}
-.detail-region-label {
-  font-size: 0.54rem; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--region-color, var(--text-4));
-}
-.detail-country {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3rem, 7vw, 4.8rem);
-  letter-spacing: 6px; color: var(--text-1); line-height: 0.95;
-}
-.detail-tagline {
-  font-family: 'Cormorant Garant', Georgia, serif;
-  font-size: 1.1rem; font-style: italic;
-  color: var(--text-3); line-height: 1.6; margin-top: 6px;
-}
-.detail-tear {
-  width: 24px; flex-shrink: 0; position: relative;
-  display: flex; align-items: center; justify-content: center;
-}
-.detail-tear::after {
-  content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
-  width: 1px; transform: translateX(-50%);
-  background: repeating-linear-gradient(
-    to bottom, var(--border) 0px, var(--border) 5px, transparent 5px, transparent 9px
-  );
-}
-.detail-tear .hole-top, .detail-tear .hole-bot {
-  position: absolute; left: 50%; transform: translateX(-50%);
-  width: 18px; height: 9px; background: var(--bg);
-  border: 1px solid var(--border); z-index: 2;
-}
-.detail-tear .hole-top { top: -1px; border-radius: 0 0 9px 9px; border-top: none; }
-.detail-tear .hole-bot { bottom: -1px; border-radius: 9px 9px 0 0; border-bottom: none; }
-.detail-stub {
-  width: 200px; flex-shrink: 0;
-  background: var(--stub-bg);
-  background-image: repeating-linear-gradient(
-    45deg, transparent 0, transparent 12px,
-    rgba(255,255,255,0.012) 12px, rgba(255,255,255,0.012) 13px
-  );
-  background-color: var(--stub-bg);
-  border-radius: 0 4px 4px 0;
-  padding: 26px 22px;
-  display: flex; flex-direction: column; gap: 14px; justify-content: space-between;
-}
-.detail-stub-field { display: flex; flex-direction: column; gap: 3px; }
-.detail-stub-label {
-  font-size: 0.46rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-4);
-}
-.detail-stub-value { font-size: 0.78rem; color: var(--text-1); }
-.detail-heart-btn {
-  width: 100%; padding: 10px;
-  background: none; border: 1px solid var(--border); border-radius: 2px;
-  font-size: 0.56rem; letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--text-2); cursor: pointer; transition: all 0.2s;
-  display: flex; align-items: center; justify-content: center; gap: 7px;
-}
-.detail-heart-btn:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
-.detail-heart-btn.saved { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
-
-/* Detail content */
-.detail-sections {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-}
-@media (max-width: 640px) { .detail-sections { grid-template-columns: 1fr; } }
-.detail-section {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 3px; padding: 20px 22px;
-}
-.detail-section.full { grid-column: 1 / -1; }
-.section-label {
-  font-size: 0.48rem; letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--text-4); margin-bottom: 14px;
-  padding-bottom: 8px; border-bottom: 1px solid var(--border);
-}
-.section-text { font-size: 0.8rem; color: var(--text-2); line-height: 1.9; }
-
-.place-list, .food-list { display: flex; flex-direction: column; gap: 13px; }
-.place-item, .food-item {}
-.place-name, .food-name {
-  font-size: 0.76rem; font-weight: 600; color: var(--text-1);
-  display: flex; align-items: center; gap: 8px; margin-bottom: 3px;
-}
-.place-name::before {
-  content: ''; width: 5px; height: 5px; border-radius: 50%;
-  background: var(--region-color, var(--border)); flex-shrink: 0;
-}
-.food-name::before {
-  content: ''; width: 5px; height: 2px;
-  background: var(--region-color, var(--border)); flex-shrink: 0;
-}
-.place-notes, .food-notes {
-  font-size: 0.74rem; color: var(--text-3); line-height: 1.7; padding-left: 13px;
-}
-.tips-list { display: flex; flex-direction: column; gap: 10px; }
-.tip { font-size: 0.76rem; color: var(--text-2); line-height: 1.75; display: flex; gap: 10px; }
-.tip::before { content: '—'; color: var(--text-4); flex-shrink: 0; }
-
 /* ══ RESPONSIVE ══ */
-@media (max-width: 580px) {
-  .pass-stub { width: 130px; padding: 14px; }
-  .pass-main { padding: 14px 16px; }
-  .pass-country { font-size: 1.8rem; }
-  .pass-iata { font-size: 1.1rem; }
-  .tagline-strip { flex-direction: column; align-items: flex-start; gap: 4px; }
+@media (max-width: 640px) {
+  body { overflow: auto; }
+  .map-wrap { position: relative; top: 0; height: 55vh; margin-top: 96px; }
+  .side-panel { width: 100%; right: -100%; }
+  .side-panel.open { right: 0; }
+  .topbar-brand { font-size: 1.4rem; letter-spacing: 5px; }
 }
 </style>
 </head>
@@ -496,264 +334,389 @@ body {
   <a href="../../index.html#lab" class="back-link">← Portfolio</a>
   <div class="topbar-brand">Departure Lounge</div>
   <div class="topbar-right">
-    <button class="saved-btn" id="savedBtn" onclick="toggleSavedFilter()">
-      ♥ <span id="savedCount">0</span>
-    </button>
+    <button class="saved-btn" id="savedBtn" onclick="toggleSavedFilter()">♥ <span id="savedCount">0</span></button>
     <button class="theme-btn" onclick="toggleTheme()">◐</button>
   </div>
 </div>
 
-<!-- TAGLINE STRIP -->
-<div class="tagline-strip">
-  <div class="tagline-text">Travel Bucket List &middot; Boarding passes not yet stamped</div>
-  <div class="tagline-stamp">
-    <span>✈</span> Next destination: <span>unknown</span>
+<!-- CONTROLS -->
+<div class="controls-bar">
+  <button class="filter-pill active" data-region="all">All</button>
+  <button class="filter-pill" data-region="asia">Asia</button>
+  <button class="filter-pill" data-region="europe">Europe</button>
+  <button class="filter-pill" data-region="americas">Americas</button>
+  <button class="filter-pill" data-region="africa">Africa</button>
+  <button class="filter-pill" data-region="oceania">Oceania</button>
+  <div class="filter-sep"></div>
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input type="search" class="search-input" id="searchInput" placeholder="Search…">
   </div>
 </div>
 
-<!-- FILTERS -->
-<div class="filters-wrap">
-  <div class="filters-inner">
-    <button class="filter-pill active" data-region="all">All</button>
-    <button class="filter-pill" data-region="asia">Asia</button>
-    <button class="filter-pill" data-region="europe">Europe</button>
-    <button class="filter-pill" data-region="americas">Americas</button>
-    <button class="filter-pill" data-region="africa">Africa</button>
-    <button class="filter-pill" data-region="oceania">Oceania</button>
-    <div class="filter-sep"></div>
-    <div class="search-wrap">
-      <span class="search-icon">⌕</span>
-      <input type="search" class="search-input" id="searchInput" placeholder="Search destinations…">
-    </div>
+<!-- MAP -->
+<div class="map-wrap" id="mapWrap">
+  <div class="map-loading-msg" id="mapLoading">Charting routes…</div>
+  <svg id="world-map"></svg>
+  <div class="map-hint" id="mapHint">Click a destination to board</div>
+</div>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closePanel()"></div>
+
+<!-- SIDE PANEL -->
+<div class="side-panel" id="sidePanel">
+  <button class="panel-close" onclick="closePanel()">×</button>
+  <div id="panelInner"></div>
+  <div class="panel-footer">
+    <button class="wishlist-btn" id="wishlistBtn" onclick="toggleWishlist()">
+      <span id="wishlistHeart">♡</span><span id="wishlistLabel">Save to Wishlist</span>
+    </button>
   </div>
 </div>
 
-<!-- CATALOG VIEW -->
-<div id="view-catalog">
-  <div class="result-count" id="resultCount"></div>
-  <div class="pass-stack" id="passStack"></div>
-</div>
-
-<!-- DETAIL VIEW -->
-<div id="view-detail">
-  <div class="detail-wrap">
-    <button class="detail-back" onclick="showCatalog()">← Departure Lounge</button>
-    <div id="detailContent"></div>
-  </div>
-</div>
-
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <script>
-const REGION_LABELS = { asia:'Asia', europe:'Europe', americas:'Americas', africa:'Africa', oceania:'Oceania' };
-// Fake barcode heights — deterministic from id
-function barcode(id) {
-  const seed = [3,7,2,9,1,5,4,8,6,2,7,3,9,1,5,4,8,6,3,7,2,9,1];
-  const heights = [40,70,100,55,85,30,95,65,45,80,35,75,50,90,25,60,100,40,70,55,85,30,95];
-  let html = '';
-  for (let i = 0; i < 18; i++) {
-    const h = heights[(id * 3 + i * seed[i % seed.length]) % heights.length];
-    html += `<span style="height:${h}%"></span>`;
-  }
-  return html;
-}
+// ── CONSTANTS ─────────────────────────────────────
+const NYC      = [-74.006, 40.7128];
+const LS_KEY   = 'atlas-wishlist';
+const THEME_KEY= 'atlas-theme';
+const REGIONS  = { asia:'Asia', europe:'Europe', americas:'Americas', africa:'Africa', oceania:'Oceania' };
+const COORDS   = {
+  'Japan':       [138.25,  36.20], 'Italy':      [ 12.57,  41.87],
+  'Taiwan':      [120.96,  23.70], 'Ireland':    [ -8.24,  53.41],
+  'Greece':      [ 21.82,  39.07], 'France':     [  2.21,  46.23],
+  'Vietnam':     [108.28,  14.06], 'Morocco':    [ -7.09,  31.79],
+  'Argentina':   [-63.62, -38.42], 'Portugal':   [ -8.22,  39.40],
+  'Iceland':     [-19.02,  64.96], 'Mexico':     [-102.55, 23.63],
+  'Thailand':    [100.99,  15.87], 'Spain':      [ -3.75,  40.46],
+  'Norway':      [  8.47,  60.47], 'New Zealand':[174.89, -40.90],
+  'India':       [ 78.96,  20.59],
+};
 
-const LS_KEY = 'atlas-wishlist';
-let allCountries = [];
-let activeRegion = 'all';
-let showingSaved = false;
-let searchTimer = null;
-let savedIds = new Set(JSON.parse(localStorage.getItem(LS_KEY) || '[]'));
+// ── STATE ─────────────────────────────────────────
+let allCountries  = [];
+let activeRegion  = 'all';
+let showingSaved  = false;
+let currentId     = null;
+let savedIds      = new Set(JSON.parse(localStorage.getItem(LS_KEY) || '[]'));
+let mapSvg        = null;
+let mapProjection = null;
 
+// ── UTILS ─────────────────────────────────────────
+const esc = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const flightNo = id => 'DL ' + String(id).padStart(3,'0');
 function savePersist() { localStorage.setItem(LS_KEY, JSON.stringify([...savedIds])); }
-function esc(s) {
-  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-function slug(n) { return n.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,''); }
+function updateBadge() { document.getElementById('savedCount').textContent = savedIds.size; }
 
-// Simple flight number from id
-function flightNo(id) {
-  return 'DL ' + String(id).padStart(3,'0');
+// ── THEME ─────────────────────────────────────────
+function toggleTheme() {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem(THEME_KEY, next);
 }
+const _t = localStorage.getItem(THEME_KEY);
+if (_t) document.documentElement.setAttribute('data-theme', _t);
 
-function applyFilters() {
-  const q = document.getElementById('searchInput').value.trim().toLowerCase();
-  let res = allCountries.filter(c => {
-    if (activeRegion !== 'all' && c.region !== activeRegion) return false;
-    if (showingSaved && !savedIds.has(c.id)) return false;
-    if (q) {
-      const hay = [c.name, c.tagline, ...(c.vibe_tags||[]), ...(c.food||[]).map(f=>f.name)].join(' ').toLowerCase();
-      if (!hay.includes(q)) return false;
-    }
-    return true;
-  });
-  renderPasses(res);
-  document.getElementById('resultCount').textContent =
-    res.length + ' boarding pass' + (res.length===1?'':'es');
-}
-
-function renderPasses(list) {
-  const stack = document.getElementById('passStack');
-  if (!list.length) {
-    stack.innerHTML = '<div class="empty-state">No destinations match.</div>';
+// ── MAP ───────────────────────────────────────────
+async function initMap() {
+  if (typeof d3 === 'undefined') {
+    document.getElementById('mapLoading').textContent = 'Map unavailable — check connection.';
     return;
   }
-  stack.innerHTML = list.map((c, i) => {
-    const saved = savedIds.has(c.id);
-    const tags = (c.vibe_tags||[]).slice(0,4).map(t=>`<span class="pass-tag">${esc(t)}</span>`).join('');
-    return `
-    <div class="boarding-pass rc-${c.region}" style="animation-delay:${i*0.035}s"
-         onclick="handleClick(event,${c.id})">
-      <div class="pass-accent"></div>
-      <div class="pass-main">
-        <div class="pass-header">
-          <div class="pass-flight-no">${flightNo(c.id)} &middot; ${esc(REGION_LABELS[c.region]||'')}</div>
-        </div>
-        <div class="pass-country">${esc(c.name)}</div>
-        <div class="pass-tagline">${esc(c.tagline)}</div>
-        ${tags?`<div class="pass-tags">${tags}</div>`:''}
-      </div>
-      <div class="pass-tear">
-        <div class="hole-top"></div>
-        <div class="hole-bot"></div>
-      </div>
-      <div class="pass-stub">
-        <div class="stub-fields">
-          <div class="stub-field">
-            <div class="stub-label">◷ Season</div>
-            <div class="stub-value">${esc(c.best_time.split(',')[0])}</div>
-          </div>
-          <div class="stub-field">
-            <div class="stub-label">⊕ Language</div>
-            <div class="stub-value">${esc(c.language.split(',')[0].split('(')[0].trim())}</div>
-          </div>
-          <div class="stub-field">
-            <div class="stub-label">✦ Vibe</div>
-            <div class="stub-value">${esc((c.vibe_tags||[])[0]||'—')}</div>
-          </div>
-          <div class="stub-field">
-            <div class="stub-label">◎ Status</div>
-            <div class="stub-value"><span class="stub-status ${c.status}">${esc(c.status)}</span></div>
-          </div>
-        </div>
-        <div class="stub-barcode">${barcode(c.id)}</div>
-        <button class="stub-heart ${saved?'saved':''}"
-                onclick="toggleSaved(event,${c.id})" aria-label="Wishlist">
-          ${saved?'♥':'♡'}
-        </button>
-      </div>
-    </div>`;
-  }).join('');
-}
 
-function handleClick(e, id) {
-  if (e.target.closest('.stub-heart')) return;
-  showDetail(id);
-}
+  const wrap = document.getElementById('mapWrap');
+  const W = wrap.clientWidth  || 960;
+  const H = wrap.clientHeight || 540;
 
-function showDetail(id) {
-  const c = allCountries.find(x=>x.id===id);
-  if (!c) return;
-  const saved = savedIds.has(c.id);
-  const rl = REGION_LABELS[c.region]||c.region;
+  const svg = d3.select('#world-map')
+    .attr('viewBox', `0 0 ${W} ${H}`)
+    .attr('preserveAspectRatio', 'xMidYMid meet');
 
-  const cities = (c.cities||[]).map(x=>`
-    <div class="place-item">
-      <div class="place-name">${esc(x.name)}</div>
-      <div class="place-notes">${esc(x.notes)}</div>
-    </div>`).join('');
+  mapSvg = svg;
 
-  const food = (c.food||[]).map(x=>`
-    <div class="food-item">
-      <div class="food-name">${esc(x.name)}</div>
-      <div class="food-notes">${esc(x.notes)}</div>
-    </div>`).join('');
+  mapProjection = d3.geoNaturalEarth1()
+    .scale(W / 6.28)
+    .translate([W / 2, H / 2 + H * 0.04]);
 
-  const tips = (c.tips||[]).map(t=>`<div class="tip">${esc(t)}</div>`).join('');
+  const path = d3.geoPath().projection(mapProjection);
 
-  document.getElementById('detailContent').innerHTML = `
-    <div class="rc-${c.region}">
-      <div class="detail-pass">
-        <div class="detail-accent"></div>
-        <div class="detail-pass-main">
-          <div class="detail-region-label">${esc(rl)} &middot; ${flightNo(c.id)}</div>
-          <div class="detail-country">${esc(c.name)}</div>
-          <div class="detail-tagline">"${esc(c.tagline)}"</div>
-        </div>
-        <div class="detail-tear">
-          <div class="hole-top"></div>
-          <div class="hole-bot"></div>
-        </div>
-        <div class="detail-stub">
-          <div class="detail-stub-field">
-            <div class="detail-stub-label">Best Time</div>
-            <div class="detail-stub-value">${esc(c.best_time)}</div>
-          </div>
-          <div class="detail-stub-field">
-            <div class="detail-stub-label">Language</div>
-            <div class="detail-stub-value">${esc(c.language)}</div>
-          </div>
-          <div class="detail-stub-field">
-            <div class="detail-stub-label">Currency</div>
-            <div class="detail-stub-value">${esc(c.currency)}</div>
-          </div>
-          <div class="detail-stub-field">
-            <div class="detail-stub-label">Status</div>
-            <div class="detail-stub-value"><span class="stub-status ${c.status}">${esc(c.status)}</span></div>
-          </div>
-          <button class="detail-heart-btn ${saved?'saved':''}" id="detailHeart"
-                  onclick="toggleSavedDetail(${c.id})">
-            ${saved?'♥ Saved':'♡ Save'}
-          </button>
-        </div>
-      </div>
+  // Sphere background
+  svg.append('path')
+    .datum({ type: 'Sphere' })
+    .attr('class', 'sphere')
+    .attr('d', path);
 
-      <div class="detail-sections">
-        <div class="detail-section full">
-          <div class="section-label">About</div>
-          <div class="section-text">${esc(c.description)}</div>
-        </div>
-        ${cities?`<div class="detail-section">
-          <div class="section-label">Cities to Visit</div>
-          <div class="place-list">${cities}</div>
-        </div>`:''}
-        ${food?`<div class="detail-section">
-          <div class="section-label">Food to Try</div>
-          <div class="food-list">${food}</div>
-        </div>`:''}
-        ${tips?`<div class="detail-section full">
-          <div class="section-label">Tips</div>
-          <div class="tips-list">${tips}</div>
-        </div>`:''}
-      </div>
-    </div>`;
+  // Graticule
+  svg.append('path')
+    .datum(d3.geoGraticule().step([30, 30])())
+    .attr('class', 'graticule')
+    .attr('d', path);
 
-  document.getElementById('view-catalog').style.display = 'none';
-  document.getElementById('view-detail').style.display = 'block';
-  window.scrollTo(0,0);
-  history.pushState({view:'detail',id},'','#'+slug(c.name));
-}
-
-function showCatalog() {
-  document.getElementById('view-detail').style.display = 'none';
-  document.getElementById('view-catalog').style.display = 'block';
-  history.pushState({view:'catalog'},'',location.pathname);
-  updateBadge();
-}
-
-function toggleSaved(e, id) {
-  e.stopPropagation();
-  savedIds.has(id)?savedIds.delete(id):savedIds.add(id);
-  savePersist(); updateBadge(); applyFilters();
-}
-
-function toggleSavedDetail(id) {
-  savedIds.has(id)?savedIds.delete(id):savedIds.add(id);
-  savePersist(); updateBadge();
-  const btn = document.getElementById('detailHeart');
-  if (btn) {
-    const s = savedIds.has(id);
-    btn.className = 'detail-heart-btn'+(s?' saved':'');
-    btn.textContent = s?'♥ Saved':'♡ Save';
+  // Load world topology
+  let world;
+  try {
+    world = await d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json');
+  } catch(e) {
+    document.getElementById('mapLoading').textContent = 'Could not load map data.';
+    return;
   }
+
+  document.getElementById('mapLoading').style.display = 'none';
+
+  // Countries
+  svg.append('g').selectAll('path')
+    .data(topojson.feature(world, world.objects.countries).features)
+    .join('path')
+    .attr('class', 'land')
+    .attr('d', path);
+
+  // NYC origin marker (diamond)
+  const [nx, ny] = mapProjection(NYC);
+  const nycG = svg.append('g').attr('class', 'nyc-marker').attr('transform', `translate(${nx},${ny})`);
+  nycG.append('polygon')
+    .attr('points', '0,-6 5,0 0,6 -5,0')
+    .attr('fill', 'none').attr('stroke', 'var(--gold)').attr('stroke-width', 1.5);
+  nycG.append('polygon')
+    .attr('points', '0,-3 2.5,0 0,3 -2.5,0')
+    .attr('fill', 'var(--gold)');
+  nycG.append('text').attr('class', 'nyc-label').attr('dx', 9).attr('dy', 3).text('JFK');
+
+  // Routes & pins
+  drawAll(svg, nx, ny);
+}
+
+function drawAll(svg, nx, ny) {
+  const routeG = svg.append('g');
+  const pinG   = svg.append('g');
+
+  allCountries.forEach((c, i) => {
+    const lnglat = COORDS[c.name];
+    if (!lnglat) return;
+
+    const [px, py] = mapProjection(lnglat);
+    const delay    = 300 + i * 160;   // ms before path starts
+    const pathDur  = 900;             // ms path takes to draw
+
+    // ── Arc control point ──────────────────────────
+    const dist = Math.hypot(px - nx, py - ny);
+    const cpx  = (nx + px) / 2;
+    const cpy  = (ny + py) / 2 - Math.min(dist * 0.38, 140);
+    const d    = `M ${nx} ${ny} Q ${cpx} ${cpy} ${px} ${py}`;
+
+    // ── Flight path ────────────────────────────────
+    const line = routeG.append('path')
+      .attr('class', `flight-path fp-${c.region}`)
+      .attr('d', d)
+      .attr('data-id', c.id)
+      .attr('data-region', c.region)
+      .style('opacity', 0)
+      .style('stroke-dasharray', 2000)
+      .style('stroke-dashoffset', 2000);
+
+    // Correct dasharray after element exists in DOM
+    requestAnimationFrame(() => {
+      const len = line.node().getTotalLength();
+      line.style('stroke-dasharray', len).style('stroke-dashoffset', len);
+    });
+
+    setTimeout(() => {
+      line.style('transition', `opacity 0.4s, stroke-dashoffset ${pathDur}ms cubic-bezier(0.4,0,0.55,1)`)
+          .style('opacity', 0.38)
+          .style('stroke-dashoffset', 0);
+    }, delay);
+
+    // ── Pin ───────────────────────────────────────
+    setTimeout(() => {
+      const pg = pinG.append('g')
+        .attr('class', `pin-group rc-${c.region}`)
+        .attr('transform', `translate(${px},${py})`)
+        .attr('data-id', c.id)
+        .attr('data-region', c.region)
+        .style('opacity', 0)
+        .on('click', () => openPanel(c.id));
+
+      // Pulse ring
+      pg.append('circle').attr('r', 10)
+        .attr('fill', 'none')
+        .attr('stroke', `var(--${c.region})`)
+        .attr('stroke-width', 1)
+        .attr('opacity', 0.2)
+        .style('animation', `pinPulse 2.8s ${Math.random()*2}s ease-in-out infinite`);
+
+      // Outer ring
+      pg.append('circle').attr('class', 'pin-ring').attr('r', 5.5)
+        .attr('fill', 'none')
+        .attr('stroke', `var(--${c.region})`)
+        .attr('stroke-width', 1.5);
+
+      // Inner dot
+      pg.append('circle').attr('class', 'pin-dot').attr('r', 2.8)
+        .attr('fill', `var(--${c.region})`);
+
+      // Saved dot (gold, top-right of pin)
+      pg.append('circle').attr('class', `pin-saved-dot ${savedIds.has(c.id) ? 'visible' : ''}`)
+        .attr('cx', 5).attr('cy', -5).attr('r', 2.5);
+
+      // Label — left side for eastern hemisphere, right for western
+      const isEast = lnglat[0] > -30;
+      pg.append('text').attr('class', 'pin-label')
+        .attr('dx', isEast ? 9 : -9)
+        .attr('dy', 3.5)
+        .attr('text-anchor', isEast ? 'start' : 'end')
+        .text(c.name.toUpperCase());
+
+      // Fade in
+      pg.transition().duration(350).style('opacity', 1);
+
+    }, delay + pathDur + 80);
+  });
+}
+
+// Pulse keyframe injected once
+const style = document.createElement('style');
+style.textContent = `
+@keyframes pinPulse {
+  0%, 100% { r: 8;  opacity: 0.15; }
+  50%       { r: 13; opacity: 0.05; }
+}`;
+document.head.appendChild(style);
+
+// ── PANEL ─────────────────────────────────────────
+function openPanel(id) {
+  const c = allCountries.find(x => x.id === id);
+  if (!c) return;
+  currentId = id;
+
+  const rl     = REGIONS[c.region] || c.region;
+  const saved  = savedIds.has(id);
+  const season = c.best_time.split(',')[0];
+  const lang   = c.language.split(',')[0].split('(')[0].trim();
+  const vibe   = (c.vibe_tags||[])[0] || '—';
+
+  const cities = (c.cities||[]).map(x => `
+    <div><div class="place-name">${esc(x.name)}</div>
+    <div class="place-notes">${esc(x.notes)}</div></div>`).join('');
+
+  const food = (c.food||[]).map(x => `
+    <div><div class="food-name">${esc(x.name)}</div>
+    <div class="food-notes">${esc(x.notes)}</div></div>`).join('');
+
+  const tips = (c.tips||[]).map(t => `<div class="tip">${esc(t)}</div>`).join('');
+
+  document.getElementById('panelInner').innerHTML = `
+    <div class="rc-${c.region}">
+      <div class="panel-accent"></div>
+      <div class="panel-pass-head">
+        <div class="panel-meta">${esc(rl)} &middot; ${flightNo(c.id)}</div>
+        <div class="panel-country">${esc(c.name)}</div>
+        <div class="panel-tagline">"${esc(c.tagline)}"</div>
+      </div>
+      <div class="panel-fields">
+        <div class="panel-field">
+          <div class="panel-field-label">◷ Season</div>
+          <div class="panel-field-value">${esc(season)}</div>
+        </div>
+        <div class="panel-field">
+          <div class="panel-field-label">⊕ Language</div>
+          <div class="panel-field-value">${esc(lang)}</div>
+        </div>
+        <div class="panel-field">
+          <div class="panel-field-label">✦ Vibe</div>
+          <div class="panel-field-value">${esc(vibe)}</div>
+        </div>
+        <div class="panel-field">
+          <div class="panel-field-label">◎ Status</div>
+          <div class="panel-field-value"><span class="status-chip ${c.status}">${esc(c.status)}</span></div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div>
+          <div class="panel-section-label">About</div>
+          <div class="panel-section-text">${esc(c.description)}</div>
+        </div>
+        ${cities ? `<div>
+          <div class="panel-section-label">Cities to Visit</div>
+          <div class="place-list">${cities}</div>
+        </div>` : ''}
+        ${food ? `<div>
+          <div class="panel-section-label">Food to Try</div>
+          <div class="food-list">${food}</div>
+        </div>` : ''}
+        ${tips ? `<div>
+          <div class="panel-section-label">Tips</div>
+          <div class="tips-list">${tips}</div>
+        </div>` : ''}
+        <div style="height:8px"></div>
+      </div>
+    </div>`;
+
+  setWishlistBtn(saved);
+  document.getElementById('sidePanel').classList.add('open');
+  document.getElementById('overlay').classList.add('visible');
+  document.getElementById('sidePanel').scrollTop = 0;
+}
+
+function closePanel() {
+  document.getElementById('sidePanel').classList.remove('open');
+  document.getElementById('overlay').classList.remove('visible');
+  currentId = null;
+}
+
+function setWishlistBtn(saved) {
+  const btn = document.getElementById('wishlistBtn');
+  document.getElementById('wishlistHeart').textContent = saved ? '♥' : '♡';
+  document.getElementById('wishlistLabel').textContent  = saved ? 'Saved' : 'Save to Wishlist';
+  btn.className = 'wishlist-btn' + (saved ? ' saved' : '');
+}
+
+function toggleWishlist() {
+  if (currentId === null) return;
+  savedIds.has(currentId) ? savedIds.delete(currentId) : savedIds.add(currentId);
+  savePersist(); updateBadge();
+  setWishlistBtn(savedIds.has(currentId));
+  // Update saved dot on pin
+  if (mapSvg) {
+    mapSvg.selectAll('.pin-group').each(function() {
+      if (+this.getAttribute('data-id') === currentId) {
+        d3.select(this).select('.pin-saved-dot')
+          .classed('visible', savedIds.has(currentId));
+      }
+    });
+  }
+}
+
+// ── FILTERS ───────────────────────────────────────
+function applyFilters() {
+  if (!mapSvg) return;
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+
+  mapSvg.selectAll('.pin-group').each(function() {
+    const id = +this.getAttribute('data-id');
+    const c  = allCountries.find(x => x.id === id);
+    d3.select(this).transition().duration(180)
+      .style('opacity', c && matchesFilter(c, q) ? 1 : 0.12);
+  });
+
+  mapSvg.selectAll('.flight-path').each(function() {
+    const id = +this.getAttribute('data-id');
+    const c  = allCountries.find(x => x.id === id);
+    // Only dim paths that have already been animated (dashoffset = 0)
+    if (this.style.strokeDashoffset !== '' && parseFloat(this.style.strokeDashoffset) < 5) {
+      d3.select(this).style('opacity', c && matchesFilter(c, q) ? 0.38 : 0.06);
+    }
+  });
+}
+
+function matchesFilter(c, q) {
+  if (activeRegion !== 'all' && c.region !== activeRegion) return false;
+  if (showingSaved && !savedIds.has(c.id)) return false;
+  if (q) {
+    const hay = [c.name, c.tagline, ...(c.vibe_tags||[])].join(' ').toLowerCase();
+    if (!hay.includes(q)) return false;
+  }
+  return true;
 }
 
 function toggleSavedFilter() {
@@ -762,57 +725,35 @@ function toggleSavedFilter() {
   applyFilters();
 }
 
-function updateBadge() {
-  document.getElementById('savedCount').textContent = savedIds.size;
-}
-
-function toggleTheme() {
-  const next = document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('atlas-theme', next);
-}
-
+// ── EVENT LISTENERS ────────────────────────────────
 document.querySelectorAll('.filter-pill').forEach(p => {
   p.addEventListener('click', () => {
-    document.querySelectorAll('.filter-pill').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.filter-pill').forEach(x => x.classList.remove('active'));
     p.classList.add('active');
     activeRegion = p.dataset.region;
     applyFilters();
   });
 });
 
+let _st;
 document.getElementById('searchInput').addEventListener('input', () => {
-  clearTimeout(searchTimer);
-  searchTimer = setTimeout(applyFilters, 150);
+  clearTimeout(_st);
+  _st = setTimeout(applyFilters, 150);
 });
 
-window.addEventListener('popstate', e => {
-  if (e.state?.view==='detail') showDetail(e.state.id);
-  else {
-    document.getElementById('view-detail').style.display='none';
-    document.getElementById('view-catalog').style.display='block';
-  }
-});
-
-const savedTheme = localStorage.getItem('atlas-theme');
-if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
-
+// ── BOOT ──────────────────────────────────────────
 fetch('data/countries.json')
-  .then(r=>r.json())
+  .then(r => r.json())
   .then(data => {
     allCountries = data;
     updateBadge();
-    const hash = location.hash.slice(1);
-    if (hash) {
-      const m = allCountries.find(c=>slug(c.name)===hash);
-      if (m) { showDetail(m.id); return; }
-    }
-    applyFilters();
+    initMap();
   })
-  .catch(()=>{
-    document.getElementById('passStack').innerHTML =
-      '<div class="empty-state">Could not load data. Run a local server.</div>';
+  .catch(() => {
+    document.getElementById('mapLoading').textContent = 'Could not load destinations.';
   });
+
+updateBadge();
 </script>
 </body>
 </html>
