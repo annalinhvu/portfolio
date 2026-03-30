@@ -1490,59 +1490,6 @@
     "photo": ""
   },
   {
-    "id": 27,
-    "name": "Tanzania",
-    "code": "TZ",
-    "region": "africa",
-    "status": "dreaming",
-    "tagline": "The Serengeti, Kilimanjaro, and Zanzibar — three entirely different worlds within one border.",
-    "description": "Tanzania holds some of the most iconic wildlife landscapes on earth, and unlike many safari destinations, the infrastructure exists to experience them without feeling manufactured. The Serengeti's great migration is one of the last great animal movements on the planet. Zanzibar's Stone Town carries eight centuries of Swahili, Arab, and colonial history in its narrow lanes. And Kilimanjaro remains the highest walkable peak on earth.",
-    "best_time": "June–October (dry season), January–February (calving season)",
-    "language": "Swahili, English",
-    "currency": "Tanzanian Shilling (TSh)",
-    "cities": [
-      {
-        "name": "Arusha",
-        "notes": "Gateway to the northern safari circuit and Kilimanjaro treks. Well-organized for logistics, but not where you'll spend most of your time."
-      },
-      {
-        "name": "Zanzibar",
-        "notes": "Stone Town's labyrinthine alleys, spice farms, and the white-sand beaches of Nungwi — different enough from the mainland to feel like a separate country."
-      },
-      {
-        "name": "Serengeti",
-        "notes": "Not a city but an experience. The sheer scale of the plains and the density of wildlife during migration is genuinely life-altering."
-      }
-    ],
-    "food": [
-      {
-        "name": "Zanzibar pizza",
-        "notes": "Stuffed flatbread cooked on a griddle in the night market. Misleadingly named, delicious, a local institution."
-      },
-      {
-        "name": "Nyama choma",
-        "notes": "Grilled meat — goat most commonly — eaten with ugali and kachumbari salsa. Simple and perfect."
-      },
-      {
-        "name": "Urojo soup",
-        "notes": "Zanzibar mix soup with coconut, lime, and a dozen ingredients. Found only in Stone Town, worth seeking out."
-      }
-    ],
-    "tips": [
-      "Book safaris through reputable operators — the difference in experience and conservation ethics matters.",
-      "Yellow fever vaccination is required for entry.",
-      "Respect local customs in Zanzibar — dress modestly outside beach areas."
-    ],
-    "vibe_tags": [
-      "wildlife",
-      "safari",
-      "beaches",
-      "hiking",
-      "nature"
-    ],
-    "photo": ""
-  },
-  {
     "id": 28,
     "name": "Cuba",
     "code": "CU",
@@ -1645,6 +1592,59 @@
       "food culture",
       "architecture",
       "skiing"
+    ],
+    "photo": ""
+  },
+  {
+    "id": 30,
+    "name": "United Kingdom",
+    "code": "GB",
+    "region": "europe",
+    "status": "dreaming",
+    "tagline": "Older than its accent suggests, weirder than its reputation allows.",
+    "description": "The UK rewards going beyond London — though London itself is inexhaustible. Scotland is something else entirely: a country with its own parliament, its own weather, its own whisky, and landscapes that make the rest of Britain feel mild. Wales has mountains and coastline that most visitors never reach. But even London, properly explored by foot and Tube, still surprises.",
+    "best_time": "May–September",
+    "language": "English",
+    "currency": "Pound Sterling (£)",
+    "cities": [
+      {
+        "name": "London",
+        "notes": "Borough Market, the Tate Modern, Soho at midnight, a Sunday roast in a proper pub. The city that contains every other city inside it."
+      },
+      {
+        "name": "Edinburgh",
+        "notes": "The Old Town's medieval closes, Arthur's Seat at dusk, the castle on its volcanic rock. One of the most dramatic cities in Europe."
+      },
+      {
+        "name": "Glasgow",
+        "notes": "Art Nouveau architecture, the best live music scene in the UK outside London, and food that has quietly improved enormously."
+      }
+    ],
+    "food": [
+      {
+        "name": "Full English breakfast",
+        "notes": "Eggs, bacon, beans, black pudding, grilled tomato, toast. Best in a greasy spoon café, not a hotel."
+      },
+      {
+        "name": "Fish and chips",
+        "notes": "Battered cod with proper chips, malt vinegar, and salt. Eaten from paper by the sea is the only correct setting."
+      },
+      {
+        "name": "Sunday roast",
+        "notes": "Roast beef or chicken with Yorkshire pudding, roast potatoes, and gravy. The national ritual, best in a country pub."
+      }
+    ],
+    "tips": [
+      "Get an Oyster card or contactless payment for London transit — never buy single tickets.",
+      "The National Rail is worth the effort to reach the countryside — day trips from London to Bath, Oxford, or the Cotswolds are easy.",
+      "Scottish whisky distilleries along the Speyside route offer tours worth building a trip around."
+    ],
+    "vibe_tags": [
+      "architecture",
+      "music",
+      "countryside",
+      "history",
+      "food culture"
     ],
     "photo": ""
   }
