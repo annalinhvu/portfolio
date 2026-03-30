@@ -489,6 +489,7 @@ let currentId     = null;
 let savedIds      = new Set(JSON.parse(localStorage.getItem(LS_KEY) || '[]'));
 let mapSvg        = null;
 let mapG          = null;
+let pinLayer      = null;   // outside zoom transform — pins stay fixed size
 let mapProjection = null;
 let zoomBehavior  = null;
 
@@ -524,7 +525,7 @@ async function initMap() {
 
   mapSvg = svg;
 
-  // Single group that zoom transforms — everything lives inside here
+  // mapG: zoom-transformed (land, routes scale with map)
   mapG = svg.append('g').attr('class', 'map-g');
 
   mapProjection = d3.geoNaturalEarth1()
@@ -533,13 +534,24 @@ async function initMap() {
 
   const path = d3.geoPath().projection(mapProjection);
 
-  // Zoom behaviour — also gates label visibility by minZoom
+  // pinLayer: NOT zoom-transformed — pins stay the same screen size (Leaflet feel)
+  pinLayer = svg.append('g').attr('class', 'pin-layer');
+
+  // Zoom — halved wheel sensitivity, pins repositioned manually each frame
   zoomBehavior = d3.zoom()
     .scaleExtent([1, 10])
+    .wheelDelta(e => -e.deltaY * (e.deltaMode === 1 ? 0.05 : e.deltaMode ? 1 : 0.001))
     .on('zoom', ({ transform }) => {
+      const { k, x, y } = transform;
       mapG.attr('transform', transform);
-      const k = transform.k;
-      mapSvg.selectAll('.pin-label').each(function() {
+      // Reposition each pin in screen space so it stays fixed size
+      pinLayer.selectAll('[data-px]').each(function() {
+        const px = +this.getAttribute('data-px');
+        const py = +this.getAttribute('data-py');
+        d3.select(this).attr('transform', `translate(${px * k + x},${py * k + y})`);
+      });
+      // Gate label visibility by zoom level
+      pinLayer.selectAll('.pin-label').each(function() {
         const minZ = +this.getAttribute('data-min-zoom') || 1;
         d3.select(this).style('opacity', k >= minZ ? 0.85 : 0);
       });
@@ -582,9 +594,12 @@ async function initMap() {
       if (c) openPanel(c.id);
     });
 
-  // NYC origin marker (diamond)
+  // NYC origin marker — in pinLayer so it stays fixed size
   const [nx, ny] = mapProjection(NYC);
-  const nycG = mapG.append('g').attr('class', 'nyc-marker').attr('transform', `translate(${nx},${ny})`);
+  const nycG = pinLayer.append('g')
+    .attr('class', 'nyc-marker')
+    .attr('transform', `translate(${nx},${ny})`)
+    .attr('data-px', nx).attr('data-py', ny);
   nycG.append('polygon')
     .attr('points', '0,-6 5,0 0,6 -5,0')
     .attr('fill', 'none').attr('stroke', 'var(--gold)').attr('stroke-width', 1.5);
@@ -593,13 +608,13 @@ async function initMap() {
     .attr('fill', 'var(--gold)');
   nycG.append('text').attr('class', 'nyc-label').attr('dx', 9).attr('dy', 3).text('JFK');
 
-  // Routes & pins
-  drawAll(mapG, nx, ny);
+  // Routes in mapG (scale with map), pins in pinLayer (fixed screen size)
+  drawAll(mapG, pinLayer, nx, ny);
 }
 
-function drawAll(svg, nx, ny) {
-  const routeG = svg.append('g');
-  const pinG   = svg.append('g');
+function drawAll(routeLayer, pins, nx, ny) {
+  const routeG = routeLayer.append('g');
+  const pinG   = pins;
 
   allCountries.forEach((c, i) => {
     const lnglat = COORDS[c.name];
@@ -644,6 +659,8 @@ function drawAll(svg, nx, ny) {
         .attr('transform', `translate(${px},${py})`)
         .attr('data-id', c.id)
         .attr('data-region', c.region)
+        .attr('data-px', px)
+        .attr('data-py', py)
         .style('opacity', 0)
         .on('click', () => openPanel(c.id));
 
