@@ -1818,5 +1818,115 @@
       "Christmas markets"
     ],
     "photo": ""
+  },
+  {
+    "id": 34,
+    "name": "Singapore",
+    "code": "SG",
+    "region": "asia",
+    "status": "dreaming",
+    "tagline": "A city-state that turned humidity, ambition, and hawker stalls into an art form.",
+    "description": "Singapore shouldn't work as well as it does — a tiny island that built a first-world metropolis from scratch in a single generation, then kept going. The food alone justifies the trip: Michelin-starred hawker stalls where the queue starts at 10am for a $3 bowl of chicken rice that will rearrange your understanding of what simple food can be.",
+    "best_time": "February–April (driest months)",
+    "language": "English, Mandarin, Malay, Tamil",
+    "currency": "Singapore Dollar (S$)",
+    "cities": [
+      {
+        "name": "Chinatown",
+        "notes": "Maxwell Food Centre and Chinatown Complex are hawker hall of fame territory. Tian Tian Hainanese chicken rice has had a Michelin star. Come hungry."
+      },
+      {
+        "name": "Little India",
+        "notes": "Mustafa Centre open 24 hours, the Sri Veeramakaliamman Temple blazing with color, and banana-leaf meals that cost almost nothing."
+      },
+      {
+        "name": "Gardens by the Bay",
+        "notes": "The Supertrees are cheesy until you're standing underneath them at night with the light show playing and you realize they absolutely work."
+      }
+    ],
+    "food": [
+      {
+        "name": "Hainanese chicken rice",
+        "notes": "Poached chicken over seasoned rice with three dipping sauces. Humble ingredients, relentlessly precise execution. Singapore's national dish for good reason."
+      },
+      {
+        "name": "Chili crab",
+        "notes": "Mud crab in a thick, sweet-savory tomato-chili sauce. You need the fried mantou buns to mop it up. Messy, expensive, absolutely worth it."
+      },
+      {
+        "name": "Kaya toast and soft-boiled eggs",
+        "notes": "The classic kopitiam breakfast — charcoal toast with coconut jam and butter, eggs cracked into a bowl with soy sauce. Start every morning this way."
+      },
+      {
+        "name": "Laksa",
+        "notes": "Rich coconut curry noodle soup with prawns and fish cake. Katong laksa is the local style — spoon-only, the noodles cut short."
+      }
+    ],
+    "tips": [
+      "The MRT is excellent and covers most of the city — get an EZ-Link card at any station.",
+      "Hawker centres are the move for every meal: cheap, delicious, and deeply local.",
+      "Changi Airport is legitimately worth arriving early for — Jewel's indoor waterfall is a spectacle."
+    ],
+    "vibe_tags": [
+      "street food",
+      "city energy",
+      "food culture",
+      "modern architecture",
+      "hawker culture"
+    ],
+    "photo": ""
+  },
+  {
+    "id": 35,
+    "name": "Netherlands",
+    "code": "NL",
+    "region": "europe",
+    "status": "dreaming",
+    "tagline": "Canals, bikes, tulip fields, and museums that hold some of the world's greatest paintings.",
+    "description": "The Netherlands is smaller than you think and more beautiful than you expect. Amsterdam rewards slow exploration — leave the main drag and you'll find neighborhood cafes, indie bookshops, and canal-side benches where locals actually sit. But the country beyond Amsterdam is just as compelling: windmills, cheese markets, and a coast that gets dramatically wild in autumn.",
+    "best_time": "April–May (tulip season), September (fewer crowds)",
+    "language": "Dutch",
+    "currency": "Euro (€)",
+    "cities": [
+      {
+        "name": "Amsterdam",
+        "notes": "The Rijksmuseum for Vermeer and Rembrandt, the Anne Frank House (book weeks ahead), the Jordaan neighborhood for aimless wandering, and a canal at golden hour."
+      },
+      {
+        "name": "Utrecht",
+        "notes": "Often skipped but shouldn't be — double-decker canals with cafes at water level, a smaller old town that's easier to absorb than Amsterdam."
+      },
+      {
+        "name": "Keukenhof",
+        "notes": "Only open March–May, but if you're there for tulip season, the garden near Lisse is a genuine spectacle. 7 million bulbs in bloom."
+      }
+    ],
+    "food": [
+      {
+        "name": "Stroopwafel",
+        "notes": "Two thin waffle wafers with caramel syrup in the middle. Buy them fresh from a market stall and hold them over your coffee cup to let the steam warm the caramel."
+      },
+      {
+        "name": "Herring (haring)",
+        "notes": "Raw salt-cured herring eaten from a stand with raw onion and pickles. The Dutch eat it by tilting their head back and lowering it in. Try it."
+      },
+      {
+        "name": "Rijsttafel",
+        "notes": "Indonesian 'rice table' — the colonial legacy that became a Dutch institution. Dozens of small dishes served alongside rice. An entire meal and a history lesson."
+      }
+    ],
+    "tips": [
+      "Rent a bike immediately — the Netherlands has 35,000km of bike paths and cycling is genuinely the best way to see the country.",
+      "Book the Anne Frank House online well in advance; walk-in tickets sell out within minutes of release.",
+      "The Dutch national museum card (Museumkaart) pays for itself in a day if you're visiting more than two museums."
+    ],
+    "vibe_tags": [
+      "canals",
+      "art museums",
+      "cycling",
+      "tulips",
+      "architecture"
+    ],
+    "photo": ""
   }
 ]
