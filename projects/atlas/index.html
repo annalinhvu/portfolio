@@ -18,17 +18,17 @@
 
 /* ══ PALETTE ══ */
 :root {
-  --bg:       #0d2a42;
-  --bg-2:     #103350;
-  --surface:  #153d5e;
-  --surface-2:#1a4870;
-  --stub-bg:  #123050;
-  --border:   #235880;
-  --border-2: #2c6a98;
-  --text-1:   #d8f0ff;
-  --text-2:   #7ab8d8;
-  --text-3:   #4888a8;
-  --text-4:   #2a6080;
+  --bg:       #1a2535;
+  --bg-2:     #1f2d40;
+  --surface:  #263648;
+  --surface-2:#2d4058;
+  --stub-bg:  #1c2e3e;
+  --border:   #384f68;
+  --border-2: #486080;
+  --text-1:   #e8ddc8;
+  --text-2:   #98a8b5;
+  --text-3:   #607080;
+  --text-4:   #405060;
   --gold:     #c8a040;
   --gold-dim: rgba(200,160,64,0.12);
   --asia:     #e07050;
@@ -162,9 +162,9 @@ body {
 
 /* Map SVG elements */
 @keyframes ocean-dark {
-  0%, 100% { fill: #0e2f48; }
-  33%       { fill: #103858; }
-  66%       { fill: #0c3550; }
+  0%, 100% { fill: #1e3045; }
+  33%       { fill: #223650; }
+  66%       { fill: #1c2e42; }
 }
 @keyframes ocean-light {
   0%, 100% { fill: #b0d8f4; }
@@ -178,7 +178,7 @@ body {
 :root .sphere { animation: ocean-dark 9s ease-in-out infinite; }
 :root[data-theme="light"] .sphere { animation: ocean-light 9s ease-in-out infinite; }
 .sphere-atmo { pointer-events: none; }
-:root .sphere-atmo { fill: #2090d0; opacity: 0.13; filter: blur(18px); }
+:root .sphere-atmo { fill: #4080b0; opacity: 0.10; filter: blur(18px); }
 :root[data-theme="light"] .sphere-atmo { fill: #0070b0; opacity: 0.07; filter: blur(18px); }
 .graticule { fill: none; stroke: var(--border); stroke-width: 0.3px; animation: graticule-drift 12s ease-in-out infinite; }
 .land      { fill: var(--surface); stroke: var(--border); stroke-width: 0.4px; }
