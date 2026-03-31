@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -171,9 +171,16 @@ body {
   33%       { fill: #9ccef0; }
   66%       { fill: #bce4fc; }
 }
+@keyframes graticule-drift {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.15; }
+}
 :root .sphere { animation: ocean-dark 9s ease-in-out infinite; }
 :root[data-theme="light"] .sphere { animation: ocean-light 9s ease-in-out infinite; }
-.graticule { fill: none; stroke: var(--border); stroke-width: 0.3px; opacity: 0.4; }
+.sphere-atmo { pointer-events: none; }
+:root .sphere-atmo { fill: #2090d0; opacity: 0.13; filter: blur(18px); }
+:root[data-theme="light"] .sphere-atmo { fill: #0070b0; opacity: 0.07; filter: blur(18px); }
+.graticule { fill: none; stroke: var(--border); stroke-width: 0.3px; animation: graticule-drift 12s ease-in-out infinite; }
 .land      { fill: var(--surface); stroke: var(--border); stroke-width: 0.4px; }
 #world-map .land.destination { cursor: pointer; fill: var(--surface-2); }
 #world-map .land.destination:hover { fill: var(--border); }
@@ -624,6 +631,12 @@ async function initMap() {
     });
   svg.call(zoomBehavior);
 
+  // Atmosphere glow behind sphere
+  mapG.append('path')
+    .datum({ type: 'Sphere' })
+    .attr('class', 'sphere-atmo')
+    .attr('d', path);
+
   // Sphere background
   mapG.append('path')
     .datum({ type: 'Sphere' })
@@ -720,6 +733,7 @@ function drawAll(routeLayer, pins, nx, ny) {
     // ── Flight path ────────────────────────────────
     const line = routeG.append('path')
       .attr('class', `flight-path fp-${c.region}`)
+      .attr('id', `fp-${c.id}`)
       .attr('d', d)
       .attr('data-id', c.id)
       .attr('data-region', c.region)
@@ -789,6 +803,24 @@ function drawAll(routeLayer, pins, nx, ny) {
 
       // Fade in
       pg.transition().duration(350).style('opacity', 1);
+
+      // ── Plane dot traveling the route ─────────────
+      const dur = (3 + Math.random() * 3).toFixed(1) + 's';
+      const dotEl  = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      dotEl.setAttribute('r', '2.8');
+      dotEl.setAttribute('fill', `var(--${c.region})`);
+      dotEl.setAttribute('opacity', '0.9');
+      const animEl = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
+      animEl.setAttribute('dur', dur);
+      animEl.setAttribute('repeatCount', 'indefinite');
+      animEl.setAttribute('calcMode', 'spline');
+      animEl.setAttribute('keyTimes', '0;1');
+      animEl.setAttribute('keySplines', '0.4 0 0.6 1');
+      const mpathEl = document.createElementNS('http://www.w3.org/2000/svg', 'mpath');
+      mpathEl.setAttribute('href', `#fp-${c.id}`);
+      animEl.appendChild(mpathEl);
+      dotEl.appendChild(animEl);
+      routeG.node().appendChild(dotEl);
 
     }, delay + pathDur + 80);
   });
