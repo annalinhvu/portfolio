@@ -804,23 +804,6 @@ function drawAll(routeLayer, pins, nx, ny) {
       // Fade in
       pg.transition().duration(350).style('opacity', 1);
 
-      // ── Plane dot traveling the route ─────────────
-      const dur = (3 + Math.random() * 3).toFixed(1) + 's';
-      const dotEl  = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      dotEl.setAttribute('r', '2.8');
-      dotEl.setAttribute('fill', `var(--${c.region})`);
-      dotEl.setAttribute('opacity', '0.9');
-      const animEl = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
-      animEl.setAttribute('dur', dur);
-      animEl.setAttribute('repeatCount', 'indefinite');
-      animEl.setAttribute('calcMode', 'spline');
-      animEl.setAttribute('keyTimes', '0;1');
-      animEl.setAttribute('keySplines', '0.4 0 0.6 1');
-      const mpathEl = document.createElementNS('http://www.w3.org/2000/svg', 'mpath');
-      mpathEl.setAttribute('href', `#fp-${c.id}`);
-      animEl.appendChild(mpathEl);
-      dotEl.appendChild(animEl);
-      routeG.node().appendChild(dotEl);
 
     }, delay + pathDur + 80);
   });
