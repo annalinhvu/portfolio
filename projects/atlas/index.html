@@ -253,19 +253,48 @@ body {
 }
 .side-panel.open { right: 0; }
 
-.panel-close {
-  position: absolute; top: 18px; right: 22px; z-index: 10;
-  background: none; border: none; cursor: pointer;
-  font-size: 1.6rem; color: var(--text-3); transition: color 0.2s; line-height: 1;
+/* Panel nav strip */
+.panel-nav {
+  position: sticky; top: 0; z-index: 10; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 22px 10px 22px;
+  background: var(--bg); border-bottom: 1px solid var(--border);
 }
-.panel-close:hover { color: var(--text-1); }
+.panel-nav-arrows { display: flex; align-items: center; gap: 10px; }
+.panel-nav-btn {
+  background: none; border: 1px solid var(--border); border-radius: 2px;
+  color: var(--text-3); font-size: 0.85rem; cursor: pointer;
+  width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s; font-family: 'Geist Mono', monospace;
+}
+.panel-nav-btn:hover { color: var(--text-1); border-color: var(--border-2); background: var(--surface); }
+.panel-nav-pos { font-size: 0.52rem; letter-spacing: 1.5px; color: var(--text-4); min-width: 52px; text-align: center; }
+.panel-close-btn {
+  background: none; border: none; cursor: pointer;
+  font-size: 1.5rem; color: var(--text-3); transition: color 0.2s; line-height: 1; padding: 4px;
+}
+.panel-close-btn:hover { color: var(--text-1); }
 
 /* Panel boarding pass header */
 .panel-accent { height: 6px; background: var(--region-color, var(--border)); flex-shrink: 0; }
 .panel-pass-head {
-  padding: 32px 36px 26px; border-bottom: 1px solid var(--border);
+  padding: 32px 36px 26px; border-bottom: none;
   position: relative; flex-shrink: 0;
 }
+/* Tear line */
+.panel-tear {
+  margin: 0 0; height: 0; flex-shrink: 0;
+  border: none; border-top: 1px dashed var(--border-2);
+  position: relative;
+}
+.panel-tear::before, .panel-tear::after {
+  content: ''; position: absolute;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--bg-2); border: 1px dashed var(--border-2);
+  top: -10px;
+}
+.panel-tear::before { left: -10px; }
+.panel-tear::after  { right: -10px; }
 .panel-meta {
   font-size: 0.6rem; letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--region-color, var(--text-4)); margin-bottom: 8px;
@@ -342,6 +371,27 @@ body {
 .wishlist-btn:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
 .wishlist-btn.saved { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
 
+/* Vibe tags */
+.vibe-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 3px; }
+.vibe-chip {
+  font-size: 0.58rem; letter-spacing: 0.5px; padding: 2px 9px;
+  border: 1px solid var(--border-2); color: var(--text-2);
+}
+
+/* Stats in controls bar */
+.stats-info {
+  margin-left: auto; font-size: 0.52rem; letter-spacing: 1px;
+  color: var(--text-4); white-space: nowrap; flex-shrink: 0;
+}
+
+/* Active pin + path highlight */
+.pin-group.active { filter: brightness(1.8) drop-shadow(0 0 4px var(--region-color, white)); }
+.flight-path.active { opacity: 0.85 !important; stroke-width: 2.2px; }
+
+/* Planning pin variant */
+.pin-group[data-status="planning"] .pin-ring { stroke: var(--gold); }
+.pin-group[data-status="planning"] .pin-dot  { fill: var(--gold); }
+
 /* Region cascade */
 .rc-asia     { --region-color: var(--asia); }
 .rc-europe   { --region-color: var(--europe); }
@@ -401,6 +451,7 @@ body {
     <span class="search-icon">⌕</span>
     <input type="search" class="search-input" id="searchInput" placeholder="Search…">
   </div>
+  <span class="stats-info" id="statsInfo"></span>
 </div>
 
 <!-- MAP -->
@@ -420,7 +471,14 @@ body {
 
 <!-- SIDE PANEL -->
 <div class="side-panel" id="sidePanel">
-  <button class="panel-close" onclick="closePanel()">×</button>
+  <div class="panel-nav" id="panelNav">
+    <div class="panel-nav-arrows">
+      <button class="panel-nav-btn" onclick="navigatePanel(-1)" title="Previous (←)">←</button>
+      <span class="panel-nav-pos" id="panelNavPos"></span>
+      <button class="panel-nav-btn" onclick="navigatePanel(1)" title="Next (→)">→</button>
+    </div>
+    <button class="panel-close-btn" onclick="closePanel()">×</button>
+  </div>
   <div id="panelInner"></div>
   <div class="panel-footer">
     <button class="wishlist-btn" id="wishlistBtn" onclick="toggleWishlist()">
@@ -661,6 +719,7 @@ async function initMap() {
   }
 
   document.getElementById('mapLoading').style.display = 'none';
+  // (initMap is async so it already returns a Promise)
 
   const features = topojson.feature(world, world.objects.countries).features;
 
@@ -762,6 +821,7 @@ function drawAll(routeLayer, pins, nx, ny) {
         .attr('transform', `translate(${px},${py})`)
         .attr('data-id', c.id)
         .attr('data-region', c.region)
+        .attr('data-status', c.status)
         .attr('data-px', px)
         .attr('data-py', py)
         .style('opacity', 0)
@@ -826,11 +886,10 @@ function openPanel(id) {
   if (!c) return;
   currentId = id;
 
-  const rl     = REGIONS[c.region] || c.region;
-  const saved  = savedIds.has(id);
-  const season = c.best_time.split(',')[0];
-  const lang   = c.language.split(',')[0].split('(')[0].trim();
-  const vibe   = (c.vibe_tags||[])[0] || '—';
+  const rl    = REGIONS[c.region] || c.region;
+  const saved = savedIds.has(id);
+  const lang  = c.language.split(',')[0].split('(')[0].trim();
+  const vibes = (c.vibe_tags||[]).map(v => `<span class="vibe-chip">${esc(v)}</span>`).join('');
 
   const cities = (c.cities||[]).map(x => `
     <div><div class="place-name">${esc(x.name)}</div>
@@ -842,6 +901,10 @@ function openPanel(id) {
 
   const tips = (c.tips||[]).map(t => `<div class="tip">${esc(t)}</div>`).join('');
 
+  // Nav position
+  const idx = allCountries.findIndex(x => x.id === id);
+  document.getElementById('panelNavPos').textContent = `${idx + 1} / ${allCountries.length}`;
+
   document.getElementById('panelInner').innerHTML = `
     <div class="rc-${c.region}">
       <div class="panel-accent"></div>
@@ -850,23 +913,28 @@ function openPanel(id) {
         <div class="panel-country">${esc(c.name)}</div>
         <div class="panel-tagline">"${esc(c.tagline)}"</div>
       </div>
+      <div class="panel-tear"></div>
       <div class="panel-fields">
         <div class="panel-field">
-          <div class="panel-field-label">◷ Season</div>
-          <div class="panel-field-value">${esc(season)}</div>
+          <div class="panel-field-label">◷ Best Time</div>
+          <div class="panel-field-value">${esc(c.best_time)}</div>
         </div>
         <div class="panel-field">
           <div class="panel-field-label">⊕ Language</div>
           <div class="panel-field-value">${esc(lang)}</div>
         </div>
         <div class="panel-field">
-          <div class="panel-field-label">✦ Vibe</div>
-          <div class="panel-field-value">${esc(vibe)}</div>
+          <div class="panel-field-label">$ Currency</div>
+          <div class="panel-field-value">${esc(c.currency||'—')}</div>
         </div>
         <div class="panel-field">
           <div class="panel-field-label">◎ Status</div>
           <div class="panel-field-value"><span class="status-chip ${c.status}">${esc(c.status)}</span></div>
         </div>
+        ${vibes ? `<div class="panel-field" style="width:100%">
+          <div class="panel-field-label">✦ Vibe</div>
+          <div class="vibe-chips">${vibes}</div>
+        </div>` : ''}
       </div>
       <div class="panel-body">
         <div>
@@ -892,13 +960,70 @@ function openPanel(id) {
   setWishlistBtn(saved);
   document.getElementById('sidePanel').classList.add('open');
   document.getElementById('overlay').classList.add('visible');
-  document.getElementById('sidePanel').scrollTop = 0;
+  document.getElementById('panelInner').scrollTop = 0;
+
+  // URL hash
+  history.replaceState(null, '', '#' + c.name.toLowerCase().replace(/\s+/g, '-'));
+
+  // Highlight active pin + path
+  setActivePin(id);
+
+  // Zoom map to destination
+  zoomToCountry(c.name);
 }
 
 function closePanel() {
   document.getElementById('sidePanel').classList.remove('open');
   document.getElementById('overlay').classList.remove('visible');
+  if (mapSvg) {
+    mapSvg.selectAll('.pin-group').classed('active', false);
+    mapSvg.selectAll('.flight-path').classed('active', false);
+  }
+  history.replaceState(null, '', location.pathname);
   currentId = null;
+}
+
+function navigatePanel(dir) {
+  if (currentId === null) return;
+  const idx  = allCountries.findIndex(x => x.id === currentId);
+  const next = allCountries[(idx + dir + allCountries.length) % allCountries.length];
+  openPanel(next.id);
+}
+
+function setActivePin(id) {
+  if (!mapSvg) return;
+  mapSvg.selectAll('.pin-group').classed('active', function() {
+    return +this.getAttribute('data-id') === id;
+  });
+  mapSvg.selectAll('.flight-path').classed('active', function() {
+    return +this.getAttribute('data-id') === id;
+  });
+}
+
+function zoomToCountry(name) {
+  if (!mapSvg || !mapProjection || !zoomBehavior) return;
+  const lnglat = COORDS[name];
+  if (!lnglat) return;
+  const [px, py] = mapProjection(lnglat);
+  const vb = mapSvg.attr('viewBox').split(' ').map(Number);
+  const W = vb[2], H = vb[3];
+  const k = Math.max(2, d3.zoomTransform(mapSvg.node()).k);
+  const tx = (W - 520) / 2 - px * k;
+  const ty = H / 2 - py * k;
+  mapSvg.transition().duration(700)
+    .call(zoomBehavior.transform, d3.zoomIdentity.translate(tx, ty).scale(k));
+}
+
+function updateStats() {
+  const el = document.getElementById('statsInfo');
+  if (!el) return;
+  const total    = allCountries.length;
+  const visited  = allCountries.filter(c => c.status === 'visited').length;
+  const planning = allCountries.filter(c => c.status === 'planning').length;
+  const parts = [`${total} destinations`];
+  if (planning) parts.push(`${planning} planning`);
+  if (visited)  parts.push(`${visited} visited`);
+  el.textContent = parts.join(' · ');
 }
 
 function setWishlistBtn(saved) {
@@ -967,6 +1092,15 @@ function toggleSavedFilter() {
   applyFilters();
 }
 
+// ── KEYBOARD ──────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closePanel(); return; }
+  if (currentId !== null) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') navigatePanel(1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   navigatePanel(-1);
+  }
+});
+
 // ── EVENT LISTENERS ────────────────────────────────
 document.querySelectorAll('.filter-pill').forEach(p => {
   p.addEventListener('click', () => {
@@ -986,10 +1120,17 @@ document.getElementById('searchInput').addEventListener('input', () => {
 // ── BOOT ──────────────────────────────────────────
 fetch('data/countries.json')
   .then(r => r.json())
-  .then(data => {
+  .then(async data => {
     allCountries = data;
     updateBadge();
-    initMap();
+    updateStats();
+    await initMap();
+    // Hash routing — open panel if URL has a destination slug
+    if (location.hash) {
+      const slug = location.hash.replace('#', '').toLowerCase();
+      const match = allCountries.find(c => c.name.toLowerCase().replace(/\s+/g, '-') === slug);
+      if (match) openPanel(match.id);
+    }
   })
   .catch(() => {
     document.getElementById('mapLoading').textContent = 'Could not load destinations.';
