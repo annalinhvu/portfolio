@@ -978,6 +978,7 @@ function closePanel() {
   if (mapSvg) {
     mapSvg.selectAll('.pin-group').classed('active', false);
     mapSvg.selectAll('.flight-path').classed('active', false);
+    mapSvg.transition().duration(600).call(zoomBehavior.transform, d3.zoomIdentity);
   }
   history.replaceState(null, '', location.pathname);
   currentId = null;
