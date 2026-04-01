@@ -211,22 +211,23 @@ body{
   --region-text:#F0E4A8;
 }
 
-/* Per-category banner vars */
-.catalog-view[data-category="noodles"]{--cat-bg:#3C2C0C;--cat-text:#EED8A0}
-.catalog-view[data-category="rice"]   {--cat-bg:#223618;--cat-text:#C4E0A8}
-.catalog-view[data-category="bánh"]   {--cat-bg:#3A2810;--cat-text:#EECCA0}
-.catalog-view[data-category="sides"]  {--cat-bg:#1E3418;--cat-text:#B8E0A0}
-.catalog-view[data-category="sweets"] {--cat-bg:#3A2018;--cat-text:#EEC8B0}
-.catalog-view[data-category="drinks"] {--cat-bg:#1A2C20;--cat-text:#B0D8B8}
+/* Per-category banner vars — all warm dark brown family */
+.catalog-view[data-category="noodles"]{--cat-bg:#301c08;--cat-text:#f0d880}
+.catalog-view[data-category="rice"]   {--cat-bg:#281808;--cat-text:#e8d070}
+.catalog-view[data-category="bánh"]   {--cat-bg:#2e1a08;--cat-text:#f0cc88}
+.catalog-view[data-category="sides"]  {--cat-bg:#221808;--cat-text:#e0c868}
+.catalog-view[data-category="sweets"] {--cat-bg:#2e1408;--cat-text:#f0c890}
+.catalog-view[data-category="drinks"] {--cat-bg:#201c08;--cat-text:#dcc868}
 
-/* Per-category card band tint */
-.recipe-card[data-cat="noodles"]{--card-band-bg:rgba(232,200,112,.10);--region-color:#b88c18}
-.recipe-card[data-cat="rice"]   {--card-band-bg:rgba(216,184,112,.10);--region-color:#a07810}
-.recipe-card[data-cat="bánh"]   {--card-band-bg:rgba(212,160, 96,.10);--region-color:#9a6810}
-.recipe-card[data-cat="sides"]  {--card-band-bg:rgba(200,160, 80,.10);--region-color:#7a6040}
-.recipe-card[data-cat="sweets"] {--card-band-bg:rgba(216,168,120,.10);--region-color:#b06838}
-.recipe-card[data-cat="drinks"] {--card-band-bg:rgba(192,176, 96,.10);--region-color:#6a7838}
-/* region overrides category when browsing by region */
+/* Per-category card band tint — warm amber family only, no --region-color override
+   (cards use global --accent; region filter applies its own color via rules below) */
+.recipe-card[data-cat="noodles"]{--card-band-bg:rgba(200,136,24,.08)}
+.recipe-card[data-cat="rice"]   {--card-band-bg:rgba(176,120,20,.08)}
+.recipe-card[data-cat="bánh"]   {--card-band-bg:rgba(192,112,24,.08)}
+.recipe-card[data-cat="sides"]  {--card-band-bg:rgba(152,104,20,.08)}
+.recipe-card[data-cat="sweets"] {--card-band-bg:rgba(176, 80,40,.08)}
+.recipe-card[data-cat="drinks"] {--card-band-bg:rgba(152,120,24,.08)}
+/* region overrides when browsing by region */
 .catalog-view[data-region="northern"] .recipe-card{--region-color:#4A8898}
 .catalog-view[data-region="central"]  .recipe-card{--region-color:#A05838}
 .catalog-view[data-region="southern"] .recipe-card{--region-color:#987018}
@@ -481,9 +482,9 @@ body{
 }
 .region-btn:first-child{border-top:1px solid var(--border)}
 .region-btn:hover{background:rgba(60,60,60,.03)}
-.region-btn.rn:hover{border-left-color:#7AAAB8;background:rgba(122,170,184,.06)}
-.region-btn.rc:hover{border-left-color:#C07858;background:rgba(192,120,88,.06)}
-.region-btn.rs:hover{border-left-color:#C8A030;background:rgba(200,160,48,.06)}
+.region-btn.rn:hover{border-left-color:#4A8898;background:rgba(74,136,152,.06)}
+.region-btn.rc:hover{border-left-color:#A05838;background:rgba(160,88,56,.06)}
+.region-btn.rs:hover{border-left-color:#987018;background:rgba(152,112,24,.06)}
 
 .region-info{flex:1;min-width:0}
 .region-viet{
@@ -737,7 +738,7 @@ body{
   font-size:.52rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-4);font-weight:600;
 }
 .page-footer::before{
-  content:'✦';display:block;color:rgba(78,122,85,.4);font-size:.5rem;margin-bottom:18px;letter-spacing:6px;
+  content:'✦';display:block;color:rgba(184,136,24,.4);font-size:.5rem;margin-bottom:18px;letter-spacing:6px;
 }
 .page-footer a{color:var(--text-4);text-decoration:none;transition:color .2s}
 .page-footer a:hover{color:var(--accent)}
@@ -1017,12 +1018,12 @@ function applyFilters(){
 /* ── Helpers ── */
 const CAT_GRAD={
   light:{
-    noodles:'#E8C870', rice:'#D8B870', 'bánh':'#D4A060',
-    sides:'#C8A050', sweets:'#D8A878', drinks:'#C0B060',
+    noodles:'#E8C868', rice:'#D8B460', 'bánh':'#E0A858',
+    sides:'#C8A048', sweets:'#E0A880', drinks:'#D0B050',
   },
   dark:{
-    noodles:'#2A1800', rice:'#201400', 'bánh':'#281600',
-    sides:'#1c1200', sweets:'#281808', drinks:'#181200',
+    noodles:'#2e1c08', rice:'#281808', 'bánh':'#2c1a08',
+    sides:'#201808', sweets:'#2e1408', drinks:'#201c08',
   },
 };
 const CAT_ICON={
