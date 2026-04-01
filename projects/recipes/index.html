@@ -219,6 +219,18 @@ body{
 .catalog-view[data-category="sweets"] {--cat-bg:#3A2018;--cat-text:#EEC8B0}
 .catalog-view[data-category="drinks"] {--cat-bg:#1A2C20;--cat-text:#B0D8B8}
 
+/* Per-category card band tint */
+.recipe-card[data-cat="noodles"]{--card-band-bg:rgba(232,200,112,.10);--region-color:#b88c18}
+.recipe-card[data-cat="rice"]   {--card-band-bg:rgba(216,184,112,.10);--region-color:#a07810}
+.recipe-card[data-cat="bánh"]   {--card-band-bg:rgba(212,160, 96,.10);--region-color:#9a6810}
+.recipe-card[data-cat="sides"]  {--card-band-bg:rgba(200,160, 80,.10);--region-color:#7a6040}
+.recipe-card[data-cat="sweets"] {--card-band-bg:rgba(216,168,120,.10);--region-color:#b06838}
+.recipe-card[data-cat="drinks"] {--card-band-bg:rgba(192,176, 96,.10);--region-color:#6a7838}
+/* region overrides category when browsing by region */
+.catalog-view[data-region="northern"] .recipe-card{--region-color:#4A8898}
+.catalog-view[data-region="central"]  .recipe-card{--region-color:#A05838}
+.catalog-view[data-region="southern"] .recipe-card{--region-color:#987018}
+
 /* ── Catalog banner (region or category) ── */
 .catalog-view[data-region] .catalog-header,
 .catalog-view[data-category] .catalog-header{
@@ -322,9 +334,10 @@ body{
 .recipe-card{
   background:var(--card);
   border:1px solid var(--border);
-  border-radius:6px;overflow:hidden;
+  border-left:4px solid var(--region-color,var(--accent));
+  border-radius:4px;overflow:hidden;
   cursor:pointer;
-  transition:transform .15s,box-shadow .15s;
+  transition:transform .15s,box-shadow .15s,border-left-color .15s;
   box-shadow:var(--sh);
   display:flex;flex-direction:column;
   position:relative;
@@ -332,24 +345,34 @@ body{
 .recipe-card:hover{transform:translateY(-3px);box-shadow:var(--sh-h)}
 .recipe-card:hover .card-name{color:var(--region-color,var(--accent))}
 .card-num{display:none}
-.card-photo{width:100%;height:160px;object-fit:cover;display:block}
-.card-photo-placeholder{
-  width:100%;height:160px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:2.4rem;letter-spacing:0;
+/* Label band at top */
+.card-band{
+  padding:10px 14px 9px;
+  background:var(--card-band-bg,rgba(200,136,10,.08));
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.card-band-cat{
+  font-size:.44rem;letter-spacing:2px;text-transform:uppercase;
+  font-weight:700;color:var(--region-color,var(--accent));
+}
+.card-band-time{
+  font-size:.48rem;color:var(--text-4);letter-spacing:.5px;
 }
 .card-body{
-  padding:14px 16px 10px;flex:1;
+  padding:16px 16px 10px;flex:1;
 }
 .card-name{
   font-family:'Playfair Display',Georgia,serif;
-  font-size:1.05rem;font-weight:700;
-  color:var(--text-1);margin-bottom:5px;line-height:1.2;
+  font-size:1.12rem;font-weight:700;font-style:italic;
+  color:var(--text-1);margin-bottom:7px;line-height:1.2;
   transition:color .15s;
 }
 .card-tag{
-  font-size:.78rem;font-style:italic;
-  color:var(--text-3);line-height:1.55;
+  font-size:.8rem;
+  font-family:Georgia,'Times New Roman',serif;
+  font-style:italic;
+  color:var(--text-3);line-height:1.6;
 }
 .card-footer{
   display:flex;align-items:center;justify-content:space-between;
@@ -358,16 +381,11 @@ body{
 }
 .cuisine-lbl{
   font-size:.44rem;letter-spacing:1.6px;text-transform:uppercase;
-  color:var(--accent);font-weight:600;
-  border:1px solid var(--accent);
-  padding:2px 6px;border-radius:2px;opacity:.8;
-}
-.card-time-foot{
-  font-size:.52rem;color:var(--text-4);letter-spacing:.5px;
+  color:var(--text-4);font-weight:600;
 }
 .heart-btn{
   background:none;border:none;cursor:pointer;
-  font-size:.88rem;line-height:1;padding:2px;
+  font-size:.9rem;line-height:1;padding:2px;
   color:var(--text-4);transition:all .18s;flex-shrink:0;
 }
 .heart-btn:hover{color:var(--terra);transform:scale(1.2)}
@@ -1055,18 +1073,18 @@ function renderCards(list){
 function recipeRow(r,i){
   const sv=savedIds.has(r.id);
   const tot=r.prep_time_min+r.cook_time_min;
-  const photoHtml=r.photo
-    ? `<img class="card-photo" src="${r.photo}" alt="${r.name}" loading="lazy">`
-    : `<div class="card-photo-placeholder" style="background:${catGrad(r.category)}">${CAT_ICON[r.category]||'🍽'}</div>`;
-  return `<div class="recipe-card card-in" style="animation-delay:${i*.025}s" onclick="showDetail(${r.id})">
-    ${photoHtml}
+  const catLabel=CAT_LABEL[r.category]||r.category;
+  return `<div class="recipe-card card-in" data-cat="${r.category}" style="animation-delay:${i*.025}s" onclick="showDetail(${r.id})">
+    <div class="card-band">
+      <span class="card-band-cat">${catLabel}</span>
+      <span class="card-band-time">${fmtTime(tot)}</span>
+    </div>
     <div class="card-body">
       <div class="card-name">${r.name}</div>
       <div class="card-tag">${r.tagline}</div>
     </div>
     <div class="card-footer">
       <span class="cuisine-lbl">${regionLabel(r.cuisine)}</span>
-      <span class="card-time-foot">${fmtTime(tot)}</span>
       <button class="heart-btn${sv?' saved':''}" data-id="${r.id}"
         onclick="toggleFavorite(${r.id},event)">${sv?'&#9829;':'&#9825;'}</button>
     </div>
