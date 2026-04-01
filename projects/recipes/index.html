@@ -519,8 +519,15 @@ body{
   min-height:100px;position:relative;overflow:hidden;
   font-family:inherit;
   box-shadow:0 1px 4px rgba(60,40,0,.07);
+  border-top:3px solid transparent;
 }
 .cat-tile:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(60,40,0,.12);filter:brightness(.97)}
+.cat-tile[data-cat="noodles"]{border-top-color:#a07840}
+.cat-tile[data-cat="rice"]   {border-top-color:#5a7a58}
+.cat-tile[data-cat="bánh"]   {border-top-color:#8a4030}
+.cat-tile[data-cat="sides"]  {border-top-color:#4a7890}
+.cat-tile[data-cat="sweets"] {border-top-color:#906858}
+.cat-tile[data-cat="drinks"] {border-top-color:#487258}
 .cat-tile-icon{
   font-size:1.7rem;margin-bottom:9px;line-height:1;
 }
@@ -566,6 +573,17 @@ body{
 }
 .detail-img-strip{
   width:100%;height:240px;object-fit:cover;display:block;
+}
+.detail-hero-deco{
+  width:100%;padding:28px 32px 20px;
+  display:flex;align-items:center;gap:16px;
+  border-bottom:1px solid var(--border);
+  background:var(--card);
+}
+.hero-deco-line{flex:1;height:1px;background:var(--border)}
+.hero-deco-mark{
+  font-size:1.4rem;color:var(--region-color,var(--accent));opacity:.5;
+  line-height:1;
 }
 .detail-head-section{
   padding:28px 32px 24px;
@@ -730,6 +748,42 @@ body{
 }
 .save-btn:hover{border-color:var(--region-color,var(--terra));color:var(--region-color,var(--terra))}
 .save-btn.saved{border-color:var(--region-color,var(--terra));color:var(--region-color,var(--terra));background:var(--region-tint,rgba(184,88,40,.07))}
+.print-btn{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  margin-top:8px;padding:8px;width:100%;
+  border:1px solid var(--border);border-radius:2px;
+  background:none;font-size:.52rem;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;
+  color:var(--text-4);cursor:pointer;transition:all .2s;font-family:inherit;
+}
+.print-btn:hover{border-color:var(--text-3);color:var(--text-2)}
+/* Serving scaler */
+.scaler-wrap{margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.scaler-label{
+  font-size:.5rem;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--text-4);font-weight:700;margin-bottom:8px;
+}
+.scale-btns{display:flex;gap:6px}
+.scale-btn{
+  flex:1;padding:6px 0;
+  border:1px solid var(--border);border-radius:2px;
+  background:none;font-size:.72rem;font-weight:600;
+  color:var(--text-3);cursor:pointer;transition:all .15s;font-family:inherit;
+}
+.scale-btn:hover{border-color:var(--accent);color:var(--accent)}
+.scale-btn.active{border-color:var(--region-color,var(--accent));color:var(--region-color,var(--accent));background:var(--region-tint,rgba(90,122,88,.08))}
+
+/* ── Print ── */
+@media print{
+  .topbar,.masthead,.explore-view,.catalog-view,.detail-back,.detail-nav,
+  .save-btn,.print-btn,.scaler-wrap,.related-section,
+  [id="savedBadge"],[id="themeBtn"]{display:none!important}
+  .detail-view{display:block!important}
+  .detail-card{border:none;box-shadow:none;border-left:none;border-top:none}
+  .detail-head-section{padding:0 0 16px}
+  .detail-sidebar{display:none}
+  .detail-main{width:100%}
+  .detail-body{display:block}
+}
 
 /* ── Footer ── */
 .page-footer{
@@ -820,25 +874,26 @@ body{
           <!-- Central: narrow waist, east coast bulges far right at Quy Nhơn (65,87) -->
           <path class="viet-region map-region-central"
             onclick="browseRegion('central')"
-            d="M41,60 Q44,60 48,60
-               Q49,61 50,63 Q54,65 58,68
-               Q62,78 65,87
-               Q63,99 60,110 Q58,111 56,112
-               Q39,112 23,112
-               Q28,110 32,108 Q40,106 47,104
-               Q49,95 50,86 Q47,79 45,72
-               Q41,66 41,60 Z">
+            d="M41,60 L48,60
+               L52,64 L58,68
+               L64,80 L65,87
+               L62,100 L59,110 L56,112
+               L23,112
+               L30,108 L42,105
+               L48,95 L50,86
+               L46,78 L44,70 L41,64 Z">
             <title>Miền Trung</title>
           </path>
 
           <!-- Southern: Mekong Delta fan, Gulf of Thailand west coast, Cà Mau tip -->
           <path class="viet-region map-region-south"
             onclick="browseRegion('southern')"
-            d="M23,112 Q39,112 56,112
-               Q52,115 47,117 Q44,120 41,122
-               Q34,122 27,122 Q25,129 24,135
-               Q20,130 17,126
-               Q17,121 18,117 Q20,114 23,112 Z">
+            d="M23,112 L56,112
+               L50,116 L44,120 L40,122
+               L32,122 L26,122
+               L24,128 L23,135
+               L19,130 L17,124
+               L18,118 L21,114 Z">
             <title>Miền Nam</title>
           </path>
         </svg>
@@ -888,7 +943,7 @@ body{
       <div class="search-wrap">
         <span class="search-icon">&#10022;</span>
         <input type="search" class="search-input" id="searchInput"
-          placeholder="Search recipes, ingredients..." oninput="onSearch()">
+          placeholder="Search by name or ingredients (e.g. pork, lemongrass)..." oninput="onSearch()">
       </div>
       <select class="filter-select" id="cuisineFilter" onchange="applyFilters()">
         <option value="">All regions</option>
@@ -995,7 +1050,8 @@ function filterSaved(){
 }
 function onSearch(){ clearTimeout(searchTimer); searchTimer=setTimeout(applyFilters,150); }
 function applyFilters(){
-  const q=(document.getElementById('searchInput').value||'').toLowerCase().trim();
+  const raw=(document.getElementById('searchInput').value||'').toLowerCase().trim();
+  const terms=raw?raw.split(',').map(t=>t.trim()).filter(Boolean):[];
   const cui=document.getElementById('cuisineFilter').value;
   const dif=document.getElementById('difficultyFilter').value;
   const out=allRecipes.filter(r=>{
@@ -1003,9 +1059,9 @@ function applyFilters(){
     else if(activeCat!=='all'){if(r.category!==activeCat)return false;}
     if(cui&&r.cuisine!==cui)return false;
     if(dif&&r.difficulty!==dif)return false;
-    if(q){
+    if(terms.length){
       const h=[r.name,r.tagline,r.ingredients,r.cuisine,r.category].join(' ').toLowerCase();
-      if(!h.includes(q))return false;
+      if(!terms.every(t=>h.includes(t)))return false;
     }
     return true;
   });
@@ -1091,6 +1147,31 @@ function recipeRow(r,i){
   </div>`;
 }
 
+/* ── Serving scaler ── */
+let currentScale = 1;
+
+function scaleAmount(str, factor){
+  if(factor===1) return str;
+  return str.replace(/^(\d+\/\d+|\d+\.?\d*)/, m => {
+    let n;
+    if(m.includes('/')) { const [a,b]=m.split('/'); n=parseFloat(a)/parseFloat(b); }
+    else { n=parseFloat(m); }
+    const scaled = n * factor;
+    if(scaled === Math.round(scaled)) return scaled.toString();
+    const r = Math.round(scaled*4)/4;
+    return r.toString().replace('.25','¼').replace('.5','½').replace('.75','¾');
+  });
+}
+
+function setScale(n){
+  currentScale = n;
+  document.querySelectorAll('.scale-btn').forEach(b=>b.classList.toggle('active',parseInt(b.dataset.scale)===n));
+  const list = document.getElementById('scaledIngList');
+  if(!list) return;
+  const base = JSON.parse(list.dataset.base);
+  list.innerHTML = base.map(i=>`<li>${scaleAmount(i, n)}</li>`).join('');
+}
+
 /* ── Detail ── */
 function relatedCard(rx){
   const tot=rx.prep_time_min+rx.cook_time_min;
@@ -1102,6 +1183,7 @@ function relatedCard(rx){
 
 function showDetail(id){
   const r=allRecipes.find(x=>x.id===id); if(!r)return;
+  currentScale = 1;
   const sv=savedIds.has(r.id);
   const ings=r.ingredients.split('\n').map(l=>l.replace(/^-\s*/,'').trim()).filter(Boolean);
   const steps=r.instructions.split('\n').map(l=>l.replace(/^\d+\.\s*/,'').trim()).filter(Boolean);
@@ -1126,7 +1208,9 @@ function showDetail(id){
     </div>`:''}
   </div>`;
 
-  const detailImg=r.photo?`<img class="detail-img-strip" src="${r.photo}" alt="${r.name}" loading="lazy">`:'' ;
+  const ingBase=JSON.stringify(ings).replace(/"/g,'&quot;');
+  const detailImg=r.photo?`<img class="detail-img-strip" src="${r.photo}" alt="${r.name}" loading="lazy">`
+    :`<div class="detail-hero-deco"><div class="hero-deco-line"></div><span class="hero-deco-mark">&#10022;</span><div class="hero-deco-line"></div><span class="hero-deco-mark">&#10022;</span><div class="hero-deco-line"></div></div>`;
   document.getElementById('detailContent').innerHTML=`
     <div class="detail-card">
       ${detailImg}<div class="detail-head-section">
@@ -1141,7 +1225,7 @@ function showDetail(id){
           <p class="detail-desc">${r.description}</p>
           <div class="det-section">
             <div class="det-label">Ingredients <span style="font-style:italic;font-weight:400;font-size:.78em;opacity:.6;text-transform:none;letter-spacing:0">${ings.length} items</span></div>
-            <ul class="ing-list">${ings.map(i=>`<li>${i}</li>`).join('')}</ul>
+            <ul class="ing-list" id="scaledIngList" data-base="${ingBase}">${ings.map(i=>`<li>${i}</li>`).join('')}</ul>
           </div>
           <div class="det-section">
             <div class="det-label">Instructions <span style="font-style:italic;font-weight:400;font-size:.78em;opacity:.6;text-transform:none;letter-spacing:0">${steps.length} steps</span></div>
@@ -1159,10 +1243,19 @@ function showDetail(id){
             <div class="sb-stat"><span class="sb-key">Difficulty</span><span class="sb-val">${r.difficulty}</span></div>
             <div class="sb-stat"><span class="sb-key">Region</span><span class="sb-val">${regionLabel(r.cuisine)}</span></div>
             <div class="sb-stat"><span class="sb-key">Source</span><span class="sb-val">${r.source}</span></div>
+            <div class="scaler-wrap">
+              <div class="scaler-label">Serving size</div>
+              <div class="scale-btns">
+                <button class="scale-btn active" data-scale="1" onclick="setScale(1)">&times;1</button>
+                <button class="scale-btn" data-scale="2" onclick="setScale(2)">&times;2</button>
+                <button class="scale-btn" data-scale="4" onclick="setScale(4)">&times;4</button>
+              </div>
+            </div>
             <button class="save-btn${sv?' saved':''}" id="detailSaveBtn" data-id="${r.id}"
               onclick="toggleFavorite(${r.id},event)">
               ${sv?'&#9829;&ensp;Saved':'&#9825;&ensp;Save Recipe'}
             </button>
+            <button class="print-btn" onclick="window.print()">&#9112;&ensp;Print Recipe</button>
           </div>
         </div>
       </div>
@@ -1284,7 +1377,7 @@ function renderExplore(){
   const catTiles=document.getElementById('catTiles');
   if(catTiles){
     catTiles.innerHTML=CAT_ORDER.map(cat=>`
-      <button class="cat-tile" style="background:${catGrad(cat)}"
+      <button class="cat-tile" data-cat="${cat}" style="background:${catGrad(cat)}"
         onclick="browseCategory('${cat.replace(/'/g,"\\'")}')">
         <span class="cat-tile-icon">${CAT_ICON[cat]||'🍽'}</span>
         <span class="cat-tile-name">${CAT_LABEL[cat]||cat}</span>
