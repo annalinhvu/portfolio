@@ -122,21 +122,13 @@
   }
   .back-link:hover { color: var(--accent); }
   .page-title {
-    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 2.5px;
+    text-transform: uppercase;
     position: absolute; left: 50%; transform: translateX(-50%);
     white-space: nowrap;
-    border-top: 2px solid var(--accent);
-    padding-top: 5px;
   }
-  .pt-eyebrow {
-    font-family: 'Geist Mono', monospace;
-    font-size: 0.5rem; font-weight: 500; letter-spacing: 3.5px;
-    text-transform: uppercase; color: var(--text-4);
-  }
-  .pt-word {
-    font-size: 0.95rem; font-weight: 700; color: var(--text-1);
-    letter-spacing: -0.3px; line-height: 1;
-  }
+  .pt-accent { color: var(--accent); }
   .theme-toggle {
     background: none; border: none; cursor: pointer;
     font-size: 0.85rem; color: var(--text-4); padding: 4px 8px; transition: color 0.2s;
@@ -432,7 +424,7 @@
     .festival-grid { grid-template-columns: repeat(2, 1fr); }
     .page { padding: 24px 16px 60px; }
     .top-bar { padding: 12px 16px; }
-    .pt-word { font-size: 0.8rem; } .pt-eyebrow { font-size: 0.44rem; }
+    .page-title { font-size: 0.62rem; letter-spacing: 2px; }
     .detail-header { padding: 24px; }
     .detail-name { font-size: 1.4rem; }
   }
@@ -602,7 +594,7 @@
 
 <div class="top-bar">
   <a href="../../index.html#lab" class="back-link">&larr; Portfolio</a>
-  <span class="page-title"><span class="pt-eyebrow">Film Festival</span><span class="pt-word">Tracker</span></span>
+  <span class="page-title">Film Festival <span class="pt-accent">Tracker</span></span>
   <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
 </div>
 
