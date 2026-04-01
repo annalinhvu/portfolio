@@ -275,8 +275,12 @@ body {
 }
 .panel-close-btn:hover { color: var(--text-1); }
 
+/* Panel photo hero */
+.panel-photo { width: 100%; height: 190px; overflow: hidden; flex-shrink: 0; }
+.panel-photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.82); }
+
 /* Panel boarding pass header */
-.panel-accent { height: 6px; background: var(--region-color, var(--border)); flex-shrink: 0; }
+.panel-accent { height: 4px; background: var(--region-color, var(--border)); flex-shrink: 0; }
 .panel-pass-head {
   padding: 32px 36px 26px; border-bottom: none;
   position: relative; flex-shrink: 0;
@@ -388,9 +392,9 @@ body {
 .pin-group.active { filter: brightness(1.8) drop-shadow(0 0 4px var(--region-color, white)); }
 .flight-path.active { opacity: 0.85 !important; stroke-width: 2.2px; }
 
-/* Planning pin variant */
-.pin-group[data-status="planning"] .pin-ring { stroke: var(--gold); }
-.pin-group[data-status="planning"] .pin-dot  { fill: var(--gold); }
+/* Planning + visited hover */
+.pin-group[data-status="planning"]:hover polygon { filter: brightness(1.4); }
+.pin-group[data-status="visited"]:hover .pin-ring { filter: brightness(1.3); }
 
 /* Region cascade */
 .rc-asia     { --region-color: var(--asia); }
@@ -827,23 +831,35 @@ function drawAll(routeLayer, pins, nx, ny) {
         .style('opacity', 0)
         .on('click', () => openPanel(c.id));
 
-      // Pulse ring
-      pg.append('circle').attr('r', 10)
-        .attr('fill', 'none')
-        .attr('stroke', `var(--${c.region})`)
-        .attr('stroke-width', 1)
-        .attr('opacity', 0.2)
-        .style('animation', `pinPulse 2.8s ${Math.random()*2}s ease-in-out infinite`);
-
-      // Outer ring
-      pg.append('circle').attr('class', 'pin-ring').attr('r', 5.5)
-        .attr('fill', 'none')
-        .attr('stroke', `var(--${c.region})`)
-        .attr('stroke-width', 1.5);
-
-      // Inner dot
-      pg.append('circle').attr('class', 'pin-dot').attr('r', 2.8)
-        .attr('fill', `var(--${c.region})`);
+      if (c.status === 'visited') {
+        // Solid filled circle — stamped, definitive
+        pg.append('circle').attr('class', 'pin-ring').attr('r', 6)
+          .attr('fill', `var(--${c.region})`).attr('stroke', 'none');
+        pg.append('text')
+          .attr('text-anchor', 'middle').attr('dominant-baseline', 'central')
+          .attr('font-size', '7').attr('fill', 'var(--bg)')
+          .attr('font-weight', 'bold').attr('pointer-events', 'none').text('✓');
+      } else if (c.status === 'planning') {
+        // Diamond — in progress, directional
+        pg.append('polygon')
+          .attr('points', '0,-8 8,0 0,8 -8,0')
+          .attr('fill', 'none').attr('stroke', 'var(--gold)').attr('stroke-width', 1.5);
+        pg.append('polygon')
+          .attr('points', '0,-4 4,0 0,4 -4,0')
+          .attr('fill', 'var(--gold)');
+      } else {
+        // Dreaming — animated pulse ring (default)
+        pg.append('circle').attr('r', 10)
+          .attr('fill', 'none')
+          .attr('stroke', `var(--${c.region})`)
+          .attr('stroke-width', 1)
+          .attr('opacity', 0.2)
+          .style('animation', `pinPulse 2.8s ${Math.random()*2}s ease-in-out infinite`);
+        pg.append('circle').attr('class', 'pin-ring').attr('r', 5.5)
+          .attr('fill', 'none').attr('stroke', `var(--${c.region})`).attr('stroke-width', 1.5);
+        pg.append('circle').attr('class', 'pin-dot').attr('r', 2.8)
+          .attr('fill', `var(--${c.region})`);
+      }
 
       // Saved dot (gold, top-right of pin)
       pg.append('circle').attr('class', `pin-saved-dot ${savedIds.has(c.id) ? 'visible' : ''}`)
@@ -907,6 +923,7 @@ function openPanel(id) {
 
   document.getElementById('panelInner').innerHTML = `
     <div class="rc-${c.region}">
+      ${c.photo ? `<div class="panel-photo"><img src="${esc(c.photo)}" alt="${esc(c.name)}" loading="lazy" onerror="this.parentElement.style.display='none'"></div>` : ''}
       <div class="panel-accent"></div>
       <div class="panel-pass-head">
         <div class="panel-meta">${esc(rl)} &middot; ${flightNo(c.id)}</div>
