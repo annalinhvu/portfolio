@@ -859,7 +859,7 @@
     "name": "Mexico",
     "code": "MX",
     "region": "americas",
-    "status": "planning",
+    "status": "dreaming",
     "tagline": "The country that invented corn, chocolate, and the world's most complex sauces.",
     "description": "Mexico's food alone justifies the trip — it is one of only a handful of national cuisines with UNESCO Intangible Cultural Heritage status, and eating your way through Oaxaca's moles, Mexico City's tacos al pastor, and Yucatán's cochinita pibil is enough reason to return repeatedly. The culture, archaeological sites, and Pacific and Caribbean coasts are everything else you didn't expect.",
     "best_time": "November–April",
@@ -1824,7 +1824,7 @@
     "name": "Singapore",
     "code": "SG",
     "region": "asia",
-    "status": "dreaming",
+    "status": "planning",
     "tagline": "A city-state that turned humidity, ambition, and hawker stalls into an art form.",
     "description": "Singapore shouldn't work as well as it does — a tiny island that built a first-world metropolis from scratch in a single generation, then kept going. The food alone justifies the trip: Michelin-starred hawker stalls where the queue starts at 10am for a $3 bowl of chicken rice that will rearrange your understanding of what simple food can be.",
     "best_time": "February–April (driest months)",
@@ -1928,5 +1928,62 @@
       "architecture"
     ],
     "photo": "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?w=800&q=75&fit=crop"
+  },
+  {
+    "id": 36,
+    "name": "United States",
+    "code": "US",
+    "region": "americas",
+    "status": "planning",
+    "tagline": "A country too big to ever fully know",
+    "description": "Vast and contradictory — endless road trips, national parks, cities with their own distinct personalities. The kind of place you can spend a lifetime exploring without ever seeing it all.",
+    "best_time": "Varies by region",
+    "language": "English",
+    "currency": "USD ($)",
+    "cities": [
+      {
+        "name": "New York City",
+        "notes": "Already home — but still endlessly explorable."
+      },
+      {
+        "name": "New Orleans",
+        "notes": "Jazz, food, and a city that refuses to be ordinary."
+      },
+      {
+        "name": "Portland",
+        "notes": "Pacific Northwest vibes, coffee, and the coast nearby."
+      },
+      {
+        "name": "Savannah",
+        "notes": "Spanish moss, historic squares, and slow Southern time."
+      }
+    ],
+    "food": [
+      {
+        "name": "Nashville Hot Chicken",
+        "notes": "The original, not a chain imitation."
+      },
+      {
+        "name": "New Orleans Gumbo",
+        "notes": "A bowl of everything that makes this city special."
+      },
+      {
+        "name": "Tacos (Tex-Mex border)",
+        "notes": "Drive the border towns for the real thing."
+      }
+    ],
+    "tips": [
+      "Drive whenever possible — the landscape between destinations is half the experience.",
+      "Each region is essentially its own country. The South, Pacific Northwest, and Southwest feel entirely different.",
+      "National parks require planning — permits sell out months in advance for popular spots."
+    ],
+    "vibe_tags": [
+      "road trips",
+      "national parks",
+      "diverse cities",
+      "music scenes",
+      "vast landscapes"
+    ],
+    "photo": "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&q=75&fit=crop"
   }
 ]
