@@ -463,19 +463,28 @@
   /* ── Calendar ── */
   .cal-nav {
     display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 16px; padding: 14px 0;
+    border-top: 2px solid var(--accent); border-bottom: 1px solid var(--border);
   }
   .cal-nav-btn {
-    background: var(--surface); border: 1px solid var(--border);
-    color: var(--text-2); cursor: pointer; padding: 8px 16px;
-    border-radius: 8px; font-family: 'Geist Mono', monospace;
-    font-size: 0.76rem; transition: all 0.2s;
+    background: none; border: 1px solid var(--border);
+    color: var(--text-3); cursor: pointer; padding: 7px 18px;
+    border-radius: 4px; font-family: 'Geist Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 1px; transition: all 0.2s;
   }
-  .cal-nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .cal-nav-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
   .cal-month-label {
-    font-family: 'Geist Mono', monospace; font-size: 0.86rem;
-    color: var(--text-1); letter-spacing: 3px; text-transform: uppercase;
+    font-family: 'Geist Mono', monospace; font-size: 1rem;
+    color: var(--text-1); letter-spacing: 4px; text-transform: uppercase;
+    font-weight: 600;
   }
+  .cal-today-btn {
+    font-family: 'Geist Mono', monospace; font-size: 0.6rem;
+    letter-spacing: 1.2px; text-transform: uppercase;
+    background: none; border: none; color: var(--accent); cursor: pointer;
+    padding: 4px 0; transition: opacity 0.15s;
+  }
+  .cal-today-btn:hover { opacity: 0.7; }
   .cal-legend {
     display: flex; gap: 18px; margin-bottom: 16px; flex-wrap: wrap;
   }
@@ -489,14 +498,16 @@
     gap: 3px; margin-bottom: 24px;
   }
   .cal-dow {
-    font-family: 'Geist Mono', monospace; font-size: 0.58rem;
-    color: var(--text-4); text-align: center; padding: 8px 4px 10px;
-    letter-spacing: 1.5px; text-transform: uppercase;
+    font-family: 'Geist Mono', monospace; font-size: 0.55rem;
+    color: var(--text-1); text-align: center; padding: 9px 4px 8px;
+    letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+    background: var(--accent-bg); border: 1px solid var(--border);
+    border-radius: 4px;
   }
   .cal-day {
-    min-height: 76px; padding: 8px 7px 6px;
+    min-height: 110px; padding: 9px 8px 7px;
     background: var(--surface); border: 1px solid var(--border);
-    border-radius: 6px; transition: border-color 0.15s, background 0.15s;
+    border-radius: 4px; transition: border-color 0.15s, background 0.15s;
     position: relative;
   }
   .cal-day.has-deadlines { cursor: pointer; }
@@ -534,7 +545,8 @@
   /* ── Calendar day panel ── */
   .cal-day-panel {
     background: var(--surface); border: 1px solid var(--border);
-    border-radius: 10px; padding: 20px 24px; margin-top: 4px;
+    border-top: 2px solid var(--accent);
+    border-radius: 4px; padding: 20px 24px; margin-top: 12px;
     animation: fadeIn 0.15s ease;
   }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
@@ -594,8 +606,8 @@
         <button class="group-btn" id="btn-experimental" onclick="setGroup('experimental')">Experimental</button>
       </div>
       <div class="view-toggle">
-        <button class="view-btn active" id="btn-list-view" onclick="setViewMode('list')">List</button>
-        <button class="view-btn" id="btn-cal-view" onclick="setViewMode('calendar')">Calendar</button>
+        <button class="view-btn" id="btn-list-view" onclick="setViewMode('list')">List</button>
+        <button class="view-btn active" id="btn-cal-view" onclick="setViewMode('calendar')">Calendar</button>
       </div>
     </div>
     <div class="stats-row" id="stats-row"></div>
@@ -606,10 +618,10 @@
       <select id="filter-premiere"><option value="">Any Premiere Req</option></select>
       <input type="text" id="filter-search" placeholder="Search festivals...">
     </div>
-    <div id="list-content">
+    <div id="list-content" style="display:none">
       <div id="festival-list"></div>
     </div>
-    <div id="calendar-view" style="display:none"></div>
+    <div id="calendar-view"></div>
   </div>
 
   <!-- ── Detail View ── -->
@@ -627,7 +639,7 @@ var filteredFestivals = [];
 var currentView = 'list';
 var currentDetailId = null;
 var activeGroup = 'documentary'; // 'documentary' | 'experimental'
-var viewMode = 'list'; // 'list' | 'calendar'
+var viewMode = 'calendar'; // 'list' | 'calendar'
 var calYear = new Date().getFullYear();
 var calMonth = new Date().getMonth(); // 0-indexed
 var selectedCalDay = null;
@@ -1026,10 +1038,14 @@ function renderCalendar() {
   var html = '';
 
   // Nav
+  var isCurrentMonth = (year === new Date().getFullYear() && month === new Date().getMonth());
   html += '<div class="cal-nav">'
-        + '<button class="cal-nav-btn" onclick="calPrev()">&larr;</button>'
+        + '<button class="cal-nav-btn" onclick="calPrev()">&larr; Prev</button>'
+        + '<div style="display:flex;flex-direction:column;align-items:center;gap:4px">'
         + '<span class="cal-month-label">' + MONTHS[month] + ' ' + year + '</span>'
-        + '<button class="cal-nav-btn" onclick="calNext()">&rarr;</button>'
+        + (!isCurrentMonth ? '<button class="cal-today-btn" onclick="calGoToday()">Today &rarr;</button>' : '')
+        + '</div>'
+        + '<button class="cal-nav-btn" onclick="calNext()">Next &rarr;</button>'
         + '</div>';
 
   // Legend
@@ -1110,6 +1126,13 @@ function calPrev() {
 function calNext() {
   calMonth++;
   if (calMonth > 11) { calMonth = 0; calYear++; }
+  selectedCalDay = null;
+  renderCalendar();
+}
+
+function calGoToday() {
+  calYear = new Date().getFullYear();
+  calMonth = new Date().getMonth();
   selectedCalDay = null;
   renderCalendar();
 }

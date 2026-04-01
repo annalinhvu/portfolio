@@ -115,6 +115,44 @@
       color: var(--text-3);
     }
 
+    /* ── Magazine masthead ── */
+    .masthead {
+      padding: 36px 0 0;
+      margin-bottom: 48px;
+    }
+    .masthead-eyebrow {
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.5rem; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--text-4); text-align: center; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .masthead-eyebrow::before, .masthead-eyebrow::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .masthead-pub {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(4.5rem, 14vw, 10rem);
+      font-weight: 200; letter-spacing: -0.04em;
+      line-height: 0.88; color: var(--text-1);
+      display: block; text-align: center;
+      margin-bottom: 18px;
+    }
+    .masthead-sub {
+      display: flex; justify-content: space-between; align-items: baseline;
+      border-top: 1px solid var(--text-1);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 0 12px;
+    }
+    .masthead-tagline {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 0.88rem; font-style: italic; font-weight: 300;
+      color: var(--text-3);
+    }
+    .masthead-meta {
+      font-family: 'Geist Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-4);
+    }
+
     /* ── Filter bar ── */
     .filter-bar {
       display: flex; align-items: center; justify-content: space-between;
@@ -450,24 +488,25 @@
     }
 
 
-    /* ── Spotlight ── */
+    /* ── Spotlight / Feature article ── */
     .spotlight {
       margin-bottom: 52px;
-      padding: 32px 36px;
-      border: 1px solid var(--border);
-      border-radius: 3px;
+      padding: 32px 0 36px;
+      border-top: 3px solid var(--text-1);
+      border-bottom: 1px solid var(--border);
       position: relative;
-      transition: border-color 0.2s;
       cursor: pointer;
     }
-    .spotlight:hover { border-color: var(--border-h); }
+    .spotlight:hover .spotlight-name { opacity: 0.8; }
     .spotlight-eyebrow {
       display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
     .spotlight-label {
-      font-family: 'Geist Mono', monospace; font-size: 0.52rem;
-      letter-spacing: 2px; text-transform: uppercase; color: var(--text-4);
+      font-family: 'Geist Mono', monospace; font-size: 0.5rem;
+      letter-spacing: 2.5px; text-transform: uppercase; color: var(--text-1);
+      background: var(--text-1); color: var(--bg);
+      padding: 3px 10px;
     }
     .spotlight-era {
       font-family: 'Geist Mono', monospace; font-size: 0.52rem;
@@ -479,27 +518,30 @@
     .spotlight .era-contemporary{ color: var(--e-co); }
     .spotlight-name {
       font-family: 'Fraunces', Georgia, serif;
-      font-size: clamp(2rem, 4vw, 3rem); font-weight: 200;
-      letter-spacing: -0.03em; color: var(--text-1);
-      margin-bottom: 8px; line-height: 1.05;
+      font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 200;
+      letter-spacing: -0.04em; color: var(--text-1);
+      margin-bottom: 10px; line-height: 1;
+      transition: opacity 0.2s;
     }
     .spotlight-tagline {
       font-family: 'Fraunces', Georgia, serif;
-      font-size: 0.9rem; font-style: italic; font-weight: 300;
-      color: var(--text-3); margin-bottom: 18px;
+      font-size: 1rem; font-style: italic; font-weight: 300;
+      color: var(--text-2); margin-bottom: 20px;
+      border-left: 2px solid var(--amber); padding-left: 14px;
     }
     .spotlight-bio {
-      font-size: 0.84rem; color: var(--text-3); line-height: 1.75;
-      max-width: 680px; margin-bottom: 22px;
+      font-size: 0.88rem; color: var(--text-3); line-height: 1.8;
+      max-width: 680px; margin-bottom: 24px;
     }
     .spotlight-footer {
       display: flex; justify-content: space-between; align-items: center;
     }
     .spotlight-read {
-      font-family: 'Geist Mono', monospace; font-size: 0.6rem;
-      letter-spacing: 1px; text-transform: uppercase; color: var(--text-3);
-      transition: color 0.15s;
+      font-family: 'Geist Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-3);
+      transition: color 0.15s; display: flex; align-items: center; gap: 8px;
     }
+    .spotlight-read::before { content: ''; display: block; width: 20px; height: 1px; background: currentColor; }
     .spotlight:hover .spotlight-read { color: var(--text-1); }
     .spotlight-meta {
       font-family: 'Geist Mono', monospace; font-size: 0.56rem;
@@ -517,17 +559,24 @@
       .era-entries { grid-template-columns: 1fr; gap: 0; }
     }
     .era-section-head {
-      display: flex; align-items: baseline; gap: 12px;
-      padding: 28px 0 14px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 0 14px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px;
     }
     .era-section-head-label {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 0.78rem; font-weight: 300; letter-spacing: 0.05em;
+      font-family: 'Geist Mono', monospace;
+      font-size: 0.58rem; font-weight: 600; letter-spacing: 2.5px;
+      text-transform: uppercase;
     }
     .era-section-head-count {
-      font-family: 'Geist Mono', monospace; font-size: 0.52rem;
+      font-family: 'Geist Mono', monospace; font-size: 0.5rem;
       letter-spacing: 1px; color: var(--text-4);
     }
+    .era-section-head.head-avant-garde { border-top-color: var(--e-ag); }
+    .era-section-head.head-new-wave    { border-top-color: var(--e-nw); }
+    .era-section-head.head-classical   { border-top-color: var(--e-cl); }
+    .era-section-head.head-contemporary { border-top-color: var(--e-co); }
     .era-section-head.head-avant-garde .era-section-head-label { color: var(--e-ag); }
     .era-section-head.head-new-wave    .era-section-head-label { color: var(--e-nw); }
     .era-section-head.head-classical   .era-section-head-label { color: var(--e-cl); }
@@ -561,10 +610,14 @@
   <!-- ══ CATALOG ══ -->
   <div id="view-catalog">
 
-    <header class="head">
-      <h1 class="head-title">Auteurs</h1>
-      <p class="head-sub">directors who shaped the way I see</p>
-    </header>
+    <div class="masthead">
+      <div class="masthead-eyebrow">Cinema · Auteur Theory · Personal Index</div>
+      <span class="masthead-pub">Auteurs</span>
+      <div class="masthead-sub">
+        <span class="masthead-tagline">Directors who shaped the way I see</span>
+        <span class="masthead-meta">100 Portraits · Vol. I</span>
+      </div>
+    </div>
 
     <div class="filter-bar">
       <div class="tag-strip" id="tag-strip"></div>
