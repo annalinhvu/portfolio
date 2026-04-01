@@ -310,49 +310,57 @@ body{
   letter-spacing:1.8px;text-transform:uppercase;color:var(--text-4);font-weight:600;
 }
 
-/* ── Booklet list ── */
+/* ── Recipe card grid ── */
 .card-grid{
-  display:flex;flex-direction:column;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:18px;
+  padding:20px 0;
 }
 
-/* ── Recipe entry (booklet row) ── */
+/* ── Recipe card ── */
 .recipe-card{
-  display:flex;align-items:baseline;gap:20px;
-  padding:22px 0 22px 16px;
-  border-bottom:1px solid var(--border);
-  border-left:3px solid transparent;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:6px;overflow:hidden;
   cursor:pointer;
-  transition:border-left-color .18s;
-  background:none;border-radius:0;
-  box-shadow:none;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:var(--sh);
+  display:flex;flex-direction:column;
   position:relative;
 }
-.recipe-card:first-child{ border-top:1px solid var(--border); }
-.recipe-card:hover{ border-left-color:var(--region-color,var(--accent)); }
-.recipe-card:hover .card-name{ color:var(--region-color,var(--accent)); }
+.recipe-card:hover{transform:translateY(-3px);box-shadow:var(--sh-h)}
+.recipe-card:hover .card-name{color:var(--region-color,var(--accent))}
 .card-num{display:none}
+.card-photo{width:100%;height:160px;object-fit:cover;display:block}
+.card-photo-placeholder{
+  width:100%;height:160px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.4rem;letter-spacing:0;
+}
 .card-body{
-  flex:1;min-width:0;
+  padding:14px 16px 10px;flex:1;
 }
 .card-name{
   font-family:'Playfair Display',Georgia,serif;
-  font-size:1.12rem;font-weight:700;
-  color:var(--text-1);margin-bottom:4px;line-height:1.2;
+  font-size:1.05rem;font-weight:700;
+  color:var(--text-1);margin-bottom:5px;line-height:1.2;
   transition:color .15s;
 }
 .card-tag{
-  font-size:.8rem;font-style:italic;
-  color:var(--text-3);line-height:1.5;
+  font-size:.78rem;font-style:italic;
+  color:var(--text-3);line-height:1.55;
 }
-.card-right{
-  display:flex;flex-direction:column;align-items:flex-end;
-  gap:6px;flex-shrink:0;
+.card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:9px 16px;border-top:1px solid var(--border);
+  margin-top:auto;
 }
 .cuisine-lbl{
-  font-size:.46rem;letter-spacing:1.6px;text-transform:uppercase;
+  font-size:.44rem;letter-spacing:1.6px;text-transform:uppercase;
   color:var(--accent);font-weight:600;
   border:1px solid var(--accent);
-  padding:2px 7px;border-radius:2px;opacity:.8;
+  padding:2px 6px;border-radius:2px;opacity:.8;
 }
 .card-time-foot{
   font-size:.52rem;color:var(--text-4);letter-spacing:.5px;
@@ -370,8 +378,13 @@ body{
   font-family:'Playfair Display',Georgia,serif;
   font-size:1.6rem;font-weight:700;font-style:italic;
   color:var(--terra);
-  padding:36px 0 8px;
+  padding:36px 0 4px;
   letter-spacing:-.3px;
+  grid-column:1/-1;
+  display:flex;align-items:center;gap:16px;
+}
+.cat-section-head::after{
+  content:'';flex:1;height:1px;background:var(--border);
 }
 .cat-section-head:first-child{ padding-top:20px; }
 
@@ -582,7 +595,8 @@ body{
 @media(max-width:640px){.detail-sidebar{padding:24px 20px}}
 
 .detail-desc{
-  font-size:.9rem;color:var(--text-2);line-height:1.85;margin-bottom:28px;
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:.92rem;color:var(--text-2);line-height:1.9;margin-bottom:28px;
 }
 .det-section{margin-bottom:24px}
 .det-label{
@@ -593,7 +607,8 @@ body{
 .det-label::after{content:'';flex:1;height:1px;background:var(--border)}
 .ing-list{list-style:none}
 .ing-list li{
-  font-size:.84rem;color:var(--text-2);
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:.86rem;color:var(--text-2);
   padding:6px 0 6px 14px;position:relative;
   line-height:1.6;border-bottom:1px solid var(--border);
 }
@@ -605,7 +620,8 @@ body{
 }
 .step-list{list-style:none;counter-reset:steps;display:flex;flex-direction:column;gap:0}
 .step-list li{
-  font-size:.88rem;color:var(--text-2);
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:.9rem;color:var(--text-2);
   padding:16px 16px 16px 54px;position:relative;
   line-height:1.85;counter-increment:steps;
   border-bottom:1px solid var(--border);
@@ -1039,14 +1055,16 @@ function renderCards(list){
 function recipeRow(r,i){
   const sv=savedIds.has(r.id);
   const tot=r.prep_time_min+r.cook_time_min;
-  const num=String(r.id).padStart(2,'0');
-  return `<div class="recipe-card card-in" style="animation-delay:${i*.02}s" onclick="showDetail(${r.id})">
-    <span class="card-num">${num}</span>
+  const photoHtml=r.photo
+    ? `<img class="card-photo" src="${r.photo}" alt="${r.name}" loading="lazy">`
+    : `<div class="card-photo-placeholder" style="background:${catGrad(r.category)}">${CAT_ICON[r.category]||'🍽'}</div>`;
+  return `<div class="recipe-card card-in" style="animation-delay:${i*.025}s" onclick="showDetail(${r.id})">
+    ${photoHtml}
     <div class="card-body">
       <div class="card-name">${r.name}</div>
       <div class="card-tag">${r.tagline}</div>
     </div>
-    <div class="card-right">
+    <div class="card-footer">
       <span class="cuisine-lbl">${regionLabel(r.cuisine)}</span>
       <span class="card-time-foot">${fmtTime(tot)}</span>
       <button class="heart-btn${sv?' saved':''}" data-id="${r.id}"
