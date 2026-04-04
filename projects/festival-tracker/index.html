@@ -608,8 +608,8 @@
         <button class="group-btn" id="btn-experimental" onclick="setGroup('experimental')">Experimental</button>
       </div>
       <div class="view-toggle">
-        <button class="view-btn" id="btn-list-view" onclick="setViewMode('list')">List</button>
-        <button class="view-btn active" id="btn-cal-view" onclick="setViewMode('calendar')">Calendar</button>
+        <button class="view-btn active" id="btn-list-view" onclick="setViewMode('list')">List</button>
+        <button class="view-btn" id="btn-cal-view" onclick="setViewMode('calendar')">Calendar</button>
       </div>
     </div>
     <div class="stats-row" id="stats-row"></div>
@@ -641,7 +641,7 @@ var filteredFestivals = [];
 var currentView = 'list';
 var currentDetailId = null;
 var activeGroup = 'documentary'; // 'documentary' | 'experimental'
-var viewMode = 'calendar'; // 'list' | 'calendar'
+var viewMode = 'list'; // 'list' | 'calendar'
 var calYear = new Date().getFullYear();
 var calMonth = new Date().getMonth(); // 0-indexed
 var selectedCalDay = null;
