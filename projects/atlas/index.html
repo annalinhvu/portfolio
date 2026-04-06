@@ -1257,10 +1257,10 @@ fetch('data/countries.json')
     allCountries = data;
     updateBadge();
     updateStats();
-    // Populate vibe dropdown from data
-    const allVibes = [...new Set(data.flatMap(c => c.vibe_tags||[]))].sort();
+    // Populate vibe dropdown — top 10 vibes by frequency
+    const TOP_VIBES = ['food culture','nature','history','architecture','hiking','city energy','ancient history','beaches','street food','mountains'];
     const vibeEl = document.getElementById('vibeFilter');
-    allVibes.forEach(v => {
+    TOP_VIBES.forEach(v => {
       const opt = document.createElement('option');
       opt.value = v; opt.textContent = v;
       vibeEl.appendChild(opt);
