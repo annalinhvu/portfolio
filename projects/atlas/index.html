@@ -146,7 +146,9 @@ body {
 }
 #world-map {
   width: 100%; height: 100%; display: block;
+  cursor: grab;
 }
+#world-map:active { cursor: grabbing; }
 .map-hint {
   position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
   font-size: 0.5rem; letter-spacing: 2px; text-transform: uppercase;
@@ -499,7 +501,7 @@ body {
 <div class="map-wrap" id="mapWrap">
   <div class="map-loading-msg" id="mapLoading">Charting routes…</div>
   <svg id="world-map"></svg>
-  <div class="map-hint" id="mapHint">Click a destination to board · Scroll to zoom</div>
+  <div class="map-hint" id="mapHint">Click a destination to board · Scroll to zoom · Drag to pan</div>
   <div class="zoom-btns">
     <button class="zoom-btn" onclick="mapZoomIn()" title="Zoom in">+</button>
     <button class="zoom-btn" onclick="mapZoomReset()" title="Reset" style="font-size:0.65rem;letter-spacing:0">⊙</button>
@@ -775,11 +777,21 @@ async function initMap() {
   // pinLayer: NOT zoom-transformed — pins stay the same screen size (Leaflet feel)
   pinLayer = svg.append('g').attr('class', 'pin-layer');
 
-  // Zoom — halved wheel sensitivity, pins repositioned manually each frame
+  // Zoom — halved wheel sensitivity, drag to pan when zoomed in
   zoomBehavior = d3.zoom()
     .scaleExtent([1, 10])
+    .translateExtent([[-W * 0.4, -H * 0.4], [W * 1.4, H * 1.4]])
     .wheelDelta(e => -e.deltaY * (e.deltaMode === 1 ? 0.05 : e.deltaMode ? 1 : 0.001))
-    .filter(event => event.type === 'wheel' || event.type === 'dblclick')
+    .filter(event => {
+      // Allow wheel zoom, double-click zoom, and drag-to-pan (mouse + touch)
+      // Block right-click and ctrl+drag (native browser zoom gesture)
+      if (event.type === 'wheel') return true;
+      if (event.type === 'dblclick') return true;
+      if (event.button === 2) return false; // right-click
+      if (event.ctrlKey && event.type === 'mousedown') return false;
+      return event.type === 'mousedown' || event.type === 'mousemove' ||
+             event.type === 'touchstart' || event.type === 'touchmove';
+    })
     .on('zoom', ({ transform }) => {
       const { k, x, y } = transform;
       mapG.attr('transform', transform);
