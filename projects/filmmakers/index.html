@@ -785,8 +785,8 @@
   let activeNat = '';
   let stimer = null;
 
-  // Tags shown in the strip: appear in >= 2 filmmakers, sorted by frequency desc
-  const STRIP_MIN_COUNT = 2;
+  // Tags shown in the strip: top 10 most common (appear in >= 6 filmmakers)
+  const STRIP_MIN_COUNT = 6;
 
   const ERA = { 'avant-garde':'Avant-garde', 'new-wave':'New Wave', 'classical':'Classical', 'contemporary':'Contemporary' };
   const NAT = { french:'French', american:'American', japanese:'Japanese', belgian:'Belgian', russian:'Russian', swedish:'Swedish', 'hong kong':'Hong Kong', iranian:'Iranian', korean:'Korean', taiwanese:'Taiwanese', mexican:'Mexican', indian:'Indian', italian:'Italian', senegalese:'Senegalese', czech:'Czech', argentinian:'Argentinian', polish:'Polish', german:'German', scottish:'Scottish', chinese:'Chinese', spanish:'Spanish', thai:'Thai', danish:'Danish', hungarian:'Hungarian', norwegian:'Norwegian', turkish:'Turkish', british:'British', greek:'Greek', finnish:'Finnish', brazilian:'Brazilian', portuguese:'Portuguese', romanian:'Romanian', austrian:'Austrian' };
