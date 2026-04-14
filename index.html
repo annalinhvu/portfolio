@@ -321,7 +321,7 @@ body {
 
 .db-head {
   display:grid;
-  grid-template-columns:42px 1fr 95px 155px 175px 72px;
+  grid-template-columns:42px 1fr 160px 185px 75px;
   padding:0 26px; height:30px; align-items:center;
   background:var(--panel-hd);
   border-bottom:1px solid var(--bd);
@@ -336,7 +336,7 @@ body {
 
 .db-row {
   display:grid;
-  grid-template-columns:42px 1fr 95px 155px 175px 72px;
+  grid-template-columns:42px 1fr 160px 185px 75px;
   padding:0 26px; border-bottom:1px solid var(--bd);
   text-decoration:none; color:inherit; cursor:pointer;
   transition:background .12s; align-items:center;
@@ -735,7 +735,7 @@ body {
         <button class="filter-clear" id="filter-clear">× clear</button>
       </div>
       <div class="db-head">
-        <span>#</span><span>PROJECT</span><span>CATEGORY</span>
+        <span>#</span><span>PROJECT</span>
         <span>ENTRIES</span><span>TECH</span><span>STATUS</span>
       </div>
 
@@ -746,7 +746,6 @@ body {
           <span class="row-desc">Documentary and experimental film festivals worldwide. Deadlines, fees, acceptance rates — filterable by type and region to plan smarter submissions.</span>
           <span class="row-link">view project →</span>
         </div>
-        <div class="col-cat">Film</div>
         <div class="col-stat"><strong>89</strong> festivals<br><strong>30</strong> countries</div>
         <div class="col-tech">HTML · JSON<br>Vanilla JS</div>
         <div class="col-status"><span class="live-dot"></span>live</div>
@@ -755,8 +754,7 @@ body {
       <a href="projects/film-stocks/" class="db-row std">
         <div class="col-idx">02</div>
         <div class="col-name"><span class="row-name">Analog Film Stock Database</span><span class="row-desc">Film stocks with price tracking and availability, plus development labs by location and pricing.</span><span class="row-link">view project →</span></div>
-        <div class="col-cat">Photography</div>
-        <div class="col-stat"><strong>54</strong> stocks · <strong>25</strong> labs</div>
+                <div class="col-stat"><strong>54</strong> stocks · <strong>25</strong> labs</div>
         <div class="col-tech">HTML · JSON · Vanilla JS</div>
         <div class="col-status"><span class="live-dot"></span>live</div>
       </a>
@@ -764,8 +762,7 @@ body {
       <a href="projects/nyc-film-map/" class="db-row std alt">
         <div class="col-idx">03</div>
         <div class="col-name"><span class="row-name">NYC Film Scene Map</span><span class="row-desc">New York's experimental film world on one map: screening spaces, workshops, labs, galleries, community spots.</span><span class="row-link">view project →</span></div>
-        <div class="col-cat">NYC / Film</div>
-        <div class="col-stat"><strong>100</strong> venues · <strong>5</strong> categories</div>
+                <div class="col-stat"><strong>100</strong> venues · <strong>5</strong> categories</div>
         <div class="col-tech">HTML · JSON · Leaflet.js</div>
         <div class="col-status"><span class="live-dot"></span>live</div>
       </a>
@@ -773,7 +770,6 @@ body {
       <a href="projects/filmmakers/" class="db-row std">
         <div class="col-idx">04</div>
         <div class="col-name"><span class="row-name">Auteurs</span><span class="row-desc">A personal index of 100 filmmakers I admire, searchable and filterable by style tags.</span><span class="row-link">view project →</span></div>
-        <div class="col-cat">Film</div>
         <div class="col-stat"><strong>100</strong> filmmakers · <strong>4</strong> eras</div>
         <div class="col-tech">HTML · JSON</div>
         <div class="col-status"><span class="live-dot"></span>live</div>
@@ -782,7 +778,6 @@ body {
       <a href="projects/self-care/" class="db-row std alt">
         <div class="col-idx">05</div>
         <div class="col-name"><span class="row-name">Only Good Things</span><span class="row-desc">Self-care activities filterable by season, duration, and setting — with completion tracking.</span><span class="row-link">view project →</span></div>
-        <div class="col-cat">Lifestyle</div>
         <div class="col-stat"><strong>143</strong> activities · <strong>8</strong> categories</div>
         <div class="col-tech">HTML · JSON · Vanilla JS</div>
         <div class="col-status"><span class="live-dot"></span>live</div>
@@ -791,7 +786,6 @@ body {
       <a href="projects/recipes/" class="db-row std">
         <div class="col-idx">06</div>
         <div class="col-name"><span class="row-name">Cơm Nhà</span><span class="row-desc">Vietnamese recipes from Miền Bắc, Miền Trung, and Miền Nam. Browse by region, search by ingredient.</span><span class="row-link">view project →</span></div>
-        <div class="col-cat">Food</div>
         <div class="col-stat"><strong>175</strong> recipes · <strong>3</strong> regions</div>
         <div class="col-tech">HTML · JSON · Vanilla JS</div>
         <div class="col-status"><span class="live-dot"></span>live</div>
@@ -800,7 +794,6 @@ body {
       <a href="projects/atlas/" class="db-row std alt">
         <div class="col-idx">07</div>
         <div class="col-name"><span class="row-name">Departure Lounge</span><span class="row-desc">Destinations as boarding passes — cities, food, and reasons to go.</span><span class="row-link">view project →</span></div>
-        <div class="col-cat">Travel</div>
         <div class="col-stat"><strong>50</strong> countries · <strong>5</strong> regions</div>
         <div class="col-tech">HTML · JSON · Vanilla JS</div>
         <div class="col-status"><span class="live-dot"></span>live</div>
