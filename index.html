@@ -695,9 +695,9 @@ body {
   <div class="terminal-path">~/anna-vu<span class="cursor"></span></div>
 
   <nav class="top-tabs" role="tablist">
-    <button class="top-tab active" data-pane="projects"   role="tab">projects</button>
-    <button class="top-tab"        data-pane="work"       role="tab">work</button>
-    <button class="top-tab"        data-pane="experience" role="tab">experience</button>
+    <button class="top-tab active" data-pane="studio"  role="tab">studio</button>
+    <button class="top-tab"        data-pane="built"   role="tab">built</button>
+    <button class="top-tab"        data-pane="career"  role="tab">career</button>
     <button class="top-tab"        data-pane="console"    role="tab">terminal</button>
     <div class="tab-indicator"></div>
   </nav>
@@ -787,7 +787,7 @@ body {
   <main class="main-panel">
 
     <!-- ════ CREATIVE PROJECTS (default) ═══════════ -->
-    <section class="tab-pane active" id="pane-projects" role="tabpanel">
+    <section class="tab-pane active" id="pane-studio" role="tabpanel">
       <div class="query-bar">
         <span class="kw">SELECT</span><span>&nbsp;*&nbsp;</span>
         <span class="kw">FROM</span><span>&nbsp;</span>
@@ -875,7 +875,7 @@ body {
     </section>
 
     <!-- ════ WORK (professional + academic projects) ═══ -->
-    <section class="tab-pane" id="pane-work" role="tabpanel">
+    <section class="tab-pane" id="pane-built" role="tabpanel">
       <div class="query-bar">
         <span class="kw">SELECT</span><span>&nbsp;project_name, company, year, stack&nbsp;</span>
         <span class="kw">FROM</span><span>&nbsp;</span>
@@ -1025,7 +1025,7 @@ body {
     </section>
 
     <!-- ════ EXPERIENCE (job history) ════════════════ -->
-    <section class="tab-pane" id="pane-experience" role="tabpanel">
+    <section class="tab-pane" id="pane-career" role="tabpanel">
       <div class="query-bar">
         <span class="kw">SELECT</span><span>&nbsp;role, company, period, wins&nbsp;</span>
         <span class="kw">FROM</span><span>&nbsp;</span>
@@ -1188,7 +1188,7 @@ body {
     <span class="sb-conn"><span class="sb-dot-sm"></span>anna_vu :: snowflake</span>
     <span>UTF-8</span>
   </span>
-  <span class="sb-mid" id="sb-pane">projects</span>
+  <span class="sb-mid" id="sb-pane">studio</span>
   <span class="sb-right">
     <span id="sb-rows">7 rows</span>
     <span class="sb-pipe">|</span>
@@ -1260,7 +1260,7 @@ document.querySelectorAll('.proj-card').forEach(function(card) {
 /* ── Arrow key nav ── */
 document.addEventListener('keydown', function(e) {
   if (document.activeElement && document.activeElement.id === 'console-input') return;
-  var tabs = ['projects','work','experience','console'];
+  var tabs = ['studio','built','career','console'];
   var active = document.querySelector('.top-tab.active');
   if (!active) return;
   var idx = tabs.indexOf(active.dataset.pane);
@@ -1289,7 +1289,7 @@ function updateStatus(pane, rows) {
 var _origSwitch = switchPane;
 switchPane = function(id) {
   _origSwitch(id);
-  var rowCounts = {projects: 7, work: 15, experience: 5};
+  var rowCounts = {studio: 7, built: 15, career: 5};
   updateStatus(id, rowCounts[id] || 0);
 };
 
@@ -1297,7 +1297,7 @@ switchPane = function(id) {
 (function() {
   var input  = document.getElementById('proj-filter');
   var clear  = document.getElementById('filter-clear');
-  var cmt    = document.querySelector('#pane-projects .cmt');
+  var cmt    = document.querySelector('#pane-studio .cmt');
   var footer = document.querySelector('.db-footer span');
   if (!input) return;
 
@@ -1336,7 +1336,7 @@ switchPane = function(id) {
     moveIndicator(active);
     var pane = document.getElementById('pane-' + active.dataset.pane);
     if (pane) revealPane(pane);
-    var rowCounts = {projects: 7, work: 15, experience: 5};
+    var rowCounts = {studio: 7, built: 15, career: 5};
     updateStatus(active.dataset.pane, rowCounts[active.dataset.pane] || 0);
   }
 })();
@@ -1447,9 +1447,9 @@ switchPane = function(id) {
 
   function navHtml() {
     return `<div class="pet-nav">
-      <button class="pet-nav-btn" onclick="petNav('projects')">Projects</button>
-      <button class="pet-nav-btn" onclick="petNav('work')">Work</button>
-      <button class="pet-nav-btn" onclick="petNav('experience')">Experience</button>
+      <button class="pet-nav-btn" onclick="petNav('studio')">Studio</button>
+      <button class="pet-nav-btn" onclick="petNav('built')">Built</button>
+      <button class="pet-nav-btn" onclick="petNav('career')">Career</button>
     </div>`;
   }
 
