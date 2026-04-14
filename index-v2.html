@@ -322,7 +322,7 @@ body {
 .db-head {
   display:grid;
   grid-template-columns:42px 1fr 160px 185px 75px;
-  padding:0 36px; height:34px; align-items:center;
+  padding:0 44px; height:36px; align-items:center;
   background:var(--panel-hd);
   border-bottom:1px solid var(--bd);
   flex-shrink:0; position:sticky; top:0; z-index:2;
@@ -337,7 +337,7 @@ body {
 .db-row {
   display:grid;
   grid-template-columns:42px 1fr 160px 185px 75px;
-  padding:0 36px; border-bottom:1px solid var(--bd);
+  padding:0 44px; border-bottom:1px solid var(--bd);
   text-decoration:none; color:inherit; cursor:pointer;
   transition:background .12s; align-items:center;
   position:relative;
@@ -355,12 +355,12 @@ body {
 .db-row:hover .row-link{opacity:1;}
 
 .db-row.featured {
-  min-height:130px; background:var(--row-hi);
-  padding-left:36px;
-  align-items:start; padding-top:26px; padding-bottom:26px;
+  min-height:180px; background:var(--row-hi);
+  padding-left:44px;
+  align-items:start; padding-top:36px; padding-bottom:36px;
 }
 .db-row.featured:hover{filter:brightness(1.07);}
-.db-row.std{min-height:80px;padding-top:16px;padding-bottom:16px;align-items:start;}
+.db-row.std{min-height:110px;padding-top:24px;padding-bottom:24px;align-items:start;}
 .db-row.alt{background:var(--row-alt);}
 
 .col-idx{
