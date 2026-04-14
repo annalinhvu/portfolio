@@ -1090,8 +1090,7 @@ function toggleTheme() {
 /* ── Bento card bounce on click ── */
 document.querySelectorAll('.proj-card').forEach(function(card) {
   card.addEventListener('mousedown', function() {
-    card.classList.remove('bouncing');
-    void card.offsetWidth; // reflow to restart animation
+    if (card.classList.contains('bouncing')) return;
     card.classList.add('bouncing');
     card.addEventListener('animationend', function() {
       card.classList.remove('bouncing');
