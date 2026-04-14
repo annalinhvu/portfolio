@@ -484,7 +484,7 @@ body {
 }
 .work-section-hd::before{content:'--';color:var(--amber);font-weight:700;}
 .work-section-hd:first-of-type{margin-top:0;}
-.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:8px;}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:8px;overflow:visible;}
 @keyframes cardBounce{
   0%  {transform:translateY(0);}
   30% {transform:translateY(-7px);}
@@ -497,10 +497,71 @@ body {
   background:var(--surface);
   border:1px solid var(--bd);border-radius:12px;
   padding:22px 24px;
+  position:relative;
   transition:border-color .2s,box-shadow .2s;
 }
 .proj-card:hover{border-color:var(--bd-hi);box-shadow:0 3px 14px rgba(0,0,0,.12);}
-.proj-card.bouncing{animation:cardBounce .5s cubic-bezier(.36,.07,.19,.97) both;}
+.proj-card.bouncing{animation:cardBounce .5s cubic-bezier(.36,.07,.19,.97);z-index:10;}
+
+/* ══════════════════════════════════════════════════════════
+   CONSOLE TAB
+══════════════════════════════════════════════════════════ */
+.console-wrap{
+  display:flex;flex-direction:column;flex:1;overflow:hidden;
+  padding:0 44px 20px;
+}
+.console-toolbar{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 0;border-bottom:1px solid var(--bd);margin-bottom:14px;
+}
+.mode-btn{
+  font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:1px;
+  padding:4px 14px;border-radius:6px;
+  border:1px solid var(--bd);background:transparent;
+  color:var(--t3);cursor:pointer;transition:all .15s;
+}
+.mode-btn.active{border-color:var(--amber);color:var(--amber);background:rgba(200,120,94,.08);}
+.mode-btn:hover:not(.active){border-color:var(--bd-hi);color:var(--t2);}
+.console-tip{
+  font-family:'Geist Mono',monospace;font-size:11px;
+  color:var(--t4);margin-left:auto;
+}
+.console-tip code{color:var(--accent);}
+.console-output{
+  flex:1;overflow-y:auto;
+  font-family:'Geist Mono',monospace;font-size:12.5px;
+  line-height:1.75;padding-bottom:12px;
+}
+.cmd-block{margin-bottom:14px;}
+.cmd-line{color:var(--amber);margin-bottom:3px;}
+.cmd-line .cmd-prmt{color:var(--t4);user-select:none;}
+.cmd-result{padding-left:2px;}
+.res-info{color:var(--t3);}
+.res-error{color:var(--rose);}
+.res-success{color:var(--accent);}
+.res-table{margin-top:4px;overflow-x:auto;}
+.res-thead{
+  display:flex;border-bottom:1px solid var(--bd);
+  padding-bottom:4px;margin-bottom:4px;color:var(--t4);
+}
+.res-thead span,.res-row span{flex:1;min-width:120px;max-width:260px;padding-right:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.res-row{display:flex;padding:2px 0;}
+.res-row:nth-child(even){background:rgba(0,0,0,.06);}
+.res-row span{color:var(--t2);}
+.res-footer{color:var(--t4);margin-top:6px;font-size:11px;}
+.console-input-row{
+  display:flex;align-items:center;gap:8px;
+  border-top:1px solid var(--bd);padding-top:12px;margin-top:4px;
+}
+.console-prompt{
+  color:var(--t4);font-family:'Geist Mono',monospace;
+  font-size:12.5px;white-space:nowrap;flex-shrink:0;
+}
+.console-input{
+  flex:1;background:transparent;border:none;outline:none;
+  font-family:'Geist Mono',monospace;font-size:12.5px;
+  color:var(--t1);caret-color:var(--amber);
+}
 .proj-title{font-size:15px;font-weight:600;color:var(--t1);margin-bottom:4px;}
 .proj-ctx{font-size:12px;color:var(--t4);margin-bottom:10px;font-family:'Geist Mono',monospace;letter-spacing:.3px;}
 .proj-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px;}
@@ -569,6 +630,7 @@ body {
     <button class="top-tab active" data-pane="projects"   role="tab">projects</button>
     <button class="top-tab"        data-pane="work"       role="tab">work</button>
     <button class="top-tab"        data-pane="experience" role="tab">experience</button>
+    <button class="top-tab"        data-pane="console"    role="tab">_console</button>
     <div class="tab-indicator"></div>
   </nav>
 
@@ -830,13 +892,6 @@ body {
             <div class="proj-metrics"><div><div class="pm-v">100+</div><div class="pm-u">clients</div></div><div><div class="pm-v">200+</div><div class="pm-u">tickets resolved</div></div></div>
           </div>
           <div class="proj-card">
-            <div class="proj-title">Interactive BI Dashboard Suite</div>
-            <div class="proj-ctx">FIG Agency · 2022</div>
-            <div class="proj-tags"><span class="proj-tag">Domo</span><span class="proj-tag">Python</span><span class="proj-tag">SQL</span></div>
-            <div class="proj-desc">50+ Domo dashboards for campaign performance, audience insights, and media spend. Automated monthly insights generation with Python.</div>
-            <div class="proj-metrics"><div><div class="pm-v">50+</div><div class="pm-u">dashboards</div></div></div>
-          </div>
-          <div class="proj-card">
             <div class="proj-title">ESOV Media Spend Analysis</div>
             <div class="proj-ctx">FIG Agency · 2022</div>
             <div class="proj-tags"><span class="proj-tag">R</span><span class="proj-tag">Kantar</span><span class="proj-tag">Pathmatics</span><span class="proj-tag">Google Trends</span></div>
@@ -863,35 +918,35 @@ body {
         <div class="proj-grid">
           <div class="proj-card">
             <div class="proj-title">COVID & Property Analytics Platform</div>
-            <div class="proj-ctx">UPenn, CIT 5940 (Group) · 2024–2025</div>
+            <div class="proj-ctx">UPenn, CIT 5940 (Group) · 2025</div>
             <div class="proj-tags"><span class="proj-tag">Java</span><span class="proj-tag">CSV/JSON</span><span class="proj-tag">MVC</span><span class="proj-tag">Memoization</span><span class="proj-tag">JUnit</span></div>
             <div class="proj-desc">Data processing platform combining Philadelphia COVID vaccination records, population by ZIP, and property assessments. MVC architecture with custom readers, Singleton logger for audit trails, and memoized processors caching expensive computations.</div>
             <div class="proj-metrics"><div><div class="pm-v">3</div><div class="pm-u">data sources</div></div><div><div class="pm-v">7+</div><div class="pm-u">test suites</div></div></div>
           </div>
           <div class="proj-card">
             <div class="proj-title">Flu Tweet Geolocation Analyzer</div>
-            <div class="proj-ctx">UPenn, CIT 5940 (Solo) · 2024–2025</div>
+            <div class="proj-ctx">UPenn, CIT 5940 (Solo) · 2025</div>
             <div class="proj-tags"><span class="proj-tag">Java</span><span class="proj-tag">Regex</span><span class="proj-tag">Geolocation</span><span class="proj-tag">Singleton</span><span class="proj-tag">Factory</span></div>
             <div class="proj-desc">Analyzes geotagged tweets for flu-related content using regex pattern matching (handling edge cases like "fluent" vs "#flu"). Maps matches to the nearest U.S. state via Cartesian distance. Polymorphic Reader interface supports JSON and TXT formats.</div>
             <div class="proj-metrics"><div><div class="pm-v">50</div><div class="pm-u">states mapped</div></div><div><div class="pm-v">2</div><div class="pm-u">input formats</div></div></div>
           </div>
           <div class="proj-card">
             <div class="proj-title">Student Management System</div>
-            <div class="proj-ctx">UPenn, CIT 5910 (Group) · 2024–2025</div>
+            <div class="proj-ctx">UPenn, CIT 5910 (Group) · 2025</div>
             <div class="proj-tags"><span class="proj-tag">Java</span><span class="proj-tag">OOP</span><span class="proj-tag">HashMap</span><span class="proj-tag">Auth</span><span class="proj-tag">JUnit 5</span></div>
             <div class="proj-desc">Full-featured academic management system with role-based access control. Admins create/delete courses and users. Professors manage enrolled students and grades. Students view schedules, enroll/drop, and check grades. File-based persistence with comprehensive test coverage.</div>
             <div class="proj-metrics"><div><div class="pm-v">3</div><div class="pm-u">user roles</div></div><div><div class="pm-v">7</div><div class="pm-u">test suites</div></div></div>
           </div>
           <div class="proj-card">
             <div class="proj-title">Movie Trivia Database Engine</div>
-            <div class="proj-ctx">UPenn, CIT 5910 · 2024–2025</div>
+            <div class="proj-ctx">UPenn, CIT 5910 · 2025</div>
             <div class="proj-tags"><span class="proj-tag">Java</span><span class="proj-tag">ArrayList</span><span class="proj-tag">File I/O</span><span class="proj-tag">JUnit</span></div>
             <div class="proj-desc">Movie database system implementing complex query operations without a traditional RDBMS. Supports actor-movie lookups, co-actor discovery, common movie searches, rating filters (critics vs. audience), and mean rating calculations.</div>
             <div class="proj-metrics"><div><div class="pm-v">8</div><div class="pm-u">query types</div></div></div>
           </div>
           <div class="proj-card">
             <div class="proj-title">LC4 Assembler</div>
-            <div class="proj-ctx">UPenn, CIT 5930 (Solo) · 2025–2026</div>
+            <div class="proj-ctx">UPenn, CIT 5930 (Solo) · 2026</div>
             <div class="proj-tags"><span class="proj-tag">C</span><span class="proj-tag">Binary I/O</span><span class="proj-tag">ISA</span><span class="proj-tag">File Parsing</span><span class="proj-tag">Makefile</span></div>
             <div class="proj-desc">Mini-assembler in C that reads LC4 assembly text files and emits binary .obj machine code files consumable by PennSim. Implements a full two-pass parser: tokenizes instructions, encodes each opcode and operand into 16-bit binary, and handles .CODE/.DATA/.SYMBOL section headers with proper endianness.</div>
             <div class="proj-metrics"><div><div class="pm-v">30+</div><div class="pm-u">opcodes</div></div><div><div class="pm-v">2</div><div class="pm-u">file formats</div></div></div>
@@ -1021,6 +1076,27 @@ body {
     </section>
 
 
+    <!-- ════ CONSOLE (interactive query) ═══════════ -->
+    <section class="tab-pane" id="pane-console" role="tabpanel">
+      <div class="query-bar">
+        <span class="kw">CONNECT TO</span><span>&nbsp;</span>
+        <span class="tbl">anna_vu.profile</span>
+        <span class="cmt">&nbsp;-- SQL &amp; Python · type a query below</span>
+      </div>
+      <div class="console-wrap">
+        <div class="console-toolbar">
+          <button class="mode-btn active" id="btn-sql" onclick="setConsoleMode('sql')">SQL</button>
+          <button class="mode-btn" id="btn-py" onclick="setConsoleMode('python')">Python</button>
+          <span class="console-tip" id="console-tip">try: <code>SHOW TABLES</code></span>
+        </div>
+        <div class="console-output" id="console-output"></div>
+        <div class="console-input-row">
+          <span class="console-prompt" id="console-prompt">anna_db&gt;&nbsp;</span>
+          <input type="text" id="console-input" class="console-input" autocomplete="off" spellcheck="false" placeholder="type a query and press enter...">
+        </div>
+      </div>
+    </section>
+
   </main>
 </div>
 
@@ -1100,7 +1176,8 @@ document.querySelectorAll('.proj-card').forEach(function(card) {
 
 /* ── Arrow key nav ── */
 document.addEventListener('keydown', function(e) {
-  var tabs = ['projects','work','experience'];
+  if (document.activeElement && document.activeElement.id === 'console-input') return;
+  var tabs = ['projects','work','experience','console'];
   var active = document.querySelector('.top-tab.active');
   if (!active) return;
   var idx = tabs.indexOf(active.dataset.pane);
@@ -1338,6 +1415,310 @@ switchPane = function(id) {
   if (!localStorage.getItem(PET_LS)) {
     localStorage.setItem(PET_LS, '1');
     setTimeout(showWelcome, 1800);
+  }
+})();
+
+/* ══════════════════════════════════════════════════════════
+   CONSOLE REPL
+══════════════════════════════════════════════════════════ */
+(function() {
+  var consoleMode = 'sql';
+  var cmdHistory = [];
+  var histIdx = -1;
+  var cinput = document.getElementById('console-input');
+  var coutput = document.getElementById('console-output');
+
+  /* ── Data ── */
+  var ANNA = {
+    name:'Anna (Linh) Vu', location:'New York City, NY',
+    role:'Lead Data Technology Engineer', origin:'Hanoi, Vietnam',
+    email:'vuanna@seas.upenn.edu', linkedin:'linkedin.com/in/annalinhvu',
+    status:'open_to_work',
+    grad_school:'University of Pennsylvania',
+    grad_degree:'M.A.Sc. Computer Science · Artificial Intelligence',
+    undergrad_school:'Vanderbilt University',
+    undergrad_degree:'B.A. Economics & Media Arts',
+    hobbies:['analog film','photography','community volunteering'],
+    languages_spoken:['English','Vietnamese']
+  };
+  var SKILLS = [
+    {category:'Languages',skill:'SQL'},{category:'Languages',skill:'Python'},
+    {category:'Languages',skill:'Java'},{category:'Languages',skill:'JavaScript'},
+    {category:'Languages',skill:'CSS'},{category:'Languages',skill:'C'},{category:'Languages',skill:'Assembly'},
+    {category:'Data Warehousing',skill:'Snowflake'},{category:'Data Warehousing',skill:'BigQuery'},
+    {category:'ETL & Data Engineering',skill:'Matillion'},{category:'ETL & Data Engineering',skill:'REST APIs'},
+    {category:'ETL & Data Engineering',skill:'SFTP'},{category:'ETL & Data Engineering',skill:'AWS S3'},
+    {category:'ETL & Data Engineering',skill:'Apps Script'},{category:'ETL & Data Engineering',skill:'dbt'},
+    {category:'ETL & Data Engineering',skill:'Airflow'},
+    {category:'Visualization',skill:'Looker'},{category:'Visualization',skill:'Tableau'},
+    {category:'Visualization',skill:'Domo'},{category:'Visualization',skill:'Google Sheets'},
+    {category:'Developer Tools',skill:'Git'},{category:'Developer Tools',skill:'Postman'},
+    {category:'Developer Tools',skill:'JIRA'},{category:'Developer Tools',skill:'Confluence'},
+    {category:'Developer Tools',skill:'DBeaver'},{category:'Developer Tools',skill:'Jupyter'},
+    {category:'Developer Tools',skill:'PyCharm'},
+    {category:'Marketing Analytics',skill:'Google Analytics'},{category:'Marketing Analytics',skill:'CM360'},
+    {category:'Marketing Analytics',skill:'Google Ads'},{category:'Marketing Analytics',skill:'Brandwatch'},
+    {category:'Marketing Analytics',skill:'Prisma/MediaOcean'},
+    {category:'Soft Skills',skill:'Stakeholder Communication'},{category:'Soft Skills',skill:'Cross-Functional Collaboration'},
+    {category:'Soft Skills',skill:'Problem Solving'},{category:'Soft Skills',skill:'Leadership'}
+  ];
+  var EXPERIENCE = [
+    {title:'Lead Data Technology Engineer',company:'DEPT Agency',location:'New York, NY',period:'Jun 2024 – Present'},
+    {title:'Senior Data Engineer',company:'DEPT Agency',location:'New York, NY',period:'Aug 2023 – Jun 2024'},
+    {title:'Business Intelligence Engineer',company:'DEPT Agency',location:'New York, NY',period:'Oct 2022 – May 2024'},
+    {title:'Data Analyst',company:'FIG',location:'New York, NY',period:'Jul 2022 – Oct 2022'},
+    {title:'Media Coordinator',company:'FIG',location:'New York, NY',period:'Jun 2021 – Jun 2022'}
+  ];
+  var PROJECTS = [
+    {title:'Film Festival Tracker',type:'Film',tech:'HTML · JSON · Vanilla JS',status:'live'},
+    {title:'Analog Film Stock Database',type:'Film',tech:'HTML · JSON · Vanilla JS',status:'live'},
+    {title:'NYC Analog Film Map',type:'Film',tech:'HTML · JSON · Leaflet.js',status:'live'},
+    {title:'Filmmaker Directory',type:'Film',tech:'HTML · JSON',status:'live'},
+    {title:'Self-Care Tracker',type:'Wellness',tech:'HTML · JSON · Vanilla JS',status:'live'},
+    {title:'Recipe Book',type:'Food',tech:'HTML · JSON · Vanilla JS',status:'live'},
+    {title:'World Atlas',type:'Travel',tech:'HTML · JSON · Vanilla JS',status:'live'}
+  ];
+  var TABLES = ['anna','skills','experience','projects'];
+
+  /* ── Helpers ── */
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function renderTable(cols, rows) {
+    if (!rows.length) return '<div class="res-info">-- 0 rows returned</div>';
+    var h = '<div class="res-table"><div class="res-thead">';
+    cols.forEach(function(c){h+='<span>'+esc(c)+'</span>';});
+    h+='</div>';
+    rows.forEach(function(row){
+      h+='<div class="res-row">';
+      cols.forEach(function(c){
+        var v=row[c]!==undefined?row[c]:'';
+        if(Array.isArray(v))v=v.join(', ');
+        h+='<span title="'+esc(v)+'">'+esc(v)+'</span>';
+      });
+      h+='</div>';
+    });
+    h+='<div class="res-footer">-- '+rows.length+' row'+(rows.length!==1?'s':'')+' in set</div></div>';
+    return h;
+  }
+  function uniqueCats() {
+    var seen={},cats=[];
+    SKILLS.forEach(function(s){if(!seen[s.category]){seen[s.category]=1;cats.push(s.category);}});
+    return cats;
+  }
+
+  /* ── SQL interpreter ── */
+  function runSQL(c) {
+    var cu = c.trim();
+    if(!cu || /^--/.test(cu)) return '<div class="res-info">'+esc(cu)+'</div>';
+    if(/^DROP\s+TABLE/i.test(cu))   return '<div class="res-error">ERROR 1142: DROP denied. nice try.</div>';
+    if(/^DELETE\s+FROM\s+anna/i.test(cu)) return '<div class="res-error">ERROR 1142: permission denied. i need to stay.</div>';
+    if(/^TRUNCATE/i.test(cu))       return '<div class="res-error">ERROR 1142: absolutely not.</div>';
+    if(/^DROP\s+DATABASE/i.test(cu))return '<div class="res-error">ERROR 1044: you wish.</div>';
+    if(/FROM\s+boyfriends/i.test(cu)) return '<div class="res-error">ERROR 1146: table \'anna_vu.boyfriends\' doesn\'t exist.</div>';
+    if(/FROM\s+salary/i.test(cu))   return '<div class="res-error">ERROR 1142: access denied — classified.</div>';
+    if(/FROM\s+secrets/i.test(cu))  return '<div class="res-info">-- no secrets here... or are there? 🤫</div>';
+    if(/SELECT\s+SLEEP/i.test(cu))  return '<div class="res-error">ERROR: i don\'t sleep on the job.</div>';
+    if(/^(SHOW\s+TABLES|SHOW\s+DATABASES)/i.test(cu))
+      return renderTable(['Tables_in_anna_vu'], TABLES.map(function(t){return{'Tables_in_anna_vu':t};}));
+    var descM = cu.match(/^(?:DESCRIBE|DESC)\s+(\w+)/i);
+    if(descM) {
+      var t=descM[1].toLowerCase();
+      var schemas={
+        anna:['name','location','role','origin','email','linkedin','status','grad_school','grad_degree','undergrad_school','undergrad_degree'],
+        skills:['category','skill'],experience:['title','company','location','period'],projects:['title','type','tech','status']
+      };
+      if(!schemas[t]) return '<div class="res-error">ERROR 1146: table \''+esc(t)+'\' doesn\'t exist.</div>';
+      return renderTable(['Field','Type'],schemas[t].map(function(f){return{Field:f,Type:'varchar(255)'};}));
+    }
+    var cntM = cu.match(/SELECT\s+COUNT\(\*\)\s+FROM\s+(\w+)/i);
+    if(cntM) {
+      var t=cntM[1].toLowerCase();
+      var cnt={anna:1,skills:SKILLS.length,experience:EXPERIENCE.length,projects:PROJECTS.length};
+      if(cnt[t]===undefined) return '<div class="res-error">ERROR 1146: table \''+esc(t)+'\' doesn\'t exist.</div>';
+      return renderTable(['COUNT(*)'], [{'COUNT(*)':cnt[t]}]);
+    }
+    if(/SELECT\s+DISTINCT\s+category\s+FROM\s+(anna\.)?skills/i.test(cu))
+      return renderTable(['category'], uniqueCats().map(function(c){return{category:c};}));
+    var swM = cu.match(/FROM\s+(anna\.)?skills\s+WHERE\s+category\s*=\s*['"]([^'"]+)['"]/i);
+    if(swM) {
+      var cat=swM[2], rows=SKILLS.filter(function(s){return s.category.toLowerCase()===cat.toLowerCase();});
+      if(!rows.length) return '<div class="res-info">-- 0 rows. categories: '+uniqueCats().join(', ')+'</div>';
+      return renderTable(['category','skill'],rows);
+    }
+    if(/FROM\s+(anna\.)?skills/i.test(cu)) return renderTable(['category','skill'],SKILLS);
+    if(/FROM\s+(anna\.)?experience/i.test(cu)) return renderTable(['title','company','location','period'],EXPERIENCE);
+    if(/FROM\s+(anna\.)?projects/i.test(cu)) return renderTable(['title','type','tech','status'],PROJECTS);
+    if(/SELECT\s+\*\s+FROM\s+(anna\.)?anna\b/i.test(cu)) {
+      var cols=Object.keys(ANNA).filter(function(k){return k!=='hobbies'&&k!=='languages_spoken';});
+      var row={};cols.forEach(function(k){row[k]=ANNA[k];});
+      return renderTable(cols,[row]);
+    }
+    var selM = cu.match(/SELECT\s+([\w\s,]+)\s+FROM\s+(anna\.)?anna\b/i);
+    if(selM) {
+      var cols=selM[1].split(',').map(function(s){return s.trim().toLowerCase();}).filter(function(k){return ANNA[k]!==undefined;});
+      if(!cols.length) return '<div class="res-error">ERROR 1054: unknown column. try DESCRIBE anna.</div>';
+      var row={};cols.forEach(function(k){row[k]=ANNA[k];});
+      return renderTable(cols,[row]);
+    }
+    var insM = cu.match(/INSERT\s+INTO\s+messages\s*\([^)]+\)\s*VALUES\s*\(\s*['"]([^'"]*)['"]\s*,\s*['"]([^'"]*)['"]\s*\)/i);
+    if(insM) {
+      var subj=encodeURIComponent('Portfolio message from '+insM[1]);
+      var body=encodeURIComponent(insM[2]+'\n\n— '+insM[1]);
+      window.open('mailto:vuanna@seas.upenn.edu?subject='+subj+'&body='+body);
+      return '<div class="res-success">-- 1 row inserted. opening your email client... 📬</div>';
+    }
+    if(/INSERT\s+INTO\s+messages/i.test(cu))
+      return '<div class="res-info">-- format: INSERT INTO messages (from_name, message) VALUES (\'your name\', \'hi anna!\')</div>';
+    if(/^HELP$/i.test(cu.trim()))
+      return '<div class="res-info">-- available tables: '+TABLES.join(', ')+'<br>'
+        +'-- SHOW TABLES<br>-- SELECT * FROM anna<br>-- SELECT * FROM skills<br>'
+        +'-- SELECT * FROM skills WHERE category = \'Languages\'<br>'
+        +'-- SELECT * FROM experience<br>-- SELECT * FROM projects<br>'
+        +'-- INSERT INTO messages (from_name, message) VALUES (\'name\', \'hello!\')<br>'
+        +'-- DESCRIBE anna</div>';
+    var fmM = cu.match(/FROM\s+(anna\.)?(\w+)/i);
+    if(fmM && !TABLES.includes(fmM[2].toLowerCase()) && fmM[2].toLowerCase()!=='messages')
+      return '<div class="res-error">ERROR 1146: table \'anna_vu.'+esc(fmM[2])+'\' doesn\'t exist. try SHOW TABLES.</div>';
+    return '<div class="res-error">ERROR 1064: syntax error near \''+esc(cu.split(' ')[0])+'\'. try HELP.</div>';
+  }
+
+  /* ── Python interpreter ── */
+  function runPython(c) {
+    var cu = c.trim();
+    if(!cu) return '<div class="res-info">...</div>';
+    if(/^#/.test(cu)) return '<div class="res-info">'+esc(cu)+'</div>';
+    if(/^(help\s*\(\s*anna\s*\)|anna\.help\s*\(\s*\))/i.test(cu))
+      return '<div class="res-info">class Anna:<br>'
+        +'&nbsp;&nbsp;.info()            → profile<br>'
+        +'&nbsp;&nbsp;.skills()          → all skills<br>'
+        +'&nbsp;&nbsp;.skills(\'cat\')    → filter by category<br>'
+        +'&nbsp;&nbsp;.experience()      → work history<br>'
+        +'&nbsp;&nbsp;.projects()        → creative projects<br>'
+        +'&nbsp;&nbsp;.hobbies()         → interests<br>'
+        +'&nbsp;&nbsp;.origin()          → where i\'m from<br>'
+        +'&nbsp;&nbsp;.contact(name, msg) → send a message</div>';
+    if(/^type\s*\(\s*anna\s*\)/.test(cu)) return '<div class="res-success">&lt;class \'DataEngineer\'&gt;</div>';
+    if(/^print\s*\(\s*anna\s*\)/.test(cu)) return '<div class="res-success">&lt;Anna Vu · Lead Data Technology Engineer · NYC&gt;</div>';
+    if(/^len\s*\(\s*anna\.skills\s*\(\s*\)\s*\)/.test(cu)) return '<div class="res-success">'+SKILLS.length+'</div>';
+    if(/^import\s+anna/.test(cu)) return '<div class="res-info"># already imported :)</div>';
+    if(/^anna\s*=\s*Anna\s*\(\s*\)/.test(cu)) return '<div class="res-info"># already instantiated — hi! 👋</div>';
+    if(/^anna\.info\s*\(\s*\)/.test(cu)) {
+      var keys=['name','location','role','origin','email','linkedin','status','grad_school','undergrad_school'];
+      var lines=keys.map(function(k){return '&nbsp;&nbsp;<span style="color:var(--mono-g)">'+k+'</span>: <span style="color:var(--g-text)">"'+esc(ANNA[k])+'"</span>';});
+      return '<div class="res-success">Anna {<br>'+lines.join(',<br>')+'<br>}</div>';
+    }
+    var skArgM = cu.match(/^anna\.skills\s*\(\s*['"]([^'"]+)['"]\s*\)/);
+    if(skArgM) {
+      var cat=skArgM[1], rows=SKILLS.filter(function(s){return s.category.toLowerCase()===cat.toLowerCase();});
+      if(!rows.length) return '<div class="res-error">KeyError: \''+esc(cat)+'\'. available: '+uniqueCats().map(function(c){return'\''+c+'\''}).join(', ')+'</div>';
+      return '<div class="res-success">['+rows.map(function(s){return'\''+esc(s.skill)+'\''}).join(', ')+']</div>';
+    }
+    if(/^anna\.skills\s*\(\s*\)/.test(cu)) {
+      var cats=uniqueCats();
+      var dict=cats.map(function(cat){
+        var sk=SKILLS.filter(function(s){return s.category===cat;}).map(function(s){return'\''+esc(s.skill)+'\''});
+        return '&nbsp;&nbsp;\''+esc(cat)+'\': ['+sk.join(', ')+']';
+      });
+      return '<div class="res-success">{<br>'+dict.join(',<br>')+'<br>}</div>';
+    }
+    if(/^anna\.experience\s*\(\s*\)/.test(cu)) {
+      var lines=EXPERIENCE.map(function(e){return '&nbsp;&nbsp;{\'title\': \''+esc(e.title)+'\', \'company\': \''+esc(e.company)+'\', \'period\': \''+esc(e.period)+'\'}';});
+      return '<div class="res-success">[<br>'+lines.join(',<br>')+'<br>]</div>';
+    }
+    if(/^anna\.projects\s*\(\s*\)/.test(cu)) {
+      var lines=PROJECTS.map(function(p){return '&nbsp;&nbsp;{\'title\': \''+esc(p.title)+'\', \'status\': \''+esc(p.status)+'\'}';});
+      return '<div class="res-success">[<br>'+lines.join(',<br>')+'<br>]</div>';
+    }
+    if(/^anna\.hobbies\s*\(\s*\)/.test(cu)) return '<div class="res-success">'+JSON.stringify(ANNA.hobbies)+'</div>';
+    if(/^anna\.origin\s*\(\s*\)/.test(cu)) return '<div class="res-success">\''+esc(ANNA.origin)+'\'</div>';
+    var cntM = cu.match(/^anna\.contact\s*\(\s*['"]([^'"]*)['"]\s*,\s*['"]([^'"]*)['"]\s*\)/);
+    if(cntM) {
+      var subj=encodeURIComponent('Portfolio message from '+cntM[1]);
+      var body=encodeURIComponent(cntM[2]+'\n\n— '+cntM[1]);
+      window.open('mailto:vuanna@seas.upenn.edu?subject='+subj+'&body='+body);
+      return '<div class="res-success"># message sent! opening email client... 📬</div>';
+    }
+    if(/^anna\.contact\s*\(/.test(cu)) return '<div class="res-info"># usage: anna.contact(\'your name\', \'your message\')</div>';
+    if(/^(anna\s*\+=|anna\s*=\s*None)/.test(cu)) return '<div class="res-error">TypeError: cannot reassign anna.</div>';
+    if(/^del\s+anna/.test(cu)) return '<div class="res-error">PermissionError: you can\'t delete me 😤</div>';
+    if(/^anna\.salary/.test(cu)) return '<div class="res-error">AttributeError: \'salary\' is private.</div>';
+    if(/^anna\.boyfriend/.test(cu)) return '<div class="res-error">AttributeError: attribute not found.</div>';
+    if(/^anna\.secrets/.test(cu)) return '<div class="res-info"># no secrets here... or are there? 🤫</div>';
+    if(/^(exit|quit)\s*\(\s*\)/.test(cu)) return '<div class="res-info"># you can\'t leave that easily 😄</div>';
+    if(/^anna\./.test(cu)) {
+      var attr=cu.match(/^anna\.(\w+)/)[1];
+      return '<div class="res-error">AttributeError: \'Anna\' has no attribute \''+esc(attr)+'\'. try anna.help()</div>';
+    }
+    return '<div class="res-error">NameError: \''+esc(cu.split('(')[0].split('.')[0].trim())+'\' is not defined. try help(anna)</div>';
+  }
+
+  /* ── Render command block ── */
+  function runCmd(cmd) {
+    var result = consoleMode === 'sql' ? runSQL(cmd) : runPython(cmd);
+    var prompt = consoleMode === 'sql' ? 'anna_db&gt;' : '&gt;&gt;&gt;';
+    var block = document.createElement('div');
+    block.className = 'cmd-block';
+    block.innerHTML = '<div class="cmd-line"><span class="cmd-prmt">'+prompt+'&nbsp;</span>'+esc(cmd)+'</div>'
+      +'<div class="cmd-result">'+result+'</div>';
+    coutput.appendChild(block);
+    coutput.scrollTop = coutput.scrollHeight;
+  }
+
+  /* ── Mode switch ── */
+  window.setConsoleMode = function(m) {
+    consoleMode = m;
+    document.getElementById('btn-sql').classList.toggle('active', m==='sql');
+    document.getElementById('btn-py').classList.toggle('active', m==='python');
+    document.getElementById('console-prompt').textContent = m==='sql' ? 'anna_db> ' : '>>> ';
+    document.getElementById('console-tip').innerHTML = m==='sql'
+      ? 'try: <code>SHOW TABLES</code>'
+      : 'try: <code>help(anna)</code>';
+    var block = document.createElement('div');
+    block.className = 'cmd-block';
+    block.innerHTML = m==='sql'
+      ? '<div class="res-info">-- switched to SQL · warehouse: snowflake://nyc</div>'
+      : '<div class="res-info"># switched to Python · runtime: anna-env 3.11</div>';
+    coutput.appendChild(block);
+    coutput.scrollTop = coutput.scrollHeight;
+    cinput.focus();
+  };
+
+  /* ── Input handling ── */
+  if(cinput) {
+    cinput.addEventListener('keydown', function(e) {
+      if(e.key === 'Enter') {
+        var cmd = cinput.value.trim();
+        if(cmd) { cmdHistory.unshift(cmd); histIdx=-1; runCmd(cmd); cinput.value=''; }
+      } else if(e.key === 'ArrowUp') {
+        e.preventDefault();
+        if(histIdx < cmdHistory.length-1) { histIdx++; cinput.value=cmdHistory[histIdx]; }
+      } else if(e.key === 'ArrowDown') {
+        e.preventDefault();
+        if(histIdx > 0) { histIdx--; cinput.value=cmdHistory[histIdx]; }
+        else { histIdx=-1; cinput.value=''; }
+      }
+    });
+  }
+
+  /* ── Focus input on console pane click ── */
+  var consoleWrap = document.querySelector('.console-wrap');
+  if(consoleWrap) consoleWrap.addEventListener('click', function(){ if(cinput) cinput.focus(); });
+
+  /* ── Focus input when switching to console tab ── */
+  var _prevSwitch = switchPane;
+  switchPane = function(id) {
+    _prevSwitch(id);
+    if(id === 'console' && cinput) setTimeout(function(){ cinput.focus(); }, 60);
+  };
+
+  /* ── Welcome message ── */
+  if(coutput) {
+    coutput.innerHTML = '<div class="cmd-block">'
+      +'<div class="res-info">-- connected to anna_vu.profile · snowflake://nyc · v1.0.0</div>'
+      +'<div class="res-info">-- type <span style="color:var(--accent)">SHOW TABLES</span> or <span style="color:var(--accent)">SELECT * FROM anna</span> to start</div>'
+      +'<div class="res-info">-- switch to Python mode to try <span style="color:var(--accent)">anna.contact(\'name\', \'message\')</span></div>'
+      +'</div>';
   }
 })();
 </script>
