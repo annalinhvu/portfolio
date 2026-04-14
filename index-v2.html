@@ -436,6 +436,41 @@ body {
 .filter-clear:hover{color:var(--amber);}
 
 /* ── Status bar ──────────────────────────────────────── */
+/* ── Snake game modal ── */
+.game-modal{
+  position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.8);backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;
+}
+.game-modal.hidden{display:none;}
+.game-box{
+  background:var(--panel);border:1px solid var(--bd-hi);
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 24px 80px rgba(0,0,0,.6);
+  animation:staggerIn .2s ease both;
+}
+.game-titlebar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 16px;background:var(--panel-hd);
+  border-bottom:1px solid var(--bd);
+}
+.game-titlebar span{
+  font-family:'Geist Mono',monospace;font-size:11px;color:var(--t3);letter-spacing:.5px;
+}
+.game-close{
+  background:transparent;border:none;color:var(--t4);
+  cursor:pointer;font-size:16px;line-height:1;padding:0 4px;
+  transition:color .15s;
+}
+.game-close:hover{color:var(--rose);}
+.game-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 16px;background:var(--panel-hd);
+  border-top:1px solid var(--bd);
+  font-family:'Geist Mono',monospace;font-size:11px;color:var(--t4);
+}
+#game-score{color:var(--accent);}
+
 .status-bar{
   height:22px;flex-shrink:0;
   display:flex;align-items:center;justify-content:space-between;
@@ -1134,6 +1169,20 @@ body {
   </main>
 </div>
 
+<div class="game-modal hidden" id="game-modal">
+  <div class="game-box">
+    <div class="game-titlebar">
+      <span>anna_snake.exe — collect the data</span>
+      <button class="game-close" onclick="closeGame()">×</button>
+    </div>
+    <canvas id="game-canvas"></canvas>
+    <div class="game-footer">
+      <span id="game-score">rows_collected: 0</span>
+      <span>WASD / arrow keys &nbsp;·&nbsp; R to restart &nbsp;·&nbsp; ESC to quit</span>
+    </div>
+  </div>
+</div>
+
 <div class="status-bar">
   <span class="sb-left">
     <span class="sb-conn"><span class="sb-dot-sm"></span>anna_vu :: snowflake</span>
@@ -1453,6 +1502,125 @@ switchPane = function(id) {
 })();
 
 /* ══════════════════════════════════════════════════════════
+   SNAKE GAME
+══════════════════════════════════════════════════════════ */
+(function() {
+  var CELL=18, COLS=24, ROWS=22;
+  var W=COLS*CELL, H=ROWS*CELL;
+  var snake,dir,nextDir,food,score,loop,dead,started,speed;
+  var WORDS=['JOIN','WHERE','GROUP BY','INDEX','VIEW','NULL','KEY','ETL','API','ROW','FROM','dbt','SUM','AVG','MAX'];
+
+  function isDark(){return document.documentElement.getAttribute('data-theme')==='dark';}
+  function theme(){return{bg:isDark()?'#1c2028':'#f3f1eb',grid:isDark()?'rgba(90,120,160,.06)':'rgba(110,95,70,.07)',head:'#c8785e',body:'#8aaa8e',food:'#c8a870',foodTxt:isDark()?'#c8a870':'#a07030',txt:isDark()?'#b4bcd0':'#4a4238',dim:isDark()?'#7888a4':'#7a7060',over:isDark()?'rgba(28,32,40,.88)':'rgba(243,241,235,.88)'};}
+
+  function place(){
+    var empty=[];
+    for(var x=0;x<COLS;x++)for(var y=0;y<ROWS;y++){if(!snake.some(function(s){return s.x===x&&s.y===y;}))empty.push({x:x,y:y});}
+    food=empty[Math.floor(Math.random()*empty.length)];
+    food.label=WORDS[Math.floor(Math.random()*WORDS.length)];
+  }
+
+  function init(){
+    snake=[{x:12,y:11},{x:11,y:11},{x:10,y:11}];
+    dir={x:1,y:0};nextDir={x:1,y:0};
+    score=0;dead=false;started=false;speed=140;
+    document.getElementById('game-score').textContent='rows_collected: 0';
+    place();draw();
+  }
+
+  function step(){
+    dir=nextDir;
+    var h={x:snake[0].x+dir.x,y:snake[0].y+dir.y};
+    if(h.x<0||h.x>=COLS||h.y<0||h.y>=ROWS||snake.some(function(s){return s.x===h.x&&s.y===h.y;})){end();return;}
+    snake.unshift(h);
+    if(h.x===food.x&&h.y===food.y){
+      score++;
+      document.getElementById('game-score').textContent='rows_collected: '+score;
+      place();
+      if(score%5===0){clearInterval(loop);speed=Math.max(70,speed-10);loop=setInterval(step,speed);}
+    }else{snake.pop();}
+    draw();
+  }
+
+  function end(){dead=true;clearInterval(loop);draw();}
+
+  function draw(){
+    var cv=document.getElementById('game-canvas');if(!cv)return;
+    cv.width=W;cv.height=H;
+    var c=cv.getContext('2d'),t=theme();
+    c.fillStyle=t.bg;c.fillRect(0,0,W,H);
+    // grid
+    c.strokeStyle=t.grid;c.lineWidth=1;
+    for(var x=0;x<=COLS;x++){c.beginPath();c.moveTo(x*CELL,0);c.lineTo(x*CELL,H);c.stroke();}
+    for(var y=0;y<=ROWS;y++){c.beginPath();c.moveTo(0,y*CELL);c.lineTo(W,y*CELL);c.stroke();}
+    // food
+    c.fillStyle=t.food;
+    c.beginPath();c.roundRect(food.x*CELL+3,food.y*CELL+3,CELL-6,CELL-6,3);c.fill();
+    c.fillStyle=t.foodTxt;c.font='bold 7px Geist Mono,monospace';c.textAlign='center';
+    c.fillText(food.label,food.x*CELL+CELL/2,food.y*CELL-2);
+    // snake
+    snake.forEach(function(s,i){
+      c.fillStyle=i===0?t.head:t.body;
+      c.beginPath();c.roundRect(s.x*CELL+1,s.y*CELL+1,CELL-2,CELL-2,i===0?4:2);c.fill();
+    });
+    // overlays
+    if(!started&&!dead){
+      c.fillStyle=t.over;c.fillRect(0,0,W,H);
+      c.fillStyle=t.body;c.font='bold 14px Geist Mono,monospace';c.textAlign='center';
+      c.fillText('anna_snake.exe',W/2,H/2-28);
+      c.fillStyle=t.txt;c.font='12px Geist Mono,monospace';
+      c.fillText('press any arrow key to start',W/2,H/2);
+      c.fillStyle=t.dim;c.font='10.5px Geist Mono,monospace';
+      c.fillText('collect SQL keywords · avoid the walls',W/2,H/2+22);
+    }
+    if(dead){
+      c.fillStyle=t.over;c.fillRect(0,0,W,H);
+      c.fillStyle='#c8785e';c.font='bold 18px Geist Mono,monospace';c.textAlign='center';
+      c.fillText('GAME OVER',W/2,H/2-22);
+      c.fillStyle=t.body;c.font='13px Geist Mono,monospace';
+      c.fillText('rows_collected: '+score,W/2,H/2+4);
+      c.fillStyle=t.dim;c.font='11px Geist Mono,monospace';
+      c.fillText('press R to restart · ESC to quit',W/2,H/2+26);
+    }
+  }
+
+  // Controls
+  var DIRS={ArrowUp:{x:0,y:-1},ArrowDown:{x:0,y:1},ArrowLeft:{x:-1,y:0},ArrowRight:{x:1,y:0},
+            w:{x:0,y:-1},s:{x:0,y:1},a:{x:-1,y:0},d:{x:1,y:0}};
+  document.addEventListener('keydown',function(e){
+    var modal=document.getElementById('game-modal');
+    if(!modal||modal.classList.contains('hidden'))return;
+    if(e.key==='Escape'){window.closeGame();return;}
+    if(dead&&(e.key==='r'||e.key==='R')){init();return;}
+    var nd=DIRS[e.key];
+    if(nd){
+      e.preventDefault();
+      if(nd.x===-dir.x&&nd.y===-dir.y)return;
+      nextDir=nd;
+      if(!started&&!dead){started=true;loop=setInterval(step,speed);}
+    }
+  });
+
+  window.openGame=function(){
+    var modal=document.getElementById('game-modal');
+    if(!modal)return;
+    modal.classList.remove('hidden');
+    init();
+  };
+  window.closeGame=function(){
+    clearInterval(loop);
+    var modal=document.getElementById('game-modal');
+    if(modal)modal.classList.add('hidden');
+  };
+
+  // Konami code
+  var KS=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'],ki=0;
+  document.addEventListener('keydown',function(e){
+    if(e.key===KS[ki]){ki++;if(ki===KS.length){ki=0;window.openGame();}}else{ki=0;}
+  });
+})();
+
+/* ══════════════════════════════════════════════════════════
    TERMINAL REPL
 ══════════════════════════════════════════════════════════ */
 (function() {
@@ -1545,6 +1713,7 @@ switchPane = function(id) {
   function runSQL(c) {
     var cu = c.trim();
     if(!cu || /^--/.test(cu)) return '<div class="res-info">'+esc(cu)+'</div>';
+    if(/^(PLAY\s+GAME|SELECT\s+fun|SELECT\s+\*\s+FROM\s+games)/i.test(cu)){setTimeout(window.openGame,50);return '<div class="res-success">-- launching anna_snake.exe... 🐍</div>';}
     if(/^DROP\s+TABLE/i.test(cu))   return '<div class="res-error">ERROR 1142: DROP denied. nice try.</div>';
     if(/^DELETE\s+FROM\s+anna/i.test(cu)) return '<div class="res-error">ERROR 1142: permission denied. i need to stay.</div>';
     if(/^TRUNCATE/i.test(cu))       return '<div class="res-error">ERROR 1142: absolutely not.</div>';
@@ -1641,6 +1810,7 @@ switchPane = function(id) {
     var cu = c.trim();
     if(!cu) return '<div class="res-info">...</div>';
     if(/^#/.test(cu)) return '<div class="res-info">'+esc(cu)+'</div>';
+    if(/^anna\.(game|play)\s*\(\s*\)/.test(cu)){setTimeout(window.openGame,50);return '<div class="res-success"># launching anna_snake.exe... 🐍</div>';}
     if(/^(help\s*\(\s*anna\s*\)|anna\.help\s*\(\s*\))/i.test(cu))
       return '<div class="res-info">class Anna:<br>'
         +'&nbsp;&nbsp;.info()            → profile<br>'
@@ -1751,7 +1921,8 @@ switchPane = function(id) {
       ['DESCRIBE anna','table schema'],
       ['EXPLAIN SELECT * FROM anna','query plan'],
       ["UPDATE anna SET status = 'hired'",'make it happen ;)'],
-      ["INSERT INTO messages (from_name, message) VALUES ('your name', 'hello!')",'contact anna']
+      ["INSERT INTO messages (from_name, message) VALUES ('your name', 'hello!')",'contact anna'],
+      ['PLAY GAME','🐍 secret']
     ],
     python: [
       ['help(anna)','all methods'],
@@ -1763,7 +1934,8 @@ switchPane = function(id) {
       ['anna.availability()','open to work?'],
       ['anna.dream_job()','honest answer'],
       ['anna.coffee_count','critical stat'],
-      ["anna.contact('your name', 'hello!')",'send anna a message']
+      ["anna.contact('your name', 'hello!')",'send anna a message'],
+      ['anna.game()','🐍 secret']
     ],
     java: [
       ['anna.toString()','string representation'],
@@ -1812,6 +1984,7 @@ switchPane = function(id) {
   function runJava(c) {
     var cu = c.trim();
     if(!cu || /^\/\//.test(cu)) return '<div class="res-info">'+esc(cu)+'</div>';
+    if(/^anna\.(game|play|startGame)\s*\(\s*\)/.test(cu)){setTimeout(window.openGame,50);return '<div class="res-info">// launching anna_snake.exe... 🐍</div>';}
     if(/^anna\.toString\s*\(\s*\)/.test(cu)) return '<div class="res-success">"Anna Vu: Lead Data Technology Engineer @ DEPT Agency, NYC"</div>';
     if(/^anna\.getInfo\s*\(\s*\)/.test(cu)) {
       var lines=['name','location','role','origin','email','status'].map(function(k){
@@ -1863,6 +2036,7 @@ switchPane = function(id) {
   function runC(c) {
     var cu = c.trim();
     if(!cu || /^\/\/|^\/\*/.test(cu)) return '<div class="res-info">'+esc(cu)+'</div>';
+    if(/^(play_game|game)\s*\(\s*(anna)?\s*\)/.test(cu)){setTimeout(window.openGame,50);return '<div class="res-success">/* launching anna_snake.exe... 🐍 */</div>';}
     var pfM=cu.match(/^printf\s*\(\s*"%s\\?n?"\s*,\s*anna->(\w+)\s*\)/);
     if(pfM){var k=pfM[1];return ANNA[k]?'<div class="res-success">'+esc(ANNA[k])+'</div>':'<div class="res-error">error: \''+esc(k)+'\' is not a member of struct Anna</div>';}
     if(/^anna->name/.test(cu)) return '<div class="res-success">"'+esc(ANNA.name)+'"</div>';
