@@ -392,9 +392,11 @@ body {
   font-size:11.5px;color:var(--t3);line-height:1.85;
 }
 .col-stat strong{color:var(--t1);font-weight:500;}
+.db-row.std .col-stat,.db-row.alt .col-stat{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .col-tech{
   font-family:'Geist Mono',monospace;
   font-size:11px;color:var(--t3);line-height:1.85;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 .col-status{
   display:flex;align-items:center;gap:7px;
@@ -522,10 +524,14 @@ body {
 }
 .mode-btn.active{border-color:var(--amber);color:var(--amber);background:rgba(200,120,94,.08);}
 .mode-btn:hover:not(.active){border-color:var(--bd-hi);color:var(--t2);}
-.console-tip{
+.console-actions{display:flex;gap:8px;margin-left:auto;}
+.clear-btn{
   font-family:'Geist Mono',monospace;font-size:11px;
-  color:var(--t4);margin-left:auto;
+  background:transparent;border:1px solid var(--bd);border-radius:6px;
+  color:var(--t4);cursor:pointer;padding:4px 12px;
+  transition:all .15s;letter-spacing:.3px;
 }
+.clear-btn:hover{border-color:var(--rose);color:var(--rose);}
 .console-tip code{color:var(--accent);}
 .console-output{
   flex:1;min-height:0;overflow-y:auto;
@@ -1105,39 +1111,17 @@ body {
       </div>
       <div class="console-wrap">
         <div class="console-toolbar">
-          <button class="mode-btn active" id="btn-sql" onclick="setConsoleMode('sql')">SQL</button>
-          <button class="mode-btn" id="btn-py" onclick="setConsoleMode('python')">Python</button>
-          <button class="guide-toggle" id="guide-toggle" onclick="toggleGuide()">commands ▾</button>
+          <button class="mode-btn active" id="btn-sql"    onclick="setConsoleMode('sql')">SQL</button>
+          <button class="mode-btn"        id="btn-python" onclick="setConsoleMode('python')">Python</button>
+          <button class="mode-btn"        id="btn-java"   onclick="setConsoleMode('java')">Java</button>
+          <button class="mode-btn"        id="btn-c"      onclick="setConsoleMode('c')">C</button>
+          <div class="console-actions">
+            <button class="guide-toggle" id="guide-toggle" onclick="toggleGuide()">commands ▾</button>
+            <button class="clear-btn" onclick="clearConsole()">clear</button>
+          </div>
         </div>
 
-        <div class="console-guide" id="console-guide">
-          <div class="guide-col" id="guide-sql">
-            <div class="guide-col-hd">SQL</div>
-            <span class="guide-cmd" onclick="fillCmd('SHOW TABLES')">SHOW TABLES</span>
-            <span class="guide-cmd" onclick="fillCmd('SELECT * FROM anna')">SELECT * FROM anna</span>
-            <span class="guide-cmd" onclick="fillCmd('SELECT * FROM skills')">SELECT * FROM skills</span>
-            <span class="guide-cmd" onclick="fillCmd(&quot;SELECT * FROM skills WHERE category = 'Languages'&quot;)">SELECT * FROM skills WHERE category = 'Languages'</span>
-            <span class="guide-cmd" onclick="fillCmd('SELECT * FROM experience')">SELECT * FROM experience</span>
-            <span class="guide-cmd" onclick="fillCmd('SELECT * FROM projects')">SELECT * FROM projects</span>
-            <span class="guide-cmd" onclick="fillCmd('DESCRIBE anna')">DESCRIBE anna</span>
-            <span class="guide-cmd" onclick="fillCmd('EXPLAIN SELECT * FROM anna')">EXPLAIN SELECT * FROM anna</span>
-            <span class="guide-cmd" onclick="fillCmd(&quot;UPDATE anna SET status = 'hired'&quot;)">UPDATE anna SET status = 'hired'</span>
-            <span class="guide-cmd" onclick="fillCmd(&quot;INSERT INTO messages (from_name, message) VALUES ('your name', 'hello!')&quot;)">INSERT INTO messages <span class="gc-comment">-- contact anna</span></span>
-          </div>
-          <div class="guide-col" id="guide-python">
-            <div class="guide-col-hd">Python</div>
-            <span class="guide-cmd" onclick="fillCmd('help(anna)')">help(anna)</span>
-            <span class="guide-cmd" onclick="fillCmd('anna.info()')">anna.info()</span>
-            <span class="guide-cmd" onclick="fillCmd('anna.skills()')">anna.skills()</span>
-            <span class="guide-cmd" onclick="fillCmd('anna.experience()')">anna.experience()</span>
-            <span class="guide-cmd" onclick="fillCmd('anna.projects()')">anna.projects()</span>
-            <span class="guide-cmd" onclick="fillCmd('anna.availability()')">anna.availability()</span>
-            <span class="guide-cmd" onclick="fillCmd('anna.dream_job()')">anna.dream_job()</span>
-            <span class="guide-cmd" onclick="fillCmd('anna.hobbies()')">anna.hobbies()</span>
-            <span class="guide-cmd" onclick="fillCmd('anna.coffee_count')">anna.coffee_count</span>
-            <span class="guide-cmd" onclick="fillCmd(&quot;anna.contact('your name', 'hello!')&quot;)">anna.contact('name', 'message') <span class="gc-comment">-- send email</span></span>
-          </div>
-        </div>
+        <div class="console-guide" id="console-guide"></div>
 
         <div class="console-output" id="console-output"></div>
         <div class="console-input-row">
@@ -1469,7 +1453,7 @@ switchPane = function(id) {
 })();
 
 /* ══════════════════════════════════════════════════════════
-   CONSOLE REPL
+   TERMINAL REPL
 ══════════════════════════════════════════════════════════ */
 (function() {
   var consoleMode = 'sql';
@@ -1741,33 +1725,200 @@ switchPane = function(id) {
 
   /* ── Render command block ── */
   function runCmd(cmd) {
-    var result = consoleMode === 'sql' ? runSQL(cmd) : runPython(cmd);
-    var prompt = consoleMode === 'sql' ? 'anna_db&gt;' : '&gt;&gt;&gt;';
+    var result;
+    if(consoleMode==='sql') result=runSQL(cmd);
+    else if(consoleMode==='python') result=runPython(cmd);
+    else if(consoleMode==='java') result=runJava(cmd);
+    else result=runC(cmd);
+    var prompt = esc(PROMPTS[consoleMode]||'> ');
     var block = document.createElement('div');
     block.className = 'cmd-block';
-    block.innerHTML = '<div class="cmd-line"><span class="cmd-prmt">'+prompt+'&nbsp;</span>'+esc(cmd)+'</div>'
+    block.innerHTML = '<div class="cmd-line"><span class="cmd-prmt">'+prompt+'</span>'+esc(cmd)+'</div>'
       +'<div class="cmd-result">'+result+'</div>';
     coutput.appendChild(block);
     coutput.scrollTop = coutput.scrollHeight;
   }
 
+  /* ── Guide data ── */
+  var GUIDE_DATA = {
+    sql: [
+      ['SHOW TABLES','show all tables'],
+      ['SELECT * FROM anna','full profile'],
+      ['SELECT * FROM skills','all skills'],
+      ["SELECT * FROM skills WHERE category = 'Languages'",'filtered skills'],
+      ['SELECT * FROM experience','work history'],
+      ['SELECT * FROM projects','creative projects'],
+      ['DESCRIBE anna','table schema'],
+      ['EXPLAIN SELECT * FROM anna','query plan'],
+      ["UPDATE anna SET status = 'hired'",'make it happen ;)'],
+      ["INSERT INTO messages (from_name, message) VALUES ('your name', 'hello!')",'contact anna']
+    ],
+    python: [
+      ['help(anna)','all methods'],
+      ['anna.info()','full profile'],
+      ['anna.skills()','all skills'],
+      ["anna.skills('Languages')",'filtered skills'],
+      ['anna.experience()','work history'],
+      ['anna.projects()','projects'],
+      ['anna.availability()','open to work?'],
+      ['anna.dream_job()','honest answer'],
+      ['anna.coffee_count','critical stat'],
+      ["anna.contact('your name', 'hello!')",'send anna a message']
+    ],
+    java: [
+      ['anna.toString()','string representation'],
+      ['anna.getInfo()','full profile'],
+      ['anna.getSkills()','HashMap of skills'],
+      ['anna.getExperience()','ArrayList of jobs'],
+      ['anna.getProjects()','ArrayList of projects'],
+      ['anna.getAvailability()','hiring status'],
+      ['anna.getDreamJob()','career goals'],
+      ['anna.yearsOfExperience()','int'],
+      ['anna.getCoffeeCount()','∞'],
+      ["anna.contact(\"your name\", \"hello!\")",'send a message']
+    ],
+    c: [
+      ['printf("%s\\n", anna->name)','print name'],
+      ['printf("%s\\n", anna->role)','print role'],
+      ['anna->skills','skills array'],
+      ['anna->experience','experience struct'],
+      ['anna->origin','origin string'],
+      ['anna->email','email string'],
+      ['sizeof(anna)','struct size'],
+      ['malloc(sizeof(Anna))','allocate anna'],
+      ['free(anna)','try it 😈'],
+      ['contact(anna, "your name", "hello!")','send a message']
+    ]
+  };
+
+  function renderGuide(m) {
+    var g = document.getElementById('console-guide');
+    if(!g || g.classList.contains('hidden')) return;
+    var cmds = GUIDE_DATA[m] || [];
+    var half = Math.ceil(cmds.length / 2);
+    var left = cmds.slice(0, half), right = cmds.slice(half);
+    function row(c) {
+      var safe = c[0].replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+      return '<span class="guide-cmd" onclick="fillCmd(\''+safe+'\',\''+m+'\')">'
+        +esc(c[0])+' <span class="gc-comment">-- '+esc(c[1])+'</span></span>';
+    }
+    g.innerHTML = '<div class="guide-col"><div class="guide-col-hd">'+m.toUpperCase()+'</div>'
+      +left.map(row).join('')+'</div>'
+      +'<div class="guide-col"><div class="guide-col-hd">&nbsp;</div>'
+      +right.map(row).join('')+'</div>';
+  }
+
+  /* ── Java interpreter ── */
+  function runJava(c) {
+    var cu = c.trim();
+    if(!cu || /^\/\//.test(cu)) return '<div class="res-info">'+esc(cu)+'</div>';
+    if(/^anna\.toString\s*\(\s*\)/.test(cu)) return '<div class="res-success">"Anna Vu: Lead Data Technology Engineer @ DEPT Agency, NYC"</div>';
+    if(/^anna\.getInfo\s*\(\s*\)/.test(cu)) {
+      var lines=['name','location','role','origin','email','status'].map(function(k){
+        return '&nbsp;&nbsp;<span style="color:var(--mono-g)">get'+k.charAt(0).toUpperCase()+k.slice(1)+'()</span> → <span style="color:var(--g-text)">"'+esc(ANNA[k])+'"</span>';
+      });
+      return '<div class="res-success">Anna@'+Math.abs(ANNA.name.hashCode||0x4e5943)+' {<br>'+lines.join(',<br>')+'<br>}</div>';
+    }
+    if(/^anna\.getSkills\s*\(\s*\)/.test(cu)) {
+      var cats=uniqueCats();
+      var lines=cats.map(function(cat){
+        var sk=SKILLS.filter(function(s){return s.category===cat;}).map(function(s){return'"'+esc(s.skill)+'"'});
+        return '&nbsp;&nbsp;"'+esc(cat)+'": ['+sk.join(', ')+']';
+      });
+      return '<div class="res-success">HashMap&lt;String, List&lt;String&gt;&gt; {<br>'+lines.join(',<br>')+'<br>}</div>';
+    }
+    if(/^anna\.getExperience\s*\(\s*\)/.test(cu)) {
+      var lines=EXPERIENCE.map(function(e){return '&nbsp;&nbsp;new Job("'+esc(e.title)+'", "'+esc(e.company)+'", "'+esc(e.period)+'")';});
+      return '<div class="res-success">ArrayList&lt;Job&gt; [<br>'+lines.join(',<br>')+'<br>]</div>';
+    }
+    if(/^anna\.getProjects\s*\(\s*\)/.test(cu)) {
+      var lines=PROJECTS.map(function(p){return '&nbsp;&nbsp;new Project("'+esc(p.title)+'", "'+esc(p.status)+'")';});
+      return '<div class="res-success">ArrayList&lt;Project&gt; [<br>'+lines.join(',<br>')+'<br>]</div>';
+    }
+    if(/^anna\.getAvailability\s*\(\s*\)/.test(cu)) return '<div class="res-success">Status.OPEN_TO_WORK // NYC or remote · vuanna@seas.upenn.edu</div>';
+    if(/^anna\.getDreamJob\s*\(\s*\)/.test(cu)) return '<div class="res-success">"senior data engineer at a company that ships real things"</div>';
+    if(/^anna\.yearsOfExperience\s*\(\s*\)/.test(cu)) return '<div class="res-success">4 // int, not long — still growing</div>';
+    if(/^anna\.getCoffeeCount\s*\(\s*\)/.test(cu)) return '<div class="res-success">Integer.MAX_VALUE // ∞</div>';
+    if(/^anna\.getBugsFixed\s*\(\s*\)/.test(cu)) return '<div class="res-success">247 // and counting</div>';
+    if(/^anna\.hashCode\s*\(\s*\)/.test(cu)) return '<div class="res-success">0x4e5943 // one of a kind</div>';
+    if(/^anna\.equals\s*\(\s*["']the best["']\s*\)/.test(cu)) return '<div class="res-success">true</div>';
+    if(/^anna\.equals\s*\(/.test(cu)) return '<div class="res-success">false</div>';
+    if(/^anna\.getClass\s*\(\s*\)/.test(cu)) return '<div class="res-success">class DataEngineer</div>';
+    if(/^anna\.clone\s*\(\s*\)/.test(cu)) return '<div class="res-error">CloneNotSupportedException: anna is one of a kind.</div>';
+    if(/^System\.out\.println\s*\(\s*anna\s*\)/.test(cu)) return '<div class="res-success">Anna Vu: Lead Data Technology Engineer @ DEPT Agency, NYC</div>';
+    if(/^new\s+Anna\s*\(\s*\)/.test(cu)) return '<div class="res-info">// already instantiated. hi 👋</div>';
+    var cntM=cu.match(/^anna\.contact\s*\(\s*["']([^"']*)['"]\s*,\s*["']([^"']*)["']\s*\)/);
+    if(cntM){
+      window.open('mailto:vuanna@seas.upenn.edu?subject='+encodeURIComponent('Portfolio message from '+cntM[1])+'&body='+encodeURIComponent(cntM[2]+'\n\n— '+cntM[1]));
+      return '<div class="res-success">// message sent! opening email client... 📬</div>';
+    }
+    if(/^anna\.contact\s*\(/.test(cu)) return '<div class="res-info">// usage: anna.contact("your name", "your message")</div>';
+    if(/^anna\.salary/.test(cu)) return '<div class="res-error">IllegalAccessException: private field.</div>';
+    if(/^delete\s+anna/.test(cu)) return '<div class="res-error">// "delete" is not Java syntax. try C mode.</div>';
+    if(/^anna\./.test(cu)){var m=cu.match(/^anna\.(\w+)/)[1];return '<div class="res-error">NoSuchMethodException: Anna.'+esc(m)+'()</div>';}
+    return '<div class="res-error">// '+esc(cu.split('(')[0])+ ' cannot be resolved</div>';
+  }
+
+  /* ── C interpreter ── */
+  function runC(c) {
+    var cu = c.trim();
+    if(!cu || /^\/\/|^\/\*/.test(cu)) return '<div class="res-info">'+esc(cu)+'</div>';
+    var pfM=cu.match(/^printf\s*\(\s*"%s\\?n?"\s*,\s*anna->(\w+)\s*\)/);
+    if(pfM){var k=pfM[1];return ANNA[k]?'<div class="res-success">'+esc(ANNA[k])+'</div>':'<div class="res-error">error: \''+esc(k)+'\' is not a member of struct Anna</div>';}
+    if(/^anna->name/.test(cu)) return '<div class="res-success">"'+esc(ANNA.name)+'"</div>';
+    if(/^anna->role/.test(cu)) return '<div class="res-success">"'+esc(ANNA.role)+'"</div>';
+    if(/^anna->location/.test(cu)) return '<div class="res-success">"'+esc(ANNA.location)+'"</div>';
+    if(/^anna->origin/.test(cu)) return '<div class="res-success">"'+esc(ANNA.origin)+'"</div>';
+    if(/^anna->email/.test(cu)) return '<div class="res-success">"'+esc(ANNA.email)+'"</div>';
+    if(/^anna->status/.test(cu)) return '<div class="res-success">"'+esc(ANNA.status)+'"</div>';
+    if(/^anna->skills/.test(cu)){
+      var lines=SKILLS.map(function(s){return '&nbsp;&nbsp;"'+esc(s.skill)+'"';});
+      return '<div class="res-success">char *skills[] = {<br>'+lines.join(',<br>')+'<br>};</div>';
+    }
+    if(/^anna->experience/.test(cu)){
+      var lines=EXPERIENCE.map(function(e){return '&nbsp;&nbsp;{"'+esc(e.title)+'", "'+esc(e.company)+'", "'+esc(e.period)+'"}';});
+      return '<div class="res-success">struct Job experience[] = {<br>'+lines.join(',<br>')+'<br>};</div>';
+    }
+    if(/^anna->coffeeCount/.test(cu)) return '<div class="res-success">// INT_MAX ... still counting</div>';
+    if(/^anna->bugsFixed/.test(cu)) return '<div class="res-success">247</div>';
+    if(/^sizeof\s*\(\s*anna\s*\)/.test(cu)) return '<div class="res-success">sizeof(Anna) = 1 // priceless</div>';
+    if(/^sizeof\s*\(\s*Anna\s*\)/.test(cu)) return '<div class="res-success">sizeof(Anna) = 1 // priceless</div>';
+    if(/^malloc\s*\(\s*sizeof/.test(cu)) return '<div class="res-success">(Anna *) 0x4e5943 // already allocated</div>';
+    if(/^free\s*\(\s*anna\s*\)/.test(cu)) return '<div class="res-error">Segmentation fault (core dumped) 💥</div>';
+    if(/^NULL/.test(cu)) return '<div class="res-error">// NULL pointer. don\'t do that.</div>';
+    if(/^anna->salary/.test(cu)) return '<div class="res-error">// access denied: private field</div>';
+    var cntM=cu.match(/^contact\s*\(\s*anna\s*,\s*["']([^"']*)['"]\s*,\s*["']([^"']*)["']\s*\)/);
+    if(cntM){
+      window.open('mailto:vuanna@seas.upenn.edu?subject='+encodeURIComponent('Portfolio message from '+cntM[1])+'&body='+encodeURIComponent(cntM[2]+'\n\n— '+cntM[1]));
+      return '<div class="res-success">// message sent! 📬</div>';
+    }
+    if(/^contact\s*\(/.test(cu)) return '<div class="res-info">// usage: contact(anna, "your name", "your message")</div>';
+    if(/^anna->/.test(cu)){var f=cu.match(/^anna->(\w+)/)[1];return '<div class="res-error">error: \''+esc(f)+'\' is not a member of struct Anna</div>';}
+    return '<div class="res-error">error: \''+esc(cu.split('(')[0].split('-')[0].trim())+'\': undeclared identifier</div>';
+  }
+
   /* ── Mode switch ── */
+  var PROMPTS = {sql:'anna_db> ', python:'>>> ', java:'anna.java> ', c:'(anna)$ '};
+  var WELCOME = {
+    sql:'-- switched to SQL · warehouse: snowflake://nyc',
+    python:'# switched to Python · runtime: anna-env 3.11',
+    java:'// switched to Java · runtime: OpenJDK 21',
+    c:'/* switched to C · compiler: gcc anna.c */'
+  };
   window.setConsoleMode = function(m) {
     consoleMode = m;
-    document.getElementById('btn-sql').classList.toggle('active', m==='sql');
-    document.getElementById('btn-py').classList.toggle('active', m==='python');
-    document.getElementById('console-prompt').textContent = m==='sql' ? 'anna_db> ' : '>>> ';
-    document.getElementById('console-tip').innerHTML = m==='sql'
-      ? 'try: <code>SHOW TABLES</code>'
-      : 'try: <code>help(anna)</code>';
+    ['sql','python','java','c'].forEach(function(id){
+      var el=document.getElementById('btn-'+id);
+      if(el) el.classList.toggle('active', id===m);
+    });
+    document.getElementById('console-prompt').textContent = PROMPTS[m];
     var block = document.createElement('div');
     block.className = 'cmd-block';
-    block.innerHTML = m==='sql'
-      ? '<div class="res-info">-- switched to SQL · warehouse: snowflake://nyc</div>'
-      : '<div class="res-info"># switched to Python · runtime: anna-env 3.11</div>';
+    block.innerHTML = '<div class="res-info">'+esc(WELCOME[m])+'</div>';
     coutput.appendChild(block);
     coutput.scrollTop = coutput.scrollHeight;
-    cinput.focus();
+    renderGuide(m);
+    if(cinput) cinput.focus();
   };
 
   /* ── Input handling ── */
@@ -1793,13 +1944,17 @@ switchPane = function(id) {
     var btn = document.getElementById('guide-toggle');
     var hidden = g.classList.toggle('hidden');
     btn.textContent = hidden ? 'commands ▸' : 'commands ▾';
+    if(!hidden) renderGuide(consoleMode);
   };
-  window.fillCmd = function(cmd) {
+  window.fillCmd = function(cmd, mode) {
+    if(mode && mode !== consoleMode) setConsoleMode(mode);
     if(!cinput) return;
     cinput.value = cmd;
     cinput.focus();
-    // place cursor at end
     cinput.setSelectionRange(cmd.length, cmd.length);
+  };
+  window.clearConsole = function() {
+    if(coutput) coutput.innerHTML = '';
   };
 
   /* ── Focus input on console pane click ── */
@@ -1816,11 +1971,11 @@ switchPane = function(id) {
   /* ── Welcome message ── */
   if(coutput) {
     coutput.innerHTML = '<div class="cmd-block">'
-      +'<div class="res-info">-- connected to anna_vu.profile · snowflake://nyc · v1.0.0</div>'
-      +'<div class="res-info">-- type <span style="color:var(--accent)">SHOW TABLES</span> or <span style="color:var(--accent)">SELECT * FROM anna</span> to start</div>'
-      +'<div class="res-info">-- switch to Python mode to try <span style="color:var(--accent)">anna.contact(\'name\', \'message\')</span></div>'
+      +'<div class="res-info">-- connected to anna_vu.profile · v1.0.0</div>'
+      +'<div class="res-info">-- SQL · Python · Java · C supported — click any command above or type below</div>'
       +'</div>';
   }
+  renderGuide('sql');
 })();
 </script>
 
