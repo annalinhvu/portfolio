@@ -204,10 +204,10 @@
 
     .director-entry {
       display: grid;
-      grid-template-columns: 32px 1fr auto;
-      align-items: baseline;
-      gap: 0 20px;
-      padding: 22px 0;
+      grid-template-columns: 32px 44px 1fr auto;
+      align-items: center;
+      gap: 0 16px;
+      padding: 16px 0;
       border-bottom: 1px solid var(--border);
       cursor: pointer;
       transition: border-color 0.15s;
@@ -218,8 +218,31 @@
     .entry-num {
       font-family: 'Geist Mono', monospace; font-size: 0.58rem;
       letter-spacing: 0.5px; color: var(--text-4);
-      padding-top: 6px; align-self: start;
+      align-self: start; padding-top: 4px;
     }
+
+    /* Portrait thumbnail in list */
+    .entry-photo {
+      width: 44px; height: 44px;
+      border-radius: 2px; overflow: hidden;
+      flex-shrink: 0; align-self: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .entry-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      filter: grayscale(40%);
+      transition: filter 0.2s;
+    }
+    .director-entry:hover .entry-photo img { filter: grayscale(0%); }
+    .entry-photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 300;
+      color: var(--text-4);
+    }
+
     .entry-body { min-width: 0; }
     .entry-name {
       font-family: 'Fraunces', Georgia, serif;
@@ -315,6 +338,28 @@
       border-bottom: 1px solid var(--border);
       margin-bottom: 52px;
     }
+    /* Detail hero portrait */
+    .detail-portrait {
+      width: 120px; height: 120px;
+      border-radius: 2px; overflow: hidden;
+      margin: 0 auto 24px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .detail-portrait img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      filter: grayscale(20%);
+      transition: filter 0.3s;
+    }
+    .detail-portrait:hover img { filter: grayscale(0%); }
+    .detail-portrait-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 300;
+      color: var(--text-4);
+    }
+
     .detail-era-label {
       font-family: 'Geist Mono', monospace; font-size: 0.58rem;
       letter-spacing: 1.6px; text-transform: uppercase;
@@ -586,7 +631,8 @@
     @media (max-width: 600px) {
       .page { padding: 40px 20px 80px; }
       .topbar { padding: 0 20px; }
-      .director-entry { grid-template-columns: 24px 1fr auto; gap: 0 12px; }
+      .director-entry { grid-template-columns: 24px 36px 1fr auto; gap: 0 10px; }
+      .entry-photo { width: 36px; height: 36px; }
       .entry-name { font-size: 1.25rem; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -942,6 +988,14 @@
     if (spotlightId) showDetail(spotlightId);
   }
 
+  function photoThumb(f, cls) {
+    const initials = f.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+    if (f.photo_url) {
+      return `<div class="${cls}"><img src="${f.photo_url}" alt="${f.name}" loading="lazy"></div>`;
+    }
+    return `<div class="${cls}"><div class="${cls}-placeholder">${initials}</div></div>`;
+  }
+
   function entryHTML(f, num) {
     const years = f.death_year ? `${f.birth_year}–${f.death_year}` : `b. ${f.birth_year}`;
     return `
@@ -950,6 +1004,7 @@
         role="button" tabindex="0"
         onkeydown="if(event.key==='Enter'||event.key===' ')showDetail(${f.id})">
         <span class="entry-num">${String(num).padStart(2,'0')}</span>
+        ${photoThumb(f, 'entry-photo')}
         <div class="entry-body">
           <div class="entry-name">${f.name}</div>
           <div class="entry-tagline">${f.tagline}</div>
@@ -1004,6 +1059,7 @@
       <button class="detail-back" onclick="goBack()">← Back to ${currentSection}</button>
 
       <div class="detail-hero">
+        ${photoThumb(f, 'detail-portrait')}
         <span class="detail-era-label detail-era-${f.era}">${fe(f.era)}</span>
         <div class="detail-hero-title">
           <h1 class="detail-name">${f.name}</h1>
