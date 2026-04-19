@@ -949,8 +949,8 @@ body {
 
       <a href="https://annalinhvu.github.io/nyc-adventure/" class="db-row std" target="_blank" rel="noopener">
         <div class="col-idx">06</div>
-        <div class="col-name"><span class="row-name">NYC Adventure Log</span><span class="row-desc">Curated NYC activities across 10 categories — Cinema, Food, Arts, Explore, and more. Rate what you've done, mark favourites, or let the surprise picker decide.</span><span class="row-link">view project →</span></div>
-        <div class="col-stat"><strong>10</strong> categories · <strong>4</strong> seasons</div>
+        <div class="col-name"><span class="row-name">NYC Adventure Log</span><span class="row-desc">Curated NYC activities across 10 categories — Cinema, Food, Arts, Explore, and more. Surprise picker included.</span><span class="row-link">view project →</span></div>
+        <div class="col-stat"><strong>10</strong> categories<br><strong>4</strong> seasons</div>
         <div class="col-tech">HTML · Vanilla JS</div>
         <div class="col-status"><span class="live-dot"></span>live</div>
       </a>
@@ -1294,7 +1294,7 @@ body {
   </span>
   <span class="sb-mid" id="sb-pane">studio</span>
   <span class="sb-right">
-    <span id="sb-rows">7 rows</span>
+    <span id="sb-rows">8 rows</span>
     <span class="sb-pipe">|</span>
     <span id="sb-time">2.1ms</span>
   </span>
@@ -1431,7 +1431,7 @@ switchPane = function(id) {
       row.style.display = show ? '' : 'none';
       if (show) count++;
     });
-    var label = q ? '-- ' + count + ' row' + (count !== 1 ? 's' : '') + ' returned' : '-- 7 rows returned';
+    var label = q ? '-- ' + count + ' row' + (count !== 1 ? 's' : '') + ' returned' : '-- 8 rows returned';
     if (cmt)    cmt.textContent = label;
     if (footer) footer.textContent = count + ' rows returned';
     clear.classList.toggle('visible', !!q);
@@ -1981,7 +1981,8 @@ switchPane = function(id) {
     {title:'Filmmaker Directory',type:'Film',tech:'HTML · JSON',status:'live'},
     {title:'Self-Care Tracker',type:'Wellness',tech:'HTML · JSON · Vanilla JS',status:'live'},
     {title:'Recipe Book',type:'Food',tech:'HTML · JSON · Vanilla JS',status:'live'},
-    {title:'World Atlas',type:'Travel',tech:'HTML · JSON · Vanilla JS',status:'live'}
+    {title:'World Atlas',type:'Travel',tech:'HTML · JSON · Vanilla JS',status:'live'},
+    {title:'NYC Adventure Log',type:'City',tech:'HTML · Vanilla JS',status:'live'}
   ];
   var TABLES = ['anna','skills','experience','projects'];
 
