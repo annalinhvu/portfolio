@@ -272,6 +272,14 @@ body {
   font-size:12.5px;color:var(--t3);
   line-height:1.8;font-style:italic;
 }
+.panel-career-cta{
+  display:block;margin-top:12px;
+  font-family:'Geist Mono',monospace;font-size:11.5px;
+  color:var(--amber);cursor:pointer;
+  text-decoration:none;letter-spacing:.2px;
+  opacity:.85;transition:opacity .15s;
+}
+.panel-career-cta:hover{opacity:1;}
 
 .metric-lbl{
   font-family:'Geist Mono',monospace;
@@ -785,9 +793,9 @@ body {
   <div class="terminal-path">~/anna-vu<span class="cursor"></span></div>
 
   <nav class="top-tabs" role="tablist">
-    <button class="top-tab"        data-pane="studio"  role="tab">studio</button>
+    <button class="top-tab active" data-pane="studio"  role="tab">studio</button>
     <button class="top-tab"        data-pane="built"   role="tab">built</button>
-    <button class="top-tab active" data-pane="career"  role="tab">career</button>
+    <button class="top-tab"        data-pane="career"  role="tab">career</button>
     <button class="top-tab"        data-pane="console"    role="tab">terminal</button>
     <div class="tab-indicator"></div>
   </nav>
@@ -820,7 +828,7 @@ body {
         <div>
           <div class="profile-name">Anna Vu</div>
           <span class="profile-linh">(LINH)</span>
-          <div class="profile-role">Data Engineer · BI Engineer</div>
+          <div class="profile-role">Senior Data Engineer · Analytics Infrastructure</div>
           <div class="profile-contact-links">
             <a href="mailto:vuanna@seas.upenn.edu" class="profile-contact-link">↗ email</a>
             <a href="https://www.linkedin.com/in/annalinhvu" class="profile-contact-link" target="_blank" rel="noopener">↗ linkedin</a>
@@ -849,7 +857,7 @@ body {
       <hr class="p-rule">
 
       <div class="comment-block">/* Data Engineer with expertise in marketing analytics infrastructure, designing scalable ETL pipelines, data models, and reporting systems that power decision-making for enterprise clients managing billions in marketing spend. */</div>
-
+      <a class="panel-career-cta" onclick="document.querySelector('[data-pane=career]').click()">→ view career & work projects</a>
 
       <hr class="p-rule">
 
@@ -879,7 +887,7 @@ body {
   <main class="main-panel">
 
     <!-- ════ CREATIVE PROJECTS (default) ═══════════ -->
-    <section class="tab-pane" id="pane-studio" role="tabpanel">
+    <section class="tab-pane active" id="pane-studio" role="tabpanel">
       <div class="query-bar">
         <span class="kw">SELECT</span><span>&nbsp;*&nbsp;</span>
         <span class="kw">FROM</span><span>&nbsp;</span>
@@ -1125,7 +1133,7 @@ body {
     </section>
 
     <!-- ════ EXPERIENCE (job history) ════════════════ -->
-    <section class="tab-pane active" id="pane-career" role="tabpanel">
+    <section class="tab-pane" id="pane-career" role="tabpanel">
       <div class="query-bar">
         <span class="kw">SELECT</span><span>&nbsp;role, company, period, wins&nbsp;</span>
         <span class="kw">FROM</span><span>&nbsp;</span>
