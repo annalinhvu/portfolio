@@ -7445,5 +7445,139 @@
     ],
     "quote": "I always put my heart into everything I make. I want the audience to feel something — not just excitement, but emotion.",
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/John_Woo_Cannes_2005.jpg"
+  },
+  {
+    "id": 102,
+    "name": "Wes Anderson",
+    "nationality": "american",
+    "birth_year": 1969,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "The architect of perfectly symmetrical worlds",
+    "bio": "Wes Anderson makes films that function like handcrafted dioramas — every frame composed with obsessive precision, every color chosen to within an inch of its life, every character dressed as if their wardrobe reveals their entire psychology. Working consistently with a repertory of collaborators, he has built one of the most immediately recognizable visual styles in cinema history. Beneath the meticulous surfaces, his films return again and again to themes of loss, dysfunctional families, and the bittersweet gap between the worlds we imagine and the ones we inherit.",
+    "why": "No one else makes films that look and feel like this — but the visual style earns its keep because it's always in service of genuine melancholy.",
+    "notable_films": [
+      {
+        "title": "Rushmore",
+        "year": 1998,
+        "synopsis": "Max Fischer, a wildly ambitious but academically failing student at the elite Rushmore Academy, falls for a first-grade teacher and enters into an escalating war with a steel tycoon over her affections.",
+        "why_watch": "The film that announced Anderson's full sensibility — deadpan humor, deep melancholy, and a protagonist whose grandiosity masks genuine hurt. Jason Schwartzman's debut is one of cinema's great performances.",
+        "visual_style": "The symmetrical framing and overhead shots that would become Anderson's signatures arrive fully formed — but here they feel almost raw, not yet polished to a finish.",
+        "themes": ["ambition and failure", "unrequited love", "class", "father figures"],
+        "runtime": 93
+      },
+      {
+        "title": "The Royal Tenenbaums",
+        "year": 2001,
+        "synopsis": "The three adult children of the eccentric Royal Tenenbaum — each once considered a genius, each now in some form of collapse — are drawn back together when their estranged father announces he is dying.",
+        "why_watch": "Anderson's most emotionally rich film, and perhaps his most honest about failure. The ensemble cast (Gene Hackman, Anjelica Huston, Ben Stiller, Gwyneth Paltrow, Luke and Owen Wilson) is perfect. The Needle Drops selections are untouchable.",
+        "visual_style": "Shot to resemble a storybook set in a timeless, fictional New York — pastel facades, burgundy interiors, and an atmosphere of elegant, permanent autumn.",
+        "themes": ["the myth of the gifted child", "family dysfunction", "grief", "second chances"],
+        "runtime": 110
+      },
+      {
+        "title": "The Grand Budapest Hotel",
+        "year": 2014,
+        "synopsis": "The legendary concierge of the Grand Budapest Hotel and his lobby boy become embroiled in a murder mystery and a battle over a priceless painting in a fictional European republic between the wars.",
+        "why_watch": "Anderson at peak confection — a farce that is also an elegy for a civilization about to be destroyed. Ralph Fiennes is revelatory as Gustave H, playing pure Andersonian artifice as genuine human grace.",
+        "visual_style": "Multiple aspect ratios for different time periods, a palette of pinks and purples that reads as specifically 1930s Central European fantasy, and action sequences that play as illustrated adventure.",
+        "themes": ["the death of elegance", "loyalty", "fascism and loss", "memory and storytelling"],
+        "runtime": 99
+      },
+      {
+        "title": "Moonrise Kingdom",
+        "year": 2012,
+        "synopsis": "In 1965, two twelve-year-olds fall in love and run away together on a New England island, prompting a search by the local authorities, the Khaki Scouts, and their respective families.",
+        "why_watch": "Anderson's most tender film — a genuine celebration of childhood seriousness and the particular courage it takes to love someone before the world has told you not to.",
+        "visual_style": "Shot by Robert Yeoman in the warm, amber-drenched palette of a faded postcard — every frame looks like a memory that has been stored somewhere safe.",
+        "themes": ["first love", "outsiders", "childhood and autonomy", "community"],
+        "runtime": 94
+      },
+      {
+        "title": "Fantastic Mr. Fox",
+        "year": 2009,
+        "synopsis": "Mr. Fox, a former chicken thief turned newspaper columnist, can't resist one last raid on the three most dangerous farmers in the valley, setting off a war that threatens his entire community.",
+        "why_watch": "Anderson's stop-motion adaptation of Roald Dahl is one of cinema's great family films — funny and subversive for adults, genuinely exciting for children, and deeply felt by everyone.",
+        "visual_style": "Deliberately imperfect stop-motion with visible fur movement and a warm, autumnal palette. The decision to let the technique show is what makes it feel alive.",
+        "themes": ["wildness vs. domesticity", "ambition and responsibility", "community", "what we can't suppress"],
+        "runtime": 87
+      }
+    ],
+    "style_tags": ["symmetry", "deadpan", "ensemble", "storybook", "american"],
+    "start_with": {
+      "film": "The Royal Tenenbaums",
+      "year": 2001,
+      "note": "The fullest expression of what Anderson cares about — family, failure, and the strange consolations of a life not quite lived as planned. If this one doesn't get you, nothing will."
+    },
+    "key_themes": ["dysfunctional families", "the gap between imagination and reality", "loss and memory", "outsiders and communities"],
+    "quote": "I have a way of filming things and staging them and designing sets. There's something specifically Wes Andersonian about it, I imagine.",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Wes_Anderson-7541_%28cropped%29.jpg/960px-Wes_Anderson-7541_%28cropped%29.jpg"
+  },
+  {
+    "id": 103,
+    "name": "Paul Thomas Anderson",
+    "nationality": "american",
+    "birth_year": 1970,
+    "death_year": null,
+    "era": "contemporary",
+    "tagline": "The great chronicler of American hunger",
+    "bio": "Paul Thomas Anderson arrived fully formed with Boogie Nights at 27, and has spent the decades since making increasingly dense, formally ambitious films about people consuming each other — emotionally, spiritually, economically. His work draws on a deep knowledge of American film history, particularly Altman, Kubrick, and Cassavetes, but synthesizes those influences into something unmistakably his own. His collaborations with Daniel Day-Lewis produced two of cinema's most overwhelming performances; his work with Jonny Greenwood has given his later films a sonic world as distinctive as their visuals.",
+    "why": "The only filmmaker working today who feels like he belongs on a shelf next to Kubrick and Altman. Every film is a total commitment.",
+    "notable_films": [
+      {
+        "title": "Boogie Nights",
+        "year": 1997,
+        "synopsis": "The rise and fall of Dirk Diggler, a young man with a special gift who becomes a porn star during the golden age of adult film in the late 1970s, and the surrogate family he finds and loses in the industry.",
+        "why_watch": "A sprawling, Altmanesque ensemble film that is somehow simultaneously a tragedy, a comedy, a love letter to 70s cinema, and a precise dissection of the American Dream. The opening tracking shot announces a major filmmaker.",
+        "visual_style": "Long, bravura tracking shots informed by Scorsese and Altman. The camera moves with the confidence of someone who has been making films his whole life — PTA was 26.",
+        "themes": ["surrogate family", "the American Dream", "exploitation and love", "the 1970s as paradise lost"],
+        "runtime": 155
+      },
+      {
+        "title": "Magnolia",
+        "year": 1999,
+        "synopsis": "Over the course of one day in the San Fernando Valley, nine characters — including a dying TV producer, a quiz show champion, a motivational speaker, and a cop — find their lives intersecting in ways that feel like more than coincidence.",
+        "why_watch": "The most audacious American film of the 1990s — three hours of emotional devastation that earns its famous climax through sheer force of feeling. Tom Cruise's self-flagellating performance is a revelation.",
+        "visual_style": "Robert Elswit's cinematography captures the Valley in a wash of desperate light — blues and yellows that feel both naturalistic and on the verge of apocalypse.",
+        "themes": ["fathers and sons", "regret and forgiveness", "coincidence and fate", "the damage families do"],
+        "runtime": 188
+      },
+      {
+        "title": "There Will Be Blood",
+        "year": 2007,
+        "synopsis": "Daniel Plainview, a silver miner turned oil prospector, uses his adopted son to project a family-man image as he ruthlessly expands his empire across early-20th-century California, entering into a years-long conflict with a charismatic young preacher.",
+        "why_watch": "The greatest American film of the 2000s, and Daniel Day-Lewis's performance as Plainview is the most overwhelming acting you will witness. A film about capitalism, religion, and the void at the center of American ambition.",
+        "visual_style": "Robert Elswit shoots the California oil fields in an epic, austere register — wide open spaces that emphasize the smallness of men against the enormity of what they want. Jonny Greenwood's score is modernist and almost physically disturbing.",
+        "themes": ["capitalism and greed", "father and son", "religion as fraud", "American original sin"],
+        "runtime": 158
+      },
+      {
+        "title": "The Master",
+        "year": 2012,
+        "synopsis": "A volatile, drifting World War II veteran becomes the first 'guinea pig' of a charismatic intellectual who has founded a movement called The Cause, a thinly veiled portrait of Scientology's early years.",
+        "why_watch": "PTA's most formally demanding and emotionally elusive film — not about Scientology so much as about the pull of submission, the search for a father, and two men who are mirror images of each other. Joaquin Phoenix and Philip Seymour Hoffman are extraordinary.",
+        "visual_style": "Shot on 65mm by Mihai Mălaimare Jr. — the film has a physical weight and grain that makes the postwar period feel tactile. The processing tests are among the most hypnotic sequences Anderson has ever created.",
+        "themes": ["domination and submission", "faith and manipulation", "the lost generation", "masculine need"],
+        "runtime": 137
+      },
+      {
+        "title": "Phantom Thread",
+        "year": 2017,
+        "synopsis": "Reynolds Woodcock, the most celebrated dressmaker in 1950s London, meets Alma, a young woman who becomes his muse, his lover, and ultimately his match — in ways neither of them anticipates.",
+        "why_watch": "PTA's quietest and strangest film — a love story that functions as a dark comedy about control and surrender, where the dynamic between two people gradually inverts in ways that are both disturbing and genuinely romantic.",
+        "visual_style": "Shot by Anderson himself (his first time as his own DP on a live-action film), in a palette of mushroom, cream, and gold — opulent without warmth, precise without comfort. Greenwood's score is his finest.",
+        "themes": ["control and surrender", "the artist as tyrant", "romantic obsession", "domestic power"],
+        "runtime": 130
+      }
+    ],
+    "style_tags": ["epic", "ensemble", "american mythology", "character study", "contemporary"],
+    "start_with": {
+      "film": "There Will Be Blood",
+      "year": 2007,
+      "note": "The film that will make you understand why people call him the greatest filmmaker of his generation. If you can survive Daniel Plainview, everything else will make sense."
+    },
+    "key_themes": ["American ambition and its costs", "fathers and sons", "faith and manipulation", "the violence inside intimacy"],
+    "quote": "I don't think about the audience at all. That sounds horrible, but I really don't. I make the film for myself.",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Paul_Thomas_Anderson_in_2025.jpg"
   }
 ]
