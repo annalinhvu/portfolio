@@ -414,6 +414,16 @@ body {
   color: var(--text-4); white-space: nowrap; flex-shrink: 0;
 }
 
+/* Random picker button */
+.random-btn {
+  font-size: 0.56rem; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--text-3); background: none;
+  border: 1px solid var(--border); border-radius: 2px;
+  padding: 4px 10px; cursor: pointer; transition: all 0.2s;
+  white-space: nowrap;
+}
+.random-btn:hover { color: var(--gold); border-color: var(--gold); background: var(--gold-dim); }
+
 /* Active pin + path highlight */
 .pin-group.active { filter: brightness(1.8) drop-shadow(0 0 4px var(--region-color, white)); }
 .flight-path.active { opacity: 0.85 !important; stroke-width: 2.2px; }
@@ -466,6 +476,7 @@ body {
   <a href="../../index.html" class="back-link">← Portfolio</a>
   <div class="topbar-brand">Departure Lounge</div>
   <div class="topbar-right">
+    <button class="random-btn" onclick="pickRandom()">✦ surprise me</button>
     <button class="saved-btn" id="savedBtn" onclick="toggleSavedFilter()">♥ <span id="savedCount">0</span></button>
     <button class="theme-btn" onclick="toggleTheme()">◐</button>
   </div>
@@ -493,6 +504,13 @@ body {
     <option value="7">July</option><option value="8">August</option>
     <option value="9">September</option><option value="10">October</option>
     <option value="11">November</option><option value="12">December</option>
+  </select>
+  <select class="filter-select" id="statusFilter" onchange="onStatusChange()">
+    <option value="">Status</option>
+    <option value="dreaming">Dreaming</option>
+    <option value="planning">Planning</option>
+    <option value="booked">Booked</option>
+    <option value="visited">Visited</option>
   </select>
   <select class="filter-select" id="vibeFilter" onchange="onVibeChange()">
     <option value="">Vibe</option>
@@ -727,6 +745,7 @@ let allCountries  = [];
 let activeRegion  = 'all';
 let activeMonth   = '';
 let activeVibe    = '';
+let activeStatus  = '';
 let showingSaved  = false;
 let currentId     = null;
 let savedIds      = new Set(JSON.parse(localStorage.getItem(LS_KEY) || '[]'));
@@ -1203,6 +1222,7 @@ function applyFilters() {
 function matchesFilter(c, q) {
   if (activeRegion !== 'all' && c.region !== activeRegion) return false;
   if (showingSaved && !savedIds.has(c.id)) return false;
+  if (activeStatus && c.status !== activeStatus) return false;
   if (activeMonth) {
     const months = BEST_MONTHS[c.name] || [];
     if (!months.includes(+activeMonth)) return false;
@@ -1225,6 +1245,22 @@ function onVibeChange() {
   activeVibe = document.getElementById('vibeFilter').value;
   document.getElementById('vibeFilter').classList.toggle('active', !!activeVibe);
   applyFilters();
+}
+
+function onStatusChange() {
+  activeStatus = document.getElementById('statusFilter').value;
+  document.getElementById('statusFilter').classList.toggle('active', !!activeStatus);
+  applyFilters();
+}
+
+function pickRandom() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  const pool = allCountries.filter(c => matchesFilter(c, q));
+  if (!pool.length) return;
+  // Avoid re-picking the same country if there are options
+  const choices = pool.length > 1 ? pool.filter(c => c.id !== currentId) : pool;
+  const pick = choices[Math.floor(Math.random() * choices.length)];
+  openPanel(pick.id);
 }
 
 function switchTab(id, btn) {
