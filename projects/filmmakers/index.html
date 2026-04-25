@@ -1030,10 +1030,17 @@
     if (spotlightId) showDetail(spotlightId);
   }
 
+  function imgFallback(img, cls, initials) {
+    const div = document.createElement('div');
+    div.className = cls + '-placeholder';
+    div.textContent = initials;
+    img.parentNode.replaceChild(div, img);
+  }
+
   function photoThumb(f, cls) {
     const initials = f.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
     if (f.photo_url) {
-      return `<div class="${cls}"><img src="${f.photo_url}" alt="${f.name}" loading="lazy" onerror="this.outerHTML='<div class=\\"${cls}-placeholder\\">${initials}</div>'"></div>`;
+      return `<div class="${cls}"><img src="${f.photo_url}" alt="${f.name}" loading="lazy" onerror="imgFallback(this,'${cls}','${initials}')"></div>`;
     }
     return `<div class="${cls}"><div class="${cls}-placeholder">${initials}</div></div>`;
   }
