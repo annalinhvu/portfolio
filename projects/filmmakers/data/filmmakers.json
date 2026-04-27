@@ -2317,76 +2317,6 @@
   },
   {
     "id": 23,
-    "name": "Bong Joon-ho",
-    "nationality": "korean",
-    "birth_year": 1969,
-    "death_year": null,
-    "era": "contemporary",
-    "tagline": "Genre-bending storyteller with a radical social conscience",
-    "bio": "Bong Joon-ho works in genre, thriller, horror, science fiction, but uses it as a vehicle for merciless social critique. His films are about class, capitalism, and the violence that structures ordinary life, delivered with the compulsive watchability of a great thriller. Parasite's sweep at Cannes and the Oscars confirmed what his Korean fans already knew.",
-    "why": "Bong makes films that are simultaneously wildly entertaining and deeply uncomfortable, the best kind of cinema.",
-    "notable_films": [
-      {
-        "title": "Incoherence",
-        "year": 1994
-      },
-      {
-        "title": "Barking Dogs Never Bite",
-        "year": 2000
-      },
-      {
-        "title": "Memories of Murder",
-        "year": 2003
-      },
-      {
-        "title": "The Host",
-        "year": 2006
-      },
-      {
-        "title": "Shaking Tokyo",
-        "year": 2008
-      },
-      {
-        "title": "Mother",
-        "year": 2009
-      },
-      {
-        "title": "Snowpiercer",
-        "year": 2013
-      },
-      {
-        "title": "Okja",
-        "year": 2017
-      },
-      {
-        "title": "Parasite",
-        "year": 2019
-      },
-      {
-        "title": "Mickey 17",
-        "year": 2025
-      }
-    ],
-    "style_tags": [
-      "genre",
-      "political",
-      "social-critique"
-    ],
-    "start_with": {
-      "film": "Memories of Murder",
-      "year": 2003,
-      "note": "His best film. Set in rural Korea, 1986. The most human and formally audacious of his thrillers."
-    },
-    "key_themes": [
-      "class and capitalism",
-      "genre as critique",
-      "social violence"
-    ],
-    "quote": "Once you overcome the one-inch tall barrier of subtitles, you will be introduced to so many more amazing films.",
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Bong_Joon_Ho_at_Busan_Film_Festival%2C_smaller.jpg"
-  },
-  {
-    "id": 24,
     "name": "Alfonso Cuarón",
     "nationality": "mexican",
     "birth_year": 1961,
@@ -2448,7 +2378,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/DisclaimerBFILFF101024_%2888_of_113%29_%2854062275143%29_%28cropped%29.jpg/960px-DisclaimerBFILFF101024_%2888_of_113%29_%2854062275143%29_%28cropped%29.jpg"
   },
   {
-    "id": 25,
+    "id": 24,
     "name": "Richard Linklater",
     "nationality": "american",
     "birth_year": 1960,
@@ -2526,7 +2456,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Richard_Linklater_at_the_2026_Sundance_Film_Festival_for_Nouvelle_Vague_%282%29_%28cropped%29.jpg/960px-Richard_Linklater_at_the_2026_Sundance_Film_Festival_for_Nouvelle_Vague_%282%29_%28cropped%29.jpg"
   },
   {
-    "id": 26,
+    "id": 25,
     "name": "David Lynch",
     "nationality": "american",
     "birth_year": 1946,
@@ -2696,7 +2626,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/David_Lynch_%281990%29.jpg"
   },
   {
-    "id": 27,
+    "id": 26,
     "name": "Jean Renoir",
     "nationality": "french",
     "birth_year": 1894,
@@ -2766,7 +2696,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Jean_Renoir_%281959%29.tif/lossy-page1-960px-Jean_Renoir_%281959%29.tif.jpg"
   },
   {
-    "id": 28,
+    "id": 27,
     "name": "Satyajit Ray",
     "nationality": "indian",
     "birth_year": 1921,
@@ -2836,7 +2766,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Satyajit_Ray_in_New_York_%28cropped%29.jpg"
   },
   {
-    "id": 29,
+    "id": 28,
     "name": "Michelangelo Antonioni",
     "nationality": "italian",
     "birth_year": 1912,
@@ -2906,7 +2836,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Michelangelo_Antonioni_portrait_%28cropped%29.jpg/960px-Michelangelo_Antonioni_portrait_%28cropped%29.jpg"
   },
   {
-    "id": 30,
+    "id": 29,
     "name": "Federico Fellini",
     "nationality": "italian",
     "birth_year": 1920,
@@ -2976,7 +2906,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Federico_Fellini_010.jpg/960px-Federico_Fellini_010.jpg"
   },
   {
-    "id": 31,
+    "id": 30,
     "name": "Ousmane Sembène",
     "nationality": "senegalese",
     "birth_year": 1923,
@@ -3046,7 +2976,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Ousmane_Semb%C3%A8ne_%281987%29_by_Guenter_Prust.jpg"
   },
   {
-    "id": 32,
+    "id": 31,
     "name": "Věra Chytilová",
     "nationality": "czech",
     "birth_year": 1929,
@@ -3116,7 +3046,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/b/b6/V%C4%9Bra_Chytilov%C3%A1_in_her_house_in_Prague%2C_mid_of_the_1980s_%28cropped%29.jpg"
   },
   {
-    "id": 33,
+    "id": 32,
     "name": "Edward Yang",
     "nationality": "taiwanese",
     "birth_year": 1947,
@@ -3174,7 +3104,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/%E7%AC%AC31%E5%B1%86%E9%87%91%E9%A6%AC%E3%80%8C%E6%9C%80%E4%BD%B3%E5%8E%9F%E8%91%97%E5%8A%87%E6%9C%AC%E7%8D%8E%E3%80%8D%E5%BE%97%E4%B8%BB%E6%A5%8A%E5%BE%B7%E6%98%8C.jpg"
   },
   {
-    "id": 34,
+    "id": 33,
     "name": "Yasujiro Ozu",
     "nationality": "japanese",
     "birth_year": 1903,
@@ -3244,7 +3174,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Yasujiro_Ozu_01.jpg"
   },
   {
-    "id": 35,
+    "id": 34,
     "name": "Pedro Almodóvar",
     "nationality": "spanish",
     "birth_year": 1949,
@@ -3318,7 +3248,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Pedro_Almod%C3%B3var-69720_%28cropped%29.jpg/960px-Pedro_Almod%C3%B3var-69720_%28cropped%29.jpg"
   },
   {
-    "id": 36,
+    "id": 35,
     "name": "Apichatpong Weerasethakul",
     "nationality": "thai",
     "birth_year": 1970,
@@ -3384,7 +3314,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Apichatpong_Portrait_02.jpg"
   },
   {
-    "id": 37,
+    "id": 36,
     "name": "Lucrecia Martel",
     "nationality": "argentinian",
     "birth_year": 1966,
@@ -3430,7 +3360,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lucrecia_Martel_at_the_presentation_of_the_Audioteca_at_the_National_Library%2C_2015.jpg/960px-Lucrecia_Martel_at_the_presentation_of_the_Audioteca_at_the_National_Library%2C_2015.jpg"
   },
   {
-    "id": 38,
+    "id": 37,
     "name": "Krzysztof Kieślowski",
     "nationality": "polish",
     "birth_year": 1941,
@@ -3500,81 +3430,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/7/76/Krzysztof_Kie%C5%9Blowski_Portrait_1994.jpg"
   },
   {
-    "id": 39,
-    "name": "Hirokazu Kore-eda",
-    "nationality": "japanese",
-    "birth_year": 1962,
-    "death_year": null,
-    "era": "contemporary",
-    "tagline": "Gentle chronicler of family, loss, and what it means to belong",
-    "bio": "Hirokazu Kore-eda makes films about families: broken ones, reconstituted ones, chosen ones, and the quietly impossible ones we are born into. His films have a documentary-like delicacy and a deep warmth for their characters, never judging even those who lie or abandon their children. After the Storm and Shoplifters are among the most emotionally exact films made in recent years.",
-    "why": "Kore-eda understands that the family is where all the world's largest questions live in their smallest and most painful form.",
-    "notable_films": [
-      {
-        "title": "Maborosi",
-        "year": 1995
-      },
-      {
-        "title": "After Life",
-        "year": 1998
-      },
-      {
-        "title": "Distance",
-        "year": 2001
-      },
-      {
-        "title": "Nobody Knows",
-        "year": 2004
-      },
-      {
-        "title": "Still Walking",
-        "year": 2008
-      },
-      {
-        "title": "I Wish",
-        "year": 2011
-      },
-      {
-        "title": "Like Father, Like Son",
-        "year": 2013
-      },
-      {
-        "title": "Our Little Sister",
-        "year": 2015
-      },
-      {
-        "title": "After the Storm",
-        "year": 2016
-      },
-      {
-        "title": "Shoplifters",
-        "year": 2018
-      },
-      {
-        "title": "Broker",
-        "year": 2022
-      }
-    ],
-    "style_tags": [
-      "humanist",
-      "family",
-      "slow-cinema"
-    ],
-    "start_with": {
-      "film": "Shoplifters",
-      "year": 2018,
-      "note": "A family who steals together. His most complete film and the warmest argument for chosen family."
-    },
-    "key_themes": [
-      "chosen family",
-      "tenderness and grief",
-      "social invisibility"
-    ],
-    "quote": "I don't think families are places of protection. I think they are the source of the deepest wounds.",
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Hirokazu_Kore-eda_-_The_Egyptian_Theatre.jpg/960px-Hirokazu_Kore-eda_-_The_Egyptian_Theatre.jpg"
-  },
-  {
-    "id": 40,
+    "id": 38,
     "name": "Leos Carax",
     "nationality": "french",
     "birth_year": 1960,
@@ -3632,7 +3488,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Leos_Carax_Cannes_2012.jpg"
   },
   {
-    "id": 41,
+    "id": 39,
     "name": "Lynne Ramsay",
     "nationality": "scottish",
     "birth_year": 1969,
@@ -3678,7 +3534,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Lynne_Ramsay_at_ADIFF_2018.jpg"
   },
   {
-    "id": 42,
+    "id": 40,
     "name": "Wim Wenders",
     "nationality": "german",
     "birth_year": 1945,
@@ -3748,7 +3604,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Wim_Wenders_at_Berlinale_2026.jpg/960px-Wim_Wenders_at_Berlinale_2026.jpg"
   },
   {
-    "id": 43,
+    "id": 41,
     "name": "Werner Herzog",
     "nationality": "german",
     "birth_year": 1942,
@@ -3818,7 +3674,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Werner_Herzog_Venice_Film_Festival_2025.jpg/960px-Werner_Herzog_Venice_Film_Festival_2025.jpg"
   },
   {
-    "id": 44,
+    "id": 42,
     "name": "Rainer Werner Fassbinder",
     "nationality": "german",
     "birth_year": 1945,
@@ -3888,7 +3744,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/PER51895_061.jpg/960px-PER51895_061.jpg"
   },
   {
-    "id": 45,
+    "id": 43,
     "name": "Asghar Farhadi",
     "nationality": "iranian",
     "birth_year": 1972,
@@ -3954,7 +3810,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/4/47/Asghar_Farhadi_in_2018-2_%28cropped%29.jpg"
   },
   {
-    "id": 46,
+    "id": 44,
     "name": "Kelly Reichardt",
     "nationality": "american",
     "birth_year": 1964,
@@ -4016,7 +3872,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kelly_Reichardt-4432.jpg/960px-Kelly_Reichardt-4432.jpg"
   },
   {
-    "id": 47,
+    "id": 45,
     "name": "Tsai Ming-liang",
     "nationality": "taiwanese",
     "birth_year": 1957,
@@ -4090,7 +3946,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Tsai_Ming-liang_at_82nd_Venice_International_Film_Festival-1.jpg/960px-Tsai_Ming-liang_at_82nd_Venice_International_Film_Festival-1.jpg"
   },
   {
-    "id": 48,
+    "id": 46,
     "name": "Jean-Pierre Melville",
     "nationality": "french",
     "birth_year": 1917,
@@ -4152,7 +4008,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Jean-Pierre_Melville_%28cropped%29.jpg"
   },
   {
-    "id": 49,
+    "id": 47,
     "name": "Luis Buñuel",
     "nationality": "spanish",
     "birth_year": 1900,
@@ -4218,7 +4074,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/LuisBu%C3%B1uel1929.jpg/960px-LuisBu%C3%B1uel1929.jpg"
   },
   {
-    "id": 50,
+    "id": 48,
     "name": "Carl Theodor Dreyer",
     "nationality": "danish",
     "birth_year": 1889,
@@ -4272,7 +4128,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Carl_Theodor_Dreyer_%281965%29_by_Erling_Mandelmann.jpg"
   },
   {
-    "id": 51,
+    "id": 49,
     "name": "Sergei Eisenstein",
     "nationality": "russian",
     "birth_year": 1898,
@@ -4330,7 +4186,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Sergei_Eisenstein_03.jpg/960px-Sergei_Eisenstein_03.jpg"
   },
   {
-    "id": 52,
+    "id": 50,
     "name": "Stanley Kubrick",
     "nationality": "american",
     "birth_year": 1928,
@@ -4500,7 +4356,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Stanley_Kubrick_in_Dr._Strangelove_Trailer_%284%29_Cropped.jpg/960px-Stanley_Kubrick_in_Dr._Strangelove_Trailer_%284%29_Cropped.jpg"
   },
   {
-    "id": 53,
+    "id": 51,
     "name": "Jim Jarmusch",
     "nationality": "american",
     "birth_year": 1953,
@@ -4570,7 +4426,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Jim_Jarmusch-9078.jpg/960px-Jim_Jarmusch-9078.jpg"
   },
   {
-    "id": 54,
+    "id": 52,
     "name": "Sofia Coppola",
     "nationality": "american",
     "birth_year": 1971,
@@ -4712,7 +4568,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sofia_Coppola_at_82nd_Venice_International_Film_Festival-8_%28cropped%29.jpg/960px-Sofia_Coppola_at_82nd_Venice_International_Film_Festival-8_%28cropped%29.jpg"
   },
   {
-    "id": 55,
+    "id": 53,
     "name": "Nuri Bilge Ceylan",
     "nationality": "turkish",
     "birth_year": 1959,
@@ -4770,7 +4626,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Nuri_Bilge_Ceylan%2C_Cines_del_Sur.jpg/960px-Nuri_Bilge_Ceylan%2C_Cines_del_Sur.jpg"
   },
   {
-    "id": 56,
+    "id": 54,
     "name": "Hong Sang-soo",
     "nationality": "korean",
     "birth_year": 1960,
@@ -4836,7 +4692,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Hong_Sang-soo_at_the_2025_Cannes_Film_Festival.jpg/960px-Hong_Sang-soo_at_the_2025_Cannes_Film_Festival.jpg"
   },
   {
-    "id": 57,
+    "id": 55,
     "name": "Jafar Panahi",
     "nationality": "iranian",
     "birth_year": 1960,
@@ -4906,7 +4762,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Jafar_Panahi_at_2025_Cannes_Film_Festival_Photocall.jpg/960px-Jafar_Panahi_at_2025_Cannes_Film_Festival_Photocall.jpg"
   },
   {
-    "id": 58,
+    "id": 56,
     "name": "Mia Hansen-Løve",
     "nationality": "french",
     "birth_year": 1981,
@@ -4968,7 +4824,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Seminci_2025_-_Mia_Hansen-L%C3%B8ve-4_%28cropped%29.jpg/960px-Seminci_2025_-_Mia_Hansen-L%C3%B8ve-4_%28cropped%29.jpg"
   },
   {
-    "id": 59,
+    "id": 57,
     "name": "Alice Rohrwacher",
     "nationality": "italian",
     "birth_year": 1981,
@@ -5014,7 +4870,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Alice_Rohrwacher-5050.jpg/960px-Alice_Rohrwacher-5050.jpg"
   },
   {
-    "id": 60,
+    "id": 58,
     "name": "Béla Tarr",
     "nationality": "hungarian",
     "birth_year": 1955,
@@ -5072,7 +4928,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/B%C3%A9la_Tarr.jpg/960px-B%C3%A9la_Tarr.jpg"
   },
   {
-    "id": 61,
+    "id": 59,
     "name": "Alain Resnais",
     "nationality": "french",
     "birth_year": 1922,
@@ -5134,7 +4990,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Identite-AlainResnais-1959-Sacem.png/960px-Identite-AlainResnais-1959-Sacem.png"
   },
   {
-    "id": 62,
+    "id": 60,
     "name": "Pier Paolo Pasolini",
     "nationality": "italian",
     "birth_year": 1922,
@@ -5196,7 +5052,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/PierPaoloPasolini.jpg/960px-PierPaoloPasolini.jpg"
   },
   {
-    "id": 63,
+    "id": 61,
     "name": "Martin Scorsese",
     "nationality": "american",
     "birth_year": 1942,
@@ -5274,7 +5130,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Martin_Scorsese-68749.jpg/960px-Martin_Scorsese-68749.jpg"
   },
   {
-    "id": 64,
+    "id": 62,
     "name": "Frederick Wiseman",
     "nationality": "american",
     "birth_year": 1930,
@@ -5344,7 +5200,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Frederick_Wiseman_1971.jpg"
   },
   {
-    "id": 65,
+    "id": 63,
     "name": "Spike Lee",
     "nationality": "american",
     "birth_year": 1957,
@@ -5422,73 +5278,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Spike_Lee_%2854366842607%29_%28cropped2%29.jpg/960px-Spike_Lee_%2854366842607%29_%28cropped2%29.jpg"
   },
   {
-    "id": 66,
-    "name": "Arnaud Desplechin",
-    "nationality": "french",
-    "birth_year": 1960,
-    "death_year": null,
-    "era": "contemporary",
-    "tagline": "French master of the emotional baroque and the family as catastrophe",
-    "bio": "Arnaud Desplechin makes films of extravagant emotional and narrative ambition, populated by intellectuals, artists, and academics who talk too much, feel too intensely, and cannot stop loving the wrong people. His films are dense with literary reference and psychological complexity, but always anchored in performances of extraordinary depth. A Christmas Tale and My Golden Days are his most complete works.",
-    "why": "Desplechin showed me that the family is cinema's richest subject because it is where the past is always present, where nothing is ever resolved.",
-    "notable_films": [
-      {
-        "title": "La Vie des morts",
-        "year": 1991
-      },
-      {
-        "title": "My Sex Life... or How I Got Into an Argument",
-        "year": 1996
-      },
-      {
-        "title": "Esther Kahn",
-        "year": 2000
-      },
-      {
-        "title": "Kings & Queen",
-        "year": 2004
-      },
-      {
-        "title": "A Christmas Tale",
-        "year": 2008
-      },
-      {
-        "title": "My Golden Days",
-        "year": 2015
-      },
-      {
-        "title": "Ismael's Ghosts",
-        "year": 2017
-      },
-      {
-        "title": "Oh Mercy!",
-        "year": 2019
-      },
-      {
-        "title": "Brother and Sister",
-        "year": 2022
-      }
-    ],
-    "style_tags": [
-      "baroque",
-      "family",
-      "intellectual"
-    ],
-    "start_with": {
-      "film": "A Christmas Tale",
-      "year": 2008,
-      "note": "A French family gathers for Christmas with a dying mother and unresolved decades of grievance. Chaotic, funny, devastating."
-    },
-    "key_themes": [
-      "family as tragedy and comedy",
-      "Jewish French identity",
-      "love and its impossibility"
-    ],
-    "quote": "Cinema is the art of keeping several contradictory things alive at the same time.",
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Arnaud_Desplechin_at_TIFF_2025_02.jpg/960px-Arnaud_Desplechin_at_TIFF_2025_02.jpg"
-  },
-  {
-    "id": 67,
+    "id": 64,
     "name": "Carlos Reygadas",
     "nationality": "mexican",
     "birth_year": 1971,
@@ -5538,7 +5328,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Carlos_Reygadas-1969.jpg/960px-Carlos_Reygadas-1969.jpg"
   },
   {
-    "id": 68,
+    "id": 65,
     "name": "Wang Bing",
     "nationality": "chinese",
     "birth_year": 1967,
@@ -5600,57 +5390,7 @@
     "photo_url": null
   },
   {
-    "id": 69,
-    "name": "Joachim Trier",
-    "nationality": "norwegian",
-    "birth_year": 1974,
-    "death_year": null,
-    "era": "contemporary",
-    "tagline": "Norwegian humanist making the sharpest European romantic dramas of his generation",
-    "bio": "Joachim Trier makes films about young adults in Oslo navigating grief, desire, and the difficulty of becoming who you are. His films are formally inventive without being showy, emotionally precise without being sentimental, and anchored in performances of extraordinary intimacy. The Oslo Trilogy established him as one of European cinema's most important voices; The Worst Person in the World was his international breakthrough.",
-    "why": "Trier showed me that a European romantic drama can be as formally adventurous as any art film and as emotionally direct as any popular movie.",
-    "notable_films": [
-      {
-        "title": "Reprise",
-        "year": 2006
-      },
-      {
-        "title": "Oslo, August 31st",
-        "year": 2011
-      },
-      {
-        "title": "Louder Than Bombs",
-        "year": 2015
-      },
-      {
-        "title": "Thelma",
-        "year": 2017
-      },
-      {
-        "title": "The Worst Person in the World",
-        "year": 2021
-      }
-    ],
-    "style_tags": [
-      "humanist",
-      "romantic",
-      "contemporary"
-    ],
-    "start_with": {
-      "film": "The Worst Person in the World",
-      "year": 2021,
-      "note": "A young woman in Oslo figures out who she is. Twelve chapters, a prologue, and an epilogue. The most alive European film of its year."
-    },
-    "key_themes": [
-      "millennial uncertainty",
-      "love and its complications",
-      "grief and identity"
-    ],
-    "quote": "I want to make films that feel like being alive.",
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Joachim_Trier-9987_%28cropped%29.jpg/960px-Joachim_Trier-9987_%28cropped%29.jpg"
-  },
-  {
-    "id": 70,
+    "id": 66,
     "name": "Andrei Zvyagintsev",
     "nationality": "russian",
     "birth_year": 1964,
@@ -5700,7 +5440,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Andre%C3%AF_Zviaguintsev-_2016_%28cropped%29.jpg"
   },
   {
-    "id": 71,
+    "id": 67,
     "name": "Orson Welles",
     "nationality": "american",
     "birth_year": 1915,
@@ -5755,7 +5495,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Orson_Welles_1937_cr3-4.jpg/960px-Orson_Welles_1937_cr3-4.jpg"
   },
   {
-    "id": 72,
+    "id": 68,
     "name": "Jacques Tati",
     "nationality": "french",
     "birth_year": 1907,
@@ -5806,7 +5546,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/09.07.1961._La_Belle_Gaillarde_%C3%A0_No%C3%A9_%281961%29_-_53Fi2337.jpg/960px-09.07.1961._La_Belle_Gaillarde_%C3%A0_No%C3%A9_%281961%29_-_53Fi2337.jpg"
   },
   {
-    "id": 73,
+    "id": 69,
     "name": "Éric Rohmer",
     "nationality": "french",
     "birth_year": 1920,
@@ -5861,7 +5601,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Eric_Rohmer_cinematheque_2004-04.jpg"
   },
   {
-    "id": 74,
+    "id": 70,
     "name": "Kenji Mizoguchi",
     "nationality": "japanese",
     "birth_year": 1898,
@@ -5912,7 +5652,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Kenji_Mizoguchi_3.jpg/960px-Kenji_Mizoguchi_3.jpg"
   },
   {
-    "id": 75,
+    "id": 71,
     "name": "F.W. Murnau",
     "nationality": "german",
     "birth_year": 1888,
@@ -5963,7 +5703,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/F._W._Murnau_circa_1920-1930.jpg"
   },
   {
-    "id": 76,
+    "id": 72,
     "name": "Michael Haneke",
     "nationality": "austrian",
     "birth_year": 1942,
@@ -6014,7 +5754,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Michael_Haneke_2009.jpg"
   },
   {
-    "id": 77,
+    "id": 73,
     "name": "Yorgos Lanthimos",
     "nationality": "greek",
     "birth_year": 1973,
@@ -6069,7 +5809,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Yorgos_Lanthimos_at_82nd_Venice_International_Film_Festival-1_%28cropped%29.jpg/960px-Yorgos_Lanthimos_at_82nd_Venice_International_Film_Festival-1_%28cropped%29.jpg"
   },
   {
-    "id": 78,
+    "id": 74,
     "name": "Aki Kaurismäki",
     "nationality": "finnish",
     "birth_year": 1957,
@@ -6124,7 +5864,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Aki_Kaurism%C3%A4ki_at_Berlinale_2017.jpg/960px-Aki_Kaurism%C3%A4ki_at_Berlinale_2017.jpg"
   },
   {
-    "id": 79,
+    "id": 75,
     "name": "Glauber Rocha",
     "nationality": "brazilian",
     "birth_year": 1939,
@@ -6175,62 +5915,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Glauber_Rocha%2C_sem_data.jpg"
   },
   {
-    "id": 80,
-    "name": "Olivier Assayas",
-    "nationality": "french",
-    "birth_year": 1955,
-    "death_year": null,
-    "era": "contemporary",
-    "tagline": "The restlessness of modern life, caught in motion",
-    "bio": "Olivier Assayas is one of the most restless and formally curious directors working in France. He moves between intimate personal films and sprawling political epics, between the 19th century and Instagram, between memoir and genre. His trilogy of films about his ex-wife Maggie Cheung — most fully expressed in Irma Vep — is cinema about cinema, fashion, and the strangeness of creative obsession. Carlos is a five-hour portrait of a revolutionary who became a brand. Personal Shopper uses the thriller form to think about grief and disembodiment. He has never found a fixed form, and that refusal is what makes him essential.",
-    "why": "Irma Vep is endlessly rewatchable. It captures something true about the panic and eroticism of the creative process. Maggie Cheung is extraordinary.",
-    "notable_films": [
-      {
-        "title": "Irma Vep",
-        "year": 1996
-      },
-      {
-        "title": "Demonlover",
-        "year": 2002
-      },
-      {
-        "title": "Clean",
-        "year": 2004
-      },
-      {
-        "title": "Summer Hours",
-        "year": 2008
-      },
-      {
-        "title": "Carlos",
-        "year": 2010
-      },
-      {
-        "title": "Personal Shopper",
-        "year": 2016
-      }
-    ],
-    "style_tags": [
-      "restless handheld",
-      "digressive narrative",
-      "pop culture critique",
-      "ellipsis"
-    ],
-    "start_with": {
-      "film": "Irma Vep",
-      "year": 1996,
-      "note": "A film about making a film. Funny, strange, and alive in every frame."
-    },
-    "key_themes": [
-      "creative obsession",
-      "globalization and identity",
-      "desire and grief"
-    ],
-    "quote": "I never plan. I follow the energy of a film wherever it takes me.",
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Viennale_2010.10.30_Olivier_Assayas.jpg/960px-Viennale_2010.10.30_Olivier_Assayas.jpg"
-  },
-  {
-    "id": 81,
+    "id": 76,
     "name": "Jacques Demy",
     "nationality": "french",
     "birth_year": 1931,
@@ -6281,7 +5966,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Identite-Demy-1956-Sacem.jpg"
   },
   {
-    "id": 82,
+    "id": 77,
     "name": "Jean Rouch",
     "nationality": "french",
     "birth_year": 1917,
@@ -6332,7 +6017,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Jean_Rouch_%28cropped%29.jpg/960px-Jean_Rouch_%28cropped%29.jpg"
   },
   {
-    "id": 83,
+    "id": 78,
     "name": "Cristian Mungiu",
     "nationality": "romanian",
     "birth_year": 1968,
@@ -6383,7 +6068,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Cristian_Mungiu_at_82nd_Venice_International_Film_Festival_%281_of_1%29_%28cropped%29.jpg/960px-Cristian_Mungiu_at_82nd_Venice_International_Film_Festival_%281_of_1%29_%28cropped%29.jpg"
   },
   {
-    "id": 84,
+    "id": 79,
     "name": "Cristi Puiu",
     "nationality": "romanian",
     "birth_year": 1967,
@@ -6434,7 +6119,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Cristi_Puiu.jpg"
   },
   {
-    "id": 85,
+    "id": 80,
     "name": "Shirley Clarke",
     "nationality": "american",
     "birth_year": 1919,
@@ -6485,7 +6170,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/en/9/9e/Shirley_Clarke.jpg"
   },
   {
-    "id": 86,
+    "id": 81,
     "name": "John Woo",
     "nationality": "hong kong",
     "birth_year": 1946,
@@ -6656,7 +6341,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/John_Woo_Cannes_2005.jpg"
   },
   {
-    "id": 87,
+    "id": 82,
     "name": "Wes Anderson",
     "nationality": "american",
     "birth_year": 1969,
@@ -6759,7 +6444,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Wes_Anderson-7541_%28cropped%29.jpg/960px-Wes_Anderson-7541_%28cropped%29.jpg"
   },
   {
-    "id": 88,
+    "id": 83,
     "name": "Paul Thomas Anderson",
     "nationality": "american",
     "birth_year": 1970,
@@ -6862,7 +6547,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Paul_Thomas_Anderson_in_2025.jpg"
   },
   {
-    "id": 89,
+    "id": 84,
     "name": "Kenneth Anger",
     "nationality": "american",
     "birth_year": 1927,
@@ -6925,7 +6610,7 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Kenneth_Anger_2009.jpg"
   },
   {
-    "id": 90,
+    "id": 85,
     "name": "Derek Jarman",
     "nationality": "british",
     "birth_year": 1942,
@@ -6986,5 +6671,256 @@
     ],
     "quote": "In the pandemonium of image I present you with the universal Blue.",
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Derek_Jarman_1991.jpg/440px-Derek_Jarman_1991.jpg"
+  },
+  {
+    "id": 86,
+    "name": "Andy Warhol",
+    "nationality": "american",
+    "birth_year": 1928,
+    "death_year": 1987,
+    "era": "avant-garde",
+    "tagline": "Factory films: boredom, glamour, and the void",
+    "bio": "Andy Warhol brought his Pop Art sensibility to cinema with radical results — static long takes, unscripted performance, and a deliberate embrace of tedium as aesthetic experience. His Factory films turned the camera into a mirror for celebrity, sexuality, and American consumer culture. Empire, a single 8-hour shot of the Empire State Building, remains one of cinema's most extreme statements.",
+    "why": "Warhol redefined what a film could be — slow, confrontational, and stubbornly anti-narrative. Chelsea Girls and Empire are essential viewing for understanding the limits of cinema.",
+    "notable_films": [
+      {
+        "title": "Sleep",
+        "year": 1963
+      },
+      {
+        "title": "Empire",
+        "year": 1964
+      },
+      {
+        "title": "Chelsea Girls",
+        "year": 1966
+      },
+      {
+        "title": "Lonesome Cowboys",
+        "year": 1968
+      },
+      {
+        "title": "Blow Job",
+        "year": 1964
+      },
+      {
+        "title": "Eat",
+        "year": 1963
+      },
+      {
+        "title": "My Hustler",
+        "year": 1965
+      },
+      {
+        "title": "Flesh",
+        "year": 1968
+      }
+    ],
+    "style_tags": [
+      "structural",
+      "pop art",
+      "underground",
+      "queer",
+      "durational",
+      "celebrity"
+    ],
+    "start_with": "Chelsea Girls",
+    "key_themes": [
+      "celebrity",
+      "boredom",
+      "sexuality",
+      "consumer culture",
+      "voyeurism"
+    ],
+    "quote": "In the future, everyone will be world-famous for 15 minutes.",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Andy_Warhol_1975.jpg"
+  },
+  {
+    "id": 87,
+    "name": "Michael Snow",
+    "nationality": "canadian",
+    "birth_year": 1928,
+    "death_year": 2023,
+    "era": "avant-garde",
+    "tagline": "The camera as pure perception, stripped of story",
+    "bio": "Michael Snow was the preeminent figure of structural cinema, a movement that placed the material conditions of filmmaking — lens, frame, duration, grain — at the center of the work. Wavelength, a 45-minute slow zoom across a loft, is one of the most analyzed films in experimental cinema history. A sculptor and musician as well as filmmaker, Snow approached cinema as a spatial and temporal problem.",
+    "why": "Wavelength is a landmark — a film about a zoom that becomes a meditation on space, time, and the act of looking itself. Essential for understanding structural film.",
+    "notable_films": [
+      {
+        "title": "Wavelength",
+        "year": 1967
+      },
+      {
+        "title": "←→ (Back and Forth)",
+        "year": 1969
+      },
+      {
+        "title": "La Région Centrale",
+        "year": 1971
+      },
+      {
+        "title": "Rameau's Nephew by Diderot",
+        "year": 1974
+      },
+      {
+        "title": "Presents",
+        "year": 1981
+      },
+      {
+        "title": "So Is This",
+        "year": 1982
+      },
+      {
+        "title": "Corpus Callosum",
+        "year": 2002
+      },
+      {
+        "title": "WVLNT (Wavelength For Those Who Don't Have the Time)",
+        "year": 2003
+      }
+    ],
+    "style_tags": [
+      "structural",
+      "minimalist",
+      "durational",
+      "spatial",
+      "conceptual"
+    ],
+    "start_with": "Wavelength",
+    "key_themes": [
+      "perception",
+      "space",
+      "time",
+      "the camera",
+      "duration"
+    ],
+    "quote": "Film is the art of time.",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Michael_Snow_2012.jpg/440px-Michael_Snow_2012.jpg"
+  },
+  {
+    "id": 88,
+    "name": "Barbara Hammer",
+    "nationality": "american",
+    "birth_year": 1939,
+    "death_year": 2019,
+    "era": "avant-garde",
+    "tagline": "The body as radical territory",
+    "bio": "Barbara Hammer was the pioneering force behind lesbian experimental cinema, making over 80 films across five decades that celebrated queer female embodiment with lyrical ferocity. Working in 16mm with superimpositions, optical printing, and layered imagery, she created a visual language for experiences that mainstream cinema refused to show. Her work spans erotic shorts, documentary, and abstract film.",
+    "why": "Hammer built a cinematic tradition for queer women almost entirely on her own — her films are essential to understanding both feminist and experimental film history.",
+    "notable_films": [
+      {
+        "title": "Dyketactics",
+        "year": 1974
+      },
+      {
+        "title": "Multiple Orgasm",
+        "year": 1976
+      },
+      {
+        "title": "Optical Nerves",
+        "year": 1985
+      },
+      {
+        "title": "Nitrate Kisses",
+        "year": 1992
+      },
+      {
+        "title": "History Lessons",
+        "year": 2000
+      },
+      {
+        "title": "Tender Fictions",
+        "year": 1995
+      },
+      {
+        "title": "A Horse Is Not a Metaphor",
+        "year": 2008
+      },
+      {
+        "title": "Generations",
+        "year": 2010
+      }
+    ],
+    "style_tags": [
+      "feminist",
+      "queer",
+      "lyrical",
+      "body",
+      "superimposition",
+      "documentary"
+    ],
+    "start_with": "Nitrate Kisses",
+    "key_themes": [
+      "lesbian identity",
+      "the body",
+      "queer history",
+      "female desire",
+      "mortality"
+    ],
+    "quote": "I make films to make a world in which I want to live.",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Barbara_Hammer_2014.jpg/440px-Barbara_Hammer_2014.jpg"
+  },
+  {
+    "id": 89,
+    "name": "Carolee Schneemann",
+    "nationality": "american",
+    "birth_year": 1939,
+    "death_year": 2019,
+    "era": "avant-garde",
+    "tagline": "The body as image, archive, and revolt",
+    "bio": "Carolee Schneemann was a radical artist who dismantled the boundary between performance, painting, and film. Her work placed the female body — her own body — at the center of an art world that had always treated it as object. Fuses, a film of her own lovemaking, and Meat Joy, a performance-based piece, remain landmark works that exploded conventions of both sexuality and cinematic form.",
+    "why": "Schneemann's films are acts of defiance — she reclaimed the female body as subject rather than spectacle decades before it became a critical conversation.",
+    "notable_films": [
+      {
+        "title": "Meat Joy",
+        "year": 1964
+      },
+      {
+        "title": "Fuses",
+        "year": 1967
+      },
+      {
+        "title": "Plumb Line",
+        "year": 1968
+      },
+      {
+        "title": "Kitch's Last Meal",
+        "year": 1978
+      },
+      {
+        "title": "Vesper's Stampede to My Holy Mouth",
+        "year": 1994
+      },
+      {
+        "title": "Infinity Kisses",
+        "year": 1987
+      },
+      {
+        "title": "Up to and Including Her Limits",
+        "year": 1973
+      },
+      {
+        "title": "ABC — We Print Anything — In the Cards",
+        "year": 1977
+      }
+    ],
+    "style_tags": [
+      "feminist",
+      "body art",
+      "performance",
+      "erotic",
+      "political",
+      "collage"
+    ],
+    "start_with": "Fuses",
+    "key_themes": [
+      "the body",
+      "female sexuality",
+      "performance",
+      "the gaze",
+      "transgression"
+    ],
+    "quote": "I'm in the image. I am the image.",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Carolee_Schneemann_2015.jpg/440px-Carolee_Schneemann_2015.jpg"
   }
 ]
