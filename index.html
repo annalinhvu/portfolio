@@ -2147,8 +2147,8 @@ switchPane = function(id) {
     if(/^anna\s*==\s*['"]the best['"]/.test(cu)) return '<div class="res-success">True</div>';
     if(/^anna\s*==/.test(cu)) return '<div class="res-success">False</div>';
     if(/^anna\.coffee_count/.test(cu)) return '<div class="res-success">∞</div>';
-    if(/^anna\.years_of_experience\s*\(\s*\)/.test(cu)) return '<div class="res-success">4</div>';
-    if(/^anna\.dream_job\s*\(\s*\)/.test(cu)) return '<div class="res-success">\'senior data engineer at a company that ships real things\'</div>';
+    if(/^anna\.years_of_experience\s*\(\s*\)/.test(cu)) return '<div class="res-success">5</div>';
+    if(/^anna\.dream_job\s*\(\s*\)/.test(cu)) return '<div class="res-success">\'principal engineer building data systems that actually matter\'</div>';
     if(/^anna\.availability\s*\(\s*\)/.test(cu)) return '<div class="res-success">{\'status\': \'open_to_work\', \'location\': \'NYC or remote\', \'contact\': \'vuanna@seas.upenn.edu\'}</div>';
     if(/^anna\.clone\s*\(\s*\)/.test(cu)) return '<div class="res-error">NotImplementedError: not possible... yet.</div>';
     if(/^anna\.__repr__\s*\(\s*\)/.test(cu)) return '<div class="res-success">\'&lt;Anna Vu: DataEngineer @ NYC | open_to_work&gt;\'</div>';
@@ -2325,8 +2325,8 @@ switchPane = function(id) {
       return '<div class="res-success">ArrayList&lt;Project&gt; [<br>'+lines.join(',<br>')+'<br>]</div>';
     }
     if(/^anna\.getAvailability\s*\(\s*\)/.test(cu)) return '<div class="res-success">Status.OPEN_TO_WORK // NYC or remote · vuanna@seas.upenn.edu</div>';
-    if(/^anna\.getDreamJob\s*\(\s*\)/.test(cu)) return '<div class="res-success">"senior data engineer at a company that ships real things"</div>';
-    if(/^anna\.yearsOfExperience\s*\(\s*\)/.test(cu)) return '<div class="res-success">4 // int, not long — still growing</div>';
+    if(/^anna\.getDreamJob\s*\(\s*\)/.test(cu)) return '<div class="res-success">"principal engineer building data systems that actually matter"</div>';
+    if(/^anna\.yearsOfExperience\s*\(\s*\)/.test(cu)) return '<div class="res-success">5 // int, not long — still growing</div>';
     if(/^anna\.getCoffeeCount\s*\(\s*\)/.test(cu)) return '<div class="res-success">Integer.MAX_VALUE // ∞</div>';
     if(/^anna\.getBugsFixed\s*\(\s*\)/.test(cu)) return '<div class="res-success">247 // and counting</div>';
     if(/^anna\.hashCode\s*\(\s*\)/.test(cu)) return '<div class="res-success">0x4e5943 // one of a kind</div>';
