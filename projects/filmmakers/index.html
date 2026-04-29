@@ -922,8 +922,8 @@
   async function init() {
     try {
       const [r1, r2] = await Promise.all([
-        fetch('data/filmmakers.json'),
-        fetch('data/actors.json')
+        fetch('data/filmmakers.json?v=2'),
+        fetch('data/actors.json?v=2')
       ]);
       allDirectors = await r1.json();
       allActors = await r2.json();
