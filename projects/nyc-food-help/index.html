@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NYC Food Help Map — Find Free Food in New York City</title>
+<meta name="description" content="Find free meals, groceries, and food support across New York City. Searchable directory of food pantries, soup kitchens, community meals, and mobile food programs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+/* ===== RESET & TOKENS ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --green:#2D6A4F;--green-dk:#1B4D38;--green-md:#52B788;--green-lt:#EAF4EE;
+  --amber:#D97706;--amber-lt:#FEF3C7;
+  --bg:#FAFAF7;--bg-card:#fff;--bg-warm:#F3EDE4;
+  --text:#1C1917;--text2:#44403C;--text-m:#78716C;
+  --border:#E7E2DA;
+  --r:12px;--r-lg:20px;--r-sm:6px;
+  --sh:0 2px 8px rgba(0,0,0,.08);--sh-md:0 4px 16px rgba(0,0,0,.1);--sh-lg:0 8px 28px rgba(0,0,0,.14);
+  --font:'Inter',system-ui,sans-serif;
+  --max:1200px
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;font-size:16px}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+img{max-width:100%}
+
+/* ===== NAV ===== */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);height:64px}
+.nav-in{max-width:var(--max);margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;color:var(--green);white-space:nowrap}
+.logo-icon{width:30px;height:30px;background:var(--green);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{padding:6px 12px;border-radius:6px;font-size:.88rem;font-weight:500;color:var(--text2);transition:background .15s,color .15s}
+.nav-links a:hover{background:var(--green-lt);color:var(--green)}
+.nav-cta{background:var(--green)!important;color:#fff!important;padding:7px 16px!important;border-radius:8px!important;font-weight:600!important}
+.nav-cta:hover{background:var(--green-dk)!important}
+.nav-mobile-btn{display:none;flex-direction:column;gap:5px;padding:8px;border-radius:8px}
+.nav-mobile-btn span{display:block;width:22px;height:2px;background:var(--text2);border-radius:2px}
+
+/* ===== HERO ===== */
+.hero{background:linear-gradient(135deg,#1B4D38 0%,#2D6A4F 55%,#40916C 100%);padding:80px 24px 72px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;opacity:.04;background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:28px 28px}
+.hero-in{max-width:660px;margin:0 auto;position:relative}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.14);color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.22);border-radius:20px;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 14px;margin-bottom:20px}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:#fff;line-height:1.13;margin-bottom:14px}
+.hero h1 em{color:#A7F3D0;font-style:normal}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.78);margin:0 auto 28px;max-width:520px;line-height:1.65}
+.hero-search{background:#fff;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.18);padding:6px 6px 6px 16px;display:flex;gap:8px;max-width:520px;margin:0 auto}
+.hero-search input{flex:1;border:none;outline:none;font-size:.95rem;color:var(--text);min-width:0}
+.hero-search input::placeholder{color:var(--text-m)}
+.hero-search button{background:var(--green);color:#fff;border-radius:8px;padding:10px 20px;font-size:.9rem;font-weight:600;transition:background .15s;white-space:nowrap}
+.hero-search button:hover{background:var(--green-dk)}
+.hero-note{font-size:.82rem;color:rgba(255,255,255,.55);margin-top:16px;font-style:italic}
+.hero-stats{display:flex;justify-content:center;gap:36px;margin-top:40px;flex-wrap:wrap}
+.hero-stat-n{font-size:2rem;font-weight:700;color:#fff;line-height:1}
+.hero-stat-l{font-size:.72rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+
+/* ===== URGENT BANNER ===== */
+.urgent{background:var(--green);padding:14px 24px;text-align:center}
+.urgent-in{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.urgent p{font-size:.9rem;color:#fff}
+.urgent a{background:#fff;color:var(--green);padding:6px 16px;border-radius:7px;font-size:.82rem;font-weight:700;white-space:nowrap}
+
+/* ===== SECTION SHARED ===== */
+section{padding:64px 24px}
+.s-in{max-width:var(--max);margin:0 auto}
+.s-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+.s-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;line-height:1.2}
+.s-sub{margin-top:8px;font-size:.95rem;color:var(--text-m);max-width:540px}
+.s-hdr{margin-bottom:28px}
+
+/* ===== FIND / DIRECTORY ===== */
+.find-sect{background:var(--bg)}
+.warn-box{background:#FFFBEB;border:1px solid #FDE68A;border-radius:var(--r);padding:14px 18px;display:flex;gap:12px;align-items:flex-start;margin-bottom:20px}
+.warn-box span{font-size:1rem;flex-shrink:0;margin-top:1px}
+.warn-box p{font-size:.83rem;color:#92400E;line-height:1.5}
+.filter-bar{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:20px;display:flex;flex-direction:column;gap:10px}
+.filter-row{display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.filter-lbl{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-m);white-space:nowrap;padding-top:5px;width:56px;flex-shrink:0}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;padding:4px 12px;border-radius:20px;font-size:.8rem;font-weight:500;border:1px solid var(--border);background:var(--bg);color:var(--text2);cursor:pointer;transition:all .15s;white-space:nowrap}
+.chip:hover{border-color:var(--green);color:var(--green)}
+.chip.on{background:var(--green);color:#fff;border-color:var(--green)}
+.search-wrap{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:8px 12px;transition:border-color .15s}
+.search-wrap:focus-within{border-color:var(--green)}
+.search-wrap svg{flex-shrink:0;opacity:.5}
+.search-wrap input{flex:1;border:none;outline:none;font-size:.9rem;background:transparent;color:var(--text)}
+.search-wrap input::placeholder{color:var(--text-m)}
+.results-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;font-size:.83rem;color:var(--text-m)}
+.results-meta strong{color:var(--text)}
+.org-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+
+/* Card */
+.org-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:20px;cursor:pointer;transition:box-shadow .2s,border-color .2s,transform .15s;display:flex;flex-direction:column;gap:11px}
+.org-card:hover{box-shadow:var(--sh-md);border-color:var(--green-md);transform:translateY(-1px)}
+.card-hdr{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.card-name{font-size:.98rem;font-weight:700;color:var(--text);line-height:1.3}
+.card-boro{font-size:.78rem;color:var(--text-m);white-space:nowrap;margin-top:2px}
+.card-badges{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.badge{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.badge-food-pantry{background:#E9F3EE;color:#1B5E3B}
+.badge-soup-kitchen{background:#FEF0E7;color:#9A3A0A}
+.badge-community-meal{background:#EEF2FF;color:#3730A3}
+.badge-food-rescue{background:#F3F0FF;color:#5B21B6}
+.badge-home-delivery{background:#E0F2FE;color:#0369A1}
+.badge-senior-meals{background:#FEFCE8;color:#854D0E}
+.badge-shelter-meals{background:#F3F4F6;color:#374151}
+.badge-mobile-pantry{background:#FCE7F3;color:#9D174D}
+.badge-snap-help{background:#ECFDF5;color:#065F46}
+.badge-food-bank{background:#FEF3C7;color:#78350F}
+.badge-featured{background:var(--amber-lt);color:#92400E}
+.org-meta{display:flex;flex-direction:column;gap:4px}
+.meta-row{display:flex;align-items:flex-start;gap:8px;font-size:.82rem;color:var(--text2)}
+.meta-icon{flex-shrink:0;margin-top:1px;opacity:.7;width:14px;text-align:center}
+.hours-warn{font-size:.79rem;color:var(--amber);font-weight:500;display:flex;align-items:center;gap:6px}
+.svc-list,.gf-list{display:flex;flex-wrap:wrap;gap:4px}
+.svc-tag{font-size:.7rem;padding:2px 8px;background:var(--green-lt);color:var(--green);border-radius:4px;font-weight:500}
+.gf-tag{font-size:.7rem;padding:2px 8px;background:var(--amber-lt);color:#92400E;border-radius:4px;font-weight:500}
+.card-actions{display:flex;gap:8px;margin-top:auto;padding-top:10px;border-top:1px solid var(--border)}
+.card-btn{flex:1;padding:8px;border-radius:8px;font-size:.79rem;font-weight:600;text-align:center;transition:all .15s;cursor:pointer}
+.btn-p{background:var(--green-lt);color:var(--green)}
+.btn-p:hover{background:var(--green);color:#fff}
+.btn-s{background:var(--bg);color:var(--text-m);border:1px solid var(--border)}
+.btn-s:hover{color:var(--text)}
+.org-empty{grid-column:1/-1;text-align:center;padding:56px 24px;color:var(--text-m)}
+.org-empty .empty-icon{font-size:2.5rem;margin-bottom:12px}
+
+/* ===== MAP ===== */
+.map-sect{background:var(--bg-warm);padding:64px 24px}
+.map-wrap{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-md);margin-top:24px;border:1px solid var(--border)}
+#lmap{height:480px;width:100%}
+/* Leaflet popup */
+.leaflet-popup-content-wrapper{border-radius:12px!important;padding:0!important;box-shadow:0 4px 20px rgba(0,0,0,.15)!important}
+.leaflet-popup-content{margin:0!important}
+.map-pop{padding:16px;min-width:200px;max-width:260px}
+.map-pop-name{font-family:var(--font);font-weight:700;font-size:.93rem;color:#1C1917;margin-bottom:5px;line-height:1.3}
+.map-pop-addr{font-family:var(--font);font-size:.79rem;color:#78716C;margin-bottom:8px}
+.map-pop-phone{font-family:var(--font);font-size:.79rem;color:#2D6A4F;font-weight:600}
+.map-pop-link{display:inline-block;margin-top:10px;font-family:var(--font);font-size:.79rem;color:#fff;background:#2D6A4F;padding:5px 12px;border-radius:6px;font-weight:600}
+
+/* ===== LEARN ===== */
+.learn-sect{background:#fff}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:28px}
+.res-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:24px}
+.res-icon{font-size:2rem;margin-bottom:10px;display:block}
+.res-type{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:5px}
+.res-title{font-size:1rem;font-weight:700;margin-bottom:8px}
+.res-desc{font-size:.86rem;color:var(--text2);line-height:1.65}
+.res-tip{margin-top:12px;padding:9px 12px;background:var(--green-lt);border-radius:6px;font-size:.78rem;color:var(--green);font-style:italic}
+
+/* ===== STATS ===== */
+.stats-sect{background:var(--bg)}
+.big-nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:28px}
+.big-num{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:22px 18px;text-align:center}
+.big-n{font-size:2.4rem;font-weight:700;color:var(--green);line-height:1}
+.big-l{font-size:.78rem;color:var(--text-m);margin-top:6px}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.chart-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:22px}
+.chart-title{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-m);margin-bottom:14px}
+.stat-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.stat-lbl{font-size:.82rem;color:var(--text2);flex-shrink:0;width:114px}
+.stat-bar-w{flex:1;background:var(--bg);border-radius:4px;height:7px;overflow:hidden}
+.stat-bar-f{height:100%;border-radius:4px;background:var(--green);transition:width .7s ease}
+.stat-ct{font-size:.78rem;font-weight:600;color:var(--text);min-width:20px;text-align:right}
+
+/* ===== MODAL ===== */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;backdrop-filter:blur(4px);padding:16px;align-items:center;justify-content:center}
+.overlay.open{display:flex}
+.modal{background:#fff;border-radius:var(--r-lg);max-width:620px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:var(--sh-lg)}
+.modal-hdr{padding:22px 22px 14px;border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.modal-title{font-size:1.25rem;font-weight:700;line-height:1.25}
+.modal-close{width:32px;height:32px;border-radius:8px;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;color:var(--text-m);flex-shrink:0;transition:background .15s}
+.modal-close:hover{background:var(--border)}
+.modal-body{padding:22px}
+.m-sect{margin-bottom:18px}
+.m-sect-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-m);margin-bottom:7px}
+.m-row{display:flex;gap:10px;font-size:.88rem;margin-bottom:7px}
+.m-icon{flex-shrink:0;margin-top:1px}
+.m-text{color:var(--text2);line-height:1.5}
+.m-text a{color:var(--green);font-weight:500}
+.m-text a:hover{text-decoration:underline}
+.m-notes{background:var(--bg);border-radius:8px;padding:12px 14px;font-size:.86rem;color:var(--text2);line-height:1.65}
+.m-elig{background:var(--green-lt);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:12px 14px;font-size:.86rem;color:var(--green-dk);line-height:1.65}
+.modal-acts{display:flex;gap:8px;flex-wrap:wrap;padding:0 22px 22px}
+.m-btn{flex:1;min-width:130px;padding:11px 14px;border-radius:10px;font-size:.86rem;font-weight:600;text-align:center;cursor:pointer;transition:all .15s;display:inline-block}
+.m-btn-p{background:var(--green);color:#fff}
+.m-btn-p:hover{background:var(--green-dk)}
+.m-btn-s{background:var(--bg);border:1px solid var(--border);color:var(--text2)}
+.m-btn-s:hover{background:var(--border)}
+
+/* ===== FOOTER ===== */
+footer{background:#1A1512;color:rgba(255,255,255,.7);padding:52px 24px 32px}
+.foot-in{max-width:var(--max);margin:0 auto}
+.foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px}
+.foot-brand-name{font-size:.98rem;font-weight:700;color:#fff;margin-bottom:8px}
+.foot-brand-desc{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.65;max-width:260px}
+.foot-col-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.35);margin-bottom:10px}
+.foot-links{display:flex;flex-direction:column;gap:7px}
+.foot-links a{font-size:.82rem;color:rgba(255,255,255,.6);transition:color .15s}
+.foot-links a:hover{color:#fff}
+.foot-disc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:12px 16px;font-size:.76rem;color:rgba(255,255,255,.4);line-height:1.65;margin-bottom:24px}
+.foot-bot{border-top:1px solid rgba(255,255,255,.09);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:.77rem;color:rgba(255,255,255,.3)}
+.foot-bot a{color:rgba(255,255,255,.5);transition:color .15s}
+.foot-bot a:hover{color:#fff}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .charts{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr 1fr;gap:24px}
+}
+@media(max-width:768px){
+  section{padding:48px 16px}
+  .hero{padding:56px 16px 52px}
+  .nav-links{display:none}
+  .nav-mobile-btn{display:flex}
+  .org-grid{grid-template-columns:1fr}
+  .hero-stats{gap:20px}
+  .hero-stat-n{font-size:1.6rem}
+  .big-nums{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .foot-top{grid-template-columns:1fr}
+  .big-nums{grid-template-columns:repeat(2,1fr)}
+  .res-grid{grid-template-columns:1fr}
+  .hero h1{font-size:1.9rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-in">
+    <a href="#home" class="nav-logo">
+      <div class="logo-icon">🌿</div>
+      NYC Food Help Map
+    </a>
+    <div class="nav-links">
+      <a href="#find">Find Food</a>
+      <a href="#map">Map</a>
+      <a href="#learn">Learn</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="#find" class="nav-cta">Get Help</a>
+    </div>
+    <button class="nav-mobile-btn" aria-label="Menu" onclick="document.getElementById('find').scrollIntoView({behavior:'smooth'})">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-in">
+    <div class="hero-tag">Free · No judgment · No shame</div>
+    <h1>Find free food in <em>New York City.</em></h1>
+    <p class="hero-sub">Food pantries, soup kitchens, community meals, and more — across all five boroughs. Search by neighborhood or type of help.</p>
+    <div class="hero-search">
+      <input id="hero-q" type="search" placeholder="Search by name, neighborhood, or type…" autocomplete="off">
+      <button id="hero-btn">Find food →</button>
+    </div>
+    <p class="hero-note">Call before visiting — hours can change. These resources are here for you.</p>
+    <div class="hero-stats">
+      <div><div class="hero-stat-n" id="stat-orgs">17</div><div class="hero-stat-l">Organizations</div></div>
+      <div><div class="hero-stat-n">5</div><div class="hero-stat-l">Boroughs</div></div>
+      <div><div class="hero-stat-n">10+</div><div class="hero-stat-l">Service types</div></div>
+      <div><div class="hero-stat-n">Free</div><div class="hero-stat-l">Always</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENT BANNER -->
+<div class="urgent">
+  <div class="urgent-in">
+    <p><strong>Need food today?</strong> The Food Bank For NYC has a real-time locator for open pantries near you.</p>
+    <a href="https://www.foodbanknyc.org/get-help/find-food" target="_blank" rel="noopener">Find food now →</a>
+  </div>
+</div>
+
+<!-- FIND FOOD -->
+<section id="find" class="find-sect">
+  <div class="s-in">
+    <div class="s-hdr">
+      <div class="s-label">Directory</div>
+      <h2 class="s-title">Find food near you</h2>
+      <p class="s-sub">Filter by borough or service type. Click any card to see full details, hours, and contact info.</p>
+    </div>
+
+    <div class="warn-box">
+      <span>⚠️</span>
+      <p><strong>Hours change frequently.</strong> Always call ahead or check the organization's website before visiting. Many programs now require appointments.</p>
+    </div>
+
+    <div class="filter-bar">
+      <div class="filter-row">
+        <div class="filter-lbl">Search</div>
+        <div style="flex:1">
+          <div class="search-wrap">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input id="main-q" type="search" placeholder="Name, neighborhood, service, who it helps…" autocomplete="off">
+          </div>
+        </div>
+      </div>
+      <div class="filter-row">
+        <div class="filter-lbl">Borough</div>
+        <div class="chips" id="boro-chips">
+          <button class="chip on" data-boro="all">All boroughs</button>
+          <button class="chip" data-boro="manhattan">Manhattan</button>
+          <button class="chip" data-boro="brooklyn">Brooklyn</button>
+          <button class="chip" data-boro="bronx">Bronx</button>
+          <button class="chip" data-boro="queens">Queens</button>
+          <button class="chip" data-boro="citywide">Citywide</button>
+        </div>
+      </div>
+      <div class="filter-row">
+        <div class="filter-lbl">Type</div>
+        <div class="chips" id="type-chips">
+          <button class="chip on" data-type="all">All types</button>
+          <button class="chip" data-type="food-pantry">Food pantry</button>
+          <button class="chip" data-type="soup-kitchen">Soup kitchen</button>
+          <button class="chip" data-type="community-meal">Community meal</button>
+          <button class="chip" data-type="food-rescue">Food rescue</button>
+          <button class="chip" data-type="home-delivery">Home delivery</button>
+          <button class="chip" data-type="senior-meals">Senior meals</button>
+          <button class="chip" data-type="shelter-meals">Shelter meals</button>
+          <button class="chip" data-type="food-bank">Food bank</button>
+          <button class="chip" data-type="snap-help">SNAP help</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-meta">
+      <span id="results-count"></span>
+      <button style="font-size:.8rem;color:var(--green);font-weight:500" onclick="clearFilters()">Clear filters</button>
+    </div>
+
+    <div class="org-grid" id="org-grid">
+      <div class="org-empty"><div class="empty-icon">🌿</div><p>Loading organizations…</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section id="map" class="map-sect">
+  <div class="s-in">
+    <div class="s-hdr">
+      <div class="s-label">Map</div>
+      <h2 class="s-title">Organizations across NYC</h2>
+      <p class="s-sub">Click any pin to see name, address, and contact info. Pins reflect your active filters.</p>
+    </div>
+    <div class="map-wrap">
+      <div id="lmap"></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARN -->
+<section id="learn" class="learn-sect">
+  <div class="s-in">
+    <div class="s-hdr">
+      <div class="s-label">Resource guide</div>
+      <h2 class="s-title">Understanding your options</h2>
+      <p class="s-sub">Not sure which type of organization is right for you? Here's a plain-language guide.</p>
+    </div>
+    <div class="res-grid">
+      <div class="res-card">
+        <span class="res-icon">🛒</span>
+        <div class="res-type">Food Pantry</div>
+        <div class="res-title">Take groceries home</div>
+        <p class="res-desc">A food pantry gives you bags or boxes of groceries to take home and cook yourself. Many use a "client-choice" model — you shop like in a store, choosing foods your family will actually eat.</p>
+        <div class="res-tip">Good if you have a kitchen and want to cook for your family.</div>
+      </div>
+      <div class="res-card">
+        <span class="res-icon">🍲</span>
+        <div class="res-type">Soup Kitchen</div>
+        <div class="res-title">A warm meal right now</div>
+        <p class="res-desc">Soup kitchens serve hot meals you eat on-site — usually breakfast, lunch, or dinner. No cooking or kitchen required. Most are open daily with no registration needed.</p>
+        <div class="res-tip">Good if you need to eat something today, no strings attached.</div>
+      </div>
+      <div class="res-card">
+        <span class="res-icon">🚚</span>
+        <div class="res-type">Mobile Pantry</div>
+        <div class="res-title">Food comes to your neighborhood</div>
+        <p class="res-desc">Mobile food trucks or pop-up markets bring food directly to neighborhoods. No need to travel far. Locations and times rotate — check the organization's website for the current schedule.</p>
+        <div class="res-tip">Good if there isn't a pantry near you, or you can't travel easily.</div>
+      </div>
+      <div class="res-card">
+        <span class="res-icon">♻️</span>
+        <div class="res-type">Food Rescue</div>
+        <div class="res-title">Rescued from restaurants and farms</div>
+        <p class="res-desc">Food rescue organizations collect surplus food from restaurants, grocery stores, and farms that would otherwise go to waste. They redistribute it as free meals or groceries.</p>
+        <div class="res-tip">Good if you want fresh, restaurant-quality food at no cost.</div>
+      </div>
+      <div class="res-card">
+        <span class="res-icon">🏠</span>
+        <div class="res-type">Home Delivery</div>
+        <div class="res-title">Food delivered to your door</div>
+        <p class="res-desc">Home delivery programs bring food directly to you if you're unable to leave due to illness, disability, or age. Usually requires a brief phone call to apply and confirm eligibility.</p>
+        <div class="res-tip">Good for people with serious illness, disability, or mobility challenges.</div>
+      </div>
+      <div class="res-card">
+        <span class="res-icon">👵</span>
+        <div class="res-type">Senior Meals</div>
+        <div class="res-title">For older adults</div>
+        <p class="res-desc">Many programs specifically serve adults 60 and older, either at community centers (congregate meals) or delivered at home. Often paired with social activities and benefits counseling.</p>
+        <div class="res-tip">Good for adults 60+ who want meals and community connection.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-sect">
+  <div class="s-in">
+    <div class="s-hdr">
+      <div class="s-label">At a glance</div>
+      <h2 class="s-title">NYC food support by the numbers</h2>
+    </div>
+    <div class="big-nums" id="big-nums">
+      <div class="big-num"><div class="big-n">17</div><div class="big-l">Organizations listed</div></div>
+      <div class="big-num"><div class="big-n">5</div><div class="big-l">Boroughs covered</div></div>
+      <div class="big-num"><div class="big-n">10+</div><div class="big-l">Types of support</div></div>
+      <div class="big-num"><div class="big-n">$0</div><div class="big-l">Cost to you</div></div>
+    </div>
+    <div class="charts">
+      <div class="chart-card">
+        <div class="chart-title">By borough</div>
+        <div id="boro-chart"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">By service type</div>
+        <div id="type-chart"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-in">
+    <div class="foot-disc">
+      ⚠️ <strong style="color:rgba(255,255,255,.6)">Important:</strong> Hours and eligibility requirements change frequently. Always call ahead or visit the organization's website before going in person. This directory is maintained by a volunteer and may not reflect real-time changes. For the most up-to-date listings, use the <a href="https://www.foodbanknyc.org/get-help/find-food" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6)">Food Bank For NYC locator</a> or call 311.
+    </div>
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand-name">🌿 NYC Food Help Map</div>
+        <p class="foot-brand-desc">A free, community-built directory of food assistance organizations across New York City. No judgment. No barriers. Just help.</p>
+      </div>
+      <div>
+        <div class="foot-col-title">Find food</div>
+        <div class="foot-links">
+          <a href="#find">Search directory</a>
+          <a href="#map">View map</a>
+          <a href="#learn">Resource guide</a>
+          <a href="volunteer.html">Volunteer</a>
+        </div>
+      </div>
+      <div>
+        <div class="foot-col-title">External tools</div>
+        <div class="foot-links">
+          <a href="https://www.foodbanknyc.org/get-help/find-food" target="_blank" rel="noopener">Food Bank For NYC</a>
+          <a href="https://www.plentifulapp.com" target="_blank" rel="noopener">Plentiful (book pantry)</a>
+          <a href="https://www.cityharvest.org/get-help/find-food" target="_blank" rel="noopener">City Harvest Locator</a>
+          <a href="https://www.nyc.gov/site/foodhelp" target="_blank" rel="noopener">NYC Food Help (311)</a>
+        </div>
+      </div>
+      <div>
+        <div class="foot-col-title">Emergency</div>
+        <div class="foot-links">
+          <a href="tel:311">Call 311 (NYC)</a>
+          <a href="tel:18002309193">NY FoodHelp Hotline</a>
+          <a href="https://www.dssnycsnap.info" target="_blank" rel="noopener">SNAP benefits</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>Built by <a href="https://annalinhvu.github.io" target="_blank" rel="noopener">Anna (Linh) Vu</a> · A public-service project · Data updated May 2026</span>
+      <span>Not affiliated with any listed organization</span>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-hdr">
+      <div class="modal-title" id="modal-title"></div>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-acts" id="modal-acts"></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+'use strict';
+
+/* ===== TYPE CONFIG ===== */
+const TC = {
+  'food-pantry':    { label:'Food Pantry',     color:'#1B5E3B', map:'#2D6A4F' },
+  'soup-kitchen':   { label:'Soup Kitchen',    color:'#9A3A0A', map:'#D97706' },
+  'community-meal': { label:'Community Meal',  color:'#3730A3', map:'#4F46E5' },
+  'food-rescue':    { label:'Food Rescue',     color:'#5B21B6', map:'#7C3AED' },
+  'home-delivery':  { label:'Home Delivery',   color:'#0369A1', map:'#0284C7' },
+  'senior-meals':   { label:'Senior Meals',    color:'#854D0E', map:'#B45309' },
+  'shelter-meals':  { label:'Shelter Meals',   color:'#374151', map:'#6B7280' },
+  'mobile-pantry':  { label:'Mobile Pantry',   color:'#9D174D', map:'#BE185D' },
+  'snap-help':      { label:'SNAP Help',       color:'#065F46', map:'#059669' },
+  'food-bank':      { label:'Food Bank',       color:'#78350F', map:'#A16207' },
+};
+const tLabel = t => TC[t]?.label || t;
+const tMap   = t => TC[t]?.map   || '#2D6A4F';
+
+/* ===== STATE ===== */
+let orgs = [], filtered = [];
+let boro = 'all', type = 'all', q = '';
+let lmap, mapMarkers = [];
+
+/* ===== RENDER ===== */
+function badge(t) {
+  return `<span class="badge badge-${t}">${tLabel(t)}</span>`;
+}
+
+function cardHTML(o) {
+  const badges = o.types.map(badge).join('');
+  const feat   = o.featured ? `<span class="badge badge-featured">★ Featured</span>` : '';
+  const svcs   = o.services.slice(0,3).map(s=>`<span class="svc-tag">${s}</span>`).join('');
+  const gfs    = o.goodFor.map(g=>`<span class="gf-tag">${g}</span>`).join('');
+  const phone  = o.phone
+    ? `<div class="meta-row"><span class="meta-icon">📞</span><a href="tel:${o.phone.replace(/\D/g,'')}">${o.phone}</a></div>` : '';
+  const hrs    = o.hours.toLowerCase().includes('check')
+    ? `<div class="hours-warn">⏰ Check website before visiting</div>`
+    : `<div class="meta-row"><span class="meta-icon">⏰</span>${o.hours}</div>`;
+  const boroLbl = o.borough === 'citywide' ? 'Citywide' : cap(o.borough);
+
+  return `
+<div class="org-card" onclick="openModal(${o.id})">
+  <div class="card-hdr">
+    <div>
+      <div class="card-name">${o.name}</div>
+      <div class="card-boro">${boroLbl}${o.borough !== 'citywide' ? ' · ' + o.neighborhood : ''}</div>
+    </div>
+  </div>
+  <div class="card-badges">${badges}${feat}</div>
+  <div class="org-meta">
+    <div class="meta-row"><span class="meta-icon">📍</span>${o.address}</div>
+    ${phone}
+    ${hrs}
+  </div>
+  <div class="svc-list">${svcs}</div>
+  <div class="gf-list">${gfs}</div>
+  <div class="card-actions">
+    <a class="card-btn btn-p" href="${o.websiteUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Visit website</a>
+    <button class="card-btn btn-s" onclick="event.stopPropagation();openModal(${o.id})">More info</button>
+  </div>
+</div>`;
+}
+
+function renderCards() {
+  const grid = document.getElementById('org-grid');
+  const count = document.getElementById('results-count');
+  if (!filtered.length) {
+    grid.innerHTML = `<div class="org-empty"><div class="empty-icon">🔍</div><p>No organizations match your filters. Try broadening your search.</p></div>`;
+    count.innerHTML = `<strong>0</strong> results`;
+    return;
+  }
+  grid.innerHTML = filtered.map(cardHTML).join('');
+  count.innerHTML = `Showing <strong>${filtered.length}</strong> of <strong>${orgs.length}</strong> organizations`;
+}
+
+/* ===== FILTERS ===== */
+function applyFilters() {
+  filtered = orgs.filter(o => {
+    const okBoro = boro === 'all' || o.borough === boro || o.borough === 'citywide';
+    const okType = type === 'all' || o.types.includes(type);
+    const qn     = q.toLowerCase().trim();
+    const okQ    = !qn
+      || o.name.toLowerCase().includes(qn)
+      || o.neighborhood.toLowerCase().includes(qn)
+      || o.borough.toLowerCase().includes(qn)
+      || o.services.some(s => s.toLowerCase().includes(qn))
+      || o.goodFor.some(g => g.toLowerCase().includes(qn))
+      || o.notes.toLowerCase().includes(qn);
+    return okBoro && okType && okQ;
+  });
+  renderCards();
+  refreshMapMarkers();
+}
+
+function clearFilters() {
+  boro = 'all'; type = 'all'; q = '';
+  document.getElementById('main-q').value = '';
+  document.getElementById('hero-q').value = '';
+  document.querySelectorAll('[data-boro]').forEach(b => b.classList.toggle('on', b.dataset.boro === 'all'));
+  document.querySelectorAll('[data-type]').forEach(b => b.classList.toggle('on', b.dataset.type === 'all'));
+  applyFilters();
+}
+
+/* ===== EVENT LISTENERS ===== */
+document.querySelectorAll('[data-boro]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-boro]').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    boro = btn.dataset.boro;
+    applyFilters();
+  });
+});
+document.querySelectorAll('[data-type]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    type = btn.dataset.type;
+    applyFilters();
+  });
+});
+document.getElementById('main-q').addEventListener('input', e => {
+  q = e.target.value;
+  document.getElementById('hero-q').value = q;
+  applyFilters();
+});
+document.getElementById('hero-q').addEventListener('input', e => {
+  q = e.target.value;
+  document.getElementById('main-q').value = q;
+  applyFilters();
+});
+document.getElementById('hero-btn').addEventListener('click', () => {
+  document.getElementById('find').scrollIntoView({ behavior: 'smooth' });
+});
+
+/* ===== MODAL ===== */
+function openModal(id) {
+  const o = orgs.find(x => x.id === id);
+  if (!o) return;
+  const typeBadges = o.types.map(badge).join(' ');
+  const svcs = o.services.map(s=>`<span class="svc-tag">${s}</span>`).join('');
+  const gfs  = o.goodFor.map(g=>`<span class="gf-tag">${g}</span>`).join('');
+  const hrsColor = o.hours.toLowerCase().includes('check') ? '#D97706' : 'var(--text2)';
+
+  document.getElementById('modal-title').textContent = o.name;
+  document.getElementById('modal-body').innerHTML = `
+    <div class="m-sect">${typeBadges}${o.featured ? ' <span class="badge badge-featured">★ Featured</span>' : ''}</div>
+    <div class="m-sect">
+      <div class="m-sect-title">Location</div>
+      <div class="m-row"><span class="m-icon">📍</span><div class="m-text">${o.address}<br><em>${o.neighborhood}${o.borough !== 'citywide' ? ', ' + cap(o.borough) : ''}</em></div></div>
+    </div>
+    <div class="m-sect">
+      <div class="m-sect-title">Hours</div>
+      <div class="m-row"><span class="m-icon">⏰</span><div class="m-text" style="color:${hrsColor}">${o.hours}</div></div>
+    </div>
+    <div class="m-sect">
+      <div class="m-sect-title">Contact</div>
+      ${o.phone ? `<div class="m-row"><span class="m-icon">📞</span><div class="m-text"><a href="tel:${o.phone.replace(/\D/g,'')}">${o.phone}</a></div></div>` : ''}
+      <div class="m-row"><span class="m-icon">🌐</span><div class="m-text"><a href="${o.websiteUrl}" target="_blank" rel="noopener">${o.website}</a></div></div>
+    </div>
+    <div class="m-sect">
+      <div class="m-sect-title">Services offered</div>
+      <div class="svc-list" style="gap:5px">${svcs}</div>
+    </div>
+    <div class="m-sect">
+      <div class="m-sect-title">Good for</div>
+      <div class="gf-list" style="gap:5px">${gfs}</div>
+    </div>
+    <div class="m-sect">
+      <div class="m-sect-title">Eligibility</div>
+      <div class="m-elig">${o.eligibility}</div>
+    </div>
+    <div class="m-sect">
+      <div class="m-sect-title">About</div>
+      <div class="m-notes">${o.notes}</div>
+    </div>
+    <p style="font-size:.73rem;color:var(--text-m);margin-top:4px">
+      Updated ${o.lastUpdated} · <a href="${o.sourceUrl}" target="_blank" rel="noopener" style="color:var(--green)">Source</a>
+    </p>`;
+
+  document.getElementById('modal-acts').innerHTML = `
+    <a class="m-btn m-btn-p" href="${o.websiteUrl}" target="_blank" rel="noopener">Visit website</a>
+    ${o.phone ? `<a class="m-btn m-btn-s" href="tel:${o.phone.replace(/\D/g,'')}">📞 ${o.phone}</a>` : ''}
+    ${o.volunteerUrl ? `<a class="m-btn m-btn-s" href="${o.volunteerUrl}" target="_blank" rel="noopener">🤝 Volunteer</a>` : ''}`;
+
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('overlay')) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* ===== MAP ===== */
+function initMap() {
+  lmap = L.map('lmap', { center: [40.725, -73.990], zoom: 12, zoomControl: true });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18
+  }).addTo(lmap);
+  refreshMapMarkers();
+}
+
+function refreshMapMarkers() {
+  mapMarkers.forEach(m => m.remove());
+  mapMarkers = [];
+  filtered.forEach(o => {
+    if (!o.lat || !o.lng) return;
+    const color = tMap(o.types[0]);
+    const icon = L.divIcon({
+      className: '',
+      html: `<div style="background:${color};width:14px;height:14px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.35);cursor:pointer"></div>`,
+      iconSize: [14, 14], iconAnchor: [7, 7]
+    });
+    const typeLine = o.types.map(t =>
+      `<span style="display:inline-block;font-size:10px;font-weight:600;padding:2px 6px;border-radius:10px;background:${color}22;color:${color};margin:1px">${tLabel(t)}</span>`
+    ).join('');
+    const popup = `<div class="map-pop">
+      <div class="map-pop-name">${o.name}</div>
+      <div style="margin-bottom:6px">${typeLine}</div>
+      <div class="map-pop-addr">📍 ${o.address}</div>
+      ${o.phone ? `<div class="map-pop-phone">📞 <a href="tel:${o.phone.replace(/\D/g,'')}" style="color:#2D6A4F">${o.phone}</a></div>` : ''}
+      <a href="${o.websiteUrl}" target="_blank" rel="noopener" class="map-pop-link">Visit website →</a>
+    </div>`;
+    const m = L.marker([o.lat, o.lng], { icon })
+      .addTo(lmap)
+      .bindPopup(popup, { maxWidth: 280, closeButton: false });
+    mapMarkers.push(m);
+  });
+}
+
+/* ===== STATS ===== */
+function renderStats() {
+  const boroCounts = {}, typeCounts = {};
+  const boroLabels = { manhattan:'Manhattan', brooklyn:'Brooklyn', bronx:'Bronx', queens:'Queens', citywide:'Citywide' };
+  orgs.forEach(o => {
+    boroCounts[o.borough] = (boroCounts[o.borough] || 0) + 1;
+    o.types.forEach(t => { typeCounts[t] = (typeCounts[t] || 0) + 1; });
+  });
+
+  const maxB = Math.max(...Object.values(boroCounts));
+  const maxT = Math.max(...Object.values(typeCounts));
+
+  document.getElementById('boro-chart').innerHTML = ['manhattan','brooklyn','bronx','queens','citywide']
+    .filter(b => boroCounts[b])
+    .map(b => `
+      <div class="stat-row">
+        <span class="stat-lbl">${boroLabels[b]}</span>
+        <div class="stat-bar-w"><div class="stat-bar-f" style="width:${(boroCounts[b]/maxB)*100}%"></div></div>
+        <span class="stat-ct">${boroCounts[b]}</span>
+      </div>`).join('');
+
+  document.getElementById('type-chart').innerHTML = Object.keys(TC)
+    .filter(t => typeCounts[t])
+    .map(t => `
+      <div class="stat-row">
+        <span class="stat-lbl" style="font-size:.76rem">${tLabel(t)}</span>
+        <div class="stat-bar-w"><div class="stat-bar-f" style="width:${(typeCounts[t]/maxT)*100}%;background:${TC[t].map}"></div></div>
+        <span class="stat-ct">${typeCounts[t]}</span>
+      </div>`).join('');
+}
+
+/* ===== HELPERS ===== */
+function cap(s) {
+  return s === 'citywide' ? 'Citywide' : s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+/* ===== INIT ===== */
+async function init() {
+  try {
+    const res = await fetch('data/organizations.json');
+    orgs = await res.json();
+    filtered = [...orgs];
+    document.getElementById('stat-orgs').textContent = orgs.length;
+    renderCards();
+    renderStats();
+    initMap();
+  } catch(e) {
+    document.getElementById('org-grid').innerHTML =
+      `<div class="org-empty"><div class="empty-icon">⚠️</div><p>Could not load data. Please refresh the page.</p></div>`;
+  }
+}
+
+init();
+</script>
+</body>
+</html>

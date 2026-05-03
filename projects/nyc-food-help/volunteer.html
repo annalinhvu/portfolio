@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volunteer — NYC Food Help Map</title>
+<meta name="description" content="Volunteer with food assistance organizations across New York City. Soup kitchens, food pantries, food rescue, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#2D6A4F;--green-dk:#1B4D38;--green-lt:#EAF4EE;
+  --amber:#D97706;--amber-lt:#FEF3C7;
+  --bg:#FAFAF7;--bg-card:#fff;
+  --text:#1C1917;--text2:#44403C;--text-m:#78716C;
+  --border:#E7E2DA;--r:12px;--r-lg:20px;
+  --sh:0 2px 8px rgba(0,0,0,.08);--sh-md:0 4px 16px rgba(0,0,0,.1);
+  --max:1100px;--font:'Inter',system-ui,sans-serif
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);height:64px}
+.nav-in{max-width:var(--max);margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;color:var(--green)}
+.logo-icon{width:30px;height:30px;background:var(--green);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{padding:6px 12px;border-radius:6px;font-size:.88rem;font-weight:500;color:var(--text2);transition:background .15s,color .15s}
+.nav-links a:hover,.nav-links a.active{background:var(--green-lt);color:var(--green)}
+.nav-cta{background:var(--green)!important;color:#fff!important;padding:7px 16px!important;border-radius:8px!important;font-weight:600!important}
+.nav-cta:hover{background:var(--green-dk)!important}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#1B4D38 0%,#2D6A4F 60%,#52B788 100%);padding:72px 24px 64px;text-align:center}
+.hero-in{max-width:600px;margin:0 auto}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.14);color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.22);border-radius:20px;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 14px;margin-bottom:20px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:14px}
+.hero h1 em{color:#A7F3D0;font-style:normal}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.78);line-height:1.65}
+
+/* INTRO SECTION */
+.intro{padding:56px 24px 32px;background:#fff;border-bottom:1px solid var(--border)}
+.intro-in{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+.intro-card{background:var(--green-lt);border-radius:var(--r);padding:22px}
+.intro-icon{font-size:1.8rem;margin-bottom:10px}
+.intro-title{font-size:.95rem;font-weight:700;margin-bottom:6px}
+.intro-desc{font-size:.85rem;color:var(--text2);line-height:1.6}
+
+/* MAIN */
+main{padding:48px 24px 72px}
+.main-in{max-width:var(--max);margin:0 auto}
+.s-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+.s-title{font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:700;margin-bottom:6px}
+.s-sub{font-size:.92rem;color:var(--text-m);margin-bottom:32px}
+
+/* Org volunteer cards */
+.vol-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;margin-bottom:48px}
+.vol-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:12px;transition:box-shadow .2s,border-color .2s}
+.vol-card:hover{box-shadow:var(--sh-md);border-color:#52B788}
+.vc-header{display:flex;gap:12px;align-items:flex-start}
+.vc-icon{width:44px;height:44px;border-radius:10px;background:var(--green-lt);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.vc-name{font-size:1rem;font-weight:700;line-height:1.25}
+.vc-type{font-size:.76rem;color:var(--text-m);margin-top:2px}
+.vc-desc{font-size:.85rem;color:var(--text2);line-height:1.65}
+.vc-roles{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
+.role-tag{font-size:.72rem;padding:3px 9px;background:var(--green-lt);color:var(--green);border-radius:4px;font-weight:500}
+.vc-hours{font-size:.8rem;color:var(--text-m);display:flex;align-items:center;gap:6px}
+.vc-actions{display:flex;gap:8px;margin-top:auto;padding-top:10px;border-top:1px solid var(--border)}
+.vc-btn{flex:1;padding:9px 14px;border-radius:9px;font-size:.82rem;font-weight:600;text-align:center;cursor:pointer;transition:all .15s;display:inline-block}
+.vc-btn-p{background:var(--green);color:#fff}
+.vc-btn-p:hover{background:var(--green-dk)}
+.vc-btn-s{background:var(--bg);border:1px solid var(--border);color:var(--text2)}
+.vc-btn-s:hover{background:var(--border)}
+
+/* Tips section */
+.tips{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);padding:36px;margin-bottom:48px}
+.tips-title{font-size:1.05rem;font-weight:700;margin-bottom:18px}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.tip-item{display:flex;gap:12px;align-items:flex-start}
+.tip-num{width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.tip-text{font-size:.85rem;color:var(--text2);line-height:1.55}
+
+/* Footer */
+footer{background:#1A1512;color:rgba(255,255,255,.6);padding:32px 24px;text-align:center}
+footer a{color:rgba(255,255,255,.7)}
+footer a:hover{color:#fff}
+footer p{font-size:.82rem;line-height:1.7}
+
+/* Responsive */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .intro-in{grid-template-columns:1fr}
+  .vol-grid{grid-template-columns:1fr}
+  main{padding:36px 16px 56px}
+  .tips{padding:24px}
+}
+@media(max-width:480px){
+  .hero{padding:52px 16px 48px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">🌿</div>
+      NYC Food Help Map
+    </a>
+    <div class="nav-links">
+      <a href="index.html#find">Find Food</a>
+      <a href="index.html#map">Map</a>
+      <a href="index.html#learn">Learn</a>
+      <a href="volunteer.html" class="active">Volunteer</a>
+      <a href="index.html#find" class="nav-cta">Get Help</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-in">
+    <div class="hero-tag">Give back to NYC</div>
+    <h1>Volunteer. <em>Make a real difference.</em></h1>
+    <p class="hero-sub">Every hour you give helps keep NYC's food safety net running. Find a role that fits your schedule and skills — from serving meals to sorting groceries to driving food deliveries.</p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<div class="intro">
+  <div class="intro-in">
+    <div class="intro-card">
+      <div class="intro-icon">⏱️</div>
+      <div class="intro-title">Flexible commitments</div>
+      <p class="intro-desc">Most organizations welcome one-time volunteers for events and regular shifts alike. Find what fits your schedule.</p>
+    </div>
+    <div class="intro-card">
+      <div class="intro-icon">🤝</div>
+      <div class="intro-title">No experience needed</div>
+      <p class="intro-desc">You don't need any prior experience. Organizations provide training. Bring your energy and willingness to help.</p>
+    </div>
+    <div class="intro-card">
+      <div class="intro-icon">🏙️</div>
+      <div class="intro-title">Across all five boroughs</div>
+      <p class="intro-desc">Volunteer opportunities exist in every borough. Find one close to home, or discover a new neighborhood.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+  <div class="main-in">
+
+    <div class="s-label">Featured organizations</div>
+    <h2 class="s-title">Where to volunteer</h2>
+    <p class="s-sub">These organizations actively welcome volunteers. Click "Sign up" to visit their volunteer page directly.</p>
+
+    <div class="vol-grid">
+
+      <div class="vol-card">
+        <div class="vc-header">
+          <div class="vc-icon">🏙️</div>
+          <div>
+            <div class="vc-name">City Harvest</div>
+            <div class="vc-type">Food Rescue · Citywide</div>
+          </div>
+        </div>
+        <p class="vc-desc">Sort and pack rescued food, assist at mobile markets, or help with food drives. City Harvest has one of NYC's largest and most active volunteer programs — over 50,000 volunteer hours per year.</p>
+        <div class="vc-roles">
+          <span class="role-tag">Food sorting</span>
+          <span class="role-tag">Mobile markets</span>
+          <span class="role-tag">Food drives</span>
+          <span class="role-tag">Truck loading</span>
+        </div>
+        <div class="vc-hours">⏰ Flexible shifts, weekdays and weekends</div>
+        <div class="vc-actions">
+          <a class="vc-btn vc-btn-p" href="https://www.cityharvest.org/volunteer" target="_blank" rel="noopener">Sign up →</a>
+          <a class="vc-btn vc-btn-s" href="https://www.cityharvest.org" target="_blank" rel="noopener">Learn more</a>
+        </div>
+      </div>
+
+      <div class="vol-card">
+        <div class="vc-header">
+          <div class="vc-icon">🌿</div>
+          <div>
+            <div class="vc-name">Coalition for the Homeless</div>
+            <div class="vc-type">Shelter Meals · Manhattan</div>
+          </div>
+        </div>
+        <p class="vc-desc">Join the Grand Central Food Program — one of NYC's most iconic volunteer efforts. Volunteers prepare and distribute hot meals to unhoused New Yorkers every single night of the year, without exception.</p>
+        <div class="vc-roles">
+          <span class="role-tag">Meal distribution</span>
+          <span class="role-tag">Food prep</span>
+          <span class="role-tag">Advocacy events</span>
+        </div>
+        <div class="vc-hours">⏰ Nightly shifts, 8:30 pm – 10:00 pm</div>
+        <div class="vc-actions">
+          <a class="vc-btn vc-btn-p" href="https://www.coalitionforthehomeless.org/get-involved/volunteer" target="_blank" rel="noopener">Sign up →</a>
+          <a class="vc-btn vc-btn-s" href="https://www.coalitionforthehomeless.org" target="_blank" rel="noopener">Learn more</a>
+        </div>
+      </div>
+
+      <div class="vol-card">
+        <div class="vc-header">
+          <div class="vc-icon">🍞</div>
+          <div>
+            <div class="vc-name">The Bowery Mission</div>
+            <div class="vc-type">Soup Kitchen · Manhattan</div>
+          </div>
+        </div>
+        <p class="vc-desc">Serve meals, help with clothing distributions, or assist with holiday events. The Bowery Mission has welcomed volunteers since 1879 and offers a structured, meaningful experience.</p>
+        <div class="vc-roles">
+          <span class="role-tag">Meal service</span>
+          <span class="role-tag">Clothing drives</span>
+          <span class="role-tag">Holiday events</span>
+          <span class="role-tag">Mentorship</span>
+        </div>
+        <div class="vc-hours">⏰ Morning and evening shifts, 7 days a week</div>
+        <div class="vc-actions">
+          <a class="vc-btn vc-btn-p" href="https://www.bowery.org/get-involved/volunteer" target="_blank" rel="noopener">Sign up →</a>
+          <a class="vc-btn vc-btn-s" href="https://www.bowery.org" target="_blank" rel="noopener">Learn more</a>
+        </div>
+      </div>
+
+      <div class="vol-card">
+        <div class="vc-header">
+          <div class="vc-icon">🏦</div>
+          <div>
+            <div class="vc-name">Food Bank For New York City</div>
+            <div class="vc-type">Food Bank · Citywide</div>
+          </div>
+        </div>
+        <p class="vc-desc">Volunteer at the Bronx community kitchen sorting and packing food for distribution, or join special volunteer days. The Food Bank welcomes corporate groups, families, and individuals.</p>
+        <div class="vc-roles">
+          <span class="role-tag">Food sorting</span>
+          <span class="role-tag">Warehouse</span>
+          <span class="role-tag">SNAP enrollment</span>
+          <span class="role-tag">Community events</span>
+        </div>
+        <div class="vc-hours">⏰ Weekday and weekend shifts available</div>
+        <div class="vc-actions">
+          <a class="vc-btn vc-btn-p" href="https://www.foodbanknyc.org/get-involved/volunteer" target="_blank" rel="noopener">Sign up →</a>
+          <a class="vc-btn vc-btn-s" href="https://www.foodbanknyc.org" target="_blank" rel="noopener">Learn more</a>
+        </div>
+      </div>
+
+      <div class="vol-card">
+        <div class="vc-header">
+          <div class="vc-icon">❤️</div>
+          <div>
+            <div class="vc-name">God's Love We Deliver</div>
+            <div class="vc-type">Home Delivery · Citywide</div>
+          </div>
+        </div>
+        <p class="vc-desc">Cook, pack, or deliver medically tailored meals to New Yorkers living with serious illness. One of the city's most beloved volunteer experiences — and one of the most directly impactful.</p>
+        <div class="vc-roles">
+          <span class="role-tag">Cooking</span>
+          <span class="role-tag">Meal packing</span>
+          <span class="role-tag">Delivery driver</span>
+          <span class="role-tag">Bike delivery</span>
+        </div>
+        <div class="vc-hours">⏰ Weekday morning cooking shifts, daily delivery routes</div>
+        <div class="vc-actions">
+          <a class="vc-btn vc-btn-p" href="https://www.glwd.org/volunteer" target="_blank" rel="noopener">Sign up →</a>
+          <a class="vc-btn vc-btn-s" href="https://www.glwd.org" target="_blank" rel="noopener">Learn more</a>
+        </div>
+      </div>
+
+      <div class="vol-card">
+        <div class="vc-header">
+          <div class="vc-icon">🍲</div>
+          <div>
+            <div class="vc-name">Holy Apostles Soup Kitchen</div>
+            <div class="vc-type">Soup Kitchen · Manhattan, Chelsea</div>
+          </div>
+        </div>
+        <p class="vc-desc">Help prepare and serve lunch for up to 1,100 guests per day. Holy Apostles runs almost entirely on volunteers — your time is the engine that keeps this place running.</p>
+        <div class="vc-roles">
+          <span class="role-tag">Meal service</span>
+          <span class="role-tag">Food prep</span>
+          <span class="role-tag">Greeter</span>
+          <span class="role-tag">Cleanup</span>
+        </div>
+        <div class="vc-hours">⏰ Monday – Friday morning shifts</div>
+        <div class="vc-actions">
+          <a class="vc-btn vc-btn-p" href="https://www.holyapostlessoupkitchen.org/volunteer" target="_blank" rel="noopener">Sign up →</a>
+          <a class="vc-btn vc-btn-s" href="https://www.holyapostlessoupkitchen.org" target="_blank" rel="noopener">Learn more</a>
+        </div>
+      </div>
+
+      <div class="vol-card">
+        <div class="vc-header">
+          <div class="vc-icon">🥗</div>
+          <div>
+            <div class="vc-name">New York Common Pantry</div>
+            <div class="vc-type">Food Pantry · Manhattan, East Harlem</div>
+          </div>
+        </div>
+        <p class="vc-desc">Assist guests as they shop the pantry, stock shelves, assist at the front desk, or help with the Brown Bag senior meal program. A warm, community-centered environment.</p>
+        <div class="vc-roles">
+          <span class="role-tag">Pantry shopping assist</span>
+          <span class="role-tag">Stocking</span>
+          <span class="role-tag">Senior meals</span>
+          <span class="role-tag">Reception</span>
+        </div>
+        <div class="vc-hours">⏰ Weekday and weekend shifts</div>
+        <div class="vc-actions">
+          <a class="vc-btn vc-btn-p" href="https://www.nycommonpantry.org/volunteer" target="_blank" rel="noopener">Sign up →</a>
+          <a class="vc-btn vc-btn-s" href="https://www.nycommonpantry.org" target="_blank" rel="noopener">Learn more</a>
+        </div>
+      </div>
+
+      <div class="vol-card">
+        <div class="vc-header">
+          <div class="vc-icon">🥕</div>
+          <div>
+            <div class="vc-name">Part of the Solution (POTS)</div>
+            <div class="vc-type">Soup Kitchen & Pantry · Bronx</div>
+          </div>
+        </div>
+        <p class="vc-desc">Serve hot meals, assist in the pantry, or help with social services intake in the Bronx's Fordham Heights neighborhood. POTS welcomes individuals and groups year-round.</p>
+        <div class="vc-roles">
+          <span class="role-tag">Meal service</span>
+          <span class="role-tag">Pantry assist</span>
+          <span class="role-tag">Social services</span>
+        </div>
+        <div class="vc-hours">⏰ Check potsbronx.org for current shifts</div>
+        <div class="vc-actions">
+          <a class="vc-btn vc-btn-p" href="https://www.potsbronx.org/volunteer" target="_blank" rel="noopener">Sign up →</a>
+          <a class="vc-btn vc-btn-s" href="https://www.potsbronx.org" target="_blank" rel="noopener">Learn more</a>
+        </div>
+      </div>
+
+      <div class="vol-card">
+        <div class="vc-header">
+          <div class="vc-icon">♻️</div>
+          <div>
+            <div class="vc-name">Rethink Food</div>
+            <div class="vc-type">Food Rescue · Citywide</div>
+          </div>
+        </div>
+        <p class="vc-desc">Help rescue surplus food from restaurants and distribute meals across NYC. Rethink Food partners with chefs and food professionals, but welcomes all volunteers who share their mission.</p>
+        <div class="vc-roles">
+          <span class="role-tag">Food rescue</span>
+          <span class="role-tag">Meal distribution</span>
+          <span class="role-tag">Events</span>
+        </div>
+        <div class="vc-hours">⏰ Flexible — check rethinkfood.org for opportunities</div>
+        <div class="vc-actions">
+          <a class="vc-btn vc-btn-p" href="https://rethinkfood.org/get-involved" target="_blank" rel="noopener">Sign up →</a>
+          <a class="vc-btn vc-btn-s" href="https://rethinkfood.org" target="_blank" rel="noopener">Learn more</a>
+        </div>
+      </div>
+
+    </div><!-- end vol-grid -->
+
+    <!-- TIPS -->
+    <div class="tips">
+      <div class="tips-title">🌱 Tips for first-time volunteers</div>
+      <div class="tips-grid">
+        <div class="tip-item">
+          <div class="tip-num">1</div>
+          <div class="tip-text"><strong>Register in advance.</strong> Most organizations require online sign-up before your first shift. Same-day walk-ins are rarely accepted.</div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-num">2</div>
+          <div class="tip-text"><strong>Dress for the kitchen.</strong> Closed-toe shoes are usually required. Avoid jewelry and wear layers — kitchens can be cold or hot.</div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-num">3</div>
+          <div class="tip-text"><strong>Arrive on time.</strong> Meal service has fixed windows. Arriving late disrupts the team and guests who are waiting to eat.</div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-num">4</div>
+          <div class="tip-text"><strong>Bring your ID.</strong> Some organizations require a photo ID for first-time volunteers, especially if you're bringing a group.</div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-num">5</div>
+          <div class="tip-text"><strong>Lead with dignity.</strong> Everyone you serve is a neighbor. Use warm language, make eye contact, and remember that you're a guest in someone else's community.</div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-num">6</div>
+          <div class="tip-text"><strong>Come back.</strong> A single visit is wonderful. But returning volunteers build relationships and trust — with staff, guests, and the community.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OTHER WAYS TO HELP -->
+    <div class="s-label" style="margin-top:8px">Other ways to help</div>
+    <h2 class="s-title" style="margin-bottom:6px">Beyond volunteering</h2>
+    <p class="s-sub" style="margin-bottom:24px">Not able to give time? There are other ways to support the food safety net.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:22px">
+        <div style="font-size:1.5rem;margin-bottom:10px">💰</div>
+        <div style="font-size:.92rem;font-weight:700;margin-bottom:6px">Donate</div>
+        <p style="font-size:.83rem;color:var(--text2);line-height:1.6">Even $10 can provide multiple meals. Most listed organizations are 501(c)(3) nonprofits — donations are tax-deductible. Every dollar counts.</p>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:22px">
+        <div style="font-size:1.5rem;margin-bottom:10px">📣</div>
+        <div style="font-size:.92rem;font-weight:700;margin-bottom:6px">Spread the word</div>
+        <p style="font-size:.83rem;color:var(--text2);line-height:1.6">Share this directory with neighbors, community groups, social workers, or anyone who might be struggling. Awareness saves lives.</p>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:22px">
+        <div style="font-size:1.5rem;margin-bottom:10px">🗳️</div>
+        <div style="font-size:.92rem;font-weight:700;margin-bottom:6px">Advocate</div>
+        <p style="font-size:.83rem;color:var(--text2);line-height:1.6">Contact your NYC Council member or state representative about food insecurity. These programs need sustained public funding to survive.</p>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:22px">
+        <div style="font-size:1.5rem;margin-bottom:10px">🥫</div>
+        <div style="font-size:.92rem;font-weight:700;margin-bottom:6px">Food drives</div>
+        <p style="font-size:.83rem;color:var(--text2);line-height:1.6">Organize a food drive at your workplace, school, or building. Most food banks provide guidance and collection boxes. Non-perishable staples are always needed.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <a href="index.html">← Back to NYC Food Help Map</a> &nbsp;·&nbsp;
+    Built by <a href="https://annalinhvu.github.io" target="_blank" rel="noopener">Anna (Linh) Vu</a>
+    &nbsp;·&nbsp; A public-service project
+  </p>
+</footer>
+
+</body>
+</html>
