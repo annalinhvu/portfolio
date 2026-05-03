@@ -35,22 +35,22 @@ Browse film stocks with current pricing across vendors, availability status, and
 
 ---
 
-### 04 - Auteurs & Actors
+### 04 - Auteurs
 > A personal index of filmmakers and legendary performers.
 
-100+ directors and 25 actors filterable by era and nationality. Each entry includes a biography, curated film list with synopses, and portrait photography.
+89 directors and 24 performers filterable by era and nationality. Each entry includes a biography, curated film list with synopses, and portrait photography.
 
 - **Stack:** HTML, JSON
 
 ---
 
-### 05 - NYC Adventure Log
-> Curated NYC activities across 10 categories.
+### 05 - NYC Food Help Map
+> A public-service directory of free food assistance across New York City.
 
-Cinema, Food, Bakeries, Arts, Shows, Explore, Wellness, Day Trips, Free, and Classes — each with practical details and a seasonal tag. Mark things done, rate them, and let the surprise picker decide when you can't.
+17 organizations across all five boroughs — food pantries, soup kitchens, community meals, mobile food programs, home delivery, and more. Searchable and filterable by borough and service type, with an interactive Leaflet map, a resource guide explaining each type of support, and a volunteer page linking directly to sign-up forms.
 
-- **Live site:** https://annalinhvu.github.io/nyc-adventure/
-- **Stack:** HTML, Vanilla JS
+- **Live site:** https://annalinhvu.github.io/projects/nyc-food-help/
+- **Stack:** HTML, JSON, Leaflet.js
 
 ---
 
@@ -63,7 +63,17 @@ Inspired by the *Only Good Things* wall calendar. Activities across 6 categories
 
 ---
 
-### 07 - Cơm Nhà
+### 07 - NYC Adventure Log
+> Curated NYC activities across 10 categories.
+
+Cinema, Food, Bakeries, Arts, Shows, Explore, Wellness, Day Trips, Free, and Classes — each with practical details and a seasonal tag. Mark things done, rate them, and let the surprise picker decide when you can't.
+
+- **Live site:** https://annalinhvu.github.io/nyc-adventure/
+- **Stack:** HTML, Vanilla JS
+
+---
+
+### 08 - Cơm Nhà
 > 175 Vietnamese recipes from Miền Bắc, Miền Trung, and Miền Nam.
 
 Browse by region or category, search by ingredient, and save favorites. Each region has its own color identity throughout the UI.
@@ -72,7 +82,7 @@ Browse by region or category, search by ingredient, and save favorites. Each reg
 
 ---
 
-### 08 - Departure Lounge
+### 09 - Departure Lounge
 > A travel bucket list: destinations as boarding passes.
 
 50 countries across 5 regions, each with cities to visit, food to eat, and reasons to go. Styled as boarding passes with a dark, editorial feel.
