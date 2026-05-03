@@ -54,22 +54,22 @@ Browse film stocks with current pricing across vendors, availability status, and
 
 ---
 
-### 06 - Only Good Things
-> A browsable catalog of self-care activities.
-
-Inspired by the *Only Good Things* wall calendar. Activities across 6 categories (body, mind, creative, nature, nourish, rest), filterable by season, duration, setting, and difficulty. Track completions locally in your browser.
-
-- **Stack:** HTML, JSON, Vanilla JS
-
----
-
-### 07 - NYC Adventure Log
+### 06 - NYC Adventure Log
 > Curated NYC activities across 10 categories.
 
 Cinema, Food, Bakeries, Arts, Shows, Explore, Wellness, Day Trips, Free, and Classes — each with practical details and a seasonal tag. Mark things done, rate them, and let the surprise picker decide when you can't.
 
 - **Live site:** https://annalinhvu.github.io/nyc-adventure/
 - **Stack:** HTML, Vanilla JS
+
+---
+
+### 07 - Only Good Things
+> A browsable catalog of self-care activities.
+
+Inspired by the *Only Good Things* wall calendar. Activities across 6 categories (body, mind, creative, nature, nourish, rest), filterable by season, duration, setting, and difficulty. Track completions locally in your browser.
+
+- **Stack:** HTML, JSON, Vanilla JS
 
 ---
 
