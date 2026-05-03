@@ -978,10 +978,18 @@ body {
         <div class="col-status"><span class="live-dot"></span>live</div>
       </a>
 
+      <a href="projects/nyc-food-help/" class="db-row std alt">
+        <div class="col-idx">09</div>
+        <div class="col-name"><span class="row-name">NYC Food Help Map</span><span class="row-desc">Public-service directory of 17 free food assistance organizations across NYC — pantries, soup kitchens, community meals, mobile food, and home delivery. Filterable, mapped, and volunteer-linked.</span><span class="row-link">view project →</span></div>
+        <div class="col-stat"><strong>17</strong> organizations · <strong>5</strong> boroughs</div>
+        <div class="col-tech">Civic</div>
+        <div class="col-status"><span class="live-dot"></span>live</div>
+      </a>
+
       <div class="db-footer">
-        <span>8 rows returned</span>
+        <span>9 rows returned</span>
         <span class="ft-live">● all systems live</span>
-        <span>last updated Apr 2026</span>
+        <span>last updated May 2026</span>
       </div>
     </section>
 
@@ -1408,7 +1416,7 @@ function updateStatus(pane, rows) {
 var _origSwitch = switchPane;
 switchPane = function(id) {
   _origSwitch(id);
-  var rowCounts = {studio: 8, built: 15, career: 5};
+  var rowCounts = {studio: 9, built: 15, career: 5};
   updateStatus(id, rowCounts[id] || 0);
 };
 
@@ -1454,7 +1462,7 @@ switchPane = function(id) {
     moveIndicator(active);
     var pane = document.getElementById('pane-' + active.dataset.pane);
     if (pane) revealPane(pane);
-    var rowCounts = {studio: 8, built: 15, career: 5};
+    var rowCounts = {studio: 9, built: 15, career: 5};
     updateStatus(active.dataset.pane, rowCounts[active.dataset.pane] || 0);
   }
 })();
@@ -1994,7 +2002,8 @@ switchPane = function(id) {
     {title:'Self-Care Tracker',type:'Wellness',tech:'HTML · JSON · Vanilla JS',status:'live'},
     {title:'Recipe Book',type:'Food',tech:'HTML · JSON · Vanilla JS',status:'live'},
     {title:'World Atlas',type:'Travel',tech:'HTML · JSON · Vanilla JS',status:'live'},
-    {title:'NYC Adventure Log',type:'City',tech:'HTML · Vanilla JS',status:'live'}
+    {title:'NYC Adventure Log',type:'City',tech:'HTML · Vanilla JS',status:'live'},
+    {title:'NYC Food Help Map',type:'Civic',tech:'HTML · JSON · Leaflet.js',status:'live'}
   ];
   var TABLES = ['anna','skills','experience','projects'];
 
