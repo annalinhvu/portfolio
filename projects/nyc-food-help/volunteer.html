@@ -23,15 +23,15 @@ a{color:inherit;text-decoration:none}
 button{cursor:pointer;font-family:inherit;border:none;background:none}
 
 /* NAV */
-.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);height:64px}
-.nav-in{max-width:var(--max);margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;color:var(--green)}
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.nav-in{max-width:1120px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;color:var(--green);text-decoration:none}
 .logo-icon{width:30px;height:30px;background:var(--green);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.nav-links{display:flex;align-items:center;gap:2px}
-.nav-links a{padding:6px 12px;border-radius:6px;font-size:.88rem;font-weight:500;color:var(--text2);transition:background .15s,color .15s}
-.nav-links a:hover,.nav-links a.active{background:var(--green-lt);color:var(--green)}
-.nav-cta{background:var(--green)!important;color:#fff!important;padding:7px 16px!important;border-radius:8px!important;font-weight:600!important}
-.nav-cta:hover{background:var(--green-dk)!important}
+.nav-tabs{display:flex;align-items:center;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nav-tabs::-webkit-scrollbar{display:none}
+.nav-tab{padding:6px 12px;border-radius:6px;font-size:.88rem;font-weight:500;color:var(--text2);transition:background .15s,color .15s;text-decoration:none;white-space:nowrap}
+.nav-tab:hover{background:var(--green-lt);color:var(--green)}
+.nav-tab.active{background:var(--green-lt);color:var(--green);font-weight:600}
 
 /* HERO */
 .hero{background:linear-gradient(135deg,#1B4D38 0%,#2D6A4F 60%,#52B788 100%);padding:72px 24px 64px;text-align:center}
@@ -91,7 +91,6 @@ footer p{font-size:.82rem;line-height:1.7}
 
 /* Responsive */
 @media(max-width:768px){
-  .nav-links{display:none}
   .intro-in{grid-template-columns:1fr}
   .vol-grid{grid-template-columns:1fr}
   main{padding:36px 16px 56px}
@@ -111,12 +110,12 @@ footer p{font-size:.82rem;line-height:1.7}
       <div class="logo-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.96 5-8"/></svg></div>
       NYC Food Help Map
     </a>
-    <div class="nav-links">
-      <a href="index.html#find">Find Food</a>
-      <a href="index.html#map">Map</a>
-      <a href="index.html#learn">Learn</a>
-      <a href="volunteer.html" class="active">Volunteer</a>
-      <a href="index.html#find" class="nav-cta">Get Help</a>
+    <div class="nav-tabs">
+      <a class="nav-tab" href="index.html#home">Home</a>
+      <a class="nav-tab" href="index.html#get-help">Get Help</a>
+      <a class="nav-tab" href="index.html#directory">Directory</a>
+      <a class="nav-tab active" href="volunteer.html">Give Help</a>
+      <a class="nav-tab" href="index.html#about">About</a>
     </div>
   </div>
 </nav>
@@ -423,9 +422,14 @@ footer p{font-size:.82rem;line-height:1.7}
 <!-- FOOTER -->
 <footer>
   <p>
-    <a href="index.html">← Back to NYC Food Help Map</a> &nbsp;·&nbsp;
-    Built by <a href="https://annalinhvu.github.io" target="_blank" rel="noopener">Anna (Linh) Vu</a>
-    &nbsp;·&nbsp; A public-service project
+    <a href="index.html">NYC Food Help Map</a> &nbsp;·&nbsp;
+    <a href="index.html#get-help">Get Help</a> &nbsp;·&nbsp;
+    <a href="index.html#directory">Directory</a> &nbsp;·&nbsp;
+    <a href="volunteer.html">Give Help</a> &nbsp;·&nbsp;
+    <a href="index.html#about">About</a>
+  </p>
+  <p style="margin-top:6px;font-size:.78rem;color:rgba(255,255,255,.35)">
+    Built by <a href="https://annalinhvu.github.io" target="_blank" rel="noopener">Anna (Linh) Vu</a> &nbsp;·&nbsp; Not affiliated with any listed organization
   </p>
 </footer>
 
