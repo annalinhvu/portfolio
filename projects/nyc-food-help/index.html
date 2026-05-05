@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NYC Food Help Map — Find Free Food in New York City</title>
-<meta name="description" content="A curated guide to 17 major free food assistance organizations in New York City — food pantries, soup kitchens, community meals, and more. With links to official real-time locators.">
+<meta name="description" content="A curated guide to free food assistance in New York City — food pantries, soup kitchens, community meals, and links to 800+ official food sites.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -19,13 +19,11 @@ html{scroll-behavior:smooth}
   --border:#E7E2DA;
   --r:12px;--r-lg:20px;
   --sh:0 2px 8px rgba(0,0,0,.08);--sh-md:0 4px 16px rgba(0,0,0,.1);--sh-lg:0 8px 28px rgba(0,0,0,.14);
-  --font:'Inter',system-ui,sans-serif;
-  --max:1200px
+  --font:'Inter',system-ui,sans-serif;--max:1200px
 }
 body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;font-size:16px}
 a{color:inherit;text-decoration:none}
 button{cursor:pointer;font-family:inherit;border:none;background:none}
-img{max-width:100%}
 :focus-visible{outline:3px solid var(--green);outline-offset:2px;border-radius:4px}
 
 /* NAV */
@@ -41,82 +39,76 @@ img{max-width:100%}
 .nav-mobile-btn{display:none;flex-direction:column;gap:5px;padding:8px;border-radius:8px}
 .nav-mobile-btn span{display:block;width:22px;height:2px;background:var(--text2);border-radius:2px}
 
-/* HERO */
-.hero{background:linear-gradient(135deg,#1B4D38 0%,#2D6A4F 55%,#40916C 100%);padding:72px 24px 60px;text-align:center;position:relative;overflow:hidden}
+/* HERO — compact, no stat cards */
+.hero{background:linear-gradient(135deg,#1B4D38 0%,#2D6A4F 55%,#40916C 100%);padding:56px 24px 48px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;opacity:.04;background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:28px 28px}
-.hero-in{max-width:660px;margin:0 auto;position:relative}
-.hero-tag{display:inline-block;background:rgba(255,255,255,.14);color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.22);border-radius:20px;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 14px;margin-bottom:20px}
-.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:#fff;line-height:1.13;margin-bottom:28px}
+.hero-in{max-width:580px;margin:0 auto;position:relative}
+.hero-tag{display:inline-block;background:rgba(255,255,255,.14);color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.22);border-radius:20px;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 14px;margin-bottom:18px}
+.hero h1{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;color:#fff;line-height:1.13;margin-bottom:12px}
 .hero h1 em{color:#A7F3D0;font-style:normal}
-.hero-action{margin-bottom:24px}
-.hero-action-label{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:11px}
-.hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.hero-btn{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;border-radius:10px;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .15s;font-family:var(--font);text-decoration:none;white-space:nowrap}
-.hero-btn-p{background:#fff;color:var(--green)}
-.hero-btn-p:hover{background:#E8F5EF}
-.hero-btn-s{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.25)}
-.hero-btn-s:hover{background:rgba(255,255,255,.2)}
-.hero-stats-line{font-size:.82rem;color:rgba(255,255,255,.45);letter-spacing:.01em}
-.hero-stats-line strong{color:rgba(255,255,255,.72)}
+.hero-sub{font-size:.95rem;color:rgba(255,255,255,.72);margin-bottom:20px;line-height:1.6}
+.hero-tagline{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.7}
+.hero-tagline a{color:rgba(255,255,255,.65);text-decoration:underline;text-underline-offset:2px}
+.hero-tagline a:hover{color:#fff}
 
-/* ACTION SECT */
-.action-sect{background:#fff;padding:28px 24px;border-bottom:2px solid var(--border)}
+/* ACTION — 4-card compact box */
+.action-sect{background:#fff;padding:20px 24px;border-bottom:2px solid var(--border)}
 .action-in{max-width:var(--max);margin:0 auto}
-.action-title{font-size:1.15rem;font-weight:700;margin-bottom:4px}
-.action-sub{font-size:.86rem;color:var(--text-m);margin-bottom:14px}
-.action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
-.action-card{display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:16px;border-radius:var(--r);border:2px solid var(--border);cursor:pointer;transition:border-color .15s,background .15s;background:var(--bg);text-align:left;font-family:var(--font);text-decoration:none;color:var(--text)}
+.action-hdr{display:flex;align-items:baseline;gap:10px;margin-bottom:12px}
+.action-title{font-size:1rem;font-weight:700}
+.action-note{font-size:.78rem;color:var(--text-m)}
+.action-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:12px}
+.action-card{display:flex;flex-direction:column;gap:3px;padding:13px 15px;border-radius:var(--r);border:1.5px solid var(--border);cursor:pointer;transition:border-color .15s,background .15s;background:var(--bg);text-align:left;font-family:var(--font);text-decoration:none;color:var(--text)}
 .action-card:hover{border-color:var(--green);background:var(--green-lt)}
-.action-icon{font-size:1.4rem;line-height:1}
-.action-lbl{font-size:.92rem;font-weight:700;color:var(--text)}
-.action-desc{font-size:.78rem;color:var(--text-m);line-height:1.4}
-.action-also{font-size:.82rem;color:var(--text-m);line-height:1.7}
-.action-also a{color:var(--green);font-weight:600}
-.action-also a:hover{text-decoration:underline}
+.action-icon{font-size:1.25rem;line-height:1;margin-bottom:5px}
+.action-lbl{font-size:.86rem;font-weight:700}
+.action-desc{font-size:.74rem;color:var(--text-m);line-height:1.4}
+.locator-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.locator-label{font-size:.74rem;color:var(--text-m);white-space:nowrap}
+.loc-pill{display:inline-flex;align-items:center;gap:3px;font-size:.74rem;font-weight:600;color:var(--green);padding:3px 10px;border:1px solid var(--green-md);border-radius:20px;background:var(--green-lt);transition:all .15s}
+.loc-pill:hover{background:var(--green);color:#fff;border-color:var(--green)}
 
 /* SECTION SHARED */
-section{padding:64px 24px}
+section{padding:48px 24px}
 .s-in{max-width:var(--max);margin:0 auto}
-.s-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
-.s-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;line-height:1.2}
-.s-sub{margin-top:8px;font-size:.95rem;color:var(--text-m);max-width:540px}
-.s-hdr{margin-bottom:28px}
+.s-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:5px}
+.s-title{font-size:clamp(1.35rem,3vw,1.85rem);font-weight:700;line-height:1.2}
+.s-sub{margin-top:7px;font-size:.9rem;color:var(--text-m);max-width:540px}
+.s-hdr{margin-bottom:22px}
 
-/* FIND / DIRECTORY */
+/* DIRECTORY */
 .find-sect{background:var(--bg)}
-.warn-box{background:#FFFBEB;border:1px solid #FDE68A;border-radius:var(--r);padding:14px 18px;display:flex;gap:12px;align-items:flex-start;margin-bottom:20px}
-.warn-box span{font-size:1rem;flex-shrink:0;margin-top:1px}
-.warn-box p{font-size:.83rem;color:#92400E;line-height:1.5}
-.noscript-box{background:#FFFBEB;border:1px solid #FDE68A;border-radius:var(--r);padding:20px 24px;margin-bottom:20px}
-.noscript-box strong{font-size:.95rem;color:#78350F}
-.noscript-box p{font-size:.84rem;color:#92400E;margin-top:6px;line-height:1.5}
-.noscript-box ul{margin:10px 0 0 20px;display:flex;flex-direction:column;gap:6px}
-.noscript-box li a{color:var(--green);font-size:.84rem;font-weight:500}
-.noscript-box li a:hover{text-decoration:underline}
-.filter-bar{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:20px;display:flex;flex-direction:column;gap:10px}
+.warn-box{background:#FFFBEB;border:1px solid #FDE68A;border-radius:var(--r);padding:11px 16px;display:flex;gap:10px;align-items:flex-start;margin-bottom:16px}
+.warn-box span{font-size:.95rem;flex-shrink:0;margin-top:1px}
+.warn-box p{font-size:.8rem;color:#92400E;line-height:1.5}
+.noscript-box{background:#FFFBEB;border:1px solid #FDE68A;border-radius:var(--r);padding:16px 20px;margin-bottom:16px}
+.noscript-box strong{font-size:.9rem;color:#78350F}
+.noscript-box p{font-size:.8rem;color:#92400E;margin-top:5px;line-height:1.5}
+.noscript-box ul{margin:8px 0 0 18px;display:flex;flex-direction:column;gap:5px}
+.noscript-box li a{color:var(--green);font-size:.8rem;font-weight:500}
+.filter-bar{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:16px;display:flex;flex-direction:column;gap:9px}
 .filter-row{display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap}
-.filter-lbl{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-m);white-space:nowrap;padding-top:5px;width:56px;flex-shrink:0}
-.chips{display:flex;gap:6px;flex-wrap:wrap}
-.chip{display:inline-flex;align-items:center;padding:4px 12px;border-radius:20px;font-size:.8rem;font-weight:500;border:1px solid var(--border);background:var(--bg);color:var(--text2);cursor:pointer;transition:all .15s;white-space:nowrap}
+.filter-lbl{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-m);white-space:nowrap;padding-top:5px;width:52px;flex-shrink:0}
+.chips{display:flex;gap:5px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;padding:3px 11px;border-radius:20px;font-size:.76rem;font-weight:500;border:1px solid var(--border);background:var(--bg);color:var(--text2);cursor:pointer;transition:all .15s;white-space:nowrap}
 .chip:hover{border-color:var(--green);color:var(--green)}
 .chip.on{background:var(--green);color:#fff;border-color:var(--green)}
-.search-wrap{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:8px 12px;transition:border-color .15s}
+.search-wrap{display:flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:7px 11px;transition:border-color .15s}
 .search-wrap:focus-within{border-color:var(--green)}
 .search-wrap svg{flex-shrink:0;opacity:.5}
-.search-wrap input{flex:1;border:none;outline:none;font-size:.9rem;background:transparent;color:var(--text)}
+.search-wrap input{flex:1;border:none;outline:none;font-size:.88rem;background:transparent;color:var(--text)}
 .search-wrap input::placeholder{color:var(--text-m)}
-.results-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;font-size:.83rem;color:var(--text-m)}
+.results-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;font-size:.8rem;color:var(--text-m)}
 .results-meta strong{color:var(--text)}
-.org-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+.org-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
 
 /* CARD */
-.org-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:20px;cursor:pointer;transition:box-shadow .2s,border-color .2s,transform .15s;display:flex;flex-direction:column;gap:10px}
+.org-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:18px;cursor:pointer;transition:box-shadow .2s,border-color .2s,transform .15s;display:flex;flex-direction:column;gap:9px}
 .org-card:hover{box-shadow:var(--sh-md);border-color:var(--green-md);transform:translateY(-1px)}
-.card-hdr{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
-.card-name{font-size:.98rem;font-weight:700;color:var(--text);line-height:1.3}
-.card-boro{font-size:.78rem;color:var(--text-m);margin-top:2px}
+.card-name{font-size:.95rem;font-weight:700;color:var(--text);line-height:1.3}
+.card-boro{font-size:.75rem;color:var(--text-m);margin-top:2px}
 .card-badges{display:flex;flex-wrap:wrap;gap:4px}
-.badge{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.badge{display:inline-block;font-size:.68rem;font-weight:600;padding:2px 8px;border-radius:20px;white-space:nowrap}
 .badge-food-pantry{background:#E9F3EE;color:#1B5E3B}
 .badge-soup-kitchen{background:#FEF0E7;color:#9A3A0A}
 .badge-community-meal{background:#EEF2FF;color:#3730A3}
@@ -128,146 +120,130 @@ section{padding:64px 24px}
 .badge-snap-help{background:#ECFDF5;color:#065F46}
 .badge-food-bank{background:#FEF3C7;color:#78350F}
 .badge-featured{background:var(--amber-lt);color:#92400E}
-.quick-badges{display:flex;flex-wrap:wrap;gap:4px}
-.qb{display:inline-flex;align-items:center;gap:3px;font-size:.7rem;font-weight:600;padding:3px 8px;border-radius:5px;white-space:nowrap}
+.quick-badges{display:flex;flex-wrap:wrap;gap:3px}
+.qb{display:inline-flex;align-items:center;gap:3px;font-size:.68rem;font-weight:600;padding:2px 7px;border-radius:5px;white-space:nowrap}
 .qb-meal{background:#FEF0E7;color:#9A3A0A}
 .qb-grocery{background:#E9F3EE;color:#1B5E3B}
 .qb-delivery{background:#E0F2FE;color:#0369A1}
 .qb-senior{background:#FEFCE8;color:#854D0E}
 .qb-family{background:#F3F0FF;color:#5B21B6}
 .qb-call{background:#FEF3C7;color:#92400E}
-.org-meta{display:flex;flex-direction:column;gap:4px}
-.meta-row{display:flex;align-items:flex-start;gap:8px;font-size:.82rem;color:var(--text2)}
-.meta-icon{flex-shrink:0;margin-top:1px;opacity:.7;width:14px;text-align:center}
-.hours-warn{font-size:.79rem;color:var(--amber);font-weight:500;display:flex;align-items:center;gap:6px}
-.svc-list,.gf-list{display:flex;flex-wrap:wrap;gap:4px}
-.svc-tag{font-size:.7rem;padding:2px 8px;background:var(--green-lt);color:var(--green);border-radius:4px;font-weight:500}
-.gf-tag{font-size:.7rem;padding:2px 8px;background:var(--amber-lt);color:#92400E;border-radius:4px;font-weight:500}
-.trust-line{font-size:.68rem;color:var(--text-m);padding-top:8px;border-top:1px solid var(--border)}
-.card-actions{display:flex;gap:8px;margin-top:auto}
-.card-btn{flex:1;padding:8px;border-radius:8px;font-size:.79rem;font-weight:600;text-align:center;transition:all .15s;cursor:pointer;display:inline-block}
+.org-meta{display:flex;flex-direction:column;gap:3px}
+.meta-row{display:flex;align-items:flex-start;gap:7px;font-size:.8rem;color:var(--text2)}
+.meta-icon{flex-shrink:0;margin-top:1px;opacity:.7;width:13px;text-align:center}
+.hours-warn{font-size:.76rem;color:var(--amber);font-weight:500;display:flex;align-items:center;gap:5px}
+.svc-list,.gf-list{display:flex;flex-wrap:wrap;gap:3px}
+.svc-tag{font-size:.68rem;padding:2px 7px;background:var(--green-lt);color:var(--green);border-radius:4px;font-weight:500}
+.gf-tag{font-size:.68rem;padding:2px 7px;background:var(--amber-lt);color:#92400E;border-radius:4px;font-weight:500}
+.trust-line{font-size:.66rem;color:var(--text-m);padding-top:7px;border-top:1px solid var(--border)}
+.card-actions{display:flex;gap:7px;margin-top:auto}
+.card-btn{flex:1;padding:7px;border-radius:8px;font-size:.76rem;font-weight:600;text-align:center;transition:all .15s;cursor:pointer;display:inline-block}
 .btn-p{background:var(--green-lt);color:var(--green)}
 .btn-p:hover{background:var(--green);color:#fff}
 .btn-s{background:var(--bg);color:var(--text-m);border:1px solid var(--border)}
 .btn-s:hover{color:var(--text)}
-.org-empty{grid-column:1/-1;text-align:center;padding:56px 24px;color:var(--text-m)}
-.org-empty .empty-icon{font-size:2.5rem;margin-bottom:12px}
+.org-empty{grid-column:1/-1;text-align:center;padding:48px 24px;color:var(--text-m)}
+.org-empty .empty-icon{font-size:2rem;margin-bottom:10px}
 
 /* MAP */
-.map-sect{background:var(--bg-warm);padding:64px 24px}
-.map-wrap{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-md);margin-top:24px;border:1px solid var(--border)}
-#lmap{height:480px;width:100%}
+.map-sect{background:var(--bg-warm)}
+.map-wrap{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-md);margin-top:20px;border:1px solid var(--border)}
+#lmap{height:440px;width:100%}
 .leaflet-popup-content-wrapper{border-radius:12px!important;padding:0!important;box-shadow:0 4px 20px rgba(0,0,0,.15)!important}
 .leaflet-popup-content{margin:0!important}
-.map-pop{padding:16px;min-width:200px;max-width:260px}
-.map-pop-name{font-family:var(--font);font-weight:700;font-size:.93rem;color:#1C1917;margin-bottom:5px;line-height:1.3}
-.map-pop-addr{font-family:var(--font);font-size:.79rem;color:#78716C;margin-bottom:8px}
-.map-pop-phone{font-family:var(--font);font-size:.79rem;color:#2D6A4F;font-weight:600}
-.map-pop-link{display:inline-block;margin-top:10px;font-family:var(--font);font-size:.79rem;color:#fff;background:#2D6A4F;padding:5px 12px;border-radius:6px;font-weight:600}
+.map-pop{padding:14px;min-width:190px;max-width:250px}
+.map-pop-name{font-family:var(--font);font-weight:700;font-size:.9rem;color:#1C1917;margin-bottom:4px;line-height:1.3}
+.map-pop-addr{font-family:var(--font);font-size:.76rem;color:#78716C;margin-bottom:7px}
+.map-pop-phone{font-family:var(--font);font-size:.76rem;color:#2D6A4F;font-weight:600}
+.map-pop-link{display:inline-block;margin-top:9px;font-family:var(--font);font-size:.76rem;color:#fff;background:#2D6A4F;padding:4px 11px;border-radius:6px;font-weight:600}
 
-/* LEARN */
+/* RESOURCE GUIDE — tighter cards */
 .learn-sect{background:#fff}
-.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
-.res-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:24px}
-.res-icon{font-size:2rem;margin-bottom:10px;display:block}
-.res-type{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:5px}
-.res-title{font-size:1rem;font-weight:700;margin-bottom:8px}
-.res-desc{font-size:.86rem;color:var(--text2);line-height:1.65}
-.res-tip{margin-top:12px;padding:9px 12px;background:var(--green-lt);border-radius:6px;font-size:.78rem;color:var(--green);font-style:italic}
-.intent-group{margin-bottom:44px}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.res-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px}
+.res-icon{font-size:1.4rem;margin-bottom:6px;display:block}
+.res-type{font-size:.67rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
+.res-title{font-size:.9rem;font-weight:700;margin-bottom:6px}
+.res-desc{font-size:.82rem;color:var(--text2);line-height:1.6}
+.res-tip{margin-top:9px;padding:7px 10px;background:var(--green-lt);border-radius:6px;font-size:.74rem;color:var(--green);font-style:italic}
+.intent-group{margin-bottom:28px}
 .intent-group:last-child{margin-bottom:0}
-.intent-hdr{font-size:.8rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text-m);border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:18px}
+.intent-hdr{font-size:.74rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text-m);border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:14px}
 
-/* STATS */
-.stats-sect{background:var(--bg)}
-.stats-note{font-size:.8rem;color:var(--text-m);margin-top:8px;font-style:italic;max-width:620px}
-.big-nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:28px}
-.big-num{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:22px 18px;text-align:center}
-.big-n{font-size:2.4rem;font-weight:700;color:var(--green);line-height:1}
-.big-l{font-size:.78rem;color:var(--text-m);margin-top:6px}
-.charts{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.chart-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:22px}
-.chart-title{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-m);margin-bottom:4px}
-.chart-desc{font-size:.75rem;color:var(--text-m);margin-bottom:14px;font-style:italic}
-.stat-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.stat-lbl{font-size:.82rem;color:var(--text2);flex-shrink:0;width:114px}
-.stat-bar-w{flex:1;background:var(--bg);border-radius:4px;height:7px;overflow:hidden}
-.stat-bar-f{height:100%;border-radius:4px;background:var(--green);transition:width .7s ease}
-.stat-ct{font-size:.78rem;font-weight:600;color:var(--text);min-width:20px;text-align:right}
-
-/* WHY I BUILT THIS */
-.why-sect{background:var(--bg-warm)}
-.why-card{max-width:680px;margin:28px 0 0;background:#fff;border-radius:var(--r-lg);padding:36px 40px;box-shadow:var(--sh)}
-.why-q{font-size:1.05rem;font-weight:700;color:var(--green);margin-bottom:12px}
-.why-body{font-size:.95rem;color:var(--text2);line-height:1.82}
+/* WHY — compact inline card */
+.why-strip{background:var(--bg-warm);padding:24px}
+.why-card-sm{max-width:720px;display:flex;gap:16px;align-items:flex-start;background:#fff;border-radius:var(--r);padding:20px 24px;box-shadow:var(--sh)}
+.why-ico{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+.why-label{font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:5px}
+.why-body{font-size:.86rem;color:var(--text2);line-height:1.72}
 
 /* MODAL */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;backdrop-filter:blur(4px);padding:16px;align-items:center;justify-content:center}
 .overlay.open{display:flex}
-.modal{background:#fff;border-radius:var(--r-lg);max-width:620px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:var(--sh-lg)}
-.modal-hdr{padding:22px 22px 14px;border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
-.modal-title{font-size:1.25rem;font-weight:700;line-height:1.25}
-.modal-close{width:32px;height:32px;border-radius:8px;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;color:var(--text-m);flex-shrink:0;transition:background .15s}
+.modal{background:#fff;border-radius:var(--r-lg);max-width:600px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:var(--sh-lg)}
+.modal-hdr{padding:20px 20px 12px;border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff;z-index:1;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.modal-title{font-size:1.15rem;font-weight:700;line-height:1.25}
+.modal-close{width:30px;height:30px;border-radius:8px;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--text-m);flex-shrink:0;transition:background .15s}
 .modal-close:hover{background:var(--border)}
-.modal-body{padding:22px}
-.m-sect{margin-bottom:18px}
-.m-sect-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-m);margin-bottom:7px}
-.m-row{display:flex;gap:10px;font-size:.88rem;margin-bottom:7px}
+.modal-body{padding:20px}
+.m-sect{margin-bottom:16px}
+.m-sect-title{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-m);margin-bottom:6px}
+.m-row{display:flex;gap:9px;font-size:.86rem;margin-bottom:6px}
 .m-icon{flex-shrink:0;margin-top:1px}
 .m-text{color:var(--text2);line-height:1.5}
 .m-text a{color:var(--green);font-weight:500}
 .m-text a:hover{text-decoration:underline}
-.m-notes{background:var(--bg);border-radius:8px;padding:12px 14px;font-size:.86rem;color:var(--text2);line-height:1.65}
-.m-elig{background:var(--green-lt);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:12px 14px;font-size:.86rem;color:var(--green-dk);line-height:1.65}
-.m-trust{font-size:.72rem;color:var(--text-m);margin-top:4px;padding-top:12px;border-top:1px solid var(--border)}
-.modal-acts{display:flex;gap:8px;flex-wrap:wrap;padding:0 22px 22px}
-.m-btn{flex:1;min-width:130px;padding:11px 14px;border-radius:10px;font-size:.86rem;font-weight:600;text-align:center;cursor:pointer;transition:all .15s;display:inline-block}
+.m-notes{background:var(--bg);border-radius:8px;padding:11px 13px;font-size:.83rem;color:var(--text2);line-height:1.65}
+.m-elig{background:var(--green-lt);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:11px 13px;font-size:.83rem;color:var(--green-dk);line-height:1.65}
+.m-trust{font-size:.7rem;color:var(--text-m);margin-top:4px;padding-top:10px;border-top:1px solid var(--border)}
+.modal-acts{display:flex;gap:7px;flex-wrap:wrap;padding:0 20px 20px}
+.m-btn{flex:1;min-width:120px;padding:10px 13px;border-radius:9px;font-size:.83rem;font-weight:600;text-align:center;cursor:pointer;transition:all .15s;display:inline-block}
 .m-btn-p{background:var(--green);color:#fff}
 .m-btn-p:hover{background:var(--green-dk)}
 .m-btn-s{background:var(--bg);border:1px solid var(--border);color:var(--text2)}
 .m-btn-s:hover{background:var(--border)}
 
-/* FOOTER */
-footer{background:#1A1512;color:rgba(255,255,255,.7);padding:52px 24px 32px}
+/* FOOTER — 3 cols, compact */
+footer{background:#1A1512;color:rgba(255,255,255,.65);padding:36px 24px 24px}
 .foot-in{max-width:var(--max);margin:0 auto}
-.foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px;margin-bottom:24px}
-.foot-brand-name{font-size:.98rem;font-weight:700;color:#fff;margin-bottom:8px}
-.foot-brand-desc{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.65;max-width:260px}
-.foot-personal{font-size:.78rem;color:rgba(255,255,255,.38);line-height:1.7;max-width:260px;margin-top:10px;font-style:italic}
-.foot-col-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.35);margin-bottom:10px}
-.foot-links{display:flex;flex-direction:column;gap:7px}
-.foot-links a{font-size:.82rem;color:rgba(255,255,255,.6);transition:color .15s}
+.foot-disc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px 14px;font-size:.73rem;color:rgba(255,255,255,.38);line-height:1.6;margin-bottom:20px}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:18px}
+.foot-brand-name{font-size:.95rem;font-weight:700;color:#fff;margin-bottom:7px}
+.foot-brand-desc{font-size:.79rem;color:rgba(255,255,255,.45);line-height:1.65;max-width:240px}
+.foot-personal{font-size:.75rem;color:rgba(255,255,255,.3);line-height:1.65;max-width:240px;margin-top:8px;font-style:italic}
+.foot-col-title{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.3);margin-bottom:9px}
+.foot-links{display:flex;flex-direction:column;gap:6px}
+.foot-links a{font-size:.79rem;color:rgba(255,255,255,.55);transition:color .15s}
 .foot-links a:hover{color:#fff}
-.foot-phone-note{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.8}
-.foot-phone-note strong{color:rgba(255,255,255,.75)}
-.foot-phone-note a{color:rgba(255,255,255,.65);text-decoration:underline;text-underline-offset:2px}
+.foot-links-sep{height:10px}
+.foot-phone-note{font-size:.79rem;color:rgba(255,255,255,.45);line-height:1.8}
+.foot-phone-note strong{color:rgba(255,255,255,.7)}
+.foot-phone-note a{color:rgba(255,255,255,.6);text-decoration:underline;text-underline-offset:2px}
 .foot-phone-note a:hover{color:#fff}
-.foot-disc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:12px 16px;font-size:.76rem;color:rgba(255,255,255,.4);line-height:1.65;margin-bottom:24px}
-.foot-bot{border-top:1px solid rgba(255,255,255,.09);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:.77rem;color:rgba(255,255,255,.3)}
-.foot-bot a{color:rgba(255,255,255,.5);transition:color .15s}
+.foot-bot{border-top:1px solid rgba(255,255,255,.08);padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:.73rem;color:rgba(255,255,255,.28)}
+.foot-bot a{color:rgba(255,255,255,.45);transition:color .15s}
 .foot-bot a:hover{color:#fff}
 
 /* RESPONSIVE */
-@media(max-width:900px){.charts{grid-template-columns:1fr}.foot-top{grid-template-columns:1fr 1fr;gap:24px}}
+@media(max-width:900px){
+  .foot-top{grid-template-columns:1fr 1fr}
+  .action-grid-4{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:768px){
-  section{padding:48px 16px}
-  .hero{padding:52px 16px 44px}
+  section{padding:36px 16px}
+  .hero{padding:44px 16px 36px}
+  .action-sect{padding:16px}
+  .why-strip{padding:16px}
   .nav-links{display:none}
   .nav-mobile-btn{display:flex}
   .org-grid{grid-template-columns:1fr}
-  .hero-stats-line{font-size:.76rem}
-  .big-nums{grid-template-columns:repeat(2,1fr)}
-  .action-grid{grid-template-columns:1fr}
-  .action-sect{padding:20px 16px}
-  .why-card{padding:24px}
-}
-@media(max-width:480px){
-  .foot-top{grid-template-columns:1fr}
-  .big-nums{grid-template-columns:repeat(2,1fr)}
   .res-grid{grid-template-columns:1fr}
-  .hero h1{font-size:1.9rem}
-  .hero-btns{flex-direction:column;align-items:stretch}
-  .hero-btn{justify-content:center}
+}
+@media(max-width:540px){
+  .foot-top{grid-template-columns:1fr}
+  .hero h1{font-size:1.8rem}
+  .why-card-sm{flex-direction:column;gap:10px}
+  .action-grid-4{grid-template-columns:repeat(2,1fr)}
 }
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 </style>
@@ -299,46 +275,51 @@ footer{background:#1A1512;color:rgba(255,255,255,.7);padding:52px 24px 32px}
   <div class="hero-in">
     <div class="hero-tag" aria-hidden="true">Free · No judgment · No shame</div>
     <h1>Find free food in <em>New York City.</em></h1>
-    <div class="hero-action">
-      <p class="hero-action-label">Need food today?</p>
-      <div class="hero-btns" role="group" aria-label="Quick actions">
-        <a class="hero-btn hero-btn-p" href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener" aria-label="Find an open food site — Food Bank For NYC real-time locator, opens in new tab">🗺️ Find an open food site</a>
-        <button class="hero-btn hero-btn-s" onclick="document.getElementById('find').scrollIntoView({behavior:'smooth'})" aria-label="Search this guide">🔍 Search this guide</button>
-        <a class="hero-btn hero-btn-s" href="tel:311" aria-label="Call 311, NYC's 24-hour helpline for food assistance">📞 Call 311</a>
-      </div>
-    </div>
-    <p class="hero-stats-line" aria-label="Site overview"><strong>17</strong> featured organizations &nbsp;·&nbsp; <strong>5</strong> boroughs &nbsp;·&nbsp; <strong>10+</strong> service types &nbsp;·&nbsp; Always free</p>
+    <p class="hero-sub">Food pantries, soup kitchens, community meals, home delivery, and more — across all five boroughs.</p>
+    <p class="hero-tagline">
+      <strong style="color:rgba(255,255,255,.72)">17</strong> featured organizations &nbsp;·&nbsp;
+      <strong style="color:rgba(255,255,255,.72)">5</strong> boroughs &nbsp;·&nbsp;
+      links to <a href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener">800+ official food sites ↗</a>
+    </p>
   </div>
 </section>
 
-<!-- MORE WAYS TO FIND HELP -->
+<!-- NEED FOOD TODAY? — 4-card compact action box -->
 <div class="action-sect" id="today" aria-labelledby="today-title">
   <div class="action-in">
-    <h2 class="action-title" id="today-title">More ways to find help</h2>
-    <p class="action-sub">Filter by what you need, or use an official real-time locator for hundreds more sites across NYC.</p>
-    <div class="action-grid">
-      <button class="action-card" onclick="quickFilter('soup-kitchen')" aria-label="Show soup kitchens and community meals">
+    <div class="action-hdr">
+      <h2 class="action-title" id="today-title">Need food today?</h2>
+      <span class="action-note">Choose what fits — or scroll down to search the directory.</span>
+    </div>
+    <div class="action-grid-4" role="group" aria-label="Quick actions">
+      <button class="action-card" onclick="quickFilter('soup-kitchen')" aria-label="Filter: hot meals — soup kitchens and community meals">
         <span class="action-icon" aria-hidden="true">🍲</span>
-        <span class="action-lbl">Hot meal right now</span>
-        <span class="action-desc">Soup kitchens and community meals — eat on-site, no cooking needed</span>
+        <span class="action-lbl">Hot meal now</span>
+        <span class="action-desc">Soup kitchens and community meals</span>
       </button>
-      <button class="action-card" onclick="quickFilter('food-pantry')" aria-label="Show food pantries and food banks">
+      <button class="action-card" onclick="quickFilter('food-pantry')" aria-label="Filter: groceries — food pantries and mobile pantries">
         <span class="action-icon" aria-hidden="true">🛒</span>
-        <span class="action-lbl">Groceries to take home</span>
-        <span class="action-desc">Food pantries and food banks — bags of groceries to cook at home</span>
+        <span class="action-lbl">Groceries</span>
+        <span class="action-desc">Food pantries and mobile pantries</span>
       </button>
-      <a class="action-card" href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener" aria-label="Food Bank For NYC real-time locator — opens in new tab">
+      <a class="action-card" href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener" aria-label="Current hours — Food Bank For NYC real-time locator, opens in new tab">
         <span class="action-icon" aria-hidden="true">🗺️</span>
-        <span class="action-lbl">Find the nearest open site</span>
-        <span class="action-desc">Food Bank For NYC — official real-time locator for 800+ sites across all boroughs</span>
+        <span class="action-lbl">Current hours</span>
+        <span class="action-desc">Real-time locator — 800+ sites citywide</span>
+      </a>
+      <a class="action-card" href="tel:311" aria-label="Phone help — Call 311, NYC's 24-hour helpline">
+        <span class="action-icon" aria-hidden="true">📞</span>
+        <span class="action-lbl">Phone help</span>
+        <span class="action-desc">Call 311 · Available 24/7</span>
       </a>
     </div>
-    <p class="action-also">
-      Also: <a href="https://www.cityharvest.org/food-map/" target="_blank" rel="noopener">City Harvest Food Map</a> &nbsp;·&nbsp;
-      <a href="https://app.plentifulapp.com/" target="_blank" rel="noopener">Plentiful (book a pantry slot)</a> &nbsp;·&nbsp;
-      <a href="https://finder.nyc.gov/foodhelp/" target="_blank" rel="noopener">NYC Food Help (official locator)</a> &nbsp;·&nbsp;
-      Or call <a href="tel:311" aria-label="Call 311, NYC's 24-hour helpline"><strong>311</strong></a> — available 24/7
-    </p>
+    <div class="locator-row">
+      <span class="locator-label">Official real-time locators:</span>
+      <a class="loc-pill" href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener">Food Bank For NYC ↗</a>
+      <a class="loc-pill" href="https://www.cityharvest.org/food-map/" target="_blank" rel="noopener">City Harvest ↗</a>
+      <a class="loc-pill" href="https://finder.nyc.gov/foodhelp/" target="_blank" rel="noopener">NYC Food Help ↗</a>
+      <a class="loc-pill" href="https://app.plentifulapp.com/" target="_blank" rel="noopener">Plentiful ↗</a>
+    </div>
   </div>
 </div>
 
@@ -347,26 +328,26 @@ footer{background:#1A1512;color:rgba(255,255,255,.7);padding:52px 24px 32px}
   <div class="s-in">
     <div class="s-hdr">
       <div class="s-label">Curated directory</div>
-      <h2 class="s-title" id="find-title">17 featured organizations</h2>
-      <p class="s-sub">A curated guide to major NYC food support organizations. NYC has hundreds more — use the official locators above for real-time coverage of all 800+ sites.</p>
+      <h2 class="s-title" id="find-title">Featured NYC food support organizations</h2>
+      <p class="s-sub">A curated starting point. For real-time hours and hundreds more locations, use the official locators above.</p>
     </div>
 
     <div class="warn-box" role="note">
       <span aria-hidden="true">⚠️</span>
-      <p><strong>Hours change frequently.</strong> Always call ahead or check the organization's website before visiting. Many programs require appointments. If in doubt, call <strong>311</strong> — available 24/7.</p>
+      <p><strong>Hours change frequently.</strong> Call ahead or check each site's website before visiting. When in doubt, call <strong>311</strong> — 24/7.</p>
     </div>
 
     <noscript>
       <div class="noscript-box" role="note">
-        <strong>Having trouble loading the directory?</strong>
-        <p>JavaScript may be disabled or unavailable. Use these official real-time tools to find food near you:</p>
+        <strong>Directory not loading?</strong>
+        <p>JavaScript may be unavailable. Use these official tools instead:</p>
         <ul>
           <li><a href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener">Food Bank For NYC — Find Food (800+ sites)</a></li>
           <li><a href="https://www.cityharvest.org/food-map/" target="_blank" rel="noopener">City Harvest Food Map</a></li>
-          <li><a href="https://finder.nyc.gov/foodhelp/" target="_blank" rel="noopener">NYC Food Help — official city locator</a></li>
+          <li><a href="https://finder.nyc.gov/foodhelp/" target="_blank" rel="noopener">NYC Food Help (official city locator)</a></li>
           <li><a href="https://app.plentifulapp.com/" target="_blank" rel="noopener">Plentiful — book a pantry appointment</a></li>
         </ul>
-        <p>Or call <strong>311</strong> — available 24 hours a day, 7 days a week.</p>
+        <p>Or call <strong>311</strong> — available 24/7.</p>
       </div>
     </noscript>
 
@@ -375,15 +356,15 @@ footer{background:#1A1512;color:rgba(255,255,255,.7);padding:52px 24px 32px}
         <div class="filter-lbl" id="search-lbl">Search</div>
         <div style="flex:1">
           <div class="search-wrap">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            <input id="main-q" type="search" placeholder="Name, neighborhood, service, who it helps…" autocomplete="off" aria-labelledby="search-lbl" aria-label="Search organizations by name, neighborhood, or service">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input id="main-q" type="search" placeholder="Name, neighborhood, or service…" autocomplete="off" aria-labelledby="search-lbl" aria-label="Search organizations">
           </div>
         </div>
       </div>
       <div class="filter-row">
         <div class="filter-lbl" id="boro-lbl">Borough</div>
         <div class="chips" id="boro-chips" role="group" aria-labelledby="boro-lbl">
-          <button class="chip on" data-boro="all" aria-pressed="true">All boroughs</button>
+          <button class="chip on" data-boro="all" aria-pressed="true">All</button>
           <button class="chip" data-boro="manhattan" aria-pressed="false">Manhattan</button>
           <button class="chip" data-boro="brooklyn" aria-pressed="false">Brooklyn</button>
           <button class="chip" data-boro="bronx" aria-pressed="false">Bronx</button>
@@ -394,7 +375,7 @@ footer{background:#1A1512;color:rgba(255,255,255,.7);padding:52px 24px 32px}
       <div class="filter-row">
         <div class="filter-lbl" id="type-lbl">Type</div>
         <div class="chips" id="type-chips" role="group" aria-labelledby="type-lbl">
-          <button class="chip on" data-type="all" aria-pressed="true">All types</button>
+          <button class="chip on" data-type="all" aria-pressed="true">All</button>
           <button class="chip" data-type="food-pantry" aria-pressed="false">Food pantry</button>
           <button class="chip" data-type="soup-kitchen" aria-pressed="false">Soup kitchen</button>
           <button class="chip" data-type="community-meal" aria-pressed="false">Community meal</button>
@@ -410,20 +391,19 @@ footer{background:#1A1512;color:rgba(255,255,255,.7);padding:52px 24px 32px}
 
     <div class="results-meta">
       <span id="results-count" aria-live="polite" aria-atomic="true"></span>
-      <button style="font-size:.8rem;color:var(--green);font-weight:500" onclick="clearFilters()" aria-label="Clear all filters">Clear filters</button>
+      <button style="font-size:.78rem;color:var(--green);font-weight:500" onclick="clearFilters()" aria-label="Clear all filters">Clear filters</button>
     </div>
 
     <div class="org-grid" id="org-grid" aria-live="polite" aria-label="Organization results">
       <div class="org-empty">
         <div class="empty-icon" aria-hidden="true">🌿</div>
         <p>Loading organizations…</p>
-        <p style="margin-top:14px;font-size:.84rem;color:var(--text-m);line-height:1.75">
-          If this directory does not load, use these official tools:<br>
-          <a href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600">Food Bank For NYC Find Food</a> ·
-          <a href="https://www.cityharvest.org/food-map/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600">City Harvest Food Map</a> ·
-          <a href="https://finder.nyc.gov/foodhelp/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600">NYC Food Help</a> ·
-          <a href="https://app.plentifulapp.com/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600">Plentiful</a><br>
-          Or call <strong>311</strong> and ask for emergency food assistance.
+        <p style="margin-top:12px;font-size:.82rem;color:var(--text-m);line-height:1.7">
+          If this doesn't load, use:
+          <a href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600">Food Bank For NYC</a> ·
+          <a href="https://www.cityharvest.org/food-map/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600">City Harvest</a> ·
+          <a href="https://finder.nyc.gov/foodhelp/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600">NYC Food Help</a><br>
+          Or call <strong>311</strong> for emergency food assistance.
         </p>
       </div>
     </div>
@@ -436,7 +416,7 @@ footer{background:#1A1512;color:rgba(255,255,255,.7);padding:52px 24px 32px}
     <div class="s-hdr">
       <div class="s-label">Map</div>
       <h2 class="s-title" id="map-title">Organizations across NYC</h2>
-      <p class="s-sub">Click any pin to see name, address, and contact info. Pins update when you filter the directory above.</p>
+      <p class="s-sub">Click any pin for address and contact info. Updates when you filter the directory.</p>
     </div>
     <div class="map-wrap">
       <div id="lmap" role="region" aria-label="Map of NYC food assistance organizations" tabindex="0"></div>
@@ -449,8 +429,8 @@ footer{background:#1A1512;color:rgba(255,255,255,.7);padding:52px 24px 32px}
   <div class="s-in">
     <div class="s-hdr">
       <div class="s-label">Resource guide</div>
-      <h2 class="s-title" id="learn-title">Understanding your options</h2>
-      <p class="s-sub">Not sure which type of organization is right for you? Here's a plain-language guide, organized by what you need.</p>
+      <h2 class="s-title" id="learn-title">Learn the difference</h2>
+      <p class="s-sub">Not sure what type of organization fits your situation? A plain-language guide by what you need.</p>
     </div>
 
     <div class="intent-group">
@@ -460,14 +440,14 @@ footer{background:#1A1512;color:rgba(255,255,255,.7);padding:52px 24px 32px}
           <span class="res-icon" aria-hidden="true">🍲</span>
           <div class="res-type">Soup Kitchen</div>
           <div class="res-title">A warm meal right now</div>
-          <p class="res-desc">Soup kitchens serve hot meals you eat on-site — usually breakfast, lunch, or dinner. No cooking or kitchen required. Most are open daily with no registration needed.</p>
-          <div class="res-tip">Good if you need to eat something today, no strings attached.</div>
+          <p class="res-desc">Hot meals served on-site — usually breakfast, lunch, or dinner. No cooking or kitchen needed. Most open daily with no registration required.</p>
+          <div class="res-tip">Good if you need to eat today, no strings attached.</div>
         </div>
         <div class="res-card">
           <span class="res-icon" aria-hidden="true">🏘️</span>
           <div class="res-type">Community Meal</div>
           <div class="res-title">Neighborhood-run meals</div>
-          <p class="res-desc">Community meals are often hosted by churches, community centers, or neighborhood groups. They serve hot food on-site, usually on specific days. Welcoming to everyone — no ID or proof of need required.</p>
+          <p class="res-desc">Hot food served on-site by churches, community centers, or neighborhood groups — usually on specific days. No ID or proof of need required.</p>
           <div class="res-tip">Good if you want a community atmosphere alongside a meal.</div>
         </div>
       </div>
@@ -480,15 +460,15 @@ footer{background:#1A1512;color:rgba(255,255,255,.7);padding:52px 24px 32px}
           <span class="res-icon" aria-hidden="true">🛒</span>
           <div class="res-type">Food Pantry</div>
           <div class="res-title">Take groceries home</div>
-          <p class="res-desc">A food pantry gives you bags or boxes of groceries to take home and cook yourself. Many use a "client-choice" model — you shop like in a store, choosing foods your family will actually eat.</p>
-          <div class="res-tip">Good if you have a kitchen and want to cook for your family.</div>
+          <p class="res-desc">Bags or boxes of groceries to take home and cook. Many use a "client-choice" model — you pick what your family will actually eat.</p>
+          <div class="res-tip">Good if you have a kitchen and want to cook for your household.</div>
         </div>
         <div class="res-card">
           <span class="res-icon" aria-hidden="true">🚚</span>
           <div class="res-type">Mobile Pantry</div>
           <div class="res-title">Food comes to your neighborhood</div>
-          <p class="res-desc">Mobile food trucks or pop-up markets bring food directly to neighborhoods. No need to travel far. Locations and times rotate — check the organization's website for the current schedule.</p>
-          <div class="res-tip">Good if there isn't a pantry near you, or you can't travel easily.</div>
+          <p class="res-desc">Food trucks or pop-up markets bring groceries directly to neighborhoods. Schedules and locations rotate — check each org's website.</p>
+          <div class="res-tip">Good if you can't travel far, or there's no pantry nearby.</div>
         </div>
       </div>
     </div>
@@ -500,14 +480,14 @@ footer{background:#1A1512;color:rgba(255,255,255,.7);padding:52px 24px 32px}
           <span class="res-icon" aria-hidden="true">🏠</span>
           <div class="res-type">Home Delivery</div>
           <div class="res-title">Food delivered to your door</div>
-          <p class="res-desc">Home delivery programs bring food directly to you if you're unable to leave due to illness, disability, or age. Usually requires a brief phone call to apply and confirm eligibility.</p>
+          <p class="res-desc">Food brought directly to you if you can't leave due to illness, disability, or age. Requires a brief call to confirm eligibility.</p>
           <div class="res-tip">Good for people with serious illness, disability, or mobility challenges.</div>
         </div>
         <div class="res-card">
           <span class="res-icon" aria-hidden="true">👵</span>
           <div class="res-type">Senior Meals</div>
-          <div class="res-title">For older adults</div>
-          <p class="res-desc">Many programs specifically serve adults 60 and older, either at community centers (congregate meals) or delivered at home. Often paired with social activities and benefits counseling.</p>
+          <div class="res-title">For adults 60 and older</div>
+          <p class="res-desc">Congregate meals at community centers, or home delivery. Often paired with social activities and benefits counseling.</p>
           <div class="res-tip">Good for adults 60+ who want meals and community connection.</div>
         </div>
       </div>
@@ -519,15 +499,15 @@ footer{background:#1A1512;color:rgba(255,255,255,.7);padding:52px 24px 32px}
         <div class="res-card">
           <span class="res-icon" aria-hidden="true">♻️</span>
           <div class="res-type">Food Rescue</div>
-          <div class="res-title">Rescuing surplus from restaurants and farms</div>
-          <p class="res-desc">Food rescue organizations collect surplus food from restaurants, grocery stores, and farms that would otherwise go to waste. They redistribute it through partner pantries, shelters, community fridges, and meal programs.</p>
-          <div class="res-tip">Good to know: food rescue groups often provide food through partner pantries, shelters, and community fridges. They may not always be direct walk-in sites.</div>
+          <div class="res-title">Redistributing surplus food</div>
+          <p class="res-desc">Food rescue groups collect surplus from restaurants, stores, and farms and redistribute it through partner pantries, shelters, community fridges, and meal programs.</p>
+          <div class="res-tip">Good to know: food rescue groups often supply partners — they may not always be direct walk-in sites.</div>
         </div>
-        <div class="res-card" style="display:flex;flex-direction:column">
+        <div class="res-card">
           <span class="res-icon" aria-hidden="true">🤝</span>
           <div class="res-type">Volunteer opportunities</div>
           <div class="res-title">How you can help</div>
-          <p class="res-desc">NYC's food organizations need volunteers for sorting, packing, serving meals, food rescue pickups, and delivery support. Many welcome first-timers with no experience needed.</p>
+          <p class="res-desc">NYC food organizations need volunteers for sorting, serving, food rescue pickups, and delivery support. Many welcome first-timers with no experience needed.</p>
           <div class="res-tip"><a href="volunteer.html" style="color:var(--green);font-weight:700">View volunteer opportunities →</a></div>
         </div>
       </div>
@@ -535,71 +515,41 @@ footer{background:#1A1512;color:rgba(255,255,255,.7);padding:52px 24px 32px}
   </div>
 </section>
 
-<!-- STATS -->
-<section class="stats-sect" aria-labelledby="stats-title">
+<!-- WHY I BUILT THIS — compact strip -->
+<div class="why-strip">
   <div class="s-in">
-    <div class="s-hdr">
-      <div class="s-label">At a glance</div>
-      <h2 class="s-title" id="stats-title">This directory at a glance</h2>
-      <p class="s-sub">A curated starting point — not a complete list. NYC has 800+ food assistance sites total.</p>
-      <p class="stats-note">* Full real-time coverage: <a href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener" style="color:var(--green)">Food Bank For NYC</a>, <a href="https://www.cityharvest.org/food-map/" target="_blank" rel="noopener" style="color:var(--green)">City Harvest</a>, and <a href="https://finder.nyc.gov/foodhelp/" target="_blank" rel="noopener" style="color:var(--green)">NYC Food Help</a>.</p>
-    </div>
-    <div class="big-nums" aria-label="Summary statistics">
-      <div class="big-num"><div class="big-n">17</div><div class="big-l">Curated organizations</div></div>
-      <div class="big-num"><div class="big-n">5</div><div class="big-l">Boroughs covered</div></div>
-      <div class="big-num"><div class="big-n">10+</div><div class="big-l">Types of support</div></div>
-      <div class="big-num"><div class="big-n">$0</div><div class="big-l">Cost to you</div></div>
-    </div>
-    <div class="charts">
-      <div class="chart-card">
-        <div class="chart-title">By borough</div>
-        <div class="chart-desc" id="boro-summary"></div>
-        <div id="boro-chart" role="list" aria-label="Organizations by borough"></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-title">By service type</div>
-        <div class="chart-desc" id="type-summary"></div>
-        <div id="type-chart" role="list" aria-label="Organizations by service type"></div>
+    <div class="why-card-sm">
+      <span class="why-ico" aria-hidden="true">🌿</span>
+      <div>
+        <div class="why-label">Why I built this</div>
+        <p class="why-body">I started this after volunteering with food access organizations across NYC — soup vans, food rescue programs, pantries, and neighborhood groups. I kept seeing how much support exists, but how hard it can be to understand where to go and what to expect. This is a plain-language starting point, not a replacement for the official real-time tools.</p>
       </div>
     </div>
   </div>
-</section>
-
-<!-- WHY I BUILT THIS -->
-<section class="why-sect" aria-labelledby="why-title">
-  <div class="s-in">
-    <div class="s-label">About this project</div>
-    <h2 class="s-title" id="why-title">Why I built this</h2>
-    <div class="why-card">
-      <div class="why-q">From real experience, not just code.</div>
-      <p class="why-body">I started this project after volunteering with food access organizations across NYC — soup vans, food rescue programs, pantries, and neighborhood organizations. I kept seeing how much support exists, but also how hard it can be to understand where to go, what each service means, and what to expect when you walk in the door.<br><br>NYC Food Help Map is my attempt to make that information easier to navigate. Not a replacement for the official tools — those cover 800+ sites and update in real time — but a plain-language starting point, with context about what each type of organization actually does and who it serves.</p>
-    </div>
-  </div>
-</section>
+</div>
 
 <!-- FOOTER -->
 <footer>
   <div class="foot-in">
     <div class="foot-disc" role="note">
-      ⚠️ <strong style="color:rgba(255,255,255,.6)">Important:</strong> Hours and eligibility requirements change frequently. Always call ahead or visit the organization's website before going in person. This is a curated guide, not a real-time database. For the most current listings, use the <a href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6)">Food Bank For NYC locator</a>, <a href="https://www.cityharvest.org/food-map/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6)">City Harvest Food Map</a>, or call 311.
+      ⚠️ <strong style="color:rgba(255,255,255,.55)">Hours change frequently.</strong> Always call ahead before visiting. This is a curated guide — for real-time listings use <a href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.55)">Food Bank For NYC</a> or <a href="https://www.cityharvest.org/food-map/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.55)">City Harvest</a>, or call 311.
     </div>
     <div class="foot-top">
       <div>
         <div class="foot-brand-name">🌿 NYC Food Help Map</div>
-        <p class="foot-brand-desc">A curated, beginner-friendly guide to major NYC food support organizations, with links to official real-time locators. No judgment. No barriers. Just help.</p>
-        <p class="foot-personal">This project was inspired by volunteering with food access organizations across NYC — soup vans, food rescue, pantries, and neighborhood programs. Built to make it easier for New Yorkers to find help, and for volunteers to understand where they can contribute.</p>
+        <p class="foot-brand-desc">A plain-language guide to major NYC food support organizations. No judgment. No barriers. Just help.</p>
+        <p class="foot-personal">Inspired by volunteering with NYC food access organizations — soup vans, food rescue, pantries, and neighborhood programs.</p>
       </div>
       <div>
         <div class="foot-col-title">On this site</div>
         <div class="foot-links">
-          <a href="#today">More ways to find help</a>
+          <a href="#today">Need food today?</a>
           <a href="#find">Search directory</a>
           <a href="#map">View map</a>
-          <a href="#learn">Resource guide</a>
+          <a href="#learn">Learn the difference</a>
           <a href="volunteer.html">Volunteer</a>
         </div>
-      </div>
-      <div>
+        <div class="foot-links-sep"></div>
         <div class="foot-col-title">Official locators</div>
         <div class="foot-links">
           <a href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener">Food Bank For NYC — Find Food</a>
@@ -641,16 +591,16 @@ footer{background:#1A1512;color:rgba(255,255,255,.7);padding:52px 24px 32px}
 'use strict';
 
 const TC = {
-  'food-pantry':    { label:'Food Pantry',     color:'#1B5E3B', map:'#2D6A4F' },
-  'soup-kitchen':   { label:'Soup Kitchen',    color:'#9A3A0A', map:'#D97706' },
-  'community-meal': { label:'Community Meal',  color:'#3730A3', map:'#4F46E5' },
-  'food-rescue':    { label:'Food Rescue',     color:'#5B21B6', map:'#7C3AED' },
-  'home-delivery':  { label:'Home Delivery',   color:'#0369A1', map:'#0284C7' },
-  'senior-meals':   { label:'Senior Meals',    color:'#854D0E', map:'#B45309' },
-  'shelter-meals':  { label:'Shelter Meals',   color:'#374151', map:'#6B7280' },
-  'mobile-pantry':  { label:'Mobile Pantry',   color:'#9D174D', map:'#BE185D' },
-  'snap-help':      { label:'SNAP Help',       color:'#065F46', map:'#059669' },
-  'food-bank':      { label:'Food Bank',       color:'#78350F', map:'#A16207' },
+  'food-pantry':    { label:'Food Pantry',    color:'#1B5E3B', map:'#2D6A4F' },
+  'soup-kitchen':   { label:'Soup Kitchen',   color:'#9A3A0A', map:'#D97706' },
+  'community-meal': { label:'Community Meal', color:'#3730A3', map:'#4F46E5' },
+  'food-rescue':    { label:'Food Rescue',    color:'#5B21B6', map:'#7C3AED' },
+  'home-delivery':  { label:'Home Delivery',  color:'#0369A1', map:'#0284C7' },
+  'senior-meals':   { label:'Senior Meals',   color:'#854D0E', map:'#B45309' },
+  'shelter-meals':  { label:'Shelter Meals',  color:'#374151', map:'#6B7280' },
+  'mobile-pantry':  { label:'Mobile Pantry',  color:'#9D174D', map:'#BE185D' },
+  'snap-help':      { label:'SNAP Help',      color:'#065F46', map:'#059669' },
+  'food-bank':      { label:'Food Bank',      color:'#78350F', map:'#A16207' },
 };
 const tLabel = t => TC[t]?.label || t;
 const tMap   = t => TC[t]?.map   || '#2D6A4F';
@@ -694,11 +644,9 @@ function cardHTML(o) {
 <article class="org-card" onclick="openModal(${o.id})" role="button" tabindex="0"
   aria-label="${o.name} — ${boroLbl}${o.borough !== 'citywide' ? ', ' + o.neighborhood : ''}. ${o.types.map(tLabel).join(', ')}."
   onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal(${o.id})}">
-  <div class="card-hdr">
-    <div>
-      <div class="card-name">${o.name}</div>
-      <div class="card-boro">${boroLbl}${o.borough !== 'citywide' ? ' · ' + o.neighborhood : ''}</div>
-    </div>
+  <div>
+    <div class="card-name">${o.name}</div>
+    <div class="card-boro">${boroLbl}${o.borough !== 'citywide' ? ' · ' + o.neighborhood : ''}</div>
   </div>
   <div class="card-badges">${badges}${feat}</div>
   ${quickBadges(o)}
@@ -710,7 +658,7 @@ function cardHTML(o) {
   <div class="svc-list" aria-label="Services">${svcs}</div>
   <div class="trust-line">Source: <a href="${o.sourceUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${o.website}</a> · Last verified ${o.lastUpdated} · Call before visiting</div>
   <div class="card-actions">
-    <a class="card-btn btn-p" href="${o.websiteUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()" aria-label="Visit ${o.name} website (opens in new tab)">Visit website</a>
+    <a class="card-btn btn-p" href="${o.websiteUrl}" target="_blank" rel="noopener" onclick="event.stopPropagation()" aria-label="Visit ${o.name} website">Visit website</a>
     <button class="card-btn btn-s" onclick="event.stopPropagation();openModal(${o.id})" aria-label="More info about ${o.name}">More info</button>
   </div>
 </article>`;
@@ -720,7 +668,7 @@ function renderCards() {
   const grid  = document.getElementById('org-grid');
   const count = document.getElementById('results-count');
   if (!filtered.length) {
-    grid.innerHTML = `<div class="org-empty"><div class="empty-icon" aria-hidden="true">🔍</div><p>No organizations match your filters. Try broadening your search, or use the <a href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener" style="color:var(--green)">Food Bank For NYC locator</a>.</p></div>`;
+    grid.innerHTML = `<div class="org-empty"><div class="empty-icon" aria-hidden="true">🔍</div><p>No results. Try broadening your search, or use the <a href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener" style="color:var(--green)">Food Bank For NYC locator</a>.</p></div>`;
     count.textContent = '0 results';
     return;
   }
@@ -775,32 +723,19 @@ function clearFilters() {
 
 document.querySelectorAll('[data-boro]').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('[data-boro]').forEach(b => {
-      b.classList.remove('on');
-      b.setAttribute('aria-pressed', 'false');
-    });
-    btn.classList.add('on');
-    btn.setAttribute('aria-pressed', 'true');
-    boro = btn.dataset.boro;
-    applyFilters();
+    document.querySelectorAll('[data-boro]').forEach(b => { b.classList.remove('on'); b.setAttribute('aria-pressed','false'); });
+    btn.classList.add('on'); btn.setAttribute('aria-pressed','true');
+    boro = btn.dataset.boro; applyFilters();
   });
 });
 document.querySelectorAll('[data-type]').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('[data-type]').forEach(b => {
-      b.classList.remove('on');
-      b.setAttribute('aria-pressed', 'false');
-    });
-    btn.classList.add('on');
-    btn.setAttribute('aria-pressed', 'true');
-    type = btn.dataset.type;
-    applyFilters();
+    document.querySelectorAll('[data-type]').forEach(b => { b.classList.remove('on'); b.setAttribute('aria-pressed','false'); });
+    btn.classList.add('on'); btn.setAttribute('aria-pressed','true');
+    type = btn.dataset.type; applyFilters();
   });
 });
-document.getElementById('main-q').addEventListener('input', e => {
-  q = e.target.value;
-  applyFilters();
-});
+document.getElementById('main-q').addEventListener('input', e => { q = e.target.value; applyFilters(); });
 
 function openModal(id) {
   const o = orgs.find(x => x.id === id);
@@ -813,7 +748,7 @@ function openModal(id) {
   document.getElementById('modal-body').innerHTML = `
     <div class="m-sect">${typeBadges}${o.featured ? ' <span class="badge badge-featured">★ Featured</span>' : ''}</div>
     ${quickBadges(o)}
-    <div class="m-sect" style="margin-top:14px">
+    <div class="m-sect" style="margin-top:12px">
       <div class="m-sect-title">Location</div>
       <div class="m-row"><span class="m-icon" aria-hidden="true">📍</span><div class="m-text">${o.address}<br><em>${o.neighborhood}${o.borough !== 'citywide' ? ', ' + cap(o.borough) : ''}</em></div></div>
     </div>
@@ -827,12 +762,12 @@ function openModal(id) {
       <div class="m-row"><span class="m-icon" aria-hidden="true">🌐</span><div class="m-text"><a href="${o.websiteUrl}" target="_blank" rel="noopener">${o.website}</a></div></div>
     </div>
     <div class="m-sect">
-      <div class="m-sect-title">Services offered</div>
-      <div class="svc-list" style="gap:5px">${svcs}</div>
+      <div class="m-sect-title">Services</div>
+      <div class="svc-list" style="gap:4px">${svcs}</div>
     </div>
     <div class="m-sect">
       <div class="m-sect-title">Good for</div>
-      <div class="gf-list" style="gap:5px">${gfs}</div>
+      <div class="gf-list" style="gap:4px">${gfs}</div>
     </div>
     <div class="m-sect">
       <div class="m-sect-title">Eligibility</div>
@@ -845,12 +780,12 @@ function openModal(id) {
     <div class="m-trust">
       Source: <a href="${o.sourceUrl}" target="_blank" rel="noopener">${o.website}</a> &nbsp;·&nbsp;
       Last verified: ${o.lastUpdated} &nbsp;·&nbsp;
-      <strong>Call or check website before visiting — hours change.</strong>
+      <strong>Call before visiting — hours change.</strong>
     </div>`;
   document.getElementById('modal-acts').innerHTML = `
-    <a class="m-btn m-btn-p" href="${o.websiteUrl}" target="_blank" rel="noopener" aria-label="Visit ${o.name} official website (opens in new tab)">Visit website</a>
-    ${o.phone ? `<a class="m-btn m-btn-s" href="tel:${o.phone.replace(/\D/g,'')}" aria-label="Call ${o.name} at ${o.phone}">📞 ${o.phone}</a>` : ''}
-    ${o.volunteerUrl ? `<a class="m-btn m-btn-s" href="${o.volunteerUrl}" target="_blank" rel="noopener" aria-label="Volunteer with ${o.name} (opens in new tab)">🤝 Volunteer</a>` : ''}`;
+    <a class="m-btn m-btn-p" href="${o.websiteUrl}" target="_blank" rel="noopener" aria-label="Visit ${o.name} website">Visit website</a>
+    ${o.phone ? `<a class="m-btn m-btn-s" href="tel:${o.phone.replace(/\D/g,'')}" aria-label="Call ${o.name}">📞 ${o.phone}</a>` : ''}
+    ${o.volunteerUrl ? `<a class="m-btn m-btn-s" href="${o.volunteerUrl}" target="_blank" rel="noopener" aria-label="Volunteer with ${o.name}">🤝 Volunteer</a>` : ''}`;
   const overlay = document.getElementById('overlay');
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -861,9 +796,7 @@ function closeModal() {
   document.getElementById('overlay').classList.remove('open');
   document.body.style.overflow = '';
 }
-document.getElementById('overlay').addEventListener('click', e => {
-  if (e.target === document.getElementById('overlay')) closeModal();
-});
+document.getElementById('overlay').addEventListener('click', e => { if (e.target === document.getElementById('overlay')) closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
 function initMap() {
@@ -883,53 +816,23 @@ function refreshMapMarkers() {
     const color = tMap(o.types[0]);
     const icon  = L.divIcon({
       className: '',
-      html: `<div style="background:${color};width:14px;height:14px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.35)" role="img" aria-label="${o.name}"></div>`,
-      iconSize: [14,14], iconAnchor: [7,7]
+      html: `<div style="background:${color};width:13px;height:13px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.35)" role="img" aria-label="${o.name}"></div>`,
+      iconSize: [13,13], iconAnchor: [6,6]
     });
     const typeLine = o.types.map(t =>
       `<span style="display:inline-block;font-size:10px;font-weight:600;padding:2px 6px;border-radius:10px;background:${color}22;color:${color};margin:1px">${tLabel(t)}</span>`
     ).join('');
     const popup = `<div class="map-pop">
       <div class="map-pop-name">${o.name}</div>
-      <div style="margin-bottom:6px">${typeLine}</div>
+      <div style="margin-bottom:5px">${typeLine}</div>
       <div class="map-pop-addr">📍 ${o.address}</div>
       ${o.phone ? `<div class="map-pop-phone">📞 <a href="tel:${o.phone.replace(/\D/g,'')}" style="color:#2D6A4F">${o.phone}</a></div>` : ''}
       <a href="${o.websiteUrl}" target="_blank" rel="noopener" class="map-pop-link">Visit website →</a>
     </div>`;
     const m = L.marker([o.lat, o.lng], { icon, title: o.name, alt: o.name })
-      .addTo(lmap)
-      .bindPopup(popup, { maxWidth: 280, closeButton: false });
+      .addTo(lmap).bindPopup(popup, { maxWidth: 260, closeButton: false });
     mapMarkers.push(m);
   });
-}
-
-function renderStats() {
-  const boroCounts = {}, typeCounts = {};
-  const boroLabels = { manhattan:'Manhattan', brooklyn:'Brooklyn', bronx:'Bronx', queens:'Queens', citywide:'Citywide' };
-  orgs.forEach(o => {
-    boroCounts[o.borough] = (boroCounts[o.borough] || 0) + 1;
-    o.types.forEach(t => { typeCounts[t] = (typeCounts[t] || 0) + 1; });
-  });
-  const maxB = Math.max(...Object.values(boroCounts));
-  const maxT = Math.max(...Object.values(typeCounts));
-  const boroOrder = ['manhattan','brooklyn','bronx','queens','citywide'].filter(b => boroCounts[b]);
-  document.getElementById('boro-summary').textContent =
-    boroOrder.map(b => `${boroLabels[b]}: ${boroCounts[b]}`).join(', ');
-  document.getElementById('boro-chart').innerHTML = boroOrder.map(b => `
-    <div class="stat-row" role="listitem">
-      <span class="stat-lbl">${boroLabels[b]}</span>
-      <div class="stat-bar-w" aria-hidden="true"><div class="stat-bar-f" style="width:${(boroCounts[b]/maxB)*100}%"></div></div>
-      <span class="stat-ct" aria-label="${boroCounts[b]} organizations">${boroCounts[b]}</span>
-    </div>`).join('');
-  const typeOrder = Object.keys(TC).filter(t => typeCounts[t]);
-  document.getElementById('type-summary').textContent =
-    typeOrder.map(t => `${tLabel(t)}: ${typeCounts[t]}`).join(', ');
-  document.getElementById('type-chart').innerHTML = typeOrder.map(t => `
-    <div class="stat-row" role="listitem">
-      <span class="stat-lbl" style="font-size:.76rem">${tLabel(t)}</span>
-      <div class="stat-bar-w" aria-hidden="true"><div class="stat-bar-f" style="width:${(typeCounts[t]/maxT)*100}%;background:${TC[t].map}"></div></div>
-      <span class="stat-ct" aria-label="${typeCounts[t]} organizations">${typeCounts[t]}</span>
-    </div>`).join('');
 }
 
 function cap(s) {
@@ -943,19 +846,18 @@ async function init() {
     orgs = await res.json();
     filtered = [...orgs];
     renderCards();
-    renderStats();
     initMap();
   } catch(e) {
     document.getElementById('org-grid').innerHTML = `
       <div class="org-empty">
         <div class="empty-icon" aria-hidden="true">⚠️</div>
-        <p style="margin-bottom:14px">Could not load the directory. Please refresh, or use these official tools:</p>
-        <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start">
+        <p style="margin-bottom:12px">Could not load the directory. Use these official tools:</p>
+        <div style="display:flex;flex-direction:column;gap:7px;align-items:flex-start">
           <a href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600">Food Bank For NYC — Find Food →</a>
           <a href="https://www.cityharvest.org/food-map/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600">City Harvest Food Map →</a>
-          <a href="https://finder.nyc.gov/foodhelp/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600">NYC Food Help (official) →</a>
+          <a href="https://finder.nyc.gov/foodhelp/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600">NYC Food Help →</a>
         </div>
-        <p style="margin-top:14px;font-size:.85rem">Or call <strong>311</strong> — available 24/7.</p>
+        <p style="margin-top:12px;font-size:.85rem">Or call <strong>311</strong> — 24/7.</p>
       </div>`;
     document.getElementById('results-count').textContent = '';
   }
