@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NYC Food Help Map — Find Free Food in New York City</title>
-<meta name="description" content="A plain-language guide to free food support in New York City — food pantries, soup kitchens, community meals, and official real-time locators.">
+<title>NYC Food Help Map: Find Free Food in New York City</title>
+<meta name="description" content="A plain-language guide to free food support in New York City, food pantries, soup kitchens, community meals, and official real-time locators.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -19,7 +19,7 @@ html{scroll-behavior:smooth}
   --border:#E7E2DA;
   --r:12px;--r-lg:20px;
   --sh:0 2px 8px rgba(0,0,0,.08);--sh-md:0 4px 16px rgba(0,0,0,.1);--sh-lg:0 8px 28px rgba(0,0,0,.14);
-  --font:'Inter',system-ui,sans-serif;--max:900px
+  --font:'Inter',system-ui,sans-serif
 }
 body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;font-size:16px;min-height:100vh;display:flex;flex-direction:column}
 a{color:inherit;text-decoration:none}
@@ -27,12 +27,13 @@ button{cursor:pointer;font-family:inherit;border:none;background:none}
 :focus-visible{outline:3px solid var(--green);outline-offset:2px;border-radius:4px}
 .link-btn{color:var(--green);font-weight:600;font-size:inherit;background:none;border:none;cursor:pointer;padding:0;font-family:inherit}
 .link-btn:hover{text-decoration:underline}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
 
 /* ===== NAV ===== */
 .nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
-.nav-in{max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:16px;height:56px}
+.nav-in{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:16px;height:56px}
 .nav-logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:.95rem;color:var(--green);white-space:nowrap;flex-shrink:0;cursor:pointer;background:none;border:none;font-family:var(--font);padding:0}
-.logo-icon{width:28px;height:28px;background:var(--green);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.logo-icon{width:28px;height:28px;background:var(--green);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .nav-tabs{display:flex;align-items:center;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .nav-tabs::-webkit-scrollbar{display:none}
 .nav-tab{padding:5px 12px;border-radius:6px;font-size:.84rem;font-weight:500;color:var(--text2);cursor:pointer;white-space:nowrap;transition:background .15s,color .15s;background:none;border:none;font-family:var(--font)}
@@ -45,48 +46,48 @@ a.nav-tab{text-decoration:none}
 .tab-panel[hidden]{display:none}
 
 /* ===== HERO (home only) ===== */
-.hero{background:linear-gradient(135deg,#1B4D38 0%,#2D6A4F 55%,#40916C 100%);padding:44px 24px 36px;text-align:center;position:relative;overflow:hidden}
+.hero{background:linear-gradient(135deg,#1B4D38 0%,#2D6A4F 55%,#40916C 100%);padding:72px 24px 64px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;opacity:.04;background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:28px 28px}
-.hero-in{max-width:540px;margin:0 auto;position:relative}
+.hero-in{max-width:560px;margin:0 auto;position:relative}
 .hero-tag{display:inline-block;background:rgba(255,255,255,.13);color:rgba(255,255,255,.88);border:1px solid rgba(255,255,255,.2);border-radius:20px;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 13px;margin-bottom:16px}
 .hero h1{font-size:clamp(1.75rem,4vw,2.8rem);font-weight:700;color:#fff;line-height:1.13;margin-bottom:10px}
 .hero h1 em{color:#A7F3D0;font-style:normal}
 .hero-sub{font-size:.92rem;color:rgba(255,255,255,.68);line-height:1.6}
 
 /* ===== HOME: NEED FOOD TODAY ===== */
-.ht-wrap{background:#fff;padding:24px;border-bottom:2px solid var(--border)}
-.ht-in{max-width:var(--max);margin:0 auto}
-.ht-title{font-size:1.1rem;font-weight:700;margin-bottom:4px}
+.ht-wrap{background:#fff;padding:28px 0;border-bottom:2px solid var(--border)}
+.ht-in{max-width:1120px;margin:0 auto;padding:0 24px}
+.ht-title{font-size:1.05rem;font-weight:700;margin-bottom:4px}
 .ht-sub{font-size:.84rem;color:var(--text-m);margin-bottom:16px}
-.ht-btns{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-bottom:12px}
-.ht-btn{display:flex;flex-direction:column;gap:3px;padding:14px 16px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r);transition:all .15s;text-decoration:none;color:var(--text)}
+.ht-btns{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:12px;align-items:stretch}
+.ht-btn{display:flex;flex-direction:column;gap:3px;padding:14px 16px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--r);transition:all .15s;text-decoration:none;color:var(--text);height:100%}
 .ht-btn:hover{border-color:var(--green);background:var(--green-lt)}
 .ht-btn-name{font-size:.9rem;font-weight:700}
 .ht-btn-note{font-size:.74rem;color:var(--text-m);line-height:1.4}
 .ht-disc{font-size:.78rem;color:var(--text-m);line-height:1.6}
 
 /* ===== HOME: NAV CARDS ===== */
-.hn-wrap{background:var(--bg);padding:20px 24px;border-bottom:1px solid var(--border)}
-.hn-eyebrow{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-m);margin-bottom:10px}
-.hn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:12px}
-.hn-card{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:14px 15px;background:#fff;border:1.5px solid var(--border);border-radius:var(--r);cursor:pointer;transition:all .15s;text-align:left;font-family:var(--font)}
+.hn-wrap{background:var(--bg);padding:20px 0;border-bottom:1px solid var(--border)}
+.hn-eyebrow{font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-m);margin-bottom:10px}
+.hn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px;align-items:stretch}
+.hn-card{display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:12px 13px;background:rgba(255,255,255,.75);border:1px solid var(--border);border-radius:var(--r);cursor:pointer;transition:all .15s;text-align:left;font-family:var(--font);height:100%}
 .hn-card:hover{border-color:var(--green);background:var(--green-lt)}
-.hn-icon{font-size:1.3rem;margin-bottom:3px}
-.hn-title{font-size:.88rem;font-weight:700;color:var(--text)}
-.hn-desc{font-size:.73rem;color:var(--text-m);line-height:1.45}
-.hn-disc{font-size:.75rem;color:var(--text-m);line-height:1.6}
+.hn-icon{display:flex;margin-bottom:5px;color:var(--green)}
+.hn-title{font-size:.84rem;font-weight:700;color:var(--text)}
+.hn-desc{font-size:.72rem;color:var(--text-m);line-height:1.45}
+.hn-disc{font-size:.74rem;color:var(--text-m);line-height:1.6}
 
 /* ===== SHARED PANEL LAYOUT ===== */
-.panel-body{max-width:var(--max);margin:0 auto;padding:32px 24px}
+.panel-body{max-width:1120px;margin:0 auto;padding:44px 24px}
 .panel-hdr{margin-bottom:24px}
 .s-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
 .s-title{font-size:clamp(1.25rem,3vw,1.75rem);font-weight:700;line-height:1.2}
-.s-sub{margin-top:6px;font-size:.88rem;color:var(--text-m);max-width:540px}
+.s-sub{margin-top:6px;font-size:.88rem;color:var(--text-m);max-width:560px}
 
 /* ===== GET HELP PANEL ===== */
 .gh-items{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
 .gh-item{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;background:#fff;border:1px solid var(--border);border-radius:var(--r)}
-.gh-ico{font-size:1.5rem;flex-shrink:0;margin-top:2px;line-height:1}
+.gh-ico{flex-shrink:0;margin-top:2px;color:var(--green)}
 .gh-head{font-size:.92rem;font-weight:700;margin-bottom:5px}
 .gh-body{font-size:.84rem;color:var(--text2);line-height:1.6;margin-bottom:8px}
 .gh-body a{color:var(--green);font-weight:500}
@@ -182,7 +183,7 @@ a.nav-tab{text-decoration:none}
 /* ===== LEARN PANEL ===== */
 .res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
 .res-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:16px 18px}
-.res-icon{font-size:1.3rem;margin-bottom:5px;display:block}
+.res-icon{display:flex;margin-bottom:8px;color:var(--green)}
 .res-type{font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
 .res-title{font-size:.88rem;font-weight:700;margin-bottom:5px}
 .res-desc{font-size:.81rem;color:var(--text2);line-height:1.6}
@@ -219,34 +220,32 @@ a.nav-tab{text-decoration:none}
 .m-btn-s:hover{background:var(--border)}
 
 /* ===== FOOTER ===== */
-footer{background:#1A1512;color:rgba(255,255,255,.6);padding:28px 24px 20px;margin-top:auto}
-.foot-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;margin-bottom:16px}
-.foot-brand-name{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:6px}
-.foot-brand-desc{font-size:.76rem;color:rgba(255,255,255,.4);line-height:1.65;max-width:220px}
-.foot-col-title{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.28);margin-bottom:8px}
-.foot-links{display:flex;flex-direction:column;gap:5px}
-.foot-links a{font-size:.76rem;color:rgba(255,255,255,.5);transition:color .15s}
-.foot-links a:hover{color:#fff}
-.foot-links-sep{height:10px}
-.foot-phone-note{font-size:.76rem;color:rgba(255,255,255,.42);line-height:1.8}
-.foot-phone-note strong{color:rgba(255,255,255,.65)}
-.foot-phone-note a{color:rgba(255,255,255,.55);text-decoration:underline;text-underline-offset:2px}
-.foot-phone-note a:hover{color:#fff}
-.foot-bot{max-width:1100px;margin:0 auto;border-top:1px solid rgba(255,255,255,.07);padding-top:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:7px;font-size:.7rem;color:rgba(255,255,255,.25)}
-.foot-bot a{color:rgba(255,255,255,.4);transition:color .15s}
+footer{background:#1A1512;color:rgba(255,255,255,.55);padding:22px 0 0;margin-top:auto}
+.foot-in{max-width:1120px;margin:0 auto;padding:0 24px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.foot-brand{font-size:.84rem;font-weight:700;color:#fff}
+.foot-nav{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.foot-nav-item{font-size:.76rem;color:rgba(255,255,255,.48);background:none;border:none;cursor:pointer;font-family:var(--font);padding:0;transition:color .15s;text-decoration:none}
+.foot-nav-item:hover{color:#fff}
+.foot-phone{font-size:.76rem;color:rgba(255,255,255,.4);white-space:nowrap}
+.foot-phone strong{color:rgba(255,255,255,.65)}
+.foot-bot{max-width:1120px;margin:0 auto;padding:12px 24px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;font-size:.7rem;color:rgba(255,255,255,.25)}
+.foot-bot a{color:rgba(255,255,255,.38);transition:color .15s}
 .foot-bot a:hover{color:#fff}
 
 /* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .hn-grid{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:680px){
-  .ht-btns,.hn-grid{grid-template-columns:repeat(2,1fr)}
-  .foot-in{grid-template-columns:1fr}
-  .panel-body{padding:24px 16px}
-  .ht-wrap,.hn-wrap{padding:18px 16px}
+  .ht-btns{grid-template-columns:repeat(2,1fr)}
+  .panel-body{padding:32px 16px}
+  .ht-in{padding:0 16px}
+  .foot-in{flex-direction:column;align-items:flex-start;gap:10px}
+  .foot-bot{padding:10px 16px}
 }
 @media(max-width:440px){
-  .ht-btns{grid-template-columns:1fr}
-  .hn-grid{grid-template-columns:1fr 1fr}
-  .hero{padding:32px 16px 28px}
+  .ht-btns,.hn-grid{grid-template-columns:1fr}
+  .hero{padding:48px 16px 44px}
   .hero h1{font-size:1.7rem}
 }
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -257,8 +256,8 @@ footer{background:#1A1512;color:rgba(255,255,255,.6);padding:28px 24px 20px;marg
 <!-- NAV -->
 <nav class="nav" aria-label="Main navigation">
   <div class="nav-in">
-    <button class="nav-logo" onclick="showTab('home')" aria-label="NYC Food Help Map — home">
-      <div class="logo-icon" aria-hidden="true">🌿</div>
+    <button class="nav-logo" onclick="showTab('home')" aria-label="NYC Food Help Map, home">
+      <div class="logo-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.96 5-8"/></svg></div>
       NYC Food Help Map
     </button>
     <div class="nav-tabs" role="tablist">
@@ -286,23 +285,23 @@ footer{background:#1A1512;color:rgba(255,255,255,.6);padding:28px 24px 20px;marg
   <div class="ht-wrap">
     <div class="ht-in">
       <h2 class="ht-title">Need food today?</h2>
-      <p class="ht-sub">Use an official real-time tool to find open sites near you — or browse below.</p>
+      <p class="ht-sub">Use an official real-time tool to find open sites near you, or browse below.</p>
       <div class="ht-btns">
-        <a class="ht-btn" href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener" aria-label="Food Bank For NYC — 800+ pantries, soup kitchens, and mobile pantries, opens in new tab">
+        <a class="ht-btn" href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener" aria-label="Food Bank For NYC, 800+ pantries, soup kitchens, and mobile pantries, opens in new tab">
           <span class="ht-btn-name">Food Bank For NYC</span>
           <span class="ht-btn-note">800+ pantries, soup kitchens, and mobile pantries ↗</span>
         </a>
-        <a class="ht-btn" href="https://www.cityharvest.org/food-map/" target="_blank" rel="noopener" aria-label="City Harvest Food Map — soup kitchens, pantries, community fridges, opens in new tab">
+        <a class="ht-btn" href="https://www.cityharvest.org/food-map/" target="_blank" rel="noopener" aria-label="City Harvest Food Map, soup kitchens, pantries, community fridges, opens in new tab">
           <span class="ht-btn-name">City Harvest Food Map</span>
           <span class="ht-btn-note">Soup kitchens, pantries, community fridges ↗</span>
         </a>
-        <a class="ht-btn" href="https://finder.nyc.gov/foodhelp/" target="_blank" rel="noopener" aria-label="NYC Food Help — official city locator, opens in new tab">
+        <a class="ht-btn" href="https://finder.nyc.gov/foodhelp/" target="_blank" rel="noopener" aria-label="NYC Food Help, official city locator, opens in new tab">
           <span class="ht-btn-name">NYC Food Help</span>
-          <span class="ht-btn-note">Official city locator — pantries and soup kitchens ↗</span>
+          <span class="ht-btn-note">Official city locator, pantries and soup kitchens ↗</span>
         </a>
         <a class="ht-btn" href="tel:311" aria-label="Call 311, NYC's 24-hour helpline">
           <span class="ht-btn-name">📞 Call 311</span>
-          <span class="ht-btn-note">Available 24/7 — ask for emergency food assistance</span>
+          <span class="ht-btn-note">Available 24/7, ask for emergency food assistance</span>
         </a>
       </div>
       <p class="ht-disc">Not sure what type of help to look for? <button class="link-btn" onclick="showTab('get-help')">Browse options by need →</button></p>
@@ -314,27 +313,27 @@ footer{background:#1A1512;color:rgba(255,255,255,.6);padding:28px 24px 20px;marg
       <div class="hn-eyebrow">On this site</div>
       <div class="hn-grid">
         <button class="hn-card" onclick="showTab('get-help')" aria-label="Go to Get Help tab">
-          <span class="hn-icon" aria-hidden="true">🆘</span>
+          <span class="hn-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
           <span class="hn-title">Get Help</span>
-          <span class="hn-desc">Step-by-step guidance — hot meal, groceries, phone help, and before-you-go tips</span>
+          <span class="hn-desc">Step-by-step guidance, hot meal, groceries, phone help, and before-you-go tips</span>
         </button>
         <button class="hn-card" onclick="showTab('directory')" aria-label="Go to Directory tab">
-          <span class="hn-icon" aria-hidden="true">📋</span>
+          <span class="hn-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span>
           <span class="hn-title">Directory</span>
-          <span class="hn-desc">17 curated NYC food organizations — searchable and filterable by borough and type</span>
+          <span class="hn-desc">17 curated NYC food organizations, searchable and filterable by borough and type</span>
         </button>
         <button class="hn-card" onclick="showTab('map')" aria-label="Go to Map tab">
-          <span class="hn-icon" aria-hidden="true">🗺️</span>
+          <span class="hn-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg></span>
           <span class="hn-title">Map</span>
           <span class="hn-desc">See featured organizations on an interactive map of the five boroughs</span>
         </button>
         <button class="hn-card" onclick="showTab('learn')" aria-label="Go to Learn tab">
-          <span class="hn-icon" aria-hidden="true">📖</span>
+          <span class="hn-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
           <span class="hn-title">Learn</span>
           <span class="hn-desc">Understand the difference between pantries, soup kitchens, mobile pantries, and more</span>
         </button>
       </div>
-      <p class="hn-disc">This is a curated guide — not a real-time database. For current hours and 800+ additional sites, use the official tools above.</p>
+      <p class="hn-disc">This is a curated guide, not a real-time database. For current hours and 800+ additional sites, use the official tools above.</p>
     </div>
   </div>
 
@@ -346,28 +345,28 @@ footer{background:#1A1512;color:rgba(255,255,255,.6);padding:28px 24px 20px;marg
     <div class="panel-hdr">
       <div class="s-label">Get Help</div>
       <h2 class="s-title">Find food right now</h2>
-      <p class="s-sub">Choose what fits your situation. When in doubt, call <strong>311</strong> — available 24/7.</p>
+      <p class="s-sub">Choose what fits your situation. When in doubt, call <strong>311</strong>, available 24/7.</p>
     </div>
 
     <div class="gh-items">
       <div class="gh-item">
-        <span class="gh-ico" aria-hidden="true">🍲</span>
+        <span class="gh-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Z"/><path d="M21 15v7"/></svg></span>
         <div>
           <div class="gh-head">I need a hot meal today</div>
-          <p class="gh-body">Soup kitchens and community meals serve food on-site — no cooking required. Most are open daily with no registration needed. Many are welcoming to everyone, no documentation required.</p>
+          <p class="gh-body">Soup kitchens and community meals serve food on-site, no cooking required. Most are open daily with no registration needed. Many are welcoming to everyone, no documentation required.</p>
           <button class="link-btn" onclick="filterAndGo('soup-kitchen')">See soup kitchens in the directory →</button>
         </div>
       </div>
       <div class="gh-item">
-        <span class="gh-ico" aria-hidden="true">🛒</span>
+        <span class="gh-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
         <div>
           <div class="gh-head">I need groceries</div>
-          <p class="gh-body">Food pantries give you bags of groceries to cook at home. Mobile pantries bring food directly to your neighborhood. Many use a client-choice model — you pick what your family will actually eat.</p>
+          <p class="gh-body">Food pantries give you bags of groceries to cook at home. Mobile pantries bring food directly to your neighborhood. Many use a client-choice model, you pick what your family will actually eat.</p>
           <button class="link-btn" onclick="filterAndGo('food-pantry')">See food pantries in the directory →</button>
         </div>
       </div>
       <div class="gh-item">
-        <span class="gh-ico" aria-hidden="true">🏠</span>
+        <span class="gh-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
         <div>
           <div class="gh-head">I cannot travel</div>
           <p class="gh-body">Home delivery programs bring food to your door if you're unable to leave due to illness, disability, or age. Senior meal programs serve adults 60+ at community centers or via delivery. A brief call to confirm eligibility is usually required.</p>
@@ -375,7 +374,7 @@ footer{background:#1A1512;color:rgba(255,255,255,.6);padding:28px 24px 20px;marg
         </div>
       </div>
       <div class="gh-item">
-        <span class="gh-ico" aria-hidden="true">🗺️</span>
+        <span class="gh-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
         <div>
           <div class="gh-head">I need current hours and locations</div>
           <p class="gh-body">This directory is a starting point. For up-to-date hours across hundreds of sites, use one of these official real-time tools:</p>
@@ -388,7 +387,7 @@ footer{background:#1A1512;color:rgba(255,255,255,.6);padding:28px 24px 20px;marg
         </div>
       </div>
       <div class="gh-item">
-        <span class="gh-ico" aria-hidden="true">📞</span>
+        <span class="gh-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.08 3.36a2 2 0 0 1 1.99-2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8a16 16 0 0 0 6.91 6.91l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
         <div>
           <div class="gh-head">I need help by phone</div>
           <p class="gh-body">
@@ -403,7 +402,7 @@ footer{background:#1A1512;color:rgba(255,255,255,.6);padding:28px 24px 20px;marg
     <div class="bfyg">
       <div class="bfyg-title">Before you go</div>
       <div class="bfyg-list">
-        <div class="bfyg-item"><span class="bfyg-chk">✓</span><span>Call ahead — hours change without notice, even at well-established programs.</span></div>
+        <div class="bfyg-item"><span class="bfyg-chk">✓</span><span>Call ahead. Hours change without notice, even at well-established programs.</span></div>
         <div class="bfyg-item"><span class="bfyg-chk">✓</span><span>Many programs have specific intake days or require appointments. Check the organization's website first.</span></div>
         <div class="bfyg-item"><span class="bfyg-chk">✓</span><span>Bring ID if you have it, but most programs don't require documentation.</span></div>
         <div class="bfyg-item"><span class="bfyg-chk">✓</span><span>Services are for everyone. Most NYC food programs do not require income verification.</span></div>
@@ -431,11 +430,11 @@ footer{background:#1A1512;color:rgba(255,255,255,.6);padding:28px 24px 20px;marg
         <strong>Directory not loading?</strong>
         <p>Try these official tools instead:</p>
         <ul>
-          <li><a href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener">Food Bank For NYC — Find Food</a></li>
+          <li><a href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener">Food Bank For NYC, Find Food</a></li>
           <li><a href="https://www.cityharvest.org/food-map/" target="_blank" rel="noopener">City Harvest Food Map</a></li>
           <li><a href="https://finder.nyc.gov/foodhelp/" target="_blank" rel="noopener">NYC Food Help</a></li>
         </ul>
-        <p>Or call <strong>311</strong> — available 24/7.</p>
+        <p>Or call <strong>311</strong>, available 24/7.</p>
       </div>
     </noscript>
 
@@ -503,7 +502,7 @@ footer{background:#1A1512;color:rgba(255,255,255,.6);padding:28px 24px 20px;marg
       <div class="s-label">Map</div>
       <h2 class="s-title">Organizations across NYC</h2>
       <p class="s-sub">Click any pin for address and contact info.</p>
-      <p class="map-note">The directory is the primary source. This map is a visual aid — use filters in the Directory tab to highlight specific organizations.</p>
+      <p class="map-note">The directory is the primary source. This map is a visual aid. Use filters in the Directory tab to highlight specific organizations.</p>
     </div>
     <div class="map-wrap">
       <div id="lmap" role="region" aria-label="Map of NYC food assistance organizations" tabindex="0"></div>
@@ -524,17 +523,17 @@ footer{background:#1A1512;color:rgba(255,255,255,.6);padding:28px 24px 20px;marg
       <div class="intent-hdr">🍲 I need a meal today</div>
       <div class="res-grid">
         <div class="res-card">
-          <span class="res-icon" aria-hidden="true">🍲</span>
+          <span class="res-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Z"/><path d="M21 15v7"/></svg></span>
           <div class="res-type">Soup Kitchen</div>
           <div class="res-title">A warm meal right now</div>
-          <p class="res-desc">Hot meals served on-site — usually breakfast, lunch, or dinner. No cooking needed. Most open daily with no registration required.</p>
+          <p class="res-desc">Hot meals served on-site, usually breakfast, lunch, or dinner. No cooking needed. Most open daily with no registration required.</p>
           <div class="res-tip">Good if you need to eat today, no strings attached.</div>
         </div>
         <div class="res-card">
-          <span class="res-icon" aria-hidden="true">🏘️</span>
+          <span class="res-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
           <div class="res-type">Community Meal</div>
           <div class="res-title">Neighborhood-run meals</div>
-          <p class="res-desc">Hot food hosted by churches, community centers, or neighborhood groups — usually on specific days. Welcoming to everyone, no ID required.</p>
+          <p class="res-desc">Hot food hosted by churches, community centers, or neighborhood groups, usually on specific days. Welcoming to everyone, no ID required.</p>
           <div class="res-tip">Good if you want a community atmosphere alongside a meal.</div>
         </div>
       </div>
@@ -544,17 +543,17 @@ footer{background:#1A1512;color:rgba(255,255,255,.6);padding:28px 24px 20px;marg
       <div class="intent-hdr">🛒 I need groceries</div>
       <div class="res-grid">
         <div class="res-card">
-          <span class="res-icon" aria-hidden="true">🛒</span>
+          <span class="res-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
           <div class="res-type">Food Pantry</div>
           <div class="res-title">Take groceries home</div>
-          <p class="res-desc">Bags of groceries to take home and cook. Many use a "client-choice" model — you pick what your family will actually eat.</p>
+          <p class="res-desc">Bags of groceries to take home and cook. Many use a "client-choice" model, you pick what your family will actually eat.</p>
           <div class="res-tip">Good if you have a kitchen and want to cook for your household.</div>
         </div>
         <div class="res-card">
-          <span class="res-icon" aria-hidden="true">🚚</span>
+          <span class="res-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
           <div class="res-type">Mobile Pantry</div>
           <div class="res-title">Food comes to your neighborhood</div>
-          <p class="res-desc">Food trucks or pop-up markets bring groceries to neighborhoods. Schedules rotate — check each organization's website for the current schedule.</p>
+          <p class="res-desc">Food trucks or pop-up markets bring groceries to neighborhoods. Schedules rotate. Check each organization's website for the current schedule.</p>
           <div class="res-tip">Good if you can't travel far, or there's no pantry nearby.</div>
         </div>
       </div>
@@ -564,14 +563,14 @@ footer{background:#1A1512;color:rgba(255,255,255,.6);padding:28px 24px 20px;marg
       <div class="intent-hdr">🏠 I cannot travel</div>
       <div class="res-grid">
         <div class="res-card">
-          <span class="res-icon" aria-hidden="true">🏠</span>
+          <span class="res-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
           <div class="res-type">Home Delivery</div>
           <div class="res-title">Food delivered to your door</div>
           <p class="res-desc">Food brought to you if you can't leave due to illness, disability, or age. Requires a brief call to confirm eligibility.</p>
           <div class="res-tip">Good for people with serious illness, disability, or mobility challenges.</div>
         </div>
         <div class="res-card">
-          <span class="res-icon" aria-hidden="true">👵</span>
+          <span class="res-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
           <div class="res-type">Senior Meals</div>
           <div class="res-title">For adults 60 and older</div>
           <p class="res-desc">Congregate meals at community centers, or home delivery. Often paired with social activities and benefits counseling.</p>
@@ -584,14 +583,14 @@ footer{background:#1A1512;color:rgba(255,255,255,.6);padding:28px 24px 20px;marg
       <div class="intent-hdr">🤝 I want to volunteer</div>
       <div class="res-grid">
         <div class="res-card">
-          <span class="res-icon" aria-hidden="true">♻️</span>
+          <span class="res-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></span>
           <div class="res-type">Food Rescue</div>
           <div class="res-title">Redistributing surplus food</div>
           <p class="res-desc">Food rescue groups collect surplus from restaurants, stores, and farms and redistribute it through partner pantries, shelters, and meal programs.</p>
-          <div class="res-tip">Good to know: food rescue groups often supply partners — they may not be direct walk-in sites.</div>
+          <div class="res-tip">Good to know: food rescue groups often supply partners. They may not be direct walk-in sites.</div>
         </div>
         <div class="res-card">
-          <span class="res-icon" aria-hidden="true">🤝</span>
+          <span class="res-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
           <div class="res-type">Volunteer opportunities</div>
           <div class="res-title">How you can help</div>
           <p class="res-desc">NYC food organizations need volunteers for sorting, serving, food rescue pickups, and delivery support. Many welcome first-timers with no experience required.</p>
@@ -605,39 +604,19 @@ footer{background:#1A1512;color:rgba(255,255,255,.6);padding:28px 24px 20px;marg
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="foot-in">
-    <div>
-      <div class="foot-brand-name">🌿 NYC Food Help Map</div>
-      <p class="foot-brand-desc">A calm, beginner-friendly guide to food support in NYC. Curated guide — not a real-time database. Last checked May 2026.</p>
-    </div>
-    <div>
-      <div class="foot-col-title">On this site</div>
-      <div class="foot-links">
-        <button class="link-btn" style="font-size:.76rem;color:rgba(255,255,255,.5);font-weight:400;text-align:left" onclick="showTab('get-help')">Get Help</button>
-        <button class="link-btn" style="font-size:.76rem;color:rgba(255,255,255,.5);font-weight:400;text-align:left" onclick="showTab('directory')">Directory</button>
-        <button class="link-btn" style="font-size:.76rem;color:rgba(255,255,255,.5);font-weight:400;text-align:left" onclick="showTab('map')">Map</button>
-        <button class="link-btn" style="font-size:.76rem;color:rgba(255,255,255,.5);font-weight:400;text-align:left" onclick="showTab('learn')">Learn</button>
-        <a href="volunteer.html" style="font-size:.76rem;color:rgba(255,255,255,.5)">Volunteer</a>
-      </div>
-      <div class="foot-links-sep"></div>
-      <div class="foot-col-title">Official locators</div>
-      <div class="foot-links">
-        <a href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener">Food Bank For NYC — Find Food</a>
-        <a href="https://www.cityharvest.org/food-map/" target="_blank" rel="noopener">City Harvest Food Map</a>
-        <a href="https://finder.nyc.gov/foodhelp/" target="_blank" rel="noopener">NYC Food Help (official)</a>
-        <a href="https://app.plentifulapp.com/" target="_blank" rel="noopener">Plentiful — book a pantry slot</a>
-      </div>
-    </div>
-    <div>
-      <div class="foot-col-title">Need help by phone?</div>
-      <p class="foot-phone-note">
-        <strong>Call 311</strong> and ask for emergency food assistance.<br><br>
-        For SNAP, call NYC HRA at <a href="tel:7185571399">718-557-1399</a>.<br><br>
-        National hunger help: USDA Hotline <a href="tel:18663468679">1-866-3-HUNGRY</a>.
-      </p>
-    </div>
+    <div class="foot-brand">NYC Food Help Map</div>
+    <nav class="foot-nav" aria-label="Footer navigation">
+      <button class="foot-nav-item" onclick="showTab('get-help')">Get Help</button>
+      <button class="foot-nav-item" onclick="showTab('directory')">Directory</button>
+      <button class="foot-nav-item" onclick="showTab('map')">Map</button>
+      <button class="foot-nav-item" onclick="showTab('learn')">Learn</button>
+      <a class="foot-nav-item" href="volunteer.html">Volunteer</a>
+    </nav>
+    <div class="foot-phone"><strong>311</strong> for emergency food help, 24/7</div>
   </div>
   <div class="foot-bot">
-    <span>Built by <a href="https://annalinhvu.github.io" target="_blank" rel="noopener">Anna (Linh) Vu</a> · Public-service project · Not affiliated with any listed organization</span>
+    <span>Curated guide, not a real-time database. Last checked May 2026.</span>
+    <span>Built by <a href="https://annalinhvu.github.io" target="_blank" rel="noopener">Anna (Linh) Vu</a> · Not affiliated with any listed organization</span>
   </div>
 </footer>
 
@@ -734,7 +713,7 @@ function cardHTML(o) {
   const boroLbl = o.borough === 'citywide' ? 'Citywide' : cap(o.borough);
   return `
 <article class="org-card" onclick="openModal(${o.id})" role="button" tabindex="0"
-  aria-label="${o.name} — ${boroLbl}${o.borough !== 'citywide' ? ', ' + o.neighborhood : ''}. ${o.types.map(tLabel).join(', ')}."
+  aria-label="${o.name}, ${boroLbl}${o.borough !== 'citywide' ? ', ' + o.neighborhood : ''}. ${o.types.map(tLabel).join(', ')}."
   onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal(${o.id})}">
   <div><div class="card-name">${o.name}</div><div class="card-boro">${boroLbl}${o.borough !== 'citywide' ? ' · ' + o.neighborhood : ''}</div></div>
   <div class="card-badges">${badges}${feat}</div>
@@ -845,7 +824,7 @@ function openModal(id) {
     <div class="m-sect"><div class="m-sect-title">Good for</div><div class="svc-list">${gfs}</div></div>
     <div class="m-sect"><div class="m-sect-title">Eligibility</div><div class="m-elig">${o.eligibility}</div></div>
     <div class="m-sect"><div class="m-sect-title">About</div><div class="m-notes">${o.notes}</div></div>
-    <div class="m-trust">Source: <a href="${o.sourceUrl}" target="_blank" rel="noopener">${o.website}</a> · Last verified ${o.lastUpdated} · <strong>Call before visiting — hours change.</strong></div>`;
+    <div class="m-trust">Source: <a href="${o.sourceUrl}" target="_blank" rel="noopener">${o.website}</a> · Last verified ${o.lastUpdated} · <strong>Call before visiting. Hours change.</strong></div>`;
   document.getElementById('modal-acts').innerHTML = `
     <a class="m-btn m-btn-p" href="${o.websiteUrl}" target="_blank" rel="noopener">Visit website</a>
     ${o.phone ? `<a class="m-btn m-btn-s" href="tel:${o.phone.replace(/\D/g,'')}">📞 ${o.phone}</a>` : ''}
@@ -916,11 +895,11 @@ async function init() {
         <div class="empty-icon">⚠️</div>
         <p style="margin-bottom:10px">Could not load the directory. Use these official tools:</p>
         <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-start">
-          <a href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600">Food Bank For NYC — Find Food →</a>
+          <a href="https://www.foodbanknyc.org/find-food/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600">Food Bank For NYC, Find Food →</a>
           <a href="https://www.cityharvest.org/food-map/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600">City Harvest Food Map →</a>
           <a href="https://finder.nyc.gov/foodhelp/" target="_blank" rel="noopener" style="color:var(--green);font-weight:600">NYC Food Help →</a>
         </div>
-        <p style="margin-top:10px;font-size:.85rem">Or call <strong>311</strong> — 24/7.</p>
+        <p style="margin-top:10px;font-size:.85rem">Or call <strong>311</strong>, 24/7.</p>
       </div>`;
     document.getElementById('results-count').textContent = '';
   }
