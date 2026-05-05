@@ -69,7 +69,7 @@ a.nav-tab{text-decoration:none}
 /* ===== HOME: NAV CARDS ===== */
 .hn-wrap{background:var(--bg);padding:32px 0;border-bottom:1px solid var(--border)}
 .hn-eyebrow{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-m);margin-bottom:14px}
-.hn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:12px;align-items:stretch}
+.hn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:12px;align-items:stretch}
 .hn-card{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:20px;background:#fff;border:1px solid var(--border);border-radius:var(--r);cursor:pointer;transition:box-shadow .2s,border-color .2s;text-align:left;font-family:var(--font);height:100%}
 .hn-card:hover{box-shadow:var(--sh-md);border-color:#52B788}
 .hn-icon-box{width:40px;height:40px;border-radius:10px;background:var(--green-lt);display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0;margin-bottom:6px}
@@ -181,19 +181,6 @@ a.nav-tab{text-decoration:none}
 .map-pop-phone{font-family:var(--font);font-size:.74rem;color:#2D6A4F;font-weight:600}
 .map-pop-link{display:inline-block;margin-top:8px;font-family:var(--font);font-size:.74rem;color:#fff;background:#2D6A4F;padding:4px 10px;border-radius:6px;font-weight:600}
 
-/* ===== LEARN PANEL ===== */
-.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
-.res-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:22px;transition:box-shadow .2s,border-color .2s}
-.res-card:hover{box-shadow:var(--sh-md);border-color:#52B788}
-.res-icon-box{width:40px;height:40px;border-radius:10px;background:var(--green-lt);display:flex;align-items:center;justify-content:center;color:var(--green);margin-bottom:12px}
-.res-type{font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
-.res-title{font-size:.88rem;font-weight:700;margin-bottom:5px}
-.res-desc{font-size:.81rem;color:var(--text2);line-height:1.6}
-.res-tip{margin-top:8px;padding:6px 10px;background:var(--green-lt);border-radius:6px;font-size:.72rem;color:var(--green);font-style:italic}
-.res-tip a{font-weight:700}
-.intent-group{margin-bottom:22px}
-.intent-group:last-child{margin-bottom:0}
-.intent-hdr{font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text-m);border-bottom:1px solid var(--border);padding-bottom:7px;margin-bottom:12px}
 
 /* ===== MODAL ===== */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;backdrop-filter:blur(4px);padding:16px;align-items:center;justify-content:center}
@@ -228,7 +215,7 @@ footer a:hover{color:#fff}
 footer p{font-size:.82rem;line-height:1.7}
 
 /* ===== RESPONSIVE ===== */
-@media(max-width:900px){
+@media(max-width:680px){
   .hn-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
@@ -263,7 +250,6 @@ footer p{font-size:.82rem;line-height:1.7}
       <button class="nav-tab" data-tab="get-help" role="tab" aria-selected="false">Get Help</button>
       <button class="nav-tab" data-tab="directory" role="tab" aria-selected="false">Directory</button>
       <button class="nav-tab" data-tab="map" role="tab" aria-selected="false">Map</button>
-      <button class="nav-tab" data-tab="learn" role="tab" aria-selected="false">Learn</button>
       <a class="nav-tab" href="volunteer.html">Volunteer</a>
     </div>
   </div>
@@ -324,11 +310,6 @@ footer p{font-size:.82rem;line-height:1.7}
           <div class="hn-icon-box" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg></div>
           <span class="hn-title">Map</span>
           <span class="hn-desc">See featured organizations on an interactive map of the five boroughs</span>
-        </button>
-        <button class="hn-card" onclick="showTab('learn')" aria-label="Go to Learn tab">
-          <div class="hn-icon-box" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-          <span class="hn-title">Learn</span>
-          <span class="hn-desc">Understand the difference between pantries, soup kitchens, mobile pantries, and more</span>
         </button>
       </div>
       <p class="hn-disc">This is a curated guide, not a real-time database. For current hours and 800+ additional sites, use the official tools above.</p>
@@ -508,97 +489,6 @@ footer p{font-size:.82rem;line-height:1.7}
   </div>
 </div>
 
-<!-- ===== LEARN PANEL ===== -->
-<div class="tab-panel" id="panel-learn" role="tabpanel" hidden>
-  <div class="panel-body">
-    <div class="panel-hdr">
-      <div class="s-label">Learn</div>
-      <h2 class="s-title">Understand your options</h2>
-      <p class="s-sub">Not sure what type of organization fits? A plain-language guide by what you need.</p>
-    </div>
-
-    <div class="intent-group">
-      <div class="intent-hdr">🍲 I need a meal today</div>
-      <div class="res-grid">
-        <div class="res-card">
-          <div class="res-icon-box" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Z"/><path d="M21 15v7"/></svg></div>
-          <div class="res-type">Soup Kitchen</div>
-          <div class="res-title">A warm meal right now</div>
-          <p class="res-desc">Hot meals served on-site, usually breakfast, lunch, or dinner. No cooking needed. Most open daily with no registration required.</p>
-          <div class="res-tip">Good if you need to eat today, no strings attached.</div>
-        </div>
-        <div class="res-card">
-          <div class="res-icon-box" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <div class="res-type">Community Meal</div>
-          <div class="res-title">Neighborhood-run meals</div>
-          <p class="res-desc">Hot food hosted by churches, community centers, or neighborhood groups, usually on specific days. Welcoming to everyone, no ID required.</p>
-          <div class="res-tip">Good if you want a community atmosphere alongside a meal.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="intent-group">
-      <div class="intent-hdr">🛒 I need groceries</div>
-      <div class="res-grid">
-        <div class="res-card">
-          <div class="res-icon-box" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
-          <div class="res-type">Food Pantry</div>
-          <div class="res-title">Take groceries home</div>
-          <p class="res-desc">Bags of groceries to take home and cook. Many use a "client-choice" model, you pick what your family will actually eat.</p>
-          <div class="res-tip">Good if you have a kitchen and want to cook for your household.</div>
-        </div>
-        <div class="res-card">
-          <div class="res-icon-box" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-          <div class="res-type">Mobile Pantry</div>
-          <div class="res-title">Food comes to your neighborhood</div>
-          <p class="res-desc">Food trucks or pop-up markets bring groceries to neighborhoods. Schedules rotate. Check each organization's website for the current schedule.</p>
-          <div class="res-tip">Good if you can't travel far, or there's no pantry nearby.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="intent-group">
-      <div class="intent-hdr">🏠 I cannot travel</div>
-      <div class="res-grid">
-        <div class="res-card">
-          <div class="res-icon-box" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-          <div class="res-type">Home Delivery</div>
-          <div class="res-title">Food delivered to your door</div>
-          <p class="res-desc">Food brought to you if you can't leave due to illness, disability, or age. Requires a brief call to confirm eligibility.</p>
-          <div class="res-tip">Good for people with serious illness, disability, or mobility challenges.</div>
-        </div>
-        <div class="res-card">
-          <div class="res-icon-box" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-          <div class="res-type">Senior Meals</div>
-          <div class="res-title">For adults 60 and older</div>
-          <p class="res-desc">Congregate meals at community centers, or home delivery. Often paired with social activities and benefits counseling.</p>
-          <div class="res-tip">Good for adults 60+ who want meals and community connection.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="intent-group">
-      <div class="intent-hdr">🤝 I want to volunteer</div>
-      <div class="res-grid">
-        <div class="res-card">
-          <div class="res-icon-box" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
-          <div class="res-type">Food Rescue</div>
-          <div class="res-title">Redistributing surplus food</div>
-          <p class="res-desc">Food rescue groups collect surplus from restaurants, stores, and farms and redistribute it through partner pantries, shelters, and meal programs.</p>
-          <div class="res-tip">Good to know: food rescue groups often supply partners. They may not be direct walk-in sites.</div>
-        </div>
-        <div class="res-card">
-          <div class="res-icon-box" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-          <div class="res-type">Volunteer opportunities</div>
-          <div class="res-title">How you can help</div>
-          <p class="res-desc">NYC food organizations need volunteers for sorting, serving, food rescue pickups, and delivery support. Many welcome first-timers with no experience required.</p>
-          <div class="res-tip"><a href="volunteer.html" style="color:var(--green);font-weight:700">View volunteer opportunities →</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- ===== FOOTER ===== -->
 <footer>
   <p>
@@ -644,7 +534,7 @@ const TC = {
 const tLabel = t => TC[t]?.label || t;
 const tMap   = t => TC[t]?.map   || '#2D6A4F';
 
-const TABS = ['home','get-help','directory','map','learn'];
+const TABS = ['home','get-help','directory','map'];
 let orgs = [], filtered = [];
 let boro = 'all', type = 'all', q = '';
 let lmap, mapInitialized = false, mapMarkers = [];
